@@ -15,8 +15,25 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-    <div class="logo_div">
-        <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo">
-    </div>
+    <header></header>
+    <article>
+        <div class="logo_div">
+            <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo">
+        </div>
+        <br>
+        <div>
+        </div>
+        <br>
+    </article>
+    <footer>
+        <a href="welcome" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">¿Quiénes somos?</a>
+        |
+        <a href="welcome" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Contáctanos</a>
+        |
+        <a href="welcome" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Preguntas frecuentes</a>
+        <br><br>
+        Bla bla bla copyright<br>2023
+        <br><br>
+    </footer>
 </body>
 </html>
