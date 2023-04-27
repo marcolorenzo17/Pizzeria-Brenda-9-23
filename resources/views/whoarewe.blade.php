@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>¿Quiénes somos?</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,9 +19,6 @@
         <a href="/" class="logo_link"><img src="{{ asset('img/logo_green.png') }}" alt="logo_header" class="logo_header"></a>
     </header>
     <article>
-        <div class="logo_div">
-            <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo">
-        </div>
         <br>
         <div>
         </div>

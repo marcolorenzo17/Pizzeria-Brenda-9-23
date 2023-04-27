@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WhoareweController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', IndexController::class);
 
 Route::get('welcome', WelcomeController::class);
+
+Route::get('whoarewe', WhoareweController::class);
+
+Route::get('contact', ContactController::class);
+
+Route::get('faq', FaqController::class);
