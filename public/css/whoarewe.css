@@ -1,18 +1,8 @@
 body {
-    background-color: #58db5a;
     min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
-}
-
-.logo_div {
-    background-color: white;
-}
-
-.logo {
-    display: block;
-    margin: auto;
 }
 
 .logo_header {
@@ -40,4 +30,8 @@ footer {
 
 article {
     flex: 1;
+}
+
+.contenido {
+    padding: 20px;
 }
