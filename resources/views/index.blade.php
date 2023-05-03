@@ -24,6 +24,14 @@
         </div>
         <br>
         <div>
+            <h1>Platos</h1>
+            @foreach ($platos as $plato)
+                <br>
+                <p>{{ $plato->nombre_plato }}</p>
+                <p>{{ $plato->id }}</p>
+                <p>{{ $plato->disponibilidad }}</p>
+                <br>
+            @endforeach
         </div>
         <br>
     </article>

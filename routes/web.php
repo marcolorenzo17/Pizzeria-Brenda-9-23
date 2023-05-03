@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', IndexController::class);
+Route::controller(IndexController::class)->group(function(){
+    Route::get('/', 'index');
+    Route::get('/create', 'create');
+    Route::get('/{plato}', 'show');
+});
 
 Route::get('welcome', WelcomeController::class);
 
