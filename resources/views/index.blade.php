@@ -36,11 +36,11 @@
         <br>
     </article>
     <footer>
-        <a href="whoarewe" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">¿Quiénes somos?</a>
+        <a href="whoarewe" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">¿Quiénes somos?</a>
         |
-        <a href="contact" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Contáctanos</a>
+        <a href="contact" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Contáctanos</a>
         |
-        <a href="faq" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Preguntas frecuentes</a>
+        <a href="faq" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Preguntas frecuentes</a>
         <br><br>
         Bla bla bla copyright<br>2023
         <br><br>
