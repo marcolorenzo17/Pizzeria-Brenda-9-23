@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('PIZZERÍA BRENDA') }}
+            {{ __('DASHBOARD') }}
         </h2>
     </x-slot>
 
@@ -13,15 +13,7 @@
                     <div class="logo_div">
                         <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo">
                     </div>
-                    {{ __("PLATOS") }}
-                    <br>
-                    @foreach ($platos as $plato)
-                        <br>
-                        <p>{{ $plato->nombre_plato }}</p>
-                        <p>{{ $plato->id }}</p>
-                        <p>{{ $plato->disponibilidad }}</p>
-                        <br>
-                    @endforeach
+                    {{ __("You're logged in!") }}
                 </div>
             </div>
         </div>
