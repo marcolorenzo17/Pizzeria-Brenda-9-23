@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->string('complementos')->nullable();
             $table->boolean('disponibilidad');
+            $table->text('foto')->nullable();
             $table->timestamps();
         });
     }
