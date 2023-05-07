@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -19,12 +18,11 @@ class CartController extends Controller
     {
         \Cart::add([
             'id' => $request->id,
-            'nombre_plato' => $request->nombre_plato,
-            'descripcion' => $request->descripcion,
-            'precio' => $request->precio,
-            'cantidad' => $request->cantidad,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
             'attributes' => array(
-                'foto' => $request->foto,
+                'image' => $request->image,
             )
         ]);
         session()->flash('success', 'Product is Added to Cart Successfully !');
@@ -37,9 +35,9 @@ class CartController extends Controller
         \Cart::update(
             $request->id,
             [
-                'cantidad' => [
+                'quantity' => [
                     'relative' => false,
-                    'value' => $request->cantidad
+                    'value' => $request->quantity
                 ],
             ]
         );
