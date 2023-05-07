@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -42,9 +42,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::controller(IndexController::class)->group(function(){
-    Route::get('/', 'index');
-    Route::get('/create', 'create');
-    Route::get('/{plato}', 'show');
+    Route::get('/index', 'index');
+    Route::get('/index/create', 'create');
+    Route::get('/index/{plato}', 'show');
 });
 
 Route::get('/whoarewe', WhoareweController::class);

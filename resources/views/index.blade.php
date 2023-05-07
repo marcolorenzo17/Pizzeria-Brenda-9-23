@@ -17,6 +17,8 @@
                     <br>
                     @foreach ($platos as $plato)
                         <br>
+                        <img src="{{ asset($plato->foto) }}" alt="foto">
+                        <br>
                         <p>{{ $plato->nombre_plato }}</p>
                         <p>{{ $plato->id }}</p>
                         <p>{{ $plato->disponibilidad }}</p>
