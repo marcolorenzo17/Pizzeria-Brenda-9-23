@@ -21,6 +21,16 @@
                         <p>{{ $plato->id }}</p>
                         <p>{{ $plato->disponibilidad }}</p>
                         <br>
+                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $plato->id }}" name="id">
+                            <input type="hidden" value="{{ $plato->nombre_plato }}" name="nombre_plato">
+                            <input type="hidden" value="{{ $plato->precio }}" name="precio">
+                            <input type="hidden" value="{{ $plato->foto }}"  name="foto">
+                            <input type="hidden" value="1" name="cantidad">
+                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">Add To Cart</button>
+                        </form>
+                        <br>
                     @endforeach
                 </div>
             </div>

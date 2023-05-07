@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_plato');
             $table->text('descripcion')->nullable();
-            $table->string('complementos')->nullable();
+            $table->double('precio');
             $table->boolean('disponibilidad');
-            $table->text('foto')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
