@@ -17,16 +17,19 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function productList()
+
+    /*
+     public function productList()
     {
         $products = Product::all();
 
-        return view('products', compact('products'));
+        return view('products.index', compact('products'));
     }
+    */
 
     public function index(): Response
     {
-        return response()->view('products', [
+        return response()->view('products.index', [
             'products' => Product::orderBy('updated_at', 'desc')->get(),
         ]);
     }
@@ -52,7 +55,7 @@ class ProductController extends Controller
         if($create) {
             // add flash for the success notification
             session()->flash('notif.success', 'Post created successfully!');
-            return redirect()->route('products');
+            return redirect()->route('products.index');
         }
 
         return abort(500);
@@ -90,7 +93,7 @@ class ProductController extends Controller
 
         if($update) {
             session()->flash('notif.success', 'Post updated successfully!');
-            return redirect()->route('products');
+            return redirect()->route('products.index');
         }
 
         return abort(500);
@@ -107,7 +110,7 @@ class ProductController extends Controller
 
         if($delete) {
             session()->flash('notif.success', 'Post deleted successfully!');
-            return redirect()->route('products');
+            return redirect()->route('products.index');
         }
 
         return abort(500);

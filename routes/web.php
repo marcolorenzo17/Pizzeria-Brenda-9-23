@@ -25,7 +25,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('products', [ProductController::class, 'productList'])->name('products.list');
+Route::resource('products', ProductController::class);
+
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
