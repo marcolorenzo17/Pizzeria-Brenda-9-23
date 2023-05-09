@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Factura extends Model
 {
     use HasFactory;
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function products() {
+        return $this->belongsToMany(Articulo::class)
+            ->withPivot('cantidad');
+    }
 }

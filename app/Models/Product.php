@@ -15,4 +15,9 @@ class Product extends Model
         'image',
         'description',
     ];
+
+    public function facturas() {
+        return $this->belongsToMany(Factura::class)
+            ->withPivot('cantidad');
+    }
 }

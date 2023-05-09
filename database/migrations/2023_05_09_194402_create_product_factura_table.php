@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('facturas', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->timestamps();
+        Schema::create('product_factura', function (Blueprint $table) {
+            $table->foreignId('factura_id')->constrained();
+            $table->foreignId('product_id')->constrained();
+            $table->integer('cantidad')->default(1);
+            $table->primary(['factura_id', 'product_id']);
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facturas');
+        Schema::dropIfExists('product_factura');
     }
 };
