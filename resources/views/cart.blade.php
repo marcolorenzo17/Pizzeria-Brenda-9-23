@@ -78,8 +78,9 @@
                         </div>
                         <br>
                         <div>
-                          <form action="{{ route('cart.clear') }}" method="POST">
+                          <form action="{{ route('cart.add') }}" method="POST">
                             @csrf
+                            <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
                             <button type="submit" class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Realizar pedido</button>
                           </form>
                           <br>
@@ -95,4 +96,17 @@
                   </div>
             </div>
         </main>
+
+        <br><br><br><br>
+
+        <footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-green-200 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6">
+            <span class="text-sm text-gray-500 sm:text-center">© 2023 Pizzería Brenda™. Todos los derechos reservados.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
+                <li>
+                    <a href="whoarewe" class="mr-4 hover:underline md:mr-6">¿Quiénes somos?</a>
+                </li>
+            </ul>
+        </footer>
+
 </x-app-layout>

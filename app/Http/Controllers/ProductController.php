@@ -54,7 +54,7 @@ class ProductController extends Controller
 
         if($create) {
             // add flash for the success notification
-            session()->flash('notif.success', 'Post created successfully!');
+            session()->flash('notif.success', 'Se ha creado el plato con éxito.');
             return redirect()->route('products.index');
         }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Recibo;
 
 class CartController extends Controller
 {
@@ -62,5 +63,14 @@ class CartController extends Controller
         session()->flash('success', 'El carrito se ha vaciado con éxito.');
 
         return redirect()->route('cart.list');
+    }
+
+    public function addData(Request $req) {
+        $recibo = new Recibo;
+        $recibo->total=$req->total;
+        $recibo->save();
+        \Cart::clear();
+        session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
+        return redirect('products');
     }
 }

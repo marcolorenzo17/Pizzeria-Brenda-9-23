@@ -52,6 +52,9 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Tu cuenta') }}
                         </x-dropdown-link>
+                        <x-dropdown-link href="recibos">
+                            {{ __('Recibos') }}
+                        </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -97,6 +100,9 @@
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Tu cuenta') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="recibos">
+                    {{ __('Recibos') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

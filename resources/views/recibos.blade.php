@@ -1,34 +1,31 @@
+<link rel="stylesheet" href="/css/index.css" />
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ $products->name }}
+            {{ __('RECIBOS') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="mb-6">
-                        <h2 class="text-lg font-medium text-gray-900">
-                            {{ 'Precio' }}
-                        </h2>
-
-                        <p class="mt-1 text-sm text-gray-600">
-                            {{ $products->price }} €
-                        </p>
-                    </div>
-                    <div class="mb-6">
-                        <h2 class="text-lg font-medium text-gray-900">
-                            {{ 'Descripción' }}
-                        </h2>
-
-                        <p class="mt-1 text-sm text-gray-600">
-                            {{ $products->description }}
-                        </p>
-                    </div>
-                    <br>
-                    <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">VOLVER</a>
+                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                    <table class="table-auto w-full">
+                        <tr>
+                            <td class="font-bold">Coste</td>
+                            <td class="font-bold">Fecha y hora</td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                            <td><br></td>
+                        </tr>
+                        @foreach ($recibos as $recibo)
+                            <tr>
+                                <td>{{ $recibo->total }} €</td>
+                                <td>{{ $recibo->created_at }}</td>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>
