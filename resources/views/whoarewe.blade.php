@@ -16,7 +16,11 @@
             pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos
              años.
         </p>
-        <br><br>
+        <br>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw1.png') }}" alt="waw1">
+        </div>
+        <br>
         <p>
             Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación.
             Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el
@@ -27,7 +31,14 @@
             Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y
             fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.
         </p>
-        <br><br>
+        <br>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw2.png') }}" alt="waw2">
+        </div>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw3.png') }}" alt="waw3">
+        </div>
+        <br>
         <p>
             En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada,
             platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio
@@ -39,7 +50,11 @@
              y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades
               y promociones en la carta.
         </p>
-        <br><br>
+        <br>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw4.png') }}" alt="waw4">
+        </div>
+        <br>
         <p>
             También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos
              sin moverte de casa.<br><br>
