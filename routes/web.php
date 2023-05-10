@@ -7,8 +7,12 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WhoareweController;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Models\Product;
+use App\Models\Factura;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +29,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('products', ProductController::class);
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -33,9 +38,11 @@ Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.up
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,16 +50,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 Route::controller(IndexController::class)->group(function(){
     Route::get('/index', 'index');
     Route::get('/index/create', 'create');
     Route::get('/index/{plato}', 'show');
 });
 
+
 Route::get('/whoarewe', WhoareweController::class);
+
 
 Route::get('/contact', ContactController::class);
 
+
 Route::get('/faq', FaqController::class);
+
 
 require __DIR__.'/auth.php';

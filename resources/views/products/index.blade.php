@@ -3,8 +3,10 @@
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('LISTA DE PLATOS') }}
         </h2>
-        <br>
-        <a href="{{ route('products.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">AÑADIR PRODUCTO</a>
+        {{--
+            <br>
+            <a href="{{ route('products.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">AÑADIR PRODUCTO</a>
+        --}}
     </x-slot>
     <div class="container px-12 py-8 mx-auto">
         <h3 class="text-2xl font-bold text-purple-700">PLATOS</h3>
@@ -28,10 +30,11 @@
                         <input type="hidden" value="{{ $product->image }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
                         <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
-                        <br><br><br>
-                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                        <br><br>
+                        {{--
+                            <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                        --}}
                     </form>
-                    <br>
                     <form method="post" action="{{ route('products.destroy', $product->id) }}" class="inline">
                         @csrf
                         @method('delete')

@@ -92,7 +92,7 @@ class ProductController extends Controller
         $update = $product->update($validated);
 
         if($update) {
-            session()->flash('notif.success', 'Post updated successfully!');
+            session()->flash('notif.success', 'El plato se ha actualizado con éxito.');
             return redirect()->route('products.index');
         }
 
@@ -109,7 +109,7 @@ class ProductController extends Controller
         $delete = $product->delete($id);
 
         if($delete) {
-            session()->flash('notif.success', 'Post deleted successfully!');
+            session()->flash('notif.success', 'El plato se ha eliminado con éxito.');
             return redirect()->route('products.index');
         }
 
