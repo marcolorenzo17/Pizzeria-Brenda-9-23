@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pizzería Brenda</title>
+    <title>Platos</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -828,9 +828,6 @@
 </head>
 
 <body class="antialiased">
-    <div class="logo_div">
-        <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo">
-    </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
@@ -849,32 +846,25 @@
         </div>
     @endif
     <br>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table class="table-auto w-full">
-            <tr>
-                <td>
-                    <a href="{{ url('productosAnon') }}">
-                        <h1 class="text-center">VER PLATOS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="#waw">
-                        <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="#">
-                        <h1 class="text-center">CONTÁCTANOS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="#">
-                        <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
-                    </a>
-                </td>
-            </tr>
-        </table>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        @foreach ($products as $product)
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset($product->image) }}" width="200px" height="200px" class="mx-auto">
+                <div class="flex items-end justify-end w-full bg-cover">
+
+                </div>
+                <div class="px-5 py-3">
+                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                </div>
+
+            </div>
+        @endforeach
     </div>
+    <br>
+    <a href="{{ url('/') }}">
+        <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
+    </a>
     <br>
     <h1 class="text-center">PROMOCIONES:</h1>
     <br>
@@ -891,65 +881,6 @@
         </table>
     </div>
     <br><br>
-    <div id="waw" class="container px-12 py-8 mx-auto bg-white">
-        <br>
-        <h2 class="text-center">¿QUIÉNES SOMOS?</h2>
-        <br><br>
-        <h2 class="text-center">PIZZERÍA BRENDA: ARTESANAL Y NATURAL</h2>
-        <br>
-        <p>
-            Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo
-            Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.<br><br>
-            Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con
-            mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro
-            pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos
-            años.
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw1.png') }}" alt="waw1">
-        </div>
-        <br>
-        <p>
-            Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación.
-            Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el
-            local, lo que nos proporcionó agilidad y rapidez en el servicio.<br>
-            Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia,
-            y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros
-            clientes un producto totalmente natural, artesanal y de calidad.<br><br>
-            Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y
-            fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw2.png') }}" alt="waw2">
-        </div>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw3.png') }}" alt="waw3">
-        </div>
-        <br>
-        <p>
-            En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada,
-            platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio
-            de la zona.<br><br>
-            La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza
-            donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por
-            parte de nuestro joven y atento personal.<br>
-            Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura
-            y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades
-            y promociones en la carta.
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw4.png') }}" alt="waw4">
-        </div>
-        <br>
-        <p>
-            También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos
-            sin moverte de casa.<br><br>
-            ¡Te esperamos! ¡Visítanos!
-        </p>
-    </div>
 </body>
 
 </html>

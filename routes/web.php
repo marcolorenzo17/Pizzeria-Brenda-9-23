@@ -30,6 +30,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/productosAnon', function() {
+    $products = DB::table('products')->get();
+    return view('productosAnon', ['products' => $products]);
+});
+
 
 Route::resource('products', ProductController::class);
 
