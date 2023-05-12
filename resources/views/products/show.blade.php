@@ -27,6 +27,15 @@
                             {{ $products->description }}
                         </p>
                     </div>
+                    <div class="mb-6">
+                        <h2 class="text-lg font-medium text-gray-900">
+                            {{ 'Tipo' }}
+                        </h2>
+
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{ $products->type }}
+                        </p>
+                    </div>
                     <br>
                     <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">VOLVER</a>
                 </div>

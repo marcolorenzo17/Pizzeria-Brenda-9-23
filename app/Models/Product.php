@@ -14,6 +14,7 @@ class Product extends Model
         'price',
         'image',
         'description',
+        'type',
     ];
 
     public function facturas() {
