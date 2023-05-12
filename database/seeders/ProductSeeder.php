@@ -101,6 +101,20 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza'
             ],
             [
+                'name' => 'Pizza 4 Estaciones',
+                'price' => 11,
+                'description' => 'Ingredientes: Jamón York, Pimiento, Olivas, Champiñones, Alcaparras, Alcachofas, Anchoas.',
+                'image' => 'img/cuatroest.jpg',
+                'type' => 'Pizza'
+            ],
+            [
+                'name' => 'Pizza Muerte por Queso',
+                'price' => 12,
+                'description' => 'Ingredientes: Mozzarella, Cheddar, Roquefort, Brie, Parmesano',
+                'image' => 'img/muerte.jpg',
+                'type' => 'Pizza'
+            ],
+            [
                 'name' => 'Hamburguesa de Buey',
                 'price' => 6,
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
@@ -185,6 +199,13 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta'
             ],
             [
+                'name' => 'Espagueti Carbonara',
+                'price' => 7,
+                'description' => 'Ingredientes: Bacon y nata',
+                'image' => 'img/escarbonara.jpg',
+                'type' => 'Pasta'
+            ],
+            [
                 'name' => 'Tallarines Roquefort',
                 'price' => 7,
                 'description' => 'Ingredientes: Salsa Roquefort',
@@ -203,6 +224,13 @@ class ProductSeeder extends Seeder
                 'price' => 7,
                 'description' => '',
                 'image' => 'img/macarrones.jpg',
+                'type' => 'Pasta'
+            ],
+            [
+                'name' => 'Lasaña',
+                'price' => 7,
+                'description' => '',
+                'image' => 'img/lasaña.jpg',
                 'type' => 'Pasta'
             ],
             [
@@ -255,6 +283,13 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada'
             ],
             [
+                'name' => 'Ensalada Brenda',
+                'price' => 6.20,
+                'description' => 'Ingredientes: Lechuga, Pollo, Queso, Cherry, Jamón York, Zanahorias, Salsa Rosa.',
+                'image' => 'img/ensabrenda.jpg',
+                'type' => 'Ensalada'
+            ],
+            [
                 'name' => 'Patatas Deluxe',
                 'price' => 3.50,
                 'description' => 'Ingredientes: Gajos.',
@@ -280,6 +315,13 @@ class ProductSeeder extends Seeder
                 'price' => 5.50,
                 'description' => 'Ingredientes: Queso y guacamole',
                 'image' => 'img/guacamole.jpg',
+                'type' => 'Complemento'
+            ],
+            [
+                'name' => 'Alitas de pollo a la barbacoa',
+                'price' => 4.50,
+                'description' => '6 unidades',
+                'image' => 'img/alitas.jpg',
                 'type' => 'Complemento'
             ],
             [

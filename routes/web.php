@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/productosAnon', function() {
-    $products = DB::table('products')->get();
+    $products = DB::table('products')->where('type', '=', 'Pizza')->get();
     return view('productosAnon', ['products' => $products]);
 });
 

@@ -854,7 +854,7 @@
             <tr>
                 <td>
                     <a href="{{ url('productosAnon') }}">
-                        <h1 class="text-center">VER PLATOS</h1>
+                        <h1 class="text-center">PIZZAS</h1>
                     </a>
                 </td>
                 <td>
