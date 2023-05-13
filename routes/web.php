@@ -111,10 +111,10 @@ Route::controller(IndexController::class)->group(function(){
 Route::get('/whoarewe', WhoareweController::class);
 
 
-// Route::get('/contact', ContactController::class);
+Route::get('/contact', ContactController::class);
 
 
-// Route::get('/faq', FaqController::class);
+Route::get('/faq', FaqController::class);
 
 
 Route::get('/recibos', ReciboController::class);

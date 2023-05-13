@@ -164,6 +164,13 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa'
             ],
             [
+                'name' => 'Crunchi Burger',
+                'price' => 4.50,
+                'description' => 'Hamburguesa de pollo crujiente.',
+                'image' => 'img/crunchi.jpg',
+                'type' => 'Hamburguesa'
+            ],
+            [
                 'name' => 'Sándwich Panadero',
                 'price' => 5.80,
                 'description' => 'Ingredientes: Jamón de York, Queso, Pollo, Bacon, Huevo, Lechuga, Tomate, Salsa vegetal.',
@@ -322,6 +329,13 @@ class ProductSeeder extends Seeder
                 'price' => 4.50,
                 'description' => '6 unidades',
                 'image' => 'img/alitas.jpg',
+                'type' => 'Complemento'
+            ],
+            [
+                'name' => 'Nuggets',
+                'price' => 3,
+                'description' => '5 unidades',
+                'image' => 'img/nuggets.jpg',
                 'type' => 'Complemento'
             ],
             [

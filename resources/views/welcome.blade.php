@@ -991,8 +991,10 @@
         </p>
     </div>
     <div id="faq" class="container px-12 py-8 mx-auto bg-white">
+        <p>Prueba de preguntas frecuentes</p>
     </div>
     <div id="con" class="container px-12 py-8 mx-auto bg-white">
+        <p>Contacto</p>
     </div>
 </body>
 

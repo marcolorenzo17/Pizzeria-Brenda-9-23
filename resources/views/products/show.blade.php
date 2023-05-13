@@ -55,6 +55,12 @@
             <li>
                 <a href="whoarewe" class="mr-4 hover:underline md:mr-6">¿Quiénes somos?</a>
             </li>
+            <li>
+                <a href="faq" class="mr-4 hover:underline md:mr-6">Preguntas frecuentes</a>
+            </li>
+            <li>
+                <a href="contact" class="mr-4 hover:underline md:mr-6">Contáctanos</a>
+            </li>
         </ul>
     </footer>
 
