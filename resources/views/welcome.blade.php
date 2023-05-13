@@ -903,13 +903,13 @@
                     </a>
                 </td>
                 <td>
-                    <a href="#">
-                        <h1 class="text-center">CONTÁCTANOS</h1>
+                    <a href="#faq">
+                        <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
                     </a>
                 </td>
                 <td>
-                    <a href="#">
-                        <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
+                    <a href="#con">
+                        <h1 class="text-center">CONTÁCTANOS</h1>
                     </a>
                 </td>
             </tr>
@@ -989,6 +989,10 @@
             sin moverte de casa.<br><br>
             ¡Te esperamos! ¡Visítanos!
         </p>
+    </div>
+    <div id="faq" class="container px-12 py-8 mx-auto bg-white">
+    </div>
+    <div id="con" class="container px-12 py-8 mx-auto bg-white">
     </div>
 </body>
 
