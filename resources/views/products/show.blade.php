@@ -10,6 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mb-6">
+                        <img src="{{ asset($products->image) }}" alt="" class="max-h-60 mx-auto">
+                    </div>
+                    <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
                             {{ 'Precio' }}
                         </h2>

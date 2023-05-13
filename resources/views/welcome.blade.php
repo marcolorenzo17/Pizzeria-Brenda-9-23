@@ -853,8 +853,48 @@
         <table class="table-auto w-full">
             <tr>
                 <td>
-                    <a href="{{ url('productosAnon') }}">
+                    <a href="{{ url('pizzasAnon') }}">
                         <h1 class="text-center">PIZZAS</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('burgersAnon') }}">
+                        <h1 class="text-center">HAMBURGUESAS</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('sandwichAnon') }}">
+                        <h1 class="text-center">SÁNDWICHES</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('pastasAnon') }}">
+                        <h1 class="text-center">PASTA</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('arrocesAnon') }}">
+                        <h1 class="text-center">ARROCES</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('baguettesAnon') }}">
+                        <h1 class="text-center">BAGUETTES</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('ensaladasAnon') }}">
+                        <h1 class="text-center">ENSALADAS</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('complementosAnon') }}">
+                        <h1 class="text-center">COMPLEMENTOS</h1>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url('perritosAnon') }}">
+                        <h1 class="text-center">PERRITOS</h1>
                     </a>
                 </td>
                 <td>

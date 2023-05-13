@@ -30,9 +30,50 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/productosAnon', function() {
+
+Route::get('/pizzasAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Pizza')->get();
-    return view('productosAnon', ['products' => $products]);
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/burgersAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Hamburguesa')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/sandwichAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Sándwich')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/pastasAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Pasta')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/arrocesAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Arroz')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/baguettesAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Baguette')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/ensaladasAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Ensalada')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/complementosAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Complemento')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/perritosAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Perrito')->get();
+    return view('productsAnon', ['products' => $products]);
 });
 
 
