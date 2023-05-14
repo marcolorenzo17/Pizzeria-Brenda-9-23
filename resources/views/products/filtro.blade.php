@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('LISTA DE PLATOS') }}
+            {{ __('FILTRO') }}
         </h2>
         {{--
             <br>
@@ -12,15 +12,15 @@
         <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
             <table class="table-auto w-full">
                 <tr>
-                    <td><a href="{{ route('products.index') }}">PIZZAS</a></td>
-                    <td><a href="{{ route('products.index') }}">HAMBURGUESAS</a></td>
-                    <td><a href="{{ route('products.index') }}">SÁNDWICHES</a></td>
-                    <td><a href="{{ route('products.index') }}">PASTA</a></td>
-                    <td><a href="{{ route('products.index') }}">ARROCES</a></td>
-                    <td><a href="{{ route('products.index') }}">BAGUETTES</a></td>
-                    <td><a href="{{ route('products.index') }}">ENSALADAS</a></td>
-                    <td><a href="{{ route('products.index') }}">COMPLEMENTOS</a></td>
-                    <td><a href="{{ route('products.index') }}">PERRITOS</a></td>
+                    <td><a href="#">PIZZAS</a></td>
+                    <td><a href="#">HAMBURGUESAS</a></td>
+                    <td><a href="#">SÁNDWICHES</a></td>
+                    <td><a href="#">PASTA</a></td>
+                    <td><a href="#">ARROCES</a></td>
+                    <td><a href="#">BAGUETTES</a></td>
+                    <td><a href="#">ENSALADAS</a></td>
+                    <td><a href="#">COMPLEMENTOS</a></td>
+                    <td><a href="#">PERRITOS</a></td>
                 </tr>
             </table>
         </div>

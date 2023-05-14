@@ -14,6 +14,15 @@
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
+                            {{ 'Nombre' }}
+                        </h2>
+
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{ $products->name }}
+                        </p>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-lg font-medium text-gray-900">
                             {{ 'Precio' }}
                         </h2>
 
@@ -40,6 +49,25 @@
                         </p>
                     </div>
                     <br>
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $products->id }}" name="id">
+                        <input type="hidden" value="{{ $products->name }}" name="name">
+                        <input type="hidden" value="{{ $products->price }}" name="price">
+                        <input type="hidden" value="{{ $products->image }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
+                        <br><br>
+                        {{--
+                            <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                        --}}
+                    </form>
+                    <form method="post" action="{{ route('products.destroy', $products->id) }}" class="inline">
+                        @csrf
+                        @method('delete')
+                        <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">BORRAR</button>
+                    </form>
+                    <br><br><br>
                     <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">VOLVER</a>
                 </div>
             </div>

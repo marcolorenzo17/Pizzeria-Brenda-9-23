@@ -3,6 +3,7 @@
 use App\Http\Controllers\ReciboController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
@@ -78,6 +79,10 @@ Route::get('/perritosAnon', function() {
 
 
 Route::resource('products', ProductController::class);
+
+
+Route::resource('promociones', PromocionController::class);
+
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');

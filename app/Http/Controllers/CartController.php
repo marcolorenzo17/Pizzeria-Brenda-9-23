@@ -71,6 +71,6 @@ class CartController extends Controller
         $recibo->save();
         \Cart::clear();
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
-        return redirect('products');
+        return redirect('products.index');
     }
 }
