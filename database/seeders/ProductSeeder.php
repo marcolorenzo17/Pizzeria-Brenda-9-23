@@ -171,6 +171,13 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa'
             ],
             [
+                'name' => 'Costi Burger',
+                'price' => 5.70,
+                'description' => 'Ingredientes: Costilla, Salsa BBQ, Cebolla.',
+                'image' => 'img/costi.jpg',
+                'type' => 'Hamburguesa'
+            ],
+            [
                 'name' => 'Sándwich Panadero',
                 'price' => 5.80,
                 'description' => 'Ingredientes: Jamón de York, Queso, Pollo, Bacon, Huevo, Lechuga, Tomate, Salsa vegetal.',
@@ -336,6 +343,13 @@ class ProductSeeder extends Seeder
                 'price' => 3,
                 'description' => '5 unidades',
                 'image' => 'img/nuggets.jpg',
+                'type' => 'Complemento'
+            ],
+            [
+                'name' => 'Patatas con carne picada y queso',
+                'price' => 5.20,
+                'description' => '',
+                'image' => 'img/patatascq.jpg',
                 'type' => 'Complemento'
             ],
             [
