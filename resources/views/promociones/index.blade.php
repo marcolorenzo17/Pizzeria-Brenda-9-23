@@ -6,10 +6,12 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <h2 class="text-center">PIZZERÍA BRENDA: ARTESANAL Y NATURAL</h2>
         <br>
-        <p>
-        </p>
+        <div>
+            <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="400px" height="400px" class="mx-auto">
+            <br><br>
+            <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="400px" height="400px" class="mx-auto">
+        </div>
     </div>
 
     <br><br><br><br>

@@ -27,10 +27,10 @@ class ProductController extends Controller
     }
     */
 
-    public function index(string $tipo = 'Pizza'): Response
+    public function index(): Response
     {
         return response()->view('products.index', [
-            'products' => Product::orderBy('updated_at', 'desc')->where('type', '=', $tipo)->get(),
+            'products' => Product::orderBy('updated_at', 'desc')->get(),
         ]);
     }
 
