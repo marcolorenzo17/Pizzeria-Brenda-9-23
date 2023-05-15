@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrearpizzaController;
 use App\Http\Controllers\ReciboController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
@@ -111,6 +112,8 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/index/{plato}', 'show');
 });
 */
+
+Route::get('/crearpizza', CrearpizzaController::class);
 
 
 Route::get('/whoarewe', WhoareweController::class);
