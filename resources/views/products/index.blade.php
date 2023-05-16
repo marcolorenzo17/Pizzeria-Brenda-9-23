@@ -28,10 +28,6 @@
         <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <div class="text-center">
-            <a href="crearpizza" class="mr-4 hover:underline md:mr-6">CREA TU PROPIA PIZZA</a>
-        </div>
-        <br>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Pizza")
@@ -67,6 +63,10 @@
                     </div>
                 @endif
             @endforeach
+        </div>
+        <br><br>
+        <div class="text-center">
+            <a href="crearpizza" class="text-2xl font-bold text-purple-700">CREA TU PROPIA PIZZA</a>
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="2">HAMBURGUESAS</h3>
