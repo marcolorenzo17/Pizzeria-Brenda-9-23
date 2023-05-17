@@ -14,5 +14,6 @@ class Ingrediente extends Model
         'price',
         'image',
         'type',
+        'alergenos',
     ];
 }

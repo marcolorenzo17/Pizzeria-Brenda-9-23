@@ -15,6 +15,7 @@ class Product extends Model
         'image',
         'description',
         'type',
+        'alergenos'
     ];
 
     public function facturas() {

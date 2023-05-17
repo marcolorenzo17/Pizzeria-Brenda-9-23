@@ -21,11 +21,13 @@
                     <td><a href="#7">ENSALADAS</a></td>
                     <td><a href="#8">COMPLEMENTOS</a></td>
                     <td><a href="#9">PERRITOS</a></td>
+                    <td><a href="#10">BEBIDAS</a></td>
                 </tr>
             </table>
         </div>
         <br>
         <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
+        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -70,28 +72,34 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="2">HAMBURGUESAS</h3>
+        <img src="img/alergenos/gluten-sesamo.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <table>
             <tr>
                 <td class="font-bold text-decoration-line: underline">Extras para hamburguesas:</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Queso Edam (0.50 €)</td>
+                <td><img src="img/alergenos/lacteos.png" alt=""></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Queso Cheddar (1 €)</td>
+                <td><img src="img/alergenos/gluten-lacteos.png" alt=""></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Huevo (0.80 €)</td>
+                <td><img src="img/alergenos/huevos.png" alt=""></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Bacon (0.50 €)</td>
+                <td><img src="img/alergenos/soja.png" alt=""></td>
             </tr>
         </table>
         <br>
@@ -133,6 +141,7 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="3">SÁNDWICHES</h3>
+        <img src="img/alergenos/gluten-lacteos-huevos-soja.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
@@ -172,6 +181,7 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="4">PASTA</h3>
+        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
@@ -211,6 +221,7 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="5">ARROCES</h3>
+        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
@@ -250,6 +261,7 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="6">BAGUETTES</h3>
+        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
@@ -289,6 +301,7 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="7">ENSALADAS</h3>
+        <img src="img/alergenos/dioxido.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
@@ -367,10 +380,128 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="9">PERRITOS</h3>
+        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Perrito")
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <div class="flex items-end justify-end w-full bg-cover">
+
+                        </div>
+                        <div class="px-5 py-3">
+                            <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <br><br>
+                            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" value="{{ $product->id }}" name="id">
+                                <input type="hidden" value="{{ $product->name }}" name="name">
+                                <input type="hidden" value="{{ $product->price }}" name="price">
+                                <input type="hidden" value="{{ $product->image }}"  name="image">
+                                <input type="hidden" value="1" name="quantity">
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
+                                <br><br>
+                                {{--
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
+                            </form>
+                            <form method="post" action="{{ route('products.destroy', $product->id) }}" class="inline">
+                                @csrf
+                                @method('delete')
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">BORRAR</button>
+                            </form>
+                        </div>
+
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <br><br><br>
+        <h3 class="text-2xl font-bold text-purple-700" id="10">CERVEZAS</h3>
+        <div class="h-1 bg-red-500 w-36"></div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            @foreach ($products as $product)
+                @if ($product->type == "Cerveza")
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <div class="flex items-end justify-end w-full bg-cover">
+
+                        </div>
+                        <div class="px-5 py-3">
+                            <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <br><br>
+                            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" value="{{ $product->id }}" name="id">
+                                <input type="hidden" value="{{ $product->name }}" name="name">
+                                <input type="hidden" value="{{ $product->price }}" name="price">
+                                <input type="hidden" value="{{ $product->image }}"  name="image">
+                                <input type="hidden" value="1" name="quantity">
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
+                                <br><br>
+                                {{--
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
+                            </form>
+                            <form method="post" action="{{ route('products.destroy', $product->id) }}" class="inline">
+                                @csrf
+                                @method('delete')
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">BORRAR</button>
+                            </form>
+                        </div>
+
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <br><br><br>
+        <h3 class="text-2xl font-bold text-purple-700">VINOS Y LICORES</h3>
+        <div class="h-1 bg-red-500 w-36"></div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            @foreach ($products as $product)
+                @if ($product->type == "Vino")
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <div class="flex items-end justify-end w-full bg-cover">
+
+                        </div>
+                        <div class="px-5 py-3">
+                            <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <br><br>
+                            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" value="{{ $product->id }}" name="id">
+                                <input type="hidden" value="{{ $product->name }}" name="name">
+                                <input type="hidden" value="{{ $product->price }}" name="price">
+                                <input type="hidden" value="{{ $product->image }}"  name="image">
+                                <input type="hidden" value="1" name="quantity">
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
+                                <br><br>
+                                {{--
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
+                            </form>
+                            <form method="post" action="{{ route('products.destroy', $product->id) }}" class="inline">
+                                @csrf
+                                @method('delete')
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">BORRAR</button>
+                            </form>
+                        </div>
+
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <br><br><br>
+        <h3 class="text-2xl font-bold text-purple-700">REFRESCOS</h3>
+        <div class="h-1 bg-red-500 w-36"></div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            @foreach ($products as $product)
+                @if ($product->type == "Refresco")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
