@@ -27,19 +27,24 @@
         </div>
         <br>
         <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
-        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
         <br>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Pizza")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -72,8 +77,9 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="2">HAMBURGUESAS</h3>
-        <img src="img/alergenos/gluten-sesamo.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-sesamo.png" width="200px" height="200px">
         <br>
         <table>
             <tr>
@@ -84,22 +90,22 @@
             <tr>
                 <td></td>
                 <td>Queso Edam (0.50 €)</td>
-                <td><img src="img/alergenos/lacteos.png" alt=""></td>
+                <td><img src="img/alergenos/lacteos.png" width="150px" height="150px"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Queso Cheddar (1 €)</td>
-                <td><img src="img/alergenos/gluten-lacteos.png" alt=""></td>
+                <td><img src="img/alergenos/gluten-lacteos.png" width="150px" height="150px"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Huevo (0.80 €)</td>
-                <td><img src="img/alergenos/huevos.png" alt=""></td>
+                <td><img src="img/alergenos/huevos.png" width="150px" height="150px"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Bacon (0.50 €)</td>
-                <td><img src="img/alergenos/soja.png" alt=""></td>
+                <td><img src="img/alergenos/soja.png" width="150px" height="150px"></td>
             </tr>
         </table>
         <br>
@@ -107,12 +113,16 @@
             @foreach ($products as $product)
                 @if ($product->type == "Hamburguesa")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -141,18 +151,23 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="3">SÁNDWICHES</h3>
-        <img src="img/alergenos/gluten-lacteos-huevos-soja.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-lacteos-huevos-soja.png" width="200px" height="200px">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Sándwich")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -181,18 +196,23 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="4">PASTA</h3>
-        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Pasta")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -221,18 +241,23 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="5">ARROCES</h3>
-        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Arroz")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -261,18 +286,23 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="6">BAGUETTES</h3>
-        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Baguette")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -301,18 +331,23 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="7">ENSALADAS</h3>
-        <img src="img/alergenos/dioxido.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/dioxido.png" width="200px" height="200px">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Ensalada")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -346,12 +381,16 @@
             @foreach ($products as $product)
                 @if ($product->type == "Complemento")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -380,18 +419,23 @@
         </div>
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="9">PERRITOS</h3>
-        <img src="img/alergenos/gluten-lacteos.png" alt="">
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
                 @if ($product->type == "Perrito")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -425,12 +469,16 @@
             @foreach ($products as $product)
                 @if ($product->type == "Cerveza")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -464,12 +512,16 @@
             @foreach ($products as $product)
                 @if ($product->type == "Vino")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -503,12 +555,16 @@
             @foreach ($products as $product)
                 @if ($product->type == "Refresco")
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" alt="" class="w-full max-h-60"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
+                            @if ($product->alergenos != '')
+                                <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
+                            @endif
+                            <br>
                             <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">

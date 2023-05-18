@@ -19,6 +19,9 @@
                             @if ($ingrediente->type == 'Base')
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                     <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    @if ($ingrediente->alergenos != '')
+                                        <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
+                                    @endif
                                     <div class="flex items-end justify-end w-full bg-cover">
                                     </div>
                                     <div class="px-5 py-3">
@@ -39,6 +42,9 @@
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.5)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                     <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    @if ($ingrediente->alergenos != '')
+                                        <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
+                                    @endif
                                     <div class="flex items-end justify-end w-full bg-cover">
                                     </div>
                                     <div class="px-5 py-3">
@@ -59,6 +65,9 @@
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.8)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                     <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    @if ($ingrediente->alergenos != '')
+                                        <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
+                                    @endif
                                     <div class="flex items-end justify-end w-full bg-cover">
                                     </div>
                                     <div class="px-5 py-3">
@@ -79,6 +88,9 @@
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 2.3)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                     <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    @if ($ingrediente->alergenos != '')
+                                        <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
+                                    @endif
                                     <div class="flex items-end justify-end w-full bg-cover">
                                     </div>
                                     <div class="px-5 py-3">
