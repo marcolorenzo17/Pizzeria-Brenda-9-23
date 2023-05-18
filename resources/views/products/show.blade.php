@@ -75,7 +75,7 @@
                                 </form>
                             </td>
                             <td>
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="450px" height="450px">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px">
                             </td>
                         </tr>
                     </table>
