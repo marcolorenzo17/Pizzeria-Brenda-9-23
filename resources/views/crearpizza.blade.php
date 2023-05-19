@@ -1,15 +1,20 @@
+<style>
+    .escondido {
+        display: none;
+    }
+</style>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('CREA TU PROPIA PIZZA') }}
         </h2>
     </x-slot>
-    <table class="mx-auto">
+    <table>
         <tr>
             <td>
                 <div class="container px-12 py-8 mx-auto">
                     <br>
-                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="300px" height="300px" class="mx-auto">
+                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="300px" height="300px" class="mx-auto escondido">
                     <br>
                     <h3 class="text-2xl font-bold text-purple-700">BASES</h3>
                     <div class="h-1 bg-red-500 w-36"></div>
@@ -104,7 +109,7 @@
                     </div>
                 </div>
             </td>
-            <td style="vertical-align: top; position: relative; top: 145px;">
+            <td style="vertical-align: top; position: fixed; top: 145px;">
                 <div class="container px-12 py-8 mx-auto bg-white">
                     Hola que tal
                 </div>
