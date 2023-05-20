@@ -1,10 +1,3 @@
-<style>
-    .escondido {
-        display: none;
-    }
-</style>
-<script>
-</script>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
@@ -16,7 +9,7 @@
             <td>
                 <div class="container px-12 py-8 mx-auto">
                     <br>
-                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="300px" height="300px" class="mx-auto escondido">
+                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="mx-auto">
                     <br>
                     <h3 class="text-2xl font-bold text-purple-700">BASES</h3>
                     <div class="h-1 bg-red-500 w-36"></div>
@@ -25,7 +18,7 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Base')
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -48,7 +41,7 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.5)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -71,7 +64,7 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.8)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -94,7 +87,7 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 2.3)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60">
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -113,7 +106,10 @@
             </td>
             <td style="vertical-align: top; position: fixed; top: 145px;">
                 <div class="container px-12 py-8 mx-auto bg-white">
-                    Hola que tal
+                    <div id="contenidopizza">
+                    </div>
+                    <br><br>
+                    <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
                 </div>
             </td>
         </tr>
@@ -137,5 +133,7 @@
             </li>
         </ul>
     </footer>
+
+    <script src="{{ asset('js/crearpizza-script.js') }}"></script>
 
 </x-app-layout>

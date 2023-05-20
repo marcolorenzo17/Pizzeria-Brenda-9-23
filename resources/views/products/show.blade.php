@@ -52,7 +52,7 @@
                         </p>
                     </div>
                     <br>
-                    <table class="mx-auto border-separate [border-spacing:0.75rem]">
+                    <table class="mx-auto border-separate" style="border-collapse: separate; border-spacing: 100px 0;">
                         <tr>
                             <td>
                                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
