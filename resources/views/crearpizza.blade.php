@@ -126,9 +126,17 @@
                     </div>
                     <br><br>
                     <p>Precio total:</p>
-                    <p id="total">0 €</p>
+                    <p id="total">0.00 €</p>
                     <br><br>
-                    <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="custom" name="id">
+                        <input type="hidden" value="Pizza Personalizada" name="name">
+                        <input type="hidden" value="" name="price" id="price">
+                        <input type="hidden" value="img/pizzagenerica.jpg"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
+                    </form>
                 </div>
             </td>
         </tr>

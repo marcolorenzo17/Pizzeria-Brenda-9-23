@@ -257,6 +257,14 @@ class ProductSeeder extends Seeder
                 'alergenos' => 'img/alergenos/soja-huevos.png'
             ],
             [
+                'name' => 'Espagueti Boloñesa',
+                'price' => 7,
+                'description' => '',
+                'image' => 'img/boloñesa.jpg',
+                'type' => 'Pasta',
+                'alergenos' => 'img/alergenos/lacteos.png'
+            ],
+            [
                 'name' => 'Tallarines Roquefort',
                 'price' => 7,
                 'description' => 'Ingredientes: Salsa Roquefort',
@@ -277,6 +285,14 @@ class ProductSeeder extends Seeder
                 'price' => 7,
                 'description' => '',
                 'image' => 'img/macarrones.jpg',
+                'type' => 'Pasta',
+                'alergenos' => 'img/alergenos/apio-huevos.png'
+            ],
+            [
+                'name' => 'Macarrones Napolitana',
+                'price' => 7,
+                'description' => '',
+                'image' => 'img/napolitano.jpg',
                 'type' => 'Pasta',
                 'alergenos' => 'img/alergenos/apio-huevos.png'
             ],
@@ -375,6 +391,22 @@ class ProductSeeder extends Seeder
                 'image' => 'img/ensabrenda.jpg',
                 'type' => 'Ensalada',
                 'alergenos' => 'img/alergenos/soja-lacteos-gluten.png'
+            ],
+            [
+                'name' => 'Ensalada Mixta',
+                'price' => 5,
+                'description' => 'Ingredientes: Olivas, Huevo, Jamón de York, Queso, Tomate, Lechuga, Maíz.',
+                'image' => 'img/emixta.jpg',
+                'type' => 'Ensalada',
+                'alergenos' => 'img/alergenos/soja-lacteos-huevos.png'
+            ],
+            [
+                'name' => 'Ensalada de Pasta',
+                'price' => 6,
+                'description' => 'Ingredientes: Huevo, Maíz, Atún, Oliva, Jamón de York, Salsa.',
+                'image' => 'img/epasta.jpg',
+                'type' => 'Ensalada',
+                'alergenos' => 'img/alergenos/soja-lacteos-huevos-pescado-gluten.png'
             ],
             [
                 'name' => 'Patatas Deluxe',
