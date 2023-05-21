@@ -18,7 +18,11 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Base')
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
+                                    <?php
+                                        $nombre = $ingrediente->name;
+                                        $precio = $ingrediente->price;
+                                    ?>
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -41,7 +45,11 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.5)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
+                                    <?php
+                                        $nombre = $ingrediente->name;
+                                        $precio = $ingrediente->price;
+                                    ?>
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -64,7 +72,11 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.8)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
+                                    <?php
+                                        $nombre = $ingrediente->name;
+                                        $precio = $ingrediente->price;
+                                    ?>
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -87,7 +99,11 @@
                         @foreach ($ingredientes as $ingrediente)
                             @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 2.3)
                                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="hola()">
+                                    <?php
+                                        $nombre = $ingrediente->name;
+                                        $precio = $ingrediente->price;
+                                    ?>
+                                    <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                     @if ($ingrediente->alergenos != '')
                                         <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                     @endif
@@ -108,6 +124,9 @@
                 <div class="container px-12 py-8 mx-auto bg-white">
                     <div id="contenidopizza">
                     </div>
+                    <br><br>
+                    <p>Precio total:</p>
+                    <p id="total">0 €</p>
                     <br><br>
                     <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL CARRITO</button>
                 </div>

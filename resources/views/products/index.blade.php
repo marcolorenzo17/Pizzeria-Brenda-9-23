@@ -72,7 +72,7 @@
             @endforeach
         </div>
         <br><br>
-        <div class="text-center" style="border-style: solid; border-width: 3px; border-color: purple; background-color: darksalmon; padding: 20px;">
+        <div class="text-center" style="border-style: solid; border-width: 3px; border-color: purple; background-color: #efff91; padding: 20px;">
             <a href="crearpizza" class="text-2xl font-bold text-purple-700">¡CREA TU PROPIA PIZZA AQUÍ!</a>
         </div>
         <br><br><br>

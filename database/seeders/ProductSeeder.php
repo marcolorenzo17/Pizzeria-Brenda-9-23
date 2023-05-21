@@ -225,6 +225,14 @@ class ProductSeeder extends Seeder
                 'alergenos' => 'img/alergenos/dioxido.png'
             ],
             [
+                'name' => 'Sándwich Mixto',
+                'price' => 3,
+                'description' => 'Ingredientes: Jamón de York y queso.',
+                'image' => 'img/smixto.jpg',
+                'type' => 'Sándwich',
+                'alergenos' => ''
+            ],
+            [
                 'name' => 'Espagueti Pescatore',
                 'price' => 7.50,
                 'description' => 'Ingredientes: Salsa marinera y Salazones.',
@@ -319,6 +327,30 @@ class ProductSeeder extends Seeder
                 'image' => 'img/panadero.jpg',
                 'type' => 'Baguette',
                 'alergenos' => 'img/alergenos/soja-huevos-dioxido.png'
+            ],
+            [
+                'name' => 'Baguette Cinta de Lomo Sajonia',
+                'price' => 5,
+                'description' => 'Ingredientes: Tomate y pimiento frito.',
+                'image' => 'img/cintalomo.jpg',
+                'type' => 'Baguette',
+                'alergenos' => 'img/alergenos/soja.png'
+            ],
+            [
+                'name' => 'Baguette de Carne picada y Queso fundido',
+                'price' => 5,
+                'description' => 'Ingredientes: Carne picada y queso fundido.',
+                'image' => 'img/carnepicaqueso.jpg',
+                'type' => 'Baguette',
+                'alergenos' => 'img/alergenos/apio.png'
+            ],
+            [
+                'name' => 'Baguette Vegetal',
+                'price' => 5,
+                'description' => 'Ingredientes: Atún, Lechuga, Tomate, Huevo, Morrón, Mayonesa.',
+                'image' => 'img/bvegetal.jpg',
+                'type' => 'Baguette',
+                'alergenos' => 'img/alergenos/soja-pescado-huevos.png'
             ],
             [
                 'name' => 'Ensalada de Arroz',
