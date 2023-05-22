@@ -67,9 +67,11 @@ class CartController extends Controller
 
     public function addData(Request $req) {
         $recibo = new Recibo;
-        $recibo->total=$req->total;
+        $recibo->total = $req->total;
         $recibo->save();
+
         \Cart::clear();
+
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
         return redirect('products');
     }

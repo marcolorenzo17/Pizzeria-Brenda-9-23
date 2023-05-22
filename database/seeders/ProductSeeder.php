@@ -369,6 +369,14 @@ class ProductSeeder extends Seeder
                 'alergenos' => 'img/alergenos/soja-pescado-huevos.png'
             ],
             [
+                'name' => 'Ensalada Normal',
+                'price' => 4.50,
+                'description' => 'Ingredientes: Lechuga, Cebolla, Olivas, Tomate.',
+                'image' => 'img/enormal.jpg',
+                'type' => 'Ensalada',
+                'alergenos' => ''
+            ],
+            [
                 'name' => 'Ensalada de Arroz',
                 'price' => 6,
                 'description' => 'Ingredientes: Arroz Basmati, Huevo, Jamón de York, Mayonesa, Anchoas, Olivas negras, Morrón.',

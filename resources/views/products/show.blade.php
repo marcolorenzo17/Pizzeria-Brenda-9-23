@@ -13,7 +13,9 @@
                         <img src="{{ asset($products->image) }}" alt="" class="max-h-60 mx-auto">
                     </div>
                     <div class="mb-6">
-                        <img src="{{ asset($products->alergenos) }}" alt="..." width="200px" height="200px">
+                        @if ($products->alergenos != '')
+                        <img src="{{ asset($products->alergenos) }}" width="200px" height="200px">
+                    @endif
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
