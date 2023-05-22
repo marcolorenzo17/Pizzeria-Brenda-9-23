@@ -130,7 +130,7 @@
                     <br><br>
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" value="custom" name="id">
+                        <input id="id-custom" type="hidden" value="" name="id">
                         <input type="hidden" value="Pizza Personalizada" name="name">
                         <input type="hidden" value="" name="price" id="price">
                         <input type="hidden" value="img/pizzagenerica.jpg"  name="image">

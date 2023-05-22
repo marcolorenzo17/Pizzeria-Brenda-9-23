@@ -5,13 +5,20 @@ bases.addEventListener("click", () => {
     imagen.style.display = "block";
 });
 */
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 var contenido = document.getElementById("contenidopizza");
 var totalcontenido = document.getElementById("total");
+var idcustom = document.getElementById("id-custom");
 
 var indice = 0;
 var total = 0;
 
 function aniadir(nombre, precio) {
+    idcustom.setAttribute("value", getRandomInt(999999));
+
     var parrafo = document.createElement("p");
     var texto = document.createTextNode(`${indice} -> ${nombre} -> ${precio} €`);
     parrafo.appendChild(texto);
