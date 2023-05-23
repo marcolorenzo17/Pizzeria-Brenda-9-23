@@ -7,7 +7,7 @@ bases.addEventListener("click", () => {
 */
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-}
+};
 
 var contenido = document.getElementById("contenidopizza");
 var totalcontenido = document.getElementById("total");

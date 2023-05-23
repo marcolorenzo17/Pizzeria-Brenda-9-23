@@ -22,7 +22,7 @@
                                     <th class="text-left">Nombre</th>
                                     <th class="pl-5 text-left lg:text-right lg:pl-0">
                                         <span class="lg:hidden" title="Quantity">Cantidad</span>
-                                        <span class="hidden lg:inline">Quantity</span>
+                                        <span class="hidden lg:inline">Cantidad</span>
                                     </th>
                                     <th class="hidden text-right md:table-cell"> Precio</th>
                                     <th class="hidden text-right md:table-cell"> Eliminar </th>
@@ -84,7 +84,7 @@
                         </div>
                         <br>
                         <div>
-                            <a href="pagar"><button type="button"
+                            <a href="recoger"><button type="button"
                                 class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Realizar
                                 pedido</button></a>
                             <br><br>
