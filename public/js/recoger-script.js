@@ -2,6 +2,10 @@ var contenido = document.getElementById("contenido");
 
 function recoger() {
   document.getElementById("formulario").remove();
+  if (document.getElementById("mensajeeuros")) {
+    document.getElementById("mensajeeuros").remove();
+  };
+  document.getElementById("botondiv").remove();
 
   var formulario = document.createElement("div");
   formulario.setAttribute("id", "formulario");
@@ -28,10 +32,31 @@ function recoger() {
   formulario.appendChild(div1);
 
   contenido.appendChild(formulario);
+
+  var botondiv = document.createElement("div");
+  botondiv.setAttribute("class", "text-center");
+  botondiv.setAttribute("id", "botondiv");
+
+  var enlacepagar = document.createElement("a");
+  enlacepagar.setAttribute("href", "pagar");
+
+  var boton = document.createElement("button");
+  boton.setAttribute("type", "button");
+  boton.setAttribute("class", "px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500");
+  boton.appendChild(document.createTextNode("Pagar"));
+
+  enlacepagar.appendChild(boton);
+  botondiv.appendChild(enlacepagar);
+
+  contenido.appendChild(botondiv);
 };
 
 function domicilio() {
   document.getElementById("formulario").remove();
+  if (document.getElementById("mensajeeuros")) {
+    document.getElementById("mensajeeuros").remove();
+  };
+  document.getElementById("botondiv").remove();
 
   var formulario = document.createElement("div");
   formulario.setAttribute("id", "formulario");
@@ -74,4 +99,27 @@ function domicilio() {
   formulario.appendChild(div2);
 
   contenido.appendChild(formulario);
-}
+
+  var mensajeeuros = document.createElement("p");
+  mensajeeuros.setAttribute("id", "mensajeeuros");
+  mensajeeuros.appendChild(document.createTextNode("*Servicio a domicilio: 2 € adicionales"));
+
+  contenido.appendChild(mensajeeuros);
+
+  var botondiv = document.createElement("div");
+  botondiv.setAttribute("class", "text-center");
+  botondiv.setAttribute("id", "botondiv");
+
+  var enlacepagar = document.createElement("a");
+  enlacepagar.setAttribute("href", "pagardomicilio");
+
+  var boton = document.createElement("button");
+  boton.setAttribute("type", "button");
+  boton.setAttribute("class", "px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500");
+  boton.appendChild(document.createTextNode("Pagar"));
+
+  enlacepagar.appendChild(boton);
+  botondiv.appendChild(enlacepagar);
+
+  contenido.appendChild(botondiv);
+};

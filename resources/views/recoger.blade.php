@@ -37,13 +37,9 @@
         </table>
         <br>
         <div id="contenido">
-            <div id="formulario">
-            </div>
-        </div>
-        <br>
-        <div class="text-center">
-            <a href="pagar"><button type="button"
-                    class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Pagar</button></a>
+            <div id="formulario"></div>
+            <div id="botondiv"></div>
+            <p id="mensajeeuros"></p>
         </div>
     </div>
 

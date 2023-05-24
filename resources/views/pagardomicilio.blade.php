@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('PAGAR - RECOGER EN PIZZERÍA') }}
+            {{ __('PAGAR - A DOMICILIO') }}
         </h2>
     </x-slot>
     <br>
@@ -154,13 +154,25 @@
                                 </tr>
                             @endforeach
                             <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <p class="mb-2 md:ml-4 text-purple-600 font-bold">Pedido a domicilio</p>
+                                </td>
+                                <td>
+                                </td>
+                                <td class="hidden text-right md:table-cell">
+                                    <span class="text-sm font-medium lg:text-base">2 €</span>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td class="hidden text-right md:table-cell">
                                     <br>
                                     <b>TOTAL:</b>
-                                    <p>{{ Cart::getTotal() }} €</p>
+                                    <p>{{ Cart::getTotal() + 2}} €</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -168,7 +180,7 @@
                     <br>
                     <form action="{{ route('cart.add') }}" method="POST">
                         @csrf
-                        <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
+                        <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
                         <div class="text-center">
                             <button type="submit"
                                 class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">Realizar

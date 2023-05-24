@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RecogerController;
+use App\Http\Controllers\PagardomicilioController;
 use App\Http\Controllers\PagarController;
 use App\Http\Controllers\CrearpizzaController;
 use App\Http\Controllers\ReciboController;
@@ -95,6 +96,8 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 Route::post('add', [CartController::class, 'addData'])->name('cart.add');
 
 Route::get('/recoger', RecogerController::class);
+
+Route::get('/pagardomicilio', PagardomicilioController::class);
 
 Route::get('/pagar', PagarController::class);
 
