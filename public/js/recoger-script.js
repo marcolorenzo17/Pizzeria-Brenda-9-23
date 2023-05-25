@@ -1,6 +1,11 @@
 var contenido = document.getElementById("contenido");
+var recogerdiv = document.getElementById("recogerdiv");
+var domiciliodiv = document.getElementById("domiciliodiv");
 
 function recoger() {
+  domiciliodiv.setAttribute("style", "");
+  recogerdiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
+
   document.getElementById("formulario").remove();
   if (document.getElementById("mensajeeuros")) {
     document.getElementById("mensajeeuros").remove();
@@ -52,6 +57,9 @@ function recoger() {
 };
 
 function domicilio() {
+  recogerdiv.setAttribute("style", "");
+  domiciliodiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
+
   document.getElementById("formulario").remove();
   if (document.getElementById("mensajeeuros")) {
     document.getElementById("mensajeeuros").remove();

@@ -11,7 +11,7 @@
             <tr>
                 <td>
                     <div
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        id="recogerdiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#contenido">
                             <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="recoger()"/>
                         </a>
@@ -23,7 +23,7 @@
                 </td>
                 <td>
                     <div
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        id="domiciliodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#contenido">
                             <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="domicilio()"/>
                         </a>
