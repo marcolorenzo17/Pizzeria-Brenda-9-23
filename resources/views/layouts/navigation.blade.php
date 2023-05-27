@@ -58,7 +58,7 @@
                         <x-dropdown-link href="recibos">
                             {{ __('Recibos') }}
                         </x-dropdown-link>
-                        <x-dropdown-link href="recibos">
+                        <x-dropdown-link href="curriculum">
                             {{ __('Currículum') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
@@ -116,7 +116,7 @@
                 <x-responsive-nav-link href="recibos">
                     {{ __('Recibos') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="recibos">
+                <x-responsive-nav-link href="curriculum">
                     {{ __('Currículum') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('profile.edit')">

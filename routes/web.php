@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\RecogerController;
 use App\Http\Controllers\PagardomicilioController;
 use App\Http\Controllers\PagarController;
@@ -139,6 +140,9 @@ Route::get('/faq', FaqController::class);
 
 
 Route::get('/recibos', ReciboController::class);
+
+
+Route::get('/curriculum', CurriculumController::class);
 
 
 require __DIR__.'/auth.php';
