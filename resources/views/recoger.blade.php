@@ -36,11 +36,14 @@
             </tr>
         </table>
         <br>
-        <div id="contenido">
-            <div id="formulario"></div>
-            <div id="botondiv"></div>
-            <p id="mensajeeuros"></p>
-        </div>
+        <form action="" method="get" enctype="multipart/form-data" id="ruta">
+            @csrf
+            <div id="contenido">
+                <div id="formulario"></div>
+                <div id="botondiv"></div>
+                <p id="mensajeeuros"></p>
+            </div>
+        </form>
     </div>
 
     <br><br><br><br>

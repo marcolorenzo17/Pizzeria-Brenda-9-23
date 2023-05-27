@@ -1,8 +1,11 @@
 var contenido = document.getElementById("contenido");
 var recogerdiv = document.getElementById("recogerdiv");
 var domiciliodiv = document.getElementById("domiciliodiv");
+var ruta = document.getElementById("ruta");
 
 function recoger() {
+  ruta.setAttribute("action", "pagar");
+
   domiciliodiv.setAttribute("style", "");
   recogerdiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
 
@@ -19,17 +22,18 @@ function recoger() {
   div1.setAttribute("class", "mb-6");
 
   var label1 = document.createElement("label");
-  label1.setAttribute("for", "base-input");
+  label1.setAttribute("for", "direccion");
   label1.setAttribute("class", "block mb-2 text-sm font-medium text-gray-900");
   var textolabel1 = document.createTextNode("Dirección");
   label1.appendChild(textolabel1);
 
   var input1 = document.createElement("input");
   input1.setAttribute("type", "text");
-  input1.setAttribute("id", "base-input");
+  input1.setAttribute("id", "direccion");
+  input1.setAttribute("name", "direccion");
   input1.setAttribute("class", "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5");
   input1.setAttribute("value", "C/ Padre Lerchundi, 3");
-  input1.disabled = true;
+  input1.readOnly = true;
 
   div1.appendChild(label1);
   div1.appendChild(input1);
@@ -42,21 +46,19 @@ function recoger() {
   botondiv.setAttribute("class", "text-center");
   botondiv.setAttribute("id", "botondiv");
 
-  var enlacepagar = document.createElement("a");
-  enlacepagar.setAttribute("href", "pagar");
-
-  var boton = document.createElement("button");
-  boton.setAttribute("type", "button");
+  var boton = document.createElement("input");
+  boton.setAttribute("type", "submit");
   boton.setAttribute("class", "px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500");
-  boton.appendChild(document.createTextNode("Pagar"));
+  boton.setAttribute("value", "Pagar");
 
-  enlacepagar.appendChild(boton);
-  botondiv.appendChild(enlacepagar);
+  botondiv.appendChild(boton);
 
   contenido.appendChild(botondiv);
 };
 
 function domicilio() {
+  ruta.setAttribute("action", "pagardomicilio");
+
   recogerdiv.setAttribute("style", "");
   domiciliodiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
 
@@ -73,14 +75,15 @@ function domicilio() {
   div1.setAttribute("class", "mb-6");
 
   var label1 = document.createElement("label");
-  label1.setAttribute("for", "base-input");
+  label1.setAttribute("for", "direccion");
   label1.setAttribute("class", "block mb-2 text-sm font-medium text-gray-900");
   var textolabel1 = document.createTextNode("Dirección");
   label1.appendChild(textolabel1);
 
   var input1 = document.createElement("input");
   input1.setAttribute("type", "text");
-  input1.setAttribute("id", "base-input");
+  input1.setAttribute("id", "direccion");
+  input1.setAttribute("name", "direccion");
   input1.setAttribute("class", "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5");
 
   div1.appendChild(label1);
@@ -90,14 +93,15 @@ function domicilio() {
   div2.setAttribute("class", "mb-6");
 
   var label2 = document.createElement("label");
-  label2.setAttribute("for", "base-input");
+  label2.setAttribute("for", "telefono");
   label2.setAttribute("class", "block mb-2 text-sm font-medium text-gray-900");
   var textolabel2 = document.createTextNode("Teléfono");
   label2.appendChild(textolabel2);
 
   var input2 = document.createElement("input");
   input2.setAttribute("type", "text");
-  input2.setAttribute("id", "base-input");
+  input2.setAttribute("id", "telefono");
+  input2.setAttribute("name", "telefono");
   input2.setAttribute("class", "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5");
 
   div2.appendChild(label2);
@@ -118,16 +122,12 @@ function domicilio() {
   botondiv.setAttribute("class", "text-center");
   botondiv.setAttribute("id", "botondiv");
 
-  var enlacepagar = document.createElement("a");
-  enlacepagar.setAttribute("href", "pagardomicilio");
-
-  var boton = document.createElement("button");
-  boton.setAttribute("type", "button");
+  var boton = document.createElement("input");
+  boton.setAttribute("type", "submit");
   boton.setAttribute("class", "px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500");
-  boton.appendChild(document.createTextNode("Pagar"));
+  boton.setAttribute("value", "Pagar");
 
-  enlacepagar.appendChild(boton);
-  botondiv.appendChild(enlacepagar);
+  botondiv.appendChild(boton);
 
   contenido.appendChild(botondiv);
 };
