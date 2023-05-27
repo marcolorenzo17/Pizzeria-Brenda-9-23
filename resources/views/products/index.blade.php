@@ -10,18 +10,20 @@
     </x-slot>
     <div class="container px-12 py-8 mx-auto">
         <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-            <table class="table-auto w-full">
+            <table class="table-auto w-full text-center" style="border-collapse: separate; border-spacing:25px 25px;">
                 <tr>
-                    <td><a href="#1">PIZZAS</a></td>
-                    <td><a href="#2">HAMBURGUESAS</a></td>
-                    <td><a href="#3">SÁNDWICHES</a></td>
-                    <td><a href="#4">PASTA</a></td>
-                    <td><a href="#5">ARROCES</a></td>
-                    <td><a href="#6">BAGUETTES</a></td>
-                    <td><a href="#7">ENSALADAS</a></td>
-                    <td><a href="#8">COMPLEMENTOS</a></td>
-                    <td><a href="#9">PERRITOS</a></td>
-                    <td><a href="#10">BEBIDAS</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#2"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">HAMBURGUESAS</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#3"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">SÁNDWICHES</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#4"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#5"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ARROCES</a></td>
+                </tr>
+                <tr>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#6"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#7"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ENSALADAS</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#8"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">COMPLEMENTOS</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#9"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PERRITOS</a></td>
+                    <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#10"><img src="{{ asset("img/sodaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BEBIDAS</a></td>
                 </tr>
             </table>
         </div>

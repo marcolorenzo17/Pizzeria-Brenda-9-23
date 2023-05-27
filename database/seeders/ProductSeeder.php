@@ -265,6 +265,14 @@ class ProductSeeder extends Seeder
                 'alergenos' => 'img/alergenos/lacteos.png'
             ],
             [
+                'name' => 'Espagueti con Atún',
+                'price' => 7,
+                'description' => '',
+                'image' => 'img/espatun.jpg',
+                'type' => 'Pasta',
+                'alergenos' => 'img/alergenos/pescado.png'
+            ],
+            [
                 'name' => 'Tallarines Roquefort',
                 'price' => 7,
                 'description' => 'Ingredientes: Salsa Roquefort',

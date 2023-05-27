@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WhoareweController;
@@ -86,6 +87,9 @@ Route::resource('products', ProductController::class);
 
 
 Route::resource('promociones', PromocionController::class);
+
+
+Route::resource('eventos', EventoController::class);
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
