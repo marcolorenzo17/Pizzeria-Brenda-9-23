@@ -20,6 +20,6 @@ class Comentario extends Model
     }
 
     public function products() {
-        return $this->belongsTo(Valoracion::class);
+        return $this->belongsTo(Valoracione::class);
     }
 }

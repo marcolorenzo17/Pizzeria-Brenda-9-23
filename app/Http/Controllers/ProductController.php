@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Valoracione;
+use App\Models\Comentario;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -68,9 +71,12 @@ class ProductController extends Controller
     public function show(string $id): Response
     {
         $valoraciones = DB::select('select * from valoraciones');
+        $comentarios = DB::select('select * from comentarios');
+
         return response()->view('products.show', [
             'products' => Product::findOrFail($id),
-            'valoraciones' => $valoraciones
+            'valoraciones' => $valoraciones,
+            'comentarios' => $comentarios,
         ]);
     }
 
@@ -117,5 +123,35 @@ class ProductController extends Controller
         }
 
         return abort(500);
+    }
+
+    public function addValoracion(Request $req, string $id) {
+        $product = Product::findOrFail($id);
+
+        $valoracione = new Valoracione;
+        $valoracione->resenia = $req->resenia;
+        $valoracione->estrellas = $req->estrellas;
+        $valoracione->idProduct = $product->id;
+        $valoracione->idUser = Auth::user()->id;
+
+        $valoracione->save();
+
+        session()->flash('notif.success', 'Se ha añadido la valoración con éxito.');
+        return redirect('/products/'.$product->id);
+    }
+
+    public function addComentario(Request $req, string $idProduct, string $idValoracion) {
+        $product = Product::findOrFail($idProduct);
+        $valoracion = Valoracione::findOrFail($idValoracion);
+
+        $comentario = new Comentario;
+        $comentario->resenia = $req->reseniaCom;
+        $comentario->idValoracion = $valoracion->id;
+        $comentario->idUser = Auth::user()->id;
+
+        $comentario->save();
+
+        session()->flash('notif.success', 'Se ha añadido el comentario con éxito.');
+        return redirect('/products/'.$product->id);
     }
 }
