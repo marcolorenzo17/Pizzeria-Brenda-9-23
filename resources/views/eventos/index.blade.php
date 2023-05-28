@@ -7,8 +7,59 @@
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
-        <div>
-        </div>
+        <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
+            <tr>
+                <td>
+                    <div
+                        id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <a href="#contenido">
+                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar(cumple)" height="300px" width="300px"/>
+                        </a>
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">Cumpleaños</h5>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <a href="#contenido">
+                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar(evento)" height="300px" width="300px"/>
+                        </a>
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">Evento</h5>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <a href="#contenido">
+                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar(cena)" height="300px" width="300px"/>
+                        </a>
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">Cena</h5>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <form action="" method="get" enctype="multipart/form-data">
+            @csrf
+            <div id="contenido" style="display: none;">
+                <div class="text-center">
+                    Nº Personas: <input type="number">
+                    <br><br>
+                    Fecha: <input type="date">
+                    <br><br>
+                    Hora: <input type="time">
+                    <br><br><br>
+                    <button type="submit"
+                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">Publicar</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <br><br><br><br>
@@ -28,5 +79,7 @@
             </li>
         </ul>
     </footer>
+
+    <script src="{{ asset('js/reservas-script.js') }}"></script>
 
 </x-app-layout>
