@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('idValoracion')->nullable();
             $table->foreign('idValoracion')
                 ->references('id')->on('valoraciones')->onDelete('cascade');
+            $table->bigInteger('idUser')->nullable();
             $table->foreign('idUser')
                 ->references('id')->on('users')->onDelete('cascade');
-            $table->text('resenia');
+            $table->text('resenia')->nullable();
             $table->timestamps();
         });
     }

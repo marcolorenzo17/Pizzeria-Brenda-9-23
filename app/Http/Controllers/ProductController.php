@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\Product\StoreRequest;
@@ -66,8 +67,10 @@ class ProductController extends Controller
      */
     public function show(string $id): Response
     {
+        $valoraciones = DB::select('select * from valoraciones');
         return response()->view('products.show', [
             'products' => Product::findOrFail($id),
+            'valoraciones' => $valoraciones
         ]);
     }
 

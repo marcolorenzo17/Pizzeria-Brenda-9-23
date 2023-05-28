@@ -13,15 +13,21 @@
                     <table class="table-auto w-full">
                         <tr>
                             <td class="font-bold">Coste</td>
+                            <td class="font-bold">Dirección</td>
+                            <td class="font-bold">Teléfono</td>
                             <td class="font-bold">Fecha y hora</td>
                         </tr>
                         <tr>
+                            <td><br></td>
+                            <td><br></td>
                             <td><br></td>
                             <td><br></td>
                         </tr>
                         @foreach ($recibos as $recibo)
                             <tr>
                                 <td>{{ $recibo->total }} €</td>
+                                <td>{{ $recibo->direccion }}</td>
+                                <td>{{ $recibo->telefono }}</td>
                                 <td>{{ $recibo->created_at }}</td>
                             </tr>
                         @endforeach

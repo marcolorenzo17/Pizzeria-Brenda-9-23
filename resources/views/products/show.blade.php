@@ -14,8 +14,8 @@
                     </div>
                     <div class="mb-6">
                         @if ($products->alergenos != '')
-                        <img src="{{ asset($products->alergenos) }}" width="200px" height="200px">
-                    @endif
+                            <img src="{{ asset($products->alergenos) }}" width="200px" height="200px">
+                        @endif
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
@@ -86,6 +86,9 @@
                     <br><br><br>
                     <div>
                         <h2 class="text-center">RESEÑAS</h2>
+                        @foreach ($valoraciones as $valoracion)
+                            <p>{{ $valoracion->resenia }}</p>
+                        @endforeach
                     </div>
                 </div>
             </div>

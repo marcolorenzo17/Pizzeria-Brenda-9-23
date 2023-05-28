@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('idUser')->nullable();
             $table->foreign('idUser')
                 ->references('id')->on('users')->onDelete('cascade');
-            $table->integer('personas');
-            $table->string('tipo');
-            $table->date('fechahora');
+            $table->integer('personas')->nullable();
+            $table->string('tipo')->nullable();
+            $table->date('fechahora')->nullable();
             $table->timestamps();
         });
     }

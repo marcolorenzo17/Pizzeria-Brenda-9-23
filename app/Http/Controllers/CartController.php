@@ -68,6 +68,8 @@ class CartController extends Controller
     public function addData(Request $req) {
         $recibo = new Recibo;
         $recibo->total = $req->total;
+        $recibo->direccion = $req->direccion;
+        $recibo->telefono = $req->telefono;
         $recibo->save();
 
         \Cart::clear();

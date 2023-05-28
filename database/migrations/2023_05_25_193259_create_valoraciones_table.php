@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('valoraciones', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('idProduct')->nullable();
             $table->foreign('idProduct')
                 ->references('id')->on('products')->onDelete('cascade');
+            $table->bigInteger('idUser')->nullable();
             $table->foreign('idUser')
                 ->references('id')->on('users')->onDelete('cascade');
-            $table->integer('estrellas');
-            $table->text('resenia');
+            $table->integer('estrellas')->nullable();
+            $table->text('resenia')->nullable();
             $table->timestamps();
         });
     }
