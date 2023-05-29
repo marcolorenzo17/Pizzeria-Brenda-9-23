@@ -18,7 +18,8 @@ return new class extends Migration
                 ->references('id')->on('users')->onDelete('cascade');
             $table->integer('personas')->nullable();
             $table->string('tipo')->nullable();
-            $table->date('fechahora')->nullable();
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
             $table->timestamps();
         });
     }

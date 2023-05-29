@@ -13,7 +13,8 @@ class Evento extends Model
         'idUser',
         'personas',
         'tipo',
-        'fechahora'
+        'fecha',
+        'hora'
     ];
 
     public function user() {

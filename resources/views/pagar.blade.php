@@ -9,7 +9,7 @@
         <tr>
             <td>
                 <div class="container px-12 py-8 mx-auto bg-white">
-                    <h2 class="text-center">ELIGE UN MÉTODO DE PAGO <?php echo $_GET["direccion"]; ?></h2>
+                    <h2 class="text-center">ELIGE UN MÉTODO DE PAGO</h2>
                     <br>
                     <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
                         <tr>
