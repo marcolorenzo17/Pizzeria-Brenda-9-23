@@ -81,7 +81,7 @@
                                     </td>
                                     <td class="hidden text-right md:table-cell">
                                         <span class="text-sm font-medium lg:text-base">
-                                            {{ $item->price * $item->quantity }} €
+                                            {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
                                         </span>
                                     </td>
                                 </tr>
@@ -93,7 +93,7 @@
                                 <td class="hidden text-right md:table-cell">
                                     <br>
                                     <b>TOTAL:</b>
-                                    <p>{{ Cart::getTotal() }} €</p>
+                                    <p>{{ number_format(Cart::getTotal(), 2, '.', '') }} €</p>
                                 </td>
                             </tr>
                         </tbody>

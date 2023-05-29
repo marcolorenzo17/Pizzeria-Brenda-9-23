@@ -32,7 +32,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            {{ $products->price }} €
+                            {{ number_format($products->price, 2, '.', '') }} €
                         </p>
                     </div>
                     <div class="mb-6">

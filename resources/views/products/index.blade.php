@@ -47,7 +47,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -96,7 +96,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td>Queso Cheddar (1 €)</td>
+                <td>Queso Cheddar (1.00 €)</td>
                 <td><img src="img/alergenos/gluten-lacteos.png" width="150px" height="150px"></td>
             </tr>
             <tr>
@@ -125,7 +125,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -170,7 +170,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -215,7 +215,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -260,7 +260,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -305,7 +305,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -350,7 +350,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -393,7 +393,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -438,7 +438,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -481,7 +481,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -524,7 +524,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -567,7 +567,7 @@
                                 <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
                             @endif
                             <br>
-                            <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             <br><br>
                             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf

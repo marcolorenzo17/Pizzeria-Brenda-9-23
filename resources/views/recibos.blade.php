@@ -25,7 +25,7 @@
                         </tr>
                         @foreach ($recibos as $recibo)
                             <tr>
-                                <td>{{ $recibo->total }} €</td>
+                                <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                                 <td>{{ $recibo->direccion }}</td>
                                 <td>{{ $recibo->telefono }}</td>
                                 <td>{{ $recibo->created_at }}</td>
