@@ -12,7 +12,9 @@ function mostrar(elemento) {
   contenido.style.display = 'block';
   cumple.setAttribute("style", "");
   evento.setAttribute("style", "");
-  cena.setAttribute("style", "");
+  if (cena) {
+    cena.setAttribute("style", "");
+  }
   elemento.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
 
   switch (elemento) {

@@ -83,17 +83,34 @@
                             Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
                         </div>
                         <br>
-                        <div>
-                            <a href="recoger"><button type="button"
-                                class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Realizar
-                                pedido</button></a>
-                            <br><br>
-                            <form action="{{ route('cart.clear') }}" method="POST">
-                                @csrf
-                                <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Vaciar
-                                    carrito</button>
-                            </form>
-                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="recoger"><button type="button"
+                                            class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Realizar
+                                            pedido</button></a>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form action="{{ route('cart.clear') }}" method="POST">
+                                        @csrf
+                                        <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Vaciar
+                                            carrito</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="{{ route('eventos.index') }}" method="get">
+                                        @csrf
+                                        <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto" name="totalpresupuesto">
+                                        <input type="hidden" value="esconder" id="esconder" name="esconder">
+                                        <button type="submit" class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Calcular presupuesto</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
 
 
                     </div>

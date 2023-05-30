@@ -7,6 +7,10 @@
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
+        @if (isset($_GET['totalpresupuesto']))
+            <p class="text-center">*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido</p>
+            <br>
+        @endif
         <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
             <tr>
                 <td>
@@ -33,18 +37,20 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
-                                height="300px" width="300px" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">Cena</h5>
+                @if (!isset($_GET['esconder']))
+                    <td>
+                        <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="#contenido">
+                                <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
+                                    height="300px" width="300px" />
+                            </a>
+                            <div class="p-5">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                                    style="color: red;">Cena</h5>
+                            </div>
                         </div>
-                    </div>
-                </td>
+                    </td>
+                @endif
             </tr>
         </table>
         <br><br>
@@ -52,6 +58,9 @@
             @csrf
             <div id="contenido" style="display: none;">
                 <div class="text-center">
+                    @if (isset($_GET['totalpresupuesto']))
+                        <input type="hidden" id="presupuesto" name="presupuesto" value="{{ $_GET['totalpresupuesto'] }}">
+                    @endif
                     <input type="hidden" id="tipo" name="tipo" value="">
                     Nº Personas: <input type="number" name="personas" min="1" max="100" required>
                     <br><br>
@@ -76,6 +85,7 @@
                             <td class="font-bold">Personas</td>
                             <td class="font-bold">Fecha</td>
                             <td class="font-bold">Hora</td>
+                            <td class="font-bold">Presupuesto</td>
                         </tr>
                         <tr>
                             <td><br></td>
@@ -90,6 +100,7 @@
                                     <td>{{ $evento->personas }}</td>
                                     <td>{{ $evento->fecha }}</td>
                                     <td>{{ $evento->hora }}</td>
+                                    <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
                                 </tr>
                             @endif
                         @endforeach

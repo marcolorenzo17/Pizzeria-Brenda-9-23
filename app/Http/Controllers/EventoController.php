@@ -23,6 +23,7 @@ class EventoController extends Controller
         $evento->tipo = $req->tipo;
         $evento->fecha = $req->fecha;
         $evento->hora = $req->hora;
+        $evento->presupuesto = $req->presupuesto;
 
         $evento->save();
 
