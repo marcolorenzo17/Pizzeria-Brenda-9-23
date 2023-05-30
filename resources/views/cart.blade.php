@@ -83,7 +83,7 @@
                             Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
                         </div>
                         <br>
-                        <table>
+                        <table style="border-collapse: separate; border-spacing: 100px 0;">
                             <tr>
                                 <td>
                                     <a href="recoger"><button type="button"
@@ -106,7 +106,7 @@
                                         @csrf
                                         <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto" name="totalpresupuesto">
                                         <input type="hidden" value="esconder" id="esconder" name="esconder">
-                                        <button type="submit" class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">Calcular presupuesto</button>
+                                        <button type="submit" class="px-6 py-2 text-sm  rounded shadow" style="background-color:gold;">Calcula el presupuesto para tu evento</button>
                                     </form>
                                 </td>
                             </tr>

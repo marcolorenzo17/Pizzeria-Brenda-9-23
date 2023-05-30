@@ -828,8 +828,22 @@
 </head>
 
 <body class="antialiased">
+    <br>
+    <table>
+        <tr>
+            <td>
+                <img src="{{ asset('img/logomadera.jpg') }}" alt="..." width="100px" height="100px">
+            </td>
+        </tr>
+    </table>
+    <br>
     <div class="logo_div">
-        <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo">
+        <video width="1280" height="720" autoplay loop>
+            <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
+            Tu navegador no es compatible con este vídeo.
+        </video>
+        <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo"
+            style="position: absolute; top: 100px; right: 0px;" width="600px" height="600px">
     </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
@@ -897,6 +911,13 @@
                         <h1 class="text-center">PERRITOS</h1>
                     </a>
                 </td>
+                <td>
+                    <a href="{{ url('perritosAnon') }}">
+                        <h1 class="text-center">BEBIDAS</h1>
+                    </a>
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <a href="#waw">
                         <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
@@ -996,6 +1017,37 @@
     <div id="con" class="container px-12 py-8 mx-auto bg-white">
         <p>Contacto</p>
     </div>
+    <table>
+        <tr>
+            <td>
+                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio5.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio7.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+            <td>
+                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>

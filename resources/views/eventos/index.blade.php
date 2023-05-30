@@ -8,7 +8,7 @@
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
         @if (isset($_GET['totalpresupuesto']))
-            <p class="text-center">*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido</p>
+            <p class="text-center">*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.</p>
             <br>
         @endif
         <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
@@ -67,6 +67,10 @@
                     Fecha: <input type="date" name="fecha" id="fecha" required>
                     <br><br>
                     Hora: <input type="time" name="hora" min="20:30" max="23:30" required>
+                    @if (isset($_GET['totalpresupuesto']))
+                        <br><br><br>
+                        <p style="font-weight:bolder;">Presupuesto: {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
+                    @endif
                     <br><br><br>
                     <button type="submit"
                         class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">Reservar</button>
