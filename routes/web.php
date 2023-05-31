@@ -83,6 +83,21 @@ Route::get('/perritosAnon', function() {
     return view('productsAnon', ['products' => $products]);
 });
 
+Route::get('/cervezasAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Cerveza')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/vinosAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Vino')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
+Route::get('/refrescosAnon', function() {
+    $products = DB::table('products')->where('type', '=', 'Refresco')->get();
+    return view('productsAnon', ['products' => $products]);
+});
+
 
 Route::resource('products', ProductController::class);
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');

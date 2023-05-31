@@ -837,13 +837,11 @@
         </tr>
     </table>
     <br>
-    <div class="logo_div">
-        <video width="1280" height="720" autoplay loop>
+    <div>
+        <video width="1920" height="1038" autoplay loop>
             <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
             Tu navegador no es compatible con este vídeo.
         </video>
-        <img src="{{ asset('img/logo.png') }}" alt="pizzeria_brenda" class="logo"
-            style="position: absolute; top: 100px; right: 0px;" width="600px" height="600px">
     </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
@@ -863,84 +861,95 @@
         </div>
     @endif
     <br>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table class="table-auto w-full">
-            <tr>
-                <td>
-                    <a href="{{ url('pizzasAnon') }}">
-                        <h1 class="text-center">PIZZAS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('burgersAnon') }}">
-                        <h1 class="text-center">HAMBURGUESAS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('sandwichAnon') }}">
-                        <h1 class="text-center">SÁNDWICHES</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('pastasAnon') }}">
-                        <h1 class="text-center">PASTA</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('arrocesAnon') }}">
-                        <h1 class="text-center">ARROCES</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('baguettesAnon') }}">
-                        <h1 class="text-center">BAGUETTES</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('ensaladasAnon') }}">
-                        <h1 class="text-center">ENSALADAS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('complementosAnon') }}">
-                        <h1 class="text-center">COMPLEMENTOS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('perritosAnon') }}">
-                        <h1 class="text-center">PERRITOS</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ url('perritosAnon') }}">
-                        <h1 class="text-center">BEBIDAS</h1>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#waw">
-                        <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="#faq">
-                        <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
-                    </a>
-                </td>
-                <td>
-                    <a href="#con">
-                        <h1 class="text-center">CONTÁCTANOS</h1>
-                    </a>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+        <tr>
+            <td>
+                <a href="{{ url('pizzasAnon') }}">
+                    <h1 class="text-center">PIZZAS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('burgersAnon') }}">
+                    <h1 class="text-center">HAMBURGUESAS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('sandwichAnon') }}">
+                    <h1 class="text-center">SÁNDWICHES</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('pastasAnon') }}">
+                    <h1 class="text-center">PASTA</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('arrocesAnon') }}">
+                    <h1 class="text-center">ARROCES</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('baguettesAnon') }}">
+                    <h1 class="text-center">BAGUETTES</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('ensaladasAnon') }}">
+                    <h1 class="text-center">ENSALADAS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('complementosAnon') }}">
+                    <h1 class="text-center">COMPLEMENTOS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('perritosAnon') }}">
+                    <h1 class="text-center">PERRITOS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('cervezasAnon') }}">
+                    <h1 class="text-center">CERVEZAS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('vinosAnon') }}">
+                    <h1 class="text-center">VINOS</h1>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url('refrescosAnon') }}">
+                    <h1 class="text-center">REFRESCOS</h1>
+                </a>
+            </td>
+        </tr>
+    </table>
     <br>
+    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+        <tr>
+            <td>
+                <a href="#waw">
+                    <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
+                </a>
+            </td>
+            <td>
+                <a href="#faq">
+                    <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
+                </a>
+            </td>
+            <td>
+                <a href="#con">
+                    <h1 class="text-center">CONTÁCTANOS</h1>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br><br>
     <h1 class="text-center">PROMOCIONES:</h1>
     <br>
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table class="table-auto w-full">
+        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
             <tr>
                 <td>
                     <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
@@ -1012,11 +1021,56 @@
         </p>
     </div>
     <div id="faq" class="container px-12 py-8 mx-auto bg-white">
-        <p>Prueba de preguntas frecuentes</p>
+        <p>Preguntas frecuentes</p>
     </div>
     <div id="con" class="container px-12 py-8 mx-auto bg-white">
-        <p>Contacto</p>
+        <h2 class="text-center">CONTÁCTANOS</h2>
+        <br><br>
+        <h3 style="font-weight: bolder;">TELÉFONOS</h3>
+        <br>
+        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
+            <tr>
+                <td>956 37 11 15</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>956 37 47 36</td>
+                <td>Puedes hacer tu pedido por teléfono</td>
+            </tr>
+            <tr>
+                <td>627 650 605</td>
+                <td></td>
+            </tr>
+        </table>
+        <br><br>
+        <h3 style="font-weight: bolder;">TE ATENDEREMOS EN HORARIO:</h3>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De lunes a domingo: 20:30 - 23:30</p>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Domingo por la mañana: 13:30 - 15:00</p>
+        <br><br>
+        <div class="text-center">
+            <h3 style="font-weight: bolder;">VISÍTANOS EN:</h3>
+            <br>
+            <p>
+                C/ Padre Lerchundi, 3<br>
+                (junto a antigua estación de Los Amarillos)<br>
+                11550 - Chipiona (Cádiz)
+            </p>
+            <br>
+            <img src="{{ asset('img/mapsplaceholder.png') }}" alt="..." class="max-h-60 mx-auto">
+        </div>
+        <br><br>
+        <div class="text-center">
+            <h3 style="font-weight: bolder;">ATENCIÓN AL CLIENTE:</h3>
+            <br>
+            <p>
+                brendapizza@hotmail.com
+            </p>
+        </div>
+        <br>
     </div>
+    <br><br>
     <table>
         <tr>
             <td>
@@ -1032,13 +1086,13 @@
                 <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
             </td>
             <td>
-                <img src="{{ asset('img/premio5.jpg') }}" alt="..." width="80px" height="80px">
+                <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
             </td>
             <td>
                 <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
             </td>
             <td>
-                <img src="{{ asset('img/premio7.jpg') }}" alt="..." width="80px" height="80px">
+                <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
             </td>
             <td>
                 <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
