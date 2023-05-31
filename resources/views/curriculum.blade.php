@@ -6,10 +6,15 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <h2 class="text-center">PIZZERÍA BRENDA: ARTESANAL Y NATURAL</h2>
-        <br>
-        <p>
-        </p>
+        <div class="mx-auto text-center">
+            <p>¿Quieres trabajar con nosotros?<br>Envíanos ya tu currículum.</p>
+        </div>
+        <br><br>
+        <div class="mx-auto text-center">
+            <form action="" method="">
+                <input type="file" name="curriculum" id="curriculum">
+            </form>
+        </div>
     </div>
 
     <br><br><br><br>

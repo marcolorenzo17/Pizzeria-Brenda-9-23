@@ -865,8 +865,8 @@
     <a href="{{ url('/') }}">
         <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
     </a>
-    <br>
-    <h1 class="text-center">PROMOCIONES:</h1>
+    <br><br>
+    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">NUESTRAS PROMOCIONES</h1>
     <br>
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <table class="table-auto w-full">

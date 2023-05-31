@@ -837,7 +837,7 @@
         </tr>
     </table>
     <br>
-    <div>
+    <div class="mx-auto">
         <video width="1920" height="1038" autoplay loop>
             <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
             Tu navegador no es compatible con este vídeo.
@@ -861,71 +861,38 @@
         </div>
     @endif
     <br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 20px 0; text-align:center;">
         <tr>
-            <td>
-                <a href="{{ url('pizzasAnon') }}">
-                    <h1 class="text-center">PIZZAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('burgersAnon') }}">
-                    <h1 class="text-center">HAMBURGUESAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('sandwichAnon') }}">
-                    <h1 class="text-center">SÁNDWICHES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('pastasAnon') }}">
-                    <h1 class="text-center">PASTA</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('arrocesAnon') }}">
-                    <h1 class="text-center">ARROCES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('baguettesAnon') }}">
-                    <h1 class="text-center">BAGUETTES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('ensaladasAnon') }}">
-                    <h1 class="text-center">ENSALADAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('complementosAnon') }}">
-                    <h1 class="text-center">COMPLEMENTOS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('perritosAnon') }}">
-                    <h1 class="text-center">PERRITOS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('cervezasAnon') }}">
-                    <h1 class="text-center">CERVEZAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('vinosAnon') }}">
-                    <h1 class="text-center">VINOS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('refrescosAnon') }}">
-                    <h1 class="text-center">REFRESCOS</h1>
-                </a>
-            </td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">HAMBURGUESAS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">SÁNDWICHES</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ARROCES</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ENSALADAS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">COMPLEMENTOS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PERRITOS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">CERVEZAS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">VINOS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">REFRESCOS</a></td>
         </tr>
     </table>
+    <br><br><br>
+    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">NUESTRAS PROMOCIONES</h1>
     <br>
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+            <tr>
+                <td>
+                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
+                </td>
+                <td>
+                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
     <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
         <tr>
             <td>
@@ -945,21 +912,6 @@
             </td>
         </tr>
     </table>
-    <br><br>
-    <h1 class="text-center">PROMOCIONES:</h1>
-    <br>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-            <tr>
-                <td>
-                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
-                </td>
-                <td>
-                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
-                </td>
-            </tr>
-        </table>
-    </div>
     <br><br>
     <div id="waw" class="container px-12 py-8 mx-auto bg-white">
         <br>
