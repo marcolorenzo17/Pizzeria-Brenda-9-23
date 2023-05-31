@@ -13,15 +13,21 @@
                     <table class="table-auto w-full">
                         <tr>
                             <td class="font-bold">Coste</td>
+                            <td class="font-bold">Dirección</td>
+                            <td class="font-bold">Teléfono</td>
                             <td class="font-bold">Fecha y hora</td>
                         </tr>
                         <tr>
                             <td><br></td>
                             <td><br></td>
+                            <td><br></td>
+                            <td><br></td>
                         </tr>
                         @foreach ($recibos as $recibo)
                             <tr>
-                                <td>{{ $recibo->total }} €</td>
+                                <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
+                                <td>{{ $recibo->direccion }}</td>
+                                <td>{{ $recibo->telefono }}</td>
                                 <td>{{ $recibo->created_at }}</td>
                             </tr>
                         @endforeach
@@ -39,6 +45,12 @@
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
             <li>
                 <a href="whoarewe" class="mr-4 hover:underline md:mr-6">¿Quiénes somos?</a>
+            </li>
+            <li>
+                <a href="faq" class="mr-4 hover:underline md:mr-6">Preguntas frecuentes</a>
+            </li>
+            <li>
+                <a href="contact" class="mr-4 hover:underline md:mr-6">Contáctanos</a>
             </li>
         </ul>
     </footer>
