@@ -98,6 +98,18 @@ Route::get('/refrescosAnon', function() {
     return view('productsAnon', ['products' => $products]);
 });
 
+Route::get('/whoareweAnon', function() {
+    return view('whoareweAnon');
+});
+
+Route::get('/faqAnon', function() {
+    return view('faqAnon');
+});
+
+Route::get('/contactAnon', function() {
+    return view('contactAnon');
+});
+
 
 Route::resource('products', ProductController::class);
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');

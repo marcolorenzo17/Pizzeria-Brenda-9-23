@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pizzería Brenda</title>
+    <title>Contáctanos</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -827,22 +827,7 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased">
-    <br>
-    <table>
-        <tr>
-            <td>
-                <img src="{{ asset('img/logomadera.jpg') }}" alt="..." width="100px" height="100px">
-            </td>
-        </tr>
-    </table>
-    <br>
-    <div class="mx-auto">
-        <video width="1920" height="1038" autoplay loop>
-            <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
-            Tu navegador no es compatible con este vídeo.
-        </video>
-    </div>
+<body class="antialiased" style="background-color:white;">
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
@@ -860,90 +845,57 @@
             @endauth
         </div>
     @endif
-    <br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 20px 0; text-align:center;">
-        <tr>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">HAMBURGUESAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">SÁNDWICHES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ARROCES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ENSALADAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">COMPLEMENTOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PERRITOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">CERVEZAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">VINOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">REFRESCOS</a></td>
-        </tr>
-    </table>
-    <br><br><br>
-    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">NUESTRAS PROMOCIONES</h1>
-    <br>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+    <div class="container px-12 py-8 mx-auto bg-white">
+        <h2 class="text-center">CONTÁCTANOS</h2>
+        <br><br>
+        <h3 style="font-weight: bolder;">TELÉFONOS</h3>
+        <br>
+        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
             <tr>
-                <td>
-                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
-                </td>
-                <td>
-                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
-                </td>
+                <td>956 37 11 15</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>956 37 47 36</td>
+                <td>Puedes hacer tu pedido por teléfono</td>
+            </tr>
+            <tr>
+                <td>627 650 605</td>
+                <td></td>
             </tr>
         </table>
+        <br><br>
+        <h3 style="font-weight: bolder;">TE ATENDEREMOS EN HORARIO:</h3>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De lunes a domingo: 20:30 - 23:30</p>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Domingo por la mañana: 13:30 - 15:00</p>
+        <br><br>
+        <div class="text-center">
+            <h3 style="font-weight: bolder;">VISÍTANOS EN:</h3>
+            <br>
+            <p>
+                C/ Padre Lerchundi, 3<br>
+                (junto a antigua estación de Los Amarillos)<br>
+                11550 - Chipiona (Cádiz)
+            </p>
+            <br>
+            <img src="{{ asset('img/mapsplaceholder.png') }}" alt="..." class="max-h-60 mx-auto">
+        </div>
+        <br><br>
+        <div class="text-center">
+            <h3 style="font-weight: bolder;">ATENCIÓN AL CLIENTE:</h3>
+            <br>
+            <p>
+                brendapizza@hotmail.com
+            </p>
+        </div>
     </div>
     <br><br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-        <tr>
-            <td>
-                <a href="whoareweAnon">
-                    <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
-                </a>
-            </td>
-            <td>
-                <a href="faqAnon">
-                    <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="contactAnon">
-                    <h1 class="text-center">CONTÁCTANOS</h1>
-                </a>
-            </td>
-        </tr>
-    </table>
+    <a href="{{ url('/') }}">
+        <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
+    </a>
     <br><br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 100px 0; text-align:center;">
-        <tr>
-            <td>
-                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-        </tr>
-    </table>
 </body>
 
 </html>

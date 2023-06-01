@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pizzería Brenda</title>
+    <title>¿Quiénes somos?</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -828,21 +828,6 @@
 </head>
 
 <body class="antialiased">
-    <br>
-    <table>
-        <tr>
-            <td>
-                <img src="{{ asset('img/logomadera.jpg') }}" alt="..." width="100px" height="100px">
-            </td>
-        </tr>
-    </table>
-    <br>
-    <div class="mx-auto">
-        <video width="1920" height="1038" autoplay loop>
-            <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
-            Tu navegador no es compatible con este vídeo.
-        </video>
-    </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
@@ -860,90 +845,70 @@
             @endauth
         </div>
     @endif
-    <br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 20px 0; text-align:center;">
-        <tr>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">HAMBURGUESAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">SÁNDWICHES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ARROCES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ENSALADAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">COMPLEMENTOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PERRITOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">CERVEZAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">VINOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">REFRESCOS</a></td>
-        </tr>
-    </table>
-    <br><br><br>
-    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">NUESTRAS PROMOCIONES</h1>
-    <br>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-            <tr>
-                <td>
-                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
-                </td>
-                <td>
-                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
-                </td>
-            </tr>
-        </table>
+    <div class="container px-12 py-8 mx-auto bg-white">
+        <br>
+        <h2 class="text-center">¿QUIÉNES SOMOS?</h2>
+        <br><br>
+        <h2 class="text-center">PIZZERÍA BRENDA: ARTESANAL Y NATURAL</h2>
+        <br>
+        <p>
+            Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo
+            Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.<br><br>
+            Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con
+            mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro
+            pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos
+            años.
+        </p>
+        <br>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw1.png') }}" alt="waw1">
+        </div>
+        <br>
+        <p>
+            Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación.
+            Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el
+            local, lo que nos proporcionó agilidad y rapidez en el servicio.<br>
+            Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia,
+            y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros
+            clientes un producto totalmente natural, artesanal y de calidad.<br><br>
+            Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y
+            fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.
+        </p>
+        <br>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw2.png') }}" alt="waw2">
+        </div>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw3.png') }}" alt="waw3">
+        </div>
+        <br>
+        <p>
+            En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada,
+            platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio
+            de la zona.<br><br>
+            La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza
+            donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por
+            parte de nuestro joven y atento personal.<br>
+            Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura
+            y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades
+            y promociones en la carta.
+        </p>
+        <br>
+        <div>
+            <img class="mx-auto" src="{{ asset('img/waw4.png') }}" alt="waw4">
+        </div>
+        <br>
+        <p>
+            También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos
+            sin moverte de casa.<br><br>
+            ¡Te esperamos! ¡Visítanos!
+        </p>
     </div>
+    <br>
+    <a href="{{ url('/') }}">
+        <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
+    </a>
     <br><br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-        <tr>
-            <td>
-                <a href="whoareweAnon">
-                    <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
-                </a>
-            </td>
-            <td>
-                <a href="faqAnon">
-                    <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="contactAnon">
-                    <h1 class="text-center">CONTÁCTANOS</h1>
-                </a>
-            </td>
-        </tr>
-    </table>
-    <br><br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 100px 0; text-align:center;">
-        <tr>
-            <td>
-                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-        </tr>
-    </table>
 </body>
 
 </html>
