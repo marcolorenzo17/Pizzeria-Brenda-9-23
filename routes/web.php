@@ -173,6 +173,7 @@ Route::get('/recibos', ReciboController::class);
 
 
 Route::get('/curriculum', CurriculumController::class);
+Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
 
 
 require __DIR__.'/auth.php';

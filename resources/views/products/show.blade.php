@@ -9,6 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    <a href="{{ route('products.index') }}"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md">VOLVER</a>
                     <div class="mb-6">
                         <img src="{{ asset($products->image) }}" alt="" class="max-h-60 mx-auto">
                     </div>
@@ -86,9 +88,6 @@
                         </tr>
                     </table>
                     <br><br><br>
-                    <a href="{{ route('products.index') }}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md">VOLVER</a>
-                    <br><br>
                     <h2 class="text-center">RESEÑAS</h2>
                     <br><br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
