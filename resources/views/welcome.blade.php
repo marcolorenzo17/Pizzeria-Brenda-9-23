@@ -862,7 +862,7 @@
     <br>
     <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 20px 0; text-align:center;">
         <tr>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon/{locale}"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">HAMBURGUESAS</a></td>
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">SÁNDWICHES</a></td>
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
@@ -896,7 +896,7 @@
         <tr>
             <td>
                 <a href="whoareweAnon">
-                    <h1 class="text-center">@lang('¿QUIÉNES SOMOS?')</h1>
+                    <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
                 </a>
             </td>
             <td>

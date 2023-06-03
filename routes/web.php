@@ -33,80 +33,80 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/{locale}', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/pizzasAnon/{locale}', function() {
+Route::get('/pizzasAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Pizza')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/burgersAnon/{locale}', function() {
+Route::get('/burgersAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Hamburguesa')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/sandwichAnon/{locale}', function() {
+Route::get('/sandwichAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Sándwich')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/pastasAnon/{locale}', function() {
+Route::get('/pastasAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Pasta')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/arrocesAnon/{locale}', function() {
+Route::get('/arrocesAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Arroz')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/baguettesAnon/{locale}', function() {
+Route::get('/baguettesAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Baguette')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/ensaladasAnon/{locale}', function() {
+Route::get('/ensaladasAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Ensalada')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/complementosAnon/{locale}', function() {
+Route::get('/complementosAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Complemento')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/perritosAnon/{locale}', function() {
+Route::get('/perritosAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Perrito')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/cervezasAnon/{locale}', function() {
+Route::get('/cervezasAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Cerveza')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/vinosAnon/{locale}', function() {
+Route::get('/vinosAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Vino')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/refrescosAnon/{locale}', function() {
+Route::get('/refrescosAnon', function() {
     $products = DB::table('products')->where('type', '=', 'Refresco')->get();
     return view('productsAnon', ['products' => $products]);
 });
 
-Route::get('/whoareweAnon/{locale}', function() {
+Route::get('/whoareweAnon', function() {
     return view('whoareweAnon');
 });
 
-Route::get('/faqAnon/{locale}', function() {
+Route::get('/faqAnon', function() {
     return view('faqAnon');
 });
 
-Route::get('/contactAnon/{locale}', function() {
+Route::get('/contactAnon', function() {
     return view('contactAnon');
 });
 
