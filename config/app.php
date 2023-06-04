@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,21 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Available locales
+    |--------------------------------------------------------------------------
+    |
+    | List all locales that your application works with
+    |
+    */
+
+    'available_locales' => [
+        'Español' => 'es',
+        'English' => 'en',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -107,6 +121,7 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
+
 
     'faker_locale' => 'en_US',
 

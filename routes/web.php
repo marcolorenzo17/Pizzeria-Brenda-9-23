@@ -175,5 +175,11 @@ Route::get('/recibos', ReciboController::class);
 Route::get('/curriculum', CurriculumController::class);
 Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
 
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+});
 
 require __DIR__.'/auth.php';
