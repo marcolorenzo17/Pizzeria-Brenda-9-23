@@ -21,7 +21,7 @@
                                     id="efectivodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                            onclick="efectivo()" />
+                                            onclick="mostrar('efectivo')" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
@@ -34,7 +34,7 @@
                                     id="creditodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                            onclick="credito()" />
+                                            onclick="mostrar('credito')" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
@@ -45,8 +45,23 @@
                         </tr>
                     </table>
                     <br>
-                    <div id="contenido">
-                        <div id="formulario"></div>
+                    <div id="contenido" style="display:none;">
+                        <div id="formulario">
+                            <label for="tarjeta" id="tarjeta">
+                            <select name="tarjeta" id="tarjeta">
+                                <option value="mastercard">MasterCard</option>
+                                <option value="visa">Visa</option>
+                                <option value="maestro">Maestro</option>
+                            </select>
+                            <p>{{__('Nombre:')}}</p>
+                            <input type="text" name="nombre" id="nombre" required>
+                            <p>{{__('Nº Tarjeta:')}}</p>
+                            <input type="text" name="numero" id="numero" required>
+                            <p>{{__('Caducidad:')}}</p>
+                            <input type="text" name="caducidad" id="caducidad" required>
+                            <p>CVV:</p>
+                            <input type="text" name="seguridad" id="seguridad" required>
+                        </div>
                     </div>
                 </div>
             </td>
@@ -105,7 +120,7 @@
                     <form action="{{ route('cart.add') }}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
-                        <input type="hidden" value="{{ $_GET["direccion"] }}" name="direccion">
+                        <input type="hidden" value="{{ $_GET["direccion1"] }}" name="direccion">
                         <div class="text-center">
                             <button type="submit"
                                 class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Realizar compra')}}</button>
@@ -135,6 +150,6 @@
         </ul>
     </footer>
 
-    <script src="{{ asset('js/pagar-script.js') }}"></script>
+    <script src="{{ asset('js/pagar-script-2.js') }}"></script>
 
 </x-app-layout>

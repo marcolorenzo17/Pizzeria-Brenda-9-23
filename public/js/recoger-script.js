@@ -60,7 +60,7 @@ function domicilio() {
   ruta.setAttribute("action", "pagardomicilio");
 
   recogerdiv.setAttribute("style", "");
-  domiciliodiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
+  domiciliodiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid");
 
   document.getElementById("formulario").remove();
   if (document.getElementById("mensajeeuros")) {

@@ -16,7 +16,7 @@
                     <div
                         id="recogerdiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="recoger()"/>
+                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')"/>
                         </a>
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">{{__('Recoger en Pizzería')}}</h5>
@@ -27,7 +27,7 @@
                     <div
                         id="domiciliodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="domicilio()"/>
+                            <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')"/>
                         </a>
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">{{__('A domicilio')}}
@@ -41,9 +41,31 @@
         <form action="" method="get" enctype="multipart/form-data" id="ruta">
             @csrf
             <div id="contenido">
+                <!--
                 <div id="formulario"></div>
                 <div id="botondiv"></div>
                 <p id="mensajeeuros"></p>
+                -->
+                <div id="form1" style="display:none;">
+                    <div class="mb-6">
+                        <label for="direccion1" class="block mb-2 text-sm font-medium text-gray-900">{{__('Dirección')}}</label>
+                        <input type="text" id="direccion1" name="direccion1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="C/ Padre Lerchundi, 3" readonly>
+                    </div>
+                </div>
+                <div id="form2" style="display:none;">
+                    <div class="mb-6">
+                        <label for="direccion2" class="block mb-2 text-sm font-medium text-gray-900">{{__('Dirección')}}</label>
+                        <input type="text" id="direccion2" name="direccion2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+                    <div class="mb-6">
+                        <label for="telefono" class="block mb-2 text-sm font-medium text-gray-900">{{__('Teléfono')}}</label>
+                        <input type="text" id="telefono" name="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+                </div>
+                <p id="mensajeeuros" style="display:none;">{{__('*Servicio a domicilio: 2€ adicionales')}}</p>
+                <div id="botondiv" class="text-center" style="display:none;">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}">
+                </div>
             </div>
         </form>
     </div>
@@ -67,6 +89,6 @@
         </ul>
     </footer>
 
-    <script src="{{ asset('js/recoger-script.js') }}"></script>
+    <script src="{{ asset('js/recoger-script-2.js') }}"></script>
 
 </x-app-layout>
