@@ -827,7 +827,7 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased">
+<body class="antialiased" style="background-image:url('img/fondoanon2.jpg');">
     <div>
         @include('partials/language_switcher')
     </div>
@@ -848,14 +848,12 @@
         </div>
     @endif
     <br>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset($product->image) }}" width="200px" height="200px" class="mx-auto">
-                <div class="flex items-end justify-end w-full bg-cover">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
 
-                </div>
-                <div class="px-5 py-3">
+                <img src="{{ asset($product->image) }}" class="mx-auto" style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                <div class="px-5 py-3" style="padding:15px;">
                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
                     <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
                 </div>
@@ -863,25 +861,10 @@
             </div>
         @endforeach
     </div>
-    <br>
+    <br><br><br>
     <a href="{{ url('/') }}">
-        <h1 class="text-center">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
+        <h1 class="text-center" style="font-size:30px; font-weight:bolder;">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
     </a>
-    <br><br>
-    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">{{__('NUESTRAS PROMOCIONES')}}</h1>
-    <br>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table class="table-auto w-full">
-            <tr>
-                <td>
-                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
-                </td>
-                <td>
-                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
-                </td>
-            </tr>
-        </table>
-    </div>
     <br><br>
 </body>
 

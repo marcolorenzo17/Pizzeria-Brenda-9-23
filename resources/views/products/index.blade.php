@@ -11,6 +11,7 @@
             <a href="{{ route('products.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">AÑADIR PRODUCTO</a>
         --}}
     </x-slot>
+    <link rel="stylesheet" href="/css/index_products.css" />
     <div class="container px-12 py-8 mx-auto">
         <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
             <table class="table-auto w-full text-center" style="border-collapse: separate; border-spacing:25px 25px;">
@@ -33,6 +34,8 @@
         <br>
         <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <h2 class="text-2xl font-bold text-center" style="color:darkblue; filter:drop-shadow(5px 5px 4px black);">{{__('"EL PLACER DE UNA BUENA PIZZA ARTESANAL"')}}</h2>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
         <br>
@@ -59,7 +62,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -83,6 +86,8 @@
         <br><br><br>
         <h3 class="text-2xl font-bold text-purple-700" id="2">{{__('HAMBURGUESAS')}}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
+        <br>
+        <h2 class="text-2xl font-bold text-center" style="color:darkblue; filter:drop-shadow(5px 5px 4px black);">{{__('"COCINA RÁPIDA DE CALIDAD"')}}</h2>
         <br>
         <img src="img/alergenos/gluten-sesamo.png" width="200px" height="200px">
         <br>
@@ -137,7 +142,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -182,7 +187,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -227,7 +232,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -272,7 +277,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -317,7 +322,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -362,7 +367,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -405,7 +410,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -450,7 +455,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -493,7 +498,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -536,7 +541,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -579,7 +584,7 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{__('AÑADIR AL CARRITO')}}</button>
                                 <br><br>
                                 {{--
                                     <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>

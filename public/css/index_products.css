@@ -1,0 +1,8 @@
+.acercar {
+    width: 170px;
+    transition: width 0.15s, height 0.15s;
+}
+
+.acercar:hover {
+    width: 200px;
+}
