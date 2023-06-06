@@ -28,7 +28,7 @@
                         @if (Session::has('notif.success'))
                         <div class="bg-blue-300 mt-2 p-4">
                             {{-- if it's there then print the notification --}}
-                            <span class="text-white">{{ Session::get('notif.success') }}</span>
+                            <span class="text-white">{{ __(Session::get('notif.success')) }}</span>
                         </div>
                         @endif
                     </div>

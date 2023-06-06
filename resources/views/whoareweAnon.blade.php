@@ -828,36 +828,34 @@
 </head>
 
 <body class="antialiased">
+    <div>
+        @include('partials/language_switcher')
+    </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Entrar</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Entrar')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
-                    sesión</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Iniciar sesión')}}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
     @endif
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
-        <h2 class="text-center">¿QUIÉNES SOMOS?</h2>
+        <h2 class="text-center">{{__('¿QUIÉNES SOMOS?')}}</h2>
         <br><br>
-        <h2 class="text-center">PIZZERÍA BRENDA: ARTESANAL Y NATURAL</h2>
+        <h2 class="text-center">{{__('PIZZERÍA BRENDA: ARTESANAL Y NATURAL')}}</h2>
         <br>
         <p>
-            Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo
-            Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.<br><br>
-            Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con
-            mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro
-            pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos
-            años.
+{{__('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.')}}<br><br>
+{{__('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.')}}
         </p>
         <br>
         <div>
@@ -865,14 +863,9 @@
         </div>
         <br>
         <p>
-            Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación.
-            Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el
-            local, lo que nos proporcionó agilidad y rapidez en el servicio.<br>
-            Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia,
-            y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros
-            clientes un producto totalmente natural, artesanal y de calidad.<br><br>
-            Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y
-            fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.
+{{__('Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación. Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el local, lo que nos proporcionó agilidad y rapidez en el servicio.')}}<br>
+{{__('Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia, y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros clientes un producto totalmente natural, artesanal y de calidad.')}}<br><br>
+{{__('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.')}}
         </p>
         <br>
         <div>
@@ -883,15 +876,9 @@
         </div>
         <br>
         <p>
-            En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada,
-            platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio
-            de la zona.<br><br>
-            La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza
-            donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por
-            parte de nuestro joven y atento personal.<br>
-            Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura
-            y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades
-            y promociones en la carta.
+{{__('En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada, platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio de la zona.')}}<br><br>
+{{__('La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por parte de nuestro joven y atento personal.')}}<br>
+{{__('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.')}}
         </p>
         <br>
         <div>
@@ -899,14 +886,13 @@
         </div>
         <br>
         <p>
-            También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos
-            sin moverte de casa.<br><br>
-            ¡Te esperamos! ¡Visítanos!
+{{__('También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos sin moverte de casa.')}}<br><br>
+{{__('¡Te esperamos! ¡Visítanos!')}}
         </p>
     </div>
     <br>
     <a href="{{ url('/') }}">
-        <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
+        <h1 class="text-center">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
     </a>
     <br><br>
 </body>

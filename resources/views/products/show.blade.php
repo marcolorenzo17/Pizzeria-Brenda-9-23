@@ -3,6 +3,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
             {{ $products->name }}
         </h2>
+        <div>
+            @include('partials/language_switcher')
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -10,7 +13,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('products.index') }}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md">VOLVER</a>
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER')}}</a>
                     <div class="mb-6">
                         <img src="{{ asset($products->image) }}" alt="" class="max-h-60 mx-auto">
                     </div>
@@ -21,7 +24,7 @@
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
-                            {{ 'Nombre' }}
+                            {{ __('Nombre') }}
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
@@ -30,7 +33,7 @@
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
-                            {{ 'Precio' }}
+                            {{ __('Precio') }}
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
@@ -39,7 +42,7 @@
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
-                            {{ 'Descripción' }}
+                            {{ __('Descripción') }}
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
@@ -48,7 +51,7 @@
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
-                            {{ 'Tipo' }}
+                            {{ __('Tipo') }}
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
@@ -66,8 +69,7 @@
                                     <input type="hidden" value="{{ $products->price }}" name="price">
                                     <input type="hidden" value="{{ $products->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
-                                    <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">AÑADIR AL
-                                        CARRITO</button>
+                                    <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
                                     <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -78,7 +80,7 @@
                                     @csrf
                                     @method('delete')
                                     <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">BORRAR</button>
+                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
                                 </form>
                             </td>
                             <td>
@@ -88,11 +90,11 @@
                         </tr>
                     </table>
                     <br><br><br>
-                    <h2 class="text-center">RESEÑAS</h2>
+                    <h2 class="text-center">{{__('RESEÑAS')}}</h2>
                     <br><br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
                         @csrf
-                        <textarea form="valoracion" name="resenia" placeholder="Escribe aquí tu reseña."></textarea>
+                        <textarea form="valoracion" name="resenia" placeholder="{{__('Escribe aquí tu reseña.')}}"></textarea>
                         <br><br>
                         <table>
                             <tr>
@@ -112,7 +114,7 @@
                         <br><br>
                         <div class="text-center">
                             <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">Publicar</button>
+                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Publicar')}}</button>
                         </div>
                     </form>
                     <br>
@@ -157,13 +159,12 @@
                                     action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
                                     method="POST">
                                     @csrf
-                                    <input type="text" name="reseniaCom" placeholder="Escribe aquí tu comentario."
+                                    <input type="text" name="reseniaCom" placeholder="{{__('Escribe aquí tu comentario.')}}"
                                         size="30">
                                     <br><br>
                                     <div>
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">Publicar
-                                            comentario</button>
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Publicar comentario')}}</button>
                                     </div>
                                 </form>
                                 <br><br>
@@ -179,17 +180,17 @@
 
     <footer
         class="fixed bottom-0 left-0 z-20 w-full p-4 bg-green-200 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6">
-        <span class="text-sm text-gray-500 sm:text-center">© 2023 Pizzería Brenda™. Todos los derechos reservados.
+        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
             <li>
-                <a href="whoarewe" class="mr-4 hover:underline md:mr-6">¿Quiénes somos?</a>
+                <a href="whoarewe" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
             </li>
             <li>
-                <a href="faq" class="mr-4 hover:underline md:mr-6">Preguntas frecuentes</a>
+                <a href="faq" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
             </li>
             <li>
-                <a href="contact" class="mr-4 hover:underline md:mr-6">Contáctanos</a>
+                <a href="contact" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
             </li>
         </ul>
     </footer>

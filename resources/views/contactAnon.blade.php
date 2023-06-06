@@ -828,27 +828,30 @@
 </head>
 
 <body class="antialiased" style="background-color:white;">
+    <div>
+        @include('partials/language_switcher')
+    </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Entrar</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Entrar')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Iniciar')}}
                     sesión</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
     @endif
     <div class="container px-12 py-8 mx-auto bg-white">
-        <h2 class="text-center">CONTÁCTANOS</h2>
+        <h2 class="text-center">{{__('CONTÁCTANOS')}}</h2>
         <br><br>
-        <h3 style="font-weight: bolder;">TELÉFONOS</h3>
+        <h3 style="font-weight: bolder;">{{__('TELÉFONOS')}}</h3>
         <br>
         <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
             <tr>
@@ -857,7 +860,7 @@
             </tr>
             <tr>
                 <td>956 37 47 36</td>
-                <td>Puedes hacer tu pedido por teléfono</td>
+                <td>{{__('Puedes hacer tu pedido por teléfono')}}</td>
             </tr>
             <tr>
                 <td>627 650 605</td>
@@ -865,18 +868,18 @@
             </tr>
         </table>
         <br><br>
-        <h3 style="font-weight: bolder;">TE ATENDEREMOS EN HORARIO:</h3>
+        <h3 style="font-weight: bolder;">{{__('TE ATENDEREMOS EN HORARIO:')}}</h3>
         <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De lunes a domingo: 20:30 - 23:30</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('De lunes a domingo: 20:30 - 23:30')}}</p>
         <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Domingo por la mañana: 13:30 - 15:00</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Domingo por la mañana: 13:30 - 15:00')}}</p>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder;">VISÍTANOS EN:</h3>
+            <h3 style="font-weight: bolder;">{{__('VISÍTANOS EN:')}}</h3>
             <br>
             <p>
                 C/ Padre Lerchundi, 3<br>
-                (junto a antigua estación de Los Amarillos)<br>
+                {{__('(junto a antigua estación de Los Amarillos)')}}<br>
                 11550 - Chipiona (Cádiz)
             </p>
             <br>
@@ -884,7 +887,7 @@
         </div>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder;">ATENCIÓN AL CLIENTE:</h3>
+            <h3 style="font-weight: bolder;">{{__('ATENCIÓN AL CLIENTE:')}}</h3>
             <br>
             <p>
                 brendapizza@hotmail.com
@@ -893,7 +896,7 @@
     </div>
     <br><br>
     <a href="{{ url('/') }}">
-        <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
+        <h1 class="text-center">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
     </a>
     <br><br>
 </body>

@@ -28,7 +28,7 @@ function aniadir(nombre, precio) {
     contenido.appendChild(parrafo);
 
     var botonelim = document.createElement("button");
-    var textoelim = document.createTextNode("Eliminar");
+    var textoelim = document.createTextNode("x");
     botonelim.appendChild(textoelim);
 
     botonelim.setAttribute("id", `b-${indice}`);

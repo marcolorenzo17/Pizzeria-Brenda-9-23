@@ -828,19 +828,21 @@
 </head>
 
 <body class="antialiased">
+    <div>
+        @include('partials/language_switcher')
+    </div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Entrar</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Entrar')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
-                    sesión</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Iniciar sesión')}}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
@@ -863,10 +865,10 @@
     </div>
     <br>
     <a href="{{ url('/') }}">
-        <h1 class="text-center">VOLVER A LA PÁGINA PRINCIPAL</h1>
+        <h1 class="text-center">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
     </a>
     <br><br>
-    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">NUESTRAS PROMOCIONES</h1>
+    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">{{__('NUESTRAS PROMOCIONES')}}</h1>
     <br>
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <table class="table-auto w-full">

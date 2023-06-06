@@ -828,9 +828,9 @@
 </head>
 
 <body class="antialiased">
-    @include('partials/language_switcher')
-    <p class="text-center">{{__('Hola qué tal')}}</p>
-    <br>
+    <div>
+        @include('partials/language_switcher')
+    </div>
     <table>
         <tr>
             <td>
@@ -849,14 +849,14 @@
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">Entrar</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">{{__('Entrar')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">Iniciar sesión</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">{{__('Iniciar sesión')}}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">Registrarse</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
@@ -868,18 +868,18 @@
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></td>
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></td>
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ARROCES</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></td>
             <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">ENSALADAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">COMPLEMENTOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PERRITOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">CERVEZAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">VINOS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">REFRESCOS</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('CERVEZAS')}}</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('VINOS')}}</a></td>
+            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('REFRESCOS')}}</a></td>
         </tr>
     </table>
     <br><br><br>
-    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">NUESTRAS PROMOCIONES</h1>
+    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">{{__('NUESTRAS PROMOCIONES')}}</h1>
     <br>
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
@@ -898,17 +898,17 @@
         <tr>
             <td>
                 <a href="whoareweAnon">
-                    <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
+                    <h1 class="text-center">{{__('¿QUIÉNES SOMOS?')}}</h1>
                 </a>
             </td>
             <td>
                 <a href="faqAnon">
-                    <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
+                    <h1 class="text-center">{{__('PREGUNTAS FRECUENTES')}}</h1>
                 </a>
             </td>
             <td>
                 <a href="contactAnon">
-                    <h1 class="text-center">CONTÁCTANOS</h1>
+                    <h1 class="text-center">{{__('CONTÁCTANOS')}}</h1>
                 </a>
             </td>
         </tr>

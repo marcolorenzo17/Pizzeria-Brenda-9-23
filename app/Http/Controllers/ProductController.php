@@ -118,7 +118,7 @@ class ProductController extends Controller
         $delete = $product->delete($id);
 
         if($delete) {
-            session()->flash('notif.success', 'El plato se ha eliminado con éxito.');
+            session()->flash('notif.success', 'El plato se ha borrado con éxito.');
             return redirect()->route('products.index');
         }
 
