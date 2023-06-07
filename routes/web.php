@@ -112,6 +112,7 @@ Route::get('/contactAnon', function() {
 
 
 Route::resource('products', ProductController::class);
+Route::get('crearproducto', [ProductController::class, 'crear'])->name('products.crear');
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');
 Route::post('addComentario/{idProduct}/{idValoracion}', [ProductController::class, 'addComentario'])->name('products.addComentario');
 

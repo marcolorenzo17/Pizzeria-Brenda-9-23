@@ -41,14 +41,17 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    /*
     public function create(): Response
     {
         return response()->view('products.form');
     }
+    */
 
     /**
      * Store a newly created resource in storage.
      */
+    /*
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validated();
@@ -64,6 +67,7 @@ class ProductController extends Controller
 
         return abort(500);
     }
+    */
 
     /**
      * Display the specified resource.
@@ -83,16 +87,19 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+    /*
     public function edit(string $id): Response
     {
         return response()->view('products.form', [
-            'products' => Product::findOrFail($id),
+            'product' => Product::findOrFail($id),
         ]);
     }
+    */
 
     /**
      * Update the specified resource in storage.
      */
+    /*
     public function update(Request $request, string $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
@@ -107,6 +114,7 @@ class ProductController extends Controller
 
         return abort(500);
     }
+    */
 
     /**
      * Remove the specified resource from storage.
@@ -123,6 +131,11 @@ class ProductController extends Controller
         }
 
         return abort(500);
+    }
+
+    public function crear(): Response
+    {
+        return response()->view('products.crear');
     }
 
     public function addValoracion(Request $req, string $id) {

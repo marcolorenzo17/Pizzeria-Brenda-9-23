@@ -16,6 +16,10 @@
         <br>
         <p class="text-center" style="font-weight:bolder;">{{__('LISTA PARA ADMINISTRADORES')}}</p>
         <br>
+        <div style="margin-left:20px;">
+            <a href="{{ route('products.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('CREAR PLATO')}}</a>
+        </div>
+        <br>
         <div>
             <table>
             @foreach ($products as $product)
@@ -30,11 +34,11 @@
                             <p>{{ number_format($product->price, 2, '.', '') }} €</p>
                         </div>
                         <div style="margin-left:auto; margin-right:0;">
-                        <form method="post" action="{{ route('products.destroy', $product->id) }}">
-                            @csrf
-                            @method('delete')
-                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
-                        </form>
+                            <form method="post" action="{{ route('products.destroy', $product->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
+                            </form>
                         </div>
                     </div>
                 </tr>
