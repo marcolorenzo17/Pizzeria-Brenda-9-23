@@ -75,13 +75,15 @@
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
                                 </form>
-                                <form method="post" action="{{ route('products.destroy', $products->id) }}"
-                                    class="inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
-                                </form>
+                                @if (Auth::user()->admin)
+                                    <form method="post" action="{{ route('products.destroy', $products->id) }}"
+                                        class="inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
+                                    </form>
+                                @endif
                             </td>
                             <td>
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
