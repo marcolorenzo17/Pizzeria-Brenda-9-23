@@ -12,6 +12,7 @@
     "Se ha creado el plato con éxito.": "The dish has been created successfully.",
     "El plato se ha actualizado con éxito.": "The dish has been updated successfully.",
     "El plato se ha borrado con éxito.": "The dish has been deleted successfully.",
+    "El ingrediente se ha borrado con éxito.": "The ingredient has been deleted successfully.",
     "Se ha añadido la valoración con éxito.": "The review has been posted successfully.",
     "Se ha añadido el comentario con éxito.": "The comment has been posted successfully.",
 
@@ -64,6 +65,7 @@
     "*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.": "*When making a reservation for a birthday or an event, a 5% discount is applied to the total cost of the order.",
 
     "LISTA DE PLATOS": "DISH LIST",
+    "LISTA PARA ADMINISTRADORES": "LIST FOR ADMINS",
     "BEBIDAS": "DRINKS",
     "AÑADIR AL CARRITO": "ADD TO CART",
     "BORRAR": "DELETE",

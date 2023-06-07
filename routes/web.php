@@ -157,7 +157,8 @@ Route::controller(IndexController::class)->group(function(){
 });
 */
 
-Route::get('/crearpizza', CrearpizzaController::class);
+Route::get('/crearpizza', CrearpizzaController::class)->name('crearpizza');
+Route::delete('/borraringrediente/{id}', [CrearpizzaController::class, 'destroy'])->name('crearpizza.destroy');
 
 
 Route::get('/whoarewe', WhoareweController::class);
