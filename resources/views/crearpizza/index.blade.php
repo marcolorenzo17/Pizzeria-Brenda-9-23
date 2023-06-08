@@ -25,25 +25,34 @@
             <table>
             @foreach ($ingredientes as $ingrediente)
                 <tr>
-                    <div style="margin:20px; display:flex; gap:20px;">
-                        <img src="{{ asset($ingrediente->image) }}" alt="..." style="height:120px; width:120px;">
-                        <div>
-                            <p>{{$ingrediente->type}}</p>
-                            <p>{{$ingrediente->name}}</p>
-                            <br>
-                            <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>
+                    <td>
+                        <div style="margin:20px; display:flex; gap:20px;">
+                            <img src="{{ asset($ingrediente->image) }}" alt="..." style="height:120px; width:120px;">
+                            <div>
+                                <p>{{$ingrediente->type}}</p>
+                                <p>{{$ingrediente->name}}</p>
+                                <br>
+                                <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>
+                            </div>
+                            <table style="margin-left:auto; margin-right:0;">
+                                <tr>
+                                    <td>
+                                        <a href="" class="bg-red-500 text-white px-4 py-2 rounded-md">{{__('DESHABILITAR')}}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div style="margin-left:auto; margin-right:0;">
-                            <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
-                        </div>
-                        <div style="margin-left:auto; margin-right:0;">
-                            <form method="post" action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
-                                @csrf
-                                @method('delete')
-                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
-                            </form>
-                        </div>
-                    </div>
+                    </td>
                 </tr>
             @endforeach
             </table>

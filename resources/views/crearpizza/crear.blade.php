@@ -24,7 +24,7 @@
             <br>
             <select id="type" name="type">
                 <option value="Base">Base</option>
-                <option value="Ingrediente">Ingrediente</option>
+                <option value="Ingrediente">{{__('Ingrediente')}}</option>
             </select>
             <br><br><br><br>
             <div class="text-center">

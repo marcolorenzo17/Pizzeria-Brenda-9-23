@@ -24,26 +24,45 @@
             <table>
             @foreach ($products as $product)
                 <tr>
-                    <div style="margin:20px; display:flex; gap:20px;">
-                        <img src="{{ asset($product->image) }}" alt="..." style="height:120px; width:120px;">
-                        <div>
-                            <p>{{$product->type}}</p>
-                            <p>{{$product->name}}</p>
-                            <p>{{$product->description}}</p>
-                            <br>
-                            <p>{{ number_format($product->price, 2, '.', '') }} €</p>
+                    <td>
+                        <div style="margin:20px; display:flex; gap:20px;">
+                            <img src="{{ asset($product->image) }}" alt="..." style="height:120px; width:120px;">
+                            <div>
+                                <p>{{$product->type}}</p>
+                                <p>{{$product->name}}</p>
+                                <p>{{$product->description}}</p>
+                                <br>
+                                <p>{{ number_format($product->price, 2, '.', '') }} €</p>
+                            </div>
+                            <table style="margin-left:auto; margin-right:0;">
+                                <tr>
+                                    <td>
+                                        @if ($product->habilitado)
+                                            <form method="post" action="{{ route('products.deshabilitar', $product->id) }}">
+                                                @csrf
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DESHABILITAR')}}</button>
+                                            </form>
+                                        @else
+                                            <form method="post" action="{{ route('products.habilitar', $product->id) }}">
+                                                @csrf
+                                                <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('HABILITAR')}}</button>
+                                            </form>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('products.editar', $product) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="{{ route('products.destroy', $product->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div style="margin-left:auto; margin-right:0;">
-                            <a href="{{ route('products.editar', $product) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
-                        </div>
-                        <div style="margin-left:auto; margin-right:0;">
-                            <form method="post" action="{{ route('products.destroy', $product->id) }}">
-                                @csrf
-                                @method('delete')
-                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
-                            </form>
-                        </div>
-                    </div>
+                    </td>
                 </tr>
             @endforeach
             </table>
@@ -78,7 +97,7 @@
             <br>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Pizza")
+                    @if ($product->type == "Pizza" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -160,7 +179,7 @@
             <br>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Hamburguesa")
+                    @if ($product->type == "Hamburguesa" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -207,7 +226,7 @@
             <img src="img/alergenos/gluten-lacteos-huevos-soja.png" width="200px" height="200px">
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Sándwich")
+                    @if ($product->type == "Sándwich" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -254,7 +273,7 @@
             <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Pasta")
+                    @if ($product->type == "Pasta" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -301,7 +320,7 @@
             <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Arroz")
+                    @if ($product->type == "Arroz" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -348,7 +367,7 @@
             <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Baguette")
+                    @if ($product->type == "Baguette" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -395,7 +414,7 @@
             <img src="img/alergenos/dioxido.png" width="200px" height="200px">
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Ensalada")
+                    @if ($product->type == "Ensalada" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -440,7 +459,7 @@
             <div class="h-1 bg-red-500 w-36"></div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Complemento")
+                    @if ($product->type == "Complemento" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -487,7 +506,7 @@
             <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Perrito")
+                    @if ($product->type == "Perrito" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -532,7 +551,7 @@
             <div class="h-1 bg-red-500 w-36"></div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Cerveza")
+                    @if ($product->type == "Cerveza" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -577,7 +596,7 @@
             <div class="h-1 bg-red-500 w-36"></div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Vino")
+                    @if ($product->type == "Vino" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
@@ -622,7 +641,7 @@
             <div class="h-1 bg-red-500 w-36"></div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($products as $product)
-                    @if ($product->type == "Refresco")
+                    @if ($product->type == "Refresco" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
                             <div class="flex items-end justify-end w-full bg-cover">

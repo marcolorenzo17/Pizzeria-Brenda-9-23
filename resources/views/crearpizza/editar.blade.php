@@ -24,10 +24,10 @@
             <br>
             <select id="type" name="type">
                 <option value="Base">Base</option>
-                <option value="Ingrediente">Ingrediente</option>
+                <option value="Ingrediente">{{__('Ingrediente')}}</option>
             </select>
             <br>
-            <strong>Tipo actual:</strong>&nbsp;{{ $ingrediente->type }}
+            <strong>{{__('Tipo actual:')}}</strong>&nbsp;{{ $ingrediente->type }}
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"

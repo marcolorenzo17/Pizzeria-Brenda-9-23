@@ -146,6 +146,7 @@ class ProductController extends Controller
         $product->image = '';
         $product->type = $req->type;
         $product->alergenos = '';
+        $product->habilitado = true;
 
         $product->save();
 
@@ -202,5 +203,27 @@ class ProductController extends Controller
 
         session()->flash('notif.success', 'Se ha añadido el comentario con éxito.');
         return redirect('/products/'.$product->id);
+    }
+
+    public function habilitar(string $id) {
+        $product = Product::findOrFail($id);
+
+        $product->habilitado = true;
+
+        $product->update();
+
+        session()->flash('notif.success', 'Se ha habilitado el plato con éxito.');
+        return redirect()->route('products.index');
+    }
+
+    public function deshabilitar(string $id) {
+        $product = Product::findOrFail($id);
+
+        $product->habilitado = false;
+
+        $product->update();
+
+        session()->flash('notif.success', 'Se ha deshabilitado el plato con éxito.');
+        return redirect()->route('products.index');
     }
 }

@@ -118,6 +118,8 @@ Route::post('aniadirproducto', [ProductController::class, 'aniadir'])->name('pro
 Route::post('actualizarproducto/{id}', [ProductController::class, 'actualizar'])->name('products.actualizar');
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');
 Route::post('addComentario/{idProduct}/{idValoracion}', [ProductController::class, 'addComentario'])->name('products.addComentario');
+Route::post('habilitarproducto/{id}', [ProductController::class, 'habilitar'])->name('products.habilitar');
+Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilitar'])->name('products.deshabilitar');
 
 
 Route::resource('promociones', PromocionController::class);
