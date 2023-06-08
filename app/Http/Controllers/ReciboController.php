@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ReciboController extends Controller
 {
     public function __invoke() {
-        $recibos = DB::select('select * from recibos');
+        $recibos = DB::select('select * from recibos order by id');
         return view('recibos', ['recibos' => $recibos]);
     }
 
@@ -26,5 +26,16 @@ class ReciboController extends Controller
         }
 
         return abort(500);
+    }
+
+    public function actualizar(Request $req, string $id) {
+        $product = Recibo::findOrFail($id);
+
+        $product->estado = $req->estado;
+
+        $product->update();
+
+        session()->flash('notif.success', 'Se ha actualizado el estado del pedido con éxito.');
+        return redirect()->route('recibos.index');
     }
 }

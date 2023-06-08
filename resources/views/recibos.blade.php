@@ -26,14 +26,12 @@
                             <td class="font-bold">{{__('Dirección')}}</td>
                             <td class="font-bold">{{__('Teléfono')}}</td>
                             <td class="font-bold">{{__('Fecha y hora')}}</td>
+                            <td class="font-bold">{{__('Estado')}}</td>
                             @if (Auth::user()->admin)
                                 <td class="font-bold">{{__('Eliminar')}}</td>
                             @endif
                         </tr>
                         <tr>
-                            <td><br></td>
-                            <td><br></td>
-                            <td><br></td>
                             <td><br></td>
                         </tr>
                         @foreach ($recibos as $recibo)
@@ -44,6 +42,24 @@
                                     <td>{{ $recibo->direccion }}</td>
                                     <td>{{ $recibo->telefono }}</td>
                                     <td>{{ $recibo->created_at }}</td>
+                                    <td>
+                                        <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
+                                        @csrf
+                                            <select id="estado" name="estado">
+                                                <option value="Pedido realizado">{{__('Pedido realizado')}}</option>
+                                                <option value="Pedido en curso">{{__('Pedido en curso')}}</option>
+                                                <option value="Pedido en reparto">{{__('Pedido en reparto')}}</option>
+                                                <option value="Pedido entregado">{{__('Pedido entregado')}}</option>
+                                            </select>
+                                            <br>
+                                            <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ $recibo->estado }}
+                                            <br><br>
+                                            <div class="text-center">
+                                                <button type="submit"
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('ACTUALIZAR')}}</button>
+                                            </div>
+                                        </form>
+                                    </td>
                                     <td>
                                         <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
                                             @csrf
@@ -58,6 +74,7 @@
                                     <td>{{ $recibo->direccion }}</td>
                                     <td>{{ $recibo->telefono }}</td>
                                     <td>{{ $recibo->created_at }}</td>
+                                    <td>{{ $recibo->estado }}</td>
                                 </tr>
                             @endif
                         @endforeach

@@ -184,6 +184,7 @@ Route::get('/faq', FaqController::class);
 
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
 Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
+Route::post('actualizarrecibo/{id}', [ReciboController::class, 'actualizar'])->name('recibos.actualizar');
 
 
 Route::get('/curriculum', CurriculumController::class);
