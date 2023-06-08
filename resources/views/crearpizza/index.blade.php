@@ -1,8 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('CREA TU PROPIA PIZZA') }}
-        </h2>
+        @if (Auth::user()->admin)
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
+                {{ __('LISTA DE INGREDIENTES') }}
+            </h2>
+        @else
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
+                {{ __('CREA TU PROPIA PIZZA') }}
+            </h2>
+        @endif
         <div>
             @include('partials/language_switcher')
         </div>
@@ -10,6 +16,10 @@
     @if (Auth::user()->admin)
         <br>
         <p class="text-center" style="font-weight:bolder;">{{__('LISTA PARA ADMINISTRADORES')}}</p>
+        <br>
+        <div style="margin-left:20px;">
+            <a href="{{ route('crearpizza.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('CREAR INGREDIENTE')}}</a>
+        </div>
         <br>
         <div>
             <table>
@@ -22,6 +32,9 @@
                             <p>{{$ingrediente->name}}</p>
                             <br>
                             <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>
+                        </div>
+                        <div style="margin-left:auto; margin-right:0;">
+                            <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
                         </div>
                         <div style="margin-left:auto; margin-right:0;">
                             <form method="post" action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
@@ -54,7 +67,7 @@
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                         @if ($ingrediente->alergenos != '')
                                             <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                         @endif
@@ -70,18 +83,18 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{__('INGREDIENTES')}} (1.50 €)</h3>
+                        <h3 class="text-2xl font-bold text-purple-700">{{__('INGREDIENTES')}} (1.50 € - 1.79 €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.5)
+                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 1.5 && $ingrediente->price < 1.8)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                         @if ($ingrediente->alergenos != '')
                                             <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                         @endif
@@ -97,18 +110,18 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{__('INGREDIENTES')}} (1.80 €)</h3>
+                        <h3 class="text-2xl font-bold text-purple-700">{{__('INGREDIENTES')}} (1.80 € - 2.29 €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 1.8)
+                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 1.8 && $ingrediente->price < 2.3)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                         @if ($ingrediente->alergenos != '')
                                             <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                         @endif
@@ -124,18 +137,18 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{__('INGREDIENTES')}} (2.30 €)</h3>
+                        <h3 class="text-2xl font-bold text-purple-700">{{__('INGREDIENTES')}} (2.30 € +)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price == 2.3)
+                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="" class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
                                         @if ($ingrediente->alergenos != '')
                                             <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                         @endif

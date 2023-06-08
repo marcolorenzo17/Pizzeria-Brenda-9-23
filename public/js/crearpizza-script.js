@@ -20,7 +20,7 @@ function aniadir(nombre, precio) {
     idcustom.setAttribute("value", getRandomInt(999999));
 
     var parrafo = document.createElement("p");
-    var texto = document.createTextNode(`${indice} -> ${nombre} -> ${precio} €`);
+    var texto = document.createTextNode(`${nombre} -> ${precio} €`);
     parrafo.appendChild(texto);
 
     parrafo.setAttribute("id", indice);

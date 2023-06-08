@@ -163,6 +163,10 @@ Route::controller(IndexController::class)->group(function(){
 
 Route::get('crearpizza', [CrearpizzaController::class, 'index'])->name('crearpizza');
 Route::delete('/borraringrediente/{id}', [CrearpizzaController::class, 'destroy'])->name('crearpizza.destroy');
+Route::get('crearingrediente', [CrearpizzaController::class, 'crear'])->name('crearpizza.crear');
+Route::get('editaringrediente/{id}', [CrearpizzaController::class, 'editar'])->name('crearpizza.editar');
+Route::post('aniadiringrediente', [CrearpizzaController::class, 'aniadir'])->name('crearpizza.aniadir');
+Route::post('actualizaringrediente/{id}', [CrearpizzaController::class, 'actualizar'])->name('crearpizza.actualizar');
 
 
 Route::get('/whoarewe', WhoareweController::class);

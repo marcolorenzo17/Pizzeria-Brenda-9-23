@@ -136,7 +136,7 @@ class IngredienteSeeder extends Seeder
             [
                 'name' => 'Espárragos',
                 'price' => 1.50,
-                'image' => 'img/ingredientes/alcachofas.png',
+                'image' => 'img/ingredientes/esparragos.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'img/alergenos/dioxido.png'
             ],
