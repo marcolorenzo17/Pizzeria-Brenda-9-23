@@ -37,7 +37,17 @@
                             <table style="margin-left:auto; margin-right:0;">
                                 <tr>
                                     <td>
-                                        <a href="" class="bg-red-500 text-white px-4 py-2 rounded-md">{{__('DESHABILITAR')}}</a>
+                                        @if ($ingrediente->habilitado)
+                                            <form method="post" action="{{ route('crearpizza.deshabilitar', $ingrediente->id) }}">
+                                                @csrf
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DESHABILITAR')}}</button>
+                                            </form>
+                                        @else
+                                            <form method="post" action="{{ route('crearpizza.habilitar', $ingrediente->id) }}">
+                                                @csrf
+                                                <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('HABILITAR')}}</button>
+                                            </form>
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
@@ -70,7 +80,7 @@
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Base')
+                                @if ($ingrediente->type == 'Base' && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;
@@ -97,7 +107,7 @@
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 1.5 && $ingrediente->price < 1.8)
+                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 1.5 && $ingrediente->price < 1.8 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;
@@ -124,7 +134,7 @@
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 1.8 && $ingrediente->price < 2.3)
+                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 1.8 && $ingrediente->price < 2.3 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;
@@ -151,7 +161,7 @@
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             @foreach ($ingredientes as $ingrediente)
-                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3)
+                                @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
                                             $nombre = $ingrediente->name;

@@ -10,15 +10,25 @@
     </x-slot>
 
     <div class="py-12">
+        @if (Auth::user()->admin)
+            <p class="text-center" style="font-weight:bolder;">{{__('LISTA PARA ADMINISTRADORES')}}</p>
+            <br>
+        @endif
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <table class="table-auto w-full">
+                    <table class="table-auto w-full" style="border-collapse:separate; border-spacing:0 10px;">
                         <tr>
+                            @if (Auth::user()->admin)
+                                <td class="font-bold">{{__('Cliente')}}</td>
+                            @endif
                             <td class="font-bold">{{__('Coste')}}</td>
                             <td class="font-bold">{{__('Dirección')}}</td>
                             <td class="font-bold">{{__('Teléfono')}}</td>
                             <td class="font-bold">{{__('Fecha y hora')}}</td>
+                            @if (Auth::user()->admin)
+                                <td class="font-bold">{{__('Eliminar')}}</td>
+                            @endif
                         </tr>
                         <tr>
                             <td><br></td>
@@ -27,12 +37,29 @@
                             <td><br></td>
                         </tr>
                         @foreach ($recibos as $recibo)
-                            <tr>
-                                <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
-                                <td>{{ $recibo->direccion }}</td>
-                                <td>{{ $recibo->telefono }}</td>
-                                <td>{{ $recibo->created_at }}</td>
-                            </tr>
+                            @if (Auth::user()->admin)
+                                <tr>
+                                    <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
+                                    <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
+                                    <td>{{ $recibo->direccion }}</td>
+                                    <td>{{ $recibo->telefono }}</td>
+                                    <td>{{ $recibo->created_at }}</td>
+                                    <td>
+                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @elseif ($recibo->idUser == Auth::user()->id)
+                                <tr>
+                                    <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
+                                    <td>{{ $recibo->direccion }}</td>
+                                    <td>{{ $recibo->telefono }}</td>
+                                    <td>{{ $recibo->created_at }}</td>
+                                </tr>
+                            @endif
                         @endforeach
                     </table>
                 </div>

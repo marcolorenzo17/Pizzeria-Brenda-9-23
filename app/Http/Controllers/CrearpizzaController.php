@@ -14,7 +14,7 @@ class CrearpizzaController extends Controller
     public function index(): Response
     {
         return response()->view('crearpizza.index', [
-            'ingredientes' => Ingrediente::orderBy('updated_at', 'desc')->get(),
+            'ingredientes' => Ingrediente::orderBy('id', 'desc')->get(),
         ]);
     }
 
@@ -44,6 +44,7 @@ class CrearpizzaController extends Controller
         $ingrediente->image = '';
         $ingrediente->type = $req->type;
         $ingrediente->alergenos = '';
+        $ingrediente->habilitado = true;
 
         $ingrediente->save();
 
@@ -68,6 +69,28 @@ class CrearpizzaController extends Controller
         $ingrediente->update();
 
         session()->flash('notif.success', 'Se ha actualizado el ingrediente con éxito.');
+        return redirect()->route('crearpizza');
+    }
+
+    public function habilitar(string $id) {
+        $ingrediente = Ingrediente::findOrFail($id);
+
+        $ingrediente->habilitado = true;
+
+        $ingrediente->update();
+
+        session()->flash('notif.success', 'Se ha habilitado el ingrediente con éxito.');
+        return redirect()->route('crearpizza');
+    }
+
+    public function deshabilitar(string $id) {
+        $ingrediente = Ingrediente::findOrFail($id);
+
+        $ingrediente->habilitado = false;
+
+        $ingrediente->update();
+
+        session()->flash('notif.success', 'Se ha deshabilitado el ingrediente con éxito.');
         return redirect()->route('crearpizza');
     }
 }

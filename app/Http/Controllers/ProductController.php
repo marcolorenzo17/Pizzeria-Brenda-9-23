@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function index(): Response
     {
         return response()->view('products.index', [
-            'products' => Product::orderBy('updated_at', 'desc')->get(),
+            'products' => Product::orderBy('id', 'desc')->get(),
         ]);
     }
 

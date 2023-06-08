@@ -17,6 +17,11 @@
     "El ingrediente se ha borrado con éxito.": "The ingredient has been deleted successfully.",
     "Se ha añadido la valoración con éxito.": "The review has been posted successfully.",
     "Se ha añadido el comentario con éxito.": "The comment has been posted successfully.",
+    "Se ha habilitado el ingrediente con éxito.": "The ingredient has been enabled successfully.",
+    "Se ha deshabilitado el ingrediente con éxito.": "The ingredient has been disabled successfully.",
+    "Se ha habilitado el plato con éxito.": "The dish has been enabled successfully.",
+    "Se ha deshabilitado el plato con éxito.": "The dish has been disabled successfully.",
+    "El recibo se ha borrado con éxito.": "The receipt was deleted successfully.",
 
 
     "Entrar": "Access",

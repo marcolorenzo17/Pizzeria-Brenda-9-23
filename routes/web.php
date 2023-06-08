@@ -169,6 +169,8 @@ Route::get('crearingrediente', [CrearpizzaController::class, 'crear'])->name('cr
 Route::get('editaringrediente/{id}', [CrearpizzaController::class, 'editar'])->name('crearpizza.editar');
 Route::post('aniadiringrediente', [CrearpizzaController::class, 'aniadir'])->name('crearpizza.aniadir');
 Route::post('actualizaringrediente/{id}', [CrearpizzaController::class, 'actualizar'])->name('crearpizza.actualizar');
+Route::post('habilitaringrediente/{id}', [CrearpizzaController::class, 'habilitar'])->name('crearpizza.habilitar');
+Route::post('deshabilitaringrediente/{id}', [CrearpizzaController::class, 'deshabilitar'])->name('crearpizza.deshabilitar');
 
 
 Route::get('/whoarewe', WhoareweController::class);
@@ -180,7 +182,8 @@ Route::get('/contact', ContactController::class);
 Route::get('/faq', FaqController::class);
 
 
-Route::get('/recibos', ReciboController::class);
+Route::get('/recibos', ReciboController::class)->name('recibos.index');
+Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
 
 
 Route::get('/curriculum', CurriculumController::class);
