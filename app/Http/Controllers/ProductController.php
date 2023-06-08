@@ -138,6 +138,42 @@ class ProductController extends Controller
         return response()->view('products.crear');
     }
 
+    public function aniadir(Request $req) {
+        $product = new Product;
+        $product->name = $req->name;
+        $product->price = $req->price;
+        $product->description = $req->description;
+        $product->image = '';
+        $product->type = $req->type;
+        $product->alergenos = '';
+
+        $product->save();
+
+        session()->flash('notif.success', 'Se ha añadido el plato con éxito.');
+        return redirect()->route('products.index');
+    }
+
+    public function editar(string $product): Response
+    {
+        return response()->view('products.editar', [
+            'product' => Product::findOrFail($product),
+        ]);
+    }
+
+    public function actualizar(Request $req, string $id) {
+        $product = Product::findOrFail($id);
+
+        $product->name = $req->name;
+        $product->price = $req->price;
+        $product->description = $req->description;
+        $product->type = $req->type;
+
+        $product->update();
+
+        session()->flash('notif.success', 'Se ha actualizado el plato con éxito.');
+        return redirect()->route('products.index');
+    }
+
     public function addValoracion(Request $req, string $id) {
         $product = Product::findOrFail($id);
 

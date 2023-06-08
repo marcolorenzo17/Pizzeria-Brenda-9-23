@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('CREAR PLATO') }}
+            {{ __('EDITAR PLATO') }}
         </h2>
         <div>
             @include('partials/language_switcher')
@@ -10,19 +10,19 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <form action="{{ route('products.aniadir') }}" method="POST">
+        <form action="{{ route('products.actualizar', $product) }}" method="POST">
             @csrf
             <label for="name">{{__('Nombre')}}</label>
             <br>
-            <input type="text" id="name" name="name" size="80">
+            <input type="text" id="name" name="name" size="80" value="{{ $product->name }}">
             <br><br>
             <label for="price">{{__('Precio')}}</label>
             <br>
-            <input type="number" id="price" name="price" step=".01" min="0"> €
+            <input type="number" id="price" name="price" step=".01" min="0" value="{{ $product->price }}"> €
             <br><br>
             <label for="price">{{__('Descripción')}}</label>
             <br>
-            <input type="text" id="description" name="description" size="80">
+            <input type="text" id="description" name="description" size="80" value="{{ $product->description }}">
             <br><br>
             <label for="description">{{__('Tipo')}}</label>
             <br>
@@ -40,10 +40,12 @@
                 <option value="Vino">{{__('Vino')}}</option>
                 <option value="Refresco">{{__('Refresco')}}</option>
             </select>
+            <br>
+            <strong>Tipo actual:</strong>&nbsp;{{ $product->type }}
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"
-                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('AÑADIR')}}</button>
+                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('ACTUALIZAR')}}</button>
             </div>
         </form>
     </div>

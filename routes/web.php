@@ -113,6 +113,9 @@ Route::get('/contactAnon', function() {
 
 Route::resource('products', ProductController::class);
 Route::get('crearproducto', [ProductController::class, 'crear'])->name('products.crear');
+Route::get('editarproducto/{id}', [ProductController::class, 'editar'])->name('products.editar');
+Route::post('aniadirproducto', [ProductController::class, 'aniadir'])->name('products.aniadir');
+Route::post('actualizarproducto/{id}', [ProductController::class, 'actualizar'])->name('products.actualizar');
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');
 Route::post('addComentario/{idProduct}/{idValoracion}', [ProductController::class, 'addComentario'])->name('products.addComentario');
 
@@ -158,7 +161,7 @@ Route::controller(IndexController::class)->group(function(){
 });
 */
 
-Route::get('/crearpizza', CrearpizzaController::class)->name('crearpizza');
+Route::get('crearpizza', [CrearpizzaController::class, 'index'])->name('crearpizza');
 Route::delete('/borraringrediente/{id}', [CrearpizzaController::class, 'destroy'])->name('crearpizza.destroy');
 
 

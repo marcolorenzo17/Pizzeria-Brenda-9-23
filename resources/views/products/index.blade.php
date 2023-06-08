@@ -34,6 +34,9 @@
                             <p>{{ number_format($product->price, 2, '.', '') }} €</p>
                         </div>
                         <div style="margin-left:auto; margin-right:0;">
+                            <a href="{{ route('products.editar', $product) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                        </div>
+                        <div style="margin-left:auto; margin-right:0;">
                             <form method="post" action="{{ route('products.destroy', $product->id) }}">
                                 @csrf
                                 @method('delete')
@@ -117,7 +120,7 @@
             </div>
             <br><br>
             <div class="text-center" style="border-style: solid; border-width: 3px; border-color: purple; background-color: #efff91; padding: 20px;">
-                <a href="crearpizza" class="text-2xl font-bold text-purple-700">{{__('¡CREA TU PROPIA PIZZA AQUÍ!')}}</a>
+                <a href="{{ route('crearpizza') }}" class="text-2xl font-bold text-purple-700">{{__('¡CREA TU PROPIA PIZZA AQUÍ!')}}</a>
             </div>
             <br><br><br>
             <h3 class="text-2xl font-bold text-purple-700" id="2">{{__('HAMBURGUESAS')}}</h3>

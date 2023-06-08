@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 
 class CrearpizzaController extends Controller
 {
-    public function __invoke() {
-        $ingredientes = DB::select('select * from ingredientes');
-        return view('crearpizza', ['ingredientes' => $ingredientes]);
+    public function index(): Response
+    {
+        return response()->view('crearpizza.index', [
+            'ingredientes' => Ingrediente::orderBy('updated_at', 'desc')->get(),
+        ]);
     }
 
     public function destroy(string $id): RedirectResponse
