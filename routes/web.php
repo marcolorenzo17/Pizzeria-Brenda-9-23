@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\RecogerController;
 use App\Http\Controllers\PagardomicilioController;
@@ -180,6 +181,14 @@ Route::get('/contact', ContactController::class);
 
 
 Route::get('/faq', FaqController::class);
+
+
+Route::get('/clientes', UserController::class)->name('clientes.index');
+Route::delete('/borrarcliente/{id}', [UserController::class, 'destroy'])->name('clientes.destroy');
+Route::post('adminsicliente/{id}', [UserController::class, 'adminsi'])->name('clientes.adminsi');
+Route::post('adminnocliente/{id}', [UserController::class, 'adminno'])->name('clientes.adminno');
+Route::post('validarcliente/{id}', [UserController::class, 'validar'])->name('clientes.validar');
+Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->name('clientes.desvalidar');
 
 
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
