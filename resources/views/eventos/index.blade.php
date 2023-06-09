@@ -65,11 +65,23 @@
                         <input type="hidden" id="presupuesto" name="presupuesto" value="{{ $_GET['totalpresupuesto'] }}">
                     @endif
                     <input type="hidden" id="tipo" name="tipo" value="">
-                    {{__('Nº Personas:')}} <input type="number" name="personas" min="1" max="100" required>
+                    @error('personas')
+                        <span class="text-danger">{{$message}}</span>
+                        <br>
+                    @enderror
+                    {{__('Nº Personas:')}} <input type="number" id="personas" name="personas" min="1" max="100">
                     <br><br>
-                    {{__('Fecha:')}} <input type="date" name="fecha" id="fecha" required>
+                    @error('fecha')
+                        <span class="text-danger">{{$message}}</span>
+                        <br>
+                    @enderror
+                    {{__('Fecha:')}} <input type="date" name="fecha" id="fecha">
                     <br><br>
-                    {{__('Hora:')}} <input type="time" name="hora" min="20:30" max="23:30" required>
+                    @error('hora')
+                        <span class="text-danger">{{$message}}</span>
+                        <br>
+                    @enderror
+                    {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30">
                     @if (isset($_GET['totalpresupuesto']))
                         <br><br><br>
                         <p style="font-weight:bolder;">{{__('Presupuesto:')}} {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>

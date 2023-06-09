@@ -9,14 +9,22 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class EventoController extends Controller
 {
+
     public function index(): Response {
         $eventos = DB::select('select * from eventos');
         return response()->view('eventos.index', ['eventos' => $eventos]);
     }
 
     public function add(Request $req) {
+        $req->validate([
+            'personas' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+        ]);
+
         $evento = new Evento;
         $evento->idUser = Auth::user()->id;
         $evento->personas = $req->personas;
