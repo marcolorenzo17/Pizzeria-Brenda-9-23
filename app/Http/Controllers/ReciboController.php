@@ -16,9 +16,9 @@ class ReciboController extends Controller
 
     public function destroy(string $id): RedirectResponse
     {
-        $product = Recibo::findOrFail($id);
+        $recibo = Recibo::findOrFail($id);
 
-        $delete = $product->delete($id);
+        $delete = $recibo->delete($id);
 
         if($delete) {
             session()->flash('notif.success', 'El recibo se ha borrado con éxito.');
@@ -29,13 +29,35 @@ class ReciboController extends Controller
     }
 
     public function actualizar(Request $req, string $id) {
-        $product = Recibo::findOrFail($id);
+        $recibo = Recibo::findOrFail($id);
 
-        $product->estado = $req->estado;
+        $recibo->estado = $req->estado;
 
-        $product->update();
+        $recibo->update();
 
         session()->flash('notif.success', 'Se ha actualizado el estado del pedido con éxito.');
+        return redirect()->route('recibos.index');
+    }
+
+    public function pagado(string $id) {
+        $recibo = Recibo::findOrFail($id);
+
+        $recibo->pagado = true;
+
+        $recibo->update();
+
+        session()->flash('notif.success', 'El pago del pedido ha sido realizado con éxito.');
+        return redirect()->route('recibos.index');
+    }
+
+    public function nopagado(string $id) {
+        $recibo = Recibo::findOrFail($id);
+
+        $recibo->pagado = false;
+
+        $recibo->update();
+
+        session()->flash('notif.success', 'El pago del pedido ahora está en curso.');
         return redirect()->route('recibos.index');
     }
 }

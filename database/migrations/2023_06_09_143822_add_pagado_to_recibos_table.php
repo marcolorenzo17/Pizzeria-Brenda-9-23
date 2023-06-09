@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('validado');
+        Schema::table('recibos', function (Blueprint $table) {
+            $table->boolean('pagado');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('validado');
+        Schema::table('recibos', function (Blueprint $table) {
+            $table->boolean('pagado');
         });
     }
 };

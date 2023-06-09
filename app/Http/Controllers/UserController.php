@@ -74,7 +74,7 @@ class UserController extends Controller
 
     public function desvalidar(string $id) {
         if (Auth::user()->id == $id) {
-            session()->flash('notif.success', 'Un usuario no puede desvalidarse a sí mismo.');
+            session()->flash('notif.success', 'Un usuario no puede invalidarse a sí mismo.');
             return redirect()->route('clientes.index');
         } else {
             $cliente = User::findOrFail($id);
@@ -83,7 +83,7 @@ class UserController extends Controller
 
             $cliente->update();
 
-            session()->flash('notif.success', 'Se ha desvalidado al usuario con éxito.');
+            session()->flash('notif.success', 'Se ha invalidado al usuario con éxito.');
             return redirect()->route('clientes.index');
         }
     }

@@ -86,7 +86,7 @@
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadirBase('<?php echo $nombre?>', '<?php echo $precio?>');">
                                         @if ($ingrediente->alergenos != '')
                                             <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
                                         @endif
@@ -186,7 +186,12 @@
                 </td>
                 <td style="vertical-align: top; position: fixed; top: 145px;">
                     <div class="container px-12 py-8 mx-auto bg-white">
-                        <div id="contenidopizza">
+                        <div id="cuadropizza">
+                            <div id="contenidopizza">
+                                <p id="base"></p>
+                                <p id="b-base"></p>
+                                <p id="p-base"></p>
+                            </div>
                         </div>
                         <br><br>
                         <p>{{__('Precio total:')}}</p>

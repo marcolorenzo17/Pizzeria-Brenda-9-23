@@ -73,6 +73,7 @@ class CartController extends Controller
         $recibo->telefono = $req->telefono;
         $recibo->idUser = Auth::user()->id;
         $recibo->estado = 'Pedido realizado';
+        $recibo->pagado = $req->pagado;
 
         $recibo->save();
 

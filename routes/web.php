@@ -194,6 +194,8 @@ Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->na
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
 Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
 Route::post('actualizarrecibo/{id}', [ReciboController::class, 'actualizar'])->name('recibos.actualizar');
+Route::post('pagadorecibo/{id}', [ReciboController::class, 'pagado'])->name('recibos.pagado');
+Route::post('nopagadorecibo/{id}', [ReciboController::class, 'nopagado'])->name('recibos.nopagado');
 
 
 Route::get('/curriculum', CurriculumController::class);

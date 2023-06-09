@@ -44,7 +44,7 @@
                         @if ($cliente->validado)
                             <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
                                 @csrf
-                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DESVALIDAR')}}</button>
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('INVALIDAR')}}</button>
                             </form>
                         @else
                             <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">

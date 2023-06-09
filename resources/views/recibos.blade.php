@@ -27,6 +27,7 @@
                             <td class="font-bold">{{__('Teléfono')}}</td>
                             <td class="font-bold">{{__('Fecha y hora')}}</td>
                             <td class="font-bold">{{__('Estado')}}</td>
+                            <td class="font-bold">{{__('Pagado')}}</td>
                             @if (Auth::user()->admin)
                                 <td class="font-bold">{{__('Eliminar')}}</td>
                             @endif
@@ -61,6 +62,19 @@
                                         </form>
                                     </td>
                                     <td>
+                                        @if ($recibo->pagado)
+                                            <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
+                                                @csrf
+                                                <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('SÍ')}}</button>
+                                            </form>
+                                        @else
+                                            <form method="post" action="{{ route('recibos.pagado', $recibo->id) }}">
+                                                @csrf
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('NO')}}</button>
+                                            </form>
+                                        @endif
+                                    </td>
+                                    <td>
                                         <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
                                             @csrf
                                             @method('delete')
@@ -75,6 +89,13 @@
                                     <td>{{ $recibo->telefono }}</td>
                                     <td>{{ $recibo->created_at }}</td>
                                     <td>{{ $recibo->estado }}</td>
+                                    <td>
+                                        @if ( $recibo->pagado )
+                                            {{__('Pago realizado')}}
+                                        @else
+                                            {{__('Pago en curso')}}
+                                        @endif
+                                    </td>
                                 </tr>
                             @endif
                         @endforeach
