@@ -5,20 +5,28 @@
             {{ __('EDITAR PLATO') }}
         </h2>
         <div>
-            @include('partials/language_switcher')
+            {{-- @include('partials/language_switcher') --}}
         </div>
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <form action="{{ route('products.actualizar', $product) }}" method="POST">
             @csrf
+            @error('name')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
             <label for="name">{{__('Nombre')}}</label>
             <br>
             <input type="text" id="name" name="name" size="80" value="{{ $product->name }}">
             <br><br>
+            @error('price')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
             <label for="price">{{__('Precio')}}</label>
             <br>
-            <input type="number" id="price" name="price" step=".01" min="0" value="{{ $product->price }}"> €
+            <input type="number" id="price" name="price" step=".01" value="{{ $product->price }}"> €
             <br><br>
             <label for="price">{{__('Descripción')}}</label>
             <br>

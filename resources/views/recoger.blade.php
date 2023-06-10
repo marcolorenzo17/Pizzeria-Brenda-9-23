@@ -38,9 +38,9 @@
             </tr>
         </table>
         <br>
-        <form action="" method="get" enctype="multipart/form-data" id="ruta">
+        <form action="pagar" method="get" enctype="multipart/form-data" id="ruta1">
             @csrf
-            <div id="contenido">
+            <div id="contenido1">
                 <!--
                 <div id="formulario"></div>
                 <div id="botondiv"></div>
@@ -49,21 +49,28 @@
                 <div id="form1" style="display:none;">
                     <div class="mb-6">
                         <label for="direccion1" class="block mb-2 text-sm font-medium text-gray-900">{{__('Dirección')}}</label>
-                        <input type="text" id="direccion1" name="direccion1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="C/ Padre Lerchundi, 3" readonly>
+                        <input type="text" id="direccion1" name="direccion1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="C/ Padre Lerchundi, 3" readonly required>
                     </div>
                 </div>
+                <div id="botondiv1" class="text-center" style="display:none;">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}">
+                </div>
+            </div>
+        </form>
+        <form action="pagardomicilio" method="get" enctype="multipart/form-data" id="ruta2">
+            <div id="contenido2">
                 <div id="form2" style="display:none;">
                     <div class="mb-6">
                         <label for="direccion2" class="block mb-2 text-sm font-medium text-gray-900">{{__('Dirección')}}</label>
-                        <input type="text" id="direccion2" name="direccion2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <input type="text" id="direccion2" name="direccion2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                     </div>
                     <div class="mb-6">
                         <label for="telefono" class="block mb-2 text-sm font-medium text-gray-900">{{__('Teléfono')}}</label>
-                        <input type="text" id="telefono" name="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <input type="text" id="telefono" name="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required pattern="[0-9]{9}">
                     </div>
                 </div>
                 <p id="mensajeeuros" style="display:none;">{{__('*Servicio a domicilio: 2€ adicionales')}}</p>
-                <div id="botondiv" class="text-center" style="display:none;">
+                <div id="botondiv2" class="text-center" style="display:none;">
                     <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}">
                 </div>
             </div>

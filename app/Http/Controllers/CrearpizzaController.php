@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class CrearpizzaController extends Controller
 {
@@ -38,6 +39,20 @@ class CrearpizzaController extends Controller
     }
 
     public function aniadir(Request $req) {
+        $validate = Validator::make($req->all(), [
+            'name' => 'required|max:255',
+            'price' => 'required|numeric|min:0',
+        ],[
+            'name.required' => 'El campo es obligatorio.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'price.required' => 'El campo es obligatorio.',
+            'price.min' => 'El precio no puede ser menor de 0 €.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $ingrediente = new Ingrediente;
         $ingrediente->name = $req->name;
         $ingrediente->price = $req->price;
@@ -60,6 +75,20 @@ class CrearpizzaController extends Controller
     }
 
     public function actualizar(Request $req, string $id) {
+        $validate = Validator::make($req->all(), [
+            'name' => 'required|max:255',
+            'price' => 'required|numeric|min:0',
+        ],[
+            'name.required' => 'El campo es obligatorio.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'price.required' => 'El campo es obligatorio.',
+            'price.min' => 'El precio no puede ser menor de 0 €.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $ingrediente = Ingrediente::findOrFail($id);
 
         $ingrediente->name = $req->name;

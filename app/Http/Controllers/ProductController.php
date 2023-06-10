@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
@@ -139,6 +140,20 @@ class ProductController extends Controller
     }
 
     public function aniadir(Request $req) {
+        $validate = Validator::make($req->all(), [
+            'name' => 'required|max:255',
+            'price' => 'required|numeric|min:0',
+        ],[
+            'name.required' => 'El campo es obligatorio.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'price.required' => 'El campo es obligatorio.',
+            'price.min' => 'El precio no puede ser menor de 0 €.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $product = new Product;
         $product->name = $req->name;
         $product->price = $req->price;
@@ -162,6 +177,20 @@ class ProductController extends Controller
     }
 
     public function actualizar(Request $req, string $id) {
+        $validate = Validator::make($req->all(), [
+            'name' => 'required|max:255',
+            'price' => 'required|numeric|min:0',
+        ],[
+            'name.required' => 'El campo es obligatorio.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'price.required' => 'El campo es obligatorio.',
+            'price.min' => 'El precio no puede ser menor de 0 €.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $product = Product::findOrFail($id);
 
         $product->name = $req->name;
@@ -176,6 +205,22 @@ class ProductController extends Controller
     }
 
     public function addValoracion(Request $req, string $id) {
+        /*
+        $req->validate([
+            'resenia' => 'required',
+        ]);
+        */
+
+        $validate = Validator::make($req->all(), [
+            'resenia' => 'required',
+        ],[
+            'resenia.required' => 'El campo es obligatorio.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $product = Product::findOrFail($id);
 
         $valoracione = new Valoracione;
@@ -191,6 +236,16 @@ class ProductController extends Controller
     }
 
     public function addComentario(Request $req, string $idProduct, string $idValoracion) {
+        $validate = Validator::make($req->all(), [
+            'reseniaCom' => 'required',
+        ],[
+            'reseniaCom.required' => 'El campo es obligatorio.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $product = Product::findOrFail($idProduct);
         $valoracion = Valoracione::findOrFail($idValoracion);
 

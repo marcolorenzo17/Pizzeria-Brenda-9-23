@@ -16,7 +16,11 @@
         <div class="mx-auto text-center">
             <form action="{{ route('curriculum.addCurriculum') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="curriculum" id="curriculum" required>
+                @error('curriculum')
+                    <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                    <br>
+                @enderror
+                <input type="file" name="curriculum" id="curriculum">
                 <br><br><br>
                 <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Enviar currículum')}}</button>
             </form>

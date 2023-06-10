@@ -5,20 +5,28 @@
             {{ __('EDITAR INGREDIENTE') }}
         </h2>
         <div>
-            @include('partials/language_switcher')
+            {{-- @include('partials/language_switcher') --}}
         </div>
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST">
             @csrf
+            @error('name')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
             <label for="name">{{__('Nombre')}}</label>
             <br>
             <input type="text" id="name" name="name" size="80" value="{{ $ingrediente->name }}">
             <br><br>
+            @error('price')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
             <label for="price">{{__('Precio')}}</label>
             <br>
-            <input type="number" id="price" name="price" step=".01" min="0" value="{{ $ingrediente->price }}"> €
+            <input type="number" id="price" name="price" step=".01" value="{{ $ingrediente->price }}"> €
             <br><br>
             <label for="type">{{__('Tipo')}}</label>
             <br>

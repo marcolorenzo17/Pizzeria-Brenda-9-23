@@ -1,8 +1,8 @@
 var form1 = document.getElementById("form1");
 var form2 = document.getElementById("form2");
 var mensajeeuros = document.getElementById("mensajeeuros");
-var botondiv = document.getElementById("botondiv");
-var ruta = document.getElementById("ruta");
+var botondiv1 = document.getElementById("botondiv1");
+var botondiv2 = document.getElementById("botondiv2");
 
 function mostrar(parte) {
   switch (parte) {
@@ -12,8 +12,8 @@ function mostrar(parte) {
       form1.style.display = 'block';
       form2.style.display = 'none';
       mensajeeuros.style.display = 'none';
-      botondiv.style.display = 'block';
-      ruta.setAttribute("action", "pagar");
+      botondiv1.style.display = 'block';
+      botondiv2.style.display = 'none';
       break;
 
     case "form2":
@@ -22,8 +22,8 @@ function mostrar(parte) {
       form1.style.display = 'none';
       form2.style.display = 'block';
       mensajeeuros.style.display = 'block';
-      botondiv.style.display = 'block';
-      ruta.setAttribute("action", "pagardomicilio");
+      botondiv1.style.display = 'none';
+      botondiv2.style.display = 'block';
       misreservasflag = 0;
       break;
   }

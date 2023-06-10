@@ -33,7 +33,13 @@
     "Se ha actualizado el estado del pedido con éxito.": "The order's status has been updated successfully.",
     "El pago del pedido ha sido realizado con éxito.": "The order's payment has been made successfully.",
     "El pago del pedido ahora está en curso.": "The order's payment is now in progress.",
+
     "Tu cuenta está invalidada. Por favor, contacta con un administrador.": "Your account is invalidated. Please contact an admin.",
+    "El campo es obligatorio.": "The field is required.",
+    "La reserva debe ser al menos para 1 persona.": "The reservation must be for at least 1 person.",
+    "La reserva no puede ser para más de 100 personas.": "The reservation cannot be made for more than 100 people.",
+    "El nombre no puede tener más de 255 caracteres.": "The name cannot have more than 255 characters.",
+    "El precio no puede ser menor de 0 €.": "The price cannot be less than 0 €.",
 
 
     "Entrar": "Access",

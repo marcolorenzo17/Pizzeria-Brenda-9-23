@@ -4,7 +4,7 @@
             {{ $products->name }}
         </h2>
         <div>
-            @include('partials/language_switcher')
+            {{-- @include('partials/language_switcher') --}}
         </div>
     </x-slot>
 
@@ -96,7 +96,11 @@
                     <br><br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
                         @csrf
-                        <textarea form="valoracion" name="resenia" placeholder="{{__('Escribe aquí tu reseña.')}}"></textarea>
+                        @error('resenia')
+                            <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                            <br>
+                        @enderror
+                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{__('Escribe aquí tu reseña.')}}"></textarea>
                         <br><br>
                         <table>
                             <tr>
@@ -161,7 +165,11 @@
                                     action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
                                     method="POST">
                                     @csrf
-                                    <input type="text" name="reseniaCom" placeholder="{{__('Escribe aquí tu comentario.')}}"
+                                    @error('reseniaCom')
+                                        <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                                        <br>
+                                    @enderror
+                                    <input type="text" id="reseniaCom" name="reseniaCom" placeholder="{{__('Escribe aquí tu comentario.')}}"
                                         size="30">
                                     <br><br>
                                     <div>

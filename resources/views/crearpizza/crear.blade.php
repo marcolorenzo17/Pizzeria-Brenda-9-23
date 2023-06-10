@@ -12,13 +12,21 @@
     <div class="container px-12 py-8 mx-auto bg-white">
         <form action="{{ route('crearpizza.aniadir') }}" method="POST">
             @csrf
+            @error('name')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
             <label for="name">{{__('Nombre')}}</label>
             <br>
-            <input type="text" id="name" name="name" size="80">
+            <input type="text" id="name" name="name" size="80" value="{{ old("name") }}">
             <br><br>
+            @error('price')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
             <label for="price">{{__('Precio')}}</label>
             <br>
-            <input type="number" id="price" name="price" step=".01" min="0"> €
+            <input type="number" id="price" name="price" step=".01" value="{{ old("price") }}"> €
             <br><br>
             <label for="type">{{__('Tipo')}}</label>
             <br>
