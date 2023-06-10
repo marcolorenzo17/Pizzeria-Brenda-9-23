@@ -66,19 +66,19 @@
                     @endif
                     <input type="hidden" id="tipo" name="tipo" value="">
                     @error('personas')
-                        <span class="text-danger">{{$message}}</span>
+                        <span class="text-danger" style="color:red;">{{$message}}</span>
                         <br>
                     @enderror
                     {{__('Nº Personas:')}} <input type="number" id="personas" name="personas" min="1" max="100">
                     <br><br>
                     @error('fecha')
-                        <span class="text-danger">{{$message}}</span>
+                        <span class="text-danger" style="color:red;">{{$message}}</span>
                         <br>
                     @enderror
                     {{__('Fecha:')}} <input type="date" name="fecha" id="fecha">
                     <br><br>
                     @error('hora')
-                        <span class="text-danger">{{$message}}</span>
+                        <span class="text-danger" style="color:red;">{{$message}}</span>
                         <br>
                     @enderror
                     {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30">
