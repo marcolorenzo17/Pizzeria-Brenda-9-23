@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PruebatextojsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\RecogerController;
@@ -181,6 +182,9 @@ Route::get('/contact', ContactController::class);
 
 
 Route::get('/faq', FaqController::class);
+
+
+Route::get('/pruebatextojs', PruebatextojsController::class);
 
 
 Route::get('/clientes', UserController::class)->name('clientes.index');
