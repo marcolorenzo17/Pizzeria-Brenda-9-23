@@ -831,13 +831,8 @@
     <div>
         @include('partials/language_switcher')
     </div>
-    <table>
-        <tr>
-            <td>
-                <img src="{{ asset('img/logomadera.jpg') }}" alt="..." width="100px" height="100px">
-            </td>
-        </tr>
-    </table>
+    <br><br>
+    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('PIZZERÍA ARTESANAL Y NATURAL')}}</h1>
     <br>
     <div class="mx-auto">
         <video width="1920" height="1038" autoplay loop>
@@ -849,18 +844,20 @@
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">{{__('Entrar')}}</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar pedido')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">{{__('Iniciar sesión')}}</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar sesión')}}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:black;">{{__('Registrarse')}}</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
     @endif
+    <br>
+    <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('¿QUÉ PEDIMOS?')}}</h1>
     <br>
     <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 20px 0; text-align:center;">
         <tr>
@@ -879,7 +876,7 @@
         </tr>
     </table>
     <br><br><br>
-    <h1 class="text-center" style="font-size:30px; font-weight:bolder; background-color:red; padding:10px; color:white;">{{__('NUESTRAS PROMOCIONES')}}</h1>
+    <h1 class="text-center" style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">{{__('NUESTRAS PROMOCIONES')}}</h1>
     <br>
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">

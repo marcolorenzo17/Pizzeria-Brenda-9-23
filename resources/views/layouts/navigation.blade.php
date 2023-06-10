@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/index.css" />
-<nav x-data="{ open: false }" class="bg-green-300 border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -23,7 +23,7 @@
                 @if (Auth::user()->admin)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                            {{ __('Platos') }}
+                            {{ __('Menú') }}
                         </x-nav-link>
                         <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
                             {{ __('Ingredientes') }}
@@ -41,7 +41,7 @@
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                            {{ __('Platos') }}
+                            {{ __('Menú') }}
                         </x-nav-link>
                         <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
                             {{ __('Promociones') }}
@@ -120,7 +120,7 @@
         @if (Auth::user()->admin)
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                    {{ __('Platos') }}
+                    {{ __('Menú') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
                     {{ __('Ingredientes') }}
@@ -138,7 +138,7 @@
         @else
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                    {{ __('Platos') }}
+                    {{ __('Menú') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
                     {{ __('Promociones') }}
