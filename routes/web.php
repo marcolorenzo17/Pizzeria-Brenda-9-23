@@ -10,7 +10,7 @@ use App\Http\Controllers\CrearpizzaController;
 use App\Http\Controllers\ReciboController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PromocionController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventoController;
@@ -124,7 +124,7 @@ Route::post('habilitarproducto/{id}', [ProductController::class, 'habilitar'])->
 Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilitar'])->name('products.deshabilitar');
 
 
-Route::resource('promociones', PromocionController::class);
+Route::resource('promociones', PromotionController::class);
 
 
 Route::resource('eventos', EventoController::class);

@@ -10,11 +10,20 @@
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
-        <div>
-            <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="400px" height="400px" class="mx-auto">
-            <br><br>
-            <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="400px" height="400px" class="mx-auto">
-        </div>
+        @foreach ($promotions as $promotion)
+            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                <div class="text-center">
+                    @csrf
+                    <input type="hidden" value="{{ $promotion->id }}" name="id">
+                    <input type="hidden" value="{{ $promotion->name }}" name="name">
+                    <input type="hidden" value="{{ $promotion->price }}" name="price">
+                    <input type="hidden" value="{{ $promotion->image }}"  name="image">
+                    <input type="hidden" value="1" name="quantity">
+                    <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit" class="mx-auto" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                    <br><br>
+                </div>
+            </form>
+        @endforeach
     </div>
 
     <br><br><br><br>
