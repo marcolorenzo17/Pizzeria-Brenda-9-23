@@ -32,6 +32,7 @@ function mostrar(elemento) {
   }
 };
 
+/*
 function mostrarreservas() {
   switch (misreservasflag) {
     case 0:
@@ -45,3 +46,4 @@ function mostrarreservas() {
       break;
   }
 }
+*/

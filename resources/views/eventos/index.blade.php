@@ -94,10 +94,10 @@
         </form>
         <br><br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <h2 class="text-center" onclick="mostrarreservas()">{{__('MIS RESERVAS')}}</h2>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" x-data="{ mostrar:false }">
+                <h2 class="text-center" x-on:click="mostrar = !mostrar" x-text="mostrar ? '{{__('OCULTAR MIS RESERVAS') }}' : '{{__('MOSTRAR MIS RESERVAS') }}'"></h2>
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
-                    style="display: none;">
+                    x-show="mostrar">
                     <table class="table-auto w-full">
                         <tr>
                             <td class="font-bold">{{__('Tipo')}}</td>
