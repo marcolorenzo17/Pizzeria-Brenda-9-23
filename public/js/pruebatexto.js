@@ -2,11 +2,11 @@ function showText (target, message, index, interval, button, buttons) {
   if (index < message.length) {
     if (index == 0) {
       document.getElementById(buttons).style.display = "none";
-      document.getElementById("anim").setAttribute("src", "img/aguagirando.gif")
+      document.getElementById("anim").setAttribute("src", "img/anim/Pizza2.gif")
     }
     $(target).append(message[index++]);
     if (index == message.length) {
-      document.getElementById("anim").setAttribute("src", "img/aguasingas.jpg")
+      document.getElementById("anim").setAttribute("src", "img/anim/Pizza1.gif")
       switch (button) {
         case "boton1-1":
           document.getElementById("botones1").style.display = "flex";
