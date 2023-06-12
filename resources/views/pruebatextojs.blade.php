@@ -1,4 +1,5 @@
 <x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('TEST') }}
@@ -43,5 +44,13 @@
     </footer>
 
     <script src="{{ asset('js/pruebatexto.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#anim').on('click', function(event) {
+                event.preventDefault();
+                alert("{{__('Ey. ¿En qué puedo ayudarte?')}}");
+            });
+        });
+    </script>
 
 </x-app-layout>

@@ -15,7 +15,7 @@ class EventoController extends Controller
 {
 
     public function index(): Response {
-        $eventos = DB::select('select * from eventos');
+        $eventos = DB::select('select * from eventos order by id desc');
         return response()->view('eventos.index', ['eventos' => $eventos]);
     }
 
@@ -55,6 +55,28 @@ class EventoController extends Controller
         $evento->save();
 
         session()->flash('notif.success', 'Se ha realizado la reserva con éxito.');
-        return redirect('/products');
+        return redirect()->route('eventos.index');
+    }
+
+    public function eventosi(string $id) {
+        $evento = Evento::findOrFail($id);
+
+        $evento->reservado = "true";
+
+        $evento->update();
+
+        session()->flash('notif.success', 'La reserva ha sido aceptada.');
+        return redirect()->route('eventos.index');
+    }
+
+    public function eventono(string $id) {
+        $evento = Evento::findOrFail($id);
+
+        $evento->reservado = "false";
+
+        $evento->update();
+
+        session()->flash('notif.success', 'La reserva ha sido denegada.');
+        return redirect()->route('eventos.index');
     }
 }

@@ -69,7 +69,8 @@
                         <input type="text" id="telefono" name="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required pattern="[0-9]{9}">
                     </div>
                 </div>
-                <p id="mensajeeuros" style="display:none;">{{__('*Servicio a domicilio: 2€ adicionales')}}</p>
+                <p id="mensajeeuros" style="display:none; font-size: 25px;">{{__('*Servicio a domicilio: 2€ adicionales')}}</p>
+                <br>
                 <div id="botondiv2" class="text-center" style="display:none;">
                     <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}">
                 </div>

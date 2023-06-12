@@ -130,6 +130,8 @@ Route::resource('promociones', PromotionController::class);
 
 Route::resource('eventos', EventoController::class);
 Route::post('addEvento', [EventoController::class, 'add'])->name('eventos.addEvento');
+Route::post('eventosi/{id}', [EventoController::class, 'eventosi'])->name('eventos.eventosi');
+Route::post('eventono/{id}', [EventoController::class, 'eventono'])->name('eventos.eventono');
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');

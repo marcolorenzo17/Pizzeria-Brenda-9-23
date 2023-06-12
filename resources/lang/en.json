@@ -40,6 +40,8 @@
     "La reserva no puede ser para más de 100 personas.": "The reservation cannot be made for more than 100 people.",
     "El nombre no puede tener más de 255 caracteres.": "The name cannot have more than 255 characters.",
     "El precio no puede ser menor de 0 €.": "The price cannot be less than 0 €.",
+    "La reserva ha sido aceptada.": "The reservation has been accepted.",
+    "La reserva ha sido denegada.": "The reservation has been denied.",
 
 
     "Entrar": "Access",
@@ -210,6 +212,31 @@
     "DESHABILITAR": "DISABLE",
 
     "Tarjeta de crédito o de débito": "Credit or debit card",
+
+    "Ey. ¿En qué puedo ayudarte?": "Yo. What can I help you with?",
+
+    "PAGADO": "PAYED",
+    "PENDIENTE": "PENDING",
+    "Estado": "Status",
+    "Cliente": "Customer",
+    "Pago": "Payment",
+    "Estado actual:": "Current status:",
+    "Pedido registrado": "Order registered",
+    "Pedido en preparación": "Order in preparation",
+    "Pedido en reparto": "Order in delivery",
+    "Pedido entregado": "Order delivered",
+    "Pago en curso": "Payment in progress",
+    "Pago realizado": "Payment complete",
+    "Reserva": "Reservation",
+    "ACEPTAR": "ACCEPT",
+    "DENEGAR": "DENY",
+    "RESERVADO": "RESERVED",
+    "DENEGADO": "DENIED",
+    "Reserva en curso": "Reservation in progress",
+    "Reservado": "Reserved",
+    "Lo sentimos, no es posible realizar su reserva": "We're sorry, your reservation cannot be made",
+    "MOSTRAR MIS RESERVAS": "SHOW MY RESERVATIONS",
+    "OCULTAR MIS RESERVAS": "HIDE MY RESERVATIONS",
 
     "© 2023 Pizzería Brenda™. Todos los derechos reservados.": "© 2023 Pizzería Brenda™. All rights reserved.",
     "¿Quiénes somos?": "Who are we?",

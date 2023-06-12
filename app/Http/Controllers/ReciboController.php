@@ -57,7 +57,7 @@ class ReciboController extends Controller
 
         $recibo->update();
 
-        session()->flash('notif.success', 'El pago del pedido ahora está en curso.');
+        session()->flash('notif.success', 'El pedido ahora está pendiente de cobro.');
         return redirect()->route('recibos.index');
     }
 }

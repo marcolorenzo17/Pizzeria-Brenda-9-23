@@ -94,21 +94,9 @@
                                                 class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">{{__('Realizar pedido')}}</button></a>
                                     </td>
                                     <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
                                         <form action="{{ route('cart.clear') }}" method="POST">
                                             @csrf
                                             <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">{{__('Vaciar carrito')}}</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('eventos.index') }}" method="get">
-                                            @csrf
-                                            <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto" name="totalpresupuesto">
-                                            <input type="hidden" value="esconder" id="esconder" name="esconder">
-                                            <button type="submit" class="px-6 py-2 text-sm  rounded shadow" style="background-color:gold;">{{__('Calcula el presupuesto para tu evento')}}</button>
                                         </form>
                                     </td>
                                 </tr>

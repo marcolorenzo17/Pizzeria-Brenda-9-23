@@ -8,6 +8,7 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/recibos.css" />
 
     <div class="py-12">
         @if (Auth::user()->admin)
@@ -27,7 +28,7 @@
                             <td class="font-bold">{{__('Teléfono')}}</td>
                             <td class="font-bold">{{__('Fecha y hora')}}</td>
                             <td class="font-bold">{{__('Estado')}}</td>
-                            <td class="font-bold">{{__('Pagado')}}</td>
+                            <td class="font-bold">{{__('Pago')}}</td>
                             @if (Auth::user()->admin)
                                 <td class="font-bold">{{__('Eliminar')}}</td>
                             @endif
@@ -47,13 +48,13 @@
                                         <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
                                             <select id="estado" name="estado">
-                                                <option value="Pedido realizado">{{__('Pedido realizado')}}</option>
-                                                <option value="Pedido en curso">{{__('Pedido en curso')}}</option>
+                                                <option value="Pedido registrado">{{__('Pedido registrado')}}</option>
+                                                <option value="Pedido en preparación">{{__('Pedido en preparación')}}</option>
                                                 <option value="Pedido en reparto">{{__('Pedido en reparto')}}</option>
                                                 <option value="Pedido entregado">{{__('Pedido entregado')}}</option>
                                             </select>
                                             <br>
-                                            <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ $recibo->estado }}
+                                            <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ __($recibo->estado) }}
                                             <br><br>
                                             <div class="text-center">
                                                 <button type="submit"
@@ -65,12 +66,12 @@
                                         @if ($recibo->pagado)
                                             <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
                                                 @csrf
-                                                <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('SÍ')}}</button>
+                                                <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('PAGADO')}}</button>
                                             </form>
                                         @else
                                             <form method="post" action="{{ route('recibos.pagado', $recibo->id) }}">
                                                 @csrf
-                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('NO')}}</button>
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('PENDIENTE')}}</button>
                                             </form>
                                         @endif
                                     </td>
@@ -88,7 +89,7 @@
                                     <td>{{ $recibo->direccion }}</td>
                                     <td>{{ $recibo->telefono }}</td>
                                     <td>{{ $recibo->created_at }}</td>
-                                    <td>{{ $recibo->estado }}</td>
+                                    <td>{{ __($recibo->estado) }}</td>
                                     <td>
                                         @if ( $recibo->pagado )
                                             {{__('Pago realizado')}}
