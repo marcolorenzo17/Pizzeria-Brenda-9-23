@@ -12,8 +12,8 @@
             <div class="flex justify-center my-6">
                 <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
                     @if ($message = Session::get('success'))
-                        <div class="p-4 mb-3 bg-green-400 rounded">
-                            <p class="text-green-800">{{ __($message) }}</p>
+                        <div class="p-4 mb-3 rounded" style="background-color:#b3d0ff">
+                            <p>{{ __($message) }}</p>
                         </div>
                     @endif
                     <h3 class="text-3xl font-bold">{{__('Tu carrito')}}</h3>
