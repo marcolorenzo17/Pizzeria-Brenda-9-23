@@ -151,7 +151,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 */
 
-Route::get('/home', HomeController::class);
+Route::get('/home', HomeController::class)->name('home');
+
+Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

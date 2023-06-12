@@ -885,7 +885,7 @@
                     <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
                 </td>
                 <td>
-                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
+                    <img src="{{ asset('img/promocion3.png') }}" alt="promocion2" width="300px" height="20px">
                 </td>
             </tr>
         </table>

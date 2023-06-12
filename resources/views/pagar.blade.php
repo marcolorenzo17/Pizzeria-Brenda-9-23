@@ -7,6 +7,7 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/credito.css" />
     <br>
     <table class="mx-auto">
         <tr>
@@ -152,5 +153,6 @@
     </footer>
 
     <script src="{{ asset('js/pagar-script-2.js') }}"></script>
+    <script src="{{ asset('js/credito.js') }}"></script>
 
 </x-app-layout>
