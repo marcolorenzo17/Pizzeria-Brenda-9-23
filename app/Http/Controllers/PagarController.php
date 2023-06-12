@@ -8,6 +8,9 @@ class PagarController extends Controller
 {
     public function __invoke() {
         $cartItems = \Cart::getContent();
-        return view('pagar', compact('cartItems'));
+        $user = auth()->user();
+        return view('pagar', compact('cartItems'), [
+            'intent' => $user->createSetupIntent(),
+        ]);
     }
 }

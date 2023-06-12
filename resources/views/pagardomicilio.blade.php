@@ -7,6 +7,7 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/credito.css" />
     <br>
     <table class="mx-auto">
         <tr>
@@ -44,25 +45,77 @@
                             </td>
                         </tr>
                     </table>
+                    {{--
+                        <br>
+                        <div id="contenido" style="display:none;">
+                            <div id="formulario">
+                                <label for="tarjeta" id="tarjeta">
+                                <select name="tarjeta" id="tarjeta">
+                                    <option value="mastercard">MasterCard</option>
+                                    <option value="visa">Visa</option>
+                                    <option value="maestro">Maestro</option>
+                                </select>
+                                <p>{{__('Nombre:')}}</p>
+                                <input type="text" name="nombre" id="nombre" required>
+                                <p>{{__('Nº Tarjeta:')}}</p>
+                                <input type="text" name="numero" id="numero" required>
+                                <p>{{__('Caducidad:')}}</p>
+                                <input type="text" name="caducidad" id="caducidad" required>
+                                <p>CVV:</p>
+                                <input type="text" name="seguridad" id="seguridad" required>
+                            </div>
+                        </div>
+                    --}}
                     <br>
                     <div id="contenido" style="display:none;">
                         <div id="formulario">
-                            <label for="tarjeta" id="tarjeta">
-                            <select name="tarjeta" id="tarjeta">
-                                <option value="mastercard">MasterCard</option>
-                                <option value="visa">Visa</option>
-                                <option value="maestro">Maestro</option>
-                            </select>
-                            <p>{{__('Nombre:')}}</p>
-                            <input type="text" name="nombre" id="nombre" required>
-                            <p>{{__('Nº Tarjeta:')}}</p>
-                            <input type="text" name="numero" id="numero" required>
-                            <p>{{__('Caducidad:')}}</p>
-                            <input type="text" name="caducidad" id="caducidad" required>
-                            <p>CVV:</p>
-                            <input type="text" name="seguridad" id="seguridad" required>
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{session('status')}}
+                                </div>
+                            @endif
+
+                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form">
+                                <label for="card-holder-name">{{__('Nombre')}}</label>
+                                <input id="card-holder-name" type="text"><br><br>
+                                @csrf
+                                <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
+                                <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
+                                <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
+                                <input type="hidden" value="true" name="pagado" id="pagado">
+                                <div class="form-row">
+                                    <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
+                                    <div id="card-element" class="form-control">
+                                    </div>
+                                    <!-- Used to display form errors. -->
+                                    <div id="card-errors" role="alert"></div>
+                                </div>
+                                <div class="stripe-errors"></div>
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                    {{ $error }}<br>
+                                    @endforeach
+                                </div>
+                                @endif
+                                <br>
+                                <div class="form-group text-center">
+                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">Realizar compra</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
+                        <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
+                        <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
+                        <input type="hidden" value="false" name="pagado" id="pagado">
+                        <div class="text-center" id="pagoefectivo" style="display:none;">
+                            <button type="submit"
+                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Realizar compra')}}</button>
+                        </div>
+                    </form>
                 </div>
             </td>
             <td style="vertical-align: top;">
@@ -128,18 +181,20 @@
                             </tr>
                         </tbody>
                     </table>
+                    {{--
                     <br>
-                    <form action="{{ route('cart.add') }}" method="POST">
-                        @csrf
-                        <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
-                        <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
-                        <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
-                        <input type="hidden" value="" name="pagado" id="pagado">
-                        <div class="text-center">
-                            <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Realizar compra')}}</button>
-                        </div>
-                    </form>
+                        <form action="{{ route('cart.add') }}" method="POST">
+                            @csrf
+                            <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
+                            <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
+                            <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
+                            <input type="hidden" value="" name="pagado" id="pagado">
+                            <div class="text-center">
+                                <button type="submit"
+                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Realizar compra')}}</button>
+                            </div>
+                        </form>
+                    --}}
                 </div>
             </td>
         </tr>
@@ -165,5 +220,7 @@
     </footer>
 
     <script src="{{ asset('js/pagar-script-2.js') }}"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ asset('js/credito.js') }}"></script>
 
 </x-app-layout>

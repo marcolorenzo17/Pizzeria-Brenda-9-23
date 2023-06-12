@@ -77,6 +77,20 @@ class CartController extends Controller
 
         $recibo->save();
 
+        if ($req->pagado == "true") {
+            $amount = $req->total;
+            $amount = $amount * 100;
+            $paymentMethod = $req->payment_method;
+
+            $user = auth()->user();
+            $user->createOrGetStripeCustomer();
+
+            $paymentMethod = $user->addPaymentMethod($paymentMethod);
+
+            $user->charge($amount, $paymentMethod->id);
+        }
+
+
         \Cart::clear();
 
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');

@@ -1,7 +1,7 @@
 var contenido = document.getElementById("contenido");
 var efectivodiv = document.getElementById("efectivodiv");
 var creditodiv = document.getElementById("creditodiv");
-var pagado = document.getElementById("pagado");
+var pagoefectivo = document.getElementById("pagoefectivo");
 
 function mostrar(parte) {
   switch (parte) {
@@ -9,14 +9,14 @@ function mostrar(parte) {
       creditodiv.setAttribute("style", "");
       efectivodiv.setAttribute("style", "border: turquoise; border-width: 5px; border-style: solid;");
       contenido.style.display = 'none';
-      pagado.setAttribute("value", "false");
+      pagoefectivo.style.display = 'block';
       break;
 
     case "credito":
       efectivodiv.setAttribute("style", "");
       creditodiv.setAttribute("style", "border: turquoise; border-width: 5px; border-style: solid;");
       contenido.style.display = 'block';
-      pagado.setAttribute("value", "true");
+      pagoefectivo.style.display = 'none';
       break;
   }
 }
