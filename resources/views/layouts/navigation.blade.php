@@ -37,6 +37,12 @@
                         <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                             {{ __('Clientes') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Valoraciones') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Comentarios') }}
+                        </x-nav-link>
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -133,6 +139,12 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                     {{ __('Clientes') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Valoraciones') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Comentarios') }}
                 </x-responsive-nav-link>
             </div>
         @else

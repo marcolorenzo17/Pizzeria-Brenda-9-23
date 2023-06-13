@@ -115,15 +115,19 @@ Route::get('/contactAnon', function() {
 
 
 Route::resource('products', ProductController::class);
+Route::get('indexValoraciones', [ProductController::class, 'indexValoraciones'])->name('products.indexValoraciones');
+Route::get('indexComentarios', [ProductController::class, 'indexComentarios'])->name('products.indexComentarios');
 Route::get('crearproducto', [ProductController::class, 'crear'])->name('products.crear');
 Route::get('editarproducto/{id}', [ProductController::class, 'editar'])->name('products.editar');
 Route::post('aniadirproducto', [ProductController::class, 'aniadir'])->name('products.aniadir');
 Route::post('actualizarproducto/{id}', [ProductController::class, 'actualizar'])->name('products.actualizar');
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');
 Route::delete('destroyValoracion/{idProduct}/{idValoracion}', [ProductController::class, 'destroyValoracion'])->name('products.destroyValoracion');
+Route::delete('destroyValoracionAdmin/{idValoracion}', [ProductController::class, 'destroyValoracionAdmin'])->name('products.destroyValoracionAdmin');
 Route::post('actualizarValoracion/{idProduct}/{idValoracion}', [ProductController::class, 'actualizarValoracion'])->name('products.actualizarValoracion');
 Route::post('addComentario/{idProduct}/{idValoracion}', [ProductController::class, 'addComentario'])->name('products.addComentario');
 Route::delete('destroyComentario/{idProduct}/{idComentario}', [ProductController::class, 'destroyComentario'])->name('products.destroyComentario');
+Route::delete('destroyComentarioAdmin/{idComentario}', [ProductController::class, 'destroyComentarioAdmin'])->name('products.destroyComentarioAdmin');
 Route::post('actualizarComentario/{idProduct}/{idComentario}', [ProductController::class, 'actualizarComentario'])->name('products.actualizarComentario');
 Route::post('habilitarproducto/{id}', [ProductController::class, 'habilitar'])->name('products.habilitar');
 Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilitar'])->name('products.deshabilitar');

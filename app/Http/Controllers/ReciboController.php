@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ReciboController extends Controller
 {
     public function __invoke() {
-        $recibos = DB::select('select * from recibos order by id');
+        $recibos = DB::select('select * from recibos order by id desc');
         return view('recibos', ['recibos' => $recibos]);
     }
 

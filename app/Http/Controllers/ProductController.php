@@ -39,6 +39,20 @@ class ProductController extends Controller
         ]);
     }
 
+    public function indexValoraciones(): Response
+    {
+        return response()->view('products.indexValoraciones', [
+            'valoraciones' => Valoracione::orderBy('id', 'desc')->get(),
+        ]);
+    }
+
+    public function indexComentarios(): Response
+    {
+        return response()->view('products.indexComentarios', [
+            'comentarios' => Comentario::orderBy('id', 'desc')->get(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -251,6 +265,20 @@ class ProductController extends Controller
         return abort(500);
     }
 
+    public function destroyValoracionAdmin(string $id): RedirectResponse
+    {
+        $valoracion = Valoracione::findOrFail($id);
+
+        $delete = $valoracion->delete($id);
+
+        if($delete) {
+            session()->flash('notif.success', 'La valoración se ha borrado con éxito.');
+            return redirect()->route('products.indexValoraciones');
+        }
+
+        return abort(500);
+    }
+
     public function actualizarValoracion(Request $req, string $idProduct, string $idValoracion) {
         $validate = Validator::make($req->all(), [
             'modifVal' => 'required|max:255',
@@ -311,6 +339,20 @@ class ProductController extends Controller
         if($delete) {
             session()->flash('notif.success', 'El comentario se ha borrado con éxito.');
             return redirect('/products/'.$product->id);
+        }
+
+        return abort(500);
+    }
+
+    public function destroyComentarioAdmin(string $id): RedirectResponse
+    {
+        $comentario = Comentario::findOrFail($id);
+
+        $delete = $comentario->delete($id);
+
+        if($delete) {
+            session()->flash('notif.success', 'El comentario se ha borrado con éxito.');
+            return redirect()->route('products.indexComentarios');
         }
 
         return abort(500);
