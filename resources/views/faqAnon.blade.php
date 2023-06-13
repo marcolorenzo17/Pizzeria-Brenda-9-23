@@ -835,20 +835,43 @@
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Entrar')}}</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar pedido')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Iniciar
-                    sesión')}}</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar sesión')}}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{__('Registrarse')}}</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
     @endif
     <div class="container px-12 py-8 mx-auto bg-white">
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿La pizzería abre por la mañana?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Hay servicio a domicilio fuera de Chipiona?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('No, sólo ofrecemos nuestro servicio dentro del término municipal.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Qué horario tiene la pizzería?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('De lunes a domingo de 20:30 a 23:30.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Se puede aparcar cerca?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Hay un aparcamiento a 500 m.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Hay pizza para celíacos?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Tenemos una base de pizza sin gluten especialmente elaborada para celíacos a la que se le puede añadir los ingredientes que desees. Además, en la carta se puede consultar los alérgenos de cada ingrediente.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Los camareros sirven en la mesa?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('No, la pizzería es autoservicio, pero los camareros te ayudarán en todo lo que necesites.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Qué tamaños de pizzas hay?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Tenemos una pizza grande para 4 personas y otra pequeña para 2 personas aprox.')}}</p>
+        <br><br>
+        <p style="font-weight: bolder; font-size:20px;">{{__('¿Cuánto cuesta el servicio a domicilio?')}}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('2 € adicionales al pedido que se realice.')}}</p>
+        <br><br>
     </div>
     <br>
     <a href="{{ url('/') }}">
