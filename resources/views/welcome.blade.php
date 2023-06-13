@@ -859,22 +859,20 @@
     <br>
     <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('¿QUÉ PEDIMOS?')}}</h1>
     <br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 20px 0; text-align:center;">
-        <tr>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('CERVEZAS')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('VINOS')}}</a></td>
-            <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('REFRESCOS')}}</a></td>
-        </tr>
-    </table>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('CERVEZAS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('VINOS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('REFRESCOS')}}</a></div>
+    </div>
     <br><br><br>
     <h1 class="text-center" style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">{{__('NUESTRAS PROMOCIONES')}}</h1>
     <br>
@@ -911,37 +909,35 @@
         </tr>
     </table>
     <br><br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 100px 0; text-align:center;">
-        <tr>
-            <td>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-        </tr>
-    </table>
+            </div>
+    </div>
 </body>
 
 </html>

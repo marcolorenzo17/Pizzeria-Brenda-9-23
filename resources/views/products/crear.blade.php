@@ -18,7 +18,7 @@
             @enderror
             <label for="name">{{__('Nombre')}}</label>
             <br>
-            <input type="text" id="name" name="name" size="80" value="{{ old("name") }}">
+            <input type="text" id="name" name="name" size="80" value="{{ old('name') }}">
             <br><br>
             @error('price')
                 <span class="text-danger" style="color:red;">{{__($message)}}</span>
@@ -26,11 +26,11 @@
             @enderror
             <label for="price">{{__('Precio')}}</label>
             <br>
-            <input type="number" id="price" name="price" step=".01" value="{{ old("price") }}"> €
+            <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"> €
             <br><br>
             <label for="price">{{__('Descripción')}}</label>
             <br>
-            <input type="text" id="description" name="description" size="80" value="{{ old("description") }}">
+            <input type="text" id="description" name="description" size="80" value="{{ old('description') }}">
             <br><br>
             <label for="description">{{__('Tipo')}}</label>
             <br>

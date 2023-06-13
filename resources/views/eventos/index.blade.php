@@ -159,19 +159,19 @@
                             <span class="text-danger" style="color:red;">{{__($message)}}</span>
                             <br>
                         @enderror
-                        {{__('Nº Personas:')}} <input type="number" id="personas" name="personas" value="{{ old("personas") }}">
+                        {{__('Nº Personas:')}} <input type="number" id="personas" name="personas" value="{{ old('personas') }}">
                         <br><br>
                         @error('fecha')
                             <span class="text-danger" style="color:red;">{{__($message)}}</span>
                             <br>
                         @enderror
-                        {{__('Fecha:')}} <input type="date" name="fecha" id="fecha" value="{{ old("fecha") }}">
+                        {{__('Fecha:')}} <input type="date" name="fecha" id="fecha" value="{{ old('fecha') }}">
                         <br><br>
                         @error('hora')
                             <span class="text-danger" style="color:red;">{{__($message)}}</span>
                             <br>
                         @enderror
-                        {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30" value="{{ old("hora") }}">
+                        {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30" value="{{ old('hora') }}">
                         @if (isset($_GET['totalpresupuesto']))
                             <br><br><br>
                             <p style="font-weight:bolder;">{{__('Presupuesto:')}} {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
