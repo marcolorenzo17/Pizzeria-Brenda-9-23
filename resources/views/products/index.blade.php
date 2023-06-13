@@ -1,4 +1,5 @@
 <x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight" style="font-size:40px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter;">
             {{ __('NUESTRO MENÚ') }}
@@ -68,6 +69,31 @@
             </table>
         </div>
     @else
+        <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#anim').on('click', function(event) {
+                    event.preventDefault();
+                    alert("{{__('Ey, ¿qué pasa?')}}");
+                });
+            });
+        </script>
+        <div id="dialog" style="float:right; width:300px;">
+            <div id="d1" onclick="showText('d1', 'd2')" style="background-color:white; position:fixed; right:150px; bottom:100px; padding:20px; border-color:black; border-style:solid; border-width:2px; border-radius:10px;">
+                <p>{{__('¿Qué te apetece comer?')}}</p>
+            </div>
+            <div id="d2" onclick="showText('d2', 'd3')" style="background-color:white; position:fixed; right:150px; bottom:100px; padding:20px; border-color:black; border-style:solid; border-width:2px; border-radius:10px; display:none;">
+                <p>{{__('Haz clic en los iconos de los platos para ver los ingredientes que llevan, los alérgenos, y el precio que tienen.')}}</p>
+            </div>
+            <div id="d3" onclick="showText('d3', 'd4')" style="background-color:white; position:fixed; right:150px; bottom:100px; padding:20px; border-color:black; border-style:solid; border-width:2px; border-radius:10px; display:none;">
+                <p>{{__('Ahora, sólamente tienes que elegir lo que más te apetezca.')}}</p>
+            </div>
+            <div id="d4" onclick="showText('d4', false, true)" style="background-color:white; position:fixed; right:150px; bottom:100px; padding:20px; border-color:black; border-style:solid; border-width:2px; border-radius:10px; display:none;">
+                <p>{{__('¡Recuerda! En la sección de pizzas, puedes crear una tú mismo, escogiendo los ingredientes que quieras.')}}</p>
+            </div>
+        </div>
+        <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
+
         <div class="container px-12 py-8 mx-auto">
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
                 <table class="table-auto w-full text-center" style="border-collapse: separate; border-spacing:25px 25px;">
@@ -682,9 +708,10 @@
                 @endforeach
             </div>
         </div>
+
     @endif
 
-    <br><br><br><br>
+    <br><br><br><br><br><br>
 
     <footer
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">

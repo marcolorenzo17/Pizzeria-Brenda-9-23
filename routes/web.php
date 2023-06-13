@@ -197,7 +197,7 @@ Route::get('/contact', ContactController::class)->name('contact');
 Route::get('/faq', FaqController::class)->name('faq');
 
 
-Route::get('/pruebatextojs', PruebatextojsController::class);
+// Route::get('/pruebatextojs', PruebatextojsController::class);
 
 
 Route::get('/clientes', UserController::class)->name('clientes.index');

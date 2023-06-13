@@ -1,4 +1,5 @@
 <x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('PAGAR - A DOMICILIO') }}
@@ -8,6 +9,26 @@
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
+
+    <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#anim').on('click', function(event) {
+                event.preventDefault();
+                alert("{{__('Ey, ¿qué pasa?')}}");
+            });
+        });
+    </script>
+    <div id="dialog" style="float:right; width:300px;">
+        <div id="d1" onclick="showText('d1', 'd2')" style="background-color:white; position:fixed; right:150px; bottom:100px; padding:20px; border-color:black; border-style:solid; border-width:2px; border-radius:10px;">
+            <p>{{__('¿Quieres consultar el estado de tu pedido?')}}</p>
+        </div>
+        <div id="d2" onclick="showText('d2', false, true)" style="background-color:white; position:fixed; right:150px; bottom:100px; padding:20px; border-color:black; border-style:solid; border-width:2px; border-radius:10px; display:none;">
+            <p>{{__('Puedes hacerlo en la sección de recibos en tiempo real.')}}</p>
+        </div>
+    </div>
+    <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
+
     <br>
     <table class="mx-auto">
         <tr>
@@ -200,7 +221,7 @@
         </tr>
     </table>
 
-    <br><br><br><br>
+    <br><br><br><br><br><br><br><br>
 
     <footer
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
