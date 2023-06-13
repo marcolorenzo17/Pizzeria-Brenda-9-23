@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/index.css" />
-<nav x-data="{ open: false }" class="bg-green-300 border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -20,23 +20,49 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 --}}
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                        {{ __('Platos') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                        {{ __('Promociones') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                        {{ __('Reservas') }}
-                    </x-nav-link>
-                    <a href="{{ route('cart.list') }}" class="flex items-center">
-                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                       <span class="text-red-700">{{ Cart::getTotalQuantity()}}</span>
-                    </a>
-                </div>
+                @if (Auth::user()->admin)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                            {{ __('Menú') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
+                            {{ __('Ingredientes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
+                            {{ __('Promociones') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                            {{ __('Reservas') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Clientes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Valoraciones') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Comentarios') }}
+                        </x-nav-link>
+                    </div>
+                @else
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                            {{ __('Menú') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
+                            {{ __('Promociones') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                            {{ __('Reservas') }}
+                        </x-nav-link>
+                        <a href="{{ route('cart.list') }}" class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        <span class="text-red-700">{{ Cart::getTotalQuantity()}}</span>
+                        </a>
+                    </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
@@ -44,7 +70,11 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            @if (Auth::user()->admin)
+                                <div>{{ Auth::user()->name }} (Admin)</div>
+                            @else
+                                <div>{{ Auth::user()->name }}</div>
+                            @endif
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -93,22 +123,58 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                {{ __('Platos') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                {{ __('Promociones') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                {{ __('Reservas') }}
-            </x-responsive-nav-link>
-        </div>
+        @if (Auth::user()->admin)
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                    {{ __('Menú') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
+                    {{ __('Ingredientes') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
+                    {{ __('Promociones') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                    {{ __('Reservas') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Clientes') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Valoraciones') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Comentarios') }}
+                </x-responsive-nav-link>
+            </div>
+        @else
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                    {{ __('Menú') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
+                    {{ __('Promociones') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                    {{ __('Reservas') }}
+                </x-responsive-nav-link>
+                <a href="{{ route('cart.list') }}" class="flex items-center">
+                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                <span class="text-red-700">{{ Cart::getTotalQuantity()}}</span>
+                </a>
+            </div>
+        @endif
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                @if (Auth::user()->admin)
+                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }} (Admin)</div>
+                @else
+                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                @endif
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 

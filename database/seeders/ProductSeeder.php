@@ -22,7 +22,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Taco, Jalapeño, Guacamole, Nachos.',
                 'image' => 'img/mariachi.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/gluten-lacteos.png'
+                'alergenos' => 'img/alergenos/gluten-lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Vegetal',
@@ -30,7 +31,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Champiñones, Olivas, Pimientos, Cebolla, Parmesano.',
                 'image' => 'img/vegetal.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png'
+                'alergenos' => 'img/alergenos/lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Americana',
@@ -38,7 +40,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Bacon en loncha, Pepperoni, Champiñones, Cheddar.',
                 'image' => 'img/americana.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png'
+                'alergenos' => 'img/alergenos/lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Cheeseburger',
@@ -46,7 +49,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Hamburguesa, Cebolla, Tomate natural, Cheddar, Salsa Cheeseburger, Bacon.',
                 'image' => 'img/cheeseburger.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/mostaza-sesamo-dioxido.png'
+                'alergenos' => 'img/alergenos/mostaza-sesamo-dioxido.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Kebab',
@@ -54,7 +58,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Pollo, Verduras, Salsa Kebab.',
                 'image' => 'img/kebab.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/cascara.png'
+                'alergenos' => 'img/alergenos/cascara.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Carbonara',
@@ -62,7 +67,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salsa Carbonara, Cebolla, Champiñón, Bacon, Parmesano.',
                 'image' => 'img/carbonara.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Barbacoa',
@@ -70,7 +76,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Pollo, Bacon, Carne picada, Salsa barbacoa.',
                 'image' => 'img/barbacoa.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/cascara-mostaza-dioxido-apio.png'
+                'alergenos' => 'img/alergenos/cascara-mostaza-dioxido-apio.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Calzone',
@@ -78,7 +85,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Con dos ingredientes a elegir.',
                 'image' => 'img/calzone.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/huevos.png'
+                'alergenos' => 'img/alergenos/huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Andaluza',
@@ -86,7 +94,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Lomo sajonia, Pimiento, Cebolla, Rodajas de tomate, champiñones, ajo, salsa verde.',
                 'image' => 'img/andaluza.jpg',
                 'type' => 'Pizza',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Gourmet',
@@ -94,7 +103,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Rulo de cabra y cebolla caramelizada.',
                 'image' => 'img/pgourmet.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png'
+                'alergenos' => 'img/alergenos/lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza de Taco Mexicano',
@@ -102,7 +112,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Carne picante de taco.',
                 'image' => 'img/taco.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Cuatro Quesos',
@@ -110,7 +121,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Deliciosa mezcla de quesos: Roquefort, Edam, Mozarella, Parmesano.',
                 'image' => 'img/cuatro.jpg',
                 'type' => 'Pizza',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza 4 Estaciones',
@@ -118,7 +130,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón York, Pimiento, Olivas, Champiñones, Alcaparras, Alcachofas, Anchoas.',
                 'image' => 'img/cuatroest.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/pescado.png'
+                'alergenos' => 'img/alergenos/pescado.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Pizza Muerte por Queso',
@@ -126,7 +139,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Mozzarella, Cheddar, Roquefort, Brie, Parmesano',
                 'image' => 'img/muerte.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png'
+                'alergenos' => 'img/alergenos/lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Hamburguesa de Buey',
@@ -134,7 +148,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
                 'image' => 'img/hbuey.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png'
+                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Hamburguesa de Pollo al Curry',
@@ -142,7 +157,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Con verdurita.',
                 'image' => 'img/hpollo.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/gluten-apio-cascara-mostaza-sesamo.png'
+                'alergenos' => 'img/alergenos/gluten-apio-cascara-mostaza-sesamo.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Hamburguesa con Salsa al Whisky',
@@ -150,7 +166,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de buey, encurtido de cebolla escalonia. Salsa al Whisky y bacon.',
                 'image' => 'img/hwhisky.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Queséame Burger',
@@ -158,7 +175,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de buey con salsa queséame, bacon y jalapeño.',
                 'image' => 'img/hqueseame.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png'
+                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Hamburguesa de Ternera',
@@ -166,7 +184,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
                 'image' => 'img/hternera.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png'
+                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Hamburguesa Gourmet',
@@ -174,7 +193,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de buey. Ingredientes: Rulo de cabra y Cebolla caramelizada.',
                 'image' => 'img/gourmet.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png'
+                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Hamburguesa de Pollo',
@@ -182,7 +202,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
                 'image' => 'img/hnormal.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png'
+                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Crunchi Burger',
@@ -190,7 +211,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de pollo crujiente.',
                 'image' => 'img/crunchi.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja-huevos.png'
+                'alergenos' => 'img/alergenos/lacteos-soja-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Costi Burger',
@@ -198,7 +220,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Costilla, Salsa BBQ, Cebolla.',
                 'image' => 'img/costi.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/huevos.png'
+                'alergenos' => 'img/alergenos/huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Sándwich Panadero',
@@ -206,7 +229,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón de York, Queso, Pollo, Bacon, Huevo, Lechuga, Tomate, Salsa vegetal.',
                 'image' => 'img/spanadero.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => 'img/alergenos/dioxido.png'
+                'alergenos' => 'img/alergenos/dioxido.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Sándwich Vegetal o de Pollo',
@@ -214,7 +238,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verduras o pollo, Salsa vegetal.',
                 'image' => 'img/svegetal.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => 'img/alergenos/dioxido.png'
+                'alergenos' => 'img/alergenos/dioxido.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Sándwich Especial',
@@ -222,7 +247,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Queso, Bacon, Huevo, Salsa vegetal, Jamón de York.',
                 'image' => 'img/especial.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => 'img/alergenos/dioxido.png'
+                'alergenos' => 'img/alergenos/dioxido.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Sándwich Mixto',
@@ -230,7 +256,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón de York y queso.',
                 'image' => 'img/smixto.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Espagueti Pescatore',
@@ -238,7 +265,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salsa marinera y Salazones.',
                 'image' => 'img/pescatore.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja-pescado.png'
+                'alergenos' => 'img/alergenos/soja-pescado.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Espagueti Primavera',
@@ -246,7 +274,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verdura fresca y pollo',
                 'image' => 'img/primavera.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Espagueti Carbonara',
@@ -254,7 +283,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Bacon y nata',
                 'image' => 'img/escarbonara.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja-huevos.png'
+                'alergenos' => 'img/alergenos/soja-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Espagueti Boloñesa',
@@ -262,7 +292,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/boloñesa.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/lacteos.png'
+                'alergenos' => 'img/alergenos/lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Espagueti con Atún',
@@ -270,7 +301,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/espatun.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/pescado.png'
+                'alergenos' => 'img/alergenos/pescado.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Tallarines Roquefort',
@@ -278,7 +310,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salsa Roquefort',
                 'image' => 'img/roquefort.jpg',
                 'type' => 'Pasta',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Tallarines Salmón',
@@ -286,7 +319,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salmón y salsa de salmón.',
                 'image' => 'img/salmon.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja-pescado.png'
+                'alergenos' => 'img/alergenos/soja-pescado.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Macarrones',
@@ -294,7 +328,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/macarrones.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/apio-huevos.png'
+                'alergenos' => 'img/alergenos/apio-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Macarrones Napolitana',
@@ -302,7 +337,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/napolitano.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/apio-huevos.png'
+                'alergenos' => 'img/alergenos/apio-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Lasaña',
@@ -310,7 +346,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/lasaña.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/apio-cascara.png'
+                'alergenos' => 'img/alergenos/apio-cascara.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Risotto Roquefort',
@@ -318,7 +355,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Queso Roquefort',
                 'image' => 'img/risotto.jpg',
                 'type' => 'Arroz',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Risotto Mixto',
@@ -326,7 +364,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verduras y queso',
                 'image' => 'img/mixto.jpg',
                 'type' => 'Arroz',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Arroz Frito',
@@ -334,7 +373,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verduras, Maíz, Gambas',
                 'image' => 'img/arrozfrito.jpg',
                 'type' => 'Arroz',
-                'alergenos' => 'img/alergenos/soja-crustaceos.png'
+                'alergenos' => 'img/alergenos/soja-crustaceos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Baguette Brenda',
@@ -342,7 +382,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Palometa, Pepinillos, Huevo duro, Queso Philadelphia.',
                 'image' => 'img/bbrenda.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/dioxido-huevos-mostaza.png'
+                'alergenos' => 'img/alergenos/dioxido-huevos-mostaza.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Baguette Panadero',
@@ -350,7 +391,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón de York, Queso, Pollo, Bacon, Huevo, Lechuga, Tomate, Salsa.',
                 'image' => 'img/panadero.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/soja-huevos-dioxido.png'
+                'alergenos' => 'img/alergenos/soja-huevos-dioxido.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Baguette Cinta de Lomo Sajonia',
@@ -358,7 +400,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Tomate y pimiento frito.',
                 'image' => 'img/cintalomo.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Baguette de Carne picada y Queso fundido',
@@ -366,7 +409,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Carne picada y queso fundido.',
                 'image' => 'img/carnepicaqueso.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/apio.png'
+                'alergenos' => 'img/alergenos/apio.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Baguette Vegetal',
@@ -374,7 +418,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Atún, Lechuga, Tomate, Huevo, Morrón, Mayonesa.',
                 'image' => 'img/bvegetal.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/soja-pescado-huevos.png'
+                'alergenos' => 'img/alergenos/soja-pescado-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Ensalada Normal',
@@ -382,7 +427,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Lechuga, Cebolla, Olivas, Tomate.',
                 'image' => 'img/enormal.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Ensalada de Arroz',
@@ -390,7 +436,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Arroz Basmati, Huevo, Jamón de York, Mayonesa, Anchoas, Olivas negras, Morrón.',
                 'image' => 'img/ensarroz.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-pescado-huevos.png'
+                'alergenos' => 'img/alergenos/soja-lacteos-pescado-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Ensalada César',
@@ -398,7 +445,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Cherry, Lechuga, Jamón de York, Queso, Nuggets, Picatosted, Salsa César.',
                 'image' => 'img/cesar.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-huevos-gluten-cascara-sesamo.png'
+                'alergenos' => 'img/alergenos/soja-lacteos-huevos-gluten-cascara-sesamo.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Ensalada Brenda',
@@ -406,7 +454,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Lechuga, Pollo, Queso, Cherry, Jamón York, Zanahorias, Salsa Rosa.',
                 'image' => 'img/ensabrenda.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten.png'
+                'alergenos' => 'img/alergenos/soja-lacteos-gluten.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Ensalada Mixta',
@@ -414,7 +463,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Olivas, Huevo, Jamón de York, Queso, Tomate, Lechuga, Maíz.',
                 'image' => 'img/emixta.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-huevos.png'
+                'alergenos' => 'img/alergenos/soja-lacteos-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Ensalada de Pasta',
@@ -422,7 +472,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Huevo, Maíz, Atún, Oliva, Jamón de York, Salsa.',
                 'image' => 'img/epasta.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-huevos-pescado-gluten.png'
+                'alergenos' => 'img/alergenos/soja-lacteos-huevos-pescado-gluten.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Patatas Deluxe',
@@ -430,7 +481,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Gajos.',
                 'image' => 'img/deluxe.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/gluten.png'
+                'alergenos' => 'img/alergenos/gluten.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Bolas de Queso - 8 Unidades',
@@ -438,7 +490,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Rellenas de Queso Cheddar con un toque de jalapeño.',
                 'image' => 'img/bolaqueso.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/gluten.png'
+                'alergenos' => 'img/alergenos/gluten.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Nachos con queso',
@@ -446,7 +499,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Extra para nachos: Carne picada o Carne de Taco (1.50 €).',
                 'image' => 'img/nachoqueso.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/lacteos-gluten.png'
+                'alergenos' => 'img/alergenos/lacteos-gluten.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Nachos con queso y guacamole',
@@ -454,7 +508,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Queso y guacamole',
                 'image' => 'img/guacamole.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/lacteos-gluten-dioxido.png'
+                'alergenos' => 'img/alergenos/lacteos-gluten-dioxido.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Alitas de pollo a la barbacoa',
@@ -462,7 +517,8 @@ class ProductSeeder extends Seeder
                 'description' => '6 unidades',
                 'image' => 'img/alitas.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/soja-cascara-gluten-mostaza.png'
+                'alergenos' => 'img/alergenos/soja-cascara-gluten-mostaza.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Nuggets',
@@ -470,7 +526,8 @@ class ProductSeeder extends Seeder
                 'description' => '5 unidades',
                 'image' => 'img/nuggets.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten-huevos.png'
+                'alergenos' => 'img/alergenos/soja-lacteos-gluten-huevos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Patatas con carne picada y queso',
@@ -478,7 +535,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/patatascq.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/gluten-lacteos.png'
+                'alergenos' => 'img/alergenos/gluten-lacteos.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Perrito normal',
@@ -486,7 +544,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €)',
                 'image' => 'img/perrito.jpg',
                 'type' => 'Perrito',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Perrito con taco y queso',
@@ -494,7 +553,8 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Carne de taco y queso.',
                 'image' => 'img/tacoyqueso.jpg',
                 'type' => 'Perrito',
-                'alergenos' => 'img/alergenos/soja.png'
+                'alergenos' => 'img/alergenos/soja.png',
+                'habilitado' => true
             ],
             [
                 'name' => 'Tubo de cerveza',
@@ -502,7 +562,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/cervezatubo.jpg',
                 'type' => 'Cerveza',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Vaso de cerveza',
@@ -510,7 +571,8 @@ class ProductSeeder extends Seeder
                 'description' => '22cl',
                 'image' => 'img/cervezavaso.jpg',
                 'type' => 'Cerveza',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Lata de cerveza',
@@ -518,7 +580,8 @@ class ProductSeeder extends Seeder
                 'description' => '33cl',
                 'image' => 'img/cervezalata.jpg',
                 'type' => 'Cerveza',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Maceta de cerveza',
@@ -526,7 +589,8 @@ class ProductSeeder extends Seeder
                 'description' => '50cl',
                 'image' => 'img/cervezamaceta.jpg',
                 'type' => 'Cerveza',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Copa de fino, Rioja o blanco',
@@ -534,7 +598,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/copafino.jpg',
                 'type' => 'Vino',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Botella de Rioja',
@@ -542,7 +607,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/botellarioja.jpg',
                 'type' => 'Vino',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Botella de vino blanco',
@@ -550,7 +616,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/botellavinoblanco.jpg',
                 'type' => 'Vino',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Lata o botellín',
@@ -558,7 +625,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/lata.jpg',
                 'type' => 'Refresco',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Agua mineral 1/4 con gas',
@@ -566,7 +634,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/aguacongas.jpg',
                 'type' => 'Refresco',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Agua mineral 1/2 sin gas',
@@ -574,7 +643,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/aguasingas.jpg',
                 'type' => 'Refresco',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
             [
                 'name' => 'Tinto de verano',
@@ -582,7 +652,8 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/tintoverano.jpg',
                 'type' => 'Refresco',
-                'alergenos' => ''
+                'alergenos' => '',
+                'habilitado' => true
             ],
         ];
         Product::insert($products);

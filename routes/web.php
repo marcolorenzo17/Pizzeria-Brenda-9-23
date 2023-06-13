@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PruebatextojsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\RecogerController;
 use App\Http\Controllers\PagardomicilioController;
@@ -8,7 +11,7 @@ use App\Http\Controllers\CrearpizzaController;
 use App\Http\Controllers\ReciboController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PromocionController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventoController;
@@ -98,17 +101,45 @@ Route::get('/refrescosAnon', function() {
     return view('productsAnon', ['products' => $products]);
 });
 
+Route::get('/whoareweAnon', function() {
+    return view('whoareweAnon');
+});
+
+Route::get('/faqAnon', function() {
+    return view('faqAnon');
+});
+
+Route::get('/contactAnon', function() {
+    return view('contactAnon');
+});
+
 
 Route::resource('products', ProductController::class);
+Route::get('indexValoraciones', [ProductController::class, 'indexValoraciones'])->name('products.indexValoraciones');
+Route::get('indexComentarios', [ProductController::class, 'indexComentarios'])->name('products.indexComentarios');
+Route::get('crearproducto', [ProductController::class, 'crear'])->name('products.crear');
+Route::get('editarproducto/{id}', [ProductController::class, 'editar'])->name('products.editar');
+Route::post('aniadirproducto', [ProductController::class, 'aniadir'])->name('products.aniadir');
+Route::post('actualizarproducto/{id}', [ProductController::class, 'actualizar'])->name('products.actualizar');
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');
+Route::delete('destroyValoracion/{idProduct}/{idValoracion}', [ProductController::class, 'destroyValoracion'])->name('products.destroyValoracion');
+Route::delete('destroyValoracionAdmin/{idValoracion}', [ProductController::class, 'destroyValoracionAdmin'])->name('products.destroyValoracionAdmin');
+Route::post('actualizarValoracion/{idProduct}/{idValoracion}', [ProductController::class, 'actualizarValoracion'])->name('products.actualizarValoracion');
 Route::post('addComentario/{idProduct}/{idValoracion}', [ProductController::class, 'addComentario'])->name('products.addComentario');
+Route::delete('destroyComentario/{idProduct}/{idComentario}', [ProductController::class, 'destroyComentario'])->name('products.destroyComentario');
+Route::delete('destroyComentarioAdmin/{idComentario}', [ProductController::class, 'destroyComentarioAdmin'])->name('products.destroyComentarioAdmin');
+Route::post('actualizarComentario/{idProduct}/{idComentario}', [ProductController::class, 'actualizarComentario'])->name('products.actualizarComentario');
+Route::post('habilitarproducto/{id}', [ProductController::class, 'habilitar'])->name('products.habilitar');
+Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilitar'])->name('products.deshabilitar');
 
 
-Route::resource('promociones', PromocionController::class);
+Route::resource('promociones', PromotionController::class);
 
 
 Route::resource('eventos', EventoController::class);
 Route::post('addEvento', [EventoController::class, 'add'])->name('eventos.addEvento');
+Route::post('eventosi/{id}', [EventoController::class, 'eventosi'])->name('eventos.eventosi');
+Route::post('eventono/{id}', [EventoController::class, 'eventono'])->name('eventos.eventono');
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -130,6 +161,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 */
 
+/*
+Route::get('/home', HomeController::class)->name('home');
+
+Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
+*/
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -145,22 +182,51 @@ Route::controller(IndexController::class)->group(function(){
 });
 */
 
-Route::get('/crearpizza', CrearpizzaController::class);
+Route::get('crearpizza', [CrearpizzaController::class, 'index'])->name('crearpizza');
+Route::delete('/borraringrediente/{id}', [CrearpizzaController::class, 'destroy'])->name('crearpizza.destroy');
+Route::get('crearingrediente', [CrearpizzaController::class, 'crear'])->name('crearpizza.crear');
+Route::get('editaringrediente/{id}', [CrearpizzaController::class, 'editar'])->name('crearpizza.editar');
+Route::post('aniadiringrediente', [CrearpizzaController::class, 'aniadir'])->name('crearpizza.aniadir');
+Route::post('actualizaringrediente/{id}', [CrearpizzaController::class, 'actualizar'])->name('crearpizza.actualizar');
+Route::post('habilitaringrediente/{id}', [CrearpizzaController::class, 'habilitar'])->name('crearpizza.habilitar');
+Route::post('deshabilitaringrediente/{id}', [CrearpizzaController::class, 'deshabilitar'])->name('crearpizza.deshabilitar');
 
 
-Route::get('/whoarewe', WhoareweController::class);
+Route::get('/whoarewe', WhoareweController::class)->name('whoarewe');
 
 
-Route::get('/contact', ContactController::class);
+Route::get('/contact', ContactController::class)->name('contact');
 
 
-Route::get('/faq', FaqController::class);
+Route::get('/faq', FaqController::class)->name('faq');
 
 
-Route::get('/recibos', ReciboController::class);
+// Route::get('/pruebatextojs', PruebatextojsController::class);
+
+
+Route::get('/clientes', UserController::class)->name('clientes.index');
+Route::delete('/borrarcliente/{id}', [UserController::class, 'destroy'])->name('clientes.destroy');
+Route::post('adminsicliente/{id}', [UserController::class, 'adminsi'])->name('clientes.adminsi');
+Route::post('adminnocliente/{id}', [UserController::class, 'adminno'])->name('clientes.adminno');
+Route::post('validarcliente/{id}', [UserController::class, 'validar'])->name('clientes.validar');
+Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->name('clientes.desvalidar');
+
+
+Route::get('/recibos', ReciboController::class)->name('recibos.index');
+Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
+Route::post('actualizarrecibo/{id}', [ReciboController::class, 'actualizar'])->name('recibos.actualizar');
+Route::post('pagadorecibo/{id}', [ReciboController::class, 'pagado'])->name('recibos.pagado');
+Route::post('nopagadorecibo/{id}', [ReciboController::class, 'nopagado'])->name('recibos.nopagado');
 
 
 Route::get('/curriculum', CurriculumController::class);
+Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
 
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+});
 
 require __DIR__.'/auth.php';

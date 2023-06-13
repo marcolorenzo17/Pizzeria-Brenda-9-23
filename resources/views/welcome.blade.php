@@ -828,16 +828,13 @@
 </head>
 
 <body class="antialiased">
-    <br>
-    <table>
-        <tr>
-            <td>
-                <img src="{{ asset('img/logomadera.jpg') }}" alt="..." width="100px" height="100px">
-            </td>
-        </tr>
-    </table>
-    <br>
     <div>
+        @include('partials/language_switcher')
+    </div>
+    <br><br>
+    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('PIZZERÍA ARTESANAL Y NATURAL')}}</h1>
+    <br>
+    <div class="mx-auto">
         <video width="1920" height="1038" autoplay loop>
             <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
             Tu navegador no es compatible con este vídeo.
@@ -847,106 +844,37 @@
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             @auth
                 <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Entrar</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar pedido')}}</a>
             @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
-                    sesión</a>
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar sesión')}}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;">{{__('Registrarse')}}</a>
                 @endif
             @endauth
         </div>
     @endif
     <br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-        <tr>
-            <td>
-                <a href="{{ url('pizzasAnon') }}">
-                    <h1 class="text-center">PIZZAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('burgersAnon') }}">
-                    <h1 class="text-center">HAMBURGUESAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('sandwichAnon') }}">
-                    <h1 class="text-center">SÁNDWICHES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('pastasAnon') }}">
-                    <h1 class="text-center">PASTA</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('arrocesAnon') }}">
-                    <h1 class="text-center">ARROCES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('baguettesAnon') }}">
-                    <h1 class="text-center">BAGUETTES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('ensaladasAnon') }}">
-                    <h1 class="text-center">ENSALADAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('complementosAnon') }}">
-                    <h1 class="text-center">COMPLEMENTOS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('perritosAnon') }}">
-                    <h1 class="text-center">PERRITOS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('cervezasAnon') }}">
-                    <h1 class="text-center">CERVEZAS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('vinosAnon') }}">
-                    <h1 class="text-center">VINOS</h1>
-                </a>
-            </td>
-            <td>
-                <a href="{{ url('refrescosAnon') }}">
-                    <h1 class="text-center">REFRESCOS</h1>
-                </a>
-            </td>
-        </tr>
-    </table>
+    <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('¿QUÉ PEDIMOS?')}}</h1>
     <br>
-    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-        <tr>
-            <td>
-                <a href="#waw">
-                    <h1 class="text-center">¿QUIÉNES SOMOS?</h1>
-                </a>
-            </td>
-            <td>
-                <a href="#faq">
-                    <h1 class="text-center">PREGUNTAS FRECUENTES</h1>
-                </a>
-            </td>
-            <td>
-                <a href="#con">
-                    <h1 class="text-center">CONTÁCTANOS</h1>
-                </a>
-            </td>
-        </tr>
-    </table>
-    <br><br>
-    <h1 class="text-center">PROMOCIONES:</h1>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pastasAnon"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="arrocesAnon"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="baguettesAnon"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="ensaladasAnon"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="complementosAnon"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="perritosAnon"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/cervezaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('CERVEZAS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/vinoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('VINOS')}}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="cervezasAnon"><img src="{{ asset("img/refrescoicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('REFRESCOS')}}</a></div>
+    </div>
+    <br><br><br>
+    <h1 class="text-center" style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">{{__('NUESTRAS PROMOCIONES')}}</h1>
     <br>
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
@@ -955,153 +883,61 @@
                     <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
                 </td>
                 <td>
-                    <img src="{{ asset('img/promocion2.jpg') }}" alt="promocion2" width="300px" height="20px">
+                    <img src="{{ asset('img/promocion3.png') }}" alt="promocion2" width="300px" height="20px">
                 </td>
             </tr>
         </table>
     </div>
     <br><br>
-    <div id="waw" class="container px-12 py-8 mx-auto bg-white">
-        <br>
-        <h2 class="text-center">¿QUIÉNES SOMOS?</h2>
-        <br><br>
-        <h2 class="text-center">PIZZERÍA BRENDA: ARTESANAL Y NATURAL</h2>
-        <br>
-        <p>
-            Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo
-            Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.<br><br>
-            Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con
-            mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro
-            pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos
-            años.
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw1.png') }}" alt="waw1">
-        </div>
-        <br>
-        <p>
-            Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación.
-            Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el
-            local, lo que nos proporcionó agilidad y rapidez en el servicio.<br>
-            Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia,
-            y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros
-            clientes un producto totalmente natural, artesanal y de calidad.<br><br>
-            Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y
-            fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw2.png') }}" alt="waw2">
-        </div>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw3.png') }}" alt="waw3">
-        </div>
-        <br>
-        <p>
-            En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada,
-            platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio
-            de la zona.<br><br>
-            La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza
-            donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por
-            parte de nuestro joven y atento personal.<br>
-            Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura
-            y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades
-            y promociones en la carta.
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw4.png') }}" alt="waw4">
-        </div>
-        <br>
-        <p>
-            También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos
-            sin moverte de casa.<br><br>
-            ¡Te esperamos! ¡Visítanos!
-        </p>
-    </div>
-    <div id="faq" class="container px-12 py-8 mx-auto bg-white">
-        <p>Preguntas frecuentes</p>
-    </div>
-    <div id="con" class="container px-12 py-8 mx-auto bg-white">
-        <h2 class="text-center">CONTÁCTANOS</h2>
-        <br><br>
-        <h3 style="font-weight: bolder;">TELÉFONOS</h3>
-        <br>
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
-            <tr>
-                <td>956 37 11 15</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>956 37 47 36</td>
-                <td>Puedes hacer tu pedido por teléfono</td>
-            </tr>
-            <tr>
-                <td>627 650 605</td>
-                <td></td>
-            </tr>
-        </table>
-        <br><br>
-        <h3 style="font-weight: bolder;">TE ATENDEREMOS EN HORARIO:</h3>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De lunes a domingo: 20:30 - 23:30</p>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Domingo por la mañana: 13:30 - 15:00</p>
-        <br><br>
-        <div class="text-center">
-            <h3 style="font-weight: bolder;">VISÍTANOS EN:</h3>
-            <br>
-            <p>
-                C/ Padre Lerchundi, 3<br>
-                (junto a antigua estación de Los Amarillos)<br>
-                11550 - Chipiona (Cádiz)
-            </p>
-            <br>
-            <img src="{{ asset('img/mapsplaceholder.png') }}" alt="..." class="max-h-60 mx-auto">
-        </div>
-        <br><br>
-        <div class="text-center">
-            <h3 style="font-weight: bolder;">ATENCIÓN AL CLIENTE:</h3>
-            <br>
-            <p>
-                brendapizza@hotmail.com
-            </p>
-        </div>
-        <br>
-    </div>
-    <br><br>
-    <table>
+    <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
         <tr>
             <td>
-                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
+                <a href="whoareweAnon">
+                    <h1 class="text-center">{{__('¿QUIÉNES SOMOS?')}}</h1>
+                </a>
             </td>
             <td>
-                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
+                <a href="faqAnon">
+                    <h1 class="text-center">{{__('PREGUNTAS FRECUENTES')}}</h1>
+                </a>
             </td>
             <td>
-                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
-            </td>
-            <td>
-                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
+                <a href="contactAnon">
+                    <h1 class="text-center">{{__('CONTÁCTANOS')}}</h1>
+                </a>
             </td>
         </tr>
     </table>
+    <br><br>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+    </div>
 </body>
 
 </html>

@@ -8,6 +8,9 @@ class PagardomicilioController extends Controller
 {
     public function __invoke() {
         $cartItems = \Cart::getContent();
-        return view('pagardomicilio', compact('cartItems'));
+        $user = auth()->user();
+        return view('pagardomicilio', compact('cartItems'), [
+            'intent' => $user->createSetupIntent(),
+        ]);
     }
 }

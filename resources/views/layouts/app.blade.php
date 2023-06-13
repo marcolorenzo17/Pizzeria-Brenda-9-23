@@ -15,7 +15,7 @@
         @vite(['resources/css/main.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-green-400">
+        <div class="min-h-screen" style="background-color: #f5f0e9">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -28,7 +28,7 @@
                         @if (Session::has('notif.success'))
                         <div class="bg-blue-300 mt-2 p-4">
                             {{-- if it's there then print the notification --}}
-                            <span class="text-white">{{ Session::get('notif.success') }}</span>
+                            <span class="text-white">{{ __(Session::get('notif.success')) }}</span>
                         </div>
                         @endif
                     </div>

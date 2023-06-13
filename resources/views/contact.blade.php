@@ -3,11 +3,14 @@
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('CONTACTA CON PIZZERÍA BRENDA') }}
         </h2>
+        <div>
+            @include('partials/language_switcher')
+        </div>
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
-        <h3 style="font-weight: bolder;">TELÉFONOS</h3>
+        <h3 style="font-weight: bolder;">{{__('TELÉFONOS')}}</h3>
         <br>
         <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
             <tr>
@@ -16,7 +19,7 @@
             </tr>
             <tr>
                 <td>956 37 47 36</td>
-                <td>Puedes hacer tu pedido por teléfono</td>
+                <td>{{__('Puedes hacer tu pedido por teléfono')}}</td>
             </tr>
             <tr>
                 <td>627 650 605</td>
@@ -24,18 +27,18 @@
             </tr>
         </table>
         <br><br>
-        <h3 style="font-weight: bolder;">TE ATENDEREMOS EN HORARIO:</h3>
+        <h3 style="font-weight: bolder;">{{__('TE ATENDEREMOS EN HORARIO:')}}</h3>
         <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De lunes a domingo: 20:30 - 23:30</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('De lunes a domingo: 20:30 - 23:30')}}</p>
         <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Domingo por la mañana: 13:30 - 15:00</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Domingo por la mañana: 13:30 - 15:00')}}</p>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder;">VISÍTANOS EN:</h3>
+            <h3 style="font-weight: bolder;">{{__('VISÍTANOS EN:')}}</h3>
             <br>
             <p>
                 C/ Padre Lerchundi, 3<br>
-                (junto a antigua estación de Los Amarillos)<br>
+                {{__('(junto a antigua estación de Los Amarillos)')}}<br>
                 11550 - Chipiona (Cádiz)
             </p>
             <br>
@@ -43,7 +46,7 @@
         </div>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder;">ATENCIÓN AL CLIENTE:</h3>
+            <h3 style="font-weight: bolder;">{{__('ATENCIÓN AL CLIENTE:')}}</h3>
             <br>
             <p>
                 brendapizza@hotmail.com
@@ -55,18 +58,18 @@
     <br><br><br><br>
 
     <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 bg-green-200 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6">
-        <span class="text-sm text-gray-500 sm:text-center">© 2023 Pizzería Brenda™. Todos los derechos reservados.
+        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
+        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
             <li>
-                <a href="whoarewe" class="mr-4 hover:underline md:mr-6">¿Quiénes somos?</a>
+                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
             </li>
             <li>
-                <a href="faq" class="mr-4 hover:underline md:mr-6">Preguntas frecuentes</a>
+                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
             </li>
             <li>
-                <a href="contact" class="mr-4 hover:underline md:mr-6">Contáctanos</a>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
             </li>
         </ul>
     </footer>

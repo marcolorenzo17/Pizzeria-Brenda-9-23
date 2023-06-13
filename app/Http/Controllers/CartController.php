@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recibo;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -70,7 +71,25 @@ class CartController extends Controller
         $recibo->total = $req->total;
         $recibo->direccion = $req->direccion;
         $recibo->telefono = $req->telefono;
+        $recibo->idUser = Auth::user()->id;
+        $recibo->estado = 'Pedido realizado';
+        $recibo->pagado = $req->pagado;
+
         $recibo->save();
+
+        if ($req->pagado == "true") {
+            $amount = $req->total;
+            $amount = $amount * 100;
+            $paymentMethod = $req->payment_method;
+
+            $user = auth()->user();
+            $user->createOrGetStripeCustomer();
+
+            $paymentMethod = $user->addPaymentMethod($paymentMethod);
+
+            $user->charge($amount, $paymentMethod->id);
+        }
+
 
         \Cart::clear();
 
