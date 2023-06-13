@@ -188,13 +188,13 @@ Route::post('habilitaringrediente/{id}', [CrearpizzaController::class, 'habilita
 Route::post('deshabilitaringrediente/{id}', [CrearpizzaController::class, 'deshabilitar'])->name('crearpizza.deshabilitar');
 
 
-Route::get('/whoarewe', WhoareweController::class);
+Route::get('/whoarewe', WhoareweController::class)->name('whoarewe');
 
 
-Route::get('/contact', ContactController::class);
+Route::get('/contact', ContactController::class)->name('contact');
 
 
-Route::get('/faq', FaqController::class);
+Route::get('/faq', FaqController::class)->name('faq');
 
 
 Route::get('/pruebatextojs', PruebatextojsController::class);
