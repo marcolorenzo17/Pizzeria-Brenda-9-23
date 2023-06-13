@@ -18,7 +18,7 @@ class CurriculumController extends Controller
 
     public function add(Request $req) {
         $validate = Validator::make($req->all(), [
-            'curriculum' => 'required',
+            'curriculum' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ],[
             'curriculum.required' => 'El campo es obligatorio.',
         ]);
@@ -27,11 +27,19 @@ class CurriculumController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
+        /*
         $curriculum = new Curriculum;
         $curriculum->idUser = Auth::user()->id;
         $curriculum->curriculum = $req->curriculum;
 
         $curriculum->save();
+        */
+
+        $image_path = $req->file('curriculum')->store('curriculum', 'public');
+
+        $data = Curriculum::create([
+            'curriculum' => $image_path,
+        ]);
 
         session()->flash('notif.success', 'Se ha enviado el currículum con éxito.');
         return redirect('/products');
