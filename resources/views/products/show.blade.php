@@ -127,9 +127,16 @@
                     <div>
                         @foreach ($valoraciones as $valoracion)
                             @if ($valoracion->idProduct == $products->id)
-                                <p>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
+                                <p style="font-size:13px;">{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
                                 </p>
-                                <p>{{ $valoracion->resenia }}</p>
+                                <p style="font-size:12px; color:gray;">
+                                    @if ($valoracion->modificado)
+                                        {{__('(Modificado)')}}
+                                    @endif
+                                </p>
+                                <p>
+                                    {{ $valoracion->resenia }}
+                                </p>
                                 @switch ($valoracion->estrellas)
                                     @case (1)
                                         <img src="{{ asset('img/e1.png') }}" alt="*" width="100px" height="100px">
@@ -151,16 +158,86 @@
                                         <img src="{{ asset('img/e5.png') }}" alt="*" width="100px" height="100px">
                                     @break
                                 @endswitch
+                                @if ($valoracion->idUser == Auth::user()->id)
+                                    <br>
+                                    <div x-data="{ mostrarVal:false }">
+                                        <p style="font-size:13px;" x-on:click="mostrarVal = !mostrarVal" x-text="mostrarVal ? '{{__('Editar valoración') }}' : '{{__('Editar valoración') }}'"></p>
+                                        <div x-show="mostrarVal">
+                                            <form action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}" method="POST">
+                                                @csrf
+                                                <div>
+                                                    @error('modifVal')
+                                                        <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                                                        <br>
+                                                    @enderror
+                                                    <input type="text" id="modifVal" name="modifVal">
+                                                    <button type="submit"
+                                                        class="px-6 py-2 text-sm rounded shadow" style="color:green;">{{__('Publicar')}}
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <form
+                                    action="{{ route('products.destroyValoracion', [$products->id, $valoracion->id]) }}"
+                                    method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <div>
+                                            <button type="submit"
+                                                class="px-6 py-2 text-sm rounded shadow" style="color:red;">{{__('Borrar valoración')}}</button>
+                                        </div>
+                                    </form>
+                                @endif
+                                <br>
+                                <p style="font-weight:bolder; font-size:15px;">{{__('Comentarios')}}</p>
+                                <br>
                                 @foreach ($comentarios as $comentario)
                                     @if ($comentario->idValoracion == $valoracion->id)
-                                        <br>
-                                        <p>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
+                                        <p style="font-size:13px;">{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                                         </p>
-                                        <p>{{ $comentario->resenia }}</p>
+                                        <p style="font-size:12px; color:gray;">
+                                            @if ($comentario->modificado)
+                                                {{__('(Modificado)')}}
+                                            @endif
+                                        </p>
+                                        <p>
+                                            {{ $comentario->resenia }}
+                                        </p>
+                                        @if ($comentario->idUser == Auth::user()->id)
+                                            <br>
+                                            <div x-data="{ mostrarCom:false }">
+                                                <p style="font-size:13px;" x-on:click="mostrarCom = !mostrarCom" x-text="mostrarCom ? '{{__('Editar comentario') }}' : '{{__('Editar comentario') }}'"></p>
+                                                <div x-show="mostrarCom">
+                                                    <form action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}" method="POST">
+                                                        @csrf
+                                                        <div>
+                                                            @error('modifCom')
+                                                                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                                                                <br>
+                                                            @enderror
+                                                            <input type="text" id="modifCom" name="modifCom">
+                                                            <button type="submit"
+                                                                class="px-6 py-2 text-sm rounded shadow" style="color:green;">{{__('Publicar')}}
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <form
+                                            action="{{ route('products.destroyComentario', [$products->id, $comentario->id]) }}"
+                                            method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <div>
+                                                    <button type="submit"
+                                                        class="px-6 py-2 text-sm rounded shadow" style="color:red;">{{__('Borrar comentario')}}</button>
+                                                </div>
+                                            </form>
+                                        @endif
                                         <br>
                                     @endif
                                 @endforeach
-                                <br>
                                 <form
                                     action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
                                     method="POST">

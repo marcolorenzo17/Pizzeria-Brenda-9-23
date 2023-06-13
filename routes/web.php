@@ -120,7 +120,11 @@ Route::get('editarproducto/{id}', [ProductController::class, 'editar'])->name('p
 Route::post('aniadirproducto', [ProductController::class, 'aniadir'])->name('products.aniadir');
 Route::post('actualizarproducto/{id}', [ProductController::class, 'actualizar'])->name('products.actualizar');
 Route::post('addValoracion/{id}', [ProductController::class, 'addValoracion'])->name('products.addValoracion');
+Route::delete('destroyValoracion/{idProduct}/{idValoracion}', [ProductController::class, 'destroyValoracion'])->name('products.destroyValoracion');
+Route::post('actualizarValoracion/{idProduct}/{idValoracion}', [ProductController::class, 'actualizarValoracion'])->name('products.actualizarValoracion');
 Route::post('addComentario/{idProduct}/{idValoracion}', [ProductController::class, 'addComentario'])->name('products.addComentario');
+Route::delete('destroyComentario/{idProduct}/{idComentario}', [ProductController::class, 'destroyComentario'])->name('products.destroyComentario');
+Route::post('actualizarComentario/{idProduct}/{idComentario}', [ProductController::class, 'actualizarComentario'])->name('products.actualizarComentario');
 Route::post('habilitarproducto/{id}', [ProductController::class, 'habilitar'])->name('products.habilitar');
 Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilitar'])->name('products.deshabilitar');
 

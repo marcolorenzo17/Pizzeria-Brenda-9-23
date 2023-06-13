@@ -75,8 +75,8 @@ class ProductController extends Controller
      */
     public function show(string $id): Response
     {
-        $valoraciones = DB::select('select * from valoraciones');
-        $comentarios = DB::select('select * from comentarios');
+        $valoraciones = DB::select('select * from valoraciones order by id desc');
+        $comentarios = DB::select('select * from comentarios order by id');
 
         return response()->view('products.show', [
             'products' => Product::findOrFail($id),
@@ -228,10 +228,50 @@ class ProductController extends Controller
         $valoracione->estrellas = $req->estrellas;
         $valoracione->idProduct = $product->id;
         $valoracione->idUser = Auth::user()->id;
+        $valoracione->modificado = false;
 
         $valoracione->save();
 
         session()->flash('notif.success', 'Se ha añadido la valoración con éxito.');
+        return redirect('/products/'.$product->id);
+    }
+
+    public function destroyValoracion(string $idProduct, string $idValoracion): RedirectResponse
+    {
+        $product = Product::findOrFail($idProduct);
+        $valoracion = Valoracione::findOrFail($idValoracion);
+
+        $delete = $valoracion->delete($idValoracion);
+
+        if($delete) {
+            session()->flash('notif.success', 'La valoración se ha borrado con éxito.');
+            return redirect('/products/'.$product->id);
+        }
+
+        return abort(500);
+    }
+
+    public function actualizarValoracion(Request $req, string $idProduct, string $idValoracion) {
+        $validate = Validator::make($req->all(), [
+            'modifVal' => 'required|max:255',
+        ],[
+            'modifVal.required' => 'El campo es obligatorio.',
+            'modifVal.max' => 'El nombre no puede tener más de 255 caracteres.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
+        $product = Product::findOrFail($idProduct);
+        $valoracion = Valoracione::findOrFail($idValoracion);
+
+        $valoracion->resenia = $req->modifVal;
+        $valoracion->modificado = true;
+
+        $valoracion->update();
+
+        session()->flash('notif.success', 'Se ha actualizado la valoración con éxito.');
         return redirect('/products/'.$product->id);
     }
 
@@ -253,10 +293,50 @@ class ProductController extends Controller
         $comentario->resenia = $req->reseniaCom;
         $comentario->idValoracion = $valoracion->id;
         $comentario->idUser = Auth::user()->id;
+        $comentario->modificado = false;
 
         $comentario->save();
 
         session()->flash('notif.success', 'Se ha añadido el comentario con éxito.');
+        return redirect('/products/'.$product->id);
+    }
+
+    public function destroyComentario(string $idProduct, string $idComentario): RedirectResponse
+    {
+        $product = Product::findOrFail($idProduct);
+        $comentario = Comentario::findOrFail($idComentario);
+
+        $delete = $comentario->delete($idComentario);
+
+        if($delete) {
+            session()->flash('notif.success', 'El comentario se ha borrado con éxito.');
+            return redirect('/products/'.$product->id);
+        }
+
+        return abort(500);
+    }
+
+    public function actualizarComentario(Request $req, string $idProduct, string $idComentario) {
+        $validate = Validator::make($req->all(), [
+            'modifCom' => 'required|max:255',
+        ],[
+            'modifCom.required' => 'El campo es obligatorio.',
+            'modifCom.max' => 'El nombre no puede tener más de 255 caracteres.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
+        $product = Product::findOrFail($idProduct);
+        $comentario = Comentario::findOrFail($idComentario);
+
+        $comentario->resenia = $req->modifCom;
+        $comentario->modificado = true;
+
+        $comentario->update();
+
+        session()->flash('notif.success', 'Se ha actualizado el comentario con éxito.');
         return redirect('/products/'.$product->id);
     }
 
