@@ -21,8 +21,10 @@
                     </p>
                 </div>
                 <br>
-                <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="..." class="max-h-60 mx-auto">
-                <br><br><br>
+                <div class="text-center">
+                    <a href="{{ asset('storage/' . $curriculum->curriculum) }}" style="font-weight:bolder;">{{__('Ver currículum')}}</a>
+                </div>
+                <br><br>
                 @endforeach
             </div>
         @else
