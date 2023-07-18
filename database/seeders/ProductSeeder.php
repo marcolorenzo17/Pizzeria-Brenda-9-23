@@ -655,6 +655,24 @@ class ProductSeeder extends Seeder
                 'alergenos' => '',
                 'habilitado' => true
             ],
+            [
+                'name' => '1 € Más',
+                'price' => 1,
+                'description' => '',
+                'image' => 'img/promocion1.jpg',
+                'type' => 'Promoción',
+                'alergenos' => '',
+                'habilitado' => true
+            ],
+            [
+                'name' => 'Pizza Familiar + Patatas + Bebida',
+                'price' => 10,
+                'description' => '',
+                'image' => 'img/promocion3.png',
+                'type' => 'Promoción',
+                'alergenos' => '',
+                'habilitado' => true
+            ],
         ];
         Product::insert($products);
     }

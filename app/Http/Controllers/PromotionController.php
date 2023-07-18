@@ -7,12 +7,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+use Illuminate\Support\Facades\DB;
+
 class PromotionController extends Controller
 {
     public function index(): Response
     {
-        return response()->view('promociones.index', [
-            'promotions' => Promotion::orderBy('id', 'desc')->get(),
-        ]);
+        $promotions = DB::select("select * from products where type = 'Promoción' order by id desc");
+        return response()->view('promociones.index', ['promotions' => $promotions]);
     }
 }
