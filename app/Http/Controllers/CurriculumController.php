@@ -19,7 +19,7 @@ class CurriculumController extends Controller
 
     public function add(Request $req) {
         $validate = Validator::make($req->all(), [
-            'curriculum' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf|max:2048',
+            'curriculum' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
         ],[
             'curriculum.required' => 'El campo es obligatorio.',
             'curriculum.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.'
