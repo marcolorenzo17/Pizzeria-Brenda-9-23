@@ -28,9 +28,6 @@
                         <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
                             {{ __('Ingredientes') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                            {{ __('Promociones') }}
-                        </x-nav-link>
                         <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
                             {{ __('Reservas') }}
                         </x-nav-link>
@@ -130,9 +127,6 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
                     {{ __('Ingredientes') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                    {{ __('Promociones') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
                     {{ __('Reservas') }}

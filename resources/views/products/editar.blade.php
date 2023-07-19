@@ -47,6 +47,7 @@
                 <option value="Cerveza">{{__('Cerveza')}}</option>
                 <option value="Vino">{{__('Vino')}}</option>
                 <option value="Refresco">{{__('Refresco')}}</option>
+                <option value="Promoción">{{__('Promoción')}}</option>
             </select>
             <br>
             <strong>Tipo actual:</strong>&nbsp;{{ $product->type }}

@@ -157,11 +157,14 @@ class ProductController extends Controller
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
+            'image' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf|max:2048',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
+            'image.required' => 'El campo es obligatorio.',
+            'image.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
         ]);
 
         if($validate->fails()){

@@ -285,6 +285,8 @@
     "VOLVER A LA PÁGINA PRINCIPAL": "GO BACK TO THE MAIN PAGE",
 
     "Reseña": "Review",
+    "Promoción": "Promotion",
+    "Imagen": "Image",
 
     "Actualiza la información y el correo del perfil de tu cuenta.": "Update your account's profile information and e-mail.",
     "Asegúrate de utilizar una contraseña larga y complicada para mayor seguridad.": "Make sure to use a long and complex password for better security.",
@@ -296,5 +298,6 @@
     "Una vez eliminada tu cuenta, todos sus recursos y datos serán borrados permanentemente. Por favor, introduce tu contraseña para confirmar que quieres eliminar permanentemente tu cuenta.": "Once your account is deleted, all its resources and data will be permanently erased. Please enter your password to confirm that you want to permanently delete your account.",
 
     "Ver currículum": "Show resume",
-    "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf."
+    "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf.",
+    "El archivo debe estar en formato: jpg, png, jpeg, gif o svg.": "The file must be of type: jpg, png, jpeg, gif or svg."
 }

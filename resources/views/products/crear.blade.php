@@ -28,11 +28,11 @@
             <br>
             <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"> €
             <br><br>
-            <label for="price">{{__('Descripción')}}</label>
+            <label for="description">{{__('Descripción')}}</label>
             <br>
             <input type="text" id="description" name="description" size="80" value="{{ old('description') }}">
             <br><br>
-            <label for="description">{{__('Tipo')}}</label>
+            <label for="type">{{__('Tipo')}}</label>
             <br>
             <select id="type" name="type">
                 <option value="Pizza">{{__('Pizza')}}</option>
@@ -47,7 +47,16 @@
                 <option value="Cerveza">{{__('Cerveza')}}</option>
                 <option value="Vino">{{__('Vino')}}</option>
                 <option value="Refresco">{{__('Refresco')}}</option>
+                <option value="Promoción">{{__('Promoción')}}</option>
             </select>
+            <br><br>
+            <label for="image">{{__('Imagen')}}</label>
+            <br>
+            @error('image')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
+            <input type="file" name="image" id="image">
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"

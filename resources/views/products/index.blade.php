@@ -29,7 +29,7 @@
                         <div style="margin:20px; display:flex; gap:20px;">
                             <img src="{{ asset($product->image) }}" alt="..." style="height:120px; width:120px;">
                             <div>
-                                <p>{{$product->type}}</p>
+                                <p>{{__($product->type)}}</p>
                                 <p>{{$product->name}}</p>
                                 <p>{{$product->description}}</p>
                                 <br>
