@@ -199,13 +199,12 @@ class ProductController extends Controller
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
-            'image_product' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
+            'image_product' => 'mimes:jpg,png,jpeg,gif,svg,pdf',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
-            'image_product.required' => 'El campo es obligatorio.',
             'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
         ]);
 
@@ -215,13 +214,16 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
-        $image_path = $req->file('image_product')->store('image_product', 'public');
 
         $product->name = $req->name;
         $product->price = $req->price;
         $product->description = $req->description;
         $product->type = $req->type;
-        $product->image = 'storage/' . $image_path;
+
+        if ($req->file('image_product') != null) {
+            $image_path = $req->file('image_product')->store('image_product', 'public');
+            $product->image = 'storage/' . $image_path;
+        }
 
         $product->update();
 
