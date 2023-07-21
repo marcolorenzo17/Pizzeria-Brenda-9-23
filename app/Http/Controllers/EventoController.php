@@ -52,7 +52,7 @@ class EventoController extends Controller
         $evento->hora = $req->hora;
         $evento->presupuesto = $req->presupuesto;
 
-        $sinasignar = DB::select('select count(*) from eventos where "idUser" = 1 AND "reservado" IS NULL');
+        $sinasignar = DB::select('select count(*) from eventos where "idUser" = ' . Auth::user()->id . ' AND "reservado" IS NULL');
         foreach($sinasignar as $sinasig) {
             $sin = $sinasig->count;
         }
