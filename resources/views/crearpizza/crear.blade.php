@@ -10,7 +10,7 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <form action="{{ route('crearpizza.aniadir') }}" method="POST">
+        <form action="{{ route('crearpizza.aniadir') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @error('name')
                 <span class="text-danger" style="color:red;">{{__($message)}}</span>
@@ -34,6 +34,14 @@
                 <option value="Base">Base</option>
                 <option value="Ingrediente">{{__('Ingrediente')}}</option>
             </select>
+            <br><br>
+            <label for="image_ingredient">{{__('Imagen')}}</label>
+            <br>
+            @error('image_ingredient')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
+            <input type="file" name="image_ingredient" id="image_ingredient">
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"

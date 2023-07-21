@@ -10,7 +10,7 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST">
+        <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @error('name')
                 <span class="text-danger" style="color:red;">{{__($message)}}</span>
@@ -36,6 +36,14 @@
             </select>
             <br>
             <strong>{{__('Tipo actual:')}}</strong>&nbsp;{{ $ingrediente->type }}
+            <br><br>
+            <label for="image_ingredient">{{__('Imagen')}}</label>
+            <br>
+            @error('image_ingredient')
+                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                <br>
+            @enderror
+            <input type="file" name="image_ingredient" id="image_ingredient">
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"

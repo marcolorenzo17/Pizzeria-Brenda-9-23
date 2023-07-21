@@ -42,21 +42,26 @@ class CrearpizzaController extends Controller
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
+            'image_ingredient' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
+            'image_ingredient.required' => 'El campo es obligatorio.',
+            'image_ingredient.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
         ]);
 
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
 
+        $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
+
         $ingrediente = new Ingrediente;
         $ingrediente->name = $req->name;
         $ingrediente->price = $req->price;
-        $ingrediente->image = '';
+        $ingrediente->image = 'storage/' . $image_path;
         $ingrediente->type = $req->type;
         $ingrediente->alergenos = '';
         $ingrediente->habilitado = true;
@@ -78,11 +83,13 @@ class CrearpizzaController extends Controller
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
+            'image_ingredient' => 'mimes:jpg,png,jpeg,gif,svg,pdf',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
+            'image_ingredient.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
         ]);
 
         if($validate->fails()){
@@ -94,6 +101,11 @@ class CrearpizzaController extends Controller
         $ingrediente->name = $req->name;
         $ingrediente->price = $req->price;
         $ingrediente->type = $req->type;
+
+        if ($req->file('image_ingredient') != null) {
+            $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
+            $ingrediente->image = 'storage/' . $image_path;
+        }
 
         $ingrediente->update();
 
