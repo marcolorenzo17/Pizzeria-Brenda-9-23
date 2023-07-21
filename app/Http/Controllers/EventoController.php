@@ -52,10 +52,20 @@ class EventoController extends Controller
         $evento->hora = $req->hora;
         $evento->presupuesto = $req->presupuesto;
 
-        $evento->save();
+        $sinasignar = DB::select('select count(*) from eventos where "idUser" = 1 AND "reservado" IS NULL');
+        foreach($sinasignar as $sinasig) {
+            $sin = $sinasig->count;
+        }
 
-        session()->flash('notif.success', 'Se ha realizado la reserva con éxito.');
-        return redirect()->route('eventos.index');
+        if ($sin >= 10) {
+            session()->flash('notif.success', 'Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.');
+            return redirect()->route('eventos.index');
+        } else {
+            $evento->save();
+
+            session()->flash('notif.success', 'Se ha realizado la reserva con éxito.');
+            return redirect()->route('eventos.index');
+        }
     }
 
     public function eventosi(string $id) {

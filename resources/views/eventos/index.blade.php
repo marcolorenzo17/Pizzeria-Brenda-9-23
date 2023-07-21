@@ -104,7 +104,7 @@
             </div>
             @endif
             <br><br>
-            <p>{{__('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.')}}</p>
+            <p class="text-center">{{__('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.')}}</p>
             <br><br>
             <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
                 <tr>

@@ -287,6 +287,8 @@
     "Reseña": "Review",
     "Promoción": "Promotion",
     "Imagen": "Image",
+    "*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.": "*You can only make a maximum of 10 reservations at the same time.",
+    "Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.": "You can only make a maximum of 10 reservations at the same time.",
 
     "Actualiza la información y el correo del perfil de tu cuenta.": "Update your account's profile information and e-mail.",
     "Asegúrate de utilizar una contraseña larga y complicada para mayor seguridad.": "Make sure to use a long and complex password for better security.",
