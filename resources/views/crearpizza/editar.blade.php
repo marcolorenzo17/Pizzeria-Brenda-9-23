@@ -9,6 +9,11 @@
         </div>
     </x-slot>
     <br>
+    <div style="text-align:center;">
+        <a href="{{ route('crearpizza') }}"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER')}}</a>
+    </div>
+    <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST" enctype="multipart/form-data">
             @csrf

@@ -71,6 +71,11 @@
         <table>
             <tr>
                 <td>
+                    <br>
+                    <div style="text-align:center;">
+                        <a href="{{ route('products.index') }}"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER AL MENÚ')}}</a>
+                    </div>
                     <div class="container px-12 py-8 mx-auto">
                         <br>
                         <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="mx-auto">
