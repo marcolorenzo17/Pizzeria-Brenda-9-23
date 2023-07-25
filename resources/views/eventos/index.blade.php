@@ -186,7 +186,7 @@
             </form>
             <br><br>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" x-data="{ mostrar:false }">
+                <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar:false }">
                     <div style="text-align: center;">
                         <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;" x-on:click="mostrar = !mostrar" x-text="mostrar ? '{{__('OCULTAR MIS RESERVAS') }}' : '{{__('MOSTRAR MIS RESERVAS') }}'"></button>
                     </div>

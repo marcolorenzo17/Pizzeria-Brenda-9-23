@@ -30,6 +30,11 @@
     <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
 
     <br>
+    <div style="text-align:center;">
+        <a href="{{ route('recoger.index') }}"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('ATRÁS')}}</a>
+    </div>
+    <br>
     <table class="mx-auto">
         <tr>
             <td>

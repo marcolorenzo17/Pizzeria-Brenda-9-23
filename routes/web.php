@@ -149,7 +149,7 @@ Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove'
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 Route::post('add', [CartController::class, 'addData'])->name('cart.add');
 
-Route::get('/recoger', RecogerController::class);
+Route::get('/recoger', RecogerController::class)->name('recoger.index');
 
 Route::get('/pagardomicilio', PagardomicilioController::class);
 
