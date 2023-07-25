@@ -34,10 +34,10 @@
                         <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                             {{ __('Clientes') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('clientes.index')">
+                        <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
                             {{ __('Valoraciones') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('clientes.index')">
+                        <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
                             {{ __('Comentarios') }}
                         </x-nav-link>
                     </div>
@@ -134,10 +134,10 @@
                 <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                     {{ __('Clientes') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('clientes.index')">
+                <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
                     {{ __('Valoraciones') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('clientes.index')">
+                <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
                     {{ __('Comentarios') }}
                 </x-responsive-nav-link>
             </div>
