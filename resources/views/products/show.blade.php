@@ -181,7 +181,7 @@
                                 @if ($valoracion->idUser == Auth::user()->id)
                                     <br>
                                     <div x-data="{ mostrarVal:false }">
-                                        <p style="font-size:13px;" x-on:click="mostrarVal = !mostrarVal" x-text="mostrarVal ? '{{__('Editar valoración') }}' : '{{__('Editar valoración') }}'"></p>
+                                        <button type="button" class="px-6 py-2 text-sm rounded shadow" style="font-size:13px; color:blue;" x-on:click="mostrarVal = !mostrarVal" x-text="mostrarVal ? '{{__('Editar valoración') }}' : '{{__('Editar valoración') }}'"></button>
                                         <div x-show="mostrarVal">
                                             <form action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}" method="POST">
                                                 @csrf
@@ -227,7 +227,7 @@
                                         @if ($comentario->idUser == Auth::user()->id)
                                             <br>
                                             <div x-data="{ mostrarCom:false }">
-                                                <p style="font-size:13px;" x-on:click="mostrarCom = !mostrarCom" x-text="mostrarCom ? '{{__('Editar comentario') }}' : '{{__('Editar comentario') }}'"></p>
+                                                <button class="px-6 py-2 text-sm rounded shadow" style="font-size:13px; color:blue;" x-on:click="mostrarCom = !mostrarCom" x-text="mostrarCom ? '{{__('Editar comentario') }}' : '{{__('Editar comentario') }}'"></button>
                                                 <div x-show="mostrarCom">
                                                     <form action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}" method="POST">
                                                         @csrf

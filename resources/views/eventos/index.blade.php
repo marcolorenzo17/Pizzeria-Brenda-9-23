@@ -187,7 +187,9 @@
             <br><br>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" x-data="{ mostrar:false }">
-                    <h2 class="text-center" x-on:click="mostrar = !mostrar" x-text="mostrar ? '{{__('OCULTAR MIS RESERVAS') }}' : '{{__('MOSTRAR MIS RESERVAS') }}'"></h2>
+                    <div style="text-align: center;">
+                        <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;" x-on:click="mostrar = !mostrar" x-text="mostrar ? '{{__('OCULTAR MIS RESERVAS') }}' : '{{__('MOSTRAR MIS RESERVAS') }}'"></button>
+                    </div>
                     <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
                         x-show="mostrar">
                         <table class="table-auto w-full">
