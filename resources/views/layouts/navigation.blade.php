@@ -31,9 +31,11 @@
                         <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
                             {{ __('Reservas') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                            {{ __('Clientes') }}
-                        </x-nav-link>
+                        @if (Auth::user()->role == 'Jefe')
+                            <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                                {{ __('Clientes') }}
+                            </x-nav-link>
+                        @endif
                         <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
                             {{ __('Valoraciones') }}
                         </x-nav-link>
@@ -68,7 +70,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             @if (Auth::user()->admin)
-                                <div>{{ Auth::user()->name }} (Admin)</div>
+                                <div>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</div>
                             @else
                                 <div>{{ Auth::user()->name }}</div>
                             @endif
@@ -131,9 +133,11 @@
                 <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
                     {{ __('Reservas') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                    {{ __('Clientes') }}
-                </x-responsive-nav-link>
+                @if (Auth::user()->role == 'Jefe')
+                    <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                        {{ __('Clientes') }}
+                    </x-responsive-nav-link>
+                @endif
                 <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
                     {{ __('Valoraciones') }}
                 </x-responsive-nav-link>

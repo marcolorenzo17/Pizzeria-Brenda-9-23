@@ -53,6 +53,7 @@ class UserController extends Controller
             $cliente = User::findOrFail($id);
 
             $cliente->admin = false;
+            $cliente->role = 'Cliente';
 
             $cliente->update();
 

@@ -41,6 +41,7 @@
                             </form>
                         @endif
                     </td>
+                    @if ($cliente->admin)
                     <td>
                         <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                             @csrf
@@ -60,6 +61,9 @@
                                 </div>
                         </form>
                     </td>
+                    @else
+                    <td></td>
+                    @endif
                     <td>
                         @if ($cliente->validado)
                             <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
