@@ -52,7 +52,7 @@
                                     <option value="Plancha">{{__('Plancha')}}</option>
                                 </select>
                                 <br>
-                                <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ __('test') }}
+                                <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ __($cliente->role) }}
                                 <br>
                                 <div class="text-center">
                                     <button type="submit"
