@@ -28,9 +28,11 @@
                         <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
                             {{ __('Ingredientes') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                            {{ __('Reservas') }}
-                        </x-nav-link>
+                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                                {{ __('Reservas') }}
+                            </x-nav-link>
+                        @endif
                         @if (Auth::user()->role == 'Jefe')
                             <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                                 {{ __('Clientes') }}
@@ -132,9 +134,11 @@
                 <x-responsive-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
                     {{ __('Ingredientes') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                    {{ __('Reservas') }}
-                </x-responsive-nav-link>
+                @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                    <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                        {{ __('Reservas') }}
+                    </x-responsive-nav-link>
+                @endif
                 @if (Auth::user()->role == 'Jefe')
                     <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                         {{ __('Clientes') }}
@@ -182,9 +186,11 @@
                 <x-responsive-nav-link href="/recibos">
                     {{ __('Recibos') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="/curriculum">
-                    {{ __('Currículum') }}
-                </x-responsive-nav-link>
+                @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
+                    <x-responsive-nav-link href="/curriculum">
+                        {{ __('Currículum') }}
+                    </x-responsive-nav-link>
+                @endif
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Tu cuenta') }}
                 </x-responsive-nav-link>

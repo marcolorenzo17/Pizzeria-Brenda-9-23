@@ -14,20 +14,24 @@
             <tr>
                 <td class="font-bold">{{__('Cliente')}}</td>
                 <td class="font-bold">{{__('Comentario')}}</td>
-                <td class="font-bold">{{__('Eliminar')}}</td>
+                @if (Auth::user()->role != 'Cliente')
+                    <td class="font-bold">{{__('Eliminar')}}</td>
+                @endif
             </tr>
             <tr><td></tr>
             @foreach ($comentarios as $comentario)
                 <tr>
                     <td>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</td>
                     <td>{{ $comentario->resenia }}</td>
-                    <td>
-                        <form method="post" action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
-                            @csrf
-                            @method('delete')
-                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
-                        </form>
-                    </td>
+                    @if (Auth::user()->role != 'Cliente')
+                        <td>
+                            <form method="post" action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                            </form>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </table>

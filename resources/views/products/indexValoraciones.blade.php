@@ -14,20 +14,24 @@
             <tr>
                 <td class="font-bold">{{__('Cliente')}}</td>
                 <td class="font-bold">{{__('Reseña')}}</td>
-                <td class="font-bold">{{__('Eliminar')}}</td>
+                @if (Auth::user()->role != 'Cliente')
+                    <td class="font-bold">{{__('Eliminar')}}</td>
+                @endif
             </tr>
             <tr><td></tr>
             @foreach ($valoraciones as $valoracion)
                 <tr>
                     <td>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</td>
                     <td>{{ $valoracion->resenia }}</td>
-                    <td>
-                        <form method="post" action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
-                            @csrf
-                            @method('delete')
-                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
-                        </form>
-                    </td>
+                    @if (Auth::user()->role != 'Cliente')
+                        <td>
+                            <form method="post" action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                            </form>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </table>
