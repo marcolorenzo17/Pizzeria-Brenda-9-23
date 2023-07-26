@@ -87,9 +87,11 @@
                         <x-dropdown-link href="/recibos">
                             {{ __('Recibos') }}
                         </x-dropdown-link>
-                        <x-dropdown-link href="/curriculum">
-                            {{ __('Currículum') }}
-                        </x-dropdown-link>
+                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
+                            <x-dropdown-link href="/curriculum">
+                                {{ __('Currículum') }}
+                            </x-dropdown-link>
+                        @endif
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Tu cuenta') }}
                         </x-dropdown-link>

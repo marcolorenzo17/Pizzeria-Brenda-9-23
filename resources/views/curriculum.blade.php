@@ -9,7 +9,7 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        @if (Auth::user()->admin)
+        @if (Auth::user()->role == 'Jefe')
             <div>
                 @foreach ($curriculums as $curriculum)
                 <div class="text-center">
