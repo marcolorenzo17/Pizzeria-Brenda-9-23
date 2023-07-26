@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('UrMaiyorAdumono_17'),
             'admin' => true,
             'validado' => true,
+            'role' => 'Jefe',
         ]);
     }
 }

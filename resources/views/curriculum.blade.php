@@ -22,7 +22,7 @@
                 </div>
                 <br>
                 <div class="text-center">
-                    <a href="{{ asset('storage/' . $curriculum->curriculum) }}" style="font-weight:bolder;">{{__('Ver currículum')}}</a>
+                    <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('Ver currículum')}}</a>
                 </div>
                 <br><br>
                 @endforeach

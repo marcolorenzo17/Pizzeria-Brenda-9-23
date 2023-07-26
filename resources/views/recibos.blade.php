@@ -55,7 +55,7 @@
                                             </select>
                                             <br>
                                             <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ __($recibo->estado) }}
-                                            <br><br>
+                                            <br>
                                             <div class="text-center">
                                                 <button type="submit"
                                                 class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('ACTUALIZAR')}}</button>

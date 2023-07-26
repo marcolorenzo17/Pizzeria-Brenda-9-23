@@ -17,6 +17,7 @@
                 <td class="font-bold">{{__('Nombre')}}</td>
                 <td class="font-bold">{{__('Correo electrónico')}}</td>
                 <td class="font-bold">{{__('Administrador')}}</td>
+                <td class="font-bold">{{__('Rol')}}</td>
                 <td class="font-bold">{{__('Validado')}}</td>
                 <td class="font-bold">{{__('Eliminar')}}</td>
             </tr>
@@ -39,6 +40,25 @@
                                 <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('HABILITAR')}}</button>
                             </form>
                         @endif
+                    </td>
+                    <td>
+                        <form action="" method="POST">
+                            @csrf
+                                <select id="estado" name="estado">
+                                    <option value="CLiente">{{__('Cliente')}}</option>
+                                    <option value="Jefe">{{__('Jefe')}}</option>
+                                    <option value="Cajero">{{__('Cajero')}}</option>
+                                    <option value="Cocinero">{{__('Cocinero')}}</option>
+                                    <option value="Plancha">{{__('Plancha')}}</option>
+                                </select>
+                                <br>
+                                <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ __('test') }}
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit"
+                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('ACTUALIZAR')}}</button>
+                                </div>
+                        </form>
                     </td>
                     <td>
                         @if ($cliente->validado)
