@@ -42,17 +42,17 @@
                         @endif
                     </td>
                     <td>
-                        <form action="" method="POST">
+                        <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                             @csrf
-                                <select id="estado" name="estado">
-                                    <option value="CLiente">{{__('Cliente')}}</option>
+                                <select id="role" name="role">
+                                    <option value="Cliente">{{__('Cliente')}}</option>
                                     <option value="Jefe">{{__('Jefe')}}</option>
                                     <option value="Cajero">{{__('Cajero')}}</option>
                                     <option value="Cocinero">{{__('Cocinero')}}</option>
                                     <option value="Plancha">{{__('Plancha')}}</option>
                                 </select>
                                 <br>
-                                <strong>{{__('Estado actual:')}}</strong>&nbsp;{{ __($cliente->role) }}
+                                <strong>{{__('Rol actual:')}}</strong>&nbsp;{{ __($cliente->role) }}
                                 <br>
                                 <div class="text-center">
                                     <button type="submit"

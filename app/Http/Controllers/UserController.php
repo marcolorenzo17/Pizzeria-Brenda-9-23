@@ -87,4 +87,15 @@ class UserController extends Controller
             return redirect()->route('clientes.index');
         }
     }
+
+    public function actualizarrol(Request $req, string $id) {
+        $cliente = User::findOrFail($id);
+
+        $cliente->role = $req->role;
+
+        $cliente->update();
+
+        session()->flash('notif.success', 'Se ha actualizado el rol con éxito.');
+        return redirect()->route('clientes.index');
+    }
 }

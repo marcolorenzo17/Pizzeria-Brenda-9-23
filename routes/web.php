@@ -210,6 +210,7 @@ Route::post('adminsicliente/{id}', [UserController::class, 'adminsi'])->name('cl
 Route::post('adminnocliente/{id}', [UserController::class, 'adminno'])->name('clientes.adminno');
 Route::post('validarcliente/{id}', [UserController::class, 'validar'])->name('clientes.validar');
 Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->name('clientes.desvalidar');
+Route::post('actualizarrol/{id}', [UserController::class, 'actualizarrol'])->name('clientes.actualizarrol');
 
 
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
