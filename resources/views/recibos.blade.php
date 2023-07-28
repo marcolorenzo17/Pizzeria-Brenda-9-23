@@ -29,7 +29,7 @@
                             <td class="font-bold">{{__('Fecha y hora')}}</td>
                             <td class="font-bold">{{__('Estado')}}</td>
                             <td class="font-bold">{{__('Pago')}}</td>
-                            @if (Auth::user()->admin)
+                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                                 <td class="font-bold">{{__('Eliminar')}}</td>
                             @endif
                         </tr>
@@ -44,6 +44,7 @@
                                     <td>{{ $recibo->direccion }}</td>
                                     <td>{{ $recibo->telefono }}</td>
                                     <td>{{ $recibo->created_at }}</td>
+                                    @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
                                     <td>
                                         <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
@@ -62,6 +63,12 @@
                                             </div>
                                         </form>
                                     </td>
+                                    @else
+                                    <td>
+                                        <p>{{ __($recibo->estado) }}</p>
+                                    </td>
+                                    @endif
+                                    @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                                     <td>
                                         @if ($recibo->pagado)
                                             <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
@@ -82,6 +89,15 @@
                                             <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
                                         </form>
                                     </td>
+                                    @else
+                                    <td>
+                                        @if ($recibo->pagado)
+                                            <p>{{__('PAGADO')}}</p>
+                                        @else
+                                            <p>{{__('PENDIENTE')}}</p>
+                                        @endif
+                                    </td>
+                                    @endif
                                 </tr>
                             @elseif ($recibo->idUser == Auth::user()->id)
                                 <tr>
