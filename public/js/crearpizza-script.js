@@ -21,6 +21,8 @@ var precioant = 0;
 
 var flagbase = false;
 
+var ingredientes = [];
+
 function aniadirBase(nombre, precio) {
     flagbase = true;
 
@@ -67,44 +69,6 @@ function aniadirBase(nombre, precio) {
     document.getElementById("price").setAttribute("value", total);
 };
 
-function aniadir(nombre, precio) {
-    if (flagbase) {
-        idcustom.setAttribute("value", getRandomInt(999999));
-
-        var parrafo = document.createElement("p");
-        var texto = document.createTextNode(`${nombre} -> ${precio} €`);
-        parrafo.appendChild(texto);
-
-        parrafo.setAttribute("id", indice);
-
-        contenido.appendChild(parrafo);
-
-        var botonelim = document.createElement("button");
-        var textoelim = document.createTextNode("x");
-        botonelim.appendChild(textoelim);
-
-        botonelim.setAttribute("id", `b-${indice}`);
-        botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
-        botonelim.setAttribute("onclick", `eliminar(${indice})`);
-
-        contenido.appendChild(botonelim);
-
-        var escondido = document.createElement("input");
-
-        escondido.setAttribute("id", `p-${indice}`);
-        escondido.setAttribute("type", "hidden");
-        escondido.setAttribute("value", precio);
-
-        contenido.appendChild(escondido);
-
-        total += Number(precio);
-        totalcontenido.innerHTML = `${total.toFixed(2)} €`;
-        document.getElementById("price").setAttribute("value", total);
-
-        indice += 1;
-    }
-};
-
 function eliminarBase() {
     flagbase = false;
 
@@ -140,7 +104,52 @@ function eliminarBase() {
     contenido.appendChild(p3);
 };
 
-function eliminar(indice) {
+function aniadir(nombre, precio) {
+    // USAR UN ARRAY PARA LOS INGREDIENTES. NO SE PUEDEN AÑADIR MÁS DE UNO. PONER BOTÓN DE "EXTRA"
+    if (flagbase) {
+        if (!ingredientes.includes(nombre)) {
+            ingredientes.push(nombre);
+
+            idcustom.setAttribute("value", getRandomInt(999999));
+
+            var parrafo = document.createElement("p");
+            var texto = document.createTextNode(`${nombre} -> ${precio} €`);
+            parrafo.appendChild(texto);
+
+            parrafo.setAttribute("id", indice);
+
+            contenido.appendChild(parrafo);
+
+            var botonelim = document.createElement("button");
+            var textoelim = document.createTextNode("x");
+            botonelim.appendChild(textoelim);
+
+            botonelim.setAttribute("id", `b-${indice}`);
+            botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+            botonelim.setAttribute("onclick", `eliminar(${indice}, '${nombre}')`);
+
+            contenido.appendChild(botonelim);
+
+            var escondido = document.createElement("input");
+
+            escondido.setAttribute("id", `p-${indice}`);
+            escondido.setAttribute("type", "hidden");
+            escondido.setAttribute("value", precio);
+
+            contenido.appendChild(escondido);
+
+            total += Number(precio);
+            totalcontenido.innerHTML = `${total.toFixed(2)} €`;
+            document.getElementById("price").setAttribute("value", total);
+
+            indice += 1;
+        }
+    }
+};
+
+function eliminar(indice, nombre) {
+    ingredientes.splice(ingredientes.indexOf(nombre), 1);
+
     document.getElementById(indice).remove();
     document.getElementById(`b-${indice}`).remove();
 
