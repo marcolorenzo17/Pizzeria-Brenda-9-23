@@ -70,6 +70,8 @@ function aniadirBase(nombre, precio) {
 };
 
 function eliminarBase() {
+    ingredientes = [];
+
     flagbase = false;
 
     precioant = 0;
@@ -130,6 +132,16 @@ function aniadir(nombre, precio) {
 
             contenido.appendChild(botonelim);
 
+            var botonextra = document.createElement("button");
+            var textoextra = document.createTextNode("+");
+            botonextra.appendChild(textoextra);
+
+            botonextra.setAttribute("id", `ex-${indice}`);
+            botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+            botonextra.setAttribute("onclick", `extra(${indice})`);
+
+            contenido.appendChild(botonextra);
+
             var escondido = document.createElement("input");
 
             escondido.setAttribute("id", `p-${indice}`);
@@ -152,11 +164,35 @@ function eliminar(indice, nombre) {
 
     document.getElementById(indice).remove();
     document.getElementById(`b-${indice}`).remove();
+    document.getElementById(`ex-${indice}`).remove();
 
-    var precio = document.getElementById(`p-${indice}`).getAttribute("value");
-    total -= Number(precio);
+    total -= Number(document.getElementById(`p-${indice}`).getAttribute("value"));
     totalcontenido.innerHTML = `${total.toFixed(2)} €`;
     document.getElementById("price").setAttribute("value", total);
 
     document.getElementById(`p-${indice}`).remove();
+};
+
+function extra(indice) {
+    document.getElementById(`ex-${indice}`).textContent="-";
+    document.getElementById(`ex-${indice}`).setAttribute("onclick", `extrano(${indice})`);
+
+    var precioingrediente = document.getElementById(`p-${indice}`).getAttribute("value");
+    document.getElementById(`p-${indice}`).setAttribute("value", Number(precioingrediente) + 2);
+
+    total += 2;
+    totalcontenido.innerHTML = `${total.toFixed(2)} €`;
+    document.getElementById("price").setAttribute("value", total);
+};
+
+function extrano(indice) {
+    document.getElementById(`ex-${indice}`).textContent="+";
+    document.getElementById(`ex-${indice}`).setAttribute("onclick", `extra(${indice})`);
+
+    var precioingrediente = document.getElementById(`p-${indice}`).getAttribute("value");
+    document.getElementById(`p-${indice}`).setAttribute("value", Number(precioingrediente) - 2);
+
+    total -= 2;
+    totalcontenido.innerHTML = `${total.toFixed(2)} €`;
+    document.getElementById("price").setAttribute("value", total);
 };
