@@ -122,6 +122,15 @@ function aniadir(nombre, precio) {
 
             contenido.appendChild(parrafo);
 
+            var parrafoextra = document.createElement("p");
+            var textoextra = document.createTextNode("EXTRA");
+            parrafoextra.appendChild(textoextra);
+
+            parrafoextra.setAttribute("id", `ext-${indice}`);
+            parrafoextra.setAttribute("style", "color:green;font-weight:bolder;display:none;");
+
+            contenido.appendChild(parrafoextra);
+
             var botonelim = document.createElement("button");
             var textoelim = document.createTextNode("x");
             botonelim.appendChild(textoelim);
@@ -137,7 +146,8 @@ function aniadir(nombre, precio) {
             botonextra.appendChild(textoextra);
 
             botonextra.setAttribute("id", `ex-${indice}`);
-            botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+            botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm rounded");
+            botonextra.setAttribute("style", "background-color:green;");
             botonextra.setAttribute("onclick", `extra(${indice})`);
 
             contenido.appendChild(botonextra);
@@ -174,6 +184,8 @@ function eliminar(indice, nombre) {
 };
 
 function extra(indice) {
+    document.getElementById(`ext-${indice}`).setAttribute("style", "color:green;font-weight:bolder;");
+
     document.getElementById(`ex-${indice}`).textContent="-";
     document.getElementById(`ex-${indice}`).setAttribute("onclick", `extrano(${indice})`);
 
@@ -186,6 +198,8 @@ function extra(indice) {
 };
 
 function extrano(indice) {
+    document.getElementById(`ext-${indice}`).setAttribute("style", "color:green;font-weight:bolder;display:none;");
+
     document.getElementById(`ex-${indice}`).textContent="+";
     document.getElementById(`ex-${indice}`).setAttribute("onclick", `extra(${indice})`);
 
