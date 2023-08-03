@@ -179,7 +179,7 @@ class ProductController extends Controller
         $product->description = $req->description;
         $product->image = 'storage/' . $image_path;
         $product->type = $req->type;
-        $product->alergenos = '';
+        $product->alergenos = $req->input('alergenos')[0];
         $product->habilitado = true;
 
         $product->save();
