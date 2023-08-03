@@ -320,6 +320,21 @@
     "¿Estás seguro de que quieres eliminar tu cuenta?": "Are you sure you want to delete your account?",
     "Una vez eliminada tu cuenta, todos sus recursos y datos serán borrados permanentemente. Por favor, introduce tu contraseña para confirmar que quieres eliminar permanentemente tu cuenta.": "Once your account is deleted, all its resources and data will be permanently erased. Please enter your password to confirm that you want to permanently delete your account.",
 
+    "Contiene gluten": "Contains gluten",
+    "Crustáceos": "Crustaceans",
+    "Huevos": "Eggs",
+    "Pescado": "Fish",
+    "Cacahuetes": "Peanuts",
+    "Soja": "Soy",
+    "Lácteos": "Dairy",
+    "Frutos de cáscara": "Nuts",
+    "Apio": "Celery",
+    "Mostaza": "Mustard",
+    "Granos de sésamo": "Sesame seeds",
+    "Dióxido de azufre y sulfitos": "Sulfur dioxide and sulfites",
+    "Altramuces": "Lupin",
+    "Moluscos": "Molluscs",
+
     "Ver currículum": "Show resume",
     "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf.",
     "El archivo debe estar en formato: jpg, png, jpeg, gif o svg.": "The file must be of type: jpg, png, jpeg, gif or svg."

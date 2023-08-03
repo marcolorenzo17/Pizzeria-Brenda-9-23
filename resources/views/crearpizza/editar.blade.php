@@ -50,34 +50,134 @@
             @enderror
             <input type="file" name="image_ingredient" id="image_ingredient">
             <br><br>
-            <input type="checkbox" id="gluten" name="gluten" value="Contiene gluten">
-            <label for="gluten">{{__('Contiene gluten')}}</label><br>
-            <input type="checkbox" id="crustaceos" name="crustaceos" value="Crustáceos">
-            <label for="crustaceos">{{__('Crustáceos')}}</label><br>
-            <input type="checkbox" id="huevos" name="huevos" value="Huevos">
-            <label for="huevos">{{__('Huevos')}}</label><br>
-            <input type="checkbox" id="pescado" name="pescado" value="Pescado">
-            <label for="pescado">{{__('Pescado')}}</label><br>
-            <input type="checkbox" id="cacahuetes" name="cacahuetes" value="Cacahuetes">
-            <label for="cacahuetes">{{__('Cacahuetes')}}</label><br>
-            <input type="checkbox" id="soja" name="soja" value="Soja">
-            <label for="soja">{{__('Soja')}}</label><br>
-            <input type="checkbox" id="lacteos" name="lacteos" value="Lácteos">
-            <label for="lacteos">{{__('Lácteos')}}</label><br>
-            <input type="checkbox" id="cascaro" name="cascaro" value="Frutos de cáscara">
-            <label for="cascaro">{{__('Frutos de cáscara')}}</label><br>
-            <input type="checkbox" id="apio" name="apio" value="Apio">
-            <label for="apio">{{__('Apio')}}</label><br>
-            <input type="checkbox" id="mostaza" name="mostaza" value="Mostaza">
-            <label for="mostaza">{{__('Mostaza')}}</label><br>
-            <input type="checkbox" id="sesamo" name="sesamo" value="Granos de sésamo">
-            <label for="sesamo">{{__('Granos de sésamo')}}</label><br>
-            <input type="checkbox" id="dioxido" name="dioxido" value="Dióxido de azufre y sulfitos">
-            <label for="dioxido">{{__('Dióxido de azufre y sulfitos')}}</label><br>
-            <input type="checkbox" id="altramuces" name="altramuces" value="Altramuces">
-            <label for="altramuces">{{__('Altramuces')}}</label><br>
-            <input type="checkbox" id="moluscos" name="moluscos" value="Moluscos">
-            <label for="moluscos">{{__('Moluscos')}}</label>
+            <table>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="gluten" name="gluten" value="Contiene gluten">
+                        <label for="gluten">{{__('Contiene gluten')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/crustaceos.png') }}" alt="crustaceos" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="crustaceos" name="crustaceos" value="Crustáceos">
+                        <label for="crustaceos">{{__('Crustáceos')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/huevos.png') }}" alt="huevos" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="huevos" name="huevos" value="Huevos">
+                        <label for="huevos">{{__('Huevos')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/pescado.png') }}" alt="pescado" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="pescado" name="pescado" value="Pescado">
+                        <label for="pescado">{{__('Pescado')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/cacahuetes.png') }}" alt="cacahuetes" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cacahuetes" name="cacahuetes" value="Cacahuetes">
+                        <label for="cacahuetes">{{__('Cacahuetes')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/soja.png') }}" alt="soja" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="soja" name="soja" value="Soja">
+                        <label for="soja">{{__('Soja')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/lacteos.png') }}" alt="lacteos" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="lacteos" name="lacteos" value="Lácteos">
+                        <label for="lacteos">{{__('Lácteos')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/cascara.png') }}" alt="cascara" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cascara" name="cascara" value="Frutos de cáscara">
+                        <label for="cascaro">{{__('Frutos de cáscara')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/apio.png') }}" alt="apio" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="apio" name="apio" value="Apio">
+                        <label for="apio">{{__('Apio')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/mostaza.png') }}" alt="mostaza" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="mostaza" name="mostaza" value="Mostaza">
+                        <label for="mostaza">{{__('Mostaza')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/sesamo.png') }}" alt="sesamo" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="sesamo" name="sesamo" value="Granos de sésamo">
+                        <label for="sesamo">{{__('Granos de sésamo')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/dioxido.png') }}" alt="dioxido" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="dioxido" name="dioxido" value="Dióxido de azufre y sulfitos">
+                        <label for="dioxido">{{__('Dióxido de azufre y sulfitos')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/altramuces.png') }}" alt="altramuces" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="altramuces" name="altramuces" value="Altramuces">
+                        <label for="altramuces">{{__('Altramuces')}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ asset('img/alergenos/single/moluscos.png') }}" alt="moluscos" height="50px" width="50px">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="moluscos" name="moluscos" value="Moluscos">
+                        <label for="moluscos">{{__('Moluscos')}}</label>
+                    </td>
+                </tr>
+            </table>
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"
