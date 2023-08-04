@@ -174,10 +174,10 @@ class ProductController extends Controller
         $image_path = $req->file('image_product')->store('image_product', 'public');
 
         $alergenos = '';
-        foreach ($req->input('alergenos') as $alergeno) {
-            $alergenos . $alergeno . '-';
+        foreach (array_values($req->input('alergenos')) as $alergeno) {
+            $alergenos .= $alergeno . '-';
         }
-        rtrim($alergenos, '-');
+        $alergenos = rtrim($alergenos, '-');
 
         $product = new Product;
         $product->name = $req->name;
@@ -185,7 +185,7 @@ class ProductController extends Controller
         $product->description = $req->description;
         $product->image = 'storage/' . $image_path;
         $product->type = $req->type;
-        $product->alergenos = 'hola';
+        $product->alergenos = $alergenos;
         $product->habilitado = true;
 
         $product->save();
