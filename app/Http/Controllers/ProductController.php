@@ -173,13 +173,19 @@ class ProductController extends Controller
 
         $image_path = $req->file('image_product')->store('image_product', 'public');
 
+        $alergenos = '';
+        foreach ($req->input('alergenos') as $alergeno) {
+            $alergenos . $alergeno . '-';
+        }
+        rtrim($alergenos, '-');
+
         $product = new Product;
         $product->name = $req->name;
         $product->price = $req->price;
         $product->description = $req->description;
         $product->image = 'storage/' . $image_path;
         $product->type = $req->type;
-        $product->alergenos = $req->input('alergenos')[0];
+        $product->alergenos = 'hola';
         $product->habilitado = true;
 
         $product->save();
