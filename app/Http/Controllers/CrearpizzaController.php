@@ -58,12 +58,18 @@ class CrearpizzaController extends Controller
 
         $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
 
+        $alergenos = '';
+        foreach (array_values($req->input('alergenos')) as $alergeno) {
+            $alergenos .= $alergeno . '-';
+        }
+        $alergenos = rtrim($alergenos, '-');
+
         $ingrediente = new Ingrediente;
         $ingrediente->name = $req->name;
         $ingrediente->price = $req->price;
         $ingrediente->image = 'storage/' . $image_path;
         $ingrediente->type = $req->type;
-        $ingrediente->alergenos = '';
+        $ingrediente->alergenos = $alergenos;
         $ingrediente->habilitado = true;
 
         $ingrediente->save();
@@ -98,6 +104,12 @@ class CrearpizzaController extends Controller
 
         $ingrediente = Ingrediente::findOrFail($id);
 
+        $alergenos = '';
+        foreach (array_values($req->input('alergenos')) as $alergeno) {
+            $alergenos .= $alergeno . '-';
+        }
+        $alergenos = rtrim($alergenos, '-');
+
         $ingrediente->name = $req->name;
         $ingrediente->price = $req->price;
         $ingrediente->type = $req->type;
@@ -106,6 +118,8 @@ class CrearpizzaController extends Controller
             $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
             $ingrediente->image = 'storage/' . $image_path;
         }
+
+        $ingrediente->alergenos = $alergenos;
 
         $ingrediente->update();
 

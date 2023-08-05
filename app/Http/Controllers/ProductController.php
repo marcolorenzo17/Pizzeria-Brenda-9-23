@@ -220,6 +220,11 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
+        $alergenos = '';
+        foreach (array_values($req->input('alergenos')) as $alergeno) {
+            $alergenos .= $alergeno . '-';
+        }
+        $alergenos = rtrim($alergenos, '-');
 
         $product->name = $req->name;
         $product->price = $req->price;
@@ -230,6 +235,8 @@ class ProductController extends Controller
             $image_path = $req->file('image_product')->store('image_product', 'public');
             $product->image = 'storage/' . $image_path;
         }
+
+        $product->alergenos = $alergenos;
 
         $product->update();
 
