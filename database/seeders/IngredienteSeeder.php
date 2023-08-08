@@ -19,7 +19,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 6.50,
                 'image' => 'img/ingredientes/basegrande.jpg',
                 'type' => 'Base',
-                'alergenos' => 'img/alergenos/gluten.png',
+                'alergenos' => 'gluten',
                 'habilitado' => true
             ],
             [
@@ -27,7 +27,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 5,
                 'image' => 'img/ingredientes/basepequeña.jpg',
                 'type' => 'Base',
-                'alergenos' => 'img/alergenos/gluten.png',
+                'alergenos' => 'gluten',
                 'habilitado' => true
             ],
             [
@@ -43,7 +43,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/jamonyork.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos.png',
+                'alergenos' => 'soja-lacteos',
                 'habilitado' => true
             ],
             [
@@ -75,7 +75,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/beicon.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos.png',
+                'alergenos' => 'soja-lacteos',
                 'habilitado' => true
             ],
             [
@@ -91,7 +91,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/huevo.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/huevos.png',
+                'alergenos' => 'huevos',
                 'habilitado' => true
             ],
             [
@@ -99,7 +99,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/salami.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos.png',
+                'alergenos' => 'soja-lacteos',
                 'habilitado' => true
             ],
             [
@@ -107,7 +107,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/chorizo.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos.png',
+                'alergenos' => 'soja-lacteos',
                 'habilitado' => true
             ],
             [
@@ -123,7 +123,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/salchichas.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos.png',
+                'alergenos' => 'soja-lacteos',
                 'habilitado' => true
             ],
             [
@@ -131,7 +131,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/hamburguesa.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten.png',
+                'alergenos' => 'soja-lacteos-gluten',
                 'habilitado' => true
             ],
             [
@@ -139,7 +139,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/atun.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/pescado.png',
+                'alergenos' => 'pescado',
                 'habilitado' => true
             ],
             [
@@ -147,7 +147,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/alcachofas.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/dioxido.png',
+                'alergenos' => 'dioxido',
                 'habilitado' => true
             ],
             [
@@ -155,7 +155,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/esparragos.png',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/dioxido.png',
+                'alergenos' => 'dioxido',
                 'habilitado' => true
             ],
             [
@@ -187,7 +187,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/cebollacaramel.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -195,7 +195,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.50,
                 'image' => 'img/ingredientes/extratomate.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/dioxido.png',
+                'alergenos' => 'dioxido',
                 'habilitado' => true
             ],
             [
@@ -203,7 +203,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/anchoas.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/pescado.png',
+                'alergenos' => 'pescado',
                 'habilitado' => true
             ],
             [
@@ -211,7 +211,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/pepperoni.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos.png',
+                'alergenos' => 'soja-lacteos',
                 'habilitado' => true
             ],
             [
@@ -219,7 +219,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/roquefort.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -227,7 +227,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/extraqueso.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -243,7 +243,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/gambas.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/crustaceos.png',
+                'alergenos' => 'crustaceos',
                 'habilitado' => true
             ],
             [
@@ -251,7 +251,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/carnepicada.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten-apio.png',
+                'alergenos' => 'soja-lacteos-gluten-apio',
                 'habilitado' => true
             ],
             [
@@ -259,7 +259,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 1.80,
                 'image' => 'img/ingredientes/tirasdepollo.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten.png',
+                'alergenos' => 'soja-lacteos-gluten',
                 'habilitado' => true
             ],
             [
@@ -267,7 +267,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 2.30,
                 'image' => 'img/ingredientes/rulodecabra.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -275,7 +275,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 2.30,
                 'image' => 'img/ingredientes/carnedetaco.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten.png',
+                'alergenos' => 'soja-lacteos-gluten',
                 'habilitado' => true
             ],
             [
@@ -283,7 +283,7 @@ class IngredienteSeeder extends Seeder
                 'price' => 2.30,
                 'image' => 'img/ingredientes/palometa.jpg',
                 'type' => 'Ingrediente',
-                'alergenos' => 'img/alergenos/lacteos-pescado.png',
+                'alergenos' => 'lacteos-pescado',
                 'habilitado' => true
             ],
         ];

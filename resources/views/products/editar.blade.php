@@ -194,7 +194,7 @@
                 </tr>
             </table>
             <br>
-            <strong>Alérgenos actuales:</strong>&nbsp;
+            <strong>Alérgenos actuales:</strong>&nbsp;{{ $product->alergenos }}
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"

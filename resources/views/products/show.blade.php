@@ -38,9 +38,16 @@
                         <img src="{{ asset($products->image) }}" alt="" class="max-h-60 mx-auto">
                     </div>
                     <div class="mb-6">
-                        @if ($products->alergenos != '')
-                            <img src="{{ asset($products->alergenos) }}" width="200px" height="200px">
-                        @endif
+                        <?php
+                            $alergenoslista = explode("-", $products->alergenos);
+                        ?>
+                        <div style="display:flex; flex-wrap:wrap;">
+                            @if ($products->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">

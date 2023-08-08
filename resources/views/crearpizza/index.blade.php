@@ -92,9 +92,16 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadirBase('<?php echo $nombre?>', '<?php echo $precio?>');">
-                                        @if ($ingrediente->alergenos != '')
-                                            <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
-                                        @endif
+                                        <?php
+                                            $alergenoslista = explode("-", $ingrediente->alergenos);
+                                        ?>
+                                        <div style="display:flex; flex-wrap:wrap;">
+                                            @if ($ingrediente->alergenos != '')
+                                                @foreach ($alergenoslista as $alergeno)
+                                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                                @endforeach
+                                            @endif
+                                        </div>
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
@@ -119,9 +126,16 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
-                                        @if ($ingrediente->alergenos != '')
-                                            <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
-                                        @endif
+                                        <?php
+                                            $alergenoslista = explode("-", $ingrediente->alergenos);
+                                        ?>
+                                        <div style="display:flex; flex-wrap:wrap;">
+                                            @if ($ingrediente->alergenos != '')
+                                                @foreach ($alergenoslista as $alergeno)
+                                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                                @endforeach
+                                            @endif
+                                        </div>
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
@@ -146,9 +160,16 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
-                                        @if ($ingrediente->alergenos != '')
-                                            <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
-                                        @endif
+                                        <?php
+                                            $alergenoslista = explode("-", $ingrediente->alergenos);
+                                        ?>
+                                        <div style="display:flex; flex-wrap:wrap;">
+                                            @if ($ingrediente->alergenos != '')
+                                                @foreach ($alergenoslista as $alergeno)
+                                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                                @endforeach
+                                            @endif
+                                        </div>
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
@@ -173,9 +194,16 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
-                                        @if ($ingrediente->alergenos != '')
-                                            <img src="{{ asset($ingrediente->alergenos) }}" width="200px" height="200px">
-                                        @endif
+                                        <?php
+                                            $alergenoslista = explode("-", $ingrediente->alergenos);
+                                        ?>
+                                        <div style="display:flex; flex-wrap:wrap;">
+                                            @if ($ingrediente->alergenos != '')
+                                                @foreach ($alergenoslista as $alergeno)
+                                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                                @endforeach
+                                            @endif
+                                        </div>
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">

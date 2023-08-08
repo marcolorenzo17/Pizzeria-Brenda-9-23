@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Taco, Jalapeño, Guacamole, Nachos.',
                 'image' => 'img/mariachi.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/gluten-lacteos.png',
+                'alergenos' => 'gluten-lacteos',
                 'habilitado' => true
             ],
             [
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Champiñones, Olivas, Pimientos, Cebolla, Parmesano.',
                 'image' => 'img/vegetal.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -40,7 +40,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Bacon en loncha, Pepperoni, Champiñones, Cheddar.',
                 'image' => 'img/americana.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -49,7 +49,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Hamburguesa, Cebolla, Tomate natural, Cheddar, Salsa Cheeseburger, Bacon.',
                 'image' => 'img/cheeseburger.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/mostaza-sesamo-dioxido.png',
+                'alergenos' => 'mostaza-sesamo-dioxido',
                 'habilitado' => true
             ],
             [
@@ -58,7 +58,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Pollo, Verduras, Salsa Kebab.',
                 'image' => 'img/kebab.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/cascara.png',
+                'alergenos' => 'cascara',
                 'habilitado' => true
             ],
             [
@@ -67,7 +67,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salsa Carbonara, Cebolla, Champiñón, Bacon, Parmesano.',
                 'image' => 'img/carbonara.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [
@@ -76,7 +76,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Pollo, Bacon, Carne picada, Salsa barbacoa.',
                 'image' => 'img/barbacoa.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/cascara-mostaza-dioxido-apio.png',
+                'alergenos' => 'cascara-mostaza-dioxido-apio',
                 'habilitado' => true
             ],
             [
@@ -85,7 +85,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Con dos ingredientes a elegir.',
                 'image' => 'img/calzone.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/huevos.png',
+                'alergenos' => 'huevos',
                 'habilitado' => true
             ],
             [
@@ -103,7 +103,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Rulo de cabra y cebolla caramelizada.',
                 'image' => 'img/pgourmet.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -112,7 +112,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Carne picante de taco.',
                 'image' => 'img/taco.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [
@@ -130,7 +130,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón York, Pimiento, Olivas, Champiñones, Alcaparras, Alcachofas, Anchoas.',
                 'image' => 'img/cuatroest.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/pescado.png',
+                'alergenos' => 'pescado',
                 'habilitado' => true
             ],
             [
@@ -139,7 +139,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Mozzarella, Cheddar, Roquefort, Brie, Parmesano',
                 'image' => 'img/muerte.jpg',
                 'type' => 'Pizza',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -148,7 +148,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
                 'image' => 'img/hbuey.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'alergenos' => 'lacteos-soja',
                 'habilitado' => true
             ],
             [
@@ -157,7 +157,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Con verdurita.',
                 'image' => 'img/hpollo.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/gluten-apio-cascara-mostaza-sesamo.png',
+                'alergenos' => 'gluten-apio-cascara-mostaza-sesamo',
                 'habilitado' => true
             ],
             [
@@ -175,7 +175,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de buey con salsa queséame, bacon y jalapeño.',
                 'image' => 'img/hqueseame.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'alergenos' => 'lacteos-soja',
                 'habilitado' => true
             ],
             [
@@ -184,7 +184,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
                 'image' => 'img/hternera.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'alergenos' => 'lacteos-soja',
                 'habilitado' => true
             ],
             [
@@ -193,7 +193,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de buey. Ingredientes: Rulo de cabra y Cebolla caramelizada.',
                 'image' => 'img/gourmet.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'alergenos' => 'lacteos-soja',
                 'habilitado' => true
             ],
             [
@@ -202,7 +202,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Extras: Queso Edam (0.50 €), Queso Cheddar (1 €), Huevo (0.80 €), Bacon (0.50 €).',
                 'image' => 'img/hnormal.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja.png',
+                'alergenos' => 'lacteos-soja',
                 'habilitado' => true
             ],
             [
@@ -211,7 +211,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Hamburguesa de pollo crujiente.',
                 'image' => 'img/crunchi.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/lacteos-soja-huevos.png',
+                'alergenos' => 'lacteos-soja-huevos',
                 'habilitado' => true
             ],
             [
@@ -220,7 +220,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Costilla, Salsa BBQ, Cebolla.',
                 'image' => 'img/costi.jpg',
                 'type' => 'Hamburguesa',
-                'alergenos' => 'img/alergenos/huevos.png',
+                'alergenos' => 'huevos',
                 'habilitado' => true
             ],
             [
@@ -229,7 +229,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón de York, Queso, Pollo, Bacon, Huevo, Lechuga, Tomate, Salsa vegetal.',
                 'image' => 'img/spanadero.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => 'img/alergenos/dioxido.png',
+                'alergenos' => 'dioxido',
                 'habilitado' => true
             ],
             [
@@ -238,7 +238,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verduras o pollo, Salsa vegetal.',
                 'image' => 'img/svegetal.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => 'img/alergenos/dioxido.png',
+                'alergenos' => 'dioxido',
                 'habilitado' => true
             ],
             [
@@ -247,7 +247,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Queso, Bacon, Huevo, Salsa vegetal, Jamón de York.',
                 'image' => 'img/especial.jpg',
                 'type' => 'Sándwich',
-                'alergenos' => 'img/alergenos/dioxido.png',
+                'alergenos' => 'dioxido',
                 'habilitado' => true
             ],
             [
@@ -265,7 +265,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salsa marinera y Salazones.',
                 'image' => 'img/pescatore.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja-pescado.png',
+                'alergenos' => 'soja-pescado',
                 'habilitado' => true
             ],
             [
@@ -274,7 +274,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verdura fresca y pollo',
                 'image' => 'img/primavera.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [
@@ -283,7 +283,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Bacon y nata',
                 'image' => 'img/escarbonara.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja-huevos.png',
+                'alergenos' => 'soja-huevos',
                 'habilitado' => true
             ],
             [
@@ -292,7 +292,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/boloñesa.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/lacteos.png',
+                'alergenos' => 'lacteos',
                 'habilitado' => true
             ],
             [
@@ -301,7 +301,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/espatun.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/pescado.png',
+                'alergenos' => 'pescado',
                 'habilitado' => true
             ],
             [
@@ -319,7 +319,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Salmón y salsa de salmón.',
                 'image' => 'img/salmon.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/soja-pescado.png',
+                'alergenos' => 'soja-pescado',
                 'habilitado' => true
             ],
             [
@@ -328,7 +328,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/macarrones.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/apio-huevos.png',
+                'alergenos' => 'apio-huevos',
                 'habilitado' => true
             ],
             [
@@ -337,7 +337,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/napolitano.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/apio-huevos.png',
+                'alergenos' => 'apio-huevos',
                 'habilitado' => true
             ],
             [
@@ -346,7 +346,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/lasaña.jpg',
                 'type' => 'Pasta',
-                'alergenos' => 'img/alergenos/apio-cascara.png',
+                'alergenos' => 'apio-cascara',
                 'habilitado' => true
             ],
             [
@@ -355,7 +355,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Queso Roquefort',
                 'image' => 'img/risotto.jpg',
                 'type' => 'Arroz',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [
@@ -364,7 +364,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verduras y queso',
                 'image' => 'img/mixto.jpg',
                 'type' => 'Arroz',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [
@@ -373,7 +373,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Verduras, Maíz, Gambas',
                 'image' => 'img/arrozfrito.jpg',
                 'type' => 'Arroz',
-                'alergenos' => 'img/alergenos/soja-crustaceos.png',
+                'alergenos' => 'soja-crustaceos',
                 'habilitado' => true
             ],
             [
@@ -382,7 +382,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Palometa, Pepinillos, Huevo duro, Queso Philadelphia.',
                 'image' => 'img/bbrenda.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/dioxido-huevos-mostaza.png',
+                'alergenos' => 'dioxido-huevos-mostaza',
                 'habilitado' => true
             ],
             [
@@ -391,7 +391,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Jamón de York, Queso, Pollo, Bacon, Huevo, Lechuga, Tomate, Salsa.',
                 'image' => 'img/panadero.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/soja-huevos-dioxido.png',
+                'alergenos' => 'soja-huevos-dioxido',
                 'habilitado' => true
             ],
             [
@@ -400,7 +400,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Tomate y pimiento frito.',
                 'image' => 'img/cintalomo.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [
@@ -409,7 +409,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Carne picada y queso fundido.',
                 'image' => 'img/carnepicaqueso.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/apio.png',
+                'alergenos' => 'apio',
                 'habilitado' => true
             ],
             [
@@ -418,7 +418,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Atún, Lechuga, Tomate, Huevo, Morrón, Mayonesa.',
                 'image' => 'img/bvegetal.jpg',
                 'type' => 'Baguette',
-                'alergenos' => 'img/alergenos/soja-pescado-huevos.png',
+                'alergenos' => 'soja-pescado-huevos',
                 'habilitado' => true
             ],
             [
@@ -436,7 +436,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Arroz Basmati, Huevo, Jamón de York, Mayonesa, Anchoas, Olivas negras, Morrón.',
                 'image' => 'img/ensarroz.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-pescado-huevos.png',
+                'alergenos' => 'soja-lacteos-pescado-huevos',
                 'habilitado' => true
             ],
             [
@@ -445,7 +445,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Cherry, Lechuga, Jamón de York, Queso, Nuggets, Picatosted, Salsa César.',
                 'image' => 'img/cesar.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-huevos-gluten-cascara-sesamo.png',
+                'alergenos' => 'soja-lacteos-huevos-gluten-cascara-sesamo',
                 'habilitado' => true
             ],
             [
@@ -454,7 +454,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Lechuga, Pollo, Queso, Cherry, Jamón York, Zanahorias, Salsa Rosa.',
                 'image' => 'img/ensabrenda.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten.png',
+                'alergenos' => 'soja-lacteos-gluten',
                 'habilitado' => true
             ],
             [
@@ -463,7 +463,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Olivas, Huevo, Jamón de York, Queso, Tomate, Lechuga, Maíz.',
                 'image' => 'img/emixta.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-huevos.png',
+                'alergenos' => 'soja-lacteos-huevos',
                 'habilitado' => true
             ],
             [
@@ -472,7 +472,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Huevo, Maíz, Atún, Oliva, Jamón de York, Salsa.',
                 'image' => 'img/epasta.jpg',
                 'type' => 'Ensalada',
-                'alergenos' => 'img/alergenos/soja-lacteos-huevos-pescado-gluten.png',
+                'alergenos' => 'soja-lacteos-huevos-pescado-gluten',
                 'habilitado' => true
             ],
             [
@@ -481,7 +481,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Gajos.',
                 'image' => 'img/deluxe.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/gluten.png',
+                'alergenos' => 'gluten',
                 'habilitado' => true
             ],
             [
@@ -490,7 +490,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Rellenas de Queso Cheddar con un toque de jalapeño.',
                 'image' => 'img/bolaqueso.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/gluten.png',
+                'alergenos' => 'gluten',
                 'habilitado' => true
             ],
             [
@@ -499,7 +499,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Extra para nachos: Carne picada o Carne de Taco (1.50 €).',
                 'image' => 'img/nachoqueso.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/lacteos-gluten.png',
+                'alergenos' => 'lacteos-gluten',
                 'habilitado' => true
             ],
             [
@@ -508,7 +508,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Queso y guacamole',
                 'image' => 'img/guacamole.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/lacteos-gluten-dioxido.png',
+                'alergenos' => 'lacteos-gluten-dioxido',
                 'habilitado' => true
             ],
             [
@@ -517,7 +517,7 @@ class ProductSeeder extends Seeder
                 'description' => '6 unidades',
                 'image' => 'img/alitas.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/soja-cascara-gluten-mostaza.png',
+                'alergenos' => 'soja-cascara-gluten-mostaza',
                 'habilitado' => true
             ],
             [
@@ -526,7 +526,7 @@ class ProductSeeder extends Seeder
                 'description' => '5 unidades',
                 'image' => 'img/nuggets.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/soja-lacteos-gluten-huevos.png',
+                'alergenos' => 'soja-lacteos-gluten-huevos',
                 'habilitado' => true
             ],
             [
@@ -535,7 +535,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/patatascq.jpg',
                 'type' => 'Complemento',
-                'alergenos' => 'img/alergenos/gluten-lacteos.png',
+                'alergenos' => 'gluten-lacteos',
                 'habilitado' => true
             ],
             [
@@ -553,7 +553,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Ingredientes: Carne de taco y queso.',
                 'image' => 'img/tacoyqueso.jpg',
                 'type' => 'Perrito',
-                'alergenos' => 'img/alergenos/soja.png',
+                'alergenos' => 'soja',
                 'habilitado' => true
             ],
             [

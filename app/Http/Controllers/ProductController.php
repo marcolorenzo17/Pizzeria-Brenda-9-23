@@ -174,10 +174,12 @@ class ProductController extends Controller
         $image_path = $req->file('image_product')->store('image_product', 'public');
 
         $alergenos = '';
-        foreach (array_values($req->input('alergenos')) as $alergeno) {
-            $alergenos .= $alergeno . '-';
+        if ($req->input('alergenos') != null) {
+            foreach (array_values($req->input('alergenos')) as $alergeno) {
+                $alergenos .= $alergeno . '-';
+            }
+            $alergenos = rtrim($alergenos, '-');
         }
-        $alergenos = rtrim($alergenos, '-');
 
         $product = new Product;
         $product->name = $req->name;
@@ -221,10 +223,12 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         $alergenos = '';
-        foreach (array_values($req->input('alergenos')) as $alergeno) {
-            $alergenos .= $alergeno . '-';
+        if ($req->input('alergenos') != null) {
+            foreach (array_values($req->input('alergenos')) as $alergeno) {
+                $alergenos .= $alergeno . '-';
+            }
+            $alergenos = rtrim($alergenos, '-');
         }
-        $alergenos = rtrim($alergenos, '-');
 
         $product->name = $req->name;
         $product->price = $req->price;

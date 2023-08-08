@@ -59,10 +59,12 @@ class CrearpizzaController extends Controller
         $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
 
         $alergenos = '';
-        foreach (array_values($req->input('alergenos')) as $alergeno) {
-            $alergenos .= $alergeno . '-';
+        if ($req->input('alergenos') != null) {
+            foreach (array_values($req->input('alergenos')) as $alergeno) {
+                $alergenos .= $alergeno . '-';
+            }
+            $alergenos = rtrim($alergenos, '-');
         }
-        $alergenos = rtrim($alergenos, '-');
 
         $ingrediente = new Ingrediente;
         $ingrediente->name = $req->name;
@@ -105,10 +107,12 @@ class CrearpizzaController extends Controller
         $ingrediente = Ingrediente::findOrFail($id);
 
         $alergenos = '';
-        foreach (array_values($req->input('alergenos')) as $alergeno) {
-            $alergenos .= $alergeno . '-';
+        if ($req->input('alergenos') != null) {
+            foreach (array_values($req->input('alergenos')) as $alergeno) {
+                $alergenos .= $alergeno . '-';
+            }
+            $alergenos = rtrim($alergenos, '-');
         }
-        $alergenos = rtrim($alergenos, '-');
 
         $ingrediente->name = $req->name;
         $ingrediente->price = $req->price;
