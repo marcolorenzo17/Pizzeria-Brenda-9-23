@@ -131,9 +131,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -213,9 +220,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -260,9 +274,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -307,9 +328,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -354,9 +382,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -401,9 +436,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -448,9 +490,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -493,9 +542,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -540,9 +596,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -585,9 +648,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -630,9 +700,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
@@ -675,9 +752,16 @@
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}"><h3 class="text-gray-700 uppercase">{{ $product->name }}</h3></a>
-                                @if ($product->alergenos != '')
-                                    <img src="{{ asset($product->alergenos) }}" width="200px" height="200px">
-                                @endif
+                                <?php
+                                    $alergenoslista = explode("-", $product->alergenos);
+                                ?>
+                                <div style="display:flex; flex-wrap:wrap;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
                                 <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                                 <br><br>
