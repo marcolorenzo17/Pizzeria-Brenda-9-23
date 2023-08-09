@@ -179,7 +179,11 @@
                 </tr>
             </table>
             <br>
-            <strong>Alérgenos actuales:</strong>&nbsp;{{ $ingrediente->alergenos }}
+            <?php
+                $alergenoslista = $ingrediente->alergenos;
+                $listacomas = str_replace("-", ", ", $alergenoslista);
+            ?>
+            <strong>Alérgenos actuales:</strong>&nbsp;{{ $listacomas }}
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"
