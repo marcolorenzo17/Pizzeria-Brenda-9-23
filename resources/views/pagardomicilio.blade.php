@@ -207,6 +207,8 @@
                             </tr>
                         </tbody>
                     </table>
+                    <br>
+                    <p>{{__('Puntos ganados con la compra: ')}} {{ (Cart::getTotal() + 2) * 100 }}</p>
                     {{--
                     <br>
                         <form action="{{ route('cart.add') }}" method="POST">

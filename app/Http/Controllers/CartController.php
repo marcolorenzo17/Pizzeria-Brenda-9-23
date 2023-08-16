@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recibo;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -90,6 +91,10 @@ class CartController extends Controller
             $user->charge($amount, $paymentMethod->id);
         }
 
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos += ($req->total * 100);
+
+        $user->update();
 
         \Cart::clear();
 
