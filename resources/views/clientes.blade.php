@@ -16,6 +16,7 @@
             <tr>
                 <td class="font-bold">{{__('Nombre')}}</td>
                 <td class="font-bold">{{__('Correo electrónico')}}</td>
+                <td class="font-bold">{{__('Puntos')}}</td>
                 <td class="font-bold">{{__('Administrador')}}</td>
                 <td class="font-bold">{{__('Rol')}}</td>
                 <td class="font-bold">{{__('Validado')}}</td>
@@ -28,6 +29,7 @@
                 <tr>
                     <td>{{ $cliente->name }}</td>
                     <td>{{ $cliente->email }}</td>
+                    <td>{{ $cliente->puntos }}</td>
                     <td>
                         @if ($cliente->admin)
                             <form method="post" action="{{ route('clientes.adminno', $cliente->id) }}">
