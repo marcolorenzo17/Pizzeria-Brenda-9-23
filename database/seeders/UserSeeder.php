@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'admin' => true,
             'validado' => true,
             'role' => 'Jefe',
+            'puntos' => 0,
         ]);
     }
 }
