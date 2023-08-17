@@ -189,6 +189,7 @@ class ProductController extends Controller
         $product->type = $req->type;
         $product->alergenos = $alergenos;
         $product->habilitado = true;
+        $product->puntos = $req->puntos;
 
         $product->save();
 
@@ -234,6 +235,7 @@ class ProductController extends Controller
         $product->price = $req->price;
         $product->description = $req->description;
         $product->type = $req->type;
+        $product->puntos = $req->puntos;
 
         if ($req->file('image_product') != null) {
             $image_path = $req->file('image_product')->store('image_product', 'public');

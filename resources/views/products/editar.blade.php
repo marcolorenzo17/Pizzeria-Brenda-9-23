@@ -65,6 +65,10 @@
             @enderror
             <input type="file" name="image_product" id="image_product">
             <br><br>
+            <label for="puntos">{{__('Puntos para desbloqueo (Sólo promociones)')}}</label>
+            <br>
+            <input type="number" id="puntos" name="puntos" step="1" value="{{ $product->puntos }}" min="0">
+            <br><br>
             <table>
                 <tr>
                     <td>
