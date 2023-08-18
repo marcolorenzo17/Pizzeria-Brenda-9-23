@@ -19,7 +19,18 @@
                     <input type="hidden" value="{{ $promotion->price }}" name="price">
                     <input type="hidden" value="{{ $promotion->image }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
-                    <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit" class="mx-auto" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                    @if (Auth::user()->puntos >= $promotion->puntos)
+                        <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit" class="mx-auto" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                    @else
+                        <div style="background: rgba(0, 0, 0, 0.5);">
+                            <img src="{{ asset($promotion->image) }}" alt="submit" class="mx-auto" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                        </div>
+                    @endif
+                    @if ($promotion->puntos)
+                        <div class="text-center" style="font-size:20px;">{{__('Puntos necesarios: ')}} {{ $promotion->puntos }}</div>
+                    @else
+                        <div class="text-center" style="font-size:20px;">{{__('Puntos necesarios: ')}} 0</div>
+                    @endif
                     <br><br>
                 </div>
             </form>
