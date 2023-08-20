@@ -17,6 +17,7 @@
                     <input type="hidden" value="{{ $promotion->id }}" name="id">
                     <input type="hidden" value="{{ $promotion->name }}" name="name">
                     <input type="hidden" value="{{ $promotion->price }}" name="price">
+                    <input type="hidden" value="{{ $promotion->puntos }}" name="puntos">
                     <input type="hidden" value="{{ $promotion->image }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
                     @if (Auth::user()->puntos >= $promotion->puntos)

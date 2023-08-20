@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    private $restapuntos = 0;
+
     public function cartList()
     {
         $cartItems = \Cart::getContent();
@@ -28,6 +30,12 @@ class CartController extends Controller
                 'image' => $request->image,
             )
         ]);
+
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos -= $request->puntos;
+        $this->restapuntos += $request->puntos;
+        $user->update();
+
         session()->flash('success', 'El producto se ha añadido al carrito con éxito.');
 
         return redirect()->route('cart.list');
@@ -45,6 +53,11 @@ class CartController extends Controller
             ]
         );
 
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos -= $request->puntos;
+        $this->restapuntos += $request->puntos;
+        $user->update();
+
         session()->flash('success', 'El carrito se ha actualizado con éxito.');
 
         return redirect()->route('cart.list');
@@ -53,6 +66,12 @@ class CartController extends Controller
     public function removeCart(Request $request)
     {
         \Cart::remove($request->id);
+
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos += $request->puntos;
+        $this->restapuntos -= $request->puntos;
+        $user->update();
+
         session()->flash('success', 'El plato se ha eliminado con éxito.');
 
         return redirect()->route('cart.list');
@@ -61,6 +80,11 @@ class CartController extends Controller
     public function clearAllCart()
     {
         \Cart::clear();
+
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos += $this->restapuntos;
+        $this->restapuntos = 0;
+        $user->update();
 
         session()->flash('success', 'El carrito se ha vaciado con éxito.');
 
@@ -97,6 +121,8 @@ class CartController extends Controller
         $user->update();
 
         \Cart::clear();
+
+        $this->restapuntos = 0;
 
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
         return redirect('products');
