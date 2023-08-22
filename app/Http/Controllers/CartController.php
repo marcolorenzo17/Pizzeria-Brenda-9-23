@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public $restapuntos = 0;
-
     public function cartList()
     {
         $cartItems = \Cart::getContent();
@@ -35,7 +33,6 @@ class CartController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
         $user->puntos -= $request->puntos;
-        $this->restapuntos += $request->puntos;
         $user->update();
 
         session()->flash('success', 'El producto se ha añadido al carrito con éxito.');
@@ -66,7 +63,6 @@ class CartController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
         $user->puntos += $request->puntos;
-        $this->restapuntos -= $request->puntos;
         $user->update();
 
         session()->flash('success', 'El plato se ha eliminado con éxito.');
@@ -79,8 +75,6 @@ class CartController extends Controller
         \Cart::clear();
 
         $user = User::findOrFail(Auth::user()->id);
-        $user->puntos += $this->restapuntos;
-        $this->restapuntos = 0;
         $user->update();
 
         session()->flash('success', 'El carrito se ha vaciado con éxito.');
