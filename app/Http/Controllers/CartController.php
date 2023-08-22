@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    private $restapuntos = 0;
+    public $restapuntos = 0;
 
     public function cartList()
     {
@@ -29,6 +29,7 @@ class CartController extends Controller
             'attributes' => array(
                 'image' => $request->image,
                 'puntos' => $request->puntos,
+                'type' => $request->type,
             )
         ]);
 
@@ -53,11 +54,6 @@ class CartController extends Controller
                 ],
             ]
         );
-
-        $user = User::findOrFail(Auth::user()->id);
-        $user->puntos -= $request->puntos;
-        $this->restapuntos += $request->puntos;
-        $user->update();
 
         session()->flash('success', 'El carrito se ha actualizado con éxito.');
 

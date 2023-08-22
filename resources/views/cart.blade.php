@@ -41,6 +41,12 @@
                                         <td class="hidden pb-4 md:table-cell">
                                             <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
                                         </td>
+                                        <td class="hidden pb-4 md:table-cell">
+                                            <p>{{ $item->attributes->puntos }}</p>
+                                        </td>
+                                        <td class="hidden pb-4 md:table-cell">
+                                            <p>{{ $item->attributes->type }}</p>
+                                        </td>
                                         <td>
                                             <a href="#">
                                                 <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
@@ -49,6 +55,7 @@
                                             </a>
                                         </td>
                                         <td class="justify-center mt-6 md:justify-end md:flex">
+                                            @if ($item->attributes->type != "Promoción")
                                             <div class="h-10 w-28">
                                                 <div class="relative flex flex-row w-full h-8">
 
@@ -64,6 +71,7 @@
                                                     </form>
                                                 </div>
                                             </div>
+                                            @endif
                                         </td>
                                         <td class="hidden text-right md:table-cell">
                                             <span class="text-sm font-medium lg:text-base">
