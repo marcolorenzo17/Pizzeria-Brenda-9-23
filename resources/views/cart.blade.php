@@ -39,10 +39,7 @@
                                 @foreach ($cartItems as $item)
                                     <tr>
                                         <td class="hidden pb-4 md:table-cell">
-                                            <a href="#">
-                                                <img src="{{ $item->attributes->image }}" class="w-20 rounded"
-                                                    alt="Thumbnail">
-                                            </a>
+                                            <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
                                         </td>
                                         <td>
                                             <a href="#">
@@ -77,6 +74,7 @@
                                             <form action="{{ route('cart.remove') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" value="{{ $item->id }}" name="id">
+                                                <input type="hidden" value="{{ $item->attributes->puntos }}" name="puntos">
                                                 <button
                                                     class="px-4 py-2 text-white bg-red-600 shadow rounded-full">x</button>
                                             </form>
