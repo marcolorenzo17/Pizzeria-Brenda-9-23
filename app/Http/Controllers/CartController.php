@@ -33,6 +33,7 @@ class CartController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
         $user->puntos -= $request->puntos;
+        $user->restapuntos += $request->puntos;
         $user->update();
 
         session()->flash('success', 'El producto se ha añadido al carrito con éxito.');
@@ -63,6 +64,7 @@ class CartController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
         $user->puntos += $request->puntos;
+        $user->restapuntos -= $request->puntos;
         $user->update();
 
         session()->flash('success', 'El plato se ha eliminado con éxito.');
@@ -75,6 +77,8 @@ class CartController extends Controller
         \Cart::clear();
 
         $user = User::findOrFail(Auth::user()->id);
+        $user->puntos += $user->restapuntos;
+        $user->restapuntos = 0;
         $user->update();
 
         session()->flash('success', 'El carrito se ha vaciado con éxito.');
