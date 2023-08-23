@@ -44,6 +44,8 @@ class RegisteredUserController extends Controller
             'validado' => true,
             'role' => 'Cliente',
             'puntos' => 0,
+            'restapuntos' => 0,
+            'promocion' => false,
         ]);
 
         event(new Registered($user));

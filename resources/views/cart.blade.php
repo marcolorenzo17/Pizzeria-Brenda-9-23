@@ -82,6 +82,7 @@
                                             <form action="{{ route('cart.remove') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" value="{{ $item->id }}" name="id">
+                                                <input type="hidden" value="{{ $item->attributes->type }}" name="type">
                                                 <input type="hidden" value="{{ $item->attributes->puntos }}" name="puntos">
                                                 <button
                                                     class="px-4 py-2 text-white bg-red-600 shadow rounded-full">x</button>

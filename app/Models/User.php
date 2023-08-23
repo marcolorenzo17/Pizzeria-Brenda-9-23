@@ -27,6 +27,8 @@ class User extends Authenticatable
         'validado',
         'role',
         'puntos',
+        'restapuntos',
+        'promocion',
     ];
 
     /**

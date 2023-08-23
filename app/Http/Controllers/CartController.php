@@ -19,26 +19,35 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        \Cart::add([
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'attributes' => array(
-                'image' => $request->image,
-                'puntos' => $request->puntos,
-                'type' => $request->type,
-            )
-        ]);
-
         $user = User::findOrFail(Auth::user()->id);
-        $user->puntos -= $request->puntos;
-        $user->restapuntos += $request->puntos;
-        $user->update();
+        if ($request->type == "Promoción" and $user->promocion == true) {
+            session()->flash('success', 'Sólo se puede añadir una promoción al mismo tiempo.');
+            return redirect()->route('cart.list');
+        } else {
+            \Cart::add([
+                'id' => $request->id,
+                'name' => $request->name,
+                'price' => $request->price,
+                'quantity' => $request->quantity,
+                'attributes' => array(
+                    'image' => $request->image,
+                    'puntos' => $request->puntos,
+                    'type' => $request->type,
+                )
+            ]);
 
-        session()->flash('success', 'El producto se ha añadido al carrito con éxito.');
+            $user->puntos -= $request->puntos;
+            $user->restapuntos += $request->puntos;
+            $user->update();
 
-        return redirect()->route('cart.list');
+            if ($request->type == "Promoción") {
+                $user->promocion = true;
+                $user->update();
+            }
+
+            session()->flash('success', 'El producto se ha añadido al carrito con éxito.');
+            return redirect()->route('cart.list');
+        }
     }
 
     public function updateCart(Request $request)
@@ -60,12 +69,19 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($request->type == "Promoción") {
+            $user->promocion = false;
+            $user->update();
+        }
+
         \Cart::remove($request->id);
 
-        $user = User::findOrFail(Auth::user()->id);
         $user->puntos += $request->puntos;
         $user->restapuntos -= $request->puntos;
         $user->update();
+
 
         session()->flash('success', 'El plato se ha eliminado con éxito.');
 
@@ -79,6 +95,7 @@ class CartController extends Controller
         $user = User::findOrFail(Auth::user()->id);
         $user->puntos += $user->restapuntos;
         $user->restapuntos = 0;
+        $user->promocion = false;
         $user->update();
 
         session()->flash('success', 'El carrito se ha vaciado con éxito.');
@@ -112,12 +129,12 @@ class CartController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
         $user->puntos += ($req->total * 100);
+        $user->restapuntos = 0;
+        $user->promocion = false;
 
         $user->update();
 
         \Cart::clear();
-
-        $this->restapuntos = 0;
 
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
         return redirect('products');

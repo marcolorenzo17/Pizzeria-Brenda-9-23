@@ -21,6 +21,8 @@ class UserSeeder extends Seeder
             'validado' => true,
             'role' => 'Jefe',
             'puntos' => 0,
+            'restapuntos' => 0,
+            'promocion' => false,
         ]);
     }
 }
