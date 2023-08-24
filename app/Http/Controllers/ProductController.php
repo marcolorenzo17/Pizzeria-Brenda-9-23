@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Valoracione;
 use App\Models\Comentario;
+use App\Models\User;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,6 +35,13 @@ class ProductController extends Controller
 
     public function index(): Response
     {
+        /*
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos += $user->restapuntos;
+        $user->restapuntos = 0;
+        $user->update();
+        */
+
         return response()->view('products.index', [
             'products' => Product::orderBy('id', 'desc')->get(),
         ]);
