@@ -10,6 +10,7 @@
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
 
+    {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -28,6 +29,7 @@
         </div>
     </div>
     <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
+    --}}
 
     <br>
     <div style="text-align:center;">

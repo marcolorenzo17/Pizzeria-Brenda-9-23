@@ -43,6 +43,7 @@
         </ul>
     </footer>
 
+    {{--
     <script src="{{ asset('js/pruebatexto.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -52,5 +53,6 @@
             });
         });
     </script>
+    --}}
 
 </x-app-layout>

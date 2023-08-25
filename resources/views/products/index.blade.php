@@ -77,6 +77,7 @@ use \App\Http\Controllers\ProductController;
             </table>
         </div>
     @else
+    {{--
         <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -101,6 +102,7 @@ use \App\Http\Controllers\ProductController;
             </div>
         </div>
         <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
+        --}}
 
         <div class="container px-12 py-8 mx-auto">
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center">

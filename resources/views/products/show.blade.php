@@ -9,6 +9,7 @@
         </div>
     </x-slot>
 
+    {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -27,6 +28,7 @@
         </div>
     </div>
     <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
+    --}}
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

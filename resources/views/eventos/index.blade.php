@@ -70,6 +70,7 @@
                         </table>
             </div>
         @else
+        {{--
             <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -88,6 +89,7 @@
                 </div>
             </div>
             <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
+            --}}
 
             @if (isset($_GET['totalpresupuesto']))
                 <p class="text-center">{{__('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.')}}</p>
