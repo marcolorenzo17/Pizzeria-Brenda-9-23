@@ -35,16 +35,19 @@ class ProductController extends Controller
 
     public function index(): Response
     {
-        /*
-        $user = User::findOrFail(Auth::user()->id);
-        $user->puntos += $user->restapuntos;
-        $user->restapuntos = 0;
-        $user->update();
-        */
-
         return response()->view('products.index', [
             'products' => Product::orderBy('id', 'desc')->get(),
         ]);
+    }
+
+    public static function devolver() {
+        $user = User::findOrFail(Auth::user()->id);
+        $user->puntos += $user->restapuntos;
+        $user->restapuntos = 0;
+        $user->promocion = false;
+        $user->update();
+
+        return null;
     }
 
     public function indexValoraciones(): Response
