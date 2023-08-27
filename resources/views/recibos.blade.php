@@ -23,6 +23,7 @@
                             @if (Auth::user()->admin)
                                 <td class="font-bold">{{__('Cliente')}}</td>
                             @endif
+                            <td class="font-bold">{{__('Productos')}}</td>
                             <td class="font-bold">{{__('Coste')}}</td>
                             <td class="font-bold">{{__('Dirección')}}</td>
                             <td class="font-bold">{{__('Teléfono')}}</td>
@@ -40,6 +41,7 @@
                             @if (Auth::user()->admin)
                                 <tr>
                                     <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
+                                    <td>{{ $recibo->productos }}</td>
                                     <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                                     <td>{{ $recibo->direccion }}</td>
                                     <td>{{ $recibo->telefono }}</td>
@@ -101,6 +103,7 @@
                                 </tr>
                             @elseif ($recibo->idUser == Auth::user()->id)
                                 <tr>
+                                    <td>{{ $recibo->productos }}</td>
                                     <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                                     <td>{{ $recibo->direccion }}</td>
                                     <td>{{ $recibo->telefono }}</td>
