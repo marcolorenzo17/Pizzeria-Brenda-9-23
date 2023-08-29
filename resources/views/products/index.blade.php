@@ -124,6 +124,7 @@ use \App\Http\Controllers\ProductController;
                 </table>
             </div>
             <br>
+            <div class="sm:hidden">Hola</div>
             <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
             <div class="h-1 bg-red-500 w-36"></div>
             <br>
