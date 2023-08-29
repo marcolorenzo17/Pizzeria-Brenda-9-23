@@ -1,4 +1,15 @@
 <x-app-layout>
+    <?php
+        $productosarray = [];
+        foreach ($cartItems as $item) {
+            array_push($productosarray, $item->name);
+        }
+        $productosvalores = '';
+        foreach (array_values($productosarray) as $producto) {
+            $productosvalores .= $producto . ', ';
+        }
+        $productosvalores = substr($productosvalores, 0, -2);
+    ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
@@ -111,6 +122,7 @@
                                 <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
                                 <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
                                 <input type="hidden" value="true" name="pagado" id="pagado">
+                                <input type="hidden" value="{{ $productosvalores }}" name="productos">
                                 <div class="form-row">
                                     <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
                                     <div id="card-element" class="form-control">
@@ -139,6 +151,7 @@
                         <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
                         <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
                         <input type="hidden" value="false" name="pagado" id="pagado">
+                        <input type="hidden" value="{{ $productosvalores }}" name="productos">
                         <div class="text-center" id="pagoefectivo" style="display:none;">
                             <button type="submit"
                                 class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Realizar compra')}}</button>
