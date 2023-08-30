@@ -893,17 +893,17 @@
         <tr>
             <td>
                 <a href="whoareweAnon">
-                    <h1 class="text-center">{{__('¿QUIÉNES SOMOS?')}}</h1>
+                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;">{{__('¿QUIÉNES SOMOS?')}}</h1>
                 </a>
             </td>
             <td>
                 <a href="faqAnon">
-                    <h1 class="text-center">{{__('PREGUNTAS FRECUENTES')}}</h1>
+                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;">{{__('PREGUNTAS FRECUENTES')}}</h1>
                 </a>
             </td>
             <td>
                 <a href="contactAnon">
-                    <h1 class="text-center">{{__('CONTÁCTANOS')}}</h1>
+                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;">{{__('CONTÁCTANOS')}}</h1>
                 </a>
             </td>
         </tr>
