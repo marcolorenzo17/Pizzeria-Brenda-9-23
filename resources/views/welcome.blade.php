@@ -832,16 +832,8 @@
         @include('partials/language_switcher')
     </div>
     <br><br>
-    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('PIZZERÍA ARTESANAL Y NATURAL')}}</h1>
-    <br>
-    <div class="mx-auto">
-        <video width="1920" height="1038" autoplay loop>
-            <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
-            Tu navegador no es compatible con este vídeo.
-        </video>
-    </div>
     @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login">
             @auth
                 <a href="{{ url('/products') }}"
                     class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar pedido')}}</a>
@@ -856,6 +848,14 @@
             @endauth
         </div>
     @endif
+    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('PIZZERÍA ARTESANAL Y NATURAL')}}</h1>
+    <br>
+    <div class="mx-auto">
+        <video width="1920" height="1038" autoplay loop>
+            <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
+            Tu navegador no es compatible con este vídeo.
+        </video>
+    </div>
     <br>
     <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('¿QUÉ PEDIMOS?')}}</h1>
     <br>
