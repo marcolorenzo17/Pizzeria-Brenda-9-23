@@ -859,7 +859,7 @@
     <br>
     <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">{{__('¿QUÉ PEDIMOS?')}}</h1>
     <br>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center; text-align:center;">
             <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="pizzasAnon"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></div>
             <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="burgersAnon"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></div>
             <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="sandwichAnon"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></div>
@@ -909,7 +909,7 @@
         </tr>
     </table>
     <br><br>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center;">
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="display:flex; flex-wrap:wrap; align-items:center; background-color:white; padding:10px;">
             <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
             </div>

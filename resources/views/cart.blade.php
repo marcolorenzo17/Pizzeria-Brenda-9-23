@@ -41,12 +41,14 @@
                                         <td class="hidden pb-4 md:table-cell">
                                             <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
                                         </td>
-                                        <td class="hidden pb-4 md:table-cell">
-                                            <p>{{ $item->attributes->puntos }}</p>
-                                        </td>
-                                        <td class="hidden pb-4 md:table-cell">
-                                            <p>{{ $item->attributes->type }}</p>
-                                        </td>
+                                        {{--
+                                            <td class="hidden pb-4 md:table-cell">
+                                                <p>{{ $item->attributes->puntos }}</p>
+                                            </td>
+                                            <td class="hidden pb-4 md:table-cell">
+                                                <p>{{ $item->attributes->type }}</p>
+                                            </td>
+                                        --}}
                                         <td>
                                             <a href="#">
                                                 <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}

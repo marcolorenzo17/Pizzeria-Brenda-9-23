@@ -6,3 +6,18 @@
 .acercar:hover {
     width: 200px;
 }
+
+@media only screen and (max-width: 800px) {
+    #productos-grande {
+        display: none;
+    }
+    #productos-pequenio {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    #productos-pequenio {
+        display: none;
+    }
+}

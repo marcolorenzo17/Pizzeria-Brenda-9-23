@@ -105,7 +105,7 @@ use \App\Http\Controllers\ProductController;
         --}}
 
         <div class="container px-12 py-8 mx-auto">
-            <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+            <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="productos-grande">
                 <table class="table-auto w-full text-center" style="border-collapse: separate; border-spacing:25px 25px;">
                     <tr>
                         <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
@@ -123,8 +123,22 @@ use \App\Http\Controllers\ProductController;
                     </tr>
                 </table>
             </div>
+            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="flex-wrap:wrap; align-items:center; text-align:center;" id="productos-pequenio">
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#2"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#3"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#4"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#5"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#6"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#7"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#8"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#9"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#10"><img src="{{ asset("img/sodaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('BEBIDAS')}}</a></div>
+            </div>
             <br>
-            <div class="sm:hidden">Hola</div>
+            {{--
+                <div class="sm:hidden">Hola</div>
+            --}}
             <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
             <div class="h-1 bg-red-500 w-36"></div>
             <br>
