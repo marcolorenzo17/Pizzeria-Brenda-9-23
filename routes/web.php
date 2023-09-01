@@ -221,7 +221,7 @@ Route::post('pagadorecibo/{id}', [ReciboController::class, 'pagado'])->name('rec
 Route::post('nopagadorecibo/{id}', [ReciboController::class, 'nopagado'])->name('recibos.nopagado');
 
 
-Route::get('/curriculum', CurriculumController::class);
+Route::get('/curriculum', CurriculumController::class)->name('curriculum.index');
 Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
 
 Route::get('language/{locale}', function ($locale) {
