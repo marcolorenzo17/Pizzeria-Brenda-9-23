@@ -1,5 +1,7 @@
 <x-app-layout>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
             {{ $products->name }}
@@ -35,18 +37,21 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('products.index') }}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER')}}</a>
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('VOLVER') }}
+                    </a>
+                    <br><br>
                     <div class="mb-6">
-                        <img src="{{ asset($products->image) }}" alt="" class="max-h-60 mx-auto">
+                        <img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto">
                     </div>
                     <div class="mb-6">
                         <?php
-                            $alergenoslista = explode("-", $products->alergenos);
+                        $alergenoslista = explode('-', $products->alergenos);
                         ?>
                         <div style="display:flex; flex-wrap:wrap;">
                             @if ($products->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
-                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px" height="40px">
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
+                                        height="40px">
                                 @endforeach
                             @endif
                         </div>
@@ -88,48 +93,45 @@
                         </p>
                     </div>
                     <br>
-                    <table class="mx-auto border-separate" style="border-collapse: separate; border-spacing: 100px 0;">
-                        <tr>
-                            <td>
-                                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" value="{{ $products->id }}" name="id">
-                                    <input type="hidden" value="{{ $products->name }}" name="name">
-                                    <input type="hidden" value="{{ $products->price }}" name="price">
-                                    <input type="hidden" value="{{ $products->image }}" name="image">
-                                    <input type="hidden" value="1" name="quantity">
-                                    <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
-                                    <br><br>
-                                    {{--
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $products->id }}" name="id">
+                        <input type="hidden" value="{{ $products->name }}" name="name">
+                        <input type="hidden" value="{{ $products->price }}" name="price">
+                        <input type="hidden" value="{{ $products->image }}" name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <div style="text-align:center;">
+                        <button
+                            class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{ __('AÑADIR AL CARRITO') }}</button>
+                        </div>
+                        <br><br>
+                        {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
-                                </form>
-                                @if (Auth::user()->admin)
-                                    <form method="post" action="{{ route('products.destroy', $products->id) }}"
-                                        class="inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
-                                    </form>
-                                @endif
-                            </td>
-                            <td>
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                    height="350px">
-                            </td>
-                        </tr>
+                    </form>
+                    @if (Auth::user()->admin)
+                        <form method="post" action="{{ route('products.destroy', $products->id) }}" class="inline">
+                            @csrf
+                            @method('delete')
+                            <button
+                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                        </form>
+                    @endif
+
+                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto">
+
+                    </tr>
                     </table>
                     <br><br><br>
-                    <h2 class="text-center">{{__('RESEÑAS')}}</h2>
+                    <h2 class="text-center">{{ __('RESEÑAS') }}</h2>
                     <br><br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
                         @csrf
                         @error('resenia')
-                            <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                             <br>
                         @enderror
-                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{__('Escribe aquí tu reseña.')}}"></textarea>
+                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"></textarea>
                         <br><br>
                         <table>
                             <tr>
@@ -149,18 +151,19 @@
                         <br><br>
                         <div class="text-center">
                             <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Publicar')}}</button>
+                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar') }}</button>
                         </div>
                     </form>
                     <br>
                     <div>
                         @foreach ($valoraciones as $valoracion)
                             @if ($valoracion->idProduct == $products->id)
-                                <p style="font-size:13px;">{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
+                                <p style="font-size:13px;">
+                                    {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
                                 </p>
                                 <p style="font-size:12px; color:gray;">
                                     @if ($valoracion->modificado)
-                                        {{__('(Modificado)')}}
+                                        {{ __('(Modificado)') }}
                                     @endif
                                 </p>
                                 <p>
@@ -189,45 +192,51 @@
                                 @endswitch
                                 @if ($valoracion->idUser == Auth::user()->id)
                                     <br>
-                                    <div x-data="{ mostrarVal:false }">
-                                        <button type="button" class="px-6 py-2 text-sm rounded shadow" style="font-size:13px; color:blue;" x-on:click="mostrarVal = !mostrarVal" x-text="mostrarVal ? '{{__('Editar valoración') }}' : '{{__('Editar valoración') }}'"></button>
+                                    <div x-data="{ mostrarVal: false }">
+                                        <button type="button" class="px-6 py-2 text-sm rounded shadow"
+                                            style="font-size:13px; color:blue;" x-on:click="mostrarVal = !mostrarVal"
+                                            x-text="mostrarVal ? '{{ __('Editar valoración') }}' : '{{ __('Editar valoración') }}'"></button>
                                         <div x-show="mostrarVal">
-                                            <form action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}" method="POST">
+                                            <form
+                                                action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}"
+                                                method="POST">
                                                 @csrf
                                                 <div>
                                                     @error('modifVal')
-                                                        <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                                                        <span class="text-danger"
+                                                            style="color:red;">{{ __($message) }}</span>
                                                         <br>
                                                     @enderror
                                                     <input type="text" id="modifVal" name="modifVal">
-                                                    <button type="submit"
-                                                        class="px-6 py-2 text-sm rounded shadow" style="color:green;">{{__('Publicar')}}
+                                                    <button type="submit" class="px-6 py-2 text-sm rounded shadow"
+                                                        style="color:green;">{{ __('Publicar') }}
                                                     </button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                     <form
-                                    action="{{ route('products.destroyValoracion', [$products->id, $valoracion->id]) }}"
-                                    method="POST">
+                                        action="{{ route('products.destroyValoracion', [$products->id, $valoracion->id]) }}"
+                                        method="POST">
                                         @csrf
                                         @method('delete')
                                         <div>
-                                            <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow" style="color:red;">{{__('Borrar valoración')}}</button>
+                                            <button type="submit" class="px-6 py-2 text-sm rounded shadow"
+                                                style="color:red;">{{ __('Borrar valoración') }}</button>
                                         </div>
                                     </form>
                                 @endif
                                 <br>
-                                <p style="font-weight:bolder; font-size:15px;">{{__('Comentarios')}}</p>
+                                <p style="font-weight:bolder; font-size:15px;">{{ __('Comentarios') }}</p>
                                 <br>
                                 @foreach ($comentarios as $comentario)
                                     @if ($comentario->idValoracion == $valoracion->id)
-                                        <p style="font-size:13px;">{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
+                                        <p style="font-size:13px;">
+                                            {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                                         </p>
                                         <p style="font-size:12px; color:gray;">
                                             @if ($comentario->modificado)
-                                                {{__('(Modificado)')}}
+                                                {{ __('(Modificado)') }}
                                             @endif
                                         </p>
                                         <p>
@@ -235,52 +244,58 @@
                                         </p>
                                         @if ($comentario->idUser == Auth::user()->id)
                                             <br>
-                                            <div x-data="{ mostrarCom:false }">
-                                                <button class="px-6 py-2 text-sm rounded shadow" style="font-size:13px; color:blue;" x-on:click="mostrarCom = !mostrarCom" x-text="mostrarCom ? '{{__('Editar comentario') }}' : '{{__('Editar comentario') }}'"></button>
+                                            <div x-data="{ mostrarCom: false }">
+                                                <button class="px-6 py-2 text-sm rounded shadow"
+                                                    style="font-size:13px; color:blue;"
+                                                    x-on:click="mostrarCom = !mostrarCom"
+                                                    x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"></button>
                                                 <div x-show="mostrarCom">
-                                                    <form action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}" method="POST">
+                                                    <form
+                                                        action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
+                                                        method="POST">
                                                         @csrf
                                                         <div>
                                                             @error('modifCom')
-                                                                <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                                                                <span class="text-danger"
+                                                                    style="color:red;">{{ __($message) }}</span>
                                                                 <br>
                                                             @enderror
                                                             <input type="text" id="modifCom" name="modifCom">
                                                             <button type="submit"
-                                                                class="px-6 py-2 text-sm rounded shadow" style="color:green;">{{__('Publicar')}}
+                                                                class="px-6 py-2 text-sm rounded shadow"
+                                                                style="color:green;">{{ __('Publicar') }}
                                                             </button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                             <form
-                                            action="{{ route('products.destroyComentario', [$products->id, $comentario->id]) }}"
-                                            method="POST">
+                                                action="{{ route('products.destroyComentario', [$products->id, $comentario->id]) }}"
+                                                method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <div>
-                                                    <button type="submit"
-                                                        class="px-6 py-2 text-sm rounded shadow" style="color:red;">{{__('Borrar comentario')}}</button>
+                                                    <button type="submit" class="px-6 py-2 text-sm rounded shadow"
+                                                        style="color:red;">{{ __('Borrar comentario') }}</button>
                                                 </div>
                                             </form>
                                         @endif
                                         <br>
                                     @endif
                                 @endforeach
-                                <form
-                                    action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
+                                <form action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
                                     method="POST">
                                     @csrf
                                     @error('reseniaCom')
-                                        <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                                        <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                                         <br>
                                     @enderror
-                                    <input type="text" id="reseniaCom" name="reseniaCom" placeholder="{{__('Escribe aquí tu comentario.')}}"
-                                        size="30">
+                                    <input type="text" id="reseniaCom" name="reseniaCom"
+                                        placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30">
                                     <br><br>
                                     <div>
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Publicar comentario')}}</button>
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar comentario') }}</button>
                                     </div>
                                 </form>
                                 <br><br>
@@ -295,18 +310,22 @@
     <br><br><br><br><br><br><br>
 
     <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
-        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
+        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
+        style="background-color:white;">
+        <span
+            class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
+                <a href="{{ route('whoarewe') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
         </ul>
     </footer>

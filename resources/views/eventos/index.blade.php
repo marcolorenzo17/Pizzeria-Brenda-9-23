@@ -108,48 +108,84 @@
             <br><br>
             <p class="text-center">{{__('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.')}}</p>
             <br><br>
-            <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
-                <tr>
-                    <td>
-                        <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#contenido">
-                                <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
-                                    height="300px" width="300px" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                    style="color: red;">{{__('Cumpleaños')}}</h5>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#contenido">
-                                <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
-                                    height="300px" width="300px" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                    style="color: red;">{{__('Evento')}}</h5>
-                            </div>
-                        </div>
-                    </td>
-                    @if (!isset($_GET['esconder']))
+            <div id="reservas-grande">
+                <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
+                    <tr>
                         <td>
-                            <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                 <a href="#contenido">
-                                    <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
+                                    <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
                                         height="300px" width="300px" />
                                 </a>
                                 <div class="p-5">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                        style="color: red;">{{__('Cena')}}</h5>
+                                        style="color: red;">{{__('Cumpleaños')}}</h5>
                                 </div>
                             </div>
                         </td>
-                    @endif
-                </tr>
-            </table>
+                        <td>
+                            <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                <a href="#contenido">
+                                    <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
+                                        height="300px" width="300px" />
+                                </a>
+                                <div class="p-5">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                                        style="color: red;">{{__('Evento')}}</h5>
+                                </div>
+                            </div>
+                        </td>
+                        @if (!isset($_GET['esconder']))
+                            <td>
+                                <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                    <a href="#contenido">
+                                        <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
+                                            height="300px" width="300px" />
+                                    </a>
+                                    <div class="p-5">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                                            style="color: red;">{{__('Cena')}}</h5>
+                                    </div>
+                                </div>
+                            </td>
+                        @endif
+                    </tr>
+                </table>
+            </div>
+            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="flex-wrap:wrap; align-items:center; text-align:center;" id="reservas-pequenio">
+                <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
+                            height="300px" width="300px" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">{{__('Cumpleaños')}}</h5>
+                    </div>
+                </div>
+                <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
+                            height="300px" width="300px" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">{{__('Evento')}}</h5>
+                    </div>
+                </div>
+                @if (!isset($_GET['esconder']))
+                    <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <a href="#contenido">
+                            <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
+                                height="300px" width="300px" />
+                        </a>
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                                style="color: red;">{{__('Cena')}}</h5>
+                        </div>
+                    </div>
+                @endif
+            </div>
             <br><br>
             <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data">
                 @csrf
