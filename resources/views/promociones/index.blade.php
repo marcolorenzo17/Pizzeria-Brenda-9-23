@@ -8,8 +8,7 @@
         </div>
     </x-slot>
     <br>
-    <div class="container px-12 py-8 mx-auto bg-white">
-        <br>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white" style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
         @foreach ($promotions as $promotion)
             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                 <div class="text-center">
@@ -22,10 +21,10 @@
                     <input type="hidden" value="{{ $promotion->image }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
                     @if (Auth::user()->puntos >= $promotion->puntos)
-                        <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit" class="mx-auto" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                        <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit" class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                     @else
                         <div style="background: rgba(0, 0, 0, 0.5);">
-                            <img src="{{ asset($promotion->image) }}" alt="submit" class="mx-auto" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                            <img src="{{ asset($promotion->image) }}" alt="submit" class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md" width="422" height="600" style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                         </div>
                     @endif
                     @if ($promotion->puntos)
