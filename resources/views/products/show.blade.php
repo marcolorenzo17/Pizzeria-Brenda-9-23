@@ -132,7 +132,7 @@
                             <br>
                         @enderror
                         <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"></textarea>
-                        <br><br>
+                        <br>
                         <table>
                             <tr>
                                 <td onclick="valoracion(1)"><img src="{{ asset('img/starblank.png') }}" alt="*"
@@ -148,13 +148,13 @@
                             <tr>
                         </table>
                         <input type="hidden" id="estrellas" name="estrellas" value="1">
-                        <br><br>
-                        <div class="text-center">
+                        <br>
+                        <div>
                             <button type="submit"
                                 class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar') }}</button>
                         </div>
                     </form>
-                    <br>
+                    <br><br>
                     <div>
                         @foreach ($valoraciones as $valoracion)
                             @if ($valoracion->idProduct == $products->id)
@@ -227,78 +227,81 @@
                                     </form>
                                 @endif
                                 <br>
-                                <p style="font-weight:bolder; font-size:15px;">{{ __('Comentarios') }}</p>
-                                <br>
-                                @foreach ($comentarios as $comentario)
-                                    @if ($comentario->idValoracion == $valoracion->id)
-                                        <p style="font-size:13px;">
-                                            {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
-                                        </p>
-                                        <p style="font-size:12px; color:gray;">
-                                            @if ($comentario->modificado)
-                                                {{ __('(Modificado)') }}
-                                            @endif
-                                        </p>
-                                        <p>
-                                            {{ $comentario->resenia }}
-                                        </p>
-                                        @if ($comentario->idUser == Auth::user()->id)
+                                <div style="margin-left: 30px;">
+                                    <p style="font-weight:bolder; font-size:15px;">{{ __('Comentarios') }}</p>
+                                    <br>
+                                    <form action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        @error('reseniaCom')
+                                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                                             <br>
-                                            <div x-data="{ mostrarCom: false }">
-                                                <button class="px-6 py-2 text-sm rounded shadow"
-                                                    style="font-size:13px; color:blue;"
-                                                    x-on:click="mostrarCom = !mostrarCom"
-                                                    x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"></button>
-                                                <div x-show="mostrarCom">
-                                                    <form
-                                                        action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        <div>
-                                                            @error('modifCom')
-                                                                <span class="text-danger"
-                                                                    style="color:red;">{{ __($message) }}</span>
-                                                                <br>
-                                                            @enderror
-                                                            <input type="text" id="modifCom" name="modifCom">
-                                                            <button type="submit"
-                                                                class="px-6 py-2 text-sm rounded shadow"
-                                                                style="color:green;">{{ __('Publicar') }}
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <form
-                                                action="{{ route('products.destroyComentario', [$products->id, $comentario->id]) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <div>
-                                                    <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                        style="color:red;">{{ __('Borrar comentario') }}</button>
-                                                </div>
-                                            </form>
-                                        @endif
-                                        <br>
-                                    @endif
-                                @endforeach
-                                <form action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
-                                    method="POST">
-                                    @csrf
-                                    @error('reseniaCom')
-                                        <span class="text-danger" style="color:red;">{{ __($message) }}</span>
-                                        <br>
-                                    @enderror
-                                    <input type="text" id="reseniaCom" name="reseniaCom"
-                                        placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30">
+                                        @enderror
+                                        <input type="text" id="reseniaCom" name="reseniaCom"
+                                            placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30">
+                                        <br><br>
+                                        <div>
+                                            <button type="submit"
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar comentario') }}</button>
+                                        </div>
+                                    </form>
                                     <br><br>
-                                    <div>
-                                        <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar comentario') }}</button>
-                                    </div>
-                                </form>
-                                <br><br>
+                                    @foreach ($comentarios as $comentario)
+                                        @if ($comentario->idValoracion == $valoracion->id)
+                                            <p style="font-size:13px;">
+                                                {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
+                                            </p>
+                                            <p style="font-size:12px; color:gray;">
+                                                @if ($comentario->modificado)
+                                                    {{ __('(Modificado)') }}
+                                                @endif
+                                            </p>
+                                            <p>
+                                                {{ $comentario->resenia }}
+                                            </p>
+                                            @if ($comentario->idUser == Auth::user()->id)
+                                                <br>
+                                                <div x-data="{ mostrarCom: false }">
+                                                    <button class="px-6 py-2 text-sm rounded shadow"
+                                                        style="font-size:13px; color:blue;"
+                                                        x-on:click="mostrarCom = !mostrarCom"
+                                                        x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"></button>
+                                                    <div x-show="mostrarCom">
+                                                        <form
+                                                            action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div>
+                                                                @error('modifCom')
+                                                                    <span class="text-danger"
+                                                                        style="color:red;">{{ __($message) }}</span>
+                                                                    <br>
+                                                                @enderror
+                                                                <input type="text" id="modifCom" name="modifCom">
+                                                                <button type="submit"
+                                                                    class="px-6 py-2 text-sm rounded shadow"
+                                                                    style="color:green;">{{ __('Publicar') }}
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <form
+                                                    action="{{ route('products.destroyComentario', [$products->id, $comentario->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <div>
+                                                        <button type="submit" class="px-6 py-2 text-sm rounded shadow"
+                                                            style="color:red;">{{ __('Borrar comentario') }}</button>
+                                                    </div>
+                                                </form>
+                                            @endif
+                                            <br>
+                                        @endif
+                                    @endforeach
+                                    <br><br>
+                                </div>
                             @endif
                         @endforeach
                     </div>
