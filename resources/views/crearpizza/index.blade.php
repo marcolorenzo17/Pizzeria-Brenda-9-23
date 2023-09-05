@@ -217,8 +217,8 @@
                         </div>
                     </div>
                 </td>
-                <td style="vertical-align: top; position: fixed; top: 145px;">
-                    <div class="container px-12 py-8 mx-auto bg-white">
+                <td style="vertical-align: top; position: relative; top: 50px;">
+                    <div class="container px-12 py-8 mx-auto bg-white" style="border-radius:10px;">
                         <div id="cuadropizza">
                             <div id="contenidopizza">
                                 <p id="base"></p>
