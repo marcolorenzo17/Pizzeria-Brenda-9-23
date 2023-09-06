@@ -140,7 +140,7 @@
                                 @endif
                                 <br>
                                 <div class="form-group text-center">
-                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">Realizar compra</button>
+                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">{{__('Realizar compra')}}</button>
                                 </div>
                             </form>
                         </div>

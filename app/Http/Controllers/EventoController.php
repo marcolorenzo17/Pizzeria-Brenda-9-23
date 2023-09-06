@@ -16,7 +16,8 @@ class EventoController extends Controller
 
     public function index(): Response {
         $eventos = DB::select('select * from eventos order by id desc');
-        return response()->view('eventos.index', ['eventos' => $eventos]);
+        $user = auth()->user();
+        return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user->createSetupIntent()]);
     }
 
     public function add(Request $req) {
@@ -62,6 +63,15 @@ class EventoController extends Controller
             return redirect()->route('eventos.index');
         } else {
             $evento->save();
+
+            $paymentMethod = $req->payment_method;
+
+            $user = auth()->user();
+            $user->createOrGetStripeCustomer();
+
+            $paymentMethod = $user->addPaymentMethod($paymentMethod);
+
+            $user->charge(200, $paymentMethod->id);
 
             session()->flash('notif.success', 'Se ha realizado la reserva con éxito.');
             return redirect()->route('eventos.index');

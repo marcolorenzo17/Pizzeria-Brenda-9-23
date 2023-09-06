@@ -188,7 +188,7 @@
                 @endif
             </div>
             <br><br>
-            <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data" id="subscribe-form">
                 @csrf
                 <div id="contenido" style="display: none;">
                     <div class="text-center">
@@ -213,13 +213,33 @@
                             <br>
                         @enderror
                         {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30" value="{{ old('hora') }}">
+                        <br><br><br>
+                        <label for="card-holder-name">{{__('Nombre')}}</label>
+                        <input id="card-holder-name" type="text">
+                        <br><br>
+                        <div class="form-row">
+                            <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
+                            <div id="card-element" class="form-control">
+                            </div>
+                            <!-- Used to display form errors. -->
+                            <div id="card-errors" role="alert"></div>
+                        </div>
+                        <div class="stripe-errors"></div>
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                            {{ $error }}<br>
+                            @endforeach
+                        </div>
+                        @endif
                         @if (isset($_GET['totalpresupuesto']))
                             <br><br><br>
                             <p style="font-weight:bolder;">{{__('Presupuesto:')}} {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
                         @endif
-                        <br><br><br>
-                        <button type="submit"
-                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Reservar')}}</button>
+                        <br><br>
+                        <div class="form-group text-center">
+                            <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">{{__('Reservar')}}</button>
+                        </div>
                     </div>
                 </div>
             </form>
