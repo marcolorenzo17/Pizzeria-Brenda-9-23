@@ -8,6 +8,7 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/recibos.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
@@ -289,5 +290,7 @@
     </footer>
 
     <script src="{{ asset('js/reservas-script.js') }}"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ asset('js/credito.js') }}"></script>
 
 </x-app-layout>
