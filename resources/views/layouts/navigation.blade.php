@@ -33,17 +33,19 @@
                                 {{ __('Reservas') }}
                             </x-nav-link>
                         @endif
-                        @if (Auth::user()->role == 'Jefe')
-                            <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                                {{ __('Clientes') }}
+                        {{--
+                            @if (Auth::user()->role == 'Jefe')
+                                <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                                    {{ __('Clientes') }}
+                                </x-nav-link>
+                            @endif
+                            <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
+                                {{ __('Valoraciones') }}
                             </x-nav-link>
-                        @endif
-                        <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
-                            {{ __('Valoraciones') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
-                            {{ __('Comentarios') }}
-                        </x-nav-link>
+                            <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
+                                {{ __('Comentarios') }}
+                            </x-nav-link>
+                        --}}
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -68,9 +70,11 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <p align="right">
-                    {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </p>
+                @if (!Auth::user()->admin)
+                    <p align="right">
+                        {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                @endif
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -89,6 +93,19 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if (Auth::user()->admin)
+                            @if (Auth::user()->role == 'Jefe')
+                                <x-dropdown-link :href="route('clientes.index')">
+                                    {{ __('Clientes') }}
+                                </x-dropdown-link>
+                            @endif
+                            <x-dropdown-link :href="route('products.indexValoraciones')">
+                                {{ __('Valoraciones') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('products.indexComentarios')">
+                                {{ __('Comentarios') }}
+                            </x-dropdown-link>
+                        @endif
                         <x-dropdown-link href="/recibos">
                             {{ __('Recibos') }}
                         </x-dropdown-link>
@@ -117,9 +134,11 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <p align="right">
-                    {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </p>
+                @if (!Auth::user()->admin)
+                    <p align="right">
+                        {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                @endif
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -142,15 +161,17 @@
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             --}}
         </div>
-        <div style="background-color:white; padding:15px;">
-            <a style="display:inline-block;" href="{{ route('cart.list') }}" class="flex items-center">
-                <p style="display:inline-block; margin-right:10px;">Carrito</p>
-                <svg style="display:inline-block;" class="w-5 h-5 text-purple-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-                <span class="text-red-700">{{ Cart::getTotalQuantity()}}</span>
-            </a>
-        </div>
+        @if (!Auth::user()->admin)
+            <div style="background-color:white; padding:15px;">
+                <a style="display:inline-block;" href="{{ route('cart.list') }}" class="flex items-center">
+                    <p style="display:inline-block; margin-right:10px;">Carrito</p>
+                    <svg style="display:inline-block;" class="w-5 h-5 text-purple-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <span class="text-red-700">{{ Cart::getTotalQuantity()}}</span>
+                </a>
+            </div>
+        @endif
         @if (Auth::user()->admin)
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
@@ -164,17 +185,6 @@
                         {{ __('Reservas') }}
                     </x-responsive-nav-link>
                 @endif
-                @if (Auth::user()->role == 'Jefe')
-                    <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                        {{ __('Clientes') }}
-                    </x-responsive-nav-link>
-                @endif
-                <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
-                    {{ __('Valoraciones') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
-                    {{ __('Comentarios') }}
-                </x-responsive-nav-link>
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
@@ -193,6 +203,19 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
+                @if (Auth::user()->admin)
+                    @if (Auth::user()->role == 'Jefe')
+                        <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Clientes') }}
+                        </x-responsive-nav-link>
+                    @endif
+                    <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
+                        {{ __('Valoraciones') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
+                        {{ __('Comentarios') }}
+                    </x-responsive-nav-link>
+                @endif
                 <x-responsive-nav-link :href="route('recibos.index')" :active="request()->routeIs('recibos.index')">
                     {{ __('Recibos') }}
                 </x-responsive-nav-link>
@@ -215,6 +238,20 @@
                         {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
+            </div>
+        </div>
+
+        <div class="pt-4 pb-1 border-t border-gray-200">
+            <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('whoarewe')" :active="request()->routeIs('whoarewe')">
+                    {{__('¿Quiénes somos?') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
+                    {{__('Preguntas frecuentes') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
+                    {{__('Contáctanos') }}
+                </x-responsive-nav-link>
             </div>
         </div>
     </div>
