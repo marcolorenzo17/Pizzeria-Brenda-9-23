@@ -64,14 +64,16 @@ class EventoController extends Controller
         } else {
             $evento->save();
 
-            $paymentMethod = $req->payment_method;
+            if ($req->ifcredito == "true") {
+                $paymentMethod = $req->payment_method;
 
-            $user = auth()->user();
-            $user->createOrGetStripeCustomer();
+                $user = auth()->user();
+                $user->createOrGetStripeCustomer();
 
-            $paymentMethod = $user->addPaymentMethod($paymentMethod);
+                $paymentMethod = $user->addPaymentMethod($paymentMethod);
 
-            $user->charge(200, $paymentMethod->id);
+                $user->charge(200, $paymentMethod->id);
+            }
 
             session()->flash('notif.success', 'Se ha realizado la reserva con éxito.');
             return redirect()->route('eventos.index');

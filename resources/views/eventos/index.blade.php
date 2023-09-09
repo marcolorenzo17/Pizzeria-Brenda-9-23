@@ -215,32 +215,74 @@
                             <br>
                         @enderror
                         {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30" value="{{ old('hora') }}">
+                        <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                         <br><br><br>
-                        <label for="card-holder-name">{{__('Nombre')}}</label>
-                        <input id="card-holder-name" type="text">
-                        <br><br>
-                        <div class="form-row">
-                            <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
-                            <div id="card-element" class="form-control">
+                        <div>
+                            <h2 class="text-center">{{__('ELIGE UN MÉTODO DE PAGO')}}</h2>
+                            <br>
+                            <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
+                                <tr>
+                                    <td>
+                                        <div
+                                            id="efectivodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                            <a href="#efectivoparte">
+                                                <img class="rounded-t-lg" src="img/efectivo.png" alt=""
+                                                    onclick="mostrarpago('efectivo')" />
+                                            </a>
+                                            <div class="p-5">
+                                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                                                    {{__('En efectivo')}}</h5>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div
+                                            id="creditodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                            <a href="#creditoparte">
+                                                <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
+                                                    onclick="mostrarpago('credito')" />
+                                            </a>
+                                            <div class="p-5">
+                                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                                                    {{__('Tarjeta de crédito')}}</h5>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br><br><br>
+                        <div id="creditoparte" style="display:none;">
+                            <label for="card-holder-name">{{__('Nombre')}}</label>
+                            <input id="card-holder-name" type="text">
+                            <br><br>
+                            <div class="form-row">
+                                <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
+                                <div id="card-element" class="form-control">
+                                </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
                             </div>
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
+                            <div class="stripe-errors"></div>
+                            @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                {{ $error }}<br>
+                                @endforeach
+                            </div>
+                            @endif
+                            @if (isset($_GET['totalpresupuesto']))
+                                <br><br><br>
+                                <p style="font-weight:bolder;">{{__('Presupuesto:')}} {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
+                            @endif
+                            <br><br>
+                            <div class="form-group text-center">
+                                <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">{{__('Reservar')}}</button>
+                            </div>
                         </div>
-                        <div class="stripe-errors"></div>
-                        @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                            {{ $error }}<br>
-                            @endforeach
-                        </div>
-                        @endif
-                        @if (isset($_GET['totalpresupuesto']))
-                            <br><br><br>
-                            <p style="font-weight:bolder;">{{__('Presupuesto:')}} {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
-                        @endif
-                        <br><br>
-                        <div class="form-group text-center">
-                            <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">{{__('Reservar')}}</button>
+                        <div class="form-group text-center" id="efectivoparte" style="display:none;">
+                            <button type="submit"
+                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" class="btn btn-lg btn-success btn-block">{{__('Reservar')}}</button>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,12 @@ var misreservas = document.getElementById("misreservas");
 var misreservasflag = 0;
 var fecha = document.getElementById("fecha");
 
+var efectivodiv = document.getElementById("efectivodiv");
+var creditodiv = document.getElementById("creditodiv");
+var creditoparte = document.getElementById("creditoparte");
+var efectivoparte = document.getElementById("efectivoparte");
+var ifcredito = document.getElementById("ifcredito");
+
 function mostrar(elemento) {
   fecha.min = new Date().toJSON().slice(0, 10);
   contenido.style.display = 'block';
@@ -30,6 +36,26 @@ function mostrar(elemento) {
       tipo.setAttribute("value", "Cena");
       break;
   }
+};
+
+function mostrarpago(parte) {
+  switch (parte) {
+    case "efectivo":
+      creditodiv.setAttribute("style", "");
+      efectivodiv.setAttribute("style", "border: turquoise; border-width: 5px; border-style: solid;");
+      creditoparte.style.display = 'none';
+      efectivoparte.style.display = 'block';
+      ifcredito.setAttribute("value", "false");
+      break;
+
+    case "credito":
+      efectivodiv.setAttribute("style", "");
+      creditodiv.setAttribute("style", "border: turquoise; border-width: 5px; border-style: solid;");
+      creditoparte.style.display = 'block';
+      efectivoparte.style.display = 'none';
+      ifcredito.setAttribute("value", "true");
+      break;
+  };
 };
 
 /*
