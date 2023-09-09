@@ -72,7 +72,7 @@
             <tr>
                 <td>
                     <br>
-                    <div style="text-align:center;">
+                    <div style="text-align:center;" id="volvermenu">
                         <a href="{{ route('products.index') }}"
                         class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER AL MENÚ')}}</a>
                     </div>
@@ -91,7 +91,9 @@
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadirBase('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <a href="#volvermenu">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadirBase('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
                                         ?>
@@ -125,7 +127,9 @@
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <a href="#volvermenu">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
                                         ?>
@@ -159,7 +163,9 @@
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <a href="#volvermenu">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
                                         ?>
@@ -193,7 +199,9 @@
                                             $nombre = $ingrediente->name;
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
-                                        <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        <a href="#volvermenu">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                        </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
                                         ?>
