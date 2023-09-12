@@ -13,6 +13,7 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/index_products.css" />
     @if (Auth::user()->admin)
         <br>
         <p class="text-center" style="font-weight:bolder;">{{__('LISTA PARA ADMINISTRADORES')}}</p>
@@ -34,7 +35,7 @@
                                 <br>
                                 <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>
                             </div>
-                            <table style="margin-left:auto; margin-right:0;">
+                            <table style="margin-left:auto; margin-right:0;" id="productos-grande">
                                 <tr>
                                     <td>
                                         @if ($ingrediente->habilitado)
@@ -53,6 +54,37 @@
                                         <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
                                     </td>
                                     <td>
+                                        <form method="post" action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
+                                <tr>
+                                    <td style="padding:5px">
+                                        @if ($ingrediente->habilitado)
+                                            <form method="post" action="{{ route('crearpizza.deshabilitar', $ingrediente->id) }}">
+                                                @csrf
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DESHABILITAR')}}</button>
+                                            </form>
+                                        @else
+                                            <form method="post" action="{{ route('crearpizza.habilitar', $ingrediente->id) }}">
+                                                @csrf
+                                                <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('HABILITAR')}}</button>
+                                            </form>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px">
+                                        <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px">
                                         <form method="post" action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
                                             @csrf
                                             @method('delete')
