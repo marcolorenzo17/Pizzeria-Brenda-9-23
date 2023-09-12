@@ -43,7 +43,7 @@ use \App\Http\Controllers\ProductController;
                                 <br>
                                 <p>{{ number_format($product->price, 2, '.', '') }} €</p>
                             </div>
-                            <table style="margin-left:auto; margin-right:0;">
+                            <table style="margin-left:auto; margin-right:0;" id="productos-grande">
                                 <tr>
                                     <td>
                                         @if ($product->habilitado)
@@ -62,6 +62,37 @@ use \App\Http\Controllers\ProductController;
                                         <a href="{{ route('products.editar', $product) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
                                     </td>
                                     <td>
+                                        <form method="post" action="{{ route('products.destroy', $product->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('BORRAR')}}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
+                                <tr>
+                                    <td style="padding:5px">
+                                        @if ($product->habilitado)
+                                            <form method="post" action="{{ route('products.deshabilitar', $product->id) }}">
+                                                @csrf
+                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DESHABILITAR')}}</button>
+                                            </form>
+                                        @else
+                                            <form method="post" action="{{ route('products.habilitar', $product->id) }}">
+                                                @csrf
+                                                <button class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{__('HABILITAR')}}</button>
+                                            </form>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px">
+                                        <a href="{{ route('products.editar', $product) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px">
                                         <form method="post" action="{{ route('products.destroy', $product->id) }}">
                                             @csrf
                                             @method('delete')
