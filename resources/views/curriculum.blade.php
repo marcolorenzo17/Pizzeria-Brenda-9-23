@@ -10,19 +10,21 @@
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         @if (Auth::user()->role == 'Jefe')
-            <div>
+            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white" style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
                 @foreach ($curriculums as $curriculum)
-                <div class="text-center">
-                    <p>
-                        {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('name')->first() }}
-                    </p>
-                    <p>
-                        {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
-                    </p>
-                </div>
-                <br>
-                <div class="text-center">
-                    <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('Ver currículum')}}</a>
+                <div>
+                    <div class="text-center">
+                        <p>
+                            {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('name')->first() }}
+                        </p>
+                        <p>
+                            {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
+                        </p>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('Ver currículum')}}</a>
+                    </div>
                 </div>
                 <br><br>
                 @endforeach
