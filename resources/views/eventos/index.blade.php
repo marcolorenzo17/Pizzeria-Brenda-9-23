@@ -10,6 +10,7 @@
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/recibos.css" />
+    <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
@@ -48,7 +49,7 @@
                                                     <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DENEGADO')}}</button>
                                                 </form>
                                             @else
-                                                <table>
+                                                <table id="productos-grande">
                                                     <tr>
                                                         <td>
                                                             <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
@@ -56,6 +57,24 @@
                                                                 <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('ACEPTAR')}}</button>
                                                             </form>
                                                         </td>
+                                                        <td>
+                                                            <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
+                                                                @csrf
+                                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DENEGAR')}}</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table id="productos-pequenio">
+                                                    <tr>
+                                                        <td>
+                                                            <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
+                                                                @csrf
+                                                                <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('ACEPTAR')}}</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
                                                         <td>
                                                             <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
                                                                 @csrf
