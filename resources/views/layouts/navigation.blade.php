@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/index_products.css" />
 <nav x-data="{ open: false }" class="border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +72,7 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @if (!Auth::user()->admin)
-                    <p align="right">
+                    <p align="right" id="productos-grande">
                         {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </p>
                 @endif
@@ -93,6 +94,11 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if (!Auth::user()->admin)
+                            <x-dropdown-link id="productos-pequenio">
+                                {{__('Puntos')}}: {{ Auth::user()->puntos }}
+                            </x-dropdown-link>
+                        @endif
                         @if (Auth::user()->admin)
                             @if (Auth::user()->role == 'Jefe')
                                 <x-dropdown-link :href="route('clientes.index')">
