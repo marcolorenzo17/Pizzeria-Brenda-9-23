@@ -124,8 +124,7 @@
                     @endif
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                id="productos-pequenio">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-pequenio">
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>
