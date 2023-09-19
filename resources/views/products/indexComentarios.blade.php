@@ -10,7 +10,7 @@
     </x-slot>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <table class="table-auto w-full" style="border-collapse:separate; border-spacing:0 10px;">
+        <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;">
             <tr>
                 <td class="font-bold">{{__('Cliente')}}</td>
                 <td class="font-bold">{{__('Comentario')}}</td>
