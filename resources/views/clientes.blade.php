@@ -95,8 +95,7 @@
                     </tr>
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                id="productos-pequenio">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-pequenio">
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td>{{ $cliente->name }}</td>

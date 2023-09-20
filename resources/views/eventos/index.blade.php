@@ -1,5 +1,7 @@
 <x-app-layout>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('RESERVAS') }}
@@ -16,81 +18,150 @@
         <br>
         @if (Auth::user()->admin)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        <table class="table-auto w-full">
-                            <tr>
-                                <td class="font-bold">{{__('Cliente')}}</td>
-                                <td class="font-bold">{{__('Tipo')}}</td>
-                                <td class="font-bold">{{__('Personas')}}</td>
-                                <td class="font-bold">{{__('Fecha')}}</td>
-                                <td class="font-bold">{{__('Hora')}}</td>
-                                <td class="font-bold">{{__('Presupuesto')}}</td>
-                                <td class="font-bold">{{__('Reserva')}}</td>
-                            </tr>
-                            <tr>
-                                <td><br></td>
-                            </tr>
-                            @foreach ($eventos as $evento)
-                                    <tr>
-                                        <td>{{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}</td>
-                                        <td>{{ __($evento->tipo) }}</td>
-                                        <td>{{ $evento->personas }}</td>
-                                        <td>{{ $evento->fecha }}</td>
-                                        <td>{{ $evento->hora }}</td>
-                                        <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
-                                        <td>
-                                            @if ($evento->reservado == "true")
-                                                <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
+                <table class="table-auto w-full" id="productos-grande">
+                    <tr>
+                        <td class="font-bold">{{ __('Fecha') }}</td>
+                        <td class="font-bold">{{ __('Hora') }}</td>
+                        <td class="font-bold">{{ __('Cliente') }}</td>
+                        <td class="font-bold">{{ __('Tipo') }}</td>
+                        <td class="font-bold">{{ __('Personas') }}</td>
+                        <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        <td class="font-bold">{{ __('Reserva') }}</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    @foreach ($eventos as $evento)
+                        <tr>
+                            <td>{{ $evento->fecha }}</td>
+                            <td>{{ $evento->hora }}</td>
+                            <td>{{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}</td>
+                            <td>{{ __($evento->tipo) }}</td>
+                            <td>{{ $evento->personas }}</td>
+                            <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                            <td>
+                                @if ($evento->reservado == 'true')
+                                    <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
+                                        @csrf
+                                        <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                            style="border-color:green; border-style:solid; border-width:1px;">{{ __('RESERVADO') }}</button>
+                                    </form>
+                                @elseif ($evento->reservado == 'false')
+                                    <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
+                                        @csrf
+                                        <button
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
+                                    </form>
+                                @else
+                                    <table {{-- id="productos-grande" --}}>
+                                        <tr>
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('eventos.eventosi', $evento->id) }}">
                                                     @csrf
-                                                    <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('RESERVADO')}}</button>
+                                                    <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                        style="border-color:green; border-style:solid; border-width:1px;">{{ __('ACEPTAR') }}</button>
                                                 </form>
-                                            @elseif ($evento->reservado == "false")
-                                                <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
+                                            </td>
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('eventos.eventono', $evento->id) }}">
                                                     @csrf
-                                                    <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DENEGADO')}}</button>
+                                                    <button
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
                                                 </form>
-                                            @else
-                                                <table id="productos-grande">
-                                                    <tr>
-                                                        <td>
-                                                            <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
-                                                                @csrf
-                                                                <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('ACEPTAR')}}</button>
-                                                            </form>
-                                                        </td>
-                                                        <td>
-                                                            <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
-                                                                @csrf
-                                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DENEGAR')}}</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <table id="productos-pequenio">
-                                                    <tr>
-                                                        <td>
-                                                            <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
-                                                                @csrf
-                                                                <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('ACEPTAR')}}</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
-                                                                @csrf
-                                                                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DENEGAR')}}</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            @endif
-                                        </td>
-                                    </tr>
-                            @endforeach
-                        </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    {{--
+                                                    <table id="productos-pequenio">
+                                                        <tr>
+                                                            <td>
+                                                                <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
+                                                                    @csrf
+                                                                    <button id="pagado" class="hover:text-white px-4 py-2 rounded-md" style="border-color:green; border-style:solid; border-width:1px;">{{__('ACEPTAR')}}</button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
+                                                                    @csrf
+                                                                    <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{__('DENEGAR')}}</button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                --}}
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                    id="productos-pequenio">
+                    @foreach ($eventos as $evento)
+                        <tr>
+                            <td>{{ $evento->fecha }} {{ $evento->hora }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">
+                                {{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ __($evento->tipo) }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ $evento->personas }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">
+                                @if ($evento->reservado == 'true')
+                                    <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
+                                        @csrf
+                                        <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                            style="border-color:green; border-style:solid; border-width:1px;">{{ __('RESERVADO') }}</button>
+                                    </form>
+                                @elseif ($evento->reservado == 'false')
+                                    <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
+                                        @csrf
+                                        <button
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
+                                    </form>
+                                @else
+                                    <table {{-- id="productos-grande" --}}>
+                                        <tr>
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('eventos.eventosi', $evento->id) }}">
+                                                    @csrf
+                                                    <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                        style="border-color:green; border-style:solid; border-width:1px;">{{ __('ACEPTAR') }}</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('eventos.eventono', $evento->id) }}">
+                                                    @csrf
+                                                    <button
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                    @endforeach
+                </table>
             </div>
         @else
-        {{--
+            {{--
             <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -112,23 +183,27 @@
             --}}
 
             @if (isset($_GET['totalpresupuesto']))
-                <p class="text-center">{{__('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.')}}</p>
+                <p class="text-center">
+                    {{ __('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.') }}
+                </p>
                 <br>
             @endif
             @if (!isset($_GET['totalpresupuesto']))
-            <div class="text-center">
-                <form action="{{ route('eventos.index') }}" method="get">
-                    @csrf
-                    <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto" name="totalpresupuesto">
-                    <input type="hidden" value="esconder" id="esconder" name="esconder">
-                    <button type="submit" class="px-6 py-2 text-sm  rounded shadow" style="background-color:gold;">{{__('Calcula el presupuesto para tu evento')}}</button>
-                </form>
-            </div>
+                <div class="text-center">
+                    <form action="{{ route('eventos.index') }}" method="get">
+                        @csrf
+                        <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto"
+                            name="totalpresupuesto">
+                        <input type="hidden" value="esconder" id="esconder" name="esconder">
+                        <button type="submit" class="px-6 py-2 text-sm  rounded shadow"
+                            style="background-color:gold;">{{ __('Calcula el presupuesto para tu evento') }}</button>
+                    </form>
+                </div>
             @endif
             <br><br>
-            <p class="text-center">{{__('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.')}}</p>
+            <p class="text-center">{{ __('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.') }}</p>
             <br>
-            <p class="text-center">{{__('2€')}}</p>
+            <p class="text-center">{{ __('2€') }}</p>
             <br><br>
             <div id="reservas-grande">
                 <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
@@ -136,37 +211,38 @@
                         <td>
                             <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                 <a href="#contenido">
-                                    <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
-                                        height="300px" width="300px" />
+                                    <img class="rounded-t-lg" src="img/globo.png" alt=""
+                                        onclick="mostrar(cumple)" height="300px" width="300px" />
                                 </a>
                                 <div class="p-5">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                        style="color: red;">{{__('Cumpleaños')}}</h5>
+                                        style="color: red;">{{ __('Cumpleaños') }}</h5>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                 <a href="#contenido">
-                                    <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
-                                        height="300px" width="300px" />
+                                    <img class="rounded-t-lg" src="img/evento.jpg" alt=""
+                                        onclick="mostrar(evento)" height="300px" width="300px" />
                                 </a>
                                 <div class="p-5">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                        style="color: red;">{{__('Evento')}}</h5>
+                                        style="color: red;">{{ __('Evento') }}</h5>
                                 </div>
                             </div>
                         </td>
                         @if (!isset($_GET['esconder']))
                             <td>
-                                <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                <div id="cena"
+                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                     <a href="#contenido">
-                                        <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
-                                            height="300px" width="300px" />
+                                        <img class="rounded-t-lg" src="img/cena.jpg" alt=""
+                                            onclick="mostrar(cena)" height="300px" width="300px" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                            style="color: red;">{{__('Cena')}}</h5>
+                                            style="color: red;">{{ __('Cena') }}</h5>
                                     </div>
                                 </div>
                             </td>
@@ -174,7 +250,8 @@
                     </tr>
                 </table>
             </div>
-            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="flex-wrap:wrap; align-items:center; text-align:center;" id="reservas-pequenio">
+            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                style="flex-wrap:wrap; align-items:center; text-align:center;" id="reservas-pequenio">
                 <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                     <a href="#contenido">
                         <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
@@ -182,7 +259,7 @@
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                            style="color: red;">{{__('Cumpleaños')}}</h5>
+                            style="color: red;">{{ __('Cumpleaños') }}</h5>
                     </div>
                 </div>
                 <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
@@ -192,7 +269,7 @@
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                            style="color: red;">{{__('Evento')}}</h5>
+                            style="color: red;">{{ __('Evento') }}</h5>
                     </div>
                 </div>
                 @if (!isset($_GET['esconder']))
@@ -203,67 +280,74 @@
                         </a>
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{__('Cena')}}</h5>
+                                style="color: red;">{{ __('Cena') }}</h5>
                         </div>
                     </div>
                 @endif
             </div>
             <br><br>
-            <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data" id="subscribe-form">
+            <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data"
+                id="subscribe-form">
                 @csrf
                 <div id="contenido" style="display: none;">
                     <div class="text-center">
                         @if (isset($_GET['totalpresupuesto']))
-                            <input type="hidden" id="presupuesto" name="presupuesto" value="{{ $_GET['totalpresupuesto'] }}">
+                            <input type="hidden" id="presupuesto" name="presupuesto"
+                                value="{{ $_GET['totalpresupuesto'] }}">
                         @endif
                         <input type="hidden" id="tipo" name="tipo" value="">
                         @error('personas')
-                            <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                             <br>
                         @enderror
-                        {{__('Nº Personas:')}} <input type="number" id="personas" name="personas" value="{{ old('personas') }}">
+                        {{ __('Nº Personas:') }} <input type="number" id="personas" name="personas"
+                            value="{{ old('personas') }}">
                         <br><br>
                         @error('fecha')
-                            <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                             <br>
                         @enderror
-                        {{__('Fecha:')}} <input type="date" name="fecha" id="fecha" value="{{ old('fecha') }}">
+                        {{ __('Fecha:') }} <input type="date" name="fecha" id="fecha"
+                            value="{{ old('fecha') }}">
                         <br><br>
                         @error('hora')
-                            <span class="text-danger" style="color:red;">{{__($message)}}</span>
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                             <br>
                         @enderror
-                        {{__('Hora:')}} <input type="time" name="hora" id="hora" min="20:30" max="23:30" value="{{ old('hora') }}">
+                        {{ __('Hora:') }} <input type="time" name="hora" id="hora" min="20:30"
+                            max="23:30" value="{{ old('hora') }}">
                         <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                         <br><br><br>
                         <div>
-                            <h2 class="text-center">{{__('ELIGE UN MÉTODO DE PAGO')}}</h2>
+                            <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
                             <br>
                             <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
                                 <tr>
                                     <td>
-                                        <div
-                                            id="efectivodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <div id="efectivodiv"
+                                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                             <a href="#efectivoparte">
                                                 <img class="rounded-t-lg" src="img/efectivo.png" alt=""
                                                     onclick="mostrarpago('efectivo')" />
                                             </a>
                                             <div class="p-5">
-                                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                                    {{__('En efectivo')}}</h5>
+                                                <h5
+                                                    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                                                    {{ __('En efectivo') }}</h5>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <div
-                                            id="creditodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <div id="creditodiv"
+                                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                             <a href="#creditoparte">
                                                 <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
                                                     onclick="mostrarpago('credito')" />
                                             </a>
                                             <div class="p-5">
-                                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                                    {{__('Tarjeta de crédito')}}</h5>
+                                                <h5
+                                                    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                                                    {{ __('Tarjeta de crédito') }}</h5>
                                             </div>
                                         </div>
                                     </td>
@@ -272,11 +356,11 @@
                         </div>
                         <br><br><br>
                         <div id="creditoparte" style="display:none;">
-                            <label for="card-holder-name">{{__('Nombre')}}</label>
+                            <label for="card-holder-name">{{ __('Nombre') }}</label>
                             <input id="card-holder-name" type="text">
                             <br><br>
                             <div class="form-row">
-                                <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
+                                <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
                                 <div id="card-element" class="form-control">
                                 </div>
                                 <!-- Used to display form errors. -->
@@ -284,44 +368,49 @@
                             </div>
                             <div class="stripe-errors"></div>
                             @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                {{ $error }}<br>
-                                @endforeach
-                            </div>
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                        {{ $error }}<br>
+                                    @endforeach
+                                </div>
                             @endif
                             @if (isset($_GET['totalpresupuesto']))
                                 <br><br><br>
-                                <p style="font-weight:bolder;">{{__('Presupuesto:')}} {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
+                                <p style="font-weight:bolder;">{{ __('Presupuesto:') }}
+                                    {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
                             @endif
                             <br><br>
                             <div class="form-group text-center">
-                                <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">{{__('Reservar')}}</button>
+                                <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                    id="card-button" data-secret="{{ $intent->client_secret }}"
+                                    class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
                             </div>
                         </div>
                         <div class="form-group text-center" id="efectivoparte" style="display:none;">
-                            <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" class="btn btn-lg btn-success btn-block">{{__('Reservar')}}</button>
+                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
                         </div>
                     </div>
                 </div>
             </form>
             <br><br>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar:false }">
+                <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar: false }">
                     <div style="text-align: center;">
-                        <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;" x-on:click="mostrar = !mostrar" x-text="mostrar ? '{{__('OCULTAR MIS RESERVAS') }}' : '{{__('MOSTRAR MIS RESERVAS') }}'"></button>
+                        <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;"
+                            x-on:click="mostrar = !mostrar"
+                            x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'"></button>
                     </div>
                     <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
                         x-show="mostrar">
                         <table class="table-auto w-full">
                             <tr>
-                                <td class="font-bold">{{__('Tipo')}}</td>
-                                <td class="font-bold">{{__('Personas')}}</td>
-                                <td class="font-bold">{{__('Fecha')}}</td>
-                                <td class="font-bold">{{__('Hora')}}</td>
-                                <td class="font-bold">{{__('Presupuesto')}}</td>
-                                <td class="font-bold">{{__('Reserva')}}</td>
+                                <td class="font-bold">{{ __('Tipo') }}</td>
+                                <td class="font-bold">{{ __('Personas') }}</td>
+                                <td class="font-bold">{{ __('Fecha') }}</td>
+                                <td class="font-bold">{{ __('Hora') }}</td>
+                                <td class="font-bold">{{ __('Presupuesto') }}</td>
+                                <td class="font-bold">{{ __('Reserva') }}</td>
                             </tr>
                             <tr>
                                 <td><br></td>
@@ -335,12 +424,12 @@
                                         <td>{{ $evento->hora }}</td>
                                         <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
                                         <td>
-                                            @if ($evento->reservado == "true")
-                                                <p>{{__('Reservado')}}</p>
-                                            @elseif ($evento->reservado == "false")
-                                                <p>{{__('Lo sentimos, no es posible realizar su reserva')}}</p>
+                                            @if ($evento->reservado == 'true')
+                                                <p>{{ __('Reservado') }}</p>
+                                            @elseif ($evento->reservado == 'false')
+                                                <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
                                             @else
-                                                <p>{{__('Reserva en curso')}}</p>
+                                                <p>{{ __('Reserva en curso') }}</p>
                                             @endif
                                         </td>
                                     </tr>
@@ -350,24 +439,28 @@
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
     @endif
 
     <br><br><br><br><br><br><br><br>
 
     <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
-        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
+        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
+        style="background-color:white;">
+        <span
+            class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex" >
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
+                <a href="{{ route('whoarewe') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
         </ul>
     </footer>
