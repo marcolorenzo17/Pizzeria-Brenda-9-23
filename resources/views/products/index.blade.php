@@ -7,6 +7,7 @@ use \App\Http\Controllers\ProductController;
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight" style="font-size:40px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter;">
             {{ __('NUESTRO MENÚ') }}
         </h2>
+        <br><br>
         <div>
             @include('partials/language_switcher')
         </div>

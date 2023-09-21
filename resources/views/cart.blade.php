@@ -94,6 +94,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    {{-- A lo mejor debería mejorar esto de aquí abajo... --}}
                                     <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
                                 @endforeach
 
