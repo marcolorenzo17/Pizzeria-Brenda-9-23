@@ -4,6 +4,7 @@
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 {{ __('CLIENTES') }}
             </h2>
+            <br><br>
             <div>
                 @include('partials/language_switcher')
             </div>

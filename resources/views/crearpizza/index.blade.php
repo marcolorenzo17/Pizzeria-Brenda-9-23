@@ -9,6 +9,7 @@
                 {{ __('CREA TU PROPIA PIZZA') }}
             </h2>
         @endif
+        <br><br>
         <div>
             @include('partials/language_switcher')
         </div>

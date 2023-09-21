@@ -4,6 +4,7 @@
             {{-- Use 'Edit' for edit mode and create for non-edit/create mode --}}
             {{ isset($product) ? 'Edit' : 'Create' }}
         </h2>
+        <br><br>
         <div>
             @include('partials/language_switcher')
         </div>

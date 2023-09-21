@@ -3,6 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 text-center">
             {{ __('CARRITO') }}
         </h2>
+        <br><br>
         <div>
             @include('partials/language_switcher')
         </div>

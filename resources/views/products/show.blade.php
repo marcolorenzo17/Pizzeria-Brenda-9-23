@@ -6,6 +6,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
             {{ $products->name }}
         </h2>
+        <br><br>
         <div>
             {{-- @include('partials/language_switcher') --}}
         </div>
