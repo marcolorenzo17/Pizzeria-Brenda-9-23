@@ -62,8 +62,6 @@ class EventoController extends Controller
             session()->flash('notif.success', 'Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.');
             return redirect()->route('eventos.index');
         } else {
-            $evento->save();
-
             if ($req->ifcredito == "true") {
                 $paymentMethod = $req->payment_method;
 
@@ -73,7 +71,13 @@ class EventoController extends Controller
                 $paymentMethod = $user->addPaymentMethod($paymentMethod);
 
                 $user->charge(200, $paymentMethod->id);
-            }
+
+                $evento->pagado = true;
+            } else {
+                $evento->pagado = false;
+            };
+
+            $evento->save();
 
             session()->flash('notif.success', 'Se ha realizado la reserva con éxito.');
             return redirect()->route('eventos.index');

@@ -28,6 +28,7 @@
                         <td class="font-bold">{{ __('Personas') }}</td>
                         <td class="font-bold">{{ __('Presupuesto') }}</td>
                         <td class="font-bold">{{ __('Reserva') }}</td>
+                        <td class="font-bold">{{ __('Pagado') }}</td>
                     </tr>
                     <tr>
                         <td><br></td>
@@ -96,6 +97,7 @@
                                                 --}}
                                 @endif
                             </td>
+                            <td>{{ $evento->pagado }}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -155,6 +157,9 @@
                                     </table>
                                 @endif
                             </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ __($evento->pagado) }}</td>
                         </tr>
                         <tr></tr>
                         <tr></tr>
