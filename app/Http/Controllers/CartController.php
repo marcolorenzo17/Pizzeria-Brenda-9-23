@@ -105,6 +105,7 @@ class CartController extends Controller
 
     public function addData(Request $req) {
         $recibo = new Recibo;
+        $recibo->puntos = $req->puntos;
         $recibo->total = $req->total;
         $recibo->direccion = $req->direccion;
         $recibo->telefono = $req->telefono;

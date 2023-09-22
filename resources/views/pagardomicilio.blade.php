@@ -119,6 +119,7 @@
                                 <label for="card-holder-name">{{__('Nombre')}}</label>
                                 <input id="card-holder-name" type="text"><br><br>
                                 @csrf
+                                <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                                 <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
                                 <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
                                 <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
@@ -148,6 +149,7 @@
                     </div>
                     <form action="{{ route('cart.add') }}" method="POST">
                         @csrf
+                        <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                         <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
                         <input type="hidden" value="{{ $_GET["direccion2"] }}" name="direccion">
                         <input type="hidden" value="{{ $_GET["telefono"] }}" name="telefono">
@@ -171,6 +173,7 @@
                                     <span class="lg:hidden" title="Quantity">{{__('Cantidad')}}</span>
                                     <span class="hidden lg:inline">{{__('Cantidad')}}</span>
                                 </th>
+                                <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
                                 <th class="hidden text-right md:table-cell"> {{__('Precio')}}</th>
                             </tr>
                         </thead>
@@ -191,6 +194,11 @@
                                                 </p>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td class="text-right md:table-cell">
+                                        <span class="text-sm font-medium lg:text-base">
+                                            {{ $item->attributes->puntos }}
+                                        </span>
                                     </td>
                                     <td class="hidden text-right md:table-cell">
                                         <span class="text-sm font-medium lg:text-base">
@@ -224,7 +232,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <p>{{__('Puntos ganados con la compra: ')}} {{ (Cart::getTotal() + 2) * 100 }}</p>
+                    <p>{{__('Pizzacoins ganadas con la compra: ')}} {{ (Cart::getTotal() + 2) * 100 }}</p>
                     {{--
                     <br>
                         <form action="{{ route('cart.add') }}" method="POST">

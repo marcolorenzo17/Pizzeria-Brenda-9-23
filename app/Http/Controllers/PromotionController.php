@@ -13,7 +13,7 @@ class PromotionController extends Controller
 {
     public function index(): Response
     {
-        $promotions = DB::select("select * from products where type = 'Promoción' order by id desc");
+        $promotions = DB::select("select * from products order by id desc");
         return response()->view('promociones.index', ['promotions' => $promotions]);
     }
 }

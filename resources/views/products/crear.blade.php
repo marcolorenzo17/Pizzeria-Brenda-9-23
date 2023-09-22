@@ -54,6 +54,7 @@
                 <option value="Vino">{{__('Vino')}}</option>
                 <option value="Refresco">{{__('Refresco')}}</option>
                 <option value="Promoción">{{__('Promoción')}}</option>
+                <option value="Oferta">{{__('Oferta')}}</option>
             </select>
             <br><br>
             <label for="image_product">{{__('Imagen')}}</label>

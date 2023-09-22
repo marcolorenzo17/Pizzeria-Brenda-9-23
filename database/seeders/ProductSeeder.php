@@ -660,7 +660,7 @@ class ProductSeeder extends Seeder
                 'price' => 1,
                 'description' => '',
                 'image' => 'img/promocion1.jpg',
-                'type' => 'Promoción',
+                'type' => 'Oferta',
                 'alergenos' => '',
                 'habilitado' => true
             ],
@@ -669,7 +669,7 @@ class ProductSeeder extends Seeder
                 'price' => 10,
                 'description' => '',
                 'image' => 'img/promocion3.png',
-                'type' => 'Promoción',
+                'type' => 'Oferta',
                 'alergenos' => '',
                 'habilitado' => true
             ],

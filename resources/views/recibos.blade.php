@@ -26,6 +26,8 @@
                         <td class="font-bold">{{ __('Cliente') }}</td>
                     @endif
                     <td class="font-bold">{{ __('Productos') }}</td>
+                    <td class="font-bold">{{ __('Pizzacoins obtenidas') }}</td>
+                    <td class="font-bold">{{ __('Pizzacoins gastadas') }}</td>
                     <td class="font-bold">{{ __('Coste') }}</td>
                     <td class="font-bold">{{ __('Dirección') }}</td>
                     <td class="font-bold">{{ __('Teléfono') }}</td>
@@ -44,6 +46,8 @@
                             <td>{{ $recibo->created_at }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
                             <td>{{ $recibo->productos }}</td>
+                            <td>{{ $recibo->total * 100 }}</td>
+                            <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                             <td>{{ $recibo->direccion }}</td>
                             <td>{{ $recibo->telefono }}</td>
@@ -110,6 +114,8 @@
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
                             <td>{{ $recibo->productos }}</td>
+                            <td>{{ $recibo->total * 100 }}</td>
+                            <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                             <td>{{ $recibo->direccion }}</td>
                             <td>{{ $recibo->telefono }}</td>
@@ -137,6 +143,12 @@
                         </tr>
                         <tr>
                             <td style="padding-left:50px;">{{ $recibo->productos }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ $recibo->total * 100 }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ $recibo->puntos }}</td>
                         </tr>
                         <tr>
                             <td style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</td>
@@ -224,6 +236,12 @@
                         </tr>
                         <tr>
                             <td style="padding-left:50px;">{{ $recibo->productos }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ $recibo->total * 100 }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:50px;">{{ $recibo->puntos }}</td>
                         </tr>
                         <tr>
                             <td style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</td>

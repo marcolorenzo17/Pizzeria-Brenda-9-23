@@ -10,12 +10,12 @@
     </x-slot>
     <br>
     <div class="bg-white" style="text-align:center;">
-        {{__('ACUMULA PUNTOS PARA CANJEARLOS POR OFERTAS')}}
+        {{__('ACUMULA PIZZACOINS PARA CANJEARLAS POR PROMOCIONES')}}
     </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
     style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
         @foreach ($promotions as $promotion)
-            @if ($promotion->habilitado)
+            @if ($promotion->habilitado and $promotion->type == 'Promoción')
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                     <div class="text-center">
                         @csrf
@@ -40,10 +40,47 @@
                             </div>
                         @endif
                         @if ($promotion->puntos)
-                            <div class="text-center" style="font-size:20px;">{{ __('Puntos necesarios: ') }}
+                            <div class="text-center" style="font-size:20px;">{{ __('Pizzacoins necesarias: ') }}
                                 {{ $promotion->puntos }}</div>
                         @else
-                            <div class="text-center" style="font-size:20px;">{{ __('Puntos necesarios: ') }} 0</div>
+                            <div class="text-center" style="font-size:20px;">{{ __('Pizzacoins necesarias: ') }} 0</div>
+                        @endif
+                        <br><br>
+                    </div>
+                </form>
+            @endif
+        @endforeach
+    </div>
+    <br>
+    <div class="bg-white" style="text-align:center;">
+        {{__('OFERTAS')}}
+    </div>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
+    style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
+        @foreach ($promotions as $promotion)
+            @if ($promotion->habilitado and $promotion->type == 'Oferta')
+                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                    <div class="text-center">
+                        @csrf
+                        <input type="hidden" value="{{ $promotion->id }}" name="id">
+                        <input type="hidden" value="{{ $promotion->name }}" name="name">
+                        <input type="hidden" value="{{ $promotion->price }}" name="price">
+                        <input type="hidden" value="{{ $promotion->puntos }}" name="puntos">
+                        <input type="hidden" value="{{ $promotion->type }}" name="type">
+                        <input type="hidden" value="{{ $promotion->image }}" name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        @if (Auth::user()->puntos >= $promotion->puntos)
+                            <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit"
+                                class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                                width="422" height="600"
+                                style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                        @else
+                            <div style="background: rgba(0, 0, 0, 0.5);">
+                                <img src="{{ asset($promotion->image) }}" alt="submit"
+                                    class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md" width="422"
+                                    height="600"
+                                    style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                            </div>
                         @endif
                         <br><br>
                     </div>

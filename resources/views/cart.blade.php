@@ -32,6 +32,7 @@
                                         <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
                                         <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
                                     </th>
+                                    <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
                                     <th class="text-right md:table-cell"> {{ __('Precio') }}</th>
                                     <th class="text-right md:table-cell"> {{ __('Eliminar') }} </th>
                                 </tr>
@@ -79,8 +80,15 @@
                                         </td>
                                         <td class="text-right md:table-cell">
                                             <span class="text-sm font-medium lg:text-base">
-                                                {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
+                                                {{ $item->attributes->puntos }}
                                             </span>
+                                        </td>
+                                        <td class="text-right md:table-cell">
+                                            @if ($item->attributes->type != 'Promoción')
+                                                <span class="text-sm font-medium lg:text-base">
+                                                    {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
+                                                </span>
+                                            @endif
                                         </td>
                                         <td class="text-right md:table-cell">
                                             <form action="{{ route('cart.remove') }}" method="POST">
