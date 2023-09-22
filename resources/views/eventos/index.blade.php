@@ -97,7 +97,31 @@
                                                 --}}
                                 @endif
                             </td>
-                            <td>{{ $evento->pagado }}</td>
+                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                                <td>
+                                    @if ($evento->pagado)
+                                        <form method="post" action="{{ route('eventos.nopagado', $evento->id) }}">
+                                            @csrf
+                                            <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
+                                        </form>
+                                    @else
+                                        <form method="post" action="{{ route('eventos.pagado', $evento->id) }}">
+                                            @csrf
+                                            <button
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('PENDIENTE') }}</button>
+                                        </form>
+                                    @endif
+                                </td>
+                            @else
+                                <td>
+                                    @if ($evento->pagado)
+                                        <p>{{ __('PAGADO') }}</p>
+                                    @else
+                                        <p>{{ __('PENDIENTE') }}</p>
+                                    @endif
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
@@ -159,7 +183,31 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ __($evento->pagado) }}</td>
+                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                                <td style="padding-left:50px;">
+                                    @if ($evento->pagado)
+                                        <form method="post" action="{{ route('eventos.nopagado', $evento->id) }}">
+                                            @csrf
+                                            <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
+                                        </form>
+                                    @else
+                                        <form method="post" action="{{ route('eventos.pagado', $evento->id) }}">
+                                            @csrf
+                                            <button
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('PENDIENTE') }}</button>
+                                        </form>
+                                    @endif
+                                </td>
+                            @else
+                                <td style="padding-left:50px;">
+                                    @if ($evento->pagado)
+                                        <p>{{ __('PAGADO') }}</p>
+                                    @else
+                                        <p>{{ __('PENDIENTE') }}</p>
+                                    @endif
+                                </td>
+                            @endif
                         </tr>
                         <tr></tr>
                         <tr></tr>

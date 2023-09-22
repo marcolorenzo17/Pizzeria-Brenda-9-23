@@ -141,6 +141,8 @@ Route::resource('eventos', EventoController::class);
 Route::post('addEvento', [EventoController::class, 'add'])->name('eventos.addEvento');
 Route::post('eventosi/{id}', [EventoController::class, 'eventosi'])->name('eventos.eventosi');
 Route::post('eventono/{id}', [EventoController::class, 'eventono'])->name('eventos.eventono');
+Route::post('pagadoevento/{id}', [EventoController::class, 'pagado'])->name('eventos.pagado');
+Route::post('nopagadoevento/{id}', [EventoController::class, 'nopagado'])->name('eventos.nopagado');
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');

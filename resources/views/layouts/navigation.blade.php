@@ -73,7 +73,10 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @if (!Auth::user()->admin)
                     <p align="right" id="productos-grande">
-                        {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{--
+                            {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        --}}
+                        <div><img src="img/pizzacoin.png" alt="coin" id="productos-grande"></div><p id="productos-grande">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </p>
                 @endif
                 <x-dropdown align="right" width="48">
@@ -96,7 +99,7 @@
                     <x-slot name="content">
                         @if (!Auth::user()->admin)
                             <x-dropdown-link id="productos-pequenio">
-                                {{__('Puntos')}}: {{ Auth::user()->puntos }}
+                                {{__('Pizzacoins')}}: {{ Auth::user()->puntos }}
                             </x-dropdown-link>
                         @endif
                         @if (Auth::user()->admin)
@@ -142,7 +145,7 @@
             <div class="-mr-2 flex items-center sm:hidden">
                 @if (!Auth::user()->admin)
                     <p align="right">
-                        {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div><img src="img/pizzacoin.png" alt="coin"></div>&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </p>
                 @endif
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">

@@ -9,8 +9,11 @@
         </div>
     </x-slot>
     <br>
+    <div class="bg-white" style="text-align:center;">
+        {{__('ACUMULA PUNTOS PARA CANJEARLOS POR OFERTAS')}}
+    </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
-        style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
+    style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
         @foreach ($promotions as $promotion)
             @if ($promotion->habilitado)
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">

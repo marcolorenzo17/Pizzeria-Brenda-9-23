@@ -105,4 +105,26 @@ class EventoController extends Controller
         session()->flash('notif.success', 'La reserva ha sido denegada.');
         return redirect()->route('eventos.index');
     }
+
+    public function pagado(string $id) {
+        $evento = Evento::findOrFail($id);
+
+        $evento->pagado = true;
+
+        $evento->update();
+
+        session()->flash('notif.success', 'El pago de la reserva ha sido realizado con éxito.');
+        return redirect()->route('eventos.index');
+    }
+
+    public function nopagado(string $id) {
+        $evento = Evento::findOrFail($id);
+
+        $evento->pagado = false;
+
+        $evento->update();
+
+        session()->flash('notif.success', 'La reserva ahora está pendiente de cobro.');
+        return redirect()->route('eventos.index');
+    }
 }
