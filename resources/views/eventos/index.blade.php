@@ -465,6 +465,7 @@
                                 <td class="font-bold">{{ __('Hora') }}</td>
                                 <td class="font-bold">{{ __('Presupuesto') }}</td>
                                 <td class="font-bold">{{ __('Reserva') }}</td>
+                                <td class="font-bold">{{ __('Pagado') }}</td>
                             </tr>
                             <tr>
                                 <td><br></td>
@@ -484,6 +485,13 @@
                                                 <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
                                             @else
                                                 <p>{{ __('Reserva en curso') }}</p>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($evento->pagado)
+                                                <p>{{ __('Pago realizado') }}</p>
+                                            @else
+                                                <p>{{ __('Pago en curso') }}</p>
                                             @endif
                                         </td>
                                     </tr>
