@@ -239,7 +239,7 @@
     "CLIENTES": "CUSTOMERS",
     "INVALIDAR": "INAVLIDATE",
     "VALIDAR": "VALIDATE",
-    "PAGADO": "PAYED",
+    "PAGADO": "PAID",
     "PENDIENTE": "PENDING",
     "Estado": "Status",
     "Cliente": "Customer",
@@ -341,6 +341,14 @@
 
     "Puntos": "Points",
     "Puntos ganados con la compra: ": "Points earned with the purchase: ",
+    "Pizzacoins ganadas con la compra: ": "Pizzacoins earned with the purchase: ",
+    "Pizzacoins ganadas": "Pizzacoins earned",
+    "ACUMULA PIZZACOINS PARA CANJEARLAS POR PROMOCIONES": "COLLECT PIZZACOINS AND EXCHANGE THEM FOR PROMOTIONS",
+    "Pizzacoins necesarias: ": "Pizzacoins required: ",
+    "Pizzacoins obtenidas": "Pizzacoins earned",
+    "Pizzacoins gastadas": "Pizzacoins spent",
+    "Productos": "Products",
+    "¿Qué son las Pizzacoins?\n\nLas Pizzacoins": "Yo",
 
     "Sólo se puede añadir una promoción al mismo tiempo.": "You can only add one promotion at a time.",
 

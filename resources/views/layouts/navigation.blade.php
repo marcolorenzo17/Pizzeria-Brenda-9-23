@@ -76,7 +76,7 @@
                         {{--
                             {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         --}}
-                        <div><img src="img/pizzacoin.png" alt="coin" id="productos-grande"></div><p id="productos-grande">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        <div><a href="#" onclick="alert('{{__('¿Qué son las Pizzacoins?\n\nLas Pizzacoins')}}')"><img src="img/help.png" alt="help" id="productos-grande"></div></a><div><img src="img/pizzacoin.png" alt="coin" id="productos-grande"></div><p id="productos-grande">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </p>
                 @endif
                 <x-dropdown align="right" width="48">
