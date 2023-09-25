@@ -10,6 +10,20 @@
     </x-slot>
     <br>
     <div class="bg-white" style="text-align:center;">
+        {{__('¿QUÉ SON LAS PIZZACOINS?')}}
+    </div>
+    <div class="bg-white" style="text-align:center;">
+        <br>
+        {{__('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.')}}
+        <br>
+        {{__('Puedes usar estas monedas para canjearlas por promociones especiales.')}}
+        <br>
+        {{__('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.')}}
+        <br>
+        {{__('¡Acumula esas Pizzacoins y píllate un menú gratis!')}}
+    </div>
+    <br>
+    <div class="bg-white" style="text-align:center;">
         {{__('ACUMULA PIZZACOINS PARA CANJEARLAS POR PROMOCIONES')}}
     </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
