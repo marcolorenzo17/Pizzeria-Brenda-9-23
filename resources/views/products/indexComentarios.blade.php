@@ -45,14 +45,21 @@
                 id="productos-pequenio">
                 @foreach ($comentarios as $comentario)
                     <tr>
-                        <td>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</td>
+                        <td style="display:flex; justify-content:space-between;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Cliente')}}</p>
+                            <p>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:50px;">{{ $comentario->resenia }}</td>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Reseña')}}</p>
+                            <p>{{ $comentario->resenia }}</p>
+                        </td>
                     </tr>
                     <tr>
                         @if (Auth::user()->role != 'Cliente')
-                            <td style="padding-left:50px;">
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Eliminar')}}</p>
                                 <form method="post"
                                     action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
                                     @csrf

@@ -45,14 +45,21 @@
                 id="productos-pequenio">
                 @foreach ($valoraciones as $valoracion)
                     <tr>
-                        <td>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</td>
+                        <td style="display:flex; justify-content:space-between;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Cliente')}}</p>
+                            <p>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:50px;">{{ $valoracion->resenia }}</td>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Reseña')}}</p>
+                            <p>{{ $valoracion->resenia }}</p>
+                        </td>
                     </tr>
                     <tr>
                         @if (Auth::user()->role != 'Cliente')
-                            <td style="padding-left:50px;">
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Eliminar')}}</p>
                                 <form method="post"
                                     action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
                                     @csrf
