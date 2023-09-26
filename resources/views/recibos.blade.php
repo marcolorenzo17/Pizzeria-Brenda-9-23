@@ -135,34 +135,58 @@
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>
-                            <td>{{ $recibo->created_at }}</td>
+                            <td style="display:flex; justify-content:space-between;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Fecha y hora')}}</p>
+                                <p>{{ $recibo->created_at }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">
-                                {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Cliente')}}</p>
+                                <p>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->productos }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Productos')}}</p>
+                                <p>{{ $recibo->productos }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->total * 100 }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pizzacoins obtenidas')}}</p>
+                                <p>{{ $recibo->total * 100 }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->puntos }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pizzacoins gastadas')}}</p>
+                                <p>{{ $recibo->puntos }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Coste')}}</p>
+                                <p>{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->direccion }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Dirección')}}</p>
+                                <p>{{ $recibo->direccion }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->telefono }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Teléfono')}}</p>
+                                <p>{{ $recibo->telefono }}</p>
+                            </td>
                         </tr>
 
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
                             <tr>
-                                <td style="padding-left:50px;">
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Estado')}}</p>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
                                         <select id="estado" name="estado">
@@ -184,14 +208,16 @@
                             </tr>
                         @else
                             <tr>
-                                <td style="padding-left:50px;">
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Estado')}}</p>
                                     <p>{{ __($recibo->estado) }}</p>
                                 </td>
                             </tr>
                         @endif
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                             <tr>
-                                <td style="padding-left:50px;">
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pago')}}</p>
                                     @if ($recibo->pagado)
                                         <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
                                             @csrf
@@ -208,7 +234,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding-left:50px;">
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Eliminar')}}</p>
                                     <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
                                         @csrf
                                         @method('delete')
@@ -219,7 +246,8 @@
                             </tr>
                         @else
                             <tr>
-                                <td style="padding-left:50px;">
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pago')}}</p>
                                     @if ($recibo->pagado)
                                         <p>{{ __('PAGADO') }}</p>
                                     @else
@@ -232,34 +260,64 @@
                         <tr></tr>
                     @elseif ($recibo->idUser == Auth::user()->id)
                         <tr>
-                            <td>{{ $recibo->created_at }}</td>
+                            <td style="display:flex; justify-content:space-between;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Fecha y hora')}}</p>
+                                <p>{{ $recibo->created_at }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->productos }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Productos')}}</p>
+                                <p>{{ $recibo->productos }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->total * 100 }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pizzacoins obtenidas')}}</p>
+                                <p>{{ $recibo->total * 100 }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->puntos }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pizzacoins gastadas')}}</p>
+                                <p>{{ $recibo->puntos }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Coste')}}</p>
+                                <p>{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->direccion }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Dirección')}}</p>
+                                <p>{{ $recibo->direccion }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ $recibo->telefono }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Teléfono')}}</p>
+                                <p>{{ $recibo->telefono }}</p>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding-left:50px;">{{ __($recibo->estado) }}</td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Estado')}}</p>
+                                <p>{{ $recibo->estado }}</p>
+                            </td>
                         </tr>
                         <tr>
                             @if ($recibo->pagado)
-                                <td style="padding-left:50px;">{{ __('Pago realizado') }}</td>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pago')}}</p>
+                                    <p>{{ __('Pago realizado') }}</p>
+                                </td>
                             @else
-                                <td style="padding-left:50px;">{{ __('Pago en curso') }}</td>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pago')}}</p>
+                                    <p>{{ __('Pago en curso') }}</p>
+                                </td>
                             @endif
                         </tr>
                         <tr></tr>

@@ -99,23 +99,34 @@
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-pequenio">
                 @foreach ($clientes as $cliente)
                     <tr>
-                        <td>{{ $cliente->name }}</td>
+                        <td style="display:flex; justify-content:space-between;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Nombre')}}</p>
+                            <p>{{ $cliente->name }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:50px;">{{ $cliente->email }}</td>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Correo electrónico')}}</p>
+                            <p>{{ $cliente->email }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:50px;">{{ $cliente->puntos }}</td>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Puntos')}}</p>
+                            <p>{{ $cliente->puntos }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:50px;">
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
                             @if ($cliente->admin)
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Administrador')}}</p>
                                 <form method="post" action="{{ route('clientes.adminno', $cliente->id) }}">
                                     @csrf
                                     <button
                                         class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DESHABILITAR') }}</button>
                                 </form>
                             @else
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Administrador')}}</p>
                                 <form method="post" action="{{ route('clientes.adminsi', $cliente->id) }}">
                                     @csrf
                                     <button
@@ -126,7 +137,8 @@
                     </tr>
                     @if ($cliente->admin)
                         <tr>
-                            <td style="padding-left:50px;">
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Rol')}}</p>
                                 <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                                     @csrf
                                     <select id="role" name="role">
@@ -148,18 +160,22 @@
                         </tr>
                     @else
                         <tr>
-                            <td style="padding-left:50px;"></td>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Rol')}}</p>
+                            </td>
                         </tr>
                     @endif
                     <tr>
-                        <td style="padding-left:50px;">
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
                             @if ($cliente->validado)
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Validado')}}</p>
                                 <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
                                     @csrf
                                     <button
                                         class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
                                 </form>
                             @else
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Validado')}}</p>
                                 <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
                                     @csrf
                                     <button
@@ -169,7 +185,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:50px;">
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Eliminar')}}</p>
                             <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
                                 @csrf
                                 @method('delete')

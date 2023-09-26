@@ -130,52 +130,52 @@
                     @foreach ($eventos as $evento)
                         <tr>
                             <td style="display:flex; justify-content:space-between;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">Fecha y hora</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Fecha y hora')}}</p>
                                 <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">Cliente</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Cliente')}}</p>
                                 <p>{{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">Tipo</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Tipo')}}</p>
                                 <p>{{ __($evento->tipo) }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">Personas</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Personas')}}</p>
                                 <p>{{ $evento->personas }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">Presupuesto</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Presupuesto')}}</p>
                                 <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 @if ($evento->reservado == 'true')
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">Reserva</p>
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Reserva')}}</p>
                                     <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
                                         @csrf
                                         <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
                                             style="border-color:green; border-style:solid; border-width:1px;">{{ __('RESERVADO') }}</button>
                                     </form>
                                 @elseif ($evento->reservado == 'false')
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">Reserva</p>
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Reserva')}}</p>
                                     <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
                                         @csrf
                                         <button
                                             class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
                                     </form>
                                 @else
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">Reserva</p>
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Reserva')}}</p>
                                     <table {{-- id="productos-grande" --}}>
                                         <tr>
                                             <td>
@@ -203,14 +203,14 @@
                             @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     @if ($evento->pagado)
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">Pagado</p>
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pagado')}}</p>
                                         <form method="post" action="{{ route('eventos.nopagado', $evento->id) }}">
                                             @csrf
                                             <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
                                                 style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
                                         </form>
                                     @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">Pagado</p>
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pagado')}}</p>
                                         <form method="post" action="{{ route('eventos.pagado', $evento->id) }}">
                                             @csrf
                                             <button
@@ -221,10 +221,10 @@
                             @else
                                 <td style="padding-left:50px;">
                                     @if ($evento->pagado)
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">Pagado</p>
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pagado')}}</p>
                                         <p>{{ __('PAGADO') }}</p>
                                     @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">Pagado</p>
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pagado')}}</p>
                                         <p>{{ __('PENDIENTE') }}</p>
                                     @endif
                                 </td>
@@ -526,20 +526,19 @@
                                 @if ($evento->idUser == Auth::user()->id)
                                     <tr>
                                         <td style="display:flex; justify-content:space-between;">
-                                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">Fecha y
-                                                hora</p>
+                                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Fecha y hora')}}</p>
                                             <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">Tipo</p>
+                                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Tipo')}}</p>
                                             <p>{{ __($evento->tipo) }}</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">Personas
+                                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Personas')}}
                                             </p>
                                             <p>{{ $evento->personas }}</p>
                                         </td>
@@ -547,7 +546,7 @@
                                     <tr>
                                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                                Presupuesto</p>
+                                                {{__('Presupuesto')}}</p>
                                             <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
                                         </td>
                                     </tr>
@@ -555,15 +554,15 @@
                                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                             @if ($evento->reservado == 'true')
                                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                                    Reserva</p>
+                                                    {{__('Reserva')}}</p>
                                                 <p>{{ __('Reservado') }}</p>
                                             @elseif ($evento->reservado == 'false')
                                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                                    Reserva</p>
+                                                    {{__('Reserva')}}</p>
                                                 <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
                                             @else
                                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                                    Reserva</p>
+                                                    {{__('Reserva')}}</p>
                                                 <p>{{ __('Reserva en curso') }}</p>
                                             @endif
                                         </td>
@@ -572,11 +571,11 @@
                                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                             @if ($evento->pagado)
                                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                                    Pagado</p>
+                                                    {{__('Pagado')}}</p>
                                                 <p>{{ __('Pago realizado') }}</p>
                                             @else
                                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                                    Pagado</p>
+                                                    {{__('Pagado')}}</p>
                                                 <p>{{ __('Pago en curso') }}</p>
                                             @endif
                                         </td>
