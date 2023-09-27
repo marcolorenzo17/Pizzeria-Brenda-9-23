@@ -38,7 +38,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = DB::select('select * from products order by id desc');
+    return view('welcome', ['products' => $products]);
 });
 
 
