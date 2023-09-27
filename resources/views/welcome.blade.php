@@ -903,6 +903,21 @@
         <p>{{__('¡Acumula esas Pizzacoins y píllate un menú gratis!')}}</p>
     </div>
     <br><br>
+    <h1 class="text-center" style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">{{__('NUESTRAS OFERTAS')}}</h1>
+    <br>
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+            <tr>
+                <td>
+                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
+                </td>
+                <td>
+                    <img src="{{ asset('img/promocion3.png') }}" alt="promocion2" width="300px" height="20px">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
     <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
         <tr>
             <td>
