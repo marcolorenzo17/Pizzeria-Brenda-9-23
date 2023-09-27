@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'admin' => false,
             'validado' => true,
             'role' => 'Cliente',
-            'puntos' => 0,
+            'puntos' => 500,
             'restapuntos' => 0,
             'promocion' => false,
         ]);
@@ -52,6 +52,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        session()->flash('notif.success', '¡Gracias por crear una cuenta! Te hemos añadido 500 Pizzacoins como regalo de bienvenida. ¡Que las disfrutes!');
         return redirect(RouteServiceProvider::HOME);
     }
 }

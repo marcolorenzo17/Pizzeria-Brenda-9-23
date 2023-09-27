@@ -110,7 +110,7 @@
 
                     <x-slot name="content">
                         @if (!Auth::user()->admin)
-                            <x-dropdown-link id="productos-pequenio">
+                            <x-dropdown-link id="productos-pequenio" onclick="alert('{{ __('¿Qué son las Pizzacoins?\n\nLas Pizzacoins') }}')">
                                 {{ __('Pizzacoins') }}: {{ Auth::user()->puntos }}
                             </x-dropdown-link>
                         @endif
