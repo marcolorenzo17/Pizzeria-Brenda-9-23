@@ -81,7 +81,7 @@
                             {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         --}}
                     <div><a href="#"
-                            onclick="alert('{{ __('¿Qué son las Pizzacoins?\n\nLas Pizzacoins') }}')"><img
+                            onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
                                 src="img/help.png" alt="help" id="productos-grande"></div></a>
                     <div><img src="img/pizzacoin.png" alt="coin" id="productos-grande"></div>
                     <p id="productos-grande">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -110,7 +110,7 @@
 
                     <x-slot name="content">
                         @if (!Auth::user()->admin)
-                            <x-dropdown-link id="productos-pequenio" onclick="alert('{{ __('¿Qué son las Pizzacoins?\n\nLas Pizzacoins') }}')">
+                            <x-dropdown-link id="productos-pequenio" onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')">
                                 {{ __('Pizzacoins') }}: {{ Auth::user()->puntos }}
                             </x-dropdown-link>
                         @endif
@@ -161,7 +161,7 @@
                             {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         --}}
                     <div><a href="#"
-                            onclick="alert('{{ __('¿Qué son las Pizzacoins?\n\nLas Pizzacoins') }}')"><img
+                        onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
                                 src="img/help.png" alt="help" id="productos-pequenio"></div></a>
                     <div><img src="img/pizzacoin.png" alt="coin" id="productos-pequenio"></div>
                     <p id="productos-pequenio">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
