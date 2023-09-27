@@ -888,6 +888,20 @@
             </tr>
         </table>
     </div>
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
+        <p style="font-weight:bolder; font-size:20px;">{{__('¡PIZZACOINS!')}}</p>
+    </div>
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <p style="font-weight:bolder; font-size:20px;">{{__('¿QUÉ SON LAS PIZZACOINS?')}}</p>
+    </div>
+    <div style="text-align:center;">
+        <br>
+        <p>{{__('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.')}}</p>
+        <p>{{__('Puedes usar estas monedas para canjearlas por promociones especiales.')}}</p>
+        <p>{{__('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.')}}</p>
+        <p>{{__('¡Acumula esas Pizzacoins y píllate un menú gratis!')}}</p>
+    </div>
     <br><br>
     <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
         <tr>
