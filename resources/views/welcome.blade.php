@@ -823,6 +823,67 @@
                 padding: 2rem
             }
         }
+
+        #logo1 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: logo1;
+            animation-duration: 1s;
+        }
+
+        @keyframes logo1 {
+            from {font-size:0px;}
+            to {font-size:70px;}
+        }
+
+        #logo2 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: logo2;
+            animation-duration: 1s;
+        }
+
+        @keyframes logo2 {
+            from {font-size:0px;}
+            to {font-size:50px;}
+        }
+
+        #iniciar1 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: iniciar1;
+            animation-duration: 1s;
+        }
+
+        @keyframes iniciar1 {
+            from {font-size:0px;}
+            to {font-size:20px;}
+        }
+
+        #iniciar2 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: iniciar2;
+            animation-duration: 1s;
+        }
+
+        @keyframes iniciar2 {
+            from {font-size:0px;}
+            to {font-size:15px;}
+        }
+
+        #producto {
+            transition: width 0.15s, height 0.15s;
+        }
+
+        #producto:hover {
+            width: 80px;
+            height: 80px;
+        }
+
+        #bottom {
+            transition: width 0.15s;
+        }
+
+        #bottom:hover {
+            width: 200px;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
 </head>
@@ -837,22 +898,22 @@
             @auth
                 <a href="{{ url('/products') }}"
                     class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{ __('Iniciar pedido') }}</a>
+                    style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;" id="iniciar1">{{ __('Iniciar pedido') }}</a>
             @else
                 <a href="{{ route('login') }}"
                     class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;">{{ __('Iniciar sesión') }}</a>
+                    style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;" id="iniciar2">{{ __('Iniciar sesión') }}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
                         class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;">{{ __('Registrarse') }}</a>
+                        style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;" id="iniciar2">{{ __('Registrarse') }}</a>
                 @endif
             @endauth
         </div>
     @endif
     <h1
-        style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
+        style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;" id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
     <br>
     <div class="mx-auto">
@@ -863,7 +924,7 @@
     </div>
     <br>
     <h1
-        style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
+        style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;" id="logo2">
         {{ __('¿QUÉ PEDIMOS?') }}</h1>
     <br>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -871,51 +932,51 @@
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="pizzasAnon"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="burgersAnon"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('HAMBURGUESAS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('HAMBURGUESAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="sandwichAnon"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('SÁNDWICHES') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('SÁNDWICHES') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="pastasAnon"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="arrocesAnon"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('ARROCES') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('ARROCES') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="baguettesAnon"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="ensaladasAnon"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('ENSALADAS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('ENSALADAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="complementosAnon"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('COMPLEMENTOS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('COMPLEMENTOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="perritosAnon"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('PERRITOS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('PERRITOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="cervezasAnon"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('CERVEZAS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('CERVEZAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="cervezasAnon"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('VINOS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('VINOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="cervezasAnon"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;">{{ __('REFRESCOS') }}</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{ __('REFRESCOS') }}</a></div>
     </div>
     <br><br><br>
     <h1 class="text-center"
@@ -943,7 +1004,7 @@
                 @foreach ($products as $product)
                     @if ($product->habilitado and $product->type == 'Promoción')
                         <td>
-                            <img src="{{ asset($product->image) }}" width="300px" height="20px">
+                            <img src="{{ asset($product->image) }}" width="300px" height="300px">
                         </td>
                     @endif
                 @endforeach
@@ -979,7 +1040,7 @@
                 @foreach ($products as $product)
                     @if ($product->habilitado and $product->type == 'Oferta')
                         <td>
-                            <img src="{{ asset($product->image) }}" width="300px" height="20px">
+                            <img src="{{ asset($product->image) }}" width="300px" height="300px">
                         </td>
                     @endif
                 @endforeach
@@ -992,19 +1053,19 @@
         <tr>
             <td>
                 <a href="whoareweAnon">
-                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;">
+                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;" id="bottom">
                         {{ __('¿QUIÉNES SOMOS?') }}</h1>
                 </a>
             </td>
             <td>
                 <a href="faqAnon">
-                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;">
+                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;" id="bottom">
                         {{ __('PREGUNTAS FRECUENTES') }}</h1>
                 </a>
             </td>
             <td>
                 <a href="contactAnon">
-                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;">
+                    <h1 class="text-center" style="background-color:orange; padding:10px; border-radius:20px;" id="bottom">
                         {{ __('CONTÁCTANOS') }}</h1>
                 </a>
             </td>
