@@ -10,7 +10,6 @@
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />
-    <link rel="stylesheet" href="/css/index_products.css" />
 
     <div class="py-12">
         @if (Auth::user()->admin)
