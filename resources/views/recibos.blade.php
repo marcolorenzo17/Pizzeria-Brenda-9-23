@@ -18,7 +18,7 @@
         @endif
         <div class="container px-12 py-8 mx-auto bg-white">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                id="productos-grande">
+                id="recibos-grande">
                 <tr>
                     <td class="font-bold">{{ __('Fecha y hora') }}</td>
                     @if (Auth::user()->admin)
@@ -130,7 +130,7 @@
                     @endif
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-pequenio">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="recibos-pequenio">
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>

@@ -46,3 +46,18 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 1299px) {
+    #recibos-grande {
+        display: none;
+    }
+    #recibos-pequenio {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    #recibos-pequenio {
+        display: none;
+    }
+}
