@@ -13,13 +13,12 @@
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/recibos.css" />
-    <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
         @if (Auth::user()->admin)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <table class="table-auto w-full" id="productos-grande">
+                <table class="table-auto w-full" id="eventos-grande">
                     <tr>
                         <td class="font-bold">{{ __('Fecha') }}</td>
                         <td class="font-bold">{{ __('Hora') }}</td>
@@ -126,7 +125,7 @@
                     @endforeach
                 </table>
                 <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                    id="productos-pequenio">
+                    id="eventos-pequenio">
                     @foreach ($eventos as $evento)
                         <tr>
                             <td style="display:flex; justify-content:space-between;">
@@ -479,7 +478,7 @@
                     <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
                         x-show="mostrar">
                         <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                            id="productos-grande">
+                            id="eventos-grande">
                             <tr>
                                 <td class="font-bold">{{ __('Fecha') }}</td>
                                 <td class="font-bold">{{ __('Hora') }}</td>
@@ -521,7 +520,7 @@
                             @endforeach
                         </table>
                         <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                            id="productos-pequenio">
+                            id="eventos-pequenio">
                             @foreach ($eventos as $evento)
                                 @if ($evento->idUser == Auth::user()->id)
                                     <tr>

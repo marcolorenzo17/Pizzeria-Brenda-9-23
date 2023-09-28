@@ -31,3 +31,18 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 1029px) {
+    #eventos-grande {
+        display: none;
+    }
+    #eventos-pequenio {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1030px) {
+    #eventos-pequenio {
+        display: none;
+    }
+}
