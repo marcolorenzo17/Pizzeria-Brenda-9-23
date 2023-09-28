@@ -9,7 +9,7 @@
                 @include('partials/language_switcher')
             </div>
         </x-slot>
-        <link rel="stylesheet" href="/css/index_products.css" />
+        <link rel="stylesheet" href="/css/clientes.css" />
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
