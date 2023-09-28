@@ -140,32 +140,32 @@ use \App\Http\Controllers\ProductController;
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="productos-grande">
                 <table class="table-auto w-full text-center" style="border-collapse: separate; border-spacing:25px 25px;">
                     <tr>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#2"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#3"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#4"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#5"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#2"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('HAMBURGUESAS')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#3"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('SÁNDWICHES')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#4"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#5"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('ARROCES')}}</a></td>
                     </tr>
                     <tr>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#6"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#7"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#8"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#9"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></td>
-                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#10"><img src="{{ asset("img/sodaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('BEBIDAS')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#6"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#7"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('ENSALADAS')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#8"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('COMPLEMENTOS')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#9"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('PERRITOS')}}</a></td>
+                        <td style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#10"><img src="{{ asset("img/sodaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('BEBIDAS')}}</a></td>
                     </tr>
                 </table>
             </div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="flex-wrap:wrap; align-items:center; text-align:center;" id="productos-pequenio">
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PIZZAS</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#2"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('HAMBURGUESAS')}}</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#3"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('SÁNDWICHES')}}</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#4"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">PASTA</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#5"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ARROCES')}}</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#6"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">BAGUETTES</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#7"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('ENSALADAS')}}</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#8"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('COMPLEMENTOS')}}</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#9"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('PERRITOS')}}</a></div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#10"><img src="{{ asset("img/sodaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;">{{__('BEBIDAS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#1"><img src="{{ asset("img/pizzaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#2"><img src="{{ asset("img/burgericon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('HAMBURGUESAS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#3"><img src="{{ asset("img/sanicon.jpg") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('SÁNDWICHES')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#4"><img src="{{ asset("img/pastaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#5"><img src="{{ asset("img/riceicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('ARROCES')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#6"><img src="{{ asset("img/bagicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#7"><img src="{{ asset("img/saladicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('ENSALADAS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#8"><img src="{{ asset("img/friesicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('COMPLEMENTOS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#9"><img src="{{ asset("img/dogicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('PERRITOS')}}</a></div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md" style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a href="#10"><img src="{{ asset("img/sodaicon.png") }}" width="70px" height="70px" style="display: block; margin-left: auto; margin-right: auto;" id="producto">{{__('BEBIDAS')}}</a></div>
             </div>
             <br>
             {{--
@@ -182,7 +182,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Pizza" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -271,7 +271,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Hamburguesa" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -325,7 +325,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Sándwich" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -379,7 +379,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Pasta" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -433,7 +433,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Arroz" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -487,7 +487,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Baguette" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -541,7 +541,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Ensalada" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -593,7 +593,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Complemento" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -647,7 +647,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Perrito" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -699,7 +699,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Cerveza" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -751,7 +751,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Vino" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -803,7 +803,7 @@ use \App\Http\Controllers\ProductController;
                 @foreach ($products as $product)
                     @if ($product->type == "Refresco" && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60"></a>
+                            <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>

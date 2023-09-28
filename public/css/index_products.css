@@ -21,3 +21,20 @@
         display: none;
     }
 }
+
+#producto {
+    transition: width 0.15s, height 0.15s;
+}
+
+#producto:hover {
+    width: 80px;
+    height: 80px;
+}
+
+#imgproducto {
+    transition: width 0.15s, height 0.15s;
+}
+
+#imgproducto:hover {
+    filter: brightness(150%);
+}
