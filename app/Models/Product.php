@@ -17,6 +17,7 @@ class Product extends Model
         'type',
         'alergenos',
         'habilitado',
+        'puntos',
     ];
 
     public function facturas() {

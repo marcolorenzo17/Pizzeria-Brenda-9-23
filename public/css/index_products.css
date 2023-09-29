@@ -32,9 +32,18 @@
 }
 
 #imgproducto {
-    transition: width 0.15s, height 0.15s;
+    transition: brightness 0.15s;
 }
 
 #imgproducto:hover {
     filter: brightness(150%);
+}
+
+#crearpizza {
+    transition: font-size 0.15s, color 0.15s;
+}
+
+#crearpizza:hover {
+    font-size: 30px;
+    color: blue;
 }
