@@ -10,6 +10,9 @@
     </x-slot>
     <br>
     <div class="bg-white" style="text-align:center;">
+        <br>
+        <img src="img/pizzacoin.png" alt="coin" style="margin-left:auto; margin-right:auto;" width="100px" height="100px">
+        <br>
         {{__('¿QUÉ SON LAS PIZZACOINS?')}}
     </div>
     <div class="bg-white" style="text-align:center;">
@@ -53,6 +56,17 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             </div>
                         @endif
+                        <?php
+                        $alergenoslista = explode('-', $promotion->alergenos);
+                        ?>
+                        <div style="display:flex; flex-wrap:wrap;">
+                            @if ($promotion->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                        width="40px" height="40px">
+                                @endforeach
+                            @endif
+                        </div>
                         @if ($promotion->puntos)
                             <div class="text-center" style="font-size:20px;">{{ __('Pizzacoins necesarias: ') }}
                                 {{ $promotion->puntos }}</div>
@@ -96,6 +110,17 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             </div>
                         @endif
+                        <?php
+                        $alergenoslista = explode('-', $promotion->alergenos);
+                        ?>
+                        <div style="display:flex; flex-wrap:wrap;">
+                            @if ($promotion->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                        width="40px" height="40px">
+                                @endforeach
+                            @endif
+                        </div>
                         <div class="text-center" style="font-size:20px;">{{ __('Precio: ') }}
                             {{ number_format($promotion->price, 2, '.', '') }} €
                         </div>

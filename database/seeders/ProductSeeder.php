@@ -746,6 +746,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 0
             ],
+            [
+                'name' => 'Menú Hamburguesa de ternera + Nuggets + Patatas',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom1.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-huevos-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 1050
+            ],
         ];
         Product::insert($products);
     }
