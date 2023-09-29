@@ -13,6 +13,7 @@
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/recibos.css" />
+    <link rel="stylesheet" href="/css/eventos.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
@@ -270,7 +271,7 @@
                             name="totalpresupuesto">
                         <input type="hidden" value="esconder" id="esconder" name="esconder">
                         <button type="submit" class="px-6 py-2 text-sm  rounded shadow"
-                            style="background-color:gold;">{{ __('Calcula el presupuesto para tu evento') }}</button>
+                            style="background-color:gold;" id="boton">{{ __('Calcula el presupuesto para tu evento') }}</button>
                     </form>
                 </div>
             @endif
@@ -286,7 +287,7 @@
                             <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                 <a href="#contenido">
                                     <img class="rounded-t-lg" src="img/globo.png" alt=""
-                                        onclick="mostrar(cumple)" height="300px" width="300px" />
+                                        onclick="mostrar(cumple)" height="300px" width="300px" id="imgproducto" />
                                 </a>
                                 <div class="p-5">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
@@ -298,7 +299,7 @@
                             <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                 <a href="#contenido">
                                     <img class="rounded-t-lg" src="img/evento.jpg" alt=""
-                                        onclick="mostrar(evento)" height="300px" width="300px" />
+                                        onclick="mostrar(evento)" height="300px" width="300px" id="imgproducto" />
                                 </a>
                                 <div class="p-5">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
@@ -312,7 +313,7 @@
                                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/cena.jpg" alt=""
-                                            onclick="mostrar(cena)" height="300px" width="300px" />
+                                            onclick="mostrar(cena)" height="300px" width="300px" id="imgproducto" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
@@ -329,7 +330,7 @@
                 <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                     <a href="#contenido">
                         <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
-                            height="300px" width="300px" />
+                            height="300px" width="300px" id="imgproducto" />
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
@@ -339,7 +340,7 @@
                 <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                     <a href="#contenido">
                         <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
-                            height="300px" width="300px" />
+                            height="300px" width="300px" id="imgproducto" />
                     </a>
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
@@ -350,7 +351,7 @@
                     <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                         <a href="#contenido">
                             <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
-                                height="300px" width="300px" />
+                                height="300px" width="300px" id="imgproducto" />
                         </a>
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
@@ -402,7 +403,7 @@
                                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                             <a href="#efectivoparte">
                                                 <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                                    onclick="mostrarpago('efectivo')" />
+                                                    onclick="mostrarpago('efectivo')" id="imgpago" />
                                             </a>
                                             <div class="p-5">
                                                 <h5
@@ -416,7 +417,7 @@
                                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                             <a href="#creditoparte">
                                                 <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                                    onclick="mostrarpago('credito')" />
+                                                    onclick="mostrarpago('credito')" id="imgpago" />
                                             </a>
                                             <div class="p-5">
                                                 <h5
@@ -473,7 +474,7 @@
                     <div style="text-align: center;">
                         <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;"
                             x-on:click="mostrar = !mostrar"
-                            x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'"></button>
+                            x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'" id="boton"></button>
                     </div>
                     <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
                         x-show="mostrar">

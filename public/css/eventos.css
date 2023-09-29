@@ -1,0 +1,11 @@
+#imgproducto:hover {
+    filter: brightness(150%);
+}
+
+#imgpago:hover {
+    filter: opacity(50%);
+}
+
+#boton:hover {
+    filter: brightness(75%);
+}

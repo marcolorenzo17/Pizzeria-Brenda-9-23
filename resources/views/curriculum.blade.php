@@ -8,6 +8,7 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/curriculum.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         @if (Auth::user()->role == 'Jefe')
@@ -44,7 +45,7 @@
                     @enderror
                     <input type="file" name="curriculum" id="curriculum">
                     <br><br><br>
-                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Enviar currículum')}}</button>
+                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{__('Enviar currículum')}}</button>
                 </form>
             </div>
         @endif
