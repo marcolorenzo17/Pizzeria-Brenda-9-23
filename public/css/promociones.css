@@ -1,0 +1,8 @@
+
+#imgproducto {
+    transition: brightness 0.15s;
+}
+
+#imgproducto:hover {
+    filter: brightness(150%);
+}
