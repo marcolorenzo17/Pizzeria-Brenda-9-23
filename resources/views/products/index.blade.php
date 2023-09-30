@@ -31,7 +31,7 @@ use App\Http\Controllers\ProductController;
         <br>
         <div style="margin-left:20px;">
             <a href="{{ route('products.crear') }}"
-                class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('CREAR PLATO') }}</a>
+                class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('CREAR PLATO') }}</a>
         </div>
         <br>
         <div>
@@ -70,7 +70,7 @@ use App\Http\Controllers\ProductController;
                                         </td>
                                         <td>
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('EDITAR') }}</a>
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
                                             <form method="post"
@@ -106,7 +106,7 @@ use App\Http\Controllers\ProductController;
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('EDITAR') }}</a>
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>

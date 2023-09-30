@@ -20,7 +20,7 @@
         <p class="text-center" style="font-weight:bolder;">{{__('LISTA PARA ADMINISTRADORES')}}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('crearpizza.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('CREAR INGREDIENTE')}}</a>
+            <a href="{{ route('crearpizza.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('CREAR INGREDIENTE')}}</a>
         </div>
         <br>
         <div>
@@ -52,7 +52,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                                        <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('EDITAR')}}</a>
                                     </td>
                                     <td>
                                         <form method="post" action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
@@ -81,7 +81,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding:5px">
-                                        <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('EDITAR')}}</a>
+                                        <a href="{{ route('crearpizza.editar', $ingrediente) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('EDITAR')}}</a>
                                     </td>
                                 </tr>
                                 <tr>
