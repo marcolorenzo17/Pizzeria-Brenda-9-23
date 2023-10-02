@@ -756,6 +756,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 1050
             ],
+            [
+                'name' => 'Pizza pequeña de Jamón York',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom2.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 650
+            ],
         ];
         Product::insert($products);
     }
