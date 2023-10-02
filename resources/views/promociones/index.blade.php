@@ -58,6 +58,7 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             </div>
                         @endif
+                        <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
                         ?>
@@ -113,6 +114,7 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             </div>
                         @endif
+                        <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
                         ?>
