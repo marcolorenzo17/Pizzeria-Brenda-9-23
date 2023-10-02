@@ -46,10 +46,12 @@
                         <input type="hidden" value="{{ $promotion->image }}" name="image">
                         <input type="hidden" value="1" name="quantity">
                         @if (Auth::user()->puntos >= $promotion->puntos)
-                            <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit"
+                            <img src="{{ asset($promotion->image) }}" alt="submit"
                                 class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                                 width="422" height="600"
-                                style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;" id="imgproducto">
+                                style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                                <br>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                         @else
                             <div style="background: rgba(0, 0, 0, 0.5);">
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -58,6 +60,7 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             </div>
                         @endif
+                        <br><br>
                         <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
@@ -102,10 +105,12 @@
                         <input type="hidden" value="{{ $promotion->image }}" name="image">
                         <input type="hidden" value="1" name="quantity">
                         @if (Auth::user()->puntos >= $promotion->puntos)
-                            <input type="image" name="submit" src="{{ asset($promotion->image) }}" alt="submit"
+                            <img src="{{ asset($promotion->image) }}" alt="submit"
                                 class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                                 width="422" height="600"
-                                style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;" id="imgproducto">
+                                style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                                <br>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                         @else
                             <div style="background: rgba(0, 0, 0, 0.5);">
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -114,6 +119,7 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             </div>
                         @endif
+                        <br><br>
                         <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
