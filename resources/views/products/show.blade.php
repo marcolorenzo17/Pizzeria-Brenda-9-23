@@ -11,6 +11,7 @@
             {{-- @include('partials/language_switcher') --}}
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/index_products.css" />
 
     {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
@@ -38,7 +39,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('products.index') }}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('VOLVER') }}
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('VOLVER') }}
                     </a>
                     <br><br>
                     <div class="mb-6">
@@ -103,7 +104,7 @@
                         <input type="hidden" value="1" name="quantity">
                         <div style="text-align:center;">
                         <button
-                            class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{ __('AÑADIR AL CARRITO') }}</button>
+                            class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded" id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
                         </div>
                         <br><br>
                         {{--
@@ -152,7 +153,7 @@
                         <br>
                         <div>
                             <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar') }}</button>
+                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('Publicar') }}</button>
                         </div>
                     </form>
                     <br><br>
@@ -195,9 +196,10 @@
                                     <br>
                                     <div x-data="{ mostrarVal: false }">
                                         <button type="button" class="px-6 py-2 text-sm rounded shadow"
-                                            style="font-size:13px; color:blue;" x-on:click="mostrarVal = !mostrarVal"
+                                            style="font-size:13px; background-color:lightgray; color:blue;" id="boton" x-on:click="mostrarVal = !mostrarVal"
                                             x-text="mostrarVal ? '{{ __('Editar valoración') }}' : '{{ __('Editar valoración') }}'"></button>
                                         <div x-show="mostrarVal">
+                                            <br>
                                             <form
                                                 action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}"
                                                 method="POST">
@@ -210,12 +212,13 @@
                                                     @enderror
                                                     <input type="text" id="modifVal" name="modifVal">
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                        style="color:green;">{{ __('Publicar') }}
+                                                        style="color:green; background-color:lightgray;" id="boton">{{ __('Publicar') }}
                                                     </button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
+                                    <br>
                                     <form
                                         action="{{ route('products.destroyValoracion', [$products->id, $valoracion->id]) }}"
                                         method="POST">
@@ -223,7 +226,7 @@
                                         @method('delete')
                                         <div>
                                             <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                style="color:red;">{{ __('Borrar valoración') }}</button>
+                                                style="color:red; background-color:lightgray;" id="boton">{{ __('Borrar valoración') }}</button>
                                         </div>
                                     </form>
                                 @endif
@@ -243,7 +246,7 @@
                                         <br><br>
                                         <div>
                                             <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('Publicar comentario') }}</button>
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('Publicar comentario') }}</button>
                                         </div>
                                     </form>
                                     <br><br>
@@ -264,10 +267,11 @@
                                                 <br>
                                                 <div x-data="{ mostrarCom: false }">
                                                     <button class="px-6 py-2 text-sm rounded shadow"
-                                                        style="font-size:13px; color:blue;"
+                                                        style="font-size:13px; background-color:lightgray; color:blue;"
                                                         x-on:click="mostrarCom = !mostrarCom"
-                                                        x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"></button>
+                                                        x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'" id="boton"></button>
                                                     <div x-show="mostrarCom">
+                                                        <br>
                                                         <form
                                                             action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
                                                             method="POST">
@@ -281,12 +285,13 @@
                                                                 <input type="text" id="modifCom" name="modifCom">
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
-                                                                    style="color:green;">{{ __('Publicar') }}
+                                                                    style="color:green; background-color:lightgray;" id="boton">{{ __('Publicar') }}
                                                                 </button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <form
                                                     action="{{ route('products.destroyComentario', [$products->id, $comentario->id]) }}"
                                                     method="POST">
@@ -294,7 +299,7 @@
                                                     @method('delete')
                                                     <div>
                                                         <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                            style="color:red;">{{ __('Borrar comentario') }}</button>
+                                                            style="color:red; background-color:lightgray;" id="boton">{{ __('Borrar comentario') }}</button>
                                                     </div>
                                                 </form>
                                             @endif

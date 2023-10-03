@@ -82,8 +82,8 @@
                         --}}
                     <div><a href="#"
                             onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="img/help.png" alt="help" id="productos-grande"></div></a>
-                    <div><img src="img/pizzacoin.png" alt="coin" id="productos-grande"></div>
+                                src="{{asset('img/help.png')}}" alt="help" id="productos-grande"></div></a>
+                    <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-grande"></div>
                     <p id="productos-grande">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </p>
                 @endif
@@ -162,8 +162,8 @@
                         --}}
                     <div><a href="#"
                         onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="img/help.png" alt="help" id="productos-pequenio"></div></a>
-                    <div><img src="img/pizzacoin.png" alt="coin" id="productos-pequenio"></div>
+                                src="{{asset('img/help.png')}}" alt="help" id="productos-pequenio"></div></a>
+                    <div><img src="{{asset('img/pizzacoin.png')}}" alt="coin" id="productos-pequenio"></div>
                     <p id="productos-pequenio">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </p>
                 @endif
