@@ -107,7 +107,7 @@
                     <br>
                     <div style="text-align:center;" id="volvermenu">
                         <a href="{{ route('products.index') }}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER AL MENÚ')}}</a>
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('VOLVER AL MENÚ')}}</a>
                     </div>
                     <div class="container px-12 py-8 mx-auto">
                         <br>
@@ -125,7 +125,7 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
-                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadirBase('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadirBase('<?php echo $nombre?>', '<?php echo $precio?>');" id="imgproducto">
                                         </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
@@ -161,7 +161,7 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
-                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');" id="imgproducto">
                                         </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
@@ -197,7 +197,7 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
-                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');" id="imgproducto">
                                         </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
@@ -233,7 +233,7 @@
                                             $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
-                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');">
+                                            <img src="{{ asset($ingrediente->image) }}" alt="..." class="w-full max-h-60" onclick="aniadir('<?php echo $nombre?>', '<?php echo $precio?>');" id="imgproducto">
                                         </a>
                                         <?php
                                             $alergenoslista = explode("-", $ingrediente->alergenos);
@@ -278,7 +278,7 @@
                             <input type="hidden" value="" name="price" id="price">
                             <input type="hidden" value="img/pizzagenerica.jpg"  name="image">
                             <input type="hidden" value="1" name="quantity">
-                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">{{__('AÑADIR AL CARRITO')}}</button>
+                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded" id="boton">{{__('AÑADIR AL CARRITO')}}</button>
                         </form>
                     </div>
                 </td>
