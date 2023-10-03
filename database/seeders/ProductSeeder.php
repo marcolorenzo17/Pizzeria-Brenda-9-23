@@ -766,6 +766,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 650
             ],
+            [
+                'name' => 'Patatas',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom3.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten',
+                'habilitado' => true,
+                'puntos' => 300
+            ],
         ];
         Product::insert($products);
     }

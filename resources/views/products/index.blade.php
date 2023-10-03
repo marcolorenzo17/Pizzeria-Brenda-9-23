@@ -48,6 +48,11 @@ use App\Http\Controllers\ProductController;
                                     <p>{{ $product->description }}</p>
                                     <br>
                                     <p>{{ number_format($product->price, 2, '.', '') }} €</p>
+                                    @if ($product->puntos == 0 or !$product->puntos)
+                                        <p></p>
+                                    @else
+                                        <p>{{ $product->puntos }} Pizzacoins</p>
+                                    @endif
                                 </div>
                                 <table style="margin-left:auto; margin-right:0;" id="productos-grande">
                                     <tr>
