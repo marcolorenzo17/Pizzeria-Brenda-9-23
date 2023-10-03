@@ -51,7 +51,7 @@
                                 width="422" height="600"
                                 style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                                 <br>
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
                         @else
                             <div style="background: rgba(0, 0, 0, 0.5);">
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -61,7 +61,7 @@
                             </div>
                         @endif
                         <br><br>
-                        <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
+                        <div style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
                         ?>
@@ -74,10 +74,9 @@
                             @endif
                         </div>
                         @if ($promotion->puntos)
-                            <div class="text-center" style="font-size:20px;">{{ __('Pizzacoins necesarias: ') }}
-                                {{ $promotion->puntos }}</div>
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img src="{{asset('img/pizzacoin.png')}}" alt="coin"> {{ $promotion->puntos }}</div>
                         @else
-                            <div class="text-center" style="font-size:20px;">{{ __('Pizzacoins necesarias: ') }} 0
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img src="{{asset('img/pizzacoin.png')}}" alt="coin">0</div>
                             </div>
                         @endif
                         <br><br>
@@ -110,7 +109,7 @@
                                 width="422" height="600"
                                 style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                                 <br>
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
                         @else
                             <div style="background: rgba(0, 0, 0, 0.5);">
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -132,8 +131,7 @@
                                 @endforeach
                             @endif
                         </div>
-                        <div class="text-center" style="font-size:20px;">{{ __('Precio: ') }}
-                            {{ number_format($promotion->price, 2, '.', '') }} €
+                        <div class="text-center" style="font-size:20px;">{{ number_format($promotion->price, 2, '.', '') }} €
                         </div>
                         <br><br>
                     </div>
