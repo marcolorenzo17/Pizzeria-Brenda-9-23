@@ -8,11 +8,12 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/index_products.css" />
     <main class="my-8">
         <div class="container px-6 mx-auto">
             <div style="text-align:center;">
                 <a href="{{ route('products.index') }}"
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('VOLVER AL MENÚ') }}</a>
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('VOLVER AL MENÚ') }}</a>
             </div>
             <div class="flex justify-center my-6">
                 <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
@@ -72,7 +73,7 @@
                                                                 value="{{ $item->quantity }}"
                                                                 class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
                                                             <button
-                                                                class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500">{{ __('Actualizar') }}</button>
+                                                                class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500" id="boton">{{ __('Actualizar') }}</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -99,7 +100,7 @@
                                                 <input type="hidden" value="{{ $item->attributes->puntos }}"
                                                     name="puntos">
                                                 <button
-                                                    class="px-4 py-2 text-white bg-red-600 shadow rounded-full">x</button>
+                                                    class="px-4 py-2 text-white bg-red-600 shadow rounded-full" id="boton">x</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -118,13 +119,13 @@
                                 <tr>
                                     <td>
                                         <a href="recoger"><button type="button"
-                                                class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500">{{ __('Realizar pedido') }}</button></a>
+                                                class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('Realizar pedido') }}</button></a>
                                     </td>
                                     <td>
                                         <form action="{{ route('cart.clear') }}" method="POST">
                                             @csrf
                                             <button
-                                                class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">{{ __('Vaciar carrito') }}</button>
+                                                class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500" id="boton">{{ __('Vaciar carrito') }}</button>
                                         </form>
                                     </td>
                                 </tr>

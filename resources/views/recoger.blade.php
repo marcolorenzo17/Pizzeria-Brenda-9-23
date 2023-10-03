@@ -8,10 +8,11 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div style="text-align:center;">
         <a href="{{ route('cart.list') }}"
-        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('ATRÁS')}}</a>
+        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('ATRÁS')}}</a>
     </div>
     <div class="container px-12 py-8 mx-auto">
         <br>
@@ -21,7 +22,7 @@
                     <div
                         id="recogerdiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')"/>
+                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')" id="imgproducto"/>
                         </a>
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">{{__('Recoger en Pizzería')}}</h5>
@@ -32,7 +33,7 @@
                     <div
                         id="domiciliodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')"/>
+                            <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')" id="imgproducto"/>
                         </a>
                         <div class="p-5">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">{{__('A domicilio')}}
@@ -58,7 +59,7 @@
                     </div>
                 </div>
                 <div id="botondiv1" class="text-center" style="display:none;">
-                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}" id="boton">
                 </div>
             </div>
         </form>
@@ -77,7 +78,7 @@
                 <p id="mensajeeuros" style="display:none; font-size: 25px;">{{__('*Servicio a domicilio: 2€ adicionales')}}</p>
                 <br>
                 <div id="botondiv2" class="text-center" style="display:none;">
-                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" value="{{__('Pagar')}}" id="boton">
                 </div>
             </div>
         </form>
