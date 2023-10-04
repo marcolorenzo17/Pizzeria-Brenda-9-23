@@ -792,7 +792,7 @@ class ProductSeeder extends Seeder
                 'description' => '',
                 'image' => 'img/prom/prom5.png',
                 'type' => 'Promoción',
-                'alergenos' => 'gluten-huevos-soja-lacteos',
+                'alergenos' => 'gluten-cascara-soja-mostaza',
                 'habilitado' => true,
                 'puntos' => 450
             ],
@@ -805,6 +805,16 @@ class ProductSeeder extends Seeder
                 'alergenos' => 'soja-lacteos',
                 'habilitado' => true,
                 'puntos' => 450
+            ],
+            [
+                'name' => 'Nuggets (5 unids.)',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom7.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-huevos-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 300
             ],
         ];
         Product::insert($products);
