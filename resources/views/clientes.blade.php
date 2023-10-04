@@ -63,7 +63,7 @@
                                     <br>
                                     <div class="text-center">
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('ACTUALIZAR') }}</button>
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
                                     </div>
                                 </form>
                             </td>
@@ -153,7 +153,7 @@
                                     <br>
                                     <div class="text-center">
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{ __('ACTUALIZAR') }}</button>
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
                                     </div>
                                 </form>
                             </td>

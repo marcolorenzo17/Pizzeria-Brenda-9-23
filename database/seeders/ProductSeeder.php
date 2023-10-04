@@ -776,6 +776,26 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 300
             ],
+            [
+                'name' => 'Sándwich mixto',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom4.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-huevos-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 300
+            ],
+            [
+                'name' => 'Alitas de pollo a la barbacoa (6 unids.)',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom5.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-huevos-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 450
+            ],
         ];
         Product::insert($products);
     }

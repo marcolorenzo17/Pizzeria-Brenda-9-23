@@ -21,6 +21,7 @@
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
+    <link rel="stylesheet" href="/css/index_products.css" />
 
     {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
@@ -46,7 +47,7 @@
     <br>
     <div style="text-align:center;">
         <a href="{{ route('recoger.index') }}"
-        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('ATRÁS')}}</a>
+        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('ATRÁS')}}</a>
     </div>
     <br>
     <table class="mx-auto">
@@ -62,7 +63,7 @@
                                     id="efectivodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                            onclick="mostrar('efectivo')" />
+                                            onclick="mostrar('efectivo')" id="imgproducto" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
@@ -75,7 +76,7 @@
                                     id="creditodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                            onclick="mostrar('credito')" />
+                                            onclick="mostrar('credito')" id="imgproducto" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
@@ -141,7 +142,7 @@
                                 @endif
                                 <br>
                                 <div class="form-group text-center">
-                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">{{__('Realizar compra')}}</button>
+                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block" id="boton">{{__('Realizar compra')}}</button>
                                 </div>
                             </form>
                         </div>
@@ -154,8 +155,7 @@
                         <input type="hidden" value="false" name="pagado" id="pagado">
                         <input type="hidden" value="{{ $productosvalores }}" name="productos">
                         <div class="text-center" id="pagoefectivo" style="display:none;">
-                            <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('Realizar compra')}}</button>
+                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{__('Realizar compra')}}</button>
                         </div>
                     </form>
                 </div>

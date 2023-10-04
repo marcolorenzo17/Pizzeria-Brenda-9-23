@@ -9,10 +9,11 @@
             @include('partials/language_switcher')
         </div>
     </x-slot>
+    <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div style="text-align:center;">
         <a href="{{ route('crearpizza') }}"
-        class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('VOLVER')}}</a>
+        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('VOLVER')}}</a>
     </div>
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
@@ -180,7 +181,7 @@
             <br><br><br><br>
             <div class="text-center">
                 <button type="submit"
-                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">{{__('AÑADIR')}}</button>
+                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{__('AÑADIR')}}</button>
             </div>
         </form>
     </div>

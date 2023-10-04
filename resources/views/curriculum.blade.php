@@ -9,6 +9,7 @@
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/curriculum.css" />
+    <link rel="stylesheet" href="/css/index_product.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         @if (Auth::user()->role == 'Jefe')
@@ -25,7 +26,7 @@
                     </div>
                     <br>
                     <div class="text-center">
-                        <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{__('Ver currículum')}}</a>
+                        <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('Ver currículum')}}</a>
                     </div>
                 </div>
                 <br><br>
