@@ -796,6 +796,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 450
             ],
+            [
+                'name' => 'Hamburguesa de ternera',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom6.png',
+                'type' => 'Promoción',
+                'alergenos' => 'soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 450
+            ],
         ];
         Product::insert($products);
     }
