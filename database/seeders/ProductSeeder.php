@@ -816,6 +816,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 300
             ],
+            [
+                'name' => 'Espagueti Boloñesa',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom8.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-lacteos-apio',
+                'habilitado' => true,
+                'puntos' => 700
+            ],
         ];
         Product::insert($products);
     }
