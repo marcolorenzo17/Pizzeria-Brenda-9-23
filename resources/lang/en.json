@@ -60,7 +60,6 @@
 
     "Entrar": "Access",
     "Iniciar pedido": "Start order",
-    "Iniciar sesión": "Log in",
     "Registrarse": "Register",
     "PIZZERÍA ARTESANAL Y NATURAL": "ARTISANAL AND NATURAL PIZZERIA",
     "¿QUÉ PEDIMOS?": "WHAT WILL YOU HAVE?",
@@ -200,7 +199,6 @@
 
     "TU CUENTA": "EDIT ACCOUNT",
     "Información de Perfil": "Profile Information",
-    "Correo electrónico": "E-mail",
     "Cambiar contraseña": "Change password",
     "Contraseña actual": "Current password",
     "Nueva contraseña": "New password",
@@ -367,6 +365,15 @@
     "¡Gracias por crear una cuenta! Te hemos añadido 500 Pizzacoins como regalo de bienvenida. ¡Que las disfrutes!": "Thank you for making an account! We've given you 500 Pizzacoins as a welcome gift. Enjoy them!",
     "¡PIZZACOINS!": "PIZZACOINS!",
     "NUESTRAS OFERTAS": "OUR OFFERS",
+
+    "Correo electrónico": "Email",
+    "Recuérdame": "Remember me",
+    "¿Te has olvidado de tu contraseña?": "Forgot your password?",
+    "Iniciar sesión": "Log in",
+    "¿Ya tienes una cuenta?": "Already registered?",
+    "¿Aún no tienes una cuenta?": "Still not registered?",
+    "¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico, y te enviaremos un enlace donde podrás resetear tu contraseña, y escoger una nueva.": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+    "Enviar enlace": "Email Password Reset Link",
 
     "Ver currículum": "Show resume",
     "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf.",
