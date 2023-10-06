@@ -25,9 +25,18 @@
                         </p>
                     </div>
                     <br>
-                    <div class="text-center">
-                        <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('Ver currículum')}}</a>
-                    </div>
+                    @if (substr($curriculum->curriculum, -4) == '.pdf')
+                        <div class="text-center">
+                            <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('Ver currículum en PDF')}}</a>
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="curriculum">
+                            <br>
+                            <a href="{{ asset('storage/' . $curriculum->curriculum) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('Ampliar currículum')}}</a>
+                        </div>
+                    @endif
+                    <br>
                 </div>
                 <br><br>
                 @endforeach

@@ -836,6 +836,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 350
             ],
+            [
+                'name' => 'Menú Perrito + Sándwich mixto + Patatas',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom10.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-huevos-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 950
+            ],
         ];
         Product::insert($products);
     }

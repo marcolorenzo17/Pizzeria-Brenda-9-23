@@ -375,7 +375,8 @@
     "¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico, y te enviaremos un enlace donde podrás resetear tu contraseña, y escoger una nueva.": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
     "Enviar enlace": "Email Password Reset Link",
 
-    "Ver currículum": "Show resume",
+    "Ver currículum en PDF": "Show PDF resume",
+    "Ampliar currículum": "Maximize resume",
     "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf.",
     "El archivo debe estar en formato: jpg, png, jpeg, gif o svg.": "The file must be of type: jpg, png, jpeg, gif or svg."
 }
