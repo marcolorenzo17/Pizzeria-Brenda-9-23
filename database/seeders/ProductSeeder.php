@@ -826,6 +826,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 700
             ],
+            [
+                'name' => 'Perrito',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom9.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-lacteos',
+                'habilitado' => true,
+                'puntos' => 350
+            ],
         ];
         Product::insert($products);
     }
