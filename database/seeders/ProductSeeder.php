@@ -846,6 +846,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 950
             ],
+            [
+                'name' => 'Nachos con queso',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom11.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-lacteos',
+                'habilitado' => true,
+                'puntos' => 500
+            ],
         ];
         Product::insert($products);
     }
