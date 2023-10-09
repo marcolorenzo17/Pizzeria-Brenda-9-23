@@ -856,6 +856,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 500
             ],
+            [
+                'name' => 'Burrito',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom12.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-lacteos-soja',
+                'habilitado' => true,
+                'puntos' => 400
+            ],
         ];
         Product::insert($products);
     }
