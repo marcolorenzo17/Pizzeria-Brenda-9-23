@@ -866,6 +866,36 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 400
             ],
+            [
+                'name' => 'Patatas deluxe',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom13.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten',
+                'habilitado' => true,
+                'puntos' => 350
+            ],
+            [
+                'name' => 'Taco',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom14.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 400
+            ],
+            [
+                'name' => 'Baguette vegetal',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom15.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-soja-lacteos-pescado-huevos',
+                'habilitado' => true,
+                'puntos' => 500
+            ],
         ];
         Product::insert($products);
     }
