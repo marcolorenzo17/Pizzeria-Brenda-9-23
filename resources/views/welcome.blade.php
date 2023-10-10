@@ -916,7 +916,7 @@
         style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;" id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
     <br>
-    <div class="mx-auto">
+    <div class="mx-auto" style="background-color:gray;">
         <video width="1920" height="1038" autoplay loop>
             <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
             Tu navegador no es compatible con este vídeo.
@@ -1072,6 +1072,9 @@
         </tr>
     </table>
     <br><br>
+    <div style="background-color:gray;">
+        <br>
+    </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; background-color:white; padding:10px;">
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
