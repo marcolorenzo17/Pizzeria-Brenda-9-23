@@ -277,8 +277,7 @@
             @endif
             <br><br>
             <p class="text-center">{{ __('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.') }}</p>
-            <br>
-            <p class="text-center">{{ __('2€') }}</p>
+            <p class="text-center">{{ __('*Cada reserva tiene un coste de 2€.') }}</p>
             <br><br>
             <div id="reservas-grande">
                 <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">

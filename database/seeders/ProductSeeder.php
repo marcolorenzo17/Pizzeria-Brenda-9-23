@@ -906,6 +906,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 450
             ],
+            [
+                'name' => 'Pizza pequeña de Chorizo',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom17.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 650
+            ],
         ];
         Product::insert($products);
     }
