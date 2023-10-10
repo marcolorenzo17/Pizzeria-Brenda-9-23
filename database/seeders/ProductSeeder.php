@@ -896,6 +896,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 500
             ],
+            [
+                'name' => 'Ensalada normal',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom16.png',
+                'type' => 'Promoción',
+                'alergenos' => 'dioxido',
+                'habilitado' => true,
+                'puntos' => 450
+            ],
         ];
         Product::insert($products);
     }
