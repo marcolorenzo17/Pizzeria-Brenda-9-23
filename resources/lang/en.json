@@ -194,6 +194,8 @@
     "*Cada reserva tiene un coste de 2€.": "*Each reservation has a cost of 2€.",
     "Pagar": "Pay",
 
+    "ACTUALIZAR": "UPDATE",
+
     "Nombre:": "Name:",
     "Nº Tarjeta:": "Card number:",
     "Caducidad:": "Expiration:",
@@ -377,7 +379,7 @@
     "Enviar enlace": "Email Password Reset Link",
 
     "Ver currículum en PDF": "Show PDF resume",
-    "Ampliar currículum": "Maximize resume",
+    "Ampliar imagen": "Amplify image",
     "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf.",
     "El archivo debe estar en formato: jpg, png, jpeg, gif o svg.": "The file must be of type: jpg, png, jpeg, gif or svg."
 }

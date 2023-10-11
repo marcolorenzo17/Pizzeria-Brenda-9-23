@@ -916,6 +916,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 650
             ],
+            [
+                'name' => 'Pizza pequeña de Pepperoni',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom18.png',
+                'type' => 'Promoción',
+                'alergenos' => 'gluten-soja-lacteos',
+                'habilitado' => true,
+                'puntos' => 680
+            ],
         ];
         Product::insert($products);
     }
