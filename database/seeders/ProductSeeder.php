@@ -926,6 +926,16 @@ class ProductSeeder extends Seeder
                 'habilitado' => true,
                 'puntos' => 680
             ],
+            [
+                'name' => 'Nachos con guacamole',
+                'price' => 0,
+                'description' => '',
+                'image' => 'img/prom/prom19.png',
+                'type' => 'Promoción',
+                'alergenos' => 'lacteos-dioxido',
+                'habilitado' => true,
+                'puntos' => 550
+            ],
         ];
         Product::insert($products);
     }
