@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<link rel="stylesheet" href="/css/welcome.css" />
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1029,16 +1031,48 @@
             </table>
         </div>
     --}}
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
+    <div class="slideshow-container">
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Promoción')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset($product->image) }}" width="200px" height="200px">
+                <div class="mySlides fade">
+                    <img src="{{ asset($product->image) }}" alt="..." width="200px" height="200px">
                 </div>
             @endif
         @endforeach
+        {{--
+            <div class="mySlides fade">
+              <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+
+            <div class="mySlides fade">
+              <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+
+            <div class="mySlides fade">
+              <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
+            </div>
+        --}}
     </div>
+    <br>
+    <div style="text-align:center">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Promoción')
+                <span class="dot"></span>
+            @endif
+        @endforeach
+    </div>
+    {{--
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Promoción')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                        <img src="{{ asset($product->image) }}" width="200px" height="200px">
+                    </div>
+                @endif
+            @endforeach
+        </div>
+    --}}
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
         <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
@@ -1134,5 +1168,7 @@
         </div>
     </div>
 </body>
+
+<script src="{{ asset('js/welcome.js') }}"></script>
 
 </html>
