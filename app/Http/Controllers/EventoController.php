@@ -70,7 +70,7 @@ class EventoController extends Controller
 
                 $paymentMethod = $user->addPaymentMethod($paymentMethod);
 
-                $user->charge(200, $paymentMethod->id);
+                $user->charge(1000, $paymentMethod->id);
 
                 $evento->pagado = true;
             } else {
