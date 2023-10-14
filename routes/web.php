@@ -215,7 +215,7 @@ Route::post('adminnocliente/{id}', [UserController::class, 'adminno'])->name('cl
 Route::post('validarcliente/{id}', [UserController::class, 'validar'])->name('clientes.validar');
 Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->name('clientes.desvalidar');
 Route::post('actualizarrol/{id}', [UserController::class, 'actualizarrol'])->name('clientes.actualizarrol');
-
+Route::post('actualizarpuntos/{id}', [UserController::class, 'actualizarpuntos'])->name('clientes.actualizarpuntos');
 
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
 Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');

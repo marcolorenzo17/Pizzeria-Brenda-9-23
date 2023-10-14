@@ -18,7 +18,7 @@
                 <tr>
                     <td class="font-bold">{{ __('Nombre') }}</td>
                     <td class="font-bold">{{ __('Correo electrónico') }}</td>
-                    <td class="font-bold">{{ __('Puntos') }}</td>
+                    <td class="font-bold">{{ __('Pizzacoins') }}</td>
                     <td class="font-bold">{{ __('Administrador') }}</td>
                     <td class="font-bold">{{ __('Rol') }}</td>
                     <td class="font-bold">{{ __('Validado') }}</td>
@@ -31,7 +31,17 @@
                     <tr>
                         <td>{{ $cliente->name }}</td>
                         <td>{{ $cliente->email }}</td>
-                        <td>{{ $cliente->puntos }}</td>
+                        <td>
+                            <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
+                                @csrf
+                                <input type="text" id="puntos" name="puntos" size="10" value="{{ $cliente->puntos }}">
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
+                                </div>
+                            </form>
+                        </td>
                         <td>
                             @if ($cliente->admin)
                                 <form method="post" action="{{ route('clientes.adminno', $cliente->id) }}">
@@ -68,7 +78,7 @@
                                 </form>
                             </td>
                         @else
-                            <td></td>
+                            <td>{{__($cliente->role)}}</td>
                         @endif
                         <td>
                             @if ($cliente->validado)
@@ -112,7 +122,7 @@
                     </tr>
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Puntos')}}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pizzacoins')}}</p>
                             <p>{{ $cliente->puntos }}</p>
                         </td>
                     </tr>

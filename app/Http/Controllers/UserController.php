@@ -99,4 +99,15 @@ class UserController extends Controller
         session()->flash('notif.success', 'Se ha actualizado el rol con éxito.');
         return redirect()->route('clientes.index');
     }
+
+    public function actualizarpuntos(Request $req, string $id) {
+        $cliente = User::findOrFail($id);
+
+        $cliente->puntos = $req->puntos;
+
+        $cliente->update();
+
+        session()->flash('notif.success', 'Se han actualizado las Pizzacoins con éxito.');
+        return redirect()->route('clientes.index');
+    }
 }
