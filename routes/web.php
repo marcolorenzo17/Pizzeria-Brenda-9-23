@@ -18,6 +18,7 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WhoareweController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
@@ -205,7 +206,7 @@ Route::get('/contact', ContactController::class)->name('contact');
 Route::get('/faq', FaqController::class)->name('faq');
 
 
-Route::get('/privacy', FaqController::class)->name('privacy');
+Route::get('/privacy', PrivacyController::class)->name('privacy');
 
 
 // Route::get('/pruebatextojs', PruebatextojsController::class);
