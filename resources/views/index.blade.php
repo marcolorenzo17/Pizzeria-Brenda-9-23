@@ -53,6 +53,9 @@
             <li>
                 <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
             </li>
+            <li>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+            </li>
         </ul>
     </footer>
 

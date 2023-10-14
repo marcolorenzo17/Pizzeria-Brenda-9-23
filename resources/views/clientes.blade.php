@@ -34,11 +34,13 @@
                         <td>
                             <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
                                 @csrf
-                                <input type="text" id="puntos" name="puntos" size="10" value="{{ $cliente->puntos }}">
+                                <input type="text" id="puntos" name="puntos" size="10"
+                                    value="{{ $cliente->puntos }}">
                                 <br>
                                 <div class="text-center">
                                     <button type="submit"
-                                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
+                                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                        id="boton">{{ __('ACTUALIZAR') }}</button>
                                 </div>
                             </form>
                         </td>
@@ -73,12 +75,13 @@
                                     <br>
                                     <div class="text-center">
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                            id="boton">{{ __('ACTUALIZAR') }}</button>
                                     </div>
                                 </form>
                             </td>
                         @else
-                            <td>{{__($cliente->role)}}</td>
+                            <td>{{ __($cliente->role) }}</td>
                         @endif
                         <td>
                             @if ($cliente->validado)
@@ -106,133 +109,170 @@
                     </tr>
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-pequenio">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                id="productos-pequenio">
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td style="display:flex; justify-content:space-between;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Nombre')}}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Nombre') }}</p>
+                        </td>
+                        <td>
                             <p>{{ $cliente->name }}</p>
                         </td>
                     </tr>
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Correo electrónico')}}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                {{ __('Correo electrónico') }}</p>
+                        </td>
+                        <td>
                             <p>{{ $cliente->email }}</p>
                         </td>
                     </tr>
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Pizzacoins')}}</p>
-                            <p>{{ $cliente->puntos }}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Pizzacoins') }}
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
+                                    @csrf
+                                    <input type="text" id="puntos" name="puntos" size="10"
+                                        value="{{ $cliente->puntos }}">
+                                    <br>
+                                    <div class="text-center">
+                                        <button type="submit"
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                            id="boton">{{ __('ACTUALIZAR') }}</button>
+                                    </div>
+                                </form>
+                            </p>
                         </td>
                     </tr>
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
                             @if ($cliente->admin)
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Administrador')}}</p>
-                                <form method="post" action="{{ route('clientes.adminno', $cliente->id) }}">
-                                    @csrf
-                                    <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DESHABILITAR') }}</button>
-                                </form>
-                            @else
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Administrador')}}</p>
-                                <form method="post" action="{{ route('clientes.adminsi', $cliente->id) }}">
-                                    @csrf
-                                    <button
-                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('HABILITAR') }}</button>
-                                </form>
-                            @endif
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Administrador') }}</p>
                         </td>
-                    </tr>
-                    @if ($cliente->admin)
-                        <tr>
-                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Rol')}}</p>
-                                <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
-                                    @csrf
-                                    <select id="role" name="role">
-                                        <option value="Cliente">{{ __('Cliente') }}</option>
-                                        <option value="Jefe">{{ __('Jefe') }}</option>
-                                        <option value="Cajero">{{ __('Cajero') }}</option>
-                                        <option value="Cocinero">{{ __('Cocinero') }}</option>
-                                        <option value="Plancha">{{ __('Plancha') }}</option>
-                                    </select>
-                                    <br>
-                                    <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
-                                    <br>
-                                    <div class="text-center">
-                                        <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
-                                    </div>
-                                </form>
-                            </td>
-                        </tr>
-                    @else
-                        <tr>
-                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Rol')}}</p>
-                            </td>
-                        </tr>
-                    @endif
-                    <tr>
-                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                            @if ($cliente->validado)
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Validado')}}</p>
-                                <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
-                                    @csrf
-                                    <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
-                                </form>
-                            @else
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Validado')}}</p>
-                                <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
-                                    @csrf
-                                    <button
-                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
-                                </form>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Eliminar')}}</p>
-                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+                        <td>
+                            <form method="post" action="{{ route('clientes.adminno', $cliente->id) }}">
                                 @csrf
-                                @method('delete')
                                 <button
-                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DESHABILITAR') }}</button>
+                            </form>
+                        @else
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Administrador') }}
+                            </p>
+                        </td>
+                        <td>
+                            <form method="post" action="{{ route('clientes.adminsi', $cliente->id) }}">
+                                @csrf
+                                <button
+                                    class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('HABILITAR') }}</button>
+                            </form>
+                @endif
+                </td>
+                </tr>
+                @if ($cliente->admin)
+                    <tr>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Rol') }}</p>
+                        </td>
+                        <td>
+                            <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
+                                @csrf
+                                <select id="role" name="role">
+                                    <option value="Cliente">{{ __('Cliente') }}</option>
+                                    <option value="Jefe">{{ __('Jefe') }}</option>
+                                    <option value="Cajero">{{ __('Cajero') }}</option>
+                                    <option value="Cocinero">{{ __('Cocinero') }}</option>
+                                    <option value="Plancha">{{ __('Plancha') }}</option>
+                                </select>
+                                <br>
+                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                        id="boton">{{ __('ACTUALIZAR') }}</button>
+                                </div>
                             </form>
                         </td>
                     </tr>
-                    <tr></tr>
-                    <tr></tr>
-                @endforeach
-            </table>
-        </div>
+                @else
+                    <tr>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Rol') }}</p>
+                        </td>
+                    </tr>
+                @endif
+                <tr>
+                    <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                        @if ($cliente->validado)
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
+                    </td>
+                    <td>
+                            <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
+                                @csrf
+                                <button
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
+                            </form>
+                        @else
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
+                    </td>
+                    <td>
+                            <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
+                                @csrf
+                                <button
+                                    class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
+                            </form>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
+                    </td>
+                    <td>
+                        <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+                            @csrf
+                            @method('delete')
+                            <button
+                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+@endforeach
+</table>
+</div>
 
-        <br><br><br><br>
+<br><br><br><br>
 
-        <footer
-            class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-            style="background-color:white;">
-            <span
-                class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </span>
-            <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex">
-                <li>
-                    <a href="{{ route('whoarewe') }}"
-                        class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('faq') }}"
-                        class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-                </li>
-            </ul>
-        </footer>
+<footer
+    class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
+    style="background-color:white;">
+    <span
+        class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+    </span>
+    <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex">
+        <li>
+            <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
+        </li>
+        <li>
+            <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
+        </li>
+        <li>
+            <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
+        </li>
+        <li>
+            <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+        </li>
+    </ul>
+</footer>
 
-    </x-app-layout>
+</x-app-layout>
 @endif
