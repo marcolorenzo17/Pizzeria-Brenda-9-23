@@ -205,6 +205,9 @@ Route::get('/contact', ContactController::class)->name('contact');
 Route::get('/faq', FaqController::class)->name('faq');
 
 
+Route::get('/privacy', FaqController::class)->name('privacy');
+
+
 // Route::get('/pruebatextojs', PruebatextojsController::class);
 
 
