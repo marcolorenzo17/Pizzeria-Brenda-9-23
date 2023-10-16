@@ -864,13 +864,14 @@
             animation-duration: 1s;
         }
 
+        /*
         @keyframes iniciar1 {
             from {
                 font-size: 0px;
             }
 
             to {
-                font-size: 20px;
+                font-size: 15px;
             }
         }
 
@@ -889,6 +890,7 @@
                 font-size: 15px;
             }
         }
+        */
 
         #producto {
             transition: width 0.15s, height 0.15s;
@@ -906,13 +908,49 @@
         #bottom:hover {
             width: 200px;
         }
+
+        /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: red;
+            position: fixed;
+            /* Set the navbar to fixed position */
+            top: 0;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            /* Full width */
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 25px 16px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* Change background on mouse-over */
+        .navbar a:hover {
+            background: #ddd;
+            color: black;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
 <body class="antialiased">
-    <div>
-        @include('partials/language_switcher')
+    <div class="navbar">
+        <a href="#">{{__('Menú')}}</a>
+        <a href="#">{{__('¿Quiénes somos?')}}</a>
+        <a href="#">{{__('Preguntas frecuentes')}}</a>
+        <a href="#">{{__('Contáctanos')}}</a>
+        <a href="#">{{__('Política de privacidad')}}</a>
+    </div>
+
+    @include('partials/language_switcher')
     </div>
     <br><br>
     @if (Route::has('login'))
@@ -920,18 +958,18 @@
             @auth
                 <a href="{{ url('/products') }}"
                     class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;"
+                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
                     id="iniciar1">{{ __('Iniciar pedido') }}</a>
             @else
                 <a href="{{ route('login') }}"
                     class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;"
+                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
                     id="iniciar2">{{ __('Iniciar sesión') }}</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
                         class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
                         id="iniciar2">{{ __('Registrarse') }}</a>
                 @endif
             @endauth
@@ -1038,16 +1076,19 @@
                     <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px">
                     <div style="display:flex; justify-content:center;">
                         @if ($product->puntos)
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img src="{{asset('img/pizzacoin.png')}}" alt="coin"> {{ $product->puntos }}</div>
-                        @else
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img src="{{asset('img/pizzacoin.png')}}" alt="coin">0</div>
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin"> {{ $product->puntos }}
                             </div>
-                        @endif
+                        @else
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
                     </div>
-                </div>
             @endif
-        @endforeach
-        {{--
+    </div>
+    </div>
+    @endif
+    @endforeach
+    {{--
             <div class="mySlides fade">
               <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
             </div>
