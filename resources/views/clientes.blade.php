@@ -136,17 +136,17 @@
                         </td>
                         <td>
                             <p>
-                                <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
-                                    @csrf
-                                    <input type="text" id="puntos" name="puntos" size="10"
-                                        value="{{ $cliente->puntos }}">
-                                    <br>
-                                    <div class="text-center">
-                                        <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                            id="boton">{{ __('ACTUALIZAR') }}</button>
-                                    </div>
-                                </form>
+                            <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
+                                @csrf
+                                <input type="text" id="puntos" name="puntos" size="10"
+                                    value="{{ $cliente->puntos }}">
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                        id="boton">{{ __('ACTUALIZAR') }}</button>
+                                </div>
+                            </form>
                             </p>
                         </td>
                     </tr>
@@ -214,38 +214,37 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
                     </td>
                     <td>
-                            <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
-                                @csrf
-                                <button
-                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
-                            </form>
-                        @else
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
-                    </td>
-                    <td>
-                            <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
-                                @csrf
-                                <button
-                                    class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
-                            </form>
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
-                    </td>
-                    <td>
-                        <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+                        <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
                             @csrf
-                            @method('delete')
                             <button
-                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
                         </form>
+                    @else
+                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
                     </td>
-                </tr>
-                <tr></tr>
-                <tr></tr>
+                    <td>
+                        <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
+                            @csrf
+                            <button
+                                class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
+                        </form>
+@endif
+</td>
+</tr>
+<tr>
+    <td style="display:flex; justify-content:space-between; padding-left:50px;">
+        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
+    </td>
+    <td>
+        <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+            @csrf
+            @method('delete')
+            <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+        </form>
+    </td>
+</tr>
+<tr></tr>
+<tr></tr>
 @endforeach
 </table>
 </div>
@@ -269,7 +268,8 @@
             <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
         </li>
         <li>
-            <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+            <a href="{{ route('privacy') }}"
+                class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
         </li>
     </ul>
 </footer>

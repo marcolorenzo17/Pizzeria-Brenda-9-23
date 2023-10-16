@@ -46,20 +46,21 @@
                 @foreach ($comentarios as $comentario)
                     <tr>
                         <td style="display:flex; justify-content:space-between;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Cliente')}}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
                             <p>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</p>
                         </td>
                     </tr>
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Reseña')}}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Reseña') }}</p>
                             <p>{{ $comentario->resenia }}</p>
                         </td>
                     </tr>
                     <tr>
                         @if (Auth::user()->role != 'Cliente')
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{__('Eliminar')}}</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}
+                                </p>
                                 <form method="post"
                                     action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
                                     @csrf
@@ -97,7 +98,8 @@
                     <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
                 </li>
                 <li>
-                    <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                    <a href="{{ route('privacy') }}"
+                        class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
                 </li>
             </ul>
         </footer>

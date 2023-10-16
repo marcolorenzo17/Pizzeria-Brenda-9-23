@@ -38,8 +38,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('products.index') }}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('VOLVER') }}
+                    <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                        id="boton">{{ __('VOLVER') }}
                     </a>
                     <br><br>
                     <div class="mb-6">
@@ -103,8 +103,8 @@
                         <input type="hidden" value="{{ $products->image }}" name="image">
                         <input type="hidden" value="1" name="quantity">
                         <div style="text-align:center;">
-                        <button
-                            class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded" id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
+                                id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
                         </div>
                         <br><br>
                         {{--
@@ -120,7 +120,8 @@
                         </form>
                     @endif
 
-                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto">
+                    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px"
+                        class="max-h-60 mx-auto">
 
                     </tr>
                     </table>
@@ -152,8 +153,8 @@
                         <input type="hidden" id="estrellas" name="estrellas" value="1">
                         <br>
                         <div>
-                            <button type="submit"
-                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('Publicar') }}</button>
+                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                id="boton">{{ __('Publicar') }}</button>
                         </div>
                     </form>
                     <br><br>
@@ -196,7 +197,8 @@
                                     <br>
                                     <div x-data="{ mostrarVal: false }">
                                         <button type="button" class="px-6 py-2 text-sm rounded shadow"
-                                            style="font-size:13px; background-color:lightgray; color:blue;" id="boton" x-on:click="mostrarVal = !mostrarVal"
+                                            style="font-size:13px; background-color:lightgray; color:blue;"
+                                            id="boton" x-on:click="mostrarVal = !mostrarVal"
                                             x-text="mostrarVal ? '{{ __('Editar valoración') }}' : '{{ __('Editar valoración') }}'"></button>
                                         <div x-show="mostrarVal">
                                             <br>
@@ -212,7 +214,8 @@
                                                     @enderror
                                                     <input type="text" id="modifVal" name="modifVal">
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                        style="color:green; background-color:lightgray;" id="boton">{{ __('Publicar') }}
+                                                        style="color:green; background-color:lightgray;"
+                                                        id="boton">{{ __('Publicar') }}
                                                     </button>
                                                 </div>
                                             </form>
@@ -226,7 +229,8 @@
                                         @method('delete')
                                         <div>
                                             <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                style="color:red; background-color:lightgray;" id="boton">{{ __('Borrar valoración') }}</button>
+                                                style="color:red; background-color:lightgray;"
+                                                id="boton">{{ __('Borrar valoración') }}</button>
                                         </div>
                                     </form>
                                 @endif
@@ -234,7 +238,8 @@
                                 <div style="margin-left: 30px;">
                                     <p style="font-weight:bolder; font-size:15px;">{{ __('Comentarios') }}</p>
                                     <br>
-                                    <form action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
+                                    <form
+                                        action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
                                         method="POST">
                                         @csrf
                                         @error('reseniaCom')
@@ -246,7 +251,8 @@
                                         <br><br>
                                         <div>
                                             <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('Publicar comentario') }}</button>
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                id="boton">{{ __('Publicar comentario') }}</button>
                                         </div>
                                     </form>
                                     <br><br>
@@ -269,7 +275,8 @@
                                                     <button class="px-6 py-2 text-sm rounded shadow"
                                                         style="font-size:13px; background-color:lightgray; color:blue;"
                                                         x-on:click="mostrarCom = !mostrarCom"
-                                                        x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'" id="boton"></button>
+                                                        x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"
+                                                        id="boton"></button>
                                                     <div x-show="mostrarCom">
                                                         <br>
                                                         <form
@@ -285,7 +292,8 @@
                                                                 <input type="text" id="modifCom" name="modifCom">
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
-                                                                    style="color:green; background-color:lightgray;" id="boton">{{ __('Publicar') }}
+                                                                    style="color:green; background-color:lightgray;"
+                                                                    id="boton">{{ __('Publicar') }}
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -298,8 +306,10 @@
                                                     @csrf
                                                     @method('delete')
                                                     <div>
-                                                        <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                            style="color:red; background-color:lightgray;" id="boton">{{ __('Borrar comentario') }}</button>
+                                                        <button type="submit"
+                                                            class="px-6 py-2 text-sm rounded shadow"
+                                                            style="color:red; background-color:lightgray;"
+                                                            id="boton">{{ __('Borrar comentario') }}</button>
                                                     </div>
                                                 </form>
                                             @endif
@@ -319,21 +329,26 @@
     <br><br><br><br><br><br><br>
 
     <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
-        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
+        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
+        style="background-color:white;">
+        <span
+            class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex" >
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
+                <a href="{{ route('whoarewe') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                <a href="{{ route('privacy') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
         </ul>
     </footer>

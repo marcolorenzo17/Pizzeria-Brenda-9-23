@@ -50,8 +50,9 @@
                                 class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                                 width="422" height="600"
                                 style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
-                                <br>
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
+                            <br>
+                            <button
+                                class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
                         @else
                             <div style="background: rgba(0, 0, 0, 0.5);">
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -74,16 +75,19 @@
                             @endif
                         </div>
                         @if ($promotion->puntos)
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img src="{{asset('img/pizzacoin.png')}}" alt="coin"> {{ $promotion->puntos }}</div>
-                        @else
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img src="{{asset('img/pizzacoin.png')}}" alt="coin">0</div>
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin"> {{ $promotion->puntos }}
                             </div>
-                        @endif
-                        <br><br>
+                        @else
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
                     </div>
-                </form>
             @endif
-        @endforeach
+            <br><br>
+    </div>
+    </form>
+    @endif
+    @endforeach
     </div>
     <br>
     <div class="bg-white" style="text-align:center;">
@@ -108,8 +112,9 @@
                                 class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                                 width="422" height="600"
                                 style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
-                                <br>
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
+                            <br>
+                            <button
+                                class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
                         @else
                             <div style="background: rgba(0, 0, 0, 0.5);">
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -119,7 +124,8 @@
                             </div>
                         @endif
                         <br><br>
-                        <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
+                        <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}
+                        </div>
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
                         ?>
@@ -131,7 +137,8 @@
                                 @endforeach
                             @endif
                         </div>
-                        <div class="text-center" style="font-size:20px;">{{ number_format($promotion->price, 2, '.', '') }} €
+                        <div class="text-center" style="font-size:20px;">
+                            {{ number_format($promotion->price, 2, '.', '') }} €
                         </div>
                         <br><br>
                     </div>
@@ -161,7 +168,8 @@
                 <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                <a href="{{ route('contact') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
         </ul>
     </footer>

@@ -943,7 +943,7 @@
     <br>
     <div class="mx-auto" style="background-color:gray;">
         <video width="1920" height="1038" autoplay loop>
-            <source src="{{ 'vid/pizza.mp4' }}" type="video/mp4">
+            <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
             Tu navegador no es compatible con este vídeo.
         </video>
     </div>

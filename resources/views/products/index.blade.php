@@ -30,8 +30,8 @@ use App\Http\Controllers\ProductController;
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('products.crear') }}"
-                class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('CREAR PLATO') }}</a>
+            <a href="{{ route('products.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                id="boton">{{ __('CREAR PLATO') }}</a>
         </div>
         <br>
         <div>
@@ -75,7 +75,8 @@ use App\Http\Controllers\ProductController;
                                         </td>
                                         <td>
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('EDITAR') }}</a>
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                                                id="boton">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
                                             <form method="post"
@@ -111,7 +112,8 @@ use App\Http\Controllers\ProductController;
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{ __('EDITAR') }}</a>
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                                                id="boton">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -169,54 +171,64 @@ use App\Http\Controllers\ProductController;
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">PIZZAS</a></td>
+                                    id="producto">PIZZAS</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#2"><img src="{{ asset('img/burgericon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('HAMBURGUESAS') }}</a></td>
+                                    id="producto">{{ __('HAMBURGUESAS') }}</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('SÁNDWICHES') }}</a></td>
+                                    id="producto">{{ __('SÁNDWICHES') }}</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">PASTA</a></td>
+                                    id="producto">PASTA</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('ARROCES') }}</a></td>
+                                    id="producto">{{ __('ARROCES') }}</a>
+                        </td>
                     </tr>
                     <tr>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">BAGUETTES</a></td>
+                                    id="producto">BAGUETTES</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('ENSALADAS') }}</a></td>
+                                    id="producto">{{ __('ENSALADAS') }}</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#8"><img src="{{ asset('img/friesicon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('COMPLEMENTOS') }}</a></td>
+                                    id="producto">{{ __('COMPLEMENTOS') }}</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#9"><img src="{{ asset('img/dogicon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('PERRITOS') }}</a></td>
+                                    id="producto">{{ __('PERRITOS') }}</a>
+                        </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#10"><img src="{{ asset('img/sodaicon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('BEBIDAS') }}</a></td>
+                                    id="producto">{{ __('BEBIDAS') }}</a>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -231,12 +243,14 @@ use App\Http\Controllers\ProductController;
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('HAMBURGUESAS') }}</a></div>
+                            id="producto">{{ __('HAMBURGUESAS') }}</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('SÁNDWICHES') }}</a></div>
+                            id="producto">{{ __('SÁNDWICHES') }}</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
@@ -246,32 +260,38 @@ use App\Http\Controllers\ProductController;
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('ARROCES') }}</a></div>
+                            id="producto">{{ __('ARROCES') }}</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">BAGUETTES</a></div>
+                            id="producto">BAGUETTES</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('ENSALADAS') }}</a></div>
+                            id="producto">{{ __('ENSALADAS') }}</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('COMPLEMENTOS') }}</a></div>
+                            id="producto">{{ __('COMPLEMENTOS') }}</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('PERRITOS') }}</a></div>
+                            id="producto">{{ __('PERRITOS') }}</a>
+                </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                     <a href="#10"><img src="{{ asset('img/sodaicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('BEBIDAS') }}</a></div>
+                            id="producto">{{ __('BEBIDAS') }}</a>
+                </div>
             </div>
             <br>
             {{--
@@ -1100,7 +1120,8 @@ use App\Http\Controllers\ProductController;
                 <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                <a href="{{ route('privacy') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
         </ul>
     </footer>

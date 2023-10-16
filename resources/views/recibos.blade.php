@@ -65,7 +65,8 @@
                                         <br>
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                id="boton">{{ __('ACTUALIZAR') }}</button>
                                         </div>
                                     </form>
                                 </td>
@@ -209,7 +210,8 @@
                                         <br>
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{ __('ACTUALIZAR') }}</button>
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                id="boton">{{ __('ACTUALIZAR') }}</button>
                                         </div>
                                     </form>
                                 </td>
@@ -371,7 +373,8 @@
                 <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                <a href="{{ route('privacy') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
         </ul>
     </footer>

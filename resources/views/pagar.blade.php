@@ -1,16 +1,18 @@
 <x-app-layout>
     <?php
-        $productosarray = [];
-        foreach ($cartItems as $item) {
-            array_push($productosarray, $item->name);
-        }
-        $productosvalores = '';
-        foreach (array_values($productosarray) as $producto) {
-            $productosvalores .= $producto . ', ';
-        }
-        $productosvalores = substr($productosvalores, 0, -2);
+    $productosarray = [];
+    foreach ($cartItems as $item) {
+        array_push($productosarray, $item->name);
+    }
+    $productosvalores = '';
+    foreach (array_values($productosarray) as $producto) {
+        $productosvalores .= $producto . ', ';
+    }
+    $productosvalores = substr($productosvalores, 0, -2);
     ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
             {{ __('PAGAR - RECOGER EN PIZZERÍA') }}
@@ -46,41 +48,41 @@
 
     <br>
     <div style="text-align:center;">
-        <a href="{{ route('recoger.index') }}"
-        class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton">{{__('ATRÁS')}}</a>
+        <a href="{{ route('recoger.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
+            id="boton">{{ __('ATRÁS') }}</a>
     </div>
     <br>
     <table class="mx-auto">
         <tr>
             <td>
                 <div class="container px-12 py-8 mx-auto bg-white">
-                    <h2 class="text-center">{{__('ELIGE UN MÉTODO DE PAGO')}}</h2>
+                    <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
                     <br>
                     <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
                         <tr>
                             <td>
-                                <div
-                                    id="efectivodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div id="efectivodiv"
+                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/efectivo.png" alt=""
                                             onclick="mostrar('efectivo')" id="imgproducto" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                            {{__('En efectivo')}}</h5>
+                                            {{ __('En efectivo') }}</h5>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <div
-                                    id="creditodiv" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div id="creditodiv"
+                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <a href="#contenido">
                                         <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
                                             onclick="mostrar('credito')" id="imgproducto" />
                                     </a>
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                            {{__('Tarjeta de crédito')}}</h5>
+                                            {{ __('Tarjeta de crédito') }}</h5>
                                     </div>
                                 </div>
                             </td>
@@ -112,21 +114,21 @@
                         <div id="formulario">
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
-                                    {{session('status')}}
+                                    {{ session('status') }}
                                 </div>
                             @endif
 
                             <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form">
-                                <label for="card-holder-name">{{__('Nombre')}}</label>
+                                <label for="card-holder-name">{{ __('Nombre') }}</label>
                                 <input id="card-holder-name" type="text"><br><br>
                                 @csrf
                                 <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                                 <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
-                                <input type="hidden" value="{{ $_GET["direccion1"] }}" name="direccion">
+                                <input type="hidden" value="{{ $_GET['direccion1'] }}" name="direccion">
                                 <input type="hidden" value="true" name="pagado" id="pagado">
                                 <input type="hidden" value="{{ $productosvalores }}" name="productos">
                                 <div class="form-row">
-                                    <label for="card-element">{{__('Tarjeta de crédito o de débito')}}</label>
+                                    <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
                                     <div id="card-element" class="form-control">
                                     </div>
                                     <!-- Used to display form errors. -->
@@ -134,15 +136,18 @@
                                 </div>
                                 <div class="stripe-errors"></div>
                                 @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    @foreach ($errors->all() as $error)
-                                    {{ $error }}<br>
-                                    @endforeach
-                                </div>
+                                    <div class="alert alert-danger">
+                                        @foreach ($errors->all() as $error)
+                                            {{ $error }}<br>
+                                        @endforeach
+                                    </div>
                                 @endif
                                 <br>
                                 <div class="form-group text-center">
-                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block" id="boton">{{__('Realizar compra')}}</button>
+                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                        id="card-button" data-secret="{{ $intent->client_secret }}"
+                                        class="btn btn-lg btn-success btn-block"
+                                        id="boton">{{ __('Realizar compra') }}</button>
                                 </div>
                             </form>
                         </div>
@@ -151,11 +156,12 @@
                         @csrf
                         <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                         <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
-                        <input type="hidden" value="{{ $_GET["direccion1"] }}" name="direccion">
+                        <input type="hidden" value="{{ $_GET['direccion1'] }}" name="direccion">
                         <input type="hidden" value="false" name="pagado" id="pagado">
                         <input type="hidden" value="{{ $productosvalores }}" name="productos">
                         <div class="text-center" id="pagoefectivo" style="display:none;">
-                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="boton">{{__('Realizar compra')}}</button>
+                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                id="boton">{{ __('Realizar compra') }}</button>
                         </div>
                     </form>
                 </div>
@@ -166,20 +172,21 @@
                         <thead>
                             <tr class="h-12 uppercase">
                                 <th class="hidden md:table-cell"></th>
-                                <th class="text-left">{{__('Nombre')}}</th>
+                                <th class="text-left">{{ __('Nombre') }}</th>
                                 <th class="pl-5 text-left lg:text-right lg:pl-0">
-                                    <span class="lg:hidden" title="Quantity">{{__('Cantidad')}}</span>
-                                    <span class="hidden lg:inline">{{__('Cantidad')}}</span>
+                                    <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
+                                    <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
                                 </th>
                                 <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
-                                <th class="hidden text-right md:table-cell"> {{__('Precio')}}</th>
+                                <th class="hidden text-right md:table-cell"> {{ __('Precio') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($cartItems as $item)
                                 <tr>
                                     <td class="hidden pb-4 md:table-cell">
-                                        <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                                        <img src="{{ $item->attributes->image }}" class="w-20 rounded"
+                                            alt="Thumbnail">
                                     </td>
                                     <td>
                                         <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
@@ -218,7 +225,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <p>{{__('Pizzacoins ganadas con la compra: ')}} {{ Cart::getTotal() * 100 }}</p>
+                    <p>{{ __('Pizzacoins ganadas con la compra: ') }} {{ Cart::getTotal() * 100 }}</p>
                     {{--
                     <br>
                         <form action="{{ route('cart.add') }}" method="POST">
@@ -240,21 +247,26 @@
     <br><br><br><br><br><br><br><br>
 
     <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
-        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
+        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
+        style="background-color:white;">
+        <span
+            class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex" >
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
+                <a href="{{ route('whoarewe') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                <a href="{{ route('privacy') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
         </ul>
     </footer>

@@ -11,7 +11,7 @@
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
-        <h3 style="font-weight: bolder;">{{__('TELÉFONOS')}}</h3>
+        <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
         <br>
         <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
             <tr>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>956 37 47 36</td>
-                <td>{{__('Puedes hacer tu pedido por teléfono')}}</td>
+                <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
             </tr>
             <tr>
                 <td>627 650 605</td>
@@ -28,18 +28,18 @@
             </tr>
         </table>
         <br><br>
-        <h3 style="font-weight: bolder;">{{__('TE ATENDEREMOS EN HORARIO:')}}</h3>
+        <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
         <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('De lunes a domingo: 20:30 - 23:30')}}</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
         <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Domingo por la mañana: 13:30 - 15:00')}}</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder;">{{__('VISÍTANOS EN:')}}</h3>
+            <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
             <br>
             <p>
                 C/ Padre Lerchundi, 3<br>
-                {{__('(junto a antigua estación de Los Amarillos)')}}<br>
+                {{ __('(junto a antigua estación de Los Amarillos)') }}<br>
                 11550 - Chipiona (Cádiz)
             </p>
             <br>
@@ -47,7 +47,7 @@
         </div>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder;">{{__('ATENCIÓN AL CLIENTE:')}}</h3>
+            <h3 style="font-weight: bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
             <br>
             <p>
                 brendapizza@hotmail.com
@@ -59,21 +59,25 @@
     <br><br><br><br>
 
     <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6" style="background-color:white;">
-        <span class="text-sm text-gray-500 sm:text-center">{{__('© 2023 Pizzería Brenda™. Todos los derechos reservados.')}}
+        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
+        style="background-color:white;">
+        <span
+            class="text-sm text-gray-500 sm:text-center">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex" >
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0 sm:flex">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{__('¿Quiénes somos?')}}</a>
+                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{__('Preguntas frecuentes')}}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{__('Contáctanos')}}</a>
+                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+                <a href="{{ route('privacy') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
         </ul>
     </footer>

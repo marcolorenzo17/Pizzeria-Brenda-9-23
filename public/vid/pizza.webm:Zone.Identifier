@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=about:client
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/92654348-3f68-4c5e-92fc-d3ff3f56c968/pizza.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231016%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231016T090647Z&X-Amz-Expires=86400&X-Amz-Signature=3cc42dae0116c07724d874450bb9e36ca7e575abe4a4123d0efb9b1bcc09e5b3&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22pizza.webm%22&response-content-type=video%2Fwebm&x-id=GetObject
