@@ -919,6 +919,7 @@
             /* Position the navbar at the top of the page */
             width: 100%;
             /* Full width */
+            z-index: 1;
         }
 
         /* Links inside the navbar */
@@ -927,13 +928,44 @@
             display: block;
             color: #f2f2f2;
             text-align: center;
-            padding: 25px 16px;
+            padding: 25px 10px;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 13px;
         }
 
         /* Change background on mouse-over */
         .navbar a:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        #boton:hover {
+            filter: brightness(75%);
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .afooter {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 25px 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .afooter:hover {
             background: #ddd;
             color: black;
         }
@@ -943,38 +975,34 @@
 
 <body class="antialiased">
     <div class="navbar">
-        <a href="#">{{__('Menú')}}</a>
-        <a href="#">{{__('¿Quiénes somos?')}}</a>
-        <a href="#">{{__('Preguntas frecuentes')}}</a>
-        <a href="#">{{__('Contáctanos')}}</a>
-        <a href="#">{{__('Política de privacidad')}}</a>
-    </div>
-
-    @include('partials/language_switcher')
-    </div>
-    <br><br>
-    @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login">
-            @auth
-                <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                    id="iniciar1">{{ __('Iniciar pedido') }}</a>
-            @else
-                <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                    id="iniciar2">{{ __('Iniciar sesión') }}</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+        <a href="#">{{ __('Menú') }}</a>
+        <a href="#">{{ __('¿Quiénes somos?') }}</a>
+        <a href="#">{{ __('Preguntas frecuentes') }}</a>
+        @if (Route::has('login'))
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
+                @auth
+                    <a href="{{ url('/products') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                         style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="iniciar2">{{ __('Registrarse') }}</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+                        id="boton">{{ __('Iniciar pedido') }}</a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar sesión') }}</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                            id="boton">{{ __('Registrarse') }}</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+    </div>
+
+    <br><br><br>
     <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
@@ -1214,6 +1242,14 @@
         </div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
             <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="#" class="afooter">{{ __('Contáctanos') }}</a>
+        <a href="#" class="afooter">{{ __('Política de privacidad') }}</a>
+        <div style="position: relative; top: 20px;">
+            @include('partials/language_switcher')
         </div>
     </div>
 </body>
