@@ -3,7 +3,8 @@
 <nav x-data="{ open: false }" class="border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16" style="position: fixed; background-color:red; color:white; width: 100%; z-index: 1; right:0px;">
+        <div class="flex justify-between h-16"
+            style="position: fixed; background-color:red; color:white; width: 100%; z-index: 1; right:0px;">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -24,14 +25,14 @@
                 --}}
                 @if (Auth::user()->admin)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
                             {{ __('Menú') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
+                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')" style="color:white;">
                             {{ __('Ingredientes') }}
                         </x-nav-link>
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
+                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white;">
                                 {{ __('Reservas') }}
                             </x-nav-link>
                         @endif
@@ -82,7 +83,7 @@
                         --}}
                     <div><a href="#"
                             onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="{{asset('img/help.png')}}" alt="help" id="productos-grande"></div></a>
+                                src="{{ asset('img/help.png') }}" alt="help" id="productos-grande"></div></a>
                     <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-grande"></div>
                     <p id="productos-grande">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </p>
@@ -110,7 +111,8 @@
 
                     <x-slot name="content">
                         @if (!Auth::user()->admin)
-                            <x-dropdown-link id="productos-pequenio" onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')">
+                            <x-dropdown-link id="productos-pequenio"
+                                onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')">
                                 {{ __('Pizzacoins') }}: {{ Auth::user()->puntos }}
                             </x-dropdown-link>
                         @endif
@@ -161,21 +163,24 @@
                             {{__('Puntos')}}: {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         --}}
                     <div><a href="#"
-                        onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="{{asset('img/help.png')}}" alt="help" id="productos-pequenio"></div></a>
-                    <div><img src="{{asset('img/pizzacoin.png')}}" alt="coin" id="productos-pequenio"></div>
+                            onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
+                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio"></div></a>
+                    <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-pequenio"></div>
                     <p id="productos-pequenio">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     </p>
                 @endif
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <a href="#">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </a>
                 </button>
             </div>
         </div>
@@ -184,6 +189,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="px-4" style="background-color:white; padding:10px;">
+            <br><br><br>
             @if (Auth::user()->admin)
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }} (Admin)</div>
             @else
