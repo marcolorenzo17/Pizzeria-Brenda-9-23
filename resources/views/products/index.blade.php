@@ -1106,10 +1106,10 @@ use App\Http\Controllers\ProductController;
             @include('partials/language_switcher')
         </div>
         {{--
-            <span
-                class="text-sm sm:text-center" style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </span>
-        --}}
+<span
+class="text-sm sm:text-center" style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+</span>
+--}}
         <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
             <li>
                 <a href="{{ route('whoarewe') }}"
