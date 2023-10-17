@@ -1,6 +1,7 @@
 @if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
+            <br><br><br>
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 {{ __('CLIENTES') }}
             </h2>

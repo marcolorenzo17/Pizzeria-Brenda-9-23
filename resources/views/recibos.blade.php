@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/css/index.css" />
 <x-app-layout>
     <x-slot name="header">
+        <br><br><br>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
             {{ __('RECIBOS') }}
         </h2>
