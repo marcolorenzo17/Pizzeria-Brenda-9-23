@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
+        <br><br><br>
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
             style="font-size:40px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter;">
             {{ __('NUESTRO MENÚ') }}

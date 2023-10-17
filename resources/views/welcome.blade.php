@@ -928,14 +928,14 @@
             display: block;
             color: #f2f2f2;
             text-align: center;
-            padding: 25px 10px;
+            padding: 10px;
             text-decoration: none;
             font-size: 13px;
         }
 
         /* Change background on mouse-over */
         .navbar a:hover {
-            background: #ddd;
+            background: lightcoral;
             color: black;
         }
 
@@ -966,7 +966,7 @@
 
         /* Change background on mouse-over */
         .afooter:hover {
-            background: #ddd;
+            background: lightcoral;
             color: black;
         }
     </style>
@@ -975,9 +975,9 @@
 
 <body class="antialiased">
     <div class="navbar">
-        <a href="#">{{ __('Menú') }}</a>
-        <a href="#">{{ __('¿Quiénes somos?') }}</a>
-        <a href="#">{{ __('Preguntas frecuentes') }}</a>
+        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header" style="width:50px; height:50px;"></a>
+        <a href="#" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
+        <a href="#" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
                 @auth
@@ -1246,11 +1246,11 @@
     </div>
 
     <div class="footer">
-        <a href="#" class="afooter">{{ __('Contáctanos') }}</a>
-        <a href="#" class="afooter">{{ __('Política de privacidad') }}</a>
-        <div style="position: relative; top: 20px;">
+        <div style="position: relative; top: 22px;">
             @include('partials/language_switcher')
         </div>
+        <a href="#" class="afooter">{{ __('Contáctanos') }}</a>
+        <a href="#" class="afooter">{{ __('Política de privacidad') }}</a>
     </div>
 </body>
 
