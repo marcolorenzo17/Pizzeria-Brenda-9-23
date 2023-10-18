@@ -6,6 +6,7 @@
                 {{ __('LISTA DE INGREDIENTES') }}
             </h2>
         @else
+            <br><br><br>
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 {{ __('CREA TU PROPIA PIZZA') }}
             </h2>

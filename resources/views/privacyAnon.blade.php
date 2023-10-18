@@ -849,7 +849,7 @@
         }
 
         /* Change background on mouse-over */
-        .navbar a:hover {
+        .anavbar:hover {
             background: lightcoral;
             color: black;
         }
@@ -859,14 +859,12 @@
         }
 
         .footer {
-            position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
             background-color: red;
             color: white;
-            text-align: center;
-            z-index: 1;
+            padding: 20px;
         }
 
         .afooter {
@@ -890,10 +888,16 @@
 
 <body class="antialiased" style="background-color:white;">
     <div class="navbar">
+        <div style="position: relative; top: 22px;">
+            @include('partials/language_switcher')
+        </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
                 style="width:50px; height:50px;"></a>
-        <a href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
+        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
+        <a class="anavbar" href="privacyAnon"
+            style="position: relative; top: 15px;">{{ __('Política de privacidad') }}</a>
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
                 @auth
@@ -917,14 +921,11 @@
             </div>
         @endif
     </div>
-    <br><br><br><br>
     <br><br><br><br><br>
     <div class="footer">
-        <div style="position: relative; top: 22px;">
-            @include('partials/language_switcher')
-        </div>
-        <a href="contactAnon" class="afooter">{{ __('Contáctanos') }}</a>
-        <a href="privacyAnon" class="afooter">{{ __('Política de privacidad') }}</a>
+        <br>
+        <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+        <br>
     </div>
 </body>
 

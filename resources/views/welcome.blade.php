@@ -934,7 +934,7 @@
         }
 
         /* Change background on mouse-over */
-        .navbar a:hover {
+        .anavbar:hover {
             background: lightcoral;
             color: black;
         }
@@ -944,14 +944,12 @@
         }
 
         .footer {
-            position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
             background-color: red;
             color: white;
-            text-align: center;
-            z-index: 1;
+            padding: 20px;
         }
 
         .afooter {
@@ -975,9 +973,16 @@
 
 <body class="antialiased">
     <div class="navbar">
-        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header" style="width:50px; height:50px;"></a>
-        <a href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        <div style="position: relative; top: 22px;">
+            @include('partials/language_switcher')
+        </div>
+        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
+                style="width:50px; height:50px;"></a>
+        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
+        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
+        <a class="anavbar" href="privacyAnon"
+            style="position: relative; top: 15px;">{{ __('Política de privacidad') }}</a>
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
                 @auth
@@ -1001,8 +1006,7 @@
             </div>
         @endif
     </div>
-
-    <br><br><br><br>
+    <br><br><br><br><br>
     <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
@@ -1217,13 +1221,10 @@
             <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
         </div>
     </div>
-    <br><br><br><br><br>
     <div class="footer">
-        <div style="position: relative; top: 22px;">
-            @include('partials/language_switcher')
-        </div>
-        <a href="contactAnon" class="afooter">{{ __('Contáctanos') }}</a>
-        <a href="privacyAnon" class="afooter">{{ __('Política de privacidad') }}</a>
+        <br>
+        <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+        <br>
     </div>
 </body>
 
