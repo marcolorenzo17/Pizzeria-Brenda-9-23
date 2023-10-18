@@ -116,6 +116,10 @@ Route::get('/contactAnon', function() {
     return view('contactAnon');
 });
 
+Route::get('/privacyAnon', function() {
+    return view('privacyAnon');
+});
+
 
 Route::resource('products', ProductController::class);
 Route::get('indexValoraciones', [ProductController::class, 'indexValoraciones'])->name('products.indexValoraciones');
