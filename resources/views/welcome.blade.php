@@ -1002,7 +1002,7 @@
         @endif
     </div>
 
-    <br><br><br>
+    <br><br><br><br>
     <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
