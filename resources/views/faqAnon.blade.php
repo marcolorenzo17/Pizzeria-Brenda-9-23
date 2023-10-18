@@ -823,61 +823,139 @@
                 padding: 2rem
             }
         }
+
+        /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: red;
+            position: fixed;
+            /* Set the navbar to fixed position */
+            top: 0;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            /* Full width */
+            z-index: 1;
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .navbar a:hover {
+            background: lightcoral;
+            color: black;
+        }
+
+        #boton:hover {
+            filter: brightness(75%);
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .afooter {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 25px 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .afooter:hover {
+            background: lightcoral;
+            color: black;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
 <body class="antialiased">
-    <div>
-        @include('partials/language_switcher')
-    </div>
-    @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            @auth
-                <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar pedido')}}</a>
-            @else
-                <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar sesión')}}</a>
+    <div class="navbar">
+        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header" style="width:50px; height:50px;"></a>
+        <a href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
+        <a href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        @if (Route::has('login'))
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
+                @auth
+                    <a href="{{ url('/products') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar pedido') }}</a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar sesión') }}</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;">{{__('Registrarse')}}</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                            id="boton">{{ __('Registrarse') }}</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+    </div>
+    <br><br><br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿La pizzería abre por la mañana?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
+        </p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Hay servicio a domicilio fuera de Chipiona?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('No, sólo ofrecemos nuestro servicio dentro del término municipal.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Hay servicio a domicilio fuera de Chipiona?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, sólo ofrecemos nuestro servicio dentro del término municipal.') }}
+        </p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Qué horario tiene la pizzería?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('De lunes a domingo de 20:30 a 23:30.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Qué horario tiene la pizzería?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo de 20:30 a 23:30.') }}</p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Se puede aparcar cerca?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Hay un aparcamiento a 500 m.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Se puede aparcar cerca?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Hay un aparcamiento a 500 m.') }}</p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Hay pizza para celíacos?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Tenemos una base de pizza sin gluten especialmente elaborada para celíacos a la que se le puede añadir los ingredientes que desees. Además, en la carta se puede consultar los alérgenos de cada ingrediente.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Hay pizza para celíacos?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una base de pizza sin gluten especialmente elaborada para celíacos a la que se le puede añadir los ingredientes que desees. Además, en la carta se puede consultar los alérgenos de cada ingrediente.') }}
+        </p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Los camareros sirven en la mesa?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('No, la pizzería es autoservicio, pero los camareros te ayudarán en todo lo que necesites.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Los camareros sirven en la mesa?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, la pizzería es autoservicio, pero los camareros te ayudarán en todo lo que necesites.') }}
+        </p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Qué tamaños de pizzas hay?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('Tenemos una pizza grande para 4 personas y otra pequeña para 2 personas aprox.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Qué tamaños de pizzas hay?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una pizza grande para 4 personas y otra pequeña para 2 personas aprox.') }}
+        </p>
         <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{__('¿Cuánto cuesta el servicio a domicilio?')}}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{__('2 € adicionales al pedido que se realice.')}}</p>
+        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Cuánto cuesta el servicio a domicilio?') }}</p><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('2 € adicionales al pedido que se realice.') }}</p>
         <br><br>
     </div>
-    <br>
-    <a href="{{ url('/') }}">
-        <h1 class="text-center">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
-    </a>
-    <br><br>
+    <br><br><br>
+    <div class="footer">
+        <div style="position: relative; top: 22px;">
+            @include('partials/language_switcher')
+        </div>
+        <a href="contactAnon" class="afooter">{{ __('Contáctanos') }}</a>
+        <a href="privacyAnon" class="afooter">{{ __('Política de privacidad') }}</a>
+    </div>
 </body>
 
 </html>

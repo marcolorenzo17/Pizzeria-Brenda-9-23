@@ -823,39 +823,109 @@
                 padding: 2rem
             }
         }
+
+        /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: red;
+            position: fixed;
+            /* Set the navbar to fixed position */
+            top: 0;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            /* Full width */
+            z-index: 1;
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .navbar a:hover {
+            background: lightcoral;
+            color: black;
+        }
+
+        #boton:hover {
+            filter: brightness(75%);
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .afooter {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 25px 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .afooter:hover {
+            background: lightcoral;
+            color: black;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
 <body class="antialiased">
-    <div>
-        @include('partials/language_switcher')
-    </div>
-    @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            @auth
-                <a href="{{ url('/products') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:20px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar pedido')}}</a>
-            @else
-                <a href="{{ route('login') }}"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:blue; padding:15px; border-radius:15px;">{{__('Iniciar sesión')}}</a>
+    <div class="navbar">
+        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header" style="width:50px; height:50px;"></a>
+        <a href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
+        <a href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        @if (Route::has('login'))
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
+                @auth
+                    <a href="{{ url('/products') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar pedido') }}</a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar sesión') }}</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="color:white; font-size:15px; background-color:green; padding:15px; border-radius:15px;">{{__('Registrarse')}}</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                            id="boton">{{ __('Registrarse') }}</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+    </div>
+    <br><br><br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
-        <h2 class="text-center">{{__('¿QUIÉNES SOMOS?')}}</h2>
+        <h2 class="text-center">{{ __('¿QUIÉNES SOMOS?') }}</h2>
         <br><br>
-        <h2 class="text-center">{{__('PIZZERÍA BRENDA: ARTESANAL Y NATURAL')}}</h2>
+        <h2 class="text-center">{{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
         <br>
         <p>
-{{__('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.')}}<br><br>
-{{__('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.')}}
+            {{ __('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.') }}<br><br>
+            {{ __('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.') }}
         </p>
         <br>
         <div>
@@ -863,9 +933,9 @@
         </div>
         <br>
         <p>
-{{__('Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación. Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el local, lo que nos proporcionó agilidad y rapidez en el servicio.')}}<br>
-{{__('Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia, y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros clientes un producto totalmente natural, artesanal y de calidad.')}}<br><br>
-{{__('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.')}}
+            {{ __('Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación. Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el local, lo que nos proporcionó agilidad y rapidez en el servicio.') }}<br>
+            {{ __('Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia, y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros clientes un producto totalmente natural, artesanal y de calidad.') }}<br><br>
+            {{ __('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.') }}
         </p>
         <br>
         <div>
@@ -876,9 +946,9 @@
         </div>
         <br>
         <p>
-{{__('En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada, platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio de la zona.')}}<br><br>
-{{__('La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por parte de nuestro joven y atento personal.')}}<br>
-{{__('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.')}}
+            {{ __('En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada, platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio de la zona.') }}<br><br>
+            {{ __('La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por parte de nuestro joven y atento personal.') }}<br>
+            {{ __('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.') }}
         </p>
         <br>
         <div>
@@ -886,15 +956,18 @@
         </div>
         <br>
         <p>
-{{__('También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos sin moverte de casa.')}}<br><br>
-{{__('¡Te esperamos! ¡Visítanos!')}}
+            {{ __('También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos sin moverte de casa.') }}<br><br>
+            {{ __('¡Te esperamos! ¡Visítanos!') }}
         </p>
     </div>
-    <br>
-    <a href="{{ url('/') }}">
-        <h1 class="text-center">{{__('VOLVER A LA PÁGINA PRINCIPAL')}}</h1>
-    </a>
-    <br><br>
+    <br><br><br><br><br>
+    <div class="footer">
+        <div style="position: relative; top: 22px;">
+            @include('partials/language_switcher')
+        </div>
+        <a href="contactAnon" class="afooter">{{ __('Contáctanos') }}</a>
+        <a href="privacyAnon" class="afooter">{{ __('Política de privacidad') }}</a>
+    </div>
 </body>
 
 </html>

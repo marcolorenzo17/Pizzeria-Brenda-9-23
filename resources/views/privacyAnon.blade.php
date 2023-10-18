@@ -823,11 +823,109 @@
                 padding: 2rem
             }
         }
+
+        /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: red;
+            position: fixed;
+            /* Set the navbar to fixed position */
+            top: 0;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            /* Full width */
+            z-index: 1;
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .navbar a:hover {
+            background: lightcoral;
+            color: black;
+        }
+
+        #boton:hover {
+            filter: brightness(75%);
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .afooter {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 25px 10px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Change background on mouse-over */
+        .afooter:hover {
+            background: lightcoral;
+            color: black;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
 <body class="antialiased" style="background-color:white;">
+    <div class="navbar">
+        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
+                style="width:50px; height:50px;"></a>
+        <a href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
+        <a href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
+        @if (Route::has('login'))
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
+                @auth
+                    <a href="{{ url('/products') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar pedido') }}</a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        id="boton">{{ __('Iniciar sesión') }}</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                            id="boton">{{ __('Registrarse') }}</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+    </div>
+    <br><br><br><br>
+    <br><br><br><br><br>
+    <div class="footer">
+        <div style="position: relative; top: 22px;">
+            @include('partials/language_switcher')
+        </div>
+        <a href="contactAnon" class="afooter">{{ __('Contáctanos') }}</a>
+        <a href="privacyAnon" class="afooter">{{ __('Política de privacidad') }}</a>
+    </div>
 </body>
 
 </html>
