@@ -58,8 +58,17 @@ class EventoController extends Controller
             $sin = $sinasig->count;
         }
 
+        $limite = DB::select('select "personas" from eventos where "fecha" = ' . '\'' . $req->fecha . '\'' . ' AND ("reservado" IS NULL OR "reservado" = ' . '\'' . 'true' . '\'' . ')');
+        $lim = 0;
+        foreach($limite as $limit) {
+            $lim += $limit->personas;
+        }
+
         if ($sin >= 10) {
             session()->flash('notif.success', 'Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.');
+            return redirect()->route('eventos.index');
+        } else if ($lim >= 50) {
+            session()->flash('notif.success', 'Todas las reservas están ocupadas para el día escogido. Por favor, elige otro día.');
             return redirect()->route('eventos.index');
         } else {
             if ($req->ifcredito == "true") {
