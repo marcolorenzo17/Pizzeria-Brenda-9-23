@@ -194,6 +194,9 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+        <div style="position:relative; top:60px;">
+            @include('partials/language_switcher')
+        </div>
         <div class="px-4" style="background-color:white; padding:10px;">
             <br><br><br>
             @if (Auth::user()->admin)
@@ -208,7 +211,7 @@
         @if (!Auth::user()->admin)
             <div style="background-color:white; padding:15px;">
                 <a style="display:inline-block;" href="{{ route('cart.list') }}" class="flex items-center">
-                    <p style="display:inline-block; margin-right:10px;">Carrito</p>
+                    <p style="display:inline-block; margin-right:10px;">{{__('Carrito')}}</p>
                     <svg style="display:inline-block;" class="w-5 h-5 text-green-600" fill="none"
                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
                         stroke="currentColor">
