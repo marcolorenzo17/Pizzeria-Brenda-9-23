@@ -934,7 +934,11 @@
                     style="height:200px; width:200px; border-radius:30px; padding:10px;">
                 <div class="px-5 py-3" style="padding:15px;">
                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    {{--Poner el precio de forma adecuada--}}
                     <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                    {{--
+                        <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                    --}}
                 </div>
 
             </div>

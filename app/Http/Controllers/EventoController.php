@@ -30,13 +30,13 @@ class EventoController extends Controller
         ]);
         */
         $validate = Validator::make($req->all(), [
-            'personas' => 'required|numeric|min:1|max:100',
+            'personas' => 'required|numeric|min:1|max:50',
             'fecha' => 'required|date',
             'hora' => 'required',
         ],[
             'personas.required' => 'El campo es obligatorio.',
             'personas.min' => 'La reserva debe ser al menos para 1 persona.',
-            'personas.max' => 'La reserva no puede ser para más de 100 personas.',
+            'personas.max' => 'La reserva no puede ser para más de 50 personas.',
             'fecha.required' => 'El campo es obligatorio.',
             'hora.required' => 'El campo es obligatorio.',
         ]);
@@ -67,8 +67,8 @@ class EventoController extends Controller
         if ($sin >= 10) {
             session()->flash('notif.success', 'Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.');
             return redirect()->route('eventos.index');
-        } else if ($lim >= 50) {
-            session()->flash('notif.success', 'Todas las reservas están ocupadas para el día escogido. Por favor, elige otro día.');
+        } else if (($lim + $req->personas) >= 50) {
+            session()->flash('notif.success', 'Todas las reservas están ocupadas para el día escogido. Por favor, inténtalo de nuevo, o elige otro día.');
             return redirect()->route('eventos.index');
         } else {
             if ($req->ifcredito == "true") {
