@@ -859,12 +859,14 @@
         }
 
         .footer {
+            position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
             background-color: red;
             color: white;
             padding: 20px;
+            z-index: 1;
         }
 
         .afooter {
@@ -954,10 +956,9 @@
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('2 € adicionales al pedido que se realice.') }}</p>
         <br><br>
     </div>
+    <br><br><br>
     <div class="footer">
-        <br>
         <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
-        <br>
     </div>
 </body>
 
