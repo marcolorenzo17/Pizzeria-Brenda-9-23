@@ -973,7 +973,7 @@
 
 <body class="antialiased">
     <div class="navbar">
-        <div style="position: relative; top: 22px;">
+        <div style="position: relative; top: 15px;">
             @include('partials/language_switcher')
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
