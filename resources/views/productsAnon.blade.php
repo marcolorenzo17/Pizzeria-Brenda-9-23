@@ -935,12 +935,17 @@
                 <div class="px-5 py-3" style="padding:15px;">
                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
                     {{--Poner el precio de forma adecuada--}}
-                    <span class="mt-2 text-gray-500">{{ $product->price }} €</span>
+                    <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                     {{--
                         <span class="mt-2 text-gray-500">{{ $product->description }}</span>
                     --}}
                 </div>
 
+            </div>
+        @endforeach
+        @foreach ($products as $product)
+            <div style="background:white;">
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
             </div>
         @endforeach
     </div>
