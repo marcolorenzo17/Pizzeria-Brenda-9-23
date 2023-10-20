@@ -290,7 +290,6 @@
             <p class="text-center">{{ __('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.') }}</p>
             <p class="text-center">
                 {{ __('*Cada reserva tiene un coste de 10€, los cuales se descontarán de la cuenta a pagar.') }}</p>
-                {{--Mejorar este mensaje de abajo, traducirlo, y también traducir el mensaje de error de reservas ocupadas.--}}
             <p class="text-center">{{ __('*Sólo podemos reservar mesas para un máximo de 50 personas cada día.') }}</p>
             <br><br>
             <div id="reservas-grande">
