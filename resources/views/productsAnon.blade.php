@@ -926,31 +926,70 @@
     <br><br><br><br><br>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
+        <?php
+        $ides = 0;
+        ?>
         @foreach ($products as $product)
             <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                 style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
 
-                <img src="{{ asset($product->image) }}" class="mx-auto"
-                    style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                <a href="#{{ $ides }}">
+                    <img src="{{ asset($product->image) }}" class="mx-auto"
+                        style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                </a>
                 <div class="px-5 py-3" style="padding:15px;">
                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                    {{--Poner el precio de forma adecuada--}}
                     <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                     {{--
                         <span class="mt-2 text-gray-500">{{ $product->description }}</span>
                     --}}
                 </div>
-
             </div>
-        @endforeach
-        @foreach ($products as $product)
-            <div style="background:white;">
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            </div>
+            <?php
+            $ides += 1;
+            ?>
         @endforeach
     </div>
-    <br>
     <br><br><br><br>
+    <h1 class="text-center"
+    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+    {{ __('DESCRIPCIONES') }}</h1>
+    <?php
+        $idesdesc = 0;
+    ?>
+    <div>
+        @foreach ($products as $product)
+            <div id="{{ $idesdesc }}"></div>
+            <br><br><br><br><br>
+            <div style="background:white; margin: 0 auto; text-align:center;">
+                <br><br>
+                <img src="{{ asset($product->image) }}" class="mx-auto"
+                style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                <br>
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                <br>
+                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                <br><br>
+                <?php
+                $alergenoslista = explode('-', $product->alergenos);
+                ?>
+                <div style="display:flex; flex-wrap:wrap;">
+                    @if ($product->alergenos != '')
+                        @foreach ($alergenoslista as $alergeno)
+                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                width="40px" height="40px">
+                        @endforeach
+                    @endif
+                </div>
+                <br><br>
+            </div>
+            <?php
+            $idesdesc += 1;
+            ?>
+        @endforeach
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="footer">
         <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
     </div>
