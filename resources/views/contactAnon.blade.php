@@ -957,7 +957,12 @@
                 11550 - Chipiona (Cádiz)
             </p>
             <br>
-            <img src="{{ asset('img/mapsplaceholder.png') }}" alt="..." class="max-h-60 mx-auto">
+            <div style="width:600px; margin-left:auto; margin-right:auto;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
         <br><br>
         <div class="text-center">
@@ -984,9 +989,8 @@
                         width="30px" height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
+                        width="30px" height="30px" style="margin-right:20px;"></a>
             </div>
         </div>
     </div>
