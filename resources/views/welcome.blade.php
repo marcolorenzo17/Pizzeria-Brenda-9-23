@@ -1191,34 +1191,49 @@
     <div style="background-color:gray;">
         <br>
     </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; background-color:white; padding:10px;">
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
+    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%;">
+        <br><br>
+        <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
+        <br>
+        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
+            <tr>
+                <td>956 37 11 15</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>956 37 47 36</td>
+                <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
+            </tr>
+            <tr>
+                <td>627 650 605</td>
+                <td></td>
+            </tr>
+        </table>
+        <br><br>
+        <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+        <br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+        <br><br>
+        <div class="text-center">
+            <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
+            <br>
+            <p>
+                C/ Padre Lerchundi, 3<br>
+                {{ __('(junto a antigua estación de Los Amarillos)') }}<br>
+                11550 - Chipiona (Cádiz)
+            </p>
+            <br>
+            <img src="{{ asset('img/mapsplaceholder.png') }}" alt="..." class="max-h-60 mx-auto">
         </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio5.png') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio7.png') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="80px" height="80px">
+        <br><br>
+        <div class="text-center">
+            <h3 style="font-weight: bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
+            <br>
+            <p>
+                brendapizza@hotmail.com
+            </p>
         </div>
     </div>
     <br><br><br>
@@ -1227,7 +1242,9 @@
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
             <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 5px; margin-left:auto;">{{ __('Política de privacidad') }}</a>
+                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+            <a class="anavbar" href="premiosAnon"
+                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
                         height="30px" style="margin-right:20px;"></a>

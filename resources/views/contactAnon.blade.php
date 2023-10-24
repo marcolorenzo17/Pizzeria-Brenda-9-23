@@ -974,7 +974,9 @@
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
             <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 5px; margin-left:auto;">{{ __('Política de privacidad') }}</a>
+                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+            <a class="anavbar" href="premiosAnon"
+                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
                         height="30px" style="margin-right:20px;"></a>
@@ -982,8 +984,9 @@
                         width="30px" height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
             </div>
         </div>
     </div>

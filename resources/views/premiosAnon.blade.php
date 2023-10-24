@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Preguntas frecuentes</title>
+    <title>Premios</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -888,7 +888,7 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased">
+<body class="antialiased" style="background-color:white;">
     <div class="navbar">
         <div style="position: relative; top: 15px;">
             @include('partials/language_switcher')
@@ -923,38 +923,39 @@
     </div>
     <br><br><br><br><br>
     <div class="container px-12 py-8 mx-auto bg-white">
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Hay servicio a domicilio fuera de Chipiona?') }}</p>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, sólo ofrecemos nuestro servicio dentro del término municipal.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Qué horario tiene la pizzería?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo de 20:30 a 23:30.') }}</p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Se puede aparcar cerca?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Hay un aparcamiento a 500 m.') }}</p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Hay pizza para celíacos?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una base de pizza sin gluten especialmente elaborada para celíacos a la que se le puede añadir los ingredientes que desees. Además, en la carta se puede consultar los alérgenos de cada ingrediente.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Los camareros sirven en la mesa?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, la pizzería es autoservicio, pero los camareros te ayudarán en todo lo que necesites.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Qué tamaños de pizzas hay?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una pizza grande para 4 personas y otra pequeña para 2 personas aprox.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Cuánto cuesta el servicio a domicilio?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('2 € adicionales al pedido que se realice.') }}</p>
-        <br><br>
+        <h2 class="text-center">{{ __('PREMIOS') }}</h2>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px">
+            </div>
+        </div>
     </div>
-    <br><br><br>
+    <br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}

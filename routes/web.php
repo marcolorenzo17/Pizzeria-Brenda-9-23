@@ -120,6 +120,10 @@ Route::get('/privacyAnon', function() {
     return view('privacyAnon');
 });
 
+Route::get('/premiosAnon', function() {
+    return view('premiosAnon');
+});
+
 
 Route::resource('products', ProductController::class);
 Route::get('indexValoraciones', [ProductController::class, 'indexValoraciones'])->name('products.indexValoraciones');
