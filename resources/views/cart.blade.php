@@ -71,7 +71,7 @@
                                                                 value="{{ $item->quantity }}"
                                                                 class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
                                                             <button
-                                                                class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500"
+                                                                class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100 bg-violet-500"
                                                                 id="boton">{{ __('Actualizar') }}</button>
                                                         </form>
                                                     </div>
