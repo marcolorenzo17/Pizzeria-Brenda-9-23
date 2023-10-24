@@ -1120,12 +1120,19 @@ use App\Http\Controllers\ProductController;
                 <a href="{{ route('privacy') }}"
                     class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
             </li>
+            <li>
+                <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
+            </li>
         </ul>
         <div style="margin-left:auto; display:flex;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
+                    height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
+                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
+                    width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
 

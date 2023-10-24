@@ -52,6 +52,9 @@
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div style="position:relative; top:20px;">
+                            @include('partials/language_switcher')
+                        </div>
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
                             {{ __('Menú') }}
                         </x-nav-link>
@@ -110,11 +113,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <br>
-                        <div>
-                            @include('partials/language_switcher')
-                        </div>
-                        <br>
                         @if (!Auth::user()->admin)
                             <x-dropdown-link id="productos-pequenio"
                                 onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you will receive 1 Pizzacoin.\nGather some Pizzacoins and get yourself a free menu!') }}')">

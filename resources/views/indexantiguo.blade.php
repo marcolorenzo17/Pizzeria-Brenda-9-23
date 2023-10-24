@@ -856,10 +856,12 @@
         </span>
         <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
+                <a href="{{ route('whoarewe') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
                 <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
@@ -867,6 +869,10 @@
             <li>
                 <a href="{{ route('privacy') }}"
                     class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
+            </li>
+            <li>
+                <a href="{{ route('premios') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
             </li>
         </ul>
         <div style="margin-left:auto; display:flex;">
