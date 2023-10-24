@@ -288,6 +288,12 @@
                 <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                     {{ __('Contáctanos') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
+                    {{ __('Política de privacidad') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('premios')" :active="request()->routeIs('premios')">
+                    {{ __('Premios') }}
+                </x-responsive-nav-link>
             </div>
         </div>
 
