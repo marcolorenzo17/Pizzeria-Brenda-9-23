@@ -1174,7 +1174,7 @@
     </div>
     <br><br>
     <h1 class="text-center"
-        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('NUESTRAS OFERTAS') }}</h1>
     <br>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1188,34 +1188,31 @@
         @endforeach
     </div>
     <br><br>
-    <div style="background-color:gray;">
+    <div style="background-color:#f78d8d;">
+        <h1 class="text-center"
+            style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+            {{ __('TELÉFONOS') }}</h1>
         <br>
+        <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
+        </p>
+        <div class="flex items-center justify-center"
+            style="font-size:25px; gap:50px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+            <p>956 37 11 15</p>
+            <p>956 37 47 36</p>
+            <p>627 650 605</p>
+        </div>
+        <br><br>
     </div>
-    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%;">
-        <br><br>
-        <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
-        <br>
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
-            <tr>
-                <td>956 37 11 15</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>956 37 47 36</td>
-                <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
-            </tr>
-            <tr>
-                <td>627 650 605</td>
-                <td></td>
-            </tr>
-        </table>
-        <br><br>
-        <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
-        <br><br>
+    <h1 class="text-center"
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        {{ __('HORARIO') }}</h1>
+    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px;">
+        <div style="text-align:center;">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+            <br><br>
+        </div>
         <div class="text-center">
             <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
             <br>
@@ -1241,7 +1238,7 @@
             </p>
         </div>
     </div>
-    <br><br><br>
+    <br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
