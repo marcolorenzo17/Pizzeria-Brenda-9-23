@@ -1105,7 +1105,7 @@
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Promoción')
                 <div class="mySlides fade">
-                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px" style="border:5px solid black; border-radius:10px;">
+                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px" style="border:3px solid black; border-radius:10px;">
                     <br>
                     <div style="display:flex; justify-content:center;">
                         @if ($product->puntos)
