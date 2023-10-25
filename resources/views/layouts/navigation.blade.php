@@ -198,9 +198,9 @@
         <div class="px-4" style="background-color:white; padding:10px;">
             <br><br><br>
             @if (Auth::user()->admin)
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }} (Admin)</div>
+                <div class="font-medium text-base text-gray-800" style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p></div>
             @else
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-base text-gray-800" style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p>{{ Auth::user()->name }}</p></div>
             @endif
             {{--
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
