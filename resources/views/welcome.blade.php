@@ -1105,7 +1105,8 @@
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Promoción')
                 <div class="mySlides fade">
-                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px">
+                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px" style="border:5px solid black; border-radius:10px;">
+                    <br>
                     <div style="display:flex; justify-content:center;">
                         @if ($product->puntos)
                             <div class="-mr-2 flex items-center" style="font-size:20px;"><img
@@ -1208,34 +1209,31 @@
         {{ __('HORARIO') }}</h1>
     <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px;">
         <div style="text-align:center;">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-            <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
-            <br><br>
-        </div>
-        <div class="text-center">
-            <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
-            <br>
-            <p>
-                C/ Padre Lerchundi, 3<br>
-                {{ __('(junto a antigua estación de Los Amarillos)') }}<br>
-                11550 - Chipiona (Cádiz)
-            </p>
-            <br>
-            <div style="width:600px; margin-left:auto; margin-right:auto;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="flex items-center justify-center">
+                <p>{{ __('De lunes a domingo:') }}</p>
+                <p style="font-weight:bolder; font-size:20px;">&nbsp;20:30 - 23:30</p>
             </div>
-        </div>
-        <br><br>
-        <div class="text-center">
-            <h3 style="font-weight: bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
             <br>
-            <p>
-                brendapizza@hotmail.com
-            </p>
+            <div class="flex items-center justify-center">
+                <p>{{ __('Domingo por la mañana:') }}</p>
+                <p style="font-weight:bolder; font-size:20px;">&nbsp;13:30 - 15:00</p>
+            </div>
+            <br>
+        </div>
+    </div>
+    <h1 class="text-center"
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        {{ __('VISÍTANOS') }}</h1>
+    <br>
+    <div style="width:600px; margin-left:auto; margin-right:auto;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <br>
+        <div class="flex items-center justify-center">
+            <p>{{ __('Atención al cliente:') }}</p>
+            <p style="font-weight:bolder; font-size:20px;">&nbsp;brendapizza@hotmail.com</p>
         </div>
     </div>
     <br><br><br><br>
