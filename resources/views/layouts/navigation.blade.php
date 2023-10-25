@@ -96,9 +96,9 @@
                         <button
                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             @if (Auth::user()->admin)
-                                <div>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</div>
+                                <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p style="margin-right:20px;">{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p></div>
                             @else
-                                <div>{{ Auth::user()->name }}</div>
+                                <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p style="margin-right:20px;">{{ Auth::user()->name }}</p></div>
                             @endif
 
                             <div class="ml-1">
