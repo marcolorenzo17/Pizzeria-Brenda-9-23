@@ -8,6 +8,16 @@
   margin: auto;
 }
 
+* {box-sizing: border-box;}
+.mySlides2 {display: none;}
+
+/* Slideshow container */
+.slideshow-container2 {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
 /* Caption text */
 .text {
   color: #f2f2f2;
@@ -39,6 +49,16 @@
   transition: background-color 0.6s ease;
 }
 
+.dot2 {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
 .active {
   background-color: #717171;
 }
@@ -49,7 +69,17 @@
   animation-duration: 1.5s;
 }
 
+.fade2 {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
 @keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade2 {
   from {opacity: .4}
   to {opacity: 1}
 }

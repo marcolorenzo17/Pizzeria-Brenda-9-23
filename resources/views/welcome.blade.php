@@ -1105,7 +1105,8 @@
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Promoción')
                 <div class="mySlides fade">
-                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px" style="border:3px solid black; border-radius:10px;">
+                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                        style="border:3px solid black; border-radius:10px;">
                     <br>
                     <div style="display:flex; justify-content:center;">
                         @if ($product->puntos)
@@ -1178,16 +1179,38 @@
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('NUESTRAS OFERTAS') }}</h1>
     <br>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
+    <div class="slideshow-container2">
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Oferta')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset($product->image) }}" width="200px" height="200px">
-                </div>
+                <div class="mySlides2 fade2">
+                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                        style="border:3px solid black; border-radius:10px;">
+                    <br>
+            @endif
+    </div>
+    </div>
+    @endforeach
+    </div>
+    <br>
+    <div style="text-align:center">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Oferta')
+                <span class="dot2"></span>
             @endif
         @endforeach
     </div>
+    {{--
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Oferta')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                        <img src="{{ asset($product->image) }}" width="200px" height="200px">
+                    </div>
+                @endif
+            @endforeach
+        </div>
+    --}}
     <br><br>
     <div style="background-color:#f78d8d;">
         <h1 class="text-center"
