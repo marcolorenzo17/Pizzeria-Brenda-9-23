@@ -1182,7 +1182,7 @@
     <div class="slideshow-container2">
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Oferta')
-                <div class="mySlides2 fade2">
+                <div class="mySlides2 fade2 mx-auto">
                     <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
                         style="border:3px solid black; border-radius:10px;">
                     <br>
