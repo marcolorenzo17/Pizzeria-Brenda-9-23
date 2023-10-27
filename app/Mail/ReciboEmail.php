@@ -16,7 +16,7 @@ class ReciboEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private $name)
+    public function __construct(private $productos, private $pcob, private $pcga, private $coste, private $direccion, private $telefono)
     {
         //
     }
@@ -27,7 +27,7 @@ class ReciboEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Recibo Email',
+            subject: 'Recibo de pedido',
         );
     }
 
@@ -38,7 +38,7 @@ class ReciboEmail extends Mailable
     {
         return new Content(
             view: 'mail.recibo-email',
-            with: ['name' => $this->name],
+            with: ['productos' => $this->productos, 'pcob' => $this->pcob, 'pcga' => $this->pcga, 'coste' => $this->coste, 'direccion' => $this->direccion, 'telefono' => $this->telefono],
         );
     }
 
