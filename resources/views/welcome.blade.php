@@ -1085,7 +1085,7 @@
     <br><br><br>
     <h1 class="text-center"
         style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('NUESTRAS PROMOCIONES') }}</h1>
+        {{ __('CANJEA TUS PIZZACOINS') }}</h1>
     <br>
     {{--
         <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
@@ -1220,7 +1220,7 @@
         <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
         </p>
         <div class="flex items-center justify-center"
-            style="font-size:25px; gap:50px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
             <p>956 37 11 15</p>
             <p>956 37 47 36</p>
             <p>627 650 605</p>
