@@ -141,10 +141,8 @@ class CartController extends Controller
 
         \Cart::clear();
 
-        /*
         $name = "joel";
-        Mail::to('marcoeltron@gmail.com')->send(new ReciboEmail($name));
-        */
+        Mail::to('watsapbru89@gmail.com')->send(new ReciboEmail($name));
 
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
         return redirect('products');
