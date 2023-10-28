@@ -1,6 +1,7 @@
-Productos comprados: {{$productos}}<br>
-Pizzacoins obtenidas: {{$pcob}}<br>
-Pizzacoins gastadas: {{$pcga}}<br>
-Coste: {{$coste}} €<br>
-Dirección: {{$direccion}}<br>
-Teléfono: {{$telefono}}<br>
+{{__('Usuario:')}} {{$user}}<br>
+{{__('Productos comprados:')}} {{$productos}}<br>
+{{__('Pizzacoins obtenidas:')}} {{$pcob}}<br>
+{{__('Pizzacoins gastadas:')}} {{$pcga}}<br>
+{{__('Coste:')}} {{$coste}} €<br>
+{{__('Dirección:')}} {{$direccion}}<br>
+{{__('Teléfono:')}} {{$telefono}}<br>

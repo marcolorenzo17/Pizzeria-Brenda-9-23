@@ -396,5 +396,13 @@
     "Ver currículum en PDF": "Show PDF resume",
     "Ampliar imagen": "Amplify image",
     "El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.": "The file must be of type: jpg, png, jpeg, gif, svg or pdf.",
-    "El archivo debe estar en formato: jpg, png, jpeg, gif o svg.": "The file must be of type: jpg, png, jpeg, gif or svg."
+    "El archivo debe estar en formato: jpg, png, jpeg, gif o svg.": "The file must be of type: jpg, png, jpeg, gif or svg.",
+
+    "Usuario:": "User:",
+    "Productos comprados:": "Purchased products:",
+    "Pizzacoins obtenidas:": "Pizacoins earned:",
+    "Pizzacoins gastadas:": "Pizacoins spent:",
+    "Coste:": "Cost:",
+    "Dirección:": "Address:",
+    "Teléfono:": "Phone number:"
 }

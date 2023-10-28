@@ -143,7 +143,7 @@ class CartController extends Controller
 
         $coste = number_format($req->total, 2, '.', '');
 
-        Mail::to($user->email)->send(new ReciboEmail($req->productos, $req->total * 100, $req->puntos, $coste, $req->direccion, $req->telefono));
+        Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, $req->total * 100, $req->puntos, $coste, $req->direccion, $req->telefono));
 
         session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
         return redirect('products');
