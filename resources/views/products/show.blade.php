@@ -103,8 +103,22 @@
                         <div style="text-align:center;">
                             <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
                                 id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
-                            <button class="px-4 py-1.5 text-white text-sm rounded" style="background-color:green;"
-                                id="boton">{{ __('COMPRA INMEDIATA') }}</button>
+                        </div>
+                        <br><br>
+                        {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                    </form>
+                    <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $products->id }}" name="id">
+                        <input type="hidden" value="{{ $products->name }}" name="name">
+                        <input type="hidden" value="{{ $products->price }}" name="price">
+                        <input type="hidden" value="{{ $products->image }}" name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <div style="text-align:center;">
+                            <button class="px-4 py-1.5 text-white text-sm rounded"
+                                id="boton" style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                         </div>
                         <br><br>
                         {{--

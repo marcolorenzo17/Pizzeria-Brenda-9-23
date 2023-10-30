@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
     <x-slot name="header">
         <br><br><br>
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-            style="font-size:40px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter;">
+            style="font-size:60px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 1px black;">
             {{ __('NUESTRO MENÚ') }}
         </h2>
         <br><br>
@@ -342,12 +342,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -446,12 +458,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -478,7 +502,8 @@ use App\Http\Controllers\ProductController;
                     @if ($product->type == 'Sándwich' && $product->habilitado)
                         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                             <a href="{{ route('products.show', $product->id) }}"><img
-                                    src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                    src="{{ asset($product->image) }}" class="w-full max-h-60"
+                                    id="imgproducto"></a>
                             <div class="flex items-end justify-end w-full bg-cover">
 
                             </div>
@@ -512,12 +537,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -579,12 +616,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -646,12 +695,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -713,12 +774,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -780,12 +853,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -845,12 +930,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -912,12 +1009,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -977,12 +1086,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -1042,12 +1163,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"
@@ -1107,12 +1240,24 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    {{--
+                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                    --}}
+                                </form>
+                                <form action="{{ route('cart.inmediato') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                    <input type="hidden" value="{{ $product->image }}" name="image">
+                                    <input type="hidden" value="1" name="quantity">
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
+                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
+                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"

@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'puntos' => 0,
             'restapuntos' => 0,
             'promocion' => false,
+            'inmediato' => false,
         ]);
     }
 }

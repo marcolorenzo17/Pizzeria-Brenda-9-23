@@ -35,6 +35,12 @@ class ProductController extends Controller
 
     public function index(): Response
     {
+        $user = User::findOrFail(Auth::user()->id);
+        if ($user->inmediato) {
+            \Cart::clear();
+            $user->inmediato = false;
+            $user->update();
+        }
         return response()->view('products.index', [
             'products' => Product::orderBy('id', 'desc')->get(),
         ]);

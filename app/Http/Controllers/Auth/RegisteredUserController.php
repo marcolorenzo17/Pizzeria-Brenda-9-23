@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
             'puntos' => 500,
             'restapuntos' => 0,
             'promocion' => false,
+            'inmediato' => false,
         ]);
 
         event(new Registered($user));

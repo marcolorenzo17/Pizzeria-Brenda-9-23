@@ -14,6 +14,12 @@ class CartController extends Controller
 {
     public function cartList()
     {
+        $user = User::findOrFail(Auth::user()->id);
+        if ($user->inmediato) {
+            \Cart::clear();
+            $user->inmediato = false;
+            $user->update();
+        }
         $cartItems = \Cart::getContent();
         // dd($cartItems);
         return view('cart', compact('cartItems'));
@@ -50,6 +56,40 @@ class CartController extends Controller
 
             session()->flash('success', 'El producto se ha añadido al carrito con éxito.');
             return redirect()->route('cart.list');
+        }
+    }
+
+    public function inmediato(Request $request)
+    {
+        \Cart::clear();
+        $user = User::findOrFail(Auth::user()->id);
+        if ($request->type == "Promoción" and $user->promocion == true) {
+            session()->flash('success', 'Sólo se puede añadir una promoción al mismo tiempo.');
+            return redirect()->route('cart.list');
+        } else {
+            \Cart::add([
+                'id' => $request->id,
+                'name' => $request->name,
+                'price' => $request->price,
+                'quantity' => $request->quantity,
+                'attributes' => array(
+                    'image' => $request->image,
+                    'puntos' => $request->puntos,
+                    'type' => $request->type,
+                )
+            ]);
+
+            $user->puntos -= $request->puntos;
+            $user->restapuntos += $request->puntos;
+            $user->inmediato = true;
+            $user->update();
+
+            if ($request->type == "Promoción") {
+                $user->promocion = true;
+                $user->update();
+            }
+
+            return redirect()->route('recoger.index');
         }
     }
 

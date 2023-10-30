@@ -9,15 +9,22 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 
 class EventoController extends Controller
 {
 
     public function index(): Response {
+        $user = User::findOrFail(Auth::user()->id);
+        if ($user->inmediato) {
+            \Cart::clear();
+            $user->inmediato = false;
+            $user->update();
+        }
         $eventos = DB::select('select * from eventos order by id desc');
-        $user = auth()->user();
-        return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user->createSetupIntent()]);
+        $user2 = auth()->user();
+        return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user2->createSetupIntent()]);
     }
 
     public function add(Request $req) {
