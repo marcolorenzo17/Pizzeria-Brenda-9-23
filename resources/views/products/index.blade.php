@@ -342,6 +342,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -443,6 +446,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -505,6 +511,9 @@ use App\Http\Controllers\ProductController;
                                     <input type="hidden" value="1" name="quantity">
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -570,6 +579,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -633,6 +645,9 @@ use App\Http\Controllers\ProductController;
                                     <input type="hidden" value="1" name="quantity">
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -698,6 +713,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -762,6 +780,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -823,6 +844,9 @@ use App\Http\Controllers\ProductController;
                                     <input type="hidden" value="1" name="quantity">
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -888,6 +912,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -949,6 +976,9 @@ use App\Http\Controllers\ProductController;
                                     <input type="hidden" value="1" name="quantity">
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1012,6 +1042,9 @@ use App\Http\Controllers\ProductController;
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
                                     <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
                                     --}}
@@ -1073,6 +1106,9 @@ use App\Http\Controllers\ProductController;
                                     <input type="hidden" value="1" name="quantity">
                                     <button
                                         class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    <br><br>
+                                    <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                        style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
                                     {{--
                                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>

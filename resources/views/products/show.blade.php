@@ -103,6 +103,8 @@
                         <div style="text-align:center;">
                             <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
                                 id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded" style="background-color:green;"
+                                id="boton">{{ __('COMPRA INMEDIATA') }}</button>
                         </div>
                         <br><br>
                         {{--
