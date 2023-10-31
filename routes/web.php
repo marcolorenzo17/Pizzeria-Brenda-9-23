@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     $products = DB::select('select * from products order by id desc');
     return view('welcome', ['products' => $products]);
-});
+})->name('indexAnon');
 
 
 Route::get('/pizzasAnon', function() {

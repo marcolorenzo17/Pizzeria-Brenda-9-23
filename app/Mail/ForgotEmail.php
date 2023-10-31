@@ -16,7 +16,7 @@ class ForgotEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(private $email, private $password)
     {
         //
     }
@@ -27,7 +27,7 @@ class ForgotEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Forgot Email',
+            subject: 'Recuperación de Contraseña',
         );
     }
 
@@ -37,7 +37,8 @@ class ForgotEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.forgot-email',
+            with: ['email' => $this->email, 'password' => $this->password],
         );
     }
 

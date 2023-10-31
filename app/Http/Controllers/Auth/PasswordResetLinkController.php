@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Mail\ForgotEmail;
+use Illuminate\Support\Facades\Mail;
 
 class PasswordResetLinkController extends Controller
 {
@@ -25,6 +28,7 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        /*
         $request->validate([
             'email' => ['required', 'email'],
         ]);
@@ -40,5 +44,14 @@ class PasswordResetLinkController extends Controller
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
                             ->withErrors(['email' => __($status)]);
+        */
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        Mail::to($request->email)->send(new ForgotEmail($request->email, $request->password));
+
+        return redirect()->route('indexAnon');
     }
 }
