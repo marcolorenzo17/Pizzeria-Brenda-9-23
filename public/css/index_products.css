@@ -22,6 +22,21 @@
     }
 }
 
+@media only screen and (max-width: 1017px) {
+    #productos-grande-navbar {
+        display: none;
+    }
+    #productos-pequenio-navbar {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1017px) {
+    #productos-pequenio-navbar {
+        display: none;
+    }
+}
+
 #producto {
     transition: width 0.15s, height 0.15s;
 }
