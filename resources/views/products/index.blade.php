@@ -357,9 +357,6 @@ use App\Http\Controllers\ProductController;
                                     <button class="px-4 py-1.5 text-white text-sm rounded acercar"
                                         style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                                     <br><br>
-                                    {{--
-                                    <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                --}}
                                 </form>
                                 @if (Auth::user()->admin)
                                     <form method="post" action="{{ route('products.destroy', $product->id) }}"

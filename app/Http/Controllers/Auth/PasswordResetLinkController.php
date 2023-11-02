@@ -10,6 +10,9 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use App\Mail\ForgotEmail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class PasswordResetLinkController extends Controller
 {
@@ -51,6 +54,17 @@ class PasswordResetLinkController extends Controller
         ]);
 
         Mail::to($request->email)->send(new ForgotEmail($request->email, $request->password));
+
+        return redirect()->route('indexAnon');
+    }
+
+    public function change(Request $request): RedirectResponse
+    {
+        $user = User::where('email', $request->email)->firstOrFail();
+
+        $user->password = Hash::make($request->password);
+
+        $user->update();
 
         return redirect()->route('indexAnon');
     }
