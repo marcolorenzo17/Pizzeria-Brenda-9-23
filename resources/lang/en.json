@@ -406,5 +406,7 @@
     "Dirección:": "Address:",
     "Teléfono:": "Phone number:",
 
-    "COMPRA INMEDIATA": "INSTANT PURCHASE"
+    "COMPRA INMEDIATA": "INSTANT PURCHASE",
+    "Confirmación para cambio de contraseña": "Password change confirmation",
+    "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"
 }

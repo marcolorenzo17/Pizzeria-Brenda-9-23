@@ -1,4 +1,4 @@
-<p>Cambio de contraseña</p>
+<p>{{__('Confirmación para cambio de contraseña')}}</p>
 <br>
 <form action="{{ route('password.change') }}" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="{{ $email }}" name="email">
