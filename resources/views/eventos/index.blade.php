@@ -287,7 +287,7 @@
                 </div>
             @endif
             <br><br>
-            <p class="text-center">{{ __('*Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.') }}</p>
+            <p class="text-center">{{ __('*Sólo puedes tener un máximo de 5 reservas activas.') }}</p>
             <p class="text-center">
                 {{ __('*Cada reserva tiene un coste de 10€, los cuales se descontarán de la cuenta a pagar.') }}</p>
             <p class="text-center">{{ __('*Sólo podemos reservar mesas para un máximo de 50 personas cada día.') }}

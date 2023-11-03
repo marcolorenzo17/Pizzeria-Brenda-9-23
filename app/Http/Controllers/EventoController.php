@@ -71,8 +71,8 @@ class EventoController extends Controller
             $lim += $limit->personas;
         }
 
-        if ($sin >= 10) {
-            session()->flash('notif.success', 'Sólo se pueden realizar un máximo de 10 reservas al mismo tiempo.');
+        if ($sin >= 5) {
+            session()->flash('notif.success', 'Sólo puedes tener un máximo de 5 reservas activas.');
             return redirect()->route('eventos.index');
         } else if (($lim + $req->personas) >= 50) {
             session()->flash('notif.success', 'Todas las reservas están ocupadas para el día escogido. Por favor, inténtalo de nuevo, o elige otro día.');
