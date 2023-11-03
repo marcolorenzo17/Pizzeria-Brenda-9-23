@@ -175,6 +175,7 @@ function eliminar(indice, nombre) {
     document.getElementById(indice).remove();
     document.getElementById(`b-${indice}`).remove();
     document.getElementById(`ex-${indice}`).remove();
+    document.getElementById(`ext-${indice}`).remove();
 
     total -= Number(document.getElementById(`p-${indice}`).getAttribute("value"));
     totalcontenido.innerHTML = `${total.toFixed(2)} €`;
