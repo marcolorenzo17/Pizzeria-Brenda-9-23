@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div style="text-align:center;">
-        <a href="{{ route('cart.list') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-            id="boton">{{ __('ATRÁS') }}</a>
+        @if (Auth::User()->inmediato)
+            <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                id="boton">{{ __('ATRÁS') }}</a>
+        @else
+            <a href="{{ route('cart.list') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                id="boton">{{ __('ATRÁS') }}</a>
+        @endif
     </div>
     <div class="container px-12 py-8 mx-auto">
         <br>

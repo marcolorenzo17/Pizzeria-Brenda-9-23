@@ -6,11 +6,36 @@
         </h2>
         <br><br>
     </x-slot>
-    <br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="background-color:white; padding-top:20px;">
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
+            <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
+        </div>
     </div>
-
-    <br><br><br><br>
+    <br><br><br><br><br><br>
     <footer
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
         style="background-color:red;">
@@ -22,7 +47,8 @@
                 <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
-                <a href="{{ route('faq') }}" class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
+                <a href="{{ route('faq') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
                 <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
