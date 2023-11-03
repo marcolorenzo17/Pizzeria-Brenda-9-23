@@ -25,6 +25,9 @@
                 --}}
                 @if (Auth::user()->admin)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div style="position:relative; top:20px;" id="productos-grande-navbar">
+                            @include('partials/language_switcher')
+                        </div>
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
                             {{ __('Menú') }}
                         </x-nav-link>
@@ -156,14 +159,15 @@
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Cerrar sesión') }}
+                                <div id="productos-pequenio-navbar">
+                                    <br><br>
+                                </div>
                             </x-dropdown-link>
                         </form>
 
-                        <br>
-                        <div id="productos-pequenio-navbar">
-                            @include('partials/language_switcher')
+                        <div id="productos-pequenio-navbar" style="position:relative; top:-20px;">
+                            @include('partials/language_switcher')ç
                         </div>
-                        <br>
                     </x-slot>
 
                 </x-dropdown>
