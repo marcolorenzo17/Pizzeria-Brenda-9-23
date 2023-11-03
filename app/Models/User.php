@@ -29,7 +29,9 @@ class User extends Authenticatable
         'puntos',
         'restapuntos',
         'promocion',
-        'inmediato'
+        'inmediato',
+        'direccion',
+        'telefono'
     ];
 
     /**

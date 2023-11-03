@@ -24,6 +24,8 @@ class UserSeeder extends Seeder
             'restapuntos' => 0,
             'promocion' => false,
             'inmediato' => false,
+            'direccion' => 'C/ Padre Lerchundi, 3',
+            'telefono' => 638421254,
         ]);
     }
 }
