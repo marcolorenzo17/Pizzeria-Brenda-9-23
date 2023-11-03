@@ -445,7 +445,7 @@
                         </div>
                         <br><br><br>
                         <div id="creditoparte" style="display:none;">
-                            <label for="card-holder-name">{{ __('Nombre') }}</label>
+                            <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                             <input id="card-holder-name" type="text">
                             <br><br>
                             <div class="form-row">

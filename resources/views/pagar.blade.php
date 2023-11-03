@@ -117,7 +117,7 @@
                             @endif
 
                             <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form">
-                                <label for="card-holder-name">{{ __('Nombre') }}</label>
+                                <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                                 <input id="card-holder-name" type="text"><br><br>
                                 @csrf
                                 <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
