@@ -47,6 +47,18 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="direccion" :value="__('Dirección')" />
+            <x-text-input id="direccion" name="direccion" type="text" class="mt-1 block w-full" :value="old('direccion', $user->direccion)" required autofocus autocomplete="direccion" />
+            <x-input-error class="mt-2" :messages="$errors->get('direccion')" />
+        </div>
+
+        <div>
+            <x-input-label for="telefono" :value="__('Teléfono')" />
+            <x-text-input id="telefono" name="telefono" type="text" class="mt-1 block w-full" :value="old('telefono', $user->telefono)" required autofocus autocomplete="telefono" />
+            <x-input-error class="mt-2" :messages="$errors->get('telefono')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Actualizar') }}</x-primary-button>
 
