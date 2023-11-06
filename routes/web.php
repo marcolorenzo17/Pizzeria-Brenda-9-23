@@ -243,6 +243,7 @@ Route::post('nopagadorecibo/{id}', [ReciboController::class, 'nopagado'])->name(
 
 Route::get('/curriculum', CurriculumController::class)->name('curriculum.index');
 Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
+Route::delete('borrarCurriculum/{id}', [CurriculumController::class, 'destroy'])->name('curriculum.destroy');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);

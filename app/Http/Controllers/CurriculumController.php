@@ -47,4 +47,18 @@ class CurriculumController extends Controller
         session()->flash('notif.success', 'Se ha enviado el currículum con éxito.');
         return redirect('/products');
     }
+
+    public function destroy(string $id): RedirectResponse
+    {
+        $curriculum = Curriculum::findOrFail($id);
+
+        $delete = $curriculum->delete($id);
+
+        if($delete) {
+            session()->flash('notif.success', 'El currículum se ha borrado con éxito.');
+            return redirect()->route('curriculum.index');
+        }
+
+        return abort(500);
+    }
 }

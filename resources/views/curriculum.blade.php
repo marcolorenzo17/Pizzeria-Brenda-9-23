@@ -40,6 +40,13 @@
                             </div>
                         @endif
                         <br>
+                        <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
+                            @csrf
+                            @method('delete')
+                            <button
+                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                        </form>
+                        <br>
                     </div>
                     <br><br>
                 @endforeach
