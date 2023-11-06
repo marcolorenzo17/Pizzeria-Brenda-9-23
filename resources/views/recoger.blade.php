@@ -82,14 +82,13 @@
                             class="block mb-2 text-sm font-medium text-gray-900">{{ __('Dirección') }}</label>
                         <input type="text" id="direccion2" name="direccion2"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            required>
+                            value="{{Auth::User()->direccion}}" readonly required>
                     </div>
                     <div class="mb-6">
                         <label for="telefono"
                             class="block mb-2 text-sm font-medium text-gray-900">{{ __('Teléfono') }}</label>
                         <input type="text" id="telefono" name="telefono"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            required pattern="[0-9]{9}">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{Auth::User()->telefono}}" readonly required>
                     </div>
                 </div>
                 <p id="mensajeeuros" style="display:none; font-size: 25px;">

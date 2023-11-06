@@ -25,8 +25,10 @@
                     <td class="font-bold">{{ __('Pizzacoins obtenidas') }}</td>
                     <td class="font-bold">{{ __('Pizzacoins gastadas') }}</td>
                     <td class="font-bold">{{ __('Coste') }}</td>
-                    <td class="font-bold">{{ __('Dirección') }}</td>
-                    <td class="font-bold">{{ __('Teléfono') }}</td>
+                    <td class="font-bold">{{ __('Entrega') }}</td>
+                    {{--
+                        <td class="font-bold">{{ __('Teléfono') }}</td>
+                    --}}
                     <td class="font-bold">{{ __('Estado') }}</td>
                     <td class="font-bold">{{ __('Pago') }}</td>
                     @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
@@ -176,18 +178,20 @@
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Entrega') }}
                                 </p>
                                 <p>{{ $recibo->direccion }}</p>
                             </td>
                         </tr>
-                        <tr>
-                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}
-                                </p>
-                                <p>{{ $recibo->telefono }}</p>
-                            </td>
-                        </tr>
+                        {{--
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}
+                                    </p>
+                                    <p>{{ $recibo->telefono }}</p>
+                                </td>
+                            </tr>
+                        --}}
 
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
                             <tr>
@@ -309,17 +313,19 @@
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                    {{ __('Dirección') }}</p>
+                                    {{ __('Entrega') }}</p>
                                 <p>{{ $recibo->direccion }}</p>
                             </td>
                         </tr>
-                        <tr>
-                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}
-                                </p>
-                                <p>{{ $recibo->telefono }}</p>
-                            </td>
-                        </tr>
+                        {{--
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}
+                                    </p>
+                                    <p>{{ $recibo->telefono }}</p>
+                                </td>
+                            </tr>
+                        --}}
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Estado') }}

@@ -16,6 +16,8 @@
                 <tr>
                     <td class="font-bold">{{ __('Nombre') }}</td>
                     <td class="font-bold">{{ __('Correo electrónico') }}</td>
+                    <td class="font-bold">{{ __('Dirección') }}</td>
+                    <td class="font-bold">{{ __('Teléfono') }}</td>
                     <td class="font-bold">{{ __('Pizzacoins') }}</td>
                     <td class="font-bold">{{ __('Administrador') }}</td>
                     <td class="font-bold">{{ __('Rol') }}</td>
@@ -29,6 +31,8 @@
                     <tr>
                         <td>{{ $cliente->name }}</td>
                         <td>{{ $cliente->email }}</td>
+                        <td>{{ $cliente->direccion }}</td>
+                        <td>{{ $cliente->telefono }}</td>
                         <td>
                             <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
                                 @csrf
@@ -125,6 +129,22 @@
                         </td>
                         <td>
                             <p>{{ $cliente->email }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}</p>
+                        </td>
+                        <td>
+                            <p>{{ $cliente->direccion }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}</p>
+                        </td>
+                        <td>
+                            <p>{{ $cliente->telefono }}</p>
                         </td>
                     </tr>
                     <tr>

@@ -150,8 +150,15 @@ class CartController extends Controller
         $recibo = new Recibo;
         $recibo->puntos = $req->puntos;
         $recibo->total = $req->total;
+        /*
         $recibo->direccion = $req->direccion;
         $recibo->telefono = $req->telefono;
+        */
+        if ($req->direccion == 'C/ Padre Lerchundi, 3') {
+            $recibo->direccion = 'Recoger en Pizzería';
+        } else {
+            $recibo->direccion = 'A domicilio';
+        }
         $recibo->idUser = Auth::user()->id;
         $recibo->estado = 'Pedido registrado';
         $recibo->pagado = $req->pagado;
