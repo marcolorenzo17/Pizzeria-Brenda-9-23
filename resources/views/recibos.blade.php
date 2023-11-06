@@ -47,8 +47,10 @@
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
-                            <td>{{ $recibo->direccion }}</td>
-                            <td>{{ $recibo->telefono }}</td>
+                            <td>{{ __($recibo->direccion) }}</td>
+                            {{--
+                                <td>{{ $recibo->telefono }}</td>
+                            --}}
                             @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
                                 <td>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
@@ -116,8 +118,10 @@
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
-                            <td>{{ $recibo->direccion }}</td>
-                            <td>{{ $recibo->telefono }}</td>
+                            <td>{{ __($recibo->direccion) }}</td>
+                            {{--
+                                <td>{{ $recibo->telefono }}</td>
+                            --}}
                             <td>{{ __($recibo->estado) }}</td>
                             <td>
                                 @if ($recibo->pagado)
@@ -180,7 +184,7 @@
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Entrega') }}
                                 </p>
-                                <p>{{ $recibo->direccion }}</p>
+                                <p>{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -314,7 +318,7 @@
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Entrega') }}</p>
-                                <p>{{ $recibo->direccion }}</p>
+                                <p>{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
