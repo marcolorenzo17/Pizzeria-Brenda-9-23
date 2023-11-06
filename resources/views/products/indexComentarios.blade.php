@@ -51,7 +51,7 @@
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Reseña') }}</p>
-                            <p>{{ $comentario->resenia }}</p>
+                            <p style="padding-left:50px;">{{ $comentario->resenia }}</p>
                         </td>
                     </tr>
                     <tr>
