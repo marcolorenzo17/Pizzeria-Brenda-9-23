@@ -57,7 +57,7 @@
                     <option value="Oferta">{{ __('Oferta') }}</option>
                 </select>
                 <br>
-                <strong>Tipo actual:</strong>&nbsp;{{ $product->type }}
+                <strong>{{__('Tipo actual:')}}</strong>&nbsp;{{ __($product->type) }}
                 <br><br>
                 <label for="image_product">{{ __('Imagen') }}</label>
                 <br>
@@ -219,7 +219,7 @@
                 $alergenoslista = $product->alergenos;
                 $listacomas = str_replace('-', ', ', $alergenoslista);
                 ?>
-                <strong>Alérgenos actuales:</strong>&nbsp;{{ $listacomas }}
+                <strong>{{__('Alérgenos actuales:')}}</strong>&nbsp;{{ $listacomas }}
                 <br><br><br><br>
                 <div class="text-center">
                     <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"

@@ -196,7 +196,7 @@
                 $alergenoslista = $ingrediente->alergenos;
                 $listacomas = str_replace('-', ', ', $alergenoslista);
                 ?>
-                <strong>Alérgenos actuales:</strong>&nbsp;{{ $listacomas }}
+                <strong>{{__('Alérgenos actuales:')}}</strong>&nbsp;{{ $listacomas }}
                 <br><br><br><br>
                 <div class="text-center">
                     <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"

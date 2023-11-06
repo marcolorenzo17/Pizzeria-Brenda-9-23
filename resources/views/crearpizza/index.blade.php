@@ -32,7 +32,7 @@
                                 <img src="{{ asset($ingrediente->image) }}" alt="..."
                                     style="height:120px; width:120px;">
                                 <div>
-                                    <p>{{ $ingrediente->type }}</p>
+                                    <p>{{ __($ingrediente->type) }}</p>
                                     <p>{{ $ingrediente->name }}</p>
                                     <br>
                                     <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>

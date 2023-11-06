@@ -4,6 +4,7 @@
     "El carrito se ha actualizado con éxito.": "The cart has been updated successfully.",
     "El plato se ha eliminado con éxito.": "The dish has been removed successfully.",
     "El carrito se ha vaciado con éxito.": "The cart has been emptied successfully.",
+    "Alérgenos actuales:": "Current allergens:",
 
     "Se ha enviado el currículum con éxito.": "The resume has been sent successfully.",
 
@@ -154,6 +155,7 @@
 
     "CREA TU PROPIA PIZZA": "MAKE YOUR OWN PIZZA",
     "INGREDIENTES": "INGREDIENTS",
+    "Ingredientes": "Ingredients",
     "Precio total:": "Total price",
 
     "CURRÍCULUM": "RESUME",
@@ -282,6 +284,8 @@
     "VISÍTANOS": "VISIT US",
     "Atención al cliente:": "Customer support:",
     "CANJEA TUS PIZZACOINS": "SPEND YOUR PIZZACOINS",
+    "Se ha actualizado el plato con éxito.": "The dish has been updated succesfully.",
+    "Se ha añadido el plato con éxito.": "The dish has been added succesfully.",
 
     "¿La pizzería abre por la mañana?": "Does the pizzeria open in the morning?",
     "La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.": "The pizzeria opens every Sunday morning from October 1st to May 30th.",
