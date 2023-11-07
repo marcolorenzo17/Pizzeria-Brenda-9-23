@@ -142,49 +142,65 @@
                             <td style="display:flex; justify-content:space-between;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Fecha y hora') }}</p>
-                                <p>{{ $recibo->created_at }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->created_at }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}
                                 </p>
-                                <p>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">
+                                    {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}
+                                </p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Productos') }}
                                 </p>
-                                <p>{{ $recibo->productos }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->productos }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Pizzacoins obtenidas') }}</p>
-                                <p>{{ $recibo->total * 100 }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->total * 100 }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Pizzacoins gastadas') }}</p>
-                                <p>{{ $recibo->puntos }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Coste') }}
                                 </p>
-                                <p>{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Entrega') }}
                                 </p>
-                                <p>{{ __($recibo->direccion) }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -202,24 +218,30 @@
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Estado') }}</p>
-                                    <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
-                                        @csrf
-                                        <select id="estado" name="estado">
-                                            <option value="Pedido registrado">{{ __('Pedido registrado') }}</option>
-                                            <option value="Pedido en preparación">{{ __('Pedido en preparación') }}
-                                            </option>
-                                            <option value="Pedido en reparto">{{ __('Pedido en reparto') }}</option>
-                                            <option value="Pedido entregado">{{ __('Pedido entregado') }}</option>
-                                        </select>
-                                        <br>
-                                        <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                        <br>
-                                        <div class="text-center">
-                                            <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                                id="boton">{{ __('ACTUALIZAR') }}</button>
-                                        </div>
-                                    </form>
+                                </td>
+                                <td>
+                                    <div style="padding-left:50px;">
+                                        <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
+                                            @csrf
+                                            <select id="estado" name="estado">
+                                                <option value="Pedido registrado">{{ __('Pedido registrado') }}
+                                                </option>
+                                                <option value="Pedido en preparación">{{ __('Pedido en preparación') }}
+                                                </option>
+                                                <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
+                                                </option>
+                                                <option value="Pedido entregado">{{ __('Pedido entregado') }}</option>
+                                            </select>
+                                            <br>
+                                            <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
+                                            <br>
+                                            <div>
+                                                <button type="submit"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                    id="boton">{{ __('ACTUALIZAR') }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @else
@@ -227,7 +249,7 @@
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Estado') }}</p>
-                                    <p>{{ __($recibo->estado) }}</p>
+                                    <p style="padding-left:50px;">{{ __($recibo->estado) }}</p>
                                 </td>
                             </tr>
                         @endif
@@ -236,31 +258,44 @@
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Pago') }}</p>
-                                    @if ($recibo->pagado)
-                                        <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
-                                            @csrf
-                                            <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
-                                                style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
-                                        </form>
-                                    @else
-                                        <form method="post" action="{{ route('recibos.pagado', $recibo->id) }}">
-                                            @csrf
-                                            <button
-                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('PENDIENTE') }}</button>
-                                        </form>
-                                    @endif
+                                </td>
+                                @if ($recibo->pagado)
+                                    <td>
+                                        <div style="padding-left:50px;">
+                                            <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
+                                                @csrf
+                                                <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                    style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                @else
+                                    <td>
+                                        <div style="padding-left:50px;">
+                                            <form method="post" action="{{ route('recibos.pagado', $recibo->id) }}">
+                                                @csrf
+                                                <button
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('PENDIENTE') }}</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                @endif
                                 </td>
                             </tr>
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Eliminar') }}</p>
-                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
-                                    </form>
+                                </td>
+                                <td>
+                                    <div style="padding-left:50px;">
+                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @else
@@ -268,12 +303,16 @@
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Pago') }}</p>
-                                    @if ($recibo->pagado)
-                                        <p>{{ __('PAGADO') }}</p>
-                                    @else
-                                        <p>{{ __('PENDIENTE') }}</p>
-                                    @endif
                                 </td>
+                                @if ($recibo->pagado)
+                                    <td>
+                                        <p style="padding-left:50px;">{{ __('PAGADO') }}</p>
+                                    </td>
+                                @else
+                                    <td>
+                                        <p style="padding-left:50px;">{{ __('PENDIENTE') }}</p>
+                                    </td>
+                                @endif
                             </tr>
                         @endif
                         <tr></tr>
@@ -283,42 +322,54 @@
                             <td style="display:flex; justify-content:space-between;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Fecha y hora') }}</p>
-                                <p>{{ $recibo->created_at }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->created_at }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Productos') }}</p>
-                                <p>{{ $recibo->productos }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->productos }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Pizzacoins obtenidas') }}</p>
-                                <p>{{ $recibo->total * 100 }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->total * 100 }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Pizzacoins gastadas') }}</p>
-                                <p>{{ $recibo->puntos }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Coste') }}
                                 </p>
-                                <p>{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Entrega') }}</p>
-                                <p>{{ __($recibo->direccion) }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -334,7 +385,9 @@
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Estado') }}
                                 </p>
-                                <p>{{ $recibo->estado }}</p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">{{ $recibo->estado }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -342,13 +395,17 @@
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Pago') }}</p>
-                                    <p>{{ __('Pago realizado') }}</p>
+                                </td>
+                                <td>
+                                    <p style="padding-left:50px;">{{ __('Pago realizado') }}</p>
                                 </td>
                             @else
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Pago') }}</p>
-                                    <p>{{ __('Pago en curso') }}</p>
+                                </td>
+                                <td>
+                                    <p style="padding-left:50px;">{{ __('Pago en curso') }}</p>
                                 </td>
                             @endif
                         </tr>

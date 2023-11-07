@@ -123,7 +123,7 @@
                         </tr>
                     @endforeach
                 </table>
-                <table class="table-auto w-full"
+                <table
                     style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                     id="eventos-pequenio">
                     @foreach ($eventos as $evento)
