@@ -24,7 +24,7 @@
                 @foreach ($valoraciones as $valoracion)
                     <tr>
                         <td>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</td>
-                        <td>{{ $valoracion->resenia }}</td>
+                        <td style="word-wrap: break-word; max-width:100px;">{{ $valoracion->resenia }}</td>
                         @if (Auth::user()->role != 'Cliente')
                             <td>
                                 <form method="post"
@@ -39,32 +39,39 @@
                     </tr>
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+            <table style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                 id="productos-pequenio">
                 @foreach ($valoraciones as $valoracion)
                     <tr>
-                        <td style="display:flex; justify-content:space-between;">
+                        <td>
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
-                            <p>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:300px;">
+                            <p style="padding-left:50px;">{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                        <td style="padding-left:50px;">
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Reseña') }}</p>
-                            <p>{{ $valoracion->resenia }}</p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:300px;">
+                            <p style="padding-left:50px;">{{ $valoracion->resenia }}</p>
                         </td>
                     </tr>
                     <tr>
                         @if (Auth::user()->role != 'Cliente')
-                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}
-                                </p>
+                            <td style="padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
+                            </td>
+                            <td>
                                 <form method="post"
                                     action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
                                     @csrf
                                     @method('delete')
+                                    <div style="padding-left:50px;">
                                     <button
                                         class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                    </div>
                                 </form>
                             </td>
                         @endif
