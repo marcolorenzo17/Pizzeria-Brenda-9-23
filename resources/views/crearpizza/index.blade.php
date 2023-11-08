@@ -30,7 +30,7 @@
                         <td>
                             <div style="margin:20px; display:flex; gap:20px;">
                                 <img src="{{ asset($ingrediente->image) }}" alt="..."
-                                    style="height:120px; width:120px;">
+                                    style="height:120px; width:120px; border: 2px solid gray; border-radius:10px;">
                                 <div>
                                     <p>{{ __($ingrediente->type) }}</p>
                                     <p>{{ $ingrediente->name }}</p>

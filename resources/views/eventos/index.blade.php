@@ -208,24 +208,28 @@
                                 {{ __('Reserva') }}</p>
                             </td>
                             <td>
-                                <table {{-- id="productos-grande" --}}>
-                                    <tr>
-                                        <td>
-                                            <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
-                                                @csrf
-                                                <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
-                                                    style="border-color:green; border-style:solid; border-width:1px;">{{ __('ACEPTAR') }}</button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
-                                                @csrf
-                                                <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <div style="padding-left:50px;">
+                                    <table {{-- id="productos-grande" --}}>
+                                        <tr>
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('eventos.eventosi', $evento->id) }}">
+                                                    @csrf
+                                                    <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                        style="border-color:green; border-style:solid; border-width:1px;">{{ __('ACEPTAR') }}</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form method="post"
+                                                    action="{{ route('eventos.eventono', $evento->id) }}">
+                                                    @csrf
+                                                    <button
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </td>
                     @endif
                     </tr>
