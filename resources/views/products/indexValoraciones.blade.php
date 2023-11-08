@@ -39,7 +39,8 @@
                     </tr>
                 @endforeach
             </table>
-            <table style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
+            <table
+                style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                 id="productos-pequenio">
                 @foreach ($valoraciones as $valoracion)
                     <tr>
@@ -47,7 +48,8 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
+                            <p style="padding-left:50px;">
+                                {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -61,7 +63,8 @@
                     <tr>
                         @if (Auth::user()->role != 'Cliente')
                             <td style="padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}
+                                </p>
                             </td>
                             <td>
                                 <form method="post"
@@ -69,8 +72,8 @@
                                     @csrf
                                     @method('delete')
                                     <div style="padding-left:50px;">
-                                    <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                        <button
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
                                     </div>
                                 </form>
                             </td>
@@ -87,7 +90,7 @@
             class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
             style="background-color:red;">
             <span class="text-sm sm:text-center"
-                style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+                style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </span>
             <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
                 <li>

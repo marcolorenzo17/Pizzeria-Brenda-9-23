@@ -6,7 +6,8 @@
         </h2>
         <br><br>
     </x-slot>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="background-color:white; padding-top:20px;">
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="background-color:white; padding:50px;">
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md">
             <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto">
         </div>
@@ -40,7 +41,7 @@
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
         style="background-color:red;">
         <span class="text-sm sm:text-center"
-            style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
         <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
             <li>

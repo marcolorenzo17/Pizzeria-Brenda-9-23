@@ -196,7 +196,7 @@
                 $alergenoslista = $ingrediente->alergenos;
                 $listacomas = str_replace('-', ', ', $alergenoslista);
                 ?>
-                <strong>{{__('Alérgenos actuales:')}}</strong>&nbsp;{{ $listacomas }}
+                <strong>{{ __('Alérgenos actuales:') }}</strong>&nbsp;{{ $listacomas }}
                 <br><br><br><br>
                 <div class="text-center">
                     <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
@@ -210,7 +210,7 @@
             class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
             style="background-color:red;">
             <span class="text-sm sm:text-center"
-                style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+                style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </span>
             <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
                 <li>

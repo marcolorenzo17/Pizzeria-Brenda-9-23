@@ -117,8 +117,8 @@
                         <input type="hidden" value="{{ $products->image }}" name="image">
                         <input type="hidden" value="1" name="quantity">
                         <div style="text-align:center;">
-                            <button class="px-4 py-1.5 text-white text-sm rounded"
-                                id="boton" style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
+                                style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
                         </div>
                         <br><br>
                         {{--
@@ -154,14 +154,14 @@
                             <tr>
                                 <td onclick="valoracion(1)"><img src="{{ asset('img/starblank.png') }}" alt="*"
                                         width="30px" height="30px" id="e1"></td>
-                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}" alt="*"
-                                        width="30px" height="30px" id="e2"></td>
-                                <td onclick="valoracion(3)"><img src="{{ asset('img/starblank.png') }}" alt="*"
-                                        width="30px" height="30px" id="e3"></td>
-                                <td onclick="valoracion(4)"><img src="{{ asset('img/starblank.png') }}" alt="*"
-                                        width="30px" height="30px" id="e4"></td>
-                                <td onclick="valoracion(5)"><img src="{{ asset('img/starblank.png') }}" alt="*"
-                                        width="30px" height="30px" id="e5"></td>
+                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}"
+                                        alt="*" width="30px" height="30px" id="e2"></td>
+                                <td onclick="valoracion(3)"><img src="{{ asset('img/starblank.png') }}"
+                                        alt="*" width="30px" height="30px" id="e3"></td>
+                                <td onclick="valoracion(4)"><img src="{{ asset('img/starblank.png') }}"
+                                        alt="*" width="30px" height="30px" id="e4"></td>
+                                <td onclick="valoracion(5)"><img src="{{ asset('img/starblank.png') }}"
+                                        alt="*" width="30px" height="30px" id="e5"></td>
                             <tr>
                         </table>
                         <input type="hidden" id="estrellas" name="estrellas" value="1">
@@ -346,7 +346,7 @@
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
         style="background-color:red;">
         <span class="text-sm sm:text-center"
-            style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
         <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
             <li>

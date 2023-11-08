@@ -82,13 +82,14 @@
                             class="block mb-2 text-sm font-medium text-gray-900">{{ __('Dirección') }}</label>
                         <input type="text" id="direccion2" name="direccion2"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            value="{{Auth::User()->direccion}}" readonly required>
+                            value="{{ Auth::User()->direccion }}" readonly required>
                     </div>
                     <div class="mb-6">
                         <label for="telefono"
                             class="block mb-2 text-sm font-medium text-gray-900">{{ __('Teléfono') }}</label>
                         <input type="text" id="telefono" name="telefono"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{Auth::User()->telefono}}" readonly required>
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg foucs:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            value="{{ Auth::User()->telefono }}" readonly required>
                     </div>
                 </div>
                 <p id="mensajeeuros" style="display:none; font-size: 25px;">
@@ -107,11 +108,12 @@
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
         style="background-color:red;">
         <span class="text-sm sm:text-center"
-            style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
         <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
             <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
+                <a href="{{ route('whoarewe') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
             <li>
                 <a href="{{ route('faq') }}"

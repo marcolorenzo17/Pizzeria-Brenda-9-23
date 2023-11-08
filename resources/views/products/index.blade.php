@@ -32,8 +32,8 @@ use App\Http\Controllers\ProductController;
                 id="boton">{{ __('CREAR PLATO') }}</a>
         </div>
         <br>
-        <div>
-            <table>
+        <div style="background:white;">
+            <table style="width:100%;">
                 @foreach ($products as $product)
                     <tr>
                         <td>
@@ -1280,7 +1280,7 @@ use App\Http\Controllers\ProductController;
         class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
         style="background-color:red;">
         <span class="text-sm sm:text-center"
-            style="color: white;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
         <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
             <li>
