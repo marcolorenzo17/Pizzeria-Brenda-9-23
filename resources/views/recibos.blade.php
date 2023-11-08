@@ -55,21 +55,34 @@
                                 <td>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
-                                        <select id="estado" name="estado">
-                                            <option value="Pedido registrado">{{ __('Pedido registrado') }}</option>
-                                            <option value="Pedido en preparación">{{ __('Pedido en preparación') }}
-                                            </option>
-                                            <option value="Pedido en reparto">{{ __('Pedido en reparto') }}</option>
-                                            <option value="Pedido entregado">{{ __('Pedido entregado') }}</option>
-                                        </select>
-                                        <br>
-                                        <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                        <br>
-                                        <div class="text-center">
-                                            <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                                id="boton">{{ __('ACTUALIZAR') }}</button>
-                                        </div>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <select id="estado" name="estado"
+                                                        style="border-radius: 10px 0px 0px 10px;">
+                                                        <option value="Pedido registrado">{{ __('Pedido registrado') }}
+                                                        </option>
+                                                        <option value="Pedido en preparación">
+                                                            {{ __('Pedido en preparación') }}
+                                                        </option>
+                                                        <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
+                                                        </option>
+                                                        <option value="Pedido entregado">{{ __('Pedido entregado') }}
+                                                        </option>
+                                                    </select>
+                                                    <br>
+                                                    <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
+                                                </td>
+                                                <td>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                            class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
+                                                            id="boton"
+                                                            style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:19px; right:18px;">{{ __('✓') }}</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </form>
                                 </td>
                             @else
@@ -223,23 +236,34 @@
                                     <div style="padding-left:50px;">
                                         <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                             @csrf
-                                            <select id="estado" name="estado">
-                                                <option value="Pedido registrado">{{ __('Pedido registrado') }}
-                                                </option>
-                                                <option value="Pedido en preparación">{{ __('Pedido en preparación') }}
-                                                </option>
-                                                <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
-                                                </option>
-                                                <option value="Pedido entregado">{{ __('Pedido entregado') }}</option>
-                                            </select>
-                                            <br>
-                                            <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                            <br>
-                                            <div>
-                                                <button type="submit"
-                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                                    id="boton">{{ __('ACTUALIZAR') }}</button>
-                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <select id="estado" name="estado" style="border-radius: 10px 0px 0px 10px;">
+                                                            <option value="Pedido registrado">
+                                                                {{ __('Pedido registrado') }}
+                                                            </option>
+                                                            <option value="Pedido en preparación">
+                                                                {{ __('Pedido en preparación') }}
+                                                            </option>
+                                                            <option value="Pedido en reparto">
+                                                                {{ __('Pedido en reparto') }}
+                                                            </option>
+                                                            <option value="Pedido entregado">
+                                                                {{ __('Pedido entregado') }}</option>
+                                                        </select>
+                                                        <br>
+                                                        <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <button type="submit"
+                                                                class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
+                                                                id="boton" style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:10px; right:21px;">{{ __('✓') }}</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </form>
                                     </div>
                                 </td>
