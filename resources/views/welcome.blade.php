@@ -1018,6 +1018,135 @@
         </video>
     </div>
     <br>
+    <h1 class="text-center"
+        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        {{ __('TUS MENÚS GRATIS CANJEANDO PIZZACOINS') }}</h1>
+    <br>
+    {{--
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
+            <tr>
+                <td>
+                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
+                </td>
+                <td>
+                    <img src="{{ asset('img/promocion3.png') }}" alt="promocion2" width="300px" height="20px">
+                </td>
+            </tr>
+        </table>
+    </div>
+--}}
+    <div class="slideshow-container">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Promoción')
+                <div class="mySlides fade">
+                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                        style="border:3px solid black; border-radius:10px;">
+                    <br>
+                    <div style="display:flex; justify-content:center;">
+                        @if ($product->puntos)
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin"> {{ $product->puntos }}
+                            </div>
+                        @else
+                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                    </div>
+            @endif
+    </div>
+    </div>
+    @endif
+    @endforeach
+    {{--
+        <div class="mySlides fade">
+          <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
+        </div>
+    --}}
+    </div>
+    <br>
+    <div style="text-align:center">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Promoción')
+                <span class="dot"></span>
+            @endif
+        @endforeach
+    </div>
+    {{--
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Promoción')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset($product->image) }}" width="200px" height="200px">
+                </div>
+            @endif
+        @endforeach
+    </div>
+--}}
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
+        <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
+    </div>
+    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+        <p style="font-weight:bolder; font-size:20px;">{{ __('¿QUÉ SON LAS PIZZACOINS?') }}</p>
+    </div>
+    <div style="text-align:center;">
+        <br>
+        <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+        <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
+        <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
+        </p>
+        <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
+        <br>
+        <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
+        </p>
+    </div>
+    <br><br>
+    <h1 class="text-center"
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        {{ __('NUESTRAS OFERTAS') }}</h1>
+    <br>
+    <div class="slideshow-container2">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Oferta')
+                <div class="mySlides2 fade2 mx-auto">
+                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                        style="border:3px solid black; border-radius:10px;">
+                    <br>
+            @endif
+    </div>
+    </div>
+    @endforeach
+    </div>
+    <br>
+    <div style="text-align:center">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Oferta')
+                <span class="dot2"></span>
+            @endif
+        @endforeach
+    </div>
+    {{--
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
+        @foreach ($products as $product)
+            @if ($product->habilitado and $product->type == 'Oferta')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset($product->image) }}" width="200px" height="200px">
+                </div>
+            @endif
+        @endforeach
+    </div>
+--}}
+    <br><br>
     <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
         id="logo2">
         {{ __('¿QUÉ PEDIMOS?') }}</h1>
@@ -1083,135 +1212,6 @@
                     id="producto">{{ __('REFRESCOS') }}</a></div>
     </div>
     <br><br><br>
-    <h1 class="text-center"
-        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('CANJEA TUS PIZZACOINS') }}</h1>
-    <br>
-    {{--
-        <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-            <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-                <tr>
-                    <td>
-                        <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
-                    </td>
-                    <td>
-                        <img src="{{ asset('img/promocion3.png') }}" alt="promocion2" width="300px" height="20px">
-                    </td>
-                </tr>
-            </table>
-        </div>
-    --}}
-    <div class="slideshow-container">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Promoción')
-                <div class="mySlides fade">
-                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                        style="border:3px solid black; border-radius:10px;">
-                    <br>
-                    <div style="display:flex; justify-content:center;">
-                        @if ($product->puntos)
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
-                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin"> {{ $product->puntos }}
-                            </div>
-                        @else
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
-                                    src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
-                    </div>
-            @endif
-    </div>
-    </div>
-    @endif
-    @endforeach
-    {{--
-            <div class="mySlides fade">
-              <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
-            </div>
-
-            <div class="mySlides fade">
-              <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
-            </div>
-
-            <div class="mySlides fade">
-              <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-            </div>
-        --}}
-    </div>
-    <br>
-    <div style="text-align:center">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Promoción')
-                <span class="dot"></span>
-            @endif
-        @endforeach
-    </div>
-    {{--
-        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Promoción')
-                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <img src="{{ asset($product->image) }}" width="200px" height="200px">
-                    </div>
-                @endif
-            @endforeach
-        </div>
-    --}}
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
-        <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
-    </div>
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <p style="font-weight:bolder; font-size:20px;">{{ __('¿QUÉ SON LAS PIZZACOINS?') }}</p>
-    </div>
-    <div style="text-align:center;">
-        <br>
-        <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
-        <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
-        <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
-        </p>
-        <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
-        <br>
-        <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
-        </p>
-    </div>
-    <br><br>
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('NUESTRAS OFERTAS') }}</h1>
-    <br>
-    <div class="slideshow-container2">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Oferta')
-                <div class="mySlides2 fade2 mx-auto">
-                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                        style="border:3px solid black; border-radius:10px;">
-                    <br>
-            @endif
-    </div>
-    </div>
-    @endforeach
-    </div>
-    <br>
-    <div style="text-align:center">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Oferta')
-                <span class="dot2"></span>
-            @endif
-        @endforeach
-    </div>
-    {{--
-        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Oferta')
-                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                        <img src="{{ asset($product->image) }}" width="200px" height="200px">
-                    </div>
-                @endif
-            @endforeach
-        </div>
-    --}}
-    <br><br>
     <div style="background-color:#f78d8d;">
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
