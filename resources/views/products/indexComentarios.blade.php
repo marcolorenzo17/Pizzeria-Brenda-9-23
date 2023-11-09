@@ -12,6 +12,8 @@
         <div class="container px-12 py-8 mx-auto bg-white">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
                 <tr>
+                    <td class="font-bold">{{ __('Producto') }}</td>
+                    <td class="font-bold">{{ __('Valoración') }}</td>
                     <td class="font-bold">{{ __('Cliente') }}</td>
                     <td class="font-bold">{{ __('Comentario') }}</td>
                     @if (Auth::user()->role != 'Cliente')
@@ -22,7 +24,18 @@
                     <td>
                 </tr>
                 @foreach ($comentarios as $comentario)
+                    <?php
+                    $idProduct = \App\Models\Valoracione::where(['id' => $comentario->idValoracion])
+                        ->pluck('idProduct')
+                        ->first();
+                    ?>
                     <tr>
+                        <td style="word-wrap: break-word; max-width:100px;">
+                            {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
+                        </td>
+                        <td style="word-wrap: break-word; max-width:100px;">
+                            {{ \App\Models\Valoracione::where(['id' => $comentario->idValoracion])->pluck('resenia')->first() }}
+                        </td>
                         <td>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</td>
                         <td style="word-wrap: break-word; max-width:100px;">{{ $comentario->resenia }}</td>
                         @if (Auth::user()->role != 'Cliente')
@@ -43,13 +56,40 @@
                 style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                 id="productos-pequenio">
                 @foreach ($comentarios as $comentario)
+                    <?php
+                    $idProduct = \App\Models\Valoracione::where(['id' => $comentario->idValoracion])
+                        ->pluck('idProduct')
+                        ->first();
+                    ?>
                     <tr>
                         <td>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Producto') }}</p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:300px;">
+                            <p style="padding-left:50px;">
+                                {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Valoración') }}
+                            </p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:300px;">
+                            <p style="padding-left:50px;">
+                                {{ \App\Models\Valoracione::where(['id' => $comentario->idValoracion])->pluck('resenia')->first() }}
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:50px;">
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
                             <p style="padding-left:50px;">
-                                {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</p>
+                                {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
+                            </p>
                         </td>
                     </tr>
                     <tr>

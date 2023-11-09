@@ -275,6 +275,8 @@
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Estado') }}</p>
+                                </td>
+                                <td>
                                     <p style="padding-left:50px;">{{ __($recibo->estado) }}</p>
                                 </td>
                             </tr>

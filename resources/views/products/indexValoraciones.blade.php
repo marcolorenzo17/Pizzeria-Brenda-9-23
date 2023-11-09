@@ -12,7 +12,9 @@
         <div class="container px-12 py-8 mx-auto bg-white">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
                 <tr>
+                    <td class="font-bold">{{ __('Producto') }}</td>
                     <td class="font-bold">{{ __('Cliente') }}</td>
+                    <td class="font-bold">{{ __('Estrellas') }}</td>
                     <td class="font-bold">{{ __('Reseña') }}</td>
                     @if (Auth::user()->role != 'Cliente')
                         <td class="font-bold">{{ __('Eliminar') }}</td>
@@ -23,7 +25,9 @@
                 </tr>
                 @foreach ($valoraciones as $valoracion)
                     <tr>
+                        <td>{{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}</td>
                         <td>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</td>
+                        <td style="word-wrap: break-word; max-width:100px;">{{ $valoracion->estrellas }}</td>
                         <td style="word-wrap: break-word; max-width:100px;">{{ $valoracion->resenia }}</td>
                         @if (Auth::user()->role != 'Cliente')
                             <td>
@@ -45,11 +49,27 @@
                 @foreach ($valoraciones as $valoracion)
                     <tr>
                         <td>
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Producto') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
                             <p style="padding-left:50px;">
-                                {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
+                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:300px;">
+                            <p style="padding-left:50px;">{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:50px;">
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Estrellas') }}</p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:300px;">
+                            <p style="padding-left:50px;">{{ $valoracion->estrellas }}</p>
                         </td>
                     </tr>
                     <tr>
