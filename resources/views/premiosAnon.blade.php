@@ -895,6 +895,7 @@
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
                 style="width:57px; height:50px;"></a>
+        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
         <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
@@ -925,7 +926,7 @@
     <div class="container px-12 py-8 mx-auto bg-white">
         <h2 class="text-center">{{ __('PREMIOS') }}</h2>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center;">
+            style="display:flex; flex-wrap:wrap; align-items:center;">
             <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                 <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px">
             </div>

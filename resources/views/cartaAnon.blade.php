@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<link rel="stylesheet" href="/css/welcome.css" />
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Preguntas frecuentes</title>
+    <title>Pizzería Brenda - Carta</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -824,6 +826,89 @@
             }
         }
 
+        #logo1 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: logo1;
+            animation-duration: 1s;
+        }
+
+        @keyframes logo1 {
+            from {
+                font-size: 0px;
+            }
+
+            to {
+                font-size: 70px;
+            }
+        }
+
+        #logo2 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: logo2;
+            animation-duration: 1s;
+        }
+
+        @keyframes logo2 {
+            from {
+                font-size: 0px;
+            }
+
+            to {
+                font-size: 50px;
+            }
+        }
+
+        #iniciar1 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: iniciar1;
+            animation-duration: 1s;
+        }
+
+        /*
+        @keyframes iniciar1 {
+            from {
+                font-size: 0px;
+            }
+
+            to {
+                font-size: 15px;
+            }
+        }
+
+        #iniciar2 {
+            transition: width 0.15s, height 0.15s;
+            animation-name: iniciar2;
+            animation-duration: 1s;
+        }
+
+        @keyframes iniciar2 {
+            from {
+                font-size: 0px;
+            }
+
+            to {
+                font-size: 15px;
+            }
+        }
+        */
+
+        #producto {
+            transition: width 0.15s, height 0.15s;
+        }
+
+        #producto:hover {
+            width: 80px;
+            height: 80px;
+        }
+
+        #bottom {
+            transition: width 0.15s;
+        }
+
+        #bottom:hover {
+            width: 200px;
+        }
+
         /* The navigation bar */
         .navbar {
             overflow: hidden;
@@ -888,7 +973,7 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased">
+<body class="antialiased" style="background-image:url('img/fondoanon2.jpg');">
     <div class="navbar">
         <div style="position: relative; top: 15px;">
             @include('partials/language_switcher')
@@ -923,39 +1008,137 @@
         @endif
     </div>
     <br><br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white">
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Hay servicio a domicilio fuera de Chipiona?') }}</p>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, sólo ofrecemos nuestro servicio dentro del término municipal.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Qué horario tiene la pizzería?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo de 20:30 a 23:30.') }}</p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Se puede aparcar cerca?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Hay un aparcamiento a 500 m.') }}</p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Hay pizza para celíacos?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una base de pizza sin gluten especialmente elaborada para celíacos a la que se le puede añadir los ingredientes que desees. Además, en la carta se puede consultar los alérgenos de cada ingrediente.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Los camareros sirven en la mesa?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, la pizzería es autoservicio, pero los camareros te ayudarán en todo lo que necesites.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Qué tamaños de pizzas hay?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una pizza grande para 4 personas y otra pequeña para 2 personas aprox.') }}
-        </p>
-        <br><br>
-        <p style="font-weight: bolder; font-size:20px;">{{ __('¿Cuánto cuesta el servicio a domicilio?') }}</p><br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('2 € adicionales al pedido que se realice.') }}</p>
-        <br><br>
+    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto">
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center; text-align:center;">
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('HAMBURGUESAS') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('SÁNDWICHES') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('ARROCES') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('ENSALADAS') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('COMPLEMENTOS') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('PERRITOS') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('CERVEZAS') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('VINOS') }}</a></div>
+        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                href=""><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    id="producto">{{ __('REFRESCOS') }}</a></div>
     </div>
-    <br><br><br>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        <?php
+        $ides = 0;
+        ?>
+        @foreach ($products as $product)
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                    <img src="{{ asset($product->image) }}" class="mx-auto"
+                        style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                </a>
+                <div class="px-5 py-3" style="padding:15px;">
+                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                    {{--
+                    <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                --}}
+                </div>
+            </div>
+            <?php
+            $ides += 1;
+            ?>
+        @endforeach
+    </div>
+    <?php
+    $idesdesc = 0;
+    ?>
+    <div>
+        @foreach ($products as $product)
+            <div id="{{ $idesdesc }}" style="display: none;">
+                <br><br><br><br><br>
+                <h1 class="text-center"
+                    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+                    {{ __('DESCRIPCIÓN') }}</h1>
+                <div style="background:white; margin: 0 auto; text-align:center;">
+                    <br><br>
+                    <img src="{{ asset($product->image) }}" class="mx-auto"
+                        style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    <br>
+                    <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                    <br>
+                    <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                    <br><br>
+                    <?php
+                    $alergenoslista = explode('-', $product->alergenos);
+                    ?>
+                    <div style="display:flex; flex-wrap:wrap;">
+                        @if ($product->alergenos != '')
+                            @foreach ($alergenoslista as $alergeno)
+                                <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
+                                    height="40px">
+                            @endforeach
+                        @endif
+                    </div>
+                    <a href="#">
+                        <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
+                            style="margin-left:auto;">
+                    </a>
+                    <br><br>
+                </div>
+            </div>
+            <?php
+            $idesdesc += 1;
+            ?>
+        @endforeach
+    </div>
+    <br><br><br><br><br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
@@ -971,11 +1154,14 @@
                         width="30px" height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
             </div>
         </div>
     </div>
 </body>
+
+<script src="{{ asset('js/productsAnon-script.js') }}"></script>
 
 </html>

@@ -895,6 +895,7 @@
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
                 style="width:57px; height:50px;"></a>
+        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
         <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
@@ -932,7 +933,8 @@
         la Información y el Comercio Electrónico (LSSI-CE) de 11 de julio, se facilitan a continuación los siguientes
         datos de información general de este sitio web:
         <br>
-        La titularidad de este sitio web, www.pizzeriabrenda.com, (en adelante, Sitio Web) la ostenta: Manuel Lorenzo Mellado, con NIF: 12345678F, y cuyos datos de contacto son:
+        La titularidad de este sitio web, www.pizzeriabrenda.com, (en adelante, Sitio Web) la ostenta: Manuel Lorenzo
+        Mellado, con NIF: 12345678F, y cuyos datos de contacto son:
         <br>
         Dirección: direcciondeste7
         <br>

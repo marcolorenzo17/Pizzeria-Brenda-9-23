@@ -980,6 +980,7 @@
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
                 style="width:57px; height:50px;"></a>
+        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
         <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
@@ -1211,7 +1212,16 @@
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('REFRESCOS') }}</a></div>
     </div>
-    <br><br><br>
+    <br><br>
+    <div style="display:flex; margin-left:auto; margin-right:auto; gap:100px;">
+        <a href="cartaAnon"
+            style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
+            id="boton">{{ __('NUESTRA CARTA') }}</a>
+        <a href="{{ route('login') }}"
+            style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
+            id="boton">{{ __('PIDE YA') }}</a>
+    </div>
+    <br><br>
     <div style="background-color:#f78d8d;">
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">

@@ -125,6 +125,11 @@ Route::get('/premiosAnon', function() {
     return view('premiosAnon');
 });
 
+Route::get('/cartaAnon', function() {
+    $products = DB::table('products')->get();
+    return view('cartaAnon', ['products' => $products]);
+});
+
 
 Route::resource('products', ProductController::class);
 Route::get('indexValoraciones', [ProductController::class, 'indexValoraciones'])->name('products.indexValoraciones');
