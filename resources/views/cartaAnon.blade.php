@@ -1126,6 +1126,277 @@
             @endif
         @endforeach
     </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('SÁNDWICHES')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Sándwich')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('PASTA')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Pasta')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('ARROCES')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Arroz')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('BAGUETTES')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Baguette')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('ENSALADAS')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Ensalada')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('COMPLEMENTOS')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Complemento')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('PERRITOS')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Perrito')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('CERVEZAS')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Cerveza')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('VINOS')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Vino')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;">{{__('REFRESCOS')}}</p>
+    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        style="display:flex; flex-wrap:wrap; align-items:center;">
+        @foreach ($products as $product)
+            @if ($product->type == 'Refresco')
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                    </div>
+                </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endif
+        @endforeach
+    </div>
+    <br><br>
     <?php
     $idesdesc = 0;
     ?>
