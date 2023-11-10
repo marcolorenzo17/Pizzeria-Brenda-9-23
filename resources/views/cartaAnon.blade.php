@@ -1074,6 +1074,7 @@
     $ides = 0;
     ?>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p1">{{ __('PIZZAS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1101,6 +1102,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">{{ __('HAMBURGUESAS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1128,6 +1130,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">{{ __('SÁNDWICHES') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1155,6 +1158,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">{{ __('PASTA') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1182,6 +1186,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">{{ __('ARROCES') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1209,6 +1214,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">{{ __('BAGUETTES') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1236,6 +1242,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">{{ __('ENSALADAS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1263,6 +1270,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">{{ __('COMPLEMENTOS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1290,6 +1298,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">{{ __('PERRITOS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1317,6 +1326,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">{{ __('CERVEZAS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1344,6 +1354,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">{{ __('VINOS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1371,6 +1382,7 @@
     </div>
     <br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">{{ __('REFRESCOS') }}</p>
+    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
