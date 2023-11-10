@@ -1073,7 +1073,7 @@
     <?php
     $ides = 0;
     ?>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p1">{{ __('PIZZAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p1">{{ __('PIZZAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1100,7 +1100,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p2">{{ __('HAMBURGUESAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">{{ __('HAMBURGUESAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1127,7 +1127,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p3">{{ __('SÁNDWICHES') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">{{ __('SÁNDWICHES') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1154,7 +1154,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p4">{{ __('PASTA') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">{{ __('PASTA') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1181,7 +1181,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p5">{{ __('ARROCES') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">{{ __('ARROCES') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1208,7 +1208,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p6">{{ __('BAGUETTES') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">{{ __('BAGUETTES') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1235,7 +1235,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p7">{{ __('ENSALADAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">{{ __('ENSALADAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1262,7 +1262,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p8">{{ __('COMPLEMENTOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">{{ __('COMPLEMENTOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1289,7 +1289,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p9">{{ __('PERRITOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">{{ __('PERRITOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1316,7 +1316,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p10">{{ __('CERVEZAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">{{ __('CERVEZAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1343,7 +1343,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p11">{{ __('VINOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">{{ __('VINOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1370,7 +1370,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p12">{{ __('REFRESCOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">{{ __('REFRESCOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1856,7 +1856,7 @@
             @endif
         @endforeach
     </div>
-    <div style="position:fixed; bottom:80px; right:10px;">
+    <div style="position:fixed; bottom:100px; right:10px;">
         <a href="#">
             <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px">
         </a>
