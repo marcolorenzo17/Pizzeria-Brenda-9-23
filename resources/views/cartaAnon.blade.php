@@ -1073,14 +1073,15 @@
     <?php
     $ides = 0;
     ?>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p1">{{ __('PIZZAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p1">
+        {{ __('PIZZAS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Pizza')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1101,14 +1102,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">{{ __('HAMBURGUESAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
+        {{ __('HAMBURGUESAS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Hamburguesa')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1129,14 +1131,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">{{ __('SÁNDWICHES') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">
+        {{ __('SÁNDWICHES') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Sándwich')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1157,14 +1160,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">{{ __('PASTA') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">
+        {{ __('PASTA') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Pasta')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1185,14 +1189,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">{{ __('ARROCES') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">
+        {{ __('ARROCES') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Arroz')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1213,14 +1218,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">{{ __('BAGUETTES') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">
+        {{ __('BAGUETTES') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Baguette')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1241,14 +1247,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">{{ __('ENSALADAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">
+        {{ __('ENSALADAS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Ensalada')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1269,14 +1276,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">{{ __('COMPLEMENTOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">
+        {{ __('COMPLEMENTOS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Complemento')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1297,14 +1305,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">{{ __('PERRITOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">
+        {{ __('PERRITOS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Perrito')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1325,14 +1334,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">{{ __('CERVEZAS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">
+        {{ __('CERVEZAS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Cerveza')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1353,14 +1363,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">{{ __('VINOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">
+        {{ __('VINOS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Vino')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1381,14 +1392,15 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">{{ __('REFRESCOS') }}</p>
+    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">
+        {{ __('REFRESCOS') }}</p>
     <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px;"><br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
             @if ($product->type == 'Refresco')
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+                    style="border-radius:30px; border: 2px solid black;">
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
