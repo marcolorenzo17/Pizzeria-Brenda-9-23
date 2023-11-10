@@ -1013,59 +1013,59 @@
         style="display:flex; flex-wrap:wrap; align-items:center; text-align:center;">
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
+                href="#p1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
+                href="#p2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('HAMBURGUESAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
+                href="#p3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('SÁNDWICHES') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
+                href="#p4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
+                href="#p5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('ARROCES') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
+                href="#p6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
+                href="#p7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('ENSALADAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
+                href="#p8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('COMPLEMENTOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
+                href="#p9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('PERRITOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#10"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
+                href="#p10"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('CERVEZAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#11"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
+                href="#p11"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('VINOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#12"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
+                href="#p12"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('REFRESCOS') }}</a></div>
     </div>
@@ -1073,7 +1073,7 @@
     <?php
     $ides = 0;
     ?>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="1">{{ __('PIZZAS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p1">{{ __('PIZZAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1100,7 +1100,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="2">{{ __('HAMBURGUESAS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p2">{{ __('HAMBURGUESAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1127,7 +1127,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="3">{{ __('SÁNDWICHES') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p3">{{ __('SÁNDWICHES') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1154,7 +1154,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="4">{{ __('PASTA') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p4">{{ __('PASTA') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1181,7 +1181,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="5">{{ __('ARROCES') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p5">{{ __('ARROCES') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1208,7 +1208,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="6">{{ __('BAGUETTES') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p6">{{ __('BAGUETTES') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1235,7 +1235,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="7">{{ __('ENSALADAS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p7">{{ __('ENSALADAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1262,7 +1262,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="8">{{ __('COMPLEMENTOS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p8">{{ __('COMPLEMENTOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1289,7 +1289,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="9">{{ __('PERRITOS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p9">{{ __('PERRITOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1316,7 +1316,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="10">{{ __('CERVEZAS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p10">{{ __('CERVEZAS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1343,7 +1343,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="11">{{ __('VINOS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p11">{{ __('VINOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1370,7 +1370,7 @@
         @endforeach
     </div>
     <br><br>
-    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="12">{{ __('REFRESCOS') }}</p>
+    <p style="margin-left:20px; font-weight:bolder; font-size:20px;" id="p12">{{ __('REFRESCOS') }}</p>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1429,10 +1429,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1471,10 +1467,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1513,10 +1505,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1555,10 +1543,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1597,10 +1581,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1639,10 +1619,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1681,10 +1657,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1723,10 +1695,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1765,10 +1733,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1807,10 +1771,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1849,10 +1809,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1891,10 +1847,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <a href="#">
-                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                                style="margin-left:auto;">
-                        </a>
                         <br><br>
                     </div>
                 </div>
@@ -1903,6 +1855,11 @@
                 ?>
             @endif
         @endforeach
+    </div>
+    <div style="position:fixed; bottom:80px; right:10px;">
+        <a href="#">
+            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px">
+        </a>
     </div>
     <br><br><br><br><br><br><br><br>
     <div class="footer">

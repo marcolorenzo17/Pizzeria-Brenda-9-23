@@ -1148,10 +1148,9 @@
     </div>
 --}}
     <br><br>
-    <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
-        id="logo2">
+    <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
         {{ __('¿QUÉ PEDIMOS?') }}</h1>
-    <br>
+    {{--
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; text-align:center;">
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
@@ -1212,6 +1211,7 @@
                     style="display: block; margin-left: auto; margin-right: auto;"
                     id="producto">{{ __('REFRESCOS') }}</a></div>
     </div>
+    --}}
     <br><br>
     <div style="display:flex; margin-left:auto; margin-right:auto; gap:100px;">
         <a href="cartaAnon"
