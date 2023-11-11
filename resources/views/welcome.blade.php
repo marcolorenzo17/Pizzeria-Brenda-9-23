@@ -1038,12 +1038,11 @@
                         @else
                             <div class="-mr-2 flex items-center" style="font-size:20px;"><img
                                     src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                        @endif
                     </div>
+                </div>
             @endif
-    </div>
-    </div>
-    @endif
-    @endforeach
+        @endforeach
     </div>
     <br>
     <div style="text-align:center">
@@ -1083,10 +1082,9 @@
                     <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
                         style="border:3px solid black; border-radius:10px;">
                     <br>
+                </div>
             @endif
-    </div>
-    </div>
-    @endforeach
+        @endforeach
     </div>
     <br>
     <div style="text-align:center">
@@ -1097,7 +1095,8 @@
         @endforeach
     </div>
     <br><br>
-    <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
+    <h1
+        style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
         {{ __('¿QUÉ PEDIMOS?') }}</h1>
     <br><br>
     <div style="display:flex; margin-left:auto; margin-right:auto; gap:100px;">
