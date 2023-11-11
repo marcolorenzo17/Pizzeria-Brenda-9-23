@@ -1023,20 +1023,6 @@
         style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('TUS MENÚS GRATIS CANJEANDO PIZZACOINS') }}</h1>
     <br>
-    {{--
-    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-        <table style="margin-left:auto; margin-right:auto; border-collapse: separate; border-spacing: 50px 0; text-align:center;">
-            <tr>
-                <td>
-                    <img src="{{ asset('img/promocion1.jpg') }}" alt="promocion1" width="300px" height="20px">
-                </td>
-                <td>
-                    <img src="{{ asset('img/promocion3.png') }}" alt="promocion2" width="300px" height="20px">
-                </td>
-            </tr>
-        </table>
-    </div>
---}}
     <div class="slideshow-container">
         @foreach ($products as $product)
             @if ($product->habilitado and $product->type == 'Promoción')
@@ -1058,19 +1044,6 @@
     </div>
     @endif
     @endforeach
-    {{--
-        <div class="mySlides fade">
-          <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="80px" height="80px">
-        </div>
-    --}}
     </div>
     <br>
     <div style="text-align:center">
@@ -1080,18 +1053,6 @@
             @endif
         @endforeach
     </div>
-    {{--
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Promoción')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset($product->image) }}" width="200px" height="200px">
-                </div>
-            @endif
-        @endforeach
-    </div>
---}}
     <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
         <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
         <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
@@ -1135,83 +1096,9 @@
             @endif
         @endforeach
     </div>
-    {{--
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; padding:10px;">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Oferta')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset($product->image) }}" width="200px" height="200px">
-                </div>
-            @endif
-        @endforeach
-    </div>
---}}
     <br><br>
     <h1 style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
         {{ __('¿QUÉ PEDIMOS?') }}</h1>
-    {{--
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; text-align:center;">
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="pizzasAnon"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="burgersAnon"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('HAMBURGUESAS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="sandwichAnon"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('SÁNDWICHES') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="pastasAnon"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="arrocesAnon"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('ARROCES') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="baguettesAnon"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="ensaladasAnon"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('ENSALADAS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="complementosAnon"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('COMPLEMENTOS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="perritosAnon"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('PERRITOS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="cervezasAnon"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('CERVEZAS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="cervezasAnon"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('VINOS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="cervezasAnon"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('REFRESCOS') }}</a></div>
-    </div>
-    --}}
     <br><br>
     <div style="display:flex; margin-left:auto; margin-right:auto; gap:100px;">
         <a href="cartaAnon"
