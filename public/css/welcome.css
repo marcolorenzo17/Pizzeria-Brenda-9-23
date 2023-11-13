@@ -88,3 +88,14 @@
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
+.menusgratis {
+  animation: flash 2s infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 0 }
+  25% { opacity: 1 }
+  75% { opacity: 1 }
+  100% { opacity: 0 }
+}

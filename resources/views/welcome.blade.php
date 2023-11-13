@@ -1024,11 +1024,14 @@
     </div>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
-        <div style="display:flex;">
-            <div style="position:relative; top:150px;">
-                <h1 class="text-center"
-                    style="font-size:30px; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy;">
-                    {{ __('TUS MENÚS GRATIS CANJEANDO PIZZACOINS') }}
+        <div style="display:flex; align-items:center; justify-content:center;">
+            <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
+                <h1 style="font-size:50px; color:yellow;" class="menusgratis">
+                    {{ __('¡TUS MENÚS GRATIS!') }}
+                </h1>
+                <br>
+                <h1 style="font-size:30px;">
+                    {{ __('CANJEANDO TUS PIZZACOINS') }}
                 </h1>
             </div>
             <div class="slideshow-container">
@@ -1067,7 +1070,8 @@
                     <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¡PIZZACOINS!') }}</p>
                 </div>
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¿QUÉ SON LAS PIZZACOINS?') }}
+                    <p style="font-weight:bolder; font-size:20px; color:white; text-align:center;">
+                        {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
                     </p>
                 </div>
                 <div style="text-align:center; color:white;">
@@ -1087,30 +1091,33 @@
     </div>
     <h1 class="text-center"
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('NUESTRAS OFERTAS') }}
+        {{ __('OFERTAS') }}
     </h1>
-    <div style="background-image:url('img/backgroundpizza.png');">
-        <br>
-        <div class="slideshow-container2">
+    <div style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
+        <div style="margin-left:100px;">
+            <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
+        </div>
+        <div class="slideshow-container2" style="padding-right:100px;">
+            <br>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade2 mx-auto">
                         <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                            style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
+                            style="border:3px solid black; border-radius:10px;">
                         <br>
                     </div>
                 @endif
             @endforeach
+            <br>
+            <div style="text-align:center">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Oferta')
+                        <span class="dot2"></span>
+                    @endif
+                @endforeach
+            </div>
+            <br><br>
         </div>
-        <br>
-        <div style="text-align:center">
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Oferta')
-                    <span class="dot2"></span>
-                @endif
-            @endforeach
-        </div>
-        <br><br>
     </div>
     <div style="background-color:red;">
         <br>
@@ -1118,18 +1125,18 @@
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <h1
-            style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
+            style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:white;">
             {{ __('¿QUÉ PEDIMOS?') }}
         </h1>
         <br><br>
         <div style="display:flex; gap:100px; justify-content:center;">
             <a href="cartaAnon"
-                style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
+                style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white;"
                 id="boton">{{ __('NUESTRA CARTA') }}
             </a>
             <a href="{{ route('login') }}"
-                style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
-                id="boton">{{ __('PIDE YA') }}
+                style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white;"
+                id="boton">{{ __('¡PIDE AHORA!') }}
             </a>
         </div>
         <br><br>
@@ -1137,12 +1144,13 @@
     <div style="background-color:#f78d8d;">
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-            {{ __('TELÉFONOS') }}</h1>
+            {{ __('TELÉFONOS') }}
+        </h1>
         <br>
         <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
         </p>
         <div class="flex items-center justify-center"
-            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000; text-align:center;">
             <p>956 37 11 15</p>
             <p>956 37 47 36</p>
             <p>627 650 605</p>
@@ -1155,13 +1163,13 @@
     <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px;">
         <div style="text-align:center;">
             <div class="flex items-center justify-center">
-                <p>{{ __('De lunes a domingo:') }}</p>
-                <p style="font-weight:bolder; font-size:20px;">&nbsp;20:30 - 23:30</p>
+                <p style="font-size:20px;">{{ __('De lunes a domingo:') }}</p>
+                <p style="font-weight:bolder; font-size:30px;">&nbsp;20:30 - 23:30</p>
             </div>
             <br>
             <div class="flex items-center justify-center">
-                <p>{{ __('Domingo por la mañana:') }}</p>
-                <p style="font-weight:bolder; font-size:20px;">&nbsp;13:30 - 15:00</p>
+                <p style="font-size:20px;">{{ __('Domingo por la mañana:') }}</p>
+                <p style="font-weight:bolder; font-size:30px;">&nbsp;13:30 - 15:00</p>
             </div>
             <br>
         </div>
