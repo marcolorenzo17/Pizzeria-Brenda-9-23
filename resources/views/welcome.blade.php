@@ -1019,58 +1019,69 @@
         </video>
     </div>
     <br>
-    <h1 class="text-center"
-        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('TUS MENÚS GRATIS CANJEANDO PIZZACOINS') }}
-    </h1>
+    <div style="background-color:red;">
+        <br>
+    </div>
     <div style="background-color:#4a4895;">
         <br>
-        <div class="slideshow-container">
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Promoción')
-                    <div class="mySlides fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                            style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
-                        <br>
-                        <div style="display:flex; justify-content:center;">
-                            @if ($product->puntos)
-                                <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
-                                        src="{{ asset('img/pizzacoin.png') }}" alt="coin"> {{ $product->puntos }}
-                                </div>
-                            @else
-                                <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
-                                        src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
-                            @endif
+        <div style="display:flex;">
+            <div style="position:relative; top:150px;">
+                <h1 class="text-center"
+                    style="font-size:30px; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy;">
+                    {{ __('TUS MENÚS GRATIS CANJEANDO PIZZACOINS') }}
+                </h1>
+            </div>
+            <div class="slideshow-container">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Promoción')
+                        <div class="mySlides fade">
+                            <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
+                            <br>
+                            <div style="display:flex; justify-content:center;">
+                                @if ($product->puntos)
+                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
+                                            src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                        {{ $product->puntos }}
+                                    </div>
+                                @else
+                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
+                                            src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
-        </div>
-        <br>
-        <div style="text-align:center">
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Promoción')
-                    <span class="dot"></span>
-                @endif
-            @endforeach
-        </div>
-        <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-            <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
-            <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¡PIZZACOINS!') }}</p>
-        </div>
-        <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-            <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¿QUÉ SON LAS PIZZACOINS?') }}</p>
-        </div>
-        <div style="text-align:center; color:white;">
-            <br>
-            <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
-            <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
-            <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
-            </p>
-            <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
-            <br>
-            <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
-            </p>
+                    @endif
+                @endforeach
+                <br>
+                <div style="text-align:center">
+                    @foreach ($products as $product)
+                        @if ($product->habilitado and $product->type == 'Promoción')
+                            <span class="dot"></span>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            <div style="margin-left:100px; margin-right:100px;">
+                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                    <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
+                    <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¡PIZZACOINS!') }}</p>
+                </div>
+                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                    <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¿QUÉ SON LAS PIZZACOINS?') }}
+                    </p>
+                </div>
+                <div style="text-align:center; color:white;">
+                    <br>
+                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+                    <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
+                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
+                    </p>
+                    <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
+                    <br>
+                    <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
+                    </p>
+                </div>
+            </div>
         </div>
         <br><br>
     </div>
@@ -1101,7 +1112,7 @@
         </div>
         <br><br>
     </div>
-    <div>
+    <div style="background-color:red;">
         <br>
     </div>
     <div style="background-color:#4a4895;">
