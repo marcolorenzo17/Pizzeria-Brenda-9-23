@@ -1076,41 +1076,53 @@
     </div>
     <h1 class="text-center"
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('NUESTRAS OFERTAS') }}</h1>
-    <br>
-    <div class="slideshow-container2">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Oferta')
-                <div class="mySlides2 fade2 mx-auto">
-                    <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                        style="border:3px solid black; border-radius:10px;">
-                    <br>
-                </div>
-            @endif
-        @endforeach
+        {{ __('NUESTRAS OFERTAS') }}
+    </h1>
+    <div style="background-color:#4a4895;">
+        <br>
+        <div class="slideshow-container2">
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Oferta')
+                    <div class="mySlides2 fade2 mx-auto">
+                        <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                            style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
+                        <br>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <br>
+        <div style="text-align:center">
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Oferta')
+                    <span class="dot2"></span>
+                @endif
+            @endforeach
+        </div>
+        <br><br>
     </div>
-    <br>
-    <div style="text-align:center">
-        @foreach ($products as $product)
-            @if ($product->habilitado and $product->type == 'Oferta')
-                <span class="dot2"></span>
-            @endif
-        @endforeach
+    <div>
+        <br>
     </div>
-    <br><br>
-    <h1
-        style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
-        {{ __('¿QUÉ PEDIMOS?') }}</h1>
-    <br><br>
-    <div style="display:flex; margin-left:auto; margin-right:auto; gap:100px;">
-        <a href="cartaAnon"
-            style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
-            id="boton">{{ __('NUESTRA CARTA') }}</a>
-        <a href="{{ route('login') }}"
-            style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
-            id="boton">{{ __('PIDE YA') }}</a>
+    <div style="background-color:#4a4895;">
+        <br>
+        <h1
+            style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
+            {{ __('¿QUÉ PEDIMOS?') }}
+        </h1>
+        <br><br>
+        <div style="display:flex; gap:100px; justify-content:center;">
+            <a href="cartaAnon"
+                style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
+                id="boton">{{ __('NUESTRA CARTA') }}
+            </a>
+            <a href="{{ route('login') }}"
+                style="color:black; font-size:15px; background-color:red; padding:15px; border-radius:15px; color:white;"
+                id="boton">{{ __('PIDE YA') }}
+            </a>
+        </div>
+        <br><br>
     </div>
-    <br><br>
     <div style="background-color:#f78d8d;">
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
@@ -1145,20 +1157,23 @@
     </div>
     <h1 class="text-center"
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('VISÍTANOS') }}</h1>
-    <br>
-    <div style="width:600px; margin-left:auto; margin-right:auto;">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        {{ __('VISÍTANOS') }}
+    </h1>
+    <div style="background-color:#4a4895;">
         <br>
-        <div class="flex items-center justify-center">
-            <p>{{ __('Atención al cliente:') }}</p>
-            <p style="font-weight:bolder; font-size:20px;">&nbsp;brendapizza@hotmail.com</p>
+        <div style="width:600px; margin-left:auto; margin-right:auto;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br>
+            <div class="flex items-center justify-center">
+                <p style="color:white;">{{ __('Atención al cliente:') }}</p>
+                <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
+            </div>
         </div>
+        <br><br><br><br><br>
     </div>
-    <br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
