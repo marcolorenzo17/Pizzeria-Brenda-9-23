@@ -1022,7 +1022,7 @@
     <div style="background-color:red;">
         <br>
     </div>
-    <div style="background-color:#4a4895;">
+    <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <div style="display:flex;">
             <div style="position:relative; top:150px;">
@@ -1089,7 +1089,7 @@
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('NUESTRAS OFERTAS') }}
     </h1>
-    <div style="background-color:#4a4895;">
+    <div style="background-image:url('img/backgroundpizza.png');">
         <br>
         <div class="slideshow-container2">
             @foreach ($products as $product)
@@ -1115,7 +1115,7 @@
     <div style="background-color:red;">
         <br>
     </div>
-    <div style="background-color:#4a4895;">
+    <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <h1
             style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;">
@@ -1170,7 +1170,7 @@
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('VISÍTANOS') }}
     </h1>
-    <div style="background-color:#4a4895;">
+    <div style="background-image:url('img/backgroundpizza.png');">
         <br>
         <div style="width:600px; margin-left:auto; margin-right:auto;">
             <iframe
