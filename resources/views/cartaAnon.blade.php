@@ -1102,6 +1102,7 @@
                 ?>
             @endif
         @endforeach
+        {{-- Texto iniciar sesión para crear pizzas --}}
     </div>
     <br><br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
