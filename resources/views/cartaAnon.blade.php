@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<link rel="stylesheet" href="/css/welcome.css" />
+<link rel="stylesheet" href="/css/cartaAnon.css" />
 
 <head>
     <meta charset="utf-8">
@@ -1087,7 +1087,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1117,7 +1117,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1147,7 +1147,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1177,7 +1177,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1207,7 +1207,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1237,7 +1237,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1267,7 +1267,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1297,7 +1297,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1327,7 +1327,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1357,7 +1357,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1387,7 +1387,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
@@ -1417,7 +1417,7 @@
 
                     <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                         <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
                     </a>
                     <div class="px-5 py-3" style="padding:15px;">
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
