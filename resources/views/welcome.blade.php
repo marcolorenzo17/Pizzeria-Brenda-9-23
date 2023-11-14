@@ -1141,7 +1141,7 @@
         </div>
         <br><br>
     </div>
-    <div style="background-color:#f78d8d;">
+    <div style="background-image:url('img/backgroundpizzared.png');">
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
             {{ __('TELÉFONOS') }}
@@ -1159,16 +1159,17 @@
     </div>
     <h1 class="text-center"
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-        {{ __('HORARIO') }}</h1>
-    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px;">
+        {{ __('HORARIO') }}
+    </h1>
+    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
         <div style="text-align:center;">
             <div class="flex items-center justify-center">
-                <p style="font-size:20px;">{{ __('De lunes a domingo:') }}</p>
+                <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
                 <p style="font-weight:bolder; font-size:30px;">&nbsp;20:30 - 23:30</p>
             </div>
             <br>
             <div class="flex items-center justify-center">
-                <p style="font-size:20px;">{{ __('Domingo por la mañana:') }}</p>
+                <p style="font-size:20px; font-weight:bold;">{{ __('Domingo por la mañana:') }}</p>
                 <p style="font-weight:bolder; font-size:30px;">&nbsp;13:30 - 15:00</p>
             </div>
             <br>
