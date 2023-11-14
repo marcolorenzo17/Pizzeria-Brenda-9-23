@@ -1444,7 +1444,8 @@
                     <br><br><br><br><br>
                     <h1 class="text-center"
                         style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
+                        {{ __('DESCRIPCIÓN') }}
+                    </h1>
                     <div style="background:white; margin: 0 auto; text-align:center;">
                         <br><br>
                         <img src="{{ asset($product->image) }}" class="mx-auto"
