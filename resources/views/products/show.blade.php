@@ -41,7 +41,8 @@
                     </a>
                     <br><br>
                     <div class="mb-6">
-                        <img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto">
+                        <img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto"
+                            style="border:5px solid gray; border-radius:10px;">
                     </div>
                     <div class="mb-6">
                         <?php
@@ -92,55 +93,51 @@
                             {{ $products->type }}
                         </p>
                     </div>
-                    <br>
-                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" value="{{ $products->id }}" name="id">
-                        <input type="hidden" value="{{ $products->name }}" name="name">
-                        <input type="hidden" value="{{ $products->price }}" name="price">
-                        <input type="hidden" value="{{ $products->image }}" name="image">
-                        <input type="hidden" value="1" name="quantity">
-                        <div style="text-align:center;">
-                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
-                                id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
-                        </div>
-                        <br><br>
-                        {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
-                    </form>
-                    <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" value="{{ $products->id }}" name="id">
-                        <input type="hidden" value="{{ $products->name }}" name="name">
-                        <input type="hidden" value="{{ $products->price }}" name="price">
-                        <input type="hidden" value="{{ $products->image }}" name="image">
-                        <input type="hidden" value="1" name="quantity">
-                        <div style="text-align:center;">
-                            <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
-                                style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
-                        </div>
-                        <br><br>
-                        {{--
-                                        <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                                    --}}
-                    </form>
-                    @if (Auth::user()->admin)
+                    {{--
+                        @if (Auth::user()->admin)
                         <form method="post" action="{{ route('products.destroy', $products->id) }}" class="inline">
                             @csrf
                             @method('delete')
                             <button
-                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
                         </form>
-                    @endif
+                        @endif
+                        --}}
 
                     <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px"
                         class="max-h-60 mx-auto">
 
-                    </tr>
-                    </table>
+                    <br><br>
+
+                    <div style="display:flex; justify-content:center; gap:100px;">
+                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $products->id }}" name="id">
+                            <input type="hidden" value="{{ $products->name }}" name="name">
+                            <input type="hidden" value="{{ $products->price }}" name="price">
+                            <input type="hidden" value="{{ $products->image }}" name="image">
+                            <input type="hidden" value="1" name="quantity">
+                            <div style="text-align:center;">
+                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
+                                    id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                            </div>
+                        </form>
+                        <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $products->id }}" name="id">
+                            <input type="hidden" value="{{ $products->name }}" name="name">
+                            <input type="hidden" value="{{ $products->price }}" name="price">
+                            <input type="hidden" value="{{ $products->image }}" name="image">
+                            <input type="hidden" value="1" name="quantity">
+                            <div style="text-align:center;">
+                                <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
+                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <br><br><br>
-                    <h2 class="text-center">{{ __('RESEÑAS') }}</h2>
+                    <h2 class="text-center" style="font-weight:bolder; font-size:20px;">{{ __('RESEÑAS') }}</h2>
                     <br><br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
                         @csrf
@@ -148,7 +145,8 @@
                             <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                             <br>
                         @enderror
-                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"></textarea>
+                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"
+                            style="width:100%; border-radius:10px;"></textarea>
                         <br>
                         <table>
                             <tr>
@@ -162,7 +160,7 @@
                                         alt="*" width="30px" height="30px" id="e4"></td>
                                 <td onclick="valoracion(5)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e5"></td>
-                            <tr>
+                            </tr>
                         </table>
                         <input type="hidden" id="estrellas" name="estrellas" value="1">
                         <br>
@@ -220,15 +218,16 @@
                                                 action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}"
                                                 method="POST">
                                                 @csrf
-                                                <div>
+                                                <div style="align-items:center;">
                                                     @error('modifVal')
                                                         <span class="text-danger"
                                                             style="color:red;">{{ __($message) }}</span>
                                                         <br>
                                                     @enderror
-                                                    <input type="text" id="modifVal" name="modifVal">
+                                                    <input type="text" id="modifVal" name="modifVal"
+                                                        style="border-radius:10px;">
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                        style="color:green; background-color:lightgray;"
+                                                        style="color:green; background-color:lightgray; margin-left:10px;"
                                                         id="boton">{{ __('Publicar') }}
                                                     </button>
                                                 </div>
@@ -260,13 +259,18 @@
                                             <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                                             <br>
                                         @enderror
-                                        <input type="text" id="reseniaCom" name="reseniaCom"
-                                            placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30">
-                                        <br><br>
-                                        <div>
-                                            <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                                id="boton">{{ __('Publicar comentario') }}</button>
+                                        <div style="display:flex; align-items:center;">
+                                            <input type="text" id="reseniaCom" name="reseniaCom"
+                                                placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30"
+                                                style="border-radius:10px;">
+                                            <br><br>
+                                            <div>
+                                                <button type="submit"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                    id="boton"
+                                                    style="margin-left:10px;">{{ __('Publicar comentario') }}
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                     <br><br>
@@ -297,16 +301,17 @@
                                                             action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
                                                             method="POST">
                                                             @csrf
-                                                            <div>
+                                                            <div style="align-items:center;">
                                                                 @error('modifCom')
                                                                     <span class="text-danger"
                                                                         style="color:red;">{{ __($message) }}</span>
                                                                     <br>
                                                                 @enderror
-                                                                <input type="text" id="modifCom" name="modifCom">
+                                                                <input type="text" id="modifCom" name="modifCom"
+                                                                    style="border-radius:10px;">
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
-                                                                    style="color:green; background-color:lightgray;"
+                                                                    style="color:green; background-color:lightgray; margin-left:10px;"
                                                                     id="boton">{{ __('Publicar') }}
                                                                 </button>
                                                             </div>
