@@ -167,12 +167,12 @@
                                 <div style="display:flex;">
                                     <div style="padding-left:50px;">
                                         <input type="text" id="puntos" name="puntos" size="10"
-                                            value="{{ $cliente->puntos }}" style="border-radius: 10px 0px 0px 10px;">
+                                            value="{{ $cliente->puntos }}" style="border-radius:10px;">
                                     </div>
                                     <div style="padding-left:0px;">
                                         <button type="submit" class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
                                             id="boton"
-                                            style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px;">{{ __('✓') }}</button>
+                                            style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -222,7 +222,7 @@
                                         <tr>
                                             <td>
                                                 <select id="role" name="role"
-                                                    style="border-radius: 10px 0px 0px 10px;">
+                                                    style="border-radius:10px;">
                                                     <option value="Cliente">{{ __('Cliente') }}</option>
                                                     <option value="Jefe">{{ __('Jefe') }}</option>
                                                     <option value="Cajero">{{ __('Cajero') }}</option>
@@ -237,7 +237,7 @@
                                                     <button type="submit"
                                                         class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
                                                         id="boton"
-                                                        style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:12px; right:2px;">{{ __('✓') }}</button>
+                                                        style="height:42px; font-weight:bolder; border-radius:10px; position:relative; bottom:12px; right:2px;">{{ __('✓') }}</button>
                                                 </div>
                                             </td>
                                         </tr>

@@ -238,7 +238,7 @@
                                                 <tr>
                                                     <td>
                                                         <select id="estado" name="estado"
-                                                            style="border-radius: 10px 0px 0px 10px;">
+                                                            style="border-radius:10px;">
                                                             <option value="Pedido registrado">
                                                                 {{ __('Pedido registrado') }}
                                                             </option>
@@ -259,7 +259,7 @@
                                                             <button type="submit"
                                                                 class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
                                                                 id="boton"
-                                                                style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:10px; right:21px;">{{ __('✓') }}</button>
+                                                                style="height:42px; font-weight:bolder; border-radius:10px; position:relative; bottom:10px; right:21px;">{{ __('✓') }}</button>
                                                         </div>
                                                     </td>
                                                 </tr>
