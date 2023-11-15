@@ -30,6 +30,7 @@
                         <td class="font-bold">{{ __('Teléfono') }}</td>
                     --}}
                     <td class="font-bold">{{ __('Estado') }}</td>
+                    <td></td>
                     <td class="font-bold">{{ __('Pago') }}</td>
                     @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                         <td class="font-bold">{{ __('Eliminar') }}</td>
@@ -55,40 +56,37 @@
                                 <td>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <select id="estado" name="estado"
-                                                        style="border-radius: 10px 0px 0px 10px;">
-                                                        <option value="Pedido registrado">{{ __('Pedido registrado') }}
-                                                        </option>
-                                                        <option value="Pedido en preparación">
-                                                            {{ __('Pedido en preparación') }}
-                                                        </option>
-                                                        <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
-                                                        </option>
-                                                        <option value="Pedido entregado">{{ __('Pedido entregado') }}
-                                                        </option>
-                                                    </select>
-                                                    <br>
-                                                    <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                                </td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <button type="submit"
-                                                            class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                                            id="boton"
-                                                            style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:19px; right:18px;">{{ __('✓') }}</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div style="display:flex; align-items:center; gap:5px;">
+                                            <div>
+                                                <select id="estado" name="estado" style="border-radius: 10px;">
+                                                    <option value="Pedido registrado">{{ __('Pedido registrado') }}
+                                                    </option>
+                                                    <option value="Pedido en preparación">
+                                                        {{ __('Pedido en preparación') }}
+                                                    </option>
+                                                    <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
+                                                    </option>
+                                                    <option value="Pedido entregado">{{ __('Pedido entregado') }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                    id="boton"
+                                                    style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                            </div>
+                                        </div>
                                     </form>
+                                </td>
+                                <td>
+                                    <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
                                 </td>
                             @else
                                 <td>
                                     <p>{{ __($recibo->estado) }}</p>
                                 </td>
+                                <td></td>
                             @endif
                             @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                                 <td>
