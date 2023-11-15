@@ -1106,12 +1106,12 @@
     </div>
     <br><br>
     <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
-        {{ __('¿Quieres algo más a tu estilo?') }}</p>
+        {{ __('¿Quieres algo más de tu estilo?') }}</p>
     <div style="display:flex; justify-content:center;">
         <p style="color:red; font-weight:bolder; font-size:25px;">{{__('¡')}}</p>
-        <a href="{{ route('login') }}" style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{__('Iniciando sesión')}}</a>
+        <a href="{{ route('login') }}" style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{__('Inicia sesión')}}</a>
         <p style="color:red; font-weight:bolder; font-size:25px;">
-            {{ __(', puedes crear tu propia pizza!') }}</p>
+            {{ __(', y crea tu propia pizza!') }}</p>
     </div>
     <br><br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
