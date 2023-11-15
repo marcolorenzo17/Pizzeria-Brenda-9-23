@@ -5,3 +5,11 @@
 #imgproducto:hover {
     filter: brightness(150%);
 }
+
+#filtroproducto {
+    transition: brightness 0.15s;
+}
+
+#filtroproducto:hover {
+    filter: brightness(50%);
+}

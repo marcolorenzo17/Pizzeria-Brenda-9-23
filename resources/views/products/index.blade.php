@@ -169,31 +169,31 @@ use App\Http\Controllers\ProductController;
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">PIZZAS</a>
+                                    id="filtroproducto">PIZZAS</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#2"><img src="{{ asset('img/burgericon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('HAMBURGUESAS') }}</a>
+                                    id="filtroproducto">{{ __('HAMBURGUESAS') }}</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
+                            <a href="#3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('SÁNDWICHES') }}</a>
+                                    id="filtroproducto">{{ __('SÁNDWICHES') }}</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">PASTA</a>
+                                    id="filtroproducto">PASTA</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('ARROCES') }}</a>
+                                    id="filtroproducto">{{ __('ARROCES') }}</a>
                         </td>
                     </tr>
                     <tr>
@@ -201,31 +201,31 @@ use App\Http\Controllers\ProductController;
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">BAGUETTES</a>
+                                    id="filtroproducto">BAGUETTES</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
                                     style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('ENSALADAS') }}</a>
+                                    id="filtroproducto">{{ __('ENSALADAS') }}</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#8"><img src="{{ asset('img/friesicon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('COMPLEMENTOS') }}</a>
+                                    id="filtroproducto">{{ __('COMPLEMENTOS') }}</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#9"><img src="{{ asset('img/dogicon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('PERRITOS') }}</a>
+                                    id="filtroproducto">{{ __('PERRITOS') }}</a>
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
                             <a href="#10"><img src="{{ asset('img/sodaicon.png') }}" width="70px"
                                     height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="producto">{{ __('BEBIDAS') }}</a>
+                                    id="filtroproducto">{{ __('BEBIDAS') }}</a>
                         </td>
                     </tr>
                 </table>
@@ -245,7 +245,7 @@ use App\Http\Controllers\ProductController;
                 </div>
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                     style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
+                    <a href="#3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
                             style="display: block; margin-left: auto; margin-right: auto;"
                             id="producto">{{ __('SÁNDWICHES') }}</a>
                 </div>
@@ -319,7 +319,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -327,7 +327,6 @@ use App\Http\Controllers\ProductController;
                                         @endforeach
                                     @endif
                                 </div>
-                                <br>
                                 <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                     €</span>
                                 <br><br>

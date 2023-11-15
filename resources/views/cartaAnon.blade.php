@@ -1015,60 +1015,60 @@
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">PIZZAS</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('HAMBURGUESAS') }}</a></div>
+                    id="filtroproducto">{{ __('HAMBURGUESAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p3"><img src="{{ asset('img/sanicon.jpg') }}" width="70px" height="70px"
+                href="#p3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('SÁNDWICHES') }}</a></div>
+                    id="filtroproducto">{{ __('SÁNDWICHES') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">PASTA</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('ARROCES') }}</a></div>
+                    id="filtroproducto">{{ __('ARROCES') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="producto">BAGUETTES</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">BAGUETTES</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('ENSALADAS') }}</a></div>
+                    id="filtroproducto">{{ __('ENSALADAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('COMPLEMENTOS') }}</a></div>
+                    id="filtroproducto">{{ __('COMPLEMENTOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('PERRITOS') }}</a></div>
+                    id="filtroproducto">{{ __('PERRITOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p10"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('CERVEZAS') }}</a></div>
+                    id="filtroproducto">{{ __('CERVEZAS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p11"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('VINOS') }}</a></div>
+                    id="filtroproducto">{{ __('VINOS') }}</a></div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p12"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
                     style="display: block; margin-left: auto; margin-right: auto;"
-                    id="producto">{{ __('REFRESCOS') }}</a></div>
+                    id="filtroproducto">{{ __('REFRESCOS') }}</a></div>
     </div>
     <br><br>
     <?php
