@@ -1038,7 +1038,8 @@
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">BAGUETTES</a></div>
+                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">BAGUETTES</a>
+        </div>
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
                 href="#p7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
@@ -1102,7 +1103,15 @@
                 ?>
             @endif
         @endforeach
-        {{-- Texto iniciar sesión para crear pizzas --}}
+    </div>
+    <br><br>
+    <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
+        {{ __('¿Quieres algo más a tu estilo?') }}</p>
+    <div style="display:flex; justify-content:center;">
+        <p style="color:red; font-weight:bolder; font-size:25px;">{{__('¡')}}</p>
+        <a href="{{ route('login') }}" style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{__('Iniciando sesión')}}</a>
+        <p style="color:red; font-weight:bolder; font-size:25px;">
+            {{ __(', puedes crear tu propia pizza!') }}</p>
     </div>
     <br><br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
