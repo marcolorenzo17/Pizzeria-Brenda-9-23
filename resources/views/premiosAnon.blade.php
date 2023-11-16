@@ -894,7 +894,7 @@
             @include('partials/language_switcher')
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:57px; height:50px;"></a>
+                style="width:67px; height:60px;"></a>
         <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
@@ -958,13 +958,15 @@
     </div>
     <br><br><br><br>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
-            <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-            <a class="anavbar" href="premiosAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            <div style="display:flex; margin-left:auto; gap:30px;">
+                <a class="anavbar" href="privacyAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
                         height="30px" style="margin-right:20px;"></a>

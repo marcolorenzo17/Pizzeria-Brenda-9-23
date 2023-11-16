@@ -1144,7 +1144,8 @@
                     </a>
                 </div>
             </div>
-            <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px" height="400px">
+            <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
+                height="400px">
         </div>
         <br><br>
     </div>
