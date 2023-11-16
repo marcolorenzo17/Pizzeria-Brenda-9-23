@@ -979,7 +979,7 @@
             @include('partials/language_switcher')
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:57px; height:50px;"></a>
+                style="width:67px; height:60px;"></a>
         <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
@@ -1008,7 +1008,7 @@
         @endif
     </div>
     <br><br><br><br><br>
-    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
+    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
     <br>
@@ -1126,20 +1126,25 @@
     </div>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
-        <h1
-            style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:white;">
-            {{ __('¿QUÉ PEDIMOS?') }}
-        </h1>
-        <br><br>
-        <div style="display:flex; gap:100px; justify-content:center;">
-            <a href="cartaAnon"
-                style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white;"
-                id="boton">{{ __('NUESTRA CARTA') }}
-            </a>
-            <a href="{{ route('login') }}"
-                style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white;"
-                id="boton">{{ __('¡PIDE AHORA!') }}
-            </a>
+        <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+            <div>
+                <h1
+                    style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:white;">
+                    {{ __('¿QUÉ PEDIMOS?') }}
+                </h1>
+                <br><br>
+                <div style="display:flex; gap:100px; justify-content:center;">
+                    <a href="cartaAnon"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('NUESTRA CARTA') }}
+                    </a>
+                    <a href="{{ route('login') }}"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('¡PIDE AHORA!') }}
+                    </a>
+                </div>
+            </div>
+            <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px" height="400px">
         </div>
         <br><br>
     </div>
