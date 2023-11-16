@@ -1025,7 +1025,8 @@
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <div style="display:flex; align-items:center; justify-content:center;">
-            <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
+            <div
+                style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
                 <h1 style="font-size:50px; color:yellow;" class="menusgratis">
                     {{ __('¡TUS MENÚS GRATIS!') }}
                 </h1>
@@ -1093,7 +1094,8 @@
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('OFERTAS') }}
     </h1>
-    <div style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
+    <div
+        style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
         <div style="margin-left:100px;">
             <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
         </div>
@@ -1161,7 +1163,8 @@
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
         {{ __('HORARIO') }}
     </h1>
-    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
+    <div class="container px-12 py-8 mx-auto bg-white"
+        style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
         <div style="text-align:center;">
             <div class="flex items-center justify-center">
                 <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
@@ -1184,8 +1187,8 @@
         <div style="width:600px; margin-left:auto; margin-right:auto;">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                width="600" height="450" style="border:5px solid darkblue; border-radius:10px;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <br>
             <div class="flex items-center justify-center">
                 <p style="color:white;">{{ __('Atención al cliente:') }}</p>
@@ -1195,13 +1198,15 @@
         <br><br><br><br><br>
     </div>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
-            <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-            <a class="anavbar" href="premiosAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            <div style="display:flex; margin-left:auto; gap:30px;">
+                <a class="anavbar" href="privacyAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
                         height="30px" style="margin-right:20px;"></a>
