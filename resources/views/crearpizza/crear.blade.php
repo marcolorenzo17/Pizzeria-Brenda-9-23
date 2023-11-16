@@ -205,7 +205,8 @@
             <span class="text-sm sm:text-center"
                 style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </span>
-            <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+            <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+                style="color: white; justify-content:center; margin-left:auto;">
                 <li>
                     <a href="{{ route('whoarewe') }}"
                         class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
@@ -226,7 +227,7 @@
                     <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
                 </li>
             </ul>
-            <div style="margin-left:auto; display:flex;">
+            <div style="margin-left:auto; display:flex; justify-content:center;">
                 <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
                         height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
