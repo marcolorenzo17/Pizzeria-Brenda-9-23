@@ -70,7 +70,8 @@
                                     @csrf
                                     <div style="display:flex; align-items:center; gap:5px;">
                                         <div>
-                                            <select id="role" name="role" style="border-radius: 10px" value="Jefe">
+                                            <select id="role" name="role" style="border-radius: 10px"
+                                                value="Jefe">
                                                 <option value="Cliente">{{ __('Cliente') }}</option>
                                                 <option value="Jefe">{{ __('Jefe') }}</option>
                                                 <option value="Cajero">{{ __('Cajero') }}</option>
@@ -164,7 +165,7 @@
                             <p>
                             <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
                                 @csrf
-                                <div style="display:flex;">
+                                <div style="display:flex; align-items:center; gap:10px;">
                                     <div style="padding-left:50px;">
                                         <input type="text" id="puntos" name="puntos" size="10"
                                             value="{{ $cliente->puntos }}" style="border-radius:10px;">
@@ -218,30 +219,26 @@
                             <div style="padding-left:50px;">
                                 <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                                     @csrf
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <select id="role" name="role"
-                                                    style="border-radius:10px;">
-                                                    <option value="Cliente">{{ __('Cliente') }}</option>
-                                                    <option value="Jefe">{{ __('Jefe') }}</option>
-                                                    <option value="Cajero">{{ __('Cajero') }}</option>
-                                                    <option value="Cocinero">{{ __('Cocinero') }}</option>
-                                                    <option value="Plancha">{{ __('Plancha') }}</option>
-                                                </select>
-                                                <br>
-                                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <button type="submit"
-                                                        class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                                        id="boton"
-                                                        style="height:42px; font-weight:bolder; border-radius:10px; position:relative; bottom:12px; right:2px;">{{ __('✓') }}</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div>
+                                            <select id="role" name="role" style="border-radius:10px;">
+                                                <option value="Cliente">{{ __('Cliente') }}</option>
+                                                <option value="Jefe">{{ __('Jefe') }}</option>
+                                                <option value="Cajero">{{ __('Cajero') }}</option>
+                                                <option value="Cocinero">{{ __('Cocinero') }}</option>
+                                                <option value="Plancha">{{ __('Plancha') }}</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
+                                                id="boton"
+                                                style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
+                                    </div>
                                 </form>
                             </div>
                         </td>
