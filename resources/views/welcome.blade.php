@@ -1013,7 +1013,7 @@
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
     <br>
     <div class="mx-auto" style="background-color:#4a4895;">
-        <video width="859" height="464" autoplay loop>
+        <video width="859" height="464" autoplay muted loop>
             <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
             Tu navegador no es compatible con este vídeo.
         </video>
