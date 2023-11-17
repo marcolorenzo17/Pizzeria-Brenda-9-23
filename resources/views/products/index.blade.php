@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
     <x-slot name="header">
         <br><br><br>
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-            style="font-size:60px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 1px black;">
+            style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 1px black;">
             {{ __('NUESTRO MENÚ') }}
         </h2>
         <br><br>
@@ -18,6 +18,9 @@ use App\Http\Controllers\ProductController;
         --}}
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <?php
     if (Cart::getTotalQuantity() == 0) {
         echo ProductController::devolver();

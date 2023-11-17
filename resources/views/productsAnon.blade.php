@@ -886,6 +886,9 @@
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body class="antialiased" style="background-image:url('img/fondoanon2.jpg');">
@@ -958,7 +961,7 @@
             <div id="{{ $idesdesc }}" style="display: none;">
                 <br><br><br><br><br>
                 <h1 class="text-center"
-                    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+                    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                     {{ __('DESCRIPCIÓN') }}</h1>
                 <div style="background:white; margin: 0 auto; text-align:center;">
                     <br><br>
