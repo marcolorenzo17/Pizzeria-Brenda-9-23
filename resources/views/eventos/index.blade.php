@@ -3,15 +3,22 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('RESERVAS') }}
-        </h2>
-        <br><br>
+        <div
+            style="background-image:url('img/backgroundpizzasmall.png'); margin-top:50px; padding-bottom:20px; border-radius:30px;">
+            <br><br><br>
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 2px white;">
+                {{ __('RESERVAS') }}
+            </h2>
+            <br><br>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/recibos.css" />
     <link rel="stylesheet" href="/css/eventos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>

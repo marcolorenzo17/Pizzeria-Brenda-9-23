@@ -6,16 +6,18 @@ use App\Http\Controllers\ProductController;
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-            style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 1px black;">
-            {{ __('NUESTRO MENÚ') }}
-        </h2>
-        <br><br>
-        {{--
+        <div style="background-image:url('img/backgroundpizzasmall.png'); margin-top:50px; padding-bottom:20px; border-radius:30px;">
+            <br><br><br>
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 2px white;">
+                {{ __('NUESTRO MENÚ') }}
+            </h2>
+            <br><br>
+            {{--
             <br>
             <a href="{{ route('products.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">AÑADIR PRODUCTO</a>
         --}}
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -208,8 +210,8 @@ use App\Http\Controllers\ProductController;
                         </td>
                         <td
                             style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
-                                    style="display: block; margin-left: auto; margin-right: auto;"
+                            <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px"
+                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
                                     id="filtroproducto">{{ __('ENSALADAS') }}</a>
                         </td>
                         <td
