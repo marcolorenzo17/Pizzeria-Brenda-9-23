@@ -971,6 +971,9 @@
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body class="antialiased">
@@ -1008,7 +1011,7 @@
         @endif
     </div>
     <br><br><br><br><br>
-    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white;"
+    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
     <br>
@@ -1026,7 +1029,7 @@
         <br>
         <div style="display:flex; align-items:center; justify-content:center;">
             <div
-                style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
+                style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
                 <h1 style="font-size:50px; color:yellow;" class="menusgratis">
                     {{ __('¡TUS MENÚS GRATIS!') }}
                 </h1>
@@ -1091,7 +1094,7 @@
         <br><br>
     </div>
     <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('OFERTAS') }}
     </h1>
     <div
@@ -1129,7 +1132,7 @@
         <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
             <div>
                 <h1
-                    style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:white;">
+                    style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
                     {{ __('¿QUÉ PEDIMOS?') }}
                 </h1>
                 <br><br>
@@ -1151,14 +1154,14 @@
     </div>
     <div style="background-image:url('img/backgroundpizzared.png');">
         <h1 class="text-center"
-            style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+            style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
             {{ __('TELÉFONOS') }}
         </h1>
         <br>
         <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
         </p>
         <div class="flex items-center justify-center"
-            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000; text-align:center;">
+            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; text-align:center;">
             <p>956 37 11 15</p>
             <p>956 37 47 36</p>
             <p>627 650 605</p>
@@ -1166,7 +1169,7 @@
         <br><br>
     </div>
     <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('HORARIO') }}
     </h1>
     <div class="container px-12 py-8 mx-auto bg-white"
@@ -1185,7 +1188,7 @@
         </div>
     </div>
     <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('VISÍTANOS') }}
     </h1>
     <div style="background-image:url('img/backgroundpizza.png');">
