@@ -1510,7 +1510,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1549,7 +1549,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1588,7 +1588,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1627,7 +1627,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1666,7 +1666,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1705,7 +1705,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1744,7 +1744,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1783,7 +1783,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1822,7 +1822,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1861,7 +1861,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1900,7 +1900,7 @@
                         <?php
                         $alergenoslista = explode('-', $product->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap; padding-left:20px;">
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
                             @if ($product->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
