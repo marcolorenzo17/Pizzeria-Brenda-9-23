@@ -303,7 +303,7 @@ use App\Http\Controllers\ProductController;
             <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
             <div class="h-1 bg-red-500 w-36"></div>
             <br>
-            <h2 class="text-2xl font-bold text-center" style="color:blue; text-shadow: 2px 2px 4px #000000;">
+            <h2 class="text-2xl font-bold text-center" style="color:blue;">
                 {{ __('"EL PLACER DE UNA BUENA PIZZA ARTESANAL"') }}</h2>
             <br>
             <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
@@ -379,7 +379,7 @@ use App\Http\Controllers\ProductController;
             </div>
             <br><br>
             <div class="text-center"
-                style="border-style: solid; border-width: 3px; border-color: purple; background-color: #efff91; padding: 20px;">
+                style="border-style: solid; border-width: 3px; border-color: purple; background-color: #efff91; padding: 20px; border-radius:10px;">
                 <a href="{{ route('crearpizza') }}" class="text-2xl font-bold text-purple-700"
                     id="crearpizza">{{ __('¡CREA TU PROPIA PIZZA AQUÍ!') }}</a>
             </div>

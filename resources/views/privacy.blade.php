@@ -7,7 +7,7 @@
         <br><br>
     </x-slot>
     <br>
-    <div class="bg-white" style="width:100%; padding:10px;">
+    <div class="bg-white" style="width:100%; padding:30px;">
         <p style="text-align:center;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
         <p style="text-align:center;">www.pizzeriabrenda.com</p>
         <br><br><br>
