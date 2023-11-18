@@ -15,26 +15,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <br>
-    <div class="bg-white" style="text-align:center;">
+    <div style="padding:30px; background-color:white;">
+        <div style="text-align:center;">
+            <img src="img/pizzacoin.png" alt="coin" style="margin-left:auto; margin-right:auto;" width="100px"
+                height="100px">
+            <br>
+            <p style="font-weight:bold;">{{ __('¿QUÉ SON LAS PIZZACOINS?') }}</p>
+        </div>
+        <div class="bg-white" style="text-align:center;">
+            <br>
+            {{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}
+            <br>
+            {{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}
+            <br>
+            {{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
+            <br>
+            {{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}
+        </div>
         <br>
-        <img src="img/pizzacoin.png" alt="coin" style="margin-left:auto; margin-right:auto;" width="100px"
-            height="100px">
-        <br>
-        {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
-    </div>
-    <div class="bg-white" style="text-align:center;">
-        <br>
-        {{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}
-        <br>
-        {{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}
-        <br>
-        {{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
-        <br>
-        {{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}
-    </div>
-    <br>
-    <div class="bg-white" style="text-align:center;">
-        {{ __('ACUMULA PIZZACOINS PARA CANJEARLAS POR PROMOCIONES') }}
+        <div style="text-align:center; font-weight:bolder;">
+            {{ __('ACUMULA PIZZACOINS PARA CANJEARLAS POR PROMOCIONES') }}
+        </div>
     </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
         style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
@@ -95,61 +96,64 @@
     @endforeach
     </div>
     <br>
-    <div class="bg-white" style="text-align:center;">
-        {{ __('OFERTAS') }}
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
-        style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
-        @foreach ($promotions as $promotion)
-            @if ($promotion->habilitado and $promotion->type == 'Oferta')
-                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                    <div class="text-center">
-                        @csrf
-                        <input type="hidden" value="{{ $promotion->id }}" name="id">
-                        <input type="hidden" value="{{ $promotion->name }}" name="name">
-                        <input type="hidden" value="{{ $promotion->price }}" name="price">
-                        <input type="hidden" value="{{ $promotion->puntos }}" name="puntos">
-                        <input type="hidden" value="{{ $promotion->type }}" name="type">
-                        <input type="hidden" value="{{ $promotion->image }}" name="image">
-                        <input type="hidden" value="1" name="quantity">
-                        @if (Auth::user()->puntos >= $promotion->puntos)
-                            <img src="{{ asset($promotion->image) }}" alt="submit"
-                                class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                                width="422" height="600"
-                                style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
-                            <br>
-                            <button
-                                class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
-                        @else
-                            <div style="background: rgba(0, 0, 0, 0.5);">
+    <div style="background-color:white;">
+        <br>
+        <div style="text-align:center; font-size:30px; font-weight:bolder;">
+            {{ __('OFERTAS') }}
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
+            @foreach ($promotions as $promotion)
+                @if ($promotion->habilitado and $promotion->type == 'Oferta')
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        <div class="text-center">
+                            @csrf
+                            <input type="hidden" value="{{ $promotion->id }}" name="id">
+                            <input type="hidden" value="{{ $promotion->name }}" name="name">
+                            <input type="hidden" value="{{ $promotion->price }}" name="price">
+                            <input type="hidden" value="{{ $promotion->puntos }}" name="puntos">
+                            <input type="hidden" value="{{ $promotion->type }}" name="type">
+                            <input type="hidden" value="{{ $promotion->image }}" name="image">
+                            <input type="hidden" value="1" name="quantity">
+                            @if (Auth::user()->puntos >= $promotion->puntos)
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
-                                    class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md"
+                                    class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
                                     width="422" height="600"
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
-                            </div>
-                        @endif
-                        <br><br>
-                        <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}
-                        </div>
-                        <?php
-                        $alergenoslista = explode('-', $promotion->alergenos);
-                        ?>
-                        <div style="display:flex; flex-wrap:wrap;">
-                            @if ($promotion->alergenos != '')
-                                @foreach ($alergenoslista as $alergeno)
-                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                        width="40px" height="40px">
-                                @endforeach
+                                <br>
+                                <button
+                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
+                            @else
+                                <div style="background: rgba(0, 0, 0, 0.5);">
+                                    <img src="{{ asset($promotion->image) }}" alt="submit"
+                                        class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md"
+                                        width="422" height="600"
+                                        style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                                </div>
                             @endif
+                            <br><br>
+                            <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}
+                            </div>
+                            <?php
+                            $alergenoslista = explode('-', $promotion->alergenos);
+                            ?>
+                            <div style="display:flex; flex-wrap:wrap;">
+                                @if ($promotion->alergenos != '')
+                                    @foreach ($alergenoslista as $alergeno)
+                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                            width="40px" height="40px">
+                                    @endforeach
+                                @endif
+                            </div>
+                            <div class="text-center" style="font-size:20px;">
+                                {{ number_format($promotion->price, 2, '.', '') }} €
+                            </div>
+                            <br><br>
                         </div>
-                        <div class="text-center" style="font-size:20px;">
-                            {{ number_format($promotion->price, 2, '.', '') }} €
-                        </div>
-                        <br><br>
-                    </div>
-                </form>
-            @endif
-        @endforeach
+                    </form>
+                @endif
+            @endforeach
+        </div>
     </div>
 
     <br><br><br><br>
