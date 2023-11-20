@@ -516,7 +516,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -595,7 +595,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -674,7 +674,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -753,7 +753,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -832,7 +832,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -909,7 +909,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -988,7 +988,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1065,7 +1065,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1142,7 +1142,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1219,7 +1219,7 @@ use App\Http\Controllers\ProductController;
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap;">
+                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"

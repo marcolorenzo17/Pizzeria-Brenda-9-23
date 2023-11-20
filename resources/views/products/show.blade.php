@@ -45,19 +45,6 @@
                             style="border:5px solid gray; border-radius:10px;">
                     </div>
                     <div class="mb-6">
-                        <?php
-                        $alergenoslista = explode('-', $products->alergenos);
-                        ?>
-                        <div style="display:flex; flex-wrap:wrap;">
-                            @if ($products->alergenos != '')
-                                @foreach ($alergenoslista as $alergeno)
-                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
-                                        height="40px">
-                                @endforeach
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
                             {{ __('Nombre') }}
                         </h2>
@@ -93,6 +80,22 @@
                             {{ $products->type }}
                         </p>
                     </div>
+                    <div class="mb-6" style="display:flex; gap:10px;">
+                        <h2 class="text-lg font-medium text-gray-900">
+                            {{ __('Alérgenos:') }}
+                        </h2>
+                        <?php
+                        $alergenoslista = explode('-', $products->alergenos);
+                        ?>
+                        <div style="display:flex; flex-wrap:wrap; gap:5px;">
+                            @if ($products->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
+                                        height="40px">
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
                     {{--
                         @if (Auth::user()->admin)
                         <form method="post" action="{{ route('products.destroy', $products->id) }}" class="inline">
@@ -105,7 +108,7 @@
                         --}}
 
                     <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px"
-                        class="max-h-60 mx-auto">
+                        class="max-h-60 mx-auto" style="border:3px solid gray; border-radius:10px;">
 
                     <br><br>
 
@@ -138,22 +141,17 @@
 
                     <br><br><br>
                     <h2 class="text-center" style="font-weight:bolder; font-size:20px;">{{ __('RESEÑAS') }}</h2>
-                    <br><br>
+                    <br>
+                    <p style="text-align:center;">{{__('¿Cómo valorarías este plato?')}}</p>
+                    <br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
                         @csrf
-                        @error('resenia')
-                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
-                            <br>
-                        @enderror
-                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"
-                            style="width:100%; border-radius:10px;"></textarea>
-                        <br>
                         <table>
                             <tr>
                                 <td onclick="valoracion(1)"><img src="{{ asset('img/starblank.png') }}" alt="*"
                                         width="30px" height="30px" id="e1"></td>
-                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}"
-                                        alt="*" width="30px" height="30px" id="e2"></td>
+                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}" alt="*"
+                                        width="30px" height="30px" id="e2"></td>
                                 <td onclick="valoracion(3)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e3"></td>
                                 <td onclick="valoracion(4)"><img src="{{ asset('img/starblank.png') }}"
@@ -164,6 +162,13 @@
                         </table>
                         <input type="hidden" id="estrellas" name="estrellas" value="1">
                         <br>
+                        @error('resenia')
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                            <br>
+                        @enderror
+                        <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"
+                            style="width:100%; border-radius:10px;"></textarea>
+                        <br><br>
                         <div>
                             <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
                                 id="boton">{{ __('Publicar') }}</button>
@@ -175,14 +180,6 @@
                             @if ($valoracion->idProduct == $products->id)
                                 <p style="font-size:13px;">
                                     {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
-                                </p>
-                                <p style="font-size:12px; color:gray;">
-                                    @if ($valoracion->modificado)
-                                        {{ __('(Modificado)') }}
-                                    @endif
-                                </p>
-                                <p>
-                                    {{ $valoracion->resenia }}
                                 </p>
                                 @switch ($valoracion->estrellas)
                                     @case (1)
@@ -205,6 +202,14 @@
                                         <img src="{{ asset('img/e5.png') }}" alt="*" width="100px" height="100px">
                                     @break
                                 @endswitch
+                                <p>
+                                    {{ $valoracion->resenia }}
+                                </p>
+                                <p style="font-size:12px; color:gray;">
+                                    @if ($valoracion->modificado)
+                                        {{ __('(Modificado)') }}
+                                    @endif
+                                </p>
                                 @if ($valoracion->idUser == Auth::user()->id)
                                     <br>
                                     <div x-data="{ mostrarVal: false }">
@@ -273,19 +278,19 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <br><br>
+                                    <br>
                                     @foreach ($comentarios as $comentario)
                                         @if ($comentario->idValoracion == $valoracion->id)
                                             <p style="font-size:13px;">
                                                 {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                                             </p>
+                                            <p>
+                                                {{ $comentario->resenia }}
+                                            </p>
                                             <p style="font-size:12px; color:gray;">
                                                 @if ($comentario->modificado)
                                                     {{ __('(Modificado)') }}
                                                 @endif
-                                            </p>
-                                            <p>
-                                                {{ $comentario->resenia }}
                                             </p>
                                             @if ($comentario->idUser == Auth::user()->id)
                                                 <br>
