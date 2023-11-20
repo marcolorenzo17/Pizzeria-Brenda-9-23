@@ -923,11 +923,11 @@
         @endif
     </div>
     <br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px;">
         <br>
-        <h2 class="text-center">{{ __('¿QUIÉNES SOMOS?') }}</h2>
+        <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
         <br><br>
-        <h2 class="text-center">{{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
+        <h2 class="text-center" style="font-size:20px; font-weight:bold;">{{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
         <br>
         <p>
             {{ __('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.') }}<br><br>
@@ -966,7 +966,7 @@
             {{ __('¡Te esperamos! ¡Visítanos!') }}
         </p>
     </div>
-    <br><br><br>
+    <br><br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}

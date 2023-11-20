@@ -923,7 +923,7 @@
         @endif
     </div>
     <br><br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px;">
         <p style="font-weight: bolder; font-size:20px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
         </p>
