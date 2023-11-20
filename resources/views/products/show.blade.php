@@ -138,8 +138,9 @@
                             </div>
                         </form>
                     </div>
-
-                    <br><br><br>
+                    <br><br>
+                    <div style="background-color:gray; width:100%; height:5px; border-radius:10px;"><br></div>
+                    <br><br>
                     <h2 class="text-center" style="font-weight:bolder; font-size:20px;">{{ __('RESEÑAS') }}</h2>
                     <br>
                     <p style="text-align:center;">{{__('¿Cómo valorarías este plato?')}}</p>
@@ -175,10 +176,12 @@
                         </div>
                     </form>
                     <br><br>
+                    <div style="background-color:gray; width:100%; height:3px; border-radius:10px;"><br></div>
+                    <br>
                     <div>
                         @foreach ($valoraciones as $valoracion)
                             @if ($valoracion->idProduct == $products->id)
-                                <p style="font-size:13px;">
+                                <p style="font-size:13px; margin-bottom:5px;">
                                     {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
                                 </p>
                                 @switch ($valoracion->estrellas)
@@ -202,7 +205,7 @@
                                         <img src="{{ asset('img/e5.png') }}" alt="*" width="100px" height="100px">
                                     @break
                                 @endswitch
-                                <p>
+                                <p style="margin-top:10px;">
                                     {{ $valoracion->resenia }}
                                 </p>
                                 <p style="font-size:12px; color:gray;">
@@ -255,6 +258,7 @@
                                 <br>
                                 <div style="margin-left: 30px;">
                                     <p style="font-weight:bolder; font-size:15px;">{{ __('Comentarios') }}</p>
+                                    <div style="background-color:gray; width:200px; height:2px; border-radius:10px;"><br></div>
                                     <br>
                                     <form
                                         action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
@@ -281,7 +285,7 @@
                                     <br>
                                     @foreach ($comentarios as $comentario)
                                         @if ($comentario->idValoracion == $valoracion->id)
-                                            <p style="font-size:13px;">
+                                            <p style="font-size:13px; margin-bottom:5px;">
                                                 {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                                             </p>
                                             <p>
