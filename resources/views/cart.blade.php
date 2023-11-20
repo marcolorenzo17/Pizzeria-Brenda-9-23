@@ -20,29 +20,30 @@
                             <p>{{ __($message) }}</p>
                         </div>
                     @endif
-                    <div class="flex-1">
-                        <table class="w-full text-sm lg:text-base" cellspacing="0">
-                            <thead>
-                                <tr class="h-12 uppercase">
-                                    <th class="md:table-cell"></th>
-                                    <th class="text-left">{{ __('Nombre') }}</th>
-                                    <th class="pl-5 text-left lg:text-right lg:pl-0">
-                                        <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
-                                        <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
-                                    </th>
-                                    <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
-                                    <th class="text-right md:table-cell"> {{ __('Precio') }}</th>
-                                    <th class="text-right md:table-cell"> {{ __('Eliminar') }} </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cartItems as $item)
-                                    <tr>
-                                        <td class="pb-4 md:table-cell">
-                                            <img src="{{ $item->attributes->image }}" class="w-20 rounded"
-                                                alt="Thumbnail">
-                                        </td>
-                                        {{--
+                    @if (Cart::getTotalQuantity() != 0)
+                        <div class="flex-1">
+                            <table class="w-full text-sm lg:text-base" cellspacing="0">
+                                <thead>
+                                    <tr class="h-12 uppercase">
+                                        <th class="md:table-cell"></th>
+                                        <th class="text-left">{{ __('Nombre') }}</th>
+                                        <th class="pl-5 text-left lg:text-right lg:pl-0">
+                                            <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
+                                            <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
+                                        </th>
+                                        <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
+                                        <th class="text-right md:table-cell"> {{ __('Precio') }}</th>
+                                        <th class="text-right md:table-cell"> {{ __('Eliminar') }} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cartItems as $item)
+                                        <tr>
+                                            <td class="pb-4 md:table-cell">
+                                                <img src="{{ $item->attributes->image }}" class="w-20 rounded"
+                                                    alt="Thumbnail">
+                                            </td>
+                                            {{--
                                             <td class="hidden pb-4 md:table-cell">
                                                 <p>{{ $item->attributes->puntos }}</p>
                                             </td>
@@ -50,122 +51,130 @@
                                                 <p>{{ $item->attributes->type }}</p>
                                             </td>
                                         --}}
-                                        <td>
-                                            <a href="#">
-                                                <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
-                                                </p>
+                                            <td>
+                                                <a href="#">
+                                                    <p class="mb-2 md:ml-4 text-purple-600 font-bold">
+                                                        {{ $item->name }}
+                                                    </p>
 
-                                            </a>
-                                        </td>
-                                        <td class="justify-center mt-6 md:justify-end md:flex">
-                                            @if ($item->attributes->type != 'Promoción')
-                                                <div class="h-10 w-28">
-                                                    <div class="relative flex flex-row w-full h-8">
+                                                </a>
+                                            </td>
+                                            <td class="justify-center mt-6 md:justify-end md:flex">
+                                                @if ($item->attributes->type != 'Promoción')
+                                                    <div class="h-10 w-28">
+                                                        <div class="relative flex flex-row w-full h-8">
 
-                                                        <form action="{{ route('cart.update') }}" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="id"
-                                                                value="{{ $item->id }}">
-                                                            <input type="text" name="quantity"
-                                                                value="{{ $item->quantity }}"
-                                                                class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
-                                                            <button
-                                                                class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100 bg-violet-500"
-                                                                id="boton">{{ __('Actualizar') }}</button>
-                                                        </form>
+                                                            <form action="{{ route('cart.update') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="id"
+                                                                    value="{{ $item->id }}">
+                                                                <input type="text" name="quantity"
+                                                                    value="{{ $item->quantity }}"
+                                                                    class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
+                                                                <button
+                                                                    class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100 bg-violet-500"
+                                                                    id="boton">{{ __('Actualizar') }}</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-right md:table-cell">
-                                            <span class="text-sm font-medium lg:text-base">
-                                                {{ $item->attributes->puntos }}
-                                            </span>
-                                        </td>
-                                        <td class="text-right md:table-cell">
-                                            @if ($item->attributes->type != 'Promoción')
+                                                @endif
+                                            </td>
+                                            <td class="text-right md:table-cell">
                                                 <span class="text-sm font-medium lg:text-base">
-                                                    {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
+                                                    {{ $item->attributes->puntos }}
                                                 </span>
-                                            @endif
+                                            </td>
+                                            <td class="text-right md:table-cell">
+                                                @if ($item->attributes->type != 'Promoción')
+                                                    <span class="text-sm font-medium lg:text-base">
+                                                        {{ number_format($item->price * $item->quantity, 2, '.', '') }}
+                                                        €
+                                                    </span>
+                                                @endif
+                                            </td>
+                                            <td class="text-right md:table-cell">
+                                                <form action="{{ route('cart.remove') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" value="{{ $item->id }}" name="id">
+                                                    <input type="hidden" value="{{ $item->attributes->type }}"
+                                                        name="type">
+                                                    <input type="hidden" value="{{ $item->attributes->puntos }}"
+                                                        name="puntos">
+                                                    <button class="px-4 py-2 text-white bg-red-600 shadow rounded-full"
+                                                        id="boton">x</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {{-- A lo mejor debería mejorar esto de aquí abajo... --}}
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                            <div>
+                                Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
+                            </div>
+                            @if (Cart::getTotalQuantity() != 0)
+                                <br>
+                                <table style="border-collapse: separate; border-spacing: 100px 0;">
+                                    <tr>
+                                        <td>
+                                            <a href="recoger"><button type="button"
+                                                    class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500"
+                                                    id="boton">{{ __('Realizar pedido') }}</button></a>
                                         </td>
-                                        <td class="text-right md:table-cell">
-                                            <form action="{{ route('cart.remove') }}" method="POST">
+                                        <td>
+                                            <form action="{{ route('cart.clear') }}" method="POST">
                                                 @csrf
-                                                <input type="hidden" value="{{ $item->id }}" name="id">
-                                                <input type="hidden" value="{{ $item->attributes->type }}"
-                                                    name="type">
-                                                <input type="hidden" value="{{ $item->attributes->puntos }}"
-                                                    name="puntos">
-                                                <button class="px-4 py-2 text-white bg-red-600 shadow rounded-full"
-                                                    id="boton">x</button>
+                                                <button
+                                                    class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500"
+                                                    id="boton">{{ __('Vaciar carrito') }}</button>
                                             </form>
                                         </td>
                                     </tr>
-                                    {{-- A lo mejor debería mejorar esto de aquí abajo... --}}
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                        <div>
-                            Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
+                                </table>
+                            @endif
                         </div>
-                        @if (Cart::getTotalQuantity() != 0)
-                            <br>
-                            <table style="border-collapse: separate; border-spacing: 100px 0;">
-                                <tr>
-                                    <td>
-                                        <a href="recoger"><button type="button"
-                                                class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500"
-                                                id="boton">{{ __('Realizar pedido') }}</button></a>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('cart.clear') }}" method="POST">
-                                            @csrf
-                                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500"
-                                                id="boton">{{ __('Vaciar carrito') }}</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
-                        @endif
-                    </div>
+                    @else
+                        <div style="text-align:center; font-weight:bold; font-size:18px;">
+                            <p>{{__('Tu carrito está vacío.')}}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
