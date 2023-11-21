@@ -4,8 +4,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <br><br><br>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ $products->name }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center" style="font-size:25px; text-transform:uppercase;">
+            {{ $products->name }} {{__('- DETALLES')}}
         </h2>
         <br><br>
     </x-slot>
