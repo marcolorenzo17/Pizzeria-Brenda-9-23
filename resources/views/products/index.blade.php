@@ -388,7 +388,7 @@ use App\Http\Controllers\ProductController;
             <h3 class="text-2xl font-bold text-purple-700" id="2">{{ __('HAMBURGUESAS') }}</h3>
             <div class="h-1 bg-red-500 w-36"></div>
             <br>
-            <h2 class="text-2xl font-bold text-center" style="color:darkblue; filter:drop-shadow(5px 5px 4px black);">
+            <h2 class="text-2xl font-bold text-center" style="color:darkblue;">
                 {{ __('"COCINA RÁPIDA DE CALIDAD"') }}</h2>
             <br>
             <img src="img/alergenos/gluten-sesamo.png" width="200px" height="200px">
