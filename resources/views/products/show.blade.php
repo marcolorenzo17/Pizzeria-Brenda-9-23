@@ -344,7 +344,9 @@
                                             <br>
                                         @endif
                                     @endforeach
-                                    <br><br>
+                                    <br>
+                                    <div style="background-color:gray; width:100%; height:2px; border-radius:10px; position:relative; left:-30px;"><br></div>
+                                    <br>
                                 </div>
                             @endif
                         @endforeach
