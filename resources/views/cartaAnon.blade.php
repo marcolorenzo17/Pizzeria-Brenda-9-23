@@ -1106,14 +1106,16 @@
         @endforeach
     </div>
     <br><br>
-    <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
-        {{ __('¿Quieres algo más de tu estilo?') }}</p>
-    <div style="display:flex; justify-content:center;">
-        <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
-        <a href="{{ route('login') }}"
-            style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{ __('Inicia sesión') }}</a>
-        <p style="color:red; font-weight:bolder; font-size:25px;">
-            {{ __(', y crea tu propia pizza!') }}</p>
+    <div style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px;">
+        <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
+            {{ __('¿Quieres algo más de tu estilo?') }}</p>
+        <div style="display:flex; justify-content:center;">
+            <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
+            <a href="{{ route('login') }}"
+                style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{ __('Inicia sesión') }}</a>
+            <p style="color:red; font-weight:bolder; font-size:25px;">
+                {{ __(', y crea tu propia pizza!') }}</p>
+        </div>
     </div>
     <br><br><br>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
