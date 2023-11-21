@@ -935,8 +935,7 @@
 
         /* Change background on mouse-over */
         .anavbar:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
 
         #boton:hover {
@@ -966,8 +965,7 @@
 
         /* Change background on mouse-over */
         .afooter:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
