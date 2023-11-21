@@ -11,43 +11,45 @@
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         @if (Auth::user()->role == 'Jefe')
-            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
-                style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
+            <div style="padding:30px;">
+                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
+                <br><br>
                 @foreach ($curriculums as $curriculum)
-                    <div>
-                        <div class="text-center">
-                            <p>
-                                {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('name')->first() }}
-                            </p>
-                            <p>
-                                {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
-                            </p>
-                        </div>
-                        <br>
+                    <div style="display:flex; align-items:center; gap:50px;">
                         @if (substr($curriculum->curriculum, -4) == '.pdf')
-                            <div class="text-center">
+                            <div>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
                                     class="bg-blue-500 text-white px-4 py-2 rounded-md"
                                     id="boton">{{ __('Ver currículum en PDF') }}</a>
                             </div>
                         @else
-                            <div class="text-center">
-                                <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="curriculum">
+                            <div>
+                                <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="curriculum" width="200px;">
                                 <br>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
                                     class="bg-blue-500 text-white px-4 py-2 rounded-md"
                                     id="boton">{{ __('Ampliar imagen') }}</a>
                             </div>
                         @endif
-                        <br>
-                        <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
-                            @csrf
-                            @method('delete')
-                            <button
-                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
-                        </form>
-                        <br>
+                        <div>
+                            <p>
+                                {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('name')->first() }}
+                            </p>
+                            <br>
+                            <p>
+                                {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
+                            </p>
+                            <br>
+                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                            </form>
+                        </div>
                     </div>
+                    <br><br>
+                    <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
                     <br><br>
                 @endforeach
             </div>
