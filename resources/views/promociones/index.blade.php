@@ -37,6 +37,9 @@
             {{ __('ACUMULA PIZZACOINS PARA CANJEARLAS POR PROMOCIONES') }}
         </div>
     </div>
+    <br>
+    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto"
+        style="border:3px solid gray; border-radius:10px;">
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
         style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
         @foreach ($promotions as $promotion)
@@ -72,20 +75,20 @@
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
                         ?>
-                        <div style="display:flex; flex-wrap:wrap;">
+                        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:5px;">
                             @if ($promotion->alergenos != '')
                                 @foreach ($alergenoslista as $alergeno)
-                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
-                                        height="40px">
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="30px"
+                                        height="30px">
                                 @endforeach
                             @endif
                         </div>
                         @if ($promotion->puntos)
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                            <div class="-mr-2 flex items-center" style="font-size:20px; justify-content:center;"><img
                                     src="{{ asset('img/pizzacoin.png') }}" alt="coin"> {{ $promotion->puntos }}
                             </div>
                         @else
-                            <div class="-mr-2 flex items-center" style="font-size:20px;"><img
+                            <div class="-mr-2 flex items-center" style="font-size:20px; justify-content:center;"><img
                                     src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
                     </div>
             @endif
@@ -137,7 +140,7 @@
                             <?php
                             $alergenoslista = explode('-', $promotion->alergenos);
                             ?>
-                            <div style="display:flex; flex-wrap:wrap;">
+                            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:5px;">
                                 @if ($promotion->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
