@@ -30,7 +30,9 @@
                         <td class="font-bold">{{ __('Teléfono') }}</td>
                     --}}
                     <td class="font-bold">{{ __('Estado') }}</td>
-                    <td></td>
+                    @if (Auth::user()->admin)
+                        <td></td>
+                    @endif
                     <td class="font-bold">{{ __('Pago') }}</td>
                     @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                         <td class="font-bold">{{ __('Eliminar') }}</td>

@@ -63,11 +63,11 @@
                             <button
                                 class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
                         @else
-                            <div style="background: rgba(0, 0, 0, 0.5);">
+                            <div>
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
                                     class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md" width="422"
                                     height="600"
-                                    style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                                    style="border-color:black; border-style:solid; border-width:5px; border-radius:30px; filter:brightness(50%);">
                             </div>
                         @endif
                         <br><br>
@@ -127,11 +127,11 @@
                                 <button
                                     class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
                             @else
-                                <div style="background: rgba(0, 0, 0, 0.5);">
+                                <div>
                                     <img src="{{ asset($promotion->image) }}" alt="submit"
                                         class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md"
                                         width="422" height="600"
-                                        style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
+                                        style="border-color:black; border-style:solid; border-width:5px; border-radius:30px; filter:brightness(50%);">
                                 </div>
                             @endif
                             <br><br>
