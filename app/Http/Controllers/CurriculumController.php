@@ -42,6 +42,7 @@ class CurriculumController extends Controller
         $data = Curriculum::create([
             'idUser' => Auth::user()->id,
             'curriculum' => $image_path,
+            'nuevo' => false,
         ]);
 
         session()->flash('notif.success', 'Se ha enviado el currículum con éxito.');
