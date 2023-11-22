@@ -32,6 +32,14 @@
                             </div>
                         @endif
                         <div>
+                            {{--
+                                @if ($curriculum->nuevo)
+                                    <p></p>
+                                @else
+                                    <p>{{__('NUEVO')}}</p>
+                                    <br>
+                                @endif
+                            --}}
                             <p>
                                 {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('name')->first() }}
                             </p>

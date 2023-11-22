@@ -123,7 +123,7 @@ function aniadir(nombre, precio) {
             contenido.appendChild(parrafo);
 
             var parrafoextra = document.createElement("p");
-            var textoextra = document.createTextNode("EXTRA");
+            var textoextra = document.createTextNode("EXTRA +2€");
             parrafoextra.appendChild(textoextra);
 
             parrafoextra.setAttribute("id", `ext-${indice}`);
