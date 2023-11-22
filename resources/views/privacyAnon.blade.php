@@ -921,7 +921,7 @@
         @endif
     </div>
     <br><br><br><br><br>
-    <div style="margin:10px;">
+    <div style="margin:30px;">
         <p style="text-align:center;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
         <p style="text-align:center;">www.pizzeriabrenda.com</p>
         <br><br><br>

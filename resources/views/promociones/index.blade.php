@@ -144,7 +144,7 @@
                                 @if ($promotion->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="30px" height="30px">
                                     @endforeach
                                 @endif
                             </div>
