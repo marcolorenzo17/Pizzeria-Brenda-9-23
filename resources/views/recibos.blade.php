@@ -46,7 +46,9 @@
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
-                            <td>{{ $recibo->productos }}</td>
+                            <td>
+                                {{ $recibo->productos }}
+                            </td>
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
@@ -127,7 +129,9 @@
                     @elseif ($recibo->idUser == Auth::user()->id)
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
-                            <td>{{ $recibo->productos }}</td>
+                            <td>
+                                {{ $recibo->productos }}
+                            </td>
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
@@ -177,7 +181,9 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->productos }}</p>
+                                <p style="padding-left:50px;">
+                                    {{ $recibo->productos }}
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -357,7 +363,9 @@
                                     {{ __('Productos') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->productos }}</p>
+                                <p style="padding-left:50px;">
+                                    {{ $recibo->productos }}
+                                </p>
                             </td>
                         </tr>
                         <tr>
