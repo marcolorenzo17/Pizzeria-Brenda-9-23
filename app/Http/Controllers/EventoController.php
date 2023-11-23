@@ -118,7 +118,7 @@ class EventoController extends Controller
 
         $evento->update();
 
-        session()->flash('notif.success', 'La reserva ha sido denegada.');
+        session()->flash('notif.success', 'La reserva ha sido cancelada.');
         return redirect()->route('eventos.index');
     }
 

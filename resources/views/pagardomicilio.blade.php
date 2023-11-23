@@ -170,14 +170,14 @@
                     <table>
                         <thead>
                             <tr class="h-12 uppercase">
-                                <th class="hidden md:table-cell"></th>
-                                <th class="text-left">{{ __('Nombre') }}</th>
-                                <th class="pl-5 text-left lg:text-right lg:pl-0">
+                                <th class="hidden md:table-cell" style="padding:30px;"></th>
+                                <th class="text-left" style="padding:30px;">{{ __('Nombre') }}</th>
+                                <th class="pl-5 text-left lg:text-right lg:pl-0" style="padding:30px;">
                                     <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
                                     <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
                                 </th>
-                                <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
-                                <th class="hidden text-right md:table-cell"> {{ __('Precio') }}</th>
+                                <th class="text-right md:table-cell" style="padding:30px;"> {{ __('Pizzacoins') }}</th>
+                                <th class="hidden text-right md:table-cell" style="padding:30px;"> {{ __('Precio') }}</th>
                             </tr>
                         </thead>
                         <tbody>

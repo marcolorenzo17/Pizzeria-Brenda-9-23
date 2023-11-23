@@ -57,7 +57,7 @@
                                     <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
                                         @csrf
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELADO') }}</button>
                                     </form>
                                 @else
                                     <table {{-- id="productos-grande" --}}>
@@ -75,7 +75,7 @@
                                                     action="{{ route('eventos.eventono', $evento->id) }}">
                                                     @csrf
                                                     <button
-                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELAR') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -206,7 +206,7 @@
                                     <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
                                         @csrf
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELADO') }}</button>
                                     </form>
                                 </div>
                             </td>
@@ -231,7 +231,7 @@
                                                     action="{{ route('eventos.eventono', $evento->id) }}">
                                                     @csrf
                                                     <button
-                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELAR') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

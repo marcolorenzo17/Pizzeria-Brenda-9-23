@@ -58,7 +58,7 @@
     "El nombre no puede tener más de 255 caracteres.": "The name cannot have more than 255 characters.",
     "El precio no puede ser menor de 0 €.": "The price cannot be less than 0 €.",
     "La reserva ha sido aceptada.": "The reservation has been accepted.",
-    "La reserva ha sido denegada.": "The reservation has been denied.",
+    "La reserva ha sido cancelada.": "The reservation has been cancelled.",
 
 
     "Entrar": "Access",
@@ -268,9 +268,9 @@
     "Pago realizado": "Payment complete",
     "Reserva": "Reservation",
     "ACEPTAR": "ACCEPT",
-    "DENEGAR": "DENY",
+    "CANCELAR": "CANCEL",
     "RESERVADO": "RESERVED",
-    "DENEGADO": "DENIED",
+    "CANCELADO": "CANCELLED",
     "Reserva en curso": "Reservation in progress",
     "Reservado": "Reserved",
     "Lo sentimos, no es posible realizar su reserva": "We're sorry, your reservation cannot be made",
