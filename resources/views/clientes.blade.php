@@ -14,7 +14,7 @@
         <div class="container px-12 py-8 mx-auto bg-white">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
                 <tr>
-                    <td class="font-bold">{{ __('Nombre') }}</td>
+                    <td class="font-bold">{{ __('Nombre de usuario') }}</td>
                     <td class="font-bold">{{ __('Correo electrónico') }}</td>
                     <td class="font-bold">{{ __('Dirección') }}</td>
                     <td class="font-bold">{{ __('Teléfono') }}</td>
@@ -125,7 +125,7 @@
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td style="display:flex; justify-content:space-between;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Nombre') }}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Nombre de usuario') }}</p>
                         </td>
                         <td>
                             <p style="padding-left:50px;">{{ $cliente->name }}</p>

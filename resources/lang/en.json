@@ -438,6 +438,10 @@
     "Debe tener al menos 8 caracteres.": "Must be at least 8 characters long.",
     "Tu dirección de envío a domicilio.": "Your home delivery address.",
 
+    "Nombre de usuario": "Username",
+    "Nombre del ingrediente": "Ingredient name",
+    "Nombre del plato": "Dish name",
+
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
     "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"

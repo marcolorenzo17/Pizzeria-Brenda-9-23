@@ -20,6 +20,8 @@
                     <td class="font-bold">{{ __('Fecha y hora') }}</td>
                     @if (Auth::user()->admin)
                         <td class="font-bold">{{ __('Cliente') }}</td>
+                        <td class="font-bold">{{ __('Dirección') }}</td>
+                        <td class="font-bold">{{ __('Teléfono') }}</td>
                     @endif
                     <td class="font-bold">{{ __('Productos') }}</td>
                     <td class="font-bold">{{ __('Pizzacoins obtenidas') }}</td>
@@ -46,6 +48,8 @@
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
+                            <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}</td>
+                            <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('telefono')->first() }}</td>
                             <td>
                                 <?php
                                 $productoslista = explode(', ', $recibo->productos);
@@ -203,6 +207,28 @@
                             <td>
                                 <p style="padding-left:50px;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}
+                                </p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">
+                                    {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}
+                                </p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">
+                                    {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('telefono')->first() }}
                                 </p>
                             </td>
                         </tr>

@@ -21,7 +21,7 @@
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
-                <label for="name">{{ __('Nombre') }}</label>
+                <label for="name">{{ __('Nombre del ingrediente') }}</label>
                 <br>
                 <input type="text" id="name" name="name" size="80" value="{{ old('name') }}">
                 <br><br>

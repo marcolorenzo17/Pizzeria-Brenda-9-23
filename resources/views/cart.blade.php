@@ -26,7 +26,7 @@
                                 <thead>
                                     <tr class="h-12 uppercase">
                                         <th class="md:table-cell"></th>
-                                        <th class="text-left">{{ __('Nombre') }}</th>
+                                        <th class="text-left">{{ __('Producto') }}</th>
                                         <th class="pl-5 text-left lg:text-right lg:pl-0">
                                             <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
                                             <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
