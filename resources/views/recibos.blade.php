@@ -38,16 +38,23 @@
                         <td class="font-bold">{{ __('Eliminar') }}</td>
                     @endif
                 </tr>
-                <tr>
-                    <td><br></td>
-                </tr>
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
+                        <tr>
+                            <td colspan="11"><br></td>
+                        </tr>
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
                             <td>
-                                {{ $recibo->productos }}
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p>
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
                             </td>
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
@@ -126,11 +133,28 @@
                                 </td>
                             @endif
                         </tr>
+                        <tr>
+                            <td colspan="11">
+                                <br>
+                                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br>
+                                </div>
+                            </td>
+                        </tr>
                     @elseif ($recibo->idUser == Auth::user()->id)
+                        <tr>
+                            <td colspan="9"><br></td>
+                        </tr>
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
                             <td>
-                                {{ $recibo->productos }}
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p>
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
                             </td>
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
@@ -146,6 +170,13 @@
                                 @else
                                     {{ __('Pago en curso') }}
                                 @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9">
+                                <br>
+                                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br>
+                                </div>
                             </td>
                         </tr>
                     @endif
@@ -181,9 +212,14 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
-                                    {{ $recibo->productos }}
-                                </p>
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p style="padding-left:50px;">
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
                             </td>
                         </tr>
                         <tr>
@@ -292,7 +328,8 @@
                                 @if ($recibo->pagado)
                                     <td>
                                         <div style="padding-left:50px;">
-                                            <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
+                                            <form method="post"
+                                                action="{{ route('recibos.nopagado', $recibo->id) }}">
                                                 @csrf
                                                 <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
                                                     style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
@@ -367,9 +404,9 @@
                                 $productoslista = explode(', ', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
-                                <p style="padding-left:50px;">
-                                    - {{ $producto }}
-                                </p>
+                                    <p style="padding-left:50px;">
+                                        - {{ $producto }}
+                                    </p>
                                 @endforeach
                             </td>
                         </tr>
