@@ -433,6 +433,11 @@
     "Inicia sesión": "Log in",
     ", y crea tu propia pizza!": ", and you'll be able to make your own pizza!",
 
+    "Tu nombre de usuario.": "Your username.",
+    "ejemplo@ejemplo.com": "example@example.com",
+    "Debe tener al menos 8 caracteres.": "Must be at least 8 characters long.",
+    "Tu dirección de envío a domicilio.": "Your home delivery address.",
+
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
     "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"
