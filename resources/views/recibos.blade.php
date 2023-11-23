@@ -363,9 +363,14 @@
                                     {{ __('Productos') }}</p>
                             </td>
                             <td>
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
                                 <p style="padding-left:50px;">
-                                    {{ $recibo->productos }}
+                                    - {{ $producto }}
                                 </p>
+                                @endforeach
                             </td>
                         </tr>
                         <tr>
