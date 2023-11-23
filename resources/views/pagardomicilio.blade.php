@@ -170,28 +170,28 @@
                     <table>
                         <thead>
                             <tr class="h-12 uppercase">
-                                <th class="hidden md:table-cell" style="padding:30px;"></th>
-                                <th class="text-left" style="padding:30px;">{{ __('Nombre') }}</th>
-                                <th class="pl-5 text-left lg:text-right lg:pl-0" style="padding:30px;">
+                                <th class="hidden md:table-cell" style="padding:10px;"></th>
+                                <th class="text-left" style="padding:10px;">{{ __('Nombre') }}</th>
+                                <th class="pl-5 text-left lg:text-right lg:pl-0" style="padding:10px;">
                                     <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
                                     <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
                                 </th>
-                                <th class="text-right md:table-cell" style="padding:30px;"> {{ __('Pizzacoins') }}</th>
-                                <th class="hidden text-right md:table-cell" style="padding:30px;"> {{ __('Precio') }}</th>
+                                <th class="text-right md:table-cell" style="padding:10px;"> {{ __('Pizzacoins') }}</th>
+                                <th class="hidden text-right md:table-cell" style="padding:10px;"> {{ __('Precio') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($cartItems as $item)
                                 <tr>
-                                    <td class="hidden pb-4 md:table-cell">
+                                    <td class="hidden pb-4 md:table-cell" style="padding:10px;">
                                         <img src="{{ $item->attributes->image }}" class="w-20 rounded"
                                             alt="Thumbnail">
                                     </td>
-                                    <td>
+                                    <td style="padding:10px;">
                                         <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
                                         </p>
                                     </td>
-                                    <td class="justify-center mt-6 md:justify-end md:flex">
+                                    <td class="justify-center mt-6 md:justify-end md:flex" style="padding:10px;">
                                         <div class="h-10 w-28">
                                             <div class="relative flex flex-row w-full h-8">
                                                 <p class="mb-2 md:ml-4 font-bold">{{ $item->quantity }}
@@ -199,12 +199,12 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-right md:table-cell">
+                                    <td class="text-right md:table-cell" style="padding:10px;">
                                         <span class="text-sm font-medium lg:text-base">
                                             {{ $item->attributes->puntos }}
                                         </span>
                                     </td>
-                                    <td class="hidden text-right md:table-cell">
+                                    <td class="hidden text-right md:table-cell" style="padding:10px;">
                                         <span class="text-sm font-medium lg:text-base">
                                             {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
                                         </span>
@@ -212,25 +212,26 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td>
+                                <td style="padding:10px;">
                                 </td>
-                                <td>
+                                <td style="padding:10px;">
                                     <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ __('Pedido a domicilio') }}
                                     </p>
                                 </td>
-                                <td>
+                                <td style="padding:10px;">
                                 </td>
-                                <td>
+                                <td style="padding:10px;">
                                 </td>
-                                <td class="hidden text-right md:table-cell">
+                                <td class="hidden text-right md:table-cell" style="padding:10px;">
                                     <span class="text-sm font-medium lg:text-base">2.00 €</span>
                                 </td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="hidden text-right md:table-cell">
+                                <td style="padding:10px;"></td>
+                                <td style="padding:10px;"></td>
+                                <td style="padding:10px;"></td>
+                                <td style="padding:10px;"></td>
+                                <td class="hidden text-right md:table-cell" style="padding:10px;">
                                     <br>
                                     <b>TOTAL:</b>
                                     <p>{{ number_format(Cart::getTotal() + 2, 2, '.', '') }} €</p>
