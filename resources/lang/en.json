@@ -407,8 +407,10 @@
     "Iniciar sesión": "Log in",
     "¿Ya tienes una cuenta?": "Already registered?",
     "¿Aún no tienes una cuenta?": "Still not registered?",
-    "¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico, y te enviaremos un enlace donde podrás resetear tu contraseña, y escoger una nueva.": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+    "¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico y una nueva contraseña, y te enviaremos a tu bandeja de entrada un enlace donde podrás confirmar los cambios.": "Forgot your password? No problem. Just write your email address and a new password, and we will email you a link that will allow you to confirm your changes.",
     "Enviar enlace": "Email Password Reset Link",
+
+    "PAGO CON TARJETA": "CREDIT CARD PAYMENT",
 
     "Ver currículum en PDF": "Show PDF resume",
     "Ampliar imagen": "Amplify image",
@@ -441,6 +443,7 @@
     "Nombre de usuario": "Username",
     "Nombre del ingrediente": "Ingredient name",
     "Nombre del plato": "Dish name",
+    "Confirmar nueva contraseña": "Confirm new password",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",

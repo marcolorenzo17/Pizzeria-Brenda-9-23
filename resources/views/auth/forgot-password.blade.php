@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico, y te enviaremos un enlace donde podrás resetear tu contraseña, y escoger una nueva.') }}
+        {{ __('¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico y una nueva contraseña, y te enviaremos a tu bandeja de entrada un enlace donde podrás confirmar los cambios.') }}
     </div>
 
     <!-- Session Status -->
@@ -19,7 +19,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Contraseña')" />
+            <x-input-label for="password" :value="__('Nueva contraseña')" />
 
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                 autocomplete="new-password" />
@@ -29,7 +29,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirmar contraseña')" />
+            <x-input-label for="password_confirmation" :value="__('Confirmar nueva contraseña')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
                 name="password_confirmation" required autocomplete="new-password" />

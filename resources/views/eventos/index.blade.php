@@ -454,41 +454,10 @@
                 <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                 <br><br><br>
                 <div>
-                    <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
-                    <br>
-                    <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
-                        <tr>
-                            <td>
-                                <div id="efectivodiv"
-                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <a href="#efectivoparte">
-                                        <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                            onclick="mostrarpago('efectivo')" id="imgpago" />
-                                    </a>
-                                    <div class="p-5">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                            {{ __('En efectivo') }}</h5>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div id="creditodiv"
-                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <a href="#creditoparte">
-                                        <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                            onclick="mostrarpago('credito')" id="imgpago" />
-                                    </a>
-                                    <div class="p-5">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                            {{ __('Tarjeta de crédito') }}</h5>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    <p style="align-text:center; font-weight:bolder;">{{__('PAGO CON TARJETA')}}</p>
                 </div>
-                <br><br><br>
-                <div id="creditoparte" style="display:none;">
+                <br>
+                <div>
                     <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                     <input id="card-holder-name" type="text">
                     <br><br>
@@ -518,10 +487,6 @@
                             data-secret="{{ $intent->client_secret }}"
                             class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
                     </div>
-                </div>
-                <div class="form-group text-center" id="efectivoparte" style="display:none;">
-                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
                 </div>
             </div>
         </div>

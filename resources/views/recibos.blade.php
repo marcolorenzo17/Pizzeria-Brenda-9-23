@@ -43,7 +43,7 @@
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>
-                            <td colspan="11"><br></td>
+                            <td colspan="13"><br></td>
                         </tr>
                         <tr>
                             <td>{{ $recibo->created_at }}</td>
@@ -138,7 +138,7 @@
                             @endif
                         </tr>
                         <tr>
-                            <td colspan="11">
+                            <td colspan="13">
                                 <br>
                                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br>
                                 </div>
