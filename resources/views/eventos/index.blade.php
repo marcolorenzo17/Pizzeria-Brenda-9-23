@@ -352,7 +352,7 @@
                                     @if ($evento->reservado == 'true')
                                         <p>{{ __('Reservado') }}</p>
                                     @elseif ($evento->reservado == 'false')
-                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
+                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}</p>
                                     @else
                                         <p>{{ __('Reserva en curso') }}</p>
                                     @endif
@@ -410,7 +410,7 @@
                                     @elseif ($evento->reservado == 'false')
                                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                             {{ __('Reserva') }}</p>
-                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
+                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}</p>
                                     @else
                                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                             {{ __('Reserva') }}</p>
@@ -462,8 +462,6 @@
     @endif
     <br><br>
     <p class="text-center">{{ __('*Sólo puedes tener un máximo de 5 reservas activas.') }}</p>
-    <p class="text-center">
-        {{ __('*Cada reserva tiene un coste de 10€, los cuales se descontarán de la cuenta a pagar.') }}</p>
     <p class="text-center">{{ __('*Sólo podemos reservar mesas para un máximo de 50 personas cada día.') }}
     </p>
     <br><br>
@@ -562,21 +560,21 @@
                     <br>
                 @enderror
                 {{ __('Nº Personas:') }} <input type="number" id="personas" name="personas"
-                    value="{{ old('personas') }}">
+                    value="{{ old('personas') }}" style="margin-left:10px; border-radius:20px;">
                 <br><br>
                 @error('fecha')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
                 {{ __('Fecha:') }} <input type="date" name="fecha" id="fecha"
-                    value="{{ old('fecha') }}">
+                    value="{{ old('fecha') }}" style="margin-left:10px; border-radius:20px;">
                 <br><br>
                 @error('hora')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
                 {{ __('Hora:') }} <input type="time" name="hora" id="hora" min="20:30"
-                    max="23:30" value="{{ old('hora') }}">
+                    max="23:30" value="{{ old('hora') }}" style="margin-left:10px; border-radius:20px;">
                 <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                 <br><br><br>
                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
@@ -591,7 +589,7 @@
                 <br><br>
                 <div>
                     <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                    <input id="card-holder-name" type="text">
+                    <input id="card-holder-name" type="text" style="margin-left:10px; border-radius:20px;">
                     <br><br>
                     <div class="form-row">
                         <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
