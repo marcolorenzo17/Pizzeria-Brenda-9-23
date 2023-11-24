@@ -316,6 +316,132 @@
             <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
             --}}
 
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar: false }">
+            <div style="text-align: center;">
+                <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;"
+                    x-on:click="mostrar = !mostrar"
+                    x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'"
+                    id="boton"></button>
+            </div>
+            <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
+                x-show="mostrar">
+                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                    id="eventos-grande">
+                    <tr>
+                        <td class="font-bold">{{ __('Fecha') }}</td>
+                        <td class="font-bold">{{ __('Hora') }}</td>
+                        <td class="font-bold">{{ __('Tipo') }}</td>
+                        <td class="font-bold">{{ __('Personas') }}</td>
+                        <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        <td class="font-bold">{{ __('Reserva') }}</td>
+                        <td class="font-bold">{{ __('Pagado') }}</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    @foreach ($eventos as $evento)
+                        @if ($evento->idUser == Auth::user()->id)
+                            <tr>
+                                <td>{{ $evento->fecha }}</td>
+                                <td>{{ $evento->hora }}</td>
+                                <td>{{ __($evento->tipo) }}</td>
+                                <td>{{ $evento->personas }}</td>
+                                <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                                <td>
+                                    @if ($evento->reservado == 'true')
+                                        <p>{{ __('Reservado') }}</p>
+                                    @elseif ($evento->reservado == 'false')
+                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
+                                    @else
+                                        <p>{{ __('Reserva en curso') }}</p>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($evento->pagado)
+                                        <p>{{ __('Pago realizado') }}</p>
+                                    @else
+                                        <p>{{ __('Pago en curso') }}</p>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
+                </table>
+                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                    id="eventos-pequenio">
+                    @foreach ($eventos as $evento)
+                        @if ($evento->idUser == Auth::user()->id)
+                            <tr>
+                                <td style="display:flex; justify-content:space-between;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Fecha y hora') }}</p>
+                                    <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Tipo') }}</p>
+                                    <p>{{ __($evento->tipo) }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Personas') }}
+                                    </p>
+                                    <p>{{ $evento->personas }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Presupuesto') }}</p>
+                                    <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    @if ($evento->reservado == 'true')
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                        <p>{{ __('Reservado') }}</p>
+                                    @elseif ($evento->reservado == 'false')
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                        <p>{{ __('Reserva en curso') }}</p>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    @if ($evento->pagado)
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Pagado') }}</p>
+                                        <p>{{ __('Pago realizado') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Pagado') }}</p>
+                                        <p>{{ __('Pago en curso') }}</p>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                        @endif
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
+    <br><br>
     @if (isset($_GET['totalpresupuesto']))
         <p class="text-center">
             {{ __('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.') }}
@@ -453,10 +579,16 @@
                     max="23:30" value="{{ old('hora') }}">
                 <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                 <br><br><br>
+                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
+                <br><br>
                 <div>
-                    <p style="align-text:center; font-weight:bolder;">{{__('PAGO CON TARJETA')}}</p>
+                    <p style="align-text:center; font-weight:bolder;">{{ __('PAGO CON TARJETA') }}</p>
+                    <br>
+                    <p style="align-text:center; font-weight:bolder; font-size:20px;">
+                        {{ __('*Cada reserva tiene un coste de 10€, los cuales se descontarán de la cuenta a pagar.') }}
+                    </p>
                 </div>
-                <br>
+                <br><br>
                 <div>
                     <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                     <input id="card-holder-name" type="text">
@@ -492,129 +624,6 @@
         </div>
     </form>
     <br><br>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar: false }">
-            <div style="text-align: center;">
-                <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;"
-                    x-on:click="mostrar = !mostrar"
-                    x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'"
-                    id="boton"></button>
-            </div>
-            <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
-                x-show="mostrar">
-                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                    id="eventos-grande">
-                    <tr>
-                        <td class="font-bold">{{ __('Fecha') }}</td>
-                        <td class="font-bold">{{ __('Hora') }}</td>
-                        <td class="font-bold">{{ __('Tipo') }}</td>
-                        <td class="font-bold">{{ __('Personas') }}</td>
-                        <td class="font-bold">{{ __('Presupuesto') }}</td>
-                        <td class="font-bold">{{ __('Reserva') }}</td>
-                        <td class="font-bold">{{ __('Pagado') }}</td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                    @foreach ($eventos as $evento)
-                        @if ($evento->idUser == Auth::user()->id)
-                            <tr>
-                                <td>{{ $evento->fecha }}</td>
-                                <td>{{ $evento->hora }}</td>
-                                <td>{{ __($evento->tipo) }}</td>
-                                <td>{{ $evento->personas }}</td>
-                                <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
-                                <td>
-                                    @if ($evento->reservado == 'true')
-                                        <p>{{ __('Reservado') }}</p>
-                                    @elseif ($evento->reservado == 'false')
-                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
-                                    @else
-                                        <p>{{ __('Reserva en curso') }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($evento->pagado)
-                                        <p>{{ __('Pago realizado') }}</p>
-                                    @else
-                                        <p>{{ __('Pago en curso') }}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endif
-                    @endforeach
-                </table>
-                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                    id="eventos-pequenio">
-                    @foreach ($eventos as $evento)
-                        @if ($evento->idUser == Auth::user()->id)
-                            <tr>
-                                <td style="display:flex; justify-content:space-between;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Fecha y hora') }}</p>
-                                    <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Tipo') }}</p>
-                                    <p>{{ __($evento->tipo) }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Personas') }}
-                                    </p>
-                                    <p>{{ $evento->personas }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Presupuesto') }}</p>
-                                    <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    @if ($evento->reservado == 'true')
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Reservado') }}</p>
-                                    @elseif ($evento->reservado == 'false')
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
-                                    @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Reserva en curso') }}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    @if ($evento->pagado)
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Pagado') }}</p>
-                                        <p>{{ __('Pago realizado') }}</p>
-                                    @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Pagado') }}</p>
-                                        <p>{{ __('Pago en curso') }}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr></tr>
-                            <tr></tr>
-                        @endif
-                    @endforeach
-                </table>
-            </div>
-        </div>
-    </div>
     </div>
     @endif
 
