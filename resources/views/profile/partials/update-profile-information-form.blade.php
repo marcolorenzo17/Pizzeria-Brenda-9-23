@@ -19,13 +19,13 @@
 
         <div>
             <x-input-label for="name" :value="__('Nombre de usuario')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" placeholder="{{__('Tu nombre de usuario.')}}" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
             <x-input-label for="email" :value="__('Correo electrónico')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" placeholder="{{__('ejemplo@ejemplo.com')}}" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -49,13 +49,13 @@
 
         <div>
             <x-input-label for="direccion" :value="__('Dirección')" />
-            <x-text-input id="direccion" name="direccion" type="text" class="mt-1 block w-full" :value="old('direccion', $user->direccion)" required autofocus autocomplete="direccion" />
+            <x-text-input id="direccion" name="direccion" type="text" class="mt-1 block w-full" :value="old('direccion', $user->direccion)" required autofocus autocomplete="direccion" placeholder="{{__('Tu dirección de envío a domicilio.')}}" />
             <x-input-error class="mt-2" :messages="$errors->get('direccion')" />
         </div>
 
         <div>
             <x-input-label for="telefono" :value="__('Teléfono')" />
-            <x-text-input id="telefono" name="telefono" type="text" class="mt-1 block w-full" :value="old('telefono', $user->telefono)" required autofocus autocomplete="telefono" />
+            <x-text-input id="telefono" name="telefono" type="text" class="mt-1 block w-full" :value="old('telefono', $user->telefono)" required autofocus autocomplete="telefono" placeholder="{{__('xxx xx xx xx')}}" />
             <x-input-error class="mt-2" :messages="$errors->get('telefono')" />
         </div>
 

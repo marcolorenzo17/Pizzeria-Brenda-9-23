@@ -125,7 +125,8 @@
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td style="display:flex; justify-content:space-between;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Nombre de usuario') }}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                {{ __('Nombre de usuario') }}</p>
                         </td>
                         <td>
                             <p style="padding-left:50px;">{{ $cliente->name }}</p>
@@ -165,6 +166,10 @@
                             <p>
                             <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
                                 @csrf
+                                @error('puntos')
+                                    <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                                    <br>
+                                @enderror
                                 <div style="display:flex; align-items:center; gap:10px;">
                                     <div style="padding-left:50px;">
                                         <input type="text" id="puntos" name="puntos" size="10"

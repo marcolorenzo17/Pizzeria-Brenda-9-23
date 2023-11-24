@@ -175,13 +175,17 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_product' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
+            'puntos' => 'numeric|min:0',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
+            'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
             'image_product.required' => 'El campo es obligatorio.',
-            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
+            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.',
+            'puntos.numeric' => 'El campo de pizzacoins debe ser un número.',
+            'puntos.min' => 'El campo de pizzacoins no puede ser menor de 0.'
         ]);
 
         if($validate->fails()){
@@ -226,12 +230,16 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_product' => 'mimes:jpg,png,jpeg,gif,svg,pdf',
+            'puntos' => 'numeric|min:0',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
+            'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
-            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
+            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.',
+            'puntos.numeric' => 'El campo de pizzacoins debe ser un número.',
+            'puntos.min' => 'El campo de pizzacoins no puede ser menor de 0.'
         ]);
 
         if($validate->fails()){

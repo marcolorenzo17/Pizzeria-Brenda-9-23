@@ -42,6 +42,7 @@ class EventoController extends Controller
             'hora' => 'required',
         ],[
             'personas.required' => 'El campo es obligatorio.',
+            'personas.numeric' => 'El campo debe ser un número.',
             'personas.min' => 'La reserva debe ser al menos para 1 persona.',
             'personas.max' => 'La reserva no puede ser para más de 50 personas.',
             'fecha.required' => 'El campo es obligatorio.',

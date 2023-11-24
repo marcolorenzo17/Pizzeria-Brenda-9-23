@@ -47,6 +47,7 @@ class CrearpizzaController extends Controller
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
+            'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
             'image_ingredient.required' => 'El campo es obligatorio.',
             'image_ingredient.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
@@ -96,6 +97,7 @@ class CrearpizzaController extends Controller
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
+            'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
             'image_ingredient.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
         ]);

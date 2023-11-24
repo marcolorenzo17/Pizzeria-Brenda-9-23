@@ -401,6 +401,13 @@
     "¡PIZZACOINS!": "PIZZACOINS!",
     "NUESTRAS OFERTAS": "OUR OFFERS",
 
+    "El campo debe ser un número.": "The field must be a number.",
+
+    "El número de tu tarjeta está incompleto.": "Your credit card number is incomplete.",
+    "El campo de pizzacoins debe ser un número.": "The pizzacoins field must be a number.",
+    "El precio debe ser un número.": "The price must be a number.",
+    "El campo de pizzacoins no puede ser menor de 0.": "The pizzacoins field must be at least 0.",
+
     "Correo electrónico": "Email",
     "Recuérdame": "Remember me",
     "¿Te has olvidado de tu contraseña?": "Forgot your password?",
