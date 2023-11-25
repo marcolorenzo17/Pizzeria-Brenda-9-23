@@ -51,6 +51,7 @@ class RegisteredUserController extends Controller
             'inmediato' => false,
             'direccion' => $request->direccion,
             'telefono' => $request->telefono,
+            'nuevo' => true,
         ]);
 
         event(new Registered($user));
