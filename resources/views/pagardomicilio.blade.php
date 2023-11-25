@@ -240,7 +240,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <p>{{ __('Pizzacoins ganadas con la compra: ') }} {{ (Cart::getTotal() + 2) * 100 }}</p>
+                    <p>{{ __('Pizzacoins ganadas con la compra: ') }} {{ round((Cart::getTotal() + 2) * 10) }}</p>
                     {{--
                     <br>
                         <form action="{{ route('cart.add') }}" method="POST">

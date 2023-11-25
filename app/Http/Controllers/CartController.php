@@ -180,7 +180,7 @@ class CartController extends Controller
         }
 
         $user = User::findOrFail(Auth::user()->id);
-        $user->puntos += ($req->total * 100);
+        $user->puntos += round($req->total * 10);
         $user->restapuntos = 0;
         $user->promocion = false;
 

@@ -28,7 +28,7 @@
             <br>
             {{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}
             <br>
-            {{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
+            {{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
             <br>
             {{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}
         </div>

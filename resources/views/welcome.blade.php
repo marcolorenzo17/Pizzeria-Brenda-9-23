@@ -1080,7 +1080,7 @@
                     <br>
                     <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
                     <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
-                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
+                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
                     </p>
                     <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
                     <br>
