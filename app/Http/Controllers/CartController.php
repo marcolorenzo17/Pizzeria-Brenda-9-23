@@ -184,15 +184,31 @@ class CartController extends Controller
         $user->restapuntos = 0;
         $user->promocion = false;
 
-        $user->update();
+        if ($user->nuevo and $req->total >= 10) {
+            $user->puntos += 500;
+            $user->nuevo = false;
 
-        \Cart::clear();
+            $user->update();
 
-        $coste = number_format($req->total, 2, '.', '');
+            \Cart::clear();
 
-        Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+            $coste = number_format($req->total, 2, '.', '');
 
-        session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
-        return redirect('products');
+            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+
+            session()->flash('notif.success', 'Se ha realizado el pedido con éxito, y se han añadido 500 pizzacoins a tu cuenta.');
+            return redirect('products');
+        } else {
+            $user->update();
+
+            \Cart::clear();
+
+            $coste = number_format($req->total, 2, '.', '');
+
+            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+
+            session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
+            return redirect('products');
+        }
     }
 }
