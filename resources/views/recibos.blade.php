@@ -254,7 +254,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->total * 100 }}</p>
+                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -442,7 +442,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->total * 100 }}</p>
+                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
