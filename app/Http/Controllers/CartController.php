@@ -196,7 +196,7 @@ class CartController extends Controller
 
             Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
 
-            session()->flash('notif.success', 'Se ha realizado el pedido con éxito, y se han añadido 500 pizzacoins a tu cuenta.');
+            session()->flash('notif.success', 'Se ha realizado el pedido con éxito, y se han añadido 500 pizzacoins a tu cuenta, por tu primera compra superior a 10€. ¡Disfrútalas!');
             return redirect('products');
         } else {
             $user->update();
