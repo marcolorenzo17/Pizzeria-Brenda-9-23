@@ -1086,6 +1086,8 @@
                     <br>
                     <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
                     </p>
+                    <p>{{ __('Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.') }}
+                    </p>
                 </div>
             </div>
         </div>
