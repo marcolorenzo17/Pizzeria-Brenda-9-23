@@ -1011,7 +1011,8 @@
     <br><br><br><br><br>
     <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white;"
         id="logo1">
-        {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
+        {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}
+    </h1>
     <br>
     <div class="mx-auto" style="background-color:#4a4895;">
         <video width="859" height="464" autoplay muted loop>
@@ -1099,9 +1100,15 @@
     </h1>
     <div
         style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
-        <div style="margin-left:100px;">
-            <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
-        </div>
+        @if (Lang::locale() == 'es')
+            <div style="margin-left:100px;">
+                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
+            </div>
+        @else
+            <div style="margin-left:100px;">
+                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas">
+            </div>
+        @endif
         <div class="slideshow-container2" style="padding-right:100px;">
             <br>
             @foreach ($products as $product)
@@ -1131,8 +1138,7 @@
         <br>
         <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
             <div>
-                <h1
-                    style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
+                <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
                     {{ __('¿QUÉ PEDIMOS?') }}
                 </h1>
                 <br><br>
@@ -1147,8 +1153,13 @@
                     </a>
                 </div>
             </div>
-            <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                height="400px">
+            @if (Lang::locale() == 'es')
+                <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
+                    height="400px">
+            @else
+                <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
+                    height="400px">
+            @endif
         </div>
         <br><br>
     </div>
