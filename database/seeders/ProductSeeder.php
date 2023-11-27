@@ -24,7 +24,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'gluten-lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Mariachi Pizza'
             ],
             [
                 'name' => 'Pizza Vegetal',
