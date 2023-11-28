@@ -48,7 +48,11 @@ use App\Http\Controllers\ProductController;
                                     style="height:120px; width:120px; border: 2px solid gray; border-radius:10px;">
                                 <div>
                                     <p>{{ __($product->type) }}</p>
-                                    <p>{{ $product->name }}</p>
+                                    @if (Lang::locale() == 'es')
+                                        <p>{{ $product->name }}</p>
+                                    @else
+                                        <p>{{ $product->nameen }}</p>
+                                    @endif
                                     <p>{{ $product->description }}</p>
                                     <br>
                                     <p>{{ number_format($product->price, 2, '.', '') }} €</p>

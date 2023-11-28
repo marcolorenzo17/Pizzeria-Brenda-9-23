@@ -41,11 +41,14 @@ class CrearpizzaController extends Controller
     public function aniadir(Request $req) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_ingredient' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
@@ -69,6 +72,7 @@ class CrearpizzaController extends Controller
 
         $ingrediente = new Ingrediente;
         $ingrediente->name = $req->name;
+        $ingrediente->nameen = $req->nameen;
         $ingrediente->price = $req->price;
         $ingrediente->image = 'storage/' . $image_path;
         $ingrediente->type = $req->type;
@@ -91,11 +95,14 @@ class CrearpizzaController extends Controller
     public function actualizar(Request $req, string $id) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_ingredient' => 'mimes:jpg,png,jpeg,gif,svg,pdf',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
@@ -117,6 +124,7 @@ class CrearpizzaController extends Controller
         }
 
         $ingrediente->name = $req->name;
+        $ingrediente->nameen = $req->nameen;
         $ingrediente->price = $req->price;
         $ingrediente->type = $req->type;
 

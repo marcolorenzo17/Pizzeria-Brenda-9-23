@@ -24,6 +24,14 @@
                 <br>
                 <input type="text" id="name" name="name" size="80" value="{{ $ingrediente->name }}">
                 <br><br>
+                @error('nameen')
+                    <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                    <br>
+                @enderror
+                <label for="nameen">{{ __('Nombre del ingrediente (Inglés)') }}</label>
+                <br>
+                <input type="text" id="nameen" name="nameen" size="80" value="{{ $ingrediente->nameen }}">
+                <br><br>
                 @error('price')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>

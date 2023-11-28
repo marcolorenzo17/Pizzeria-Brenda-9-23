@@ -33,7 +33,11 @@
                                     style="height:120px; width:120px; border: 2px solid gray; border-radius:10px;">
                                 <div>
                                     <p>{{ __($ingrediente->type) }}</p>
-                                    <p>{{ $ingrediente->name }}</p>
+                                    @if (Lang::locale() == 'es')
+                                        <p>{{ $ingrediente->name }}</p>
+                                    @else
+                                        <p>{{ $ingrediente->nameen }}</p>
+                                    @endif
                                     <br>
                                     <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>
                                 </div>

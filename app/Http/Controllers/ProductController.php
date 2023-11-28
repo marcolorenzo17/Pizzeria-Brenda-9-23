@@ -173,12 +173,15 @@ class ProductController extends Controller
     public function aniadir(Request $req) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_product' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
             'puntos' => 'numeric|min:0',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
@@ -204,6 +207,7 @@ class ProductController extends Controller
 
         $product = new Product;
         $product->name = $req->name;
+        $product->nameen = $req->nameen;
         $product->price = $req->price;
         $product->description = $req->description;
         $product->image = 'storage/' . $image_path;
@@ -228,12 +232,15 @@ class ProductController extends Controller
     public function actualizar(Request $req, string $id) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_product' => 'mimes:jpg,png,jpeg,gif,svg,pdf',
             'puntos' => 'numeric|min:0',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
             'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
@@ -257,6 +264,7 @@ class ProductController extends Controller
         }
 
         $product->name = $req->name;
+        $product->nameen = $req->nameen;
         $product->price = $req->price;
         $product->description = $req->description;
         $product->type = $req->type;
