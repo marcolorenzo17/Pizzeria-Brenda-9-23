@@ -35,7 +35,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Veggie Pizza'
             ],
             [
                 'name' => 'Pizza Americana',
@@ -45,7 +46,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'American Pizza'
             ],
             [
                 'name' => 'Pizza Cheeseburger',
@@ -55,7 +57,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'mostaza-sesamo-dioxido',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Cheeseburger Pizza'
             ],
             [
                 'name' => 'Pizza Kebab',
@@ -65,7 +68,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'cascara',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Kebab Pizza'
             ],
             [
                 'name' => 'Pizza Carbonara',
@@ -75,7 +79,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Carbonara Pizza'
             ],
             [
                 'name' => 'Pizza Barbacoa',
@@ -85,7 +90,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'cascara-mostaza-dioxido-apio',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'BBQ Pizza'
             ],
             [
                 'name' => 'Pizza Calzone',
@@ -95,7 +101,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Calzone Pizza'
             ],
             [
                 'name' => 'Pizza Andaluza',
@@ -105,7 +112,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Andalusian Pizza'
             ],
             [
                 'name' => 'Pizza Gourmet',
@@ -115,7 +123,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Gourmet Pizza'
             ],
             [
                 'name' => 'Pizza de Taco Mexicano',
@@ -125,7 +134,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Mexican Taco Pizza'
             ],
             [
                 'name' => 'Pizza Cuatro Quesos',
@@ -135,7 +145,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Four-Cheese Pizza'
             ],
             [
                 'name' => 'Pizza 4 Estaciones',
@@ -145,7 +156,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'pescado',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => '4-Season Pizza'
             ],
             [
                 'name' => 'Pizza Muerte por Queso',
@@ -155,7 +167,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pizza',
                 'alergenos' => 'lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Death by Cheese Pizza'
             ],
             [
                 'name' => 'Hamburguesa de Buey',
@@ -165,7 +178,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'lacteos-soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Ox Burger'
             ],
             [
                 'name' => 'Hamburguesa de Pollo al Curry',
@@ -175,7 +189,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'gluten-apio-cascara-mostaza-sesamo',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Curry Chicken Burger'
             ],
             [
                 'name' => 'Hamburguesa con Salsa al Whisky',
@@ -185,7 +200,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Whisky Sauce Burger'
             ],
             [
                 'name' => 'Queséame Burger',
@@ -195,7 +211,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'lacteos-soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Queséame Burger'
             ],
             [
                 'name' => 'Hamburguesa de Ternera',
@@ -205,7 +222,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'lacteos-soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Beef Burger'
             ],
             [
                 'name' => 'Hamburguesa Gourmet',
@@ -215,7 +233,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'lacteos-soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Gourmet Burger'
             ],
             [
                 'name' => 'Hamburguesa de Pollo',
@@ -225,7 +244,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'lacteos-soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Chicken Burger'
             ],
             [
                 'name' => 'Crunchi Burger',
@@ -235,7 +255,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'lacteos-soja-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Crunchy Burger'
             ],
             [
                 'name' => 'Costi Burger',
@@ -245,7 +266,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Hamburguesa',
                 'alergenos' => 'huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Rib Burger'
             ],
             [
                 'name' => 'Sándwich Panadero',
@@ -255,7 +277,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Sándwich',
                 'alergenos' => 'dioxido',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Baker Sandwich'
             ],
             [
                 'name' => 'Sándwich Vegetal o de Pollo',
@@ -265,7 +288,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Sándwich',
                 'alergenos' => 'dioxido',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Veggie or Chicken Sandwich'
             ],
             [
                 'name' => 'Sándwich Especial',
@@ -275,7 +299,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Sándwich',
                 'alergenos' => 'dioxido',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Special Sandwich'
             ],
             [
                 'name' => 'Sándwich Mixto',
@@ -285,7 +310,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Sándwich',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Mix Sandwich',
             ],
             [
                 'name' => 'Espagueti Pescatore',
@@ -295,7 +321,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'soja-pescado',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Spaghetti Pescatore'
             ],
             [
                 'name' => 'Espagueti Primavera',
@@ -305,7 +332,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Spring Spaghetti'
             ],
             [
                 'name' => 'Espagueti Carbonara',
@@ -315,7 +343,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'soja-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Carbonara Spaghetti'
             ],
             [
                 'name' => 'Espagueti Boloñesa',
@@ -325,7 +354,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Bolognese Spaghetti'
             ],
             [
                 'name' => 'Espagueti con Atún',
@@ -335,7 +365,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'pescado',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Tuna Spaghetti'
             ],
             [
                 'name' => 'Tallarines Roquefort',
@@ -345,7 +376,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Roquefort Noodles'
             ],
             [
                 'name' => 'Tallarines Salmón',
@@ -355,7 +387,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'soja-pescado',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Salmon Noodles'
             ],
             [
                 'name' => 'Macarrones',
@@ -365,7 +398,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'apio-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Macaroni'
             ],
             [
                 'name' => 'Macarrones Napolitana',
@@ -375,7 +409,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'apio-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Neapolitan Macaroni'
             ],
             [
                 'name' => 'Lasaña',
@@ -385,7 +420,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Pasta',
                 'alergenos' => 'apio-cascara',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Lasagna'
             ],
             [
                 'name' => 'Risotto Roquefort',
@@ -395,7 +431,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Arroz',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Roquefort Risotto'
             ],
             [
                 'name' => 'Risotto Mixto',
@@ -405,7 +442,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Arroz',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Mix Risotto'
             ],
             [
                 'name' => 'Arroz Frito',
@@ -415,7 +453,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Arroz',
                 'alergenos' => 'soja-crustaceos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Fried Rice'
             ],
             [
                 'name' => 'Baguette Brenda',
@@ -425,7 +464,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Baguette',
                 'alergenos' => 'dioxido-huevos-mostaza',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Brenda Baguette'
             ],
             [
                 'name' => 'Baguette Panadero',
@@ -435,7 +475,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Baguette',
                 'alergenos' => 'soja-huevos-dioxido',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Baker Baguette'
             ],
             [
                 'name' => 'Baguette Cinta de Lomo Sajonia',
@@ -445,7 +486,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Baguette',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Saxon Pork Fillet Baguette'
             ],
             [
                 'name' => 'Baguette de Carne picada y Queso fundido',
@@ -455,7 +497,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Baguette',
                 'alergenos' => 'apio',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Minced Meat and Melted Cheese Baguette'
             ],
             [
                 'name' => 'Baguette Vegetal',
@@ -465,7 +508,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Baguette',
                 'alergenos' => 'soja-pescado-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Veggie Baguette'
             ],
             [
                 'name' => 'Ensalada Normal',
@@ -475,7 +519,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Normal Salad'
             ],
             [
                 'name' => 'Ensalada de Arroz',
@@ -485,7 +530,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada',
                 'alergenos' => 'soja-lacteos-pescado-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Rice Salad'
             ],
             [
                 'name' => 'Ensalada César',
@@ -495,7 +541,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada',
                 'alergenos' => 'soja-lacteos-huevos-gluten-cascara-sesamo',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Caesar Salad'
             ],
             [
                 'name' => 'Ensalada Brenda',
@@ -505,7 +552,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada',
                 'alergenos' => 'soja-lacteos-gluten',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Brenda Salad'
             ],
             [
                 'name' => 'Ensalada Mixta',
@@ -515,7 +563,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada',
                 'alergenos' => 'soja-lacteos-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Mix Salad'
             ],
             [
                 'name' => 'Ensalada de Pasta',
@@ -525,7 +574,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Ensalada',
                 'alergenos' => 'soja-lacteos-huevos-pescado-gluten',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Pasta Salad'
             ],
             [
                 'name' => 'Patatas Deluxe',
@@ -535,7 +585,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'gluten',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Deluxe Fries'
             ],
             [
                 'name' => 'Bolas de Queso - 8 Unidades',
@@ -545,7 +596,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'gluten',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Cheese Balls - 8 units'
             ],
             [
                 'name' => 'Nachos con queso',
@@ -555,7 +607,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'lacteos-gluten',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Nachos with Cheese'
             ],
             [
                 'name' => 'Nachos con queso y guacamole',
@@ -565,7 +618,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'lacteos-gluten-dioxido',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Nachos with Cheese and Guacamole'
             ],
             [
                 'name' => 'Alitas de pollo a la barbacoa',
@@ -575,7 +629,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'soja-cascara-gluten-mostaza',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'BBQ Chicken Wings'
             ],
             [
                 'name' => 'Nuggets',
@@ -585,7 +640,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'soja-lacteos-gluten-huevos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Chicken Nuggets'
             ],
             [
                 'name' => 'Patatas con carne picada y queso',
@@ -595,7 +651,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Complemento',
                 'alergenos' => 'gluten-lacteos',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Fries with Minced Meat and Cheese'
             ],
             [
                 'name' => 'Perrito normal',
@@ -605,7 +662,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Perrito',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Normal Hot Dog'
             ],
             [
                 'name' => 'Perrito con taco y queso',
@@ -615,7 +673,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Perrito',
                 'alergenos' => 'soja',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Taco and Cheese Hot Dog'
             ],
             [
                 'name' => 'Tubo de cerveza',
@@ -625,7 +684,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Cerveza',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Beer Tube'
             ],
             [
                 'name' => 'Vaso de cerveza',
@@ -635,7 +695,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Cerveza',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Beer Glass'
             ],
             [
                 'name' => 'Lata de cerveza',
@@ -645,7 +706,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Cerveza',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Beer Can'
             ],
             [
                 'name' => 'Maceta de cerveza',
@@ -655,7 +717,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Cerveza',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Beer Pitcher'
             ],
             [
                 'name' => 'Copa de fino, Rioja o blanco',
@@ -665,7 +728,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Vino',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Fino, Rioja or White wine Glass'
             ],
             [
                 'name' => 'Botella de Rioja',
@@ -675,7 +739,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Vino',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Rioja Bottle'
             ],
             [
                 'name' => 'Botella de vino blanco',
@@ -685,7 +750,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Vino',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'White wine Bottle'
             ],
             [
                 'name' => 'Lata o botellín',
@@ -695,7 +761,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Refresco',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Can or Small Bottle'
             ],
             [
                 'name' => 'Agua mineral 1/4 con gas',
@@ -705,7 +772,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Refresco',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Sparkling Mineral Water 1/4'
             ],
             [
                 'name' => 'Agua mineral 1/2 sin gas',
@@ -715,7 +783,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Refresco',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Mineral Water 1/2'
             ],
             [
                 'name' => 'Tinto de verano',
@@ -725,7 +794,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Refresco',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Summer Red Wine'
             ],
             [
                 'name' => '1 € Más',
@@ -735,7 +805,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Oferta',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => '1 More €'
             ],
             [
                 'name' => 'Pizza Familiar + Patatas + Bebida',
@@ -745,7 +816,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Oferta',
                 'alergenos' => '',
                 'habilitado' => true,
-                'puntos' => 0
+                'puntos' => 0,
+                'nameen' => 'Family Pizza + Fries + Drink'
             ],
             [
                 'name' => 'Menú Hamburguesa de ternera + Nuggets + Patatas',
@@ -755,7 +827,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-huevos-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 1050
+                'puntos' => 1050,
+                'nameen' => 'Beef Burger + Chicken Nuggets + Fries Menu'
             ],
             [
                 'name' => 'Pizza pequeña de Jamón York',
@@ -765,7 +838,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 650
+                'puntos' => 650,
+                'nameen' => 'Small Cooked Ham Pizza'
             ],
             [
                 'name' => 'Patatas',
@@ -775,7 +849,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten',
                 'habilitado' => true,
-                'puntos' => 300
+                'puntos' => 300,
+                'nameen' => 'Fries'
             ],
             [
                 'name' => 'Sándwich mixto',
@@ -785,7 +860,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-huevos-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 300
+                'puntos' => 300,
+                'nameen' => 'Mix Sandwich'
             ],
             [
                 'name' => 'Alitas de pollo a la barbacoa (6 unids.)',
@@ -795,7 +871,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-cascara-soja-mostaza',
                 'habilitado' => true,
-                'puntos' => 450
+                'puntos' => 450,
+                'nameen' => 'BBQ Chicken Wings (6 Units)'
             ],
             [
                 'name' => 'Hamburguesa de ternera',
@@ -805,7 +882,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 450
+                'puntos' => 450,
+                'nameen' => 'Beef Burger'
             ],
             [
                 'name' => 'Nuggets (5 unids.)',
@@ -815,7 +893,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-huevos-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 300
+                'puntos' => 300,
+                'nameen' => 'Chicken Nuggets (5 Units)'
             ],
             [
                 'name' => 'Espagueti Boloñesa',
@@ -825,7 +904,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-lacteos-apio',
                 'habilitado' => true,
-                'puntos' => 700
+                'puntos' => 700,
+                'nameen' => 'Bolognese Spaghetti'
             ],
             [
                 'name' => 'Perrito',
@@ -835,7 +915,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-lacteos',
                 'habilitado' => true,
-                'puntos' => 350
+                'puntos' => 350,
+                'nameen' => 'Hot Dog'
             ],
             [
                 'name' => 'Menú Perrito + Sándwich mixto + Patatas',
@@ -845,7 +926,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-huevos-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 950
+                'puntos' => 950,
+                'nameen' => 'Hot Dog + Mix Sandwich + Fries Menu'
             ],
             [
                 'name' => 'Nachos con queso',
@@ -855,7 +937,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-lacteos',
                 'habilitado' => true,
-                'puntos' => 500
+                'puntos' => 500,
+                'nameen' => 'Nachos with Cheese'
             ],
             [
                 'name' => 'Burrito',
@@ -865,7 +948,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-lacteos-soja',
                 'habilitado' => true,
-                'puntos' => 400
+                'puntos' => 400,
+                'nameen' => 'Burrito'
             ],
             [
                 'name' => 'Patatas deluxe',
@@ -875,7 +959,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten',
                 'habilitado' => true,
-                'puntos' => 350
+                'puntos' => 350,
+                'nameen' => 'Deluxe Fries'
             ],
             [
                 'name' => 'Taco',
@@ -885,7 +970,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 400
+                'puntos' => 400,
+                'nameen' => 'Taco'
             ],
             [
                 'name' => 'Baguette vegetal',
@@ -895,7 +981,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-soja-lacteos-pescado-huevos',
                 'habilitado' => true,
-                'puntos' => 500
+                'puntos' => 500,
+                'nameen' => 'Veggie Baguette'
             ],
             [
                 'name' => 'Ensalada normal',
@@ -905,7 +992,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'dioxido',
                 'habilitado' => true,
-                'puntos' => 450
+                'puntos' => 450,
+                'nameen' => 'Normal Salad'
             ],
             [
                 'name' => 'Pizza pequeña de Chorizo',
@@ -915,7 +1003,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 650
+                'puntos' => 650,
+                'nameen' => 'Small Chorizo Pizza'
             ],
             [
                 'name' => 'Pizza pequeña de Pepperoni',
@@ -925,7 +1014,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'gluten-soja-lacteos',
                 'habilitado' => true,
-                'puntos' => 680
+                'puntos' => 680,
+                'nameen' => 'Small Pepperoni Pizza'
             ],
             [
                 'name' => 'Nachos con guacamole',
@@ -935,7 +1025,8 @@ class ProductSeeder extends Seeder
                 'type' => 'Promoción',
                 'alergenos' => 'lacteos-dioxido',
                 'habilitado' => true,
-                'puntos' => 550
+                'puntos' => 550,
+                'nameen' => 'Nachos with Guacamole'
             ],
         ];
         Product::insert($products);
