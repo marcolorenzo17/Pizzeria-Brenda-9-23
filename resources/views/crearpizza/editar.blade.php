@@ -47,7 +47,7 @@
                     <option value="Ingrediente">{{ __('Ingrediente') }}</option>
                 </select>
                 <br>
-                <strong>{{ __('Tipo actual:') }}</strong>&nbsp;{{ $ingrediente->type }}
+                <strong>{{ __('Tipo actual:') }}</strong>&nbsp;{{ __($ingrediente->type) }}
                 <br><br>
                 <label for="image_ingredient">{{ __('Imagen') }}</label>
                 <br>
