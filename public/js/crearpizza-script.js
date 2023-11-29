@@ -53,6 +53,7 @@ function aniadirBase(nombre, precio) {
     botonelim.setAttribute("id", `b-base`);
     botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
     botonelim.setAttribute("onclick", `eliminarBase()`);
+    botonelim.setAttribute("style", "margin-bottom:30px;");
 
     contenido.appendChild(botonelim);
 
