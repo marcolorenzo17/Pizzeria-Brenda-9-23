@@ -54,7 +54,7 @@
                                             <td>
                                                 <a href="#">
                                                     <p class="mb-2 md:ml-4 text-purple-600 font-bold">
-                                                        {{ $item->name }}
+                                                        {{ __($item->name) }}
                                                     </p>
 
                                                 </a>

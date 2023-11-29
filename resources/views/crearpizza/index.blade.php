@@ -143,7 +143,11 @@
                                 @if ($ingrediente->type == 'Base' && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -166,7 +170,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -189,7 +197,11 @@
                                         $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -212,7 +224,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -235,7 +251,11 @@
                                         $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -258,7 +278,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -277,7 +301,11 @@
                                 @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -300,7 +328,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>

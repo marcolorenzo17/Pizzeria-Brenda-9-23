@@ -4,9 +4,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <br><br><br>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center" style="font-size:25px; text-transform:uppercase;">
-            {{ $products->name }} {{__('- DETALLES')}}
-        </h2>
+        @if (Lang::locale() == 'es')
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center"
+                style="font-size:25px; text-transform:uppercase;">
+                {{ $products->name }} {{ __('- DETALLES') }}
+            </h2>
+        @else
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center"
+                style="font-size:25px; text-transform:uppercase;">
+                {{ $products->nameen }} {{ __('- DETALLES') }}
+            </h2>
+        @endif
         <br><br>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
@@ -49,9 +57,15 @@
                             {{ __('Nombre del plato') }}
                         </h2>
 
-                        <p class="mt-1 text-sm text-gray-600">
-                            {{ $products->name }}
-                        </p>
+                        @if (Lang::locale() == 'es')
+                            <p class="mt-1 text-sm text-gray-600">
+                                {{ $products->name }}
+                            </p>
+                        @else
+                            <p class="mt-1 text-sm text-gray-600">
+                                {{ $products->nameen }}
+                            </p>
+                        @endif
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
@@ -116,7 +130,11 @@
                         <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $products->id }}" name="id">
-                            <input type="hidden" value="{{ $products->name }}" name="name">
+                            @if (Lang::locale() == 'es')
+                                <input type="hidden" value="{{ $products->name }}" name="name">
+                            @else
+                                <input type="hidden" value="{{ $products->nameen }}" name="name">
+                            @endif
                             <input type="hidden" value="{{ $products->price }}" name="price">
                             <input type="hidden" value="{{ $products->image }}" name="image">
                             <input type="hidden" value="1" name="quantity">
@@ -128,7 +146,11 @@
                         <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $products->id }}" name="id">
-                            <input type="hidden" value="{{ $products->name }}" name="name">
+                            @if (Lang::locale() == 'es')
+                                <input type="hidden" value="{{ $products->name }}" name="name">
+                            @else
+                                <input type="hidden" value="{{ $products->nameen }}" name="name">
+                            @endif
                             <input type="hidden" value="{{ $products->price }}" name="price">
                             <input type="hidden" value="{{ $products->image }}" name="image">
                             <input type="hidden" value="1" name="quantity">
@@ -143,16 +165,17 @@
                     <br><br>
                     <h2 class="text-center" style="font-weight:bolder; font-size:20px;">{{ __('RESEÑAS') }}</h2>
                     <br>
-                    <p style="text-align:center;">{{__('¿Cómo valorarías este plato?')}}</p>
+                    <p style="text-align:center;">{{ __('¿Cómo valorarías este plato?') }}</p>
                     <br>
-                    <form action="{{ route('products.addValoracion', $products->id) }}" method="POST" id="valoracion">
+                    <form action="{{ route('products.addValoracion', $products->id) }}" method="POST"
+                        id="valoracion">
                         @csrf
                         <table>
                             <tr>
-                                <td onclick="valoracion(1)"><img src="{{ asset('img/starblank.png') }}" alt="*"
-                                        width="30px" height="30px" id="e1"></td>
-                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}" alt="*"
-                                        width="30px" height="30px" id="e2"></td>
+                                <td onclick="valoracion(1)"><img src="{{ asset('img/starblank.png') }}"
+                                        alt="*" width="30px" height="30px" id="e1"></td>
+                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}"
+                                        alt="*" width="30px" height="30px" id="e2"></td>
                                 <td onclick="valoracion(3)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e3"></td>
                                 <td onclick="valoracion(4)"><img src="{{ asset('img/starblank.png') }}"
@@ -258,7 +281,9 @@
                                 <br>
                                 <div style="margin-left: 30px;">
                                     <p style="font-weight:bolder; font-size:15px;">{{ __('Comentarios') }}</p>
-                                    <div style="background-color:gray; width:200px; height:2px; border-radius:10px;"><br></div>
+                                    <div style="background-color:gray; width:200px; height:2px; border-radius:10px;">
+                                        <br>
+                                    </div>
                                     <br>
                                     <form
                                         action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
@@ -345,7 +370,10 @@
                                         @endif
                                     @endforeach
                                     <br>
-                                    <div style="background-color:gray; width:100%; height:2px; border-radius:10px; position:relative; left:-30px;"><br></div>
+                                    <div
+                                        style="background-color:gray; width:100%; height:2px; border-radius:10px; position:relative; left:-30px;">
+                                        <br>
+                                    </div>
                                     <br>
                                 </div>
                             @endif
