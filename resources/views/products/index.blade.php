@@ -324,12 +324,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -344,7 +349,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -359,7 +368,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -436,12 +449,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -457,7 +475,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -472,7 +494,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -515,12 +541,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -536,7 +567,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -551,7 +586,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -594,12 +633,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -615,7 +659,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -630,7 +678,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -673,12 +725,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -694,7 +751,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -709,7 +770,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -752,12 +817,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -773,7 +843,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -788,7 +862,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -831,12 +909,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -852,7 +935,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -867,7 +954,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -908,12 +999,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -929,7 +1025,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -944,7 +1044,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -987,12 +1091,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1008,7 +1117,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1023,7 +1136,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1064,12 +1181,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1085,7 +1207,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1100,7 +1226,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1141,12 +1271,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1162,7 +1297,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1177,7 +1316,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1218,12 +1361,17 @@ use App\Http\Controllers\ProductController;
                             </div>
                             <div class="px-5 py-3">
                                 <a href="{{ route('products.show', $product->id) }}">
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @if (Lang::locale() == 'es')
+                                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    @else
+                                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    @endif
                                 </a>
                                 <?php
                                 $alergenoslista = explode('-', $product->alergenos);
                                 ?>
-                                <div style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
+                                <div
+                                    style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px;">
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -1239,7 +1387,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1254,7 +1406,11 @@ use App\Http\Controllers\ProductController;
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" value="{{ $product->id }}" name="id">
-                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @if (Lang::locale() == 'es')
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                    @else
+                                        <input type="hidden" value="{{ $product->nameen }}" name="name">
+                                    @endif
                                     <input type="hidden" value="{{ $product->price }}" name="price">
                                     <input type="hidden" value="{{ $product->image }}" name="image">
                                     <input type="hidden" value="1" name="quantity">
@@ -1302,7 +1458,8 @@ use App\Http\Controllers\ProductController;
                     class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
+                <a href="{{ route('contact') }}"
+                    class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
             </li>
             <li>
                 <a href="{{ route('privacy') }}"

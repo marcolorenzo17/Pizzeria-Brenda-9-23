@@ -939,7 +939,11 @@
                         style="height:200px; width:200px; border-radius:30px; padding:10px;">
                 </a>
                 <div class="px-5 py-3" style="padding:15px;">
-                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @if (Lang::locale() == 'es')
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @else
+                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                    @endif
                     <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                     {{--
                         <span class="mt-2 text-gray-500">{{ $product->description }}</span>
@@ -965,7 +969,11 @@
                     <br><br>
                     <img src="{{ asset($product->image) }}" class="mx-auto"
                         style="height:200px; width:200px; border-radius:30px; padding:10px;">
-                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @if (Lang::locale() == 'es')
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @else
+                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                    @endif
                     <br>
                     <span class="mt-2 text-gray-500">{{ $product->description }}</span>
                     <br>
