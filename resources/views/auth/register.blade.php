@@ -6,7 +6,7 @@
         <div>
             <x-input-label for="name" :value="__('Nombre de usuario')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" placeholder="{{__('Tu nombre de usuario.')}}" />
+                autofocus autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
@@ -14,19 +14,21 @@
         <div class="mt-4">
             <x-input-label for="email" :value="__('Correo electrónico')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                required autocomplete="username" placeholder="{{__('ejemplo@ejemplo.com')}}" />
+                required autocomplete="username" placeholder="{{ __('ejemplo@ejemplo.com') }}" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <p id="error_password" style="color:red;"></p>
             <x-input-label for="password" :value="__('Contraseña')" />
 
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                autocomplete="new-password" placeholder="{{__('Debe tener al menos 8 caracteres.')}}" />
+                autocomplete="new-password" placeholder="{{ __('Debe tener al menos 8 caracteres.') }}"
+                onfocusout="validate_password()" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+            <p id="error_password" style="color:red;"></p>
         </div>
 
         <!-- Confirm Password -->
@@ -34,9 +36,11 @@
             <x-input-label for="password_confirmation" :value="__('Confirmar contraseña')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                name="password_confirmation" required autocomplete="new-password" />
+                name="password_confirmation" required autocomplete="new-password" onfocusout="validate_passwordconf()" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
+            <p id="error_passwordconf" style="color:red;"></p>
         </div>
 
         <!-- Dirección -->
@@ -44,7 +48,8 @@
         <div>
             <x-input-label for="direccion" :value="__('Dirección')" />
             <x-text-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')"
-                required autofocus autocomplete="direccion" placeholder="{{__('Tu dirección de envío a domicilio.')}}" />
+                required autofocus autocomplete="direccion"
+                placeholder="{{ __('Tu dirección de envío a domicilio.') }}" />
             <x-input-error :messages="$errors->get('direccion')" class="mt-2" />
         </div>
 
@@ -53,7 +58,7 @@
         <div>
             <x-input-label for="telefono" :value="__('Teléfono')" />
             <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')"
-                required autofocus autocomplete="telefono" placeholder="{{__('xxx xx xx xx')}}" />
+                required autofocus autocomplete="telefono" placeholder="{{ __('xxx xx xx xx') }}" />
             <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
         </div>
 
@@ -71,9 +76,31 @@
     <script>
         function validate() {
             var password = document.forms["register"]["password"].value;
+            if (!(validate_password() && validate_passwordconf())) {
+                return false;
+            }
+        }
+
+        function validate_password() {
+            var password = document.forms["register"]["password"].value;
             if (password.length < 8) {
                 document.getElementById("error_password").innerHTML = "Al menos 8";
                 return false;
+            } else {
+                document.getElementById("error_password").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_passwordconf() {
+            var password = document.forms["register"]["password"].value;
+            var passwordconf = document.forms["register"]["password_confirmation"].value;
+            if (password != passwordconf) {
+                document.getElementById("error_passwordconf").innerHTML = "No coinciden";
+                return false;
+            } else {
+                document.getElementById("error_passwordconf").innerHTML = "";
+                return true;
             }
         }
     </script>
