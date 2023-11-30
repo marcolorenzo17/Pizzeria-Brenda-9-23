@@ -148,7 +148,7 @@ function aniadir(nombre, precio) {
 
             botonextra.setAttribute("id", `ex-${indice}`);
             botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm rounded");
-            botonextra.setAttribute("style", "background-color:green;");
+            botonextra.setAttribute("style", "background-color:green; margin-bottom:30px;");
             botonextra.setAttribute("onclick", `extra(${indice})`);
 
             contenido.appendChild(botonextra);
