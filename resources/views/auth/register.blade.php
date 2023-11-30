@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" name="register" onsubmit="return validate()">
         @csrf
 
         <!-- Name -->
@@ -67,4 +67,13 @@
             </x-primary-button>
         </div>
     </form>
+    <script>
+        function validate() {
+            var password = document.forms["register"]["password"].value;
+            if (password.length < 8) {
+                alert("menos de 8");
+                return false;
+            }
+        }
+    </script>
 </x-guest-layout>
