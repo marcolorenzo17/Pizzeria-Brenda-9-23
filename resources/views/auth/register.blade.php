@@ -20,6 +20,7 @@
 
         <!-- Password -->
         <div class="mt-4">
+            <p id="error_password" style="color:red;"></p>
             <x-input-label for="password" :value="__('Contraseña')" />
 
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
@@ -71,7 +72,7 @@
         function validate() {
             var password = document.forms["register"]["password"].value;
             if (password.length < 8) {
-                alert("menos de 8");
+                document.getElementById("error_password").innerHTML = "Al menos 8";
                 return false;
             }
         }
