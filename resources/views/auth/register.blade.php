@@ -6,8 +6,10 @@
         <div>
             <x-input-label for="name" :value="__('Nombre de usuario')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}" />
+                autofocus autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}" onfocusout="validate_name()" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+            <p id="error_name" style="color:red;"></p>
         </div>
 
         <!-- Email Address -->
@@ -49,8 +51,10 @@
             <x-input-label for="direccion" :value="__('Dirección')" />
             <x-text-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')"
                 required autofocus autocomplete="direccion"
-                placeholder="{{ __('Tu dirección de envío a domicilio.') }}" />
+                placeholder="{{ __('Tu dirección de envío a domicilio.') }}" onfocusout="validate_direccion()" />
             <x-input-error :messages="$errors->get('direccion')" class="mt-2" />
+
+            <p id="error_direccion" style="color:red;"></p>
         </div>
 
         <!-- Teléfono -->
@@ -76,15 +80,26 @@
     <script>
         function validate() {
             var password = document.forms["register"]["password"].value;
-            if (!(validate_password() && validate_passwordconf())) {
+            if (!(validate_name() && validate_password() && validate_passwordconf() && validate_direccion())) {
                 return false;
+            }
+        }
+
+        function validate_name() {
+            var name = document.forms["register"]["name"].value;
+            if (name.length > 255) {
+                document.getElementById("error_name").innerHTML = "{{__('Más de 255')}}";
+                return false;
+            } else {
+                document.getElementById("error_name").innerHTML = "";
+                return true;
             }
         }
 
         function validate_password() {
             var password = document.forms["register"]["password"].value;
             if (password.length < 8) {
-                document.getElementById("error_password").innerHTML = "Al menos 8";
+                document.getElementById("error_password").innerHTML = "{{__('Al menos 8')}}";
                 return false;
             } else {
                 document.getElementById("error_password").innerHTML = "";
@@ -96,10 +111,21 @@
             var password = document.forms["register"]["password"].value;
             var passwordconf = document.forms["register"]["password_confirmation"].value;
             if (password != passwordconf) {
-                document.getElementById("error_passwordconf").innerHTML = "No coinciden";
+                document.getElementById("error_passwordconf").innerHTML = "{{__('No coinciden')}}";
                 return false;
             } else {
                 document.getElementById("error_passwordconf").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_direccion() {
+            var direccion = document.forms["register"]["direccion"].value;
+            if (direccion.length > 255) {
+                document.getElementById("error_direccion").innerHTML = "{{__('Más de 255')}}";
+                return false;
+            } else {
+                document.getElementById("error_direccion").innerHTML = "";
                 return true;
             }
         }
