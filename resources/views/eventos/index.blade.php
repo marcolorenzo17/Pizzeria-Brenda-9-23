@@ -678,7 +678,7 @@
     <script src="{{ asset('js/credito.js') }}"></script>
     <script>
         function validate() {
-            if (!(validate_personas())) {
+            if (!(validate_personas() && validate_fecha() && validate_hora())) {
                 return false;
             }
         }
@@ -699,6 +699,30 @@
                 return false;
             } else {
                 document.getElementById("error_personas").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_fecha() {
+            var fecha = document.forms["reservar"]["fecha"].value;
+            if (fecha == "") {
+                document.getElementById("error_fecha").innerHTML =
+                    "{{ __('El campo de fecha es obligatorio.') }}";
+                return false;
+            } else {
+                document.getElementById("error_fecha").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_hora() {
+            var hora = document.forms["reservar"]["hora"].value;
+            if (hora == "") {
+                document.getElementById("error_hora").innerHTML =
+                    "{{ __('El campo de hora es obligatorio.') }}";
+                return false;
+            } else {
+                document.getElementById("error_hora").innerHTML = "";
                 return true;
             }
         }

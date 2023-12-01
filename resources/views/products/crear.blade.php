@@ -15,7 +15,8 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white">
-            <form action="{{ route('products.aniadir') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('products.aniadir') }}" method="POST" enctype="multipart/form-data" name="crearplato"
+                onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -23,7 +24,9 @@
                 @enderror
                 <label for="name">{{ __('Nombre del plato') }}</label>
                 <br>
-                <input type="text" id="name" name="name" size="80" value="{{ old('name') }}">
+                <input type="text" id="name" name="name" size="80" value="{{ old('name') }}"
+                    onfocusout="validate_name()">
+                <p id="error_name" style="color:red;"></p>
                 <br><br>
                 @error('nameen')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -31,7 +34,9 @@
                 @enderror
                 <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                 <br>
-                <input type="text" id="nameen" name="nameen" size="80" value="{{ old('nameen') }}">
+                <input type="text" id="nameen" name="nameen" size="80" value="{{ old('nameen') }}"
+                    onfocusout="validate_nameen()">
+                <p id="error_nameen" style="color:red;"></p>
                 <br><br>
                 @error('price')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -39,12 +44,15 @@
                 @enderror
                 <label for="price">{{ __('Precio') }}</label>
                 <br>
-                <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"> €
+                <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"
+                    onfocusout="validate_price()"> €
+                <p id="error_price" style="color:red;"></p>
                 <br><br>
                 <label for="description">{{ __('Descripción') }}</label>
                 <br>
                 <input type="text" id="description" name="description" size="80"
-                    value="{{ old('description') }}">
+                    value="{{ old('description') }}" onfocusout="validate_description()">
+                <p id="error_description" style="color:red;"></p>
                 <br><br>
                 <label for="type">{{ __('Tipo') }}</label>
                 <br>
@@ -75,8 +83,9 @@
                 <br><br>
                 <label for="puntos">{{ __('Pizzacoins para desbloqueo (Sólo promociones)') }}</label>
                 <br>
-                <input type="number" id="puntos" name="puntos" step="1" value="0"
-                    min="0">
+                <input type="number" id="puntos" name="puntos" step="1" value="0" min="0"
+                    onfocusout="validate_puntos()">
+                <p id="error_puntos" style="color:red;"></p>
                 <br><br>
                 <table>
                     <tr>
@@ -269,6 +278,30 @@
                         style="margin-right:20px;"></a>
             </div>
         </footer>
+
+        <script>
+            function validate() {
+                if (!(validate_name())) {
+                    return false;
+                }
+            }
+
+            function validate_name() {
+            var name = document.forms["crearplato"]["name"].value;
+            if (name == "") {
+                document.getElementById("error_name").innerHTML =
+                    "{{ __('El campo de nombre del plato es obligatorio.') }}";
+                return false;
+            } else if (name.length > 255) {
+                document.getElementById("error_name").innerHTML =
+                    "{{ __('El nombre del plato no puede tener más de 255 caracteres.') }}";
+                return false;
+            } else {
+                document.getElementById("error_name").innerHTML = "";
+                return true;
+            }
+        }
+        </script>
 
     </x-app-layout>
 @endif
