@@ -352,7 +352,8 @@
                                     @if ($evento->reservado == 'true')
                                         <p>{{ __('Reservado') }}</p>
                                     @elseif ($evento->reservado == 'false')
-                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}</p>
+                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                        </p>
                                     @else
                                         <p>{{ __('Reserva en curso') }}</p>
                                     @endif
@@ -410,7 +411,8 @@
                                     @elseif ($evento->reservado == 'false')
                                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                             {{ __('Reserva') }}</p>
-                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}</p>
+                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                        </p>
                                     @else
                                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                             {{ __('Reserva') }}</p>
@@ -546,7 +548,7 @@
     </div>
     <br><br>
     <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data"
-        id="subscribe-form">
+        id="subscribe-form" name="reservar" onsubmit="return validate()">
         @csrf
         <div id="contenido" style="display: none;">
             <div class="text-center">
@@ -560,21 +562,27 @@
                     <br>
                 @enderror
                 {{ __('Nº Personas:') }} <input type="number" id="personas" name="personas"
-                    value="{{ old('personas') }}" style="margin-left:10px; border-radius:20px;">
+                    value="{{ old('personas') }}" style="margin-left:10px; border-radius:20px; width:200px;"
+                    placeholder="50 como máximo." min="1" max="50" onfocusout="validate_personas()">
+                <p id="error_personas" style="color:red;"></p>
                 <br><br>
                 @error('fecha')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
                 {{ __('Fecha:') }} <input type="date" name="fecha" id="fecha"
-                    value="{{ old('fecha') }}" style="margin-left:10px; border-radius:20px;">
+                    value="{{ old('fecha') }}" style="margin-left:10px; border-radius:20px;"
+                    onfocusout="validate_fecha()">
+                <p id="error_fecha" style="color:red;"></p>
                 <br><br>
                 @error('hora')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
                 {{ __('Hora:') }} <input type="time" name="hora" id="hora" min="20:30"
-                    max="23:30" value="{{ old('hora') }}" style="margin-left:10px; border-radius:20px;">
+                    max="23:30" value="{{ old('hora') }}" style="margin-left:10px; border-radius:20px;"
+                    onfocusout="validate_hora()">
+                <p id="error_hora" style="color:red;"></p>
                 <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                 <br><br><br>
                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
@@ -615,7 +623,7 @@
                     <div class="form-group text-center">
                         <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button"
                             data-secret="{{ $intent->client_secret }}"
-                            class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
+                            class="btn btn-lg btn-success btn-block" type="submit">{{ __('Reservar') }}</button>
                     </div>
                 </div>
             </div>
@@ -668,5 +676,32 @@
     <script src="{{ asset('js/reservas-script.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{ asset('js/credito.js') }}"></script>
+    <script>
+        function validate() {
+            if (!(validate_personas())) {
+                return false;
+            }
+        }
+
+        function validate_personas() {
+            var personas = document.forms["reservar"]["personas"].value;
+            if (personas == "") {
+                document.getElementById("error_personas").innerHTML =
+                    "{{ __('El campo de personas es obligatorio.') }}";
+                return false;
+            } else if (personas < 1 ) {
+                document.getElementById("error_personas").innerHTML =
+                    "{{ __('La reserva debe ser al menos para una persona.') }}";
+                return false;
+            } else if (personas > 50 ) {
+                document.getElementById("error_personas").innerHTML =
+                    "{{ __('Sólo se puede reservar para un máximo de 50 personas.') }}";
+                return false;
+            } else {
+                document.getElementById("error_personas").innerHTML = "";
+                return true;
+            }
+        }
+    </script>
 
 </x-app-layout>

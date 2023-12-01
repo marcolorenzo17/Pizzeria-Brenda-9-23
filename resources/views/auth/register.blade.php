@@ -87,7 +87,6 @@
     </form>
     <script>
         function validate() {
-            var password = document.forms["register"]["password"].value;
             if (!(validate_name() && validate_email() && validate_password() && validate_passwordconf() &&
                     validate_direccion() && validate_telefono())) {
                 return false;
