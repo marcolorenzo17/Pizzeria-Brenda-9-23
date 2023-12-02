@@ -281,26 +281,78 @@
 
         <script>
             function validate() {
-                if (!(validate_name())) {
+                if (!(validate_name() && validate_nameen() && validate_price() && validate_puntos())) {
                     return false;
                 }
             }
 
             function validate_name() {
-            var name = document.forms["crearplato"]["name"].value;
-            if (name == "") {
-                document.getElementById("error_name").innerHTML =
-                    "{{ __('El campo de nombre del plato es obligatorio.') }}";
-                return false;
-            } else if (name.length > 255) {
-                document.getElementById("error_name").innerHTML =
-                    "{{ __('El nombre del plato no puede tener más de 255 caracteres.') }}";
-                return false;
-            } else {
-                document.getElementById("error_name").innerHTML = "";
-                return true;
+                var name = document.forms["crearplato"]["name"].value;
+                if (name == "") {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El campo de nombre del plato es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El nombre del plato no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_name").innerHTML = "";
+                    return true;
+                }
             }
-        }
+
+            function validate_nameen() {
+                var nameen = document.forms["crearplato"]["nameen"].value;
+                if (nameen == "") {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El campo de nombre del plato (inglés) es obligatorio.') }}";
+                    return false;
+                } else if (nameen.length > 255) {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El nombre del plato (inglés) no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_nameen").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_price() {
+                var price = document.forms["crearplato"]["price"].value;
+                if (price == "") {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El campo de precio es obligatorio.') }}";
+                    return false;
+                } else if (price < 0) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio no puede ser menor de 0€.') }}";
+                    return false;
+                } else if (isNaN(price)) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio debe ser un número.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_price").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_puntos() {
+                var puntos = document.forms["crearplato"]["puntos"].value;
+                if (puntos < 0) {
+                    document.getElementById("error_puntos").innerHTML =
+                        "{{ __('El producto no puede costar menos de 0 Pizzacoins.') }}";
+                    return false;
+                } else if (isNaN(puntos)) {
+                    document.getElementById("error_puntos").innerHTML =
+                        "{{ __('El campo de Pizzacoins debe ser un número.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_puntos").innerHTML = "";
+                    return true;
+                }
+            }
         </script>
 
     </x-app-layout>
