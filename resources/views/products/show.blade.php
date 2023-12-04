@@ -168,7 +168,7 @@
                     <p style="text-align:center;">{{ __('¿Cómo valorarías este plato?') }}</p>
                     <br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST"
-                        id="valoracion" name="valoracion" onsubmit="return validate()">
+                        id="valoracion" name="valoracion" onsubmit="return validate_valoracion()">
                         @csrf
                         <table>
                             <tr>
@@ -191,7 +191,7 @@
                             <br>
                         @enderror
                         <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"
-                            style="width:100%; border-radius:10px;" onfocusout="validate_valoracion()"></textarea>
+                            style="width:100%; border-radius:10px;" onfocusout="validate_valoracion_input()"></textarea>
                         <p id="error_resenia" style="color:red;"></p>
                         <br><br>
                         <div>
@@ -248,7 +248,7 @@
                                             <br>
                                             <form
                                                 action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}"
-                                                method="POST">
+                                                method="POST" onsubmit="return validate_editarvaloracion()" name="editarvaloracion">
                                                 @csrf
                                                 <div style="align-items:center;">
                                                     @error('modifVal')
@@ -257,11 +257,12 @@
                                                         <br>
                                                     @enderror
                                                     <input type="text" id="modifVal" name="modifVal"
-                                                        style="border-radius:10px;">
+                                                        style="border-radius:10px;" onfocusout="validate_editarvaloracion_input()">
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
                                                         style="color:green; background-color:lightgray; margin-left:10px;"
                                                         id="boton">{{ __('Publicar') }}
                                                     </button>
+                                                    <p id="error_reseniaeditar" style="color:red;"></p>
                                                 </div>
                                             </form>
                                         </div>
@@ -288,7 +289,7 @@
                                     <br>
                                     <form
                                         action="{{ route('products.addComentario', [$products->id, $valoracion->id]) }}"
-                                        method="POST">
+                                        method="POST" onsubmit="return validate_comentario()" name="comentario">
                                         @csrf
                                         @error('reseniaCom')
                                             <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -297,7 +298,7 @@
                                         <div style="display:flex; align-items:center;">
                                             <input type="text" id="reseniaCom" name="reseniaCom"
                                                 placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30"
-                                                style="border-radius:10px;">
+                                                style="border-radius:10px;" onfocusout="validate_comentario_input()">
                                             <br><br>
                                             <div>
                                                 <button type="submit"
@@ -307,6 +308,7 @@
                                                 </button>
                                             </div>
                                         </div>
+                                        <p id="error_comentario" style="color:red;"></p>
                                     </form>
                                     <br>
                                     @foreach ($comentarios as $comentario)
@@ -333,8 +335,7 @@
                                                     <div x-show="mostrarCom">
                                                         <br>
                                                         <form
-                                                            action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
-                                                            method="POST">
+                                                            action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}" method="POST" onsubmit="return validate_editarcomentario()" name="editarcomentario">
                                                             @csrf
                                                             <div style="align-items:center;">
                                                                 @error('modifCom')
@@ -343,13 +344,14 @@
                                                                     <br>
                                                                 @enderror
                                                                 <input type="text" id="modifCom" name="modifCom"
-                                                                    style="border-radius:10px;">
+                                                                    style="border-radius:10px;" onfocusout="validate_editarcomentario_input()">
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
                                                                     style="color:green; background-color:lightgray; margin-left:10px;"
                                                                     id="boton">{{ __('Publicar') }}
                                                                 </button>
                                                             </div>
+                                                            <p id="error_editarcomentario" style="color:red;"></p>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -428,13 +430,13 @@
 
     <script src="{{ asset('js/product-script.js') }}"></script>
     <script>
-        function validate() {
-            if (!(validate_valoracion())) {
+        function validate_valoracion() {
+            if (!(validate_valoracion_input())) {
                 return false;
             }
         }
 
-        function validate_valoracion() {
+        function validate_valoracion_input() {
             var resenia = document.forms["valoracion"]["resenia"].value;
             if (resenia == "") {
                 document.getElementById("error_resenia").innerHTML =
@@ -442,6 +444,60 @@
                 return false;
             } else {
                 document.getElementById("error_resenia").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_editarvaloracion() {
+            if (!(validate_editarvaloracion_input())) {
+                return false;
+            }
+        }
+
+        function validate_editarvaloracion_input() {
+            var resenia = document.forms["editarvaloracion"]["modifVal"].value;
+            if (resenia == "") {
+                document.getElementById("error_reseniaeditar").innerHTML =
+                    "{{ __('La reseña no puede quedarse en blanco.') }}";
+                return false;
+            } else {
+                document.getElementById("error_reseniaeditar").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_comentario() {
+            if (!(validate_comentario_input())) {
+                return false;
+            }
+        }
+
+        function validate_comentario_input() {
+            var comentario = document.forms["comentario"]["reseniaCom"].value;
+            if (comentario == "") {
+                document.getElementById("error_comentario").innerHTML =
+                    "{{ __('El comentario no puede quedarse en blanco.') }}";
+                return false;
+            } else {
+                document.getElementById("error_comentario").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_editarcomentario() {
+            if (!(validate_editarcomentario_input())) {
+                return false;
+            }
+        }
+
+        function validate_editarcomentario_input() {
+            var comentario = document.forms["editarcomentario"]["modifCom"].value;
+            if (comentario == "") {
+                document.getElementById("error_editarcomentario").innerHTML =
+                    "{{ __('El comentario no puede quedarse en blanco.') }}";
+                return false;
+            } else {
+                document.getElementById("error_editarcomentario").innerHTML = "";
                 return true;
             }
         }

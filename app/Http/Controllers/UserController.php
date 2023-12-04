@@ -115,7 +115,11 @@ class UserController extends Controller
 
         $cliente = User::findOrFail($id);
 
-        $cliente->puntos = $req->puntos;
+        if ($req->puntos == "") {
+            $cliente->puntos = 0;
+        } else {
+            $cliente->puntos = $req->puntos;
+        }
 
         $cliente->update();
 

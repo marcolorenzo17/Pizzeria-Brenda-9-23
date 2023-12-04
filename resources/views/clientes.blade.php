@@ -164,7 +164,8 @@
                         </td>
                         <td>
                             <p>
-                            <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
+                            <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST"
+                                name="puntos" onsubmit="return validate()">
                                 @csrf
                                 @error('puntos')
                                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -173,7 +174,8 @@
                                 <div style="display:flex; align-items:center; gap:10px;">
                                     <div style="padding-left:50px;">
                                         <input type="text" id="puntos" name="puntos" size="10"
-                                            value="{{ $cliente->puntos }}" style="border-radius:10px;">
+                                            value="{{ $cliente->puntos }}" style="border-radius:10px;"
+                                            onfocusout="validate_puntos()">
                                     </div>
                                     <div style="padding-left:0px;">
                                         <button type="submit" class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
@@ -181,6 +183,7 @@
                                             style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
+                                <p id="error_puntos" style="color:red;"></p>
                             </form>
                             </p>
                         </td>
@@ -340,6 +343,30 @@
                 width="30px" height="30px" style="margin-right:20px;"></a>
     </div>
 </footer>
+
+<script>
+    function validate() {
+        if (!(validate_puntos())) {
+            return false;
+        }
+    }
+
+    function validate_puntos() {
+        var puntos = document.forms["puntos"]["puntos"].value;
+        if (puntos < 0) {
+            document.getElementById("error_puntos").innerHTML =
+                "{{ __('Un usuario no puede tener menos de 0 Pizzacoins.') }}";
+            return false;
+        } else if (isNaN(puntos)) {
+            document.getElementById("error_puntos").innerHTML =
+                "{{ __('El campo de Pizzacoins debe ser un número.') }}";
+            return false;
+        } else {
+            document.getElementById("error_puntos").innerHTML = "";
+            return true;
+        }
+    }
+</script>
 
 </x-app-layout>
 @endif
