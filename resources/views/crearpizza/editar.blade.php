@@ -14,7 +14,8 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white">
-            <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST" enctype="multipart/form-data"
+                name="editaringrediente" onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -22,7 +23,9 @@
                 @enderror
                 <label for="name">{{ __('Nombre del ingrediente') }}</label>
                 <br>
-                <input type="text" id="name" name="name" size="80" value="{{ $ingrediente->name }}">
+                <input type="text" id="name" name="name" size="80" value="{{ $ingrediente->name }}"
+                    onfocusout="validate_name()">
+                <p id="error_name" style="color:red;"></p>
                 <br><br>
                 @error('nameen')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -30,7 +33,9 @@
                 @enderror
                 <label for="nameen">{{ __('Nombre del ingrediente (Inglés)') }}</label>
                 <br>
-                <input type="text" id="nameen" name="nameen" size="80" value="{{ $ingrediente->nameen }}">
+                <input type="text" id="nameen" name="nameen" size="80" value="{{ $ingrediente->nameen }}"
+                    onfocusout="validate_nameen()">
+                <p id="error_nameen" style="color:red;"></p>
                 <br><br>
                 @error('price')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -38,7 +43,9 @@
                 @enderror
                 <label for="price">{{ __('Precio') }}</label>
                 <br>
-                <input type="number" id="price" name="price" step=".01" value="{{ $ingrediente->price }}"> €
+                <input type="number" id="price" name="price" step=".01" value="{{ $ingrediente->price }}"
+                    onfocusout="validate_price()"> €
+                <p id="error_price" style="color:red;"></p>
                 <br><br>
                 <label for="type">{{ __('Tipo') }}</label>
                 <br>
@@ -254,6 +261,66 @@
                         style="margin-right:20px;"></a>
             </div>
         </footer>
+
+        <script>
+            function validate() {
+                if (!(validate_name() && validate_nameen() && validate_price())) {
+                    return false;
+                }
+            }
+
+            function validate_name() {
+                var name = document.forms["editaringrediente"]["name"].value;
+                if (name == "") {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El campo de nombre del ingrediente es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El nombre del ingrediente no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_name").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_nameen() {
+                var name = document.forms["editaringrediente"]["nameen"].value;
+                if (name == "") {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El campo de nombre del ingrediente (inglés) es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El nombre del ingrediente (inglés) no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_nameen").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_price() {
+                var price = document.forms["editaringrediente"]["price"].value;
+                if (price == "") {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El campo de precio es obligatorio.') }}";
+                    return false;
+                } else if (price < 0) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio no puede ser menor de 0€.') }}";
+                    return false;
+                } else if (isNaN(price)) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio debe ser un número.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_price").innerHTML = "";
+                    return true;
+                }
+            }
+        </script>
 
     </x-app-layout>
 @endif
