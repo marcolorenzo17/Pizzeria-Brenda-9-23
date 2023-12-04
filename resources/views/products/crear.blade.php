@@ -51,8 +51,7 @@
                 <label for="description">{{ __('Descripción') }}</label>
                 <br>
                 <input type="text" id="description" name="description" size="80"
-                    value="{{ old('description') }}" onfocusout="validate_description()">
-                <p id="error_description" style="color:red;"></p>
+                    value="{{ old('description') }}">
                 <br><br>
                 <label for="type">{{ __('Tipo') }}</label>
                 <br>

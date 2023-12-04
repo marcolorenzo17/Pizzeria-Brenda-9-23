@@ -15,7 +15,7 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white">
-            <form action="{{ route('products.actualizar', $product) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('products.actualizar', $product) }}" method="POST" enctype="multipart/form-data" name="editarplato" onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -23,7 +23,8 @@
                 @enderror
                 <label for="name">{{ __('Nombre del plato') }}</label>
                 <br>
-                <input type="text" id="name" name="name" size="80" value="{{ $product->name }}">
+                <input type="text" id="name" name="name" size="80" value="{{ $product->name }}" onfocusout="validate_name()">
+                <p id="error_name" style="color:red;"></p>
                 <br><br>
                 @error('nameen')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -31,7 +32,8 @@
                 @enderror
                 <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                 <br>
-                <input type="text" id="nameen" name="nameen" size="80" value="{{ $product->nameen }}">
+                <input type="text" id="nameen" name="nameen" size="80" value="{{ $product->nameen }}" onfocusout="validate_nameen()">
+                <p id="error_nameen" style="color:red;"></p>
                 <br><br>
                 @error('price')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -39,14 +41,15 @@
                 @enderror
                 <label for="price">{{ __('Precio') }}</label>
                 <br>
-                <input type="number" id="price" name="price" step=".01" value="{{ $product->price }}"> €
+                <input type="number" id="price" name="price" step=".01" value="{{ $product->price }}" onfocusout="validate_price()"> €
+                <p id="error_price" style="color:red;"></p>
                 <br><br>
-                <label for="price">{{ __('Descripción') }}</label>
+                <label for="description">{{ __('Descripción') }}</label>
                 <br>
                 <input type="text" id="description" name="description" size="80"
                     value="{{ $product->description }}">
                 <br><br>
-                <label for="description">{{ __('Tipo') }}</label>
+                <label for="type">{{ __('Tipo') }}</label>
                 <br>
                 <select id="type" name="type">
                     <option value="Pizza">{{ __('Pizza') }}</option>
@@ -78,7 +81,8 @@
                 <label for="puntos">{{ __('Pizzacoins para desbloqueo (Sólo promociones)') }}</label>
                 <br>
                 <input type="number" id="puntos" name="puntos" step="1" value="{{ $product->puntos }}"
-                    min="0">
+                    min="0" onfocusout="validate_puntos()">
+                <p id="error_puntos" style="color:red;"></p>
                 <br><br>
                 <table>
                     <tr>
@@ -277,6 +281,82 @@
                         style="margin-right:20px;"></a>
             </div>
         </footer>
+
+        <script>
+            function validate() {
+                if (!(validate_name() && validate_nameen() && validate_price() && validate_puntos())) {
+                    return false;
+                }
+            }
+
+            function validate_name() {
+                var name = document.forms["editarplato"]["name"].value;
+                if (name == "") {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El campo de nombre del plato es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El nombre del plato no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_name").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_nameen() {
+                var nameen = document.forms["editarplato"]["nameen"].value;
+                if (nameen == "") {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El campo de nombre del plato (inglés) es obligatorio.') }}";
+                    return false;
+                } else if (nameen.length > 255) {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El nombre del plato (inglés) no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_nameen").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_price() {
+                var price = document.forms["editarplato"]["price"].value;
+                if (price == "") {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El campo de precio es obligatorio.') }}";
+                    return false;
+                } else if (price < 0) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio no puede ser menor de 0€.') }}";
+                    return false;
+                } else if (isNaN(price)) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio debe ser un número.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_price").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_puntos() {
+                var puntos = document.forms["editarplato"]["puntos"].value;
+                if (puntos < 0) {
+                    document.getElementById("error_puntos").innerHTML =
+                        "{{ __('El producto no puede costar menos de 0 Pizzacoins.') }}";
+                    return false;
+                } else if (isNaN(puntos)) {
+                    document.getElementById("error_puntos").innerHTML =
+                        "{{ __('El campo de Pizzacoins debe ser un número.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_puntos").innerHTML = "";
+                    return true;
+                }
+            }
+        </script>
 
     </x-app-layout>
 @endif
