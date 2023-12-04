@@ -168,7 +168,7 @@
                     <p style="text-align:center;">{{ __('¿Cómo valorarías este plato?') }}</p>
                     <br>
                     <form action="{{ route('products.addValoracion', $products->id) }}" method="POST"
-                        id="valoracion">
+                        id="valoracion" name="valoracion" onsubmit="return validate()">
                         @csrf
                         <table>
                             <tr>
@@ -191,7 +191,8 @@
                             <br>
                         @enderror
                         <textarea form="valoracion" name="resenia" id="resenia" placeholder="{{ __('Escribe aquí tu reseña.') }}"
-                            style="width:100%; border-radius:10px;"></textarea>
+                            style="width:100%; border-radius:10px;" onfocusout="validate_valoracion()"></textarea>
+                        <p id="error_resenia" style="color:red;"></p>
                         <br><br>
                         <div>
                             <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
@@ -426,5 +427,24 @@
     </footer>
 
     <script src="{{ asset('js/product-script.js') }}"></script>
+    <script>
+        function validate() {
+            if (!(validate_valoracion())) {
+                return false;
+            }
+        }
+
+        function validate_valoracion() {
+            var resenia = document.forms["valoracion"]["resenia"].value;
+            if (resenia == "") {
+                document.getElementById("error_resenia").innerHTML =
+                    "{{ __('La reseña no puede quedarse en blanco.') }}";
+                return false;
+            } else {
+                document.getElementById("error_resenia").innerHTML = "";
+                return true;
+            }
+        }
+    </script>
 
 </x-app-layout>
