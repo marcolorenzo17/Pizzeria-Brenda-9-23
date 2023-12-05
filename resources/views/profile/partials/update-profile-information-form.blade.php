@@ -67,7 +67,7 @@
         <div>
             <x-input-label for="telefono" :value="__('Teléfono')" />
             <x-text-input id="telefono" name="telefono" type="text" class="mt-1 block w-full" :value="old('telefono', $user->telefono)"
-                required autofocus autocomplete="telefono" placeholder="{{ __('xxx xx xx xx') }}"
+                required autofocus autocomplete="telefono" placeholder="{{ __('+34') }}"
                 onfocusout="validate_telefono()" />
             <x-input-error class="mt-2" :messages="$errors->get('telefono')" />
             <p id="error_telefono" style="color:red;"></p>
@@ -147,9 +147,9 @@
             if (telefono == "") {
                 document.getElementById("error_telefono").innerHTML = "{{ __('El número de teléfono no puede quedar en blanco.') }}";
                 return false;
-            } else if (!(/^(\d\d\d) (\d\d) (\d\d) (\d\d)$/.test(telefono))) {
+            } else if (!(/^(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}$/.test(telefono))) {
                 document.getElementById("error_telefono").innerHTML =
-                    "{{ __('El formato del número de teléfono debe ser "xxx xx xx xx".') }}";
+                    "{{ __('El formato debe ser el de un teléfono móvil de España.') }}";
                 return false;
             } else {
                 document.getElementById("error_telefono").innerHTML = "";
