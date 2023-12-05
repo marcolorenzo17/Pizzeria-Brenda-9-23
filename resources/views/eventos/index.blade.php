@@ -622,8 +622,8 @@
                     <br><br>
                     <div class="form-group text-center">
                         <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button"
-                            data-secret="{{ $intent->client_secret }}"
-                            class="btn btn-lg btn-success btn-block" type="submit">{{ __('Reservar') }}</button>
+                            data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
+                            type="submit">{{ __('Reservar') }}</button>
                     </div>
                 </div>
             </div>
@@ -662,14 +662,16 @@
             </li>
         </ul>
         <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
         </div>
     </footer>
 
@@ -689,11 +691,11 @@
                 document.getElementById("error_personas").innerHTML =
                     "{{ __('El campo de personas es obligatorio.') }}";
                 return false;
-            } else if (personas < 1 ) {
+            } else if (personas < 1) {
                 document.getElementById("error_personas").innerHTML =
                     "{{ __('La reserva debe ser al menos para una persona.') }}";
                 return false;
-            } else if (personas > 50 ) {
+            } else if (personas > 50) {
                 document.getElementById("error_personas").innerHTML =
                     "{{ __('Sólo se puede reservar para un máximo de 50 personas.') }}";
                 return false;

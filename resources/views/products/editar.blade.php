@@ -15,7 +15,8 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white">
-            <form action="{{ route('products.actualizar', $product) }}" method="POST" enctype="multipart/form-data" name="editarplato" onsubmit="return validate()">
+            <form action="{{ route('products.actualizar', $product) }}" method="POST" enctype="multipart/form-data"
+                name="editarplato" onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -23,7 +24,8 @@
                 @enderror
                 <label for="name">{{ __('Nombre del plato') }}</label>
                 <br>
-                <input type="text" id="name" name="name" size="80" value="{{ $product->name }}" onfocusout="validate_name()">
+                <input type="text" id="name" name="name" size="80" value="{{ $product->name }}"
+                    onfocusout="validate_name()">
                 <p id="error_name" style="color:red;"></p>
                 <br><br>
                 @error('nameen')
@@ -32,7 +34,8 @@
                 @enderror
                 <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                 <br>
-                <input type="text" id="nameen" name="nameen" size="80" value="{{ $product->nameen }}" onfocusout="validate_nameen()">
+                <input type="text" id="nameen" name="nameen" size="80" value="{{ $product->nameen }}"
+                    onfocusout="validate_nameen()">
                 <p id="error_nameen" style="color:red;"></p>
                 <br><br>
                 @error('price')
@@ -41,7 +44,8 @@
                 @enderror
                 <label for="price">{{ __('Precio') }}</label>
                 <br>
-                <input type="number" id="price" name="price" step=".01" value="{{ $product->price }}" onfocusout="validate_price()"> €
+                <input type="number" id="price" name="price" step=".01" value="{{ $product->price }}"
+                    onfocusout="validate_price()"> €
                 <p id="error_price" style="color:red;"></p>
                 <br><br>
                 <label for="description">{{ __('Descripción') }}</label>
@@ -270,13 +274,15 @@
                 </li>
             </ul>
             <div style="margin-left:auto; display:flex; justify-content:center;">
-                <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                        height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
             </div>

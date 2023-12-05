@@ -176,8 +176,10 @@
                                     <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
                                     <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
                                 </th>
-                                <th class="text-right md:table-cell" style="padding:10px;"> {{ __('Pizzacoins') }}</th>
-                                <th class="hidden text-right md:table-cell" style="padding:10px;"> {{ __('Precio') }}</th>
+                                <th class="text-right md:table-cell" style="padding:10px;"> {{ __('Pizzacoins') }}
+                                </th>
+                                <th class="hidden text-right md:table-cell" style="padding:10px;">
+                                    {{ __('Precio') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -289,14 +291,14 @@
             </li>
         </ul>
         <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
 

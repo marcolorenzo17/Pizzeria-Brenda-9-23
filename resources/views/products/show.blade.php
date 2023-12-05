@@ -248,7 +248,8 @@
                                             <br>
                                             <form
                                                 action="{{ route('products.actualizarValoracion', [$products->id, $valoracion->id]) }}"
-                                                method="POST" onsubmit="return validate_editarvaloracion()" name="editarvaloracion">
+                                                method="POST" onsubmit="return validate_editarvaloracion()"
+                                                name="editarvaloracion">
                                                 @csrf
                                                 <div style="align-items:center;">
                                                     @error('modifVal')
@@ -257,7 +258,8 @@
                                                         <br>
                                                     @enderror
                                                     <input type="text" id="modifVal" name="modifVal"
-                                                        style="border-radius:10px;" onfocusout="validate_editarvaloracion_input()">
+                                                        style="border-radius:10px;"
+                                                        onfocusout="validate_editarvaloracion_input()">
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
                                                         style="color:green; background-color:lightgray; margin-left:10px;"
                                                         id="boton">{{ __('Publicar') }}
@@ -335,7 +337,10 @@
                                                     <div x-show="mostrarCom">
                                                         <br>
                                                         <form
-                                                            action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}" method="POST" onsubmit="return validate_editarcomentario()" name="editarcomentario">
+                                                            action="{{ route('products.actualizarComentario', [$products->id, $comentario->id]) }}"
+                                                            method="POST"
+                                                            onsubmit="return validate_editarcomentario()"
+                                                            name="editarcomentario">
                                                             @csrf
                                                             <div style="align-items:center;">
                                                                 @error('modifCom')
@@ -344,7 +349,8 @@
                                                                     <br>
                                                                 @enderror
                                                                 <input type="text" id="modifCom" name="modifCom"
-                                                                    style="border-radius:10px;" onfocusout="validate_editarcomentario_input()">
+                                                                    style="border-radius:10px;"
+                                                                    onfocusout="validate_editarcomentario_input()">
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
                                                                     style="color:green; background-color:lightgray; margin-left:10px;"
@@ -417,14 +423,14 @@
             </li>
         </ul>
         <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
 
