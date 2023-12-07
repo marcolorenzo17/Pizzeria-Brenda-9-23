@@ -170,7 +170,7 @@ use App\Http\Controllers\ProductController;
         <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
         --}}
 
-        <livewire:search-box />
+        @include('products.partials.search-box')
 
         <div class="container px-12 py-8 mx-auto">
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="productos-grande">
