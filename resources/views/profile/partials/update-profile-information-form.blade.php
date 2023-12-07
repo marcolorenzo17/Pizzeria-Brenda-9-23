@@ -147,9 +147,9 @@
             if (telefono == "") {
                 document.getElementById("error_telefono").innerHTML = "{{ __('El número de teléfono no puede quedar en blanco.') }}";
                 return false;
-            } else if (!(/^(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}$/.test(telefono))) {
+            } else if (!(/^(\+34|0034|34)?[ -]*(6|7|8|9)[ -]*([0-9][ -]*){8}$/.test(telefono))) {
                 document.getElementById("error_telefono").innerHTML =
-                    "{{ __('El formato debe ser el de un teléfono móvil de España.') }}";
+                    "{{ __('El formato debe ser el de un teléfono de España.') }}";
                 return false;
             } else {
                 document.getElementById("error_telefono").innerHTML = "";
