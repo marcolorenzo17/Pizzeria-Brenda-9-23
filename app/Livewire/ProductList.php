@@ -22,7 +22,7 @@ class ProductList extends Component
     #[Computed()]
     public function products()
     {
-        return Product::where('name','like',"%{$this->search}%")->get();
+        return Product::where('name','ilike',"%{$this->search}%")->get();
     }
 
     public function render()
