@@ -170,6 +170,10 @@ use App\Http\Controllers\ProductController;
         <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
         --}}
 
+        <div style="padding-top:50px; text-align:center;">
+            <input type="text" id="searchbar" name="searchbar" placeholder="{{__('Buscar plato')}}" style="width:80%; border:1px solid gray; border-radius:20px;">
+        </div>
+
         <div class="container px-12 py-8 mx-auto">
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="productos-grande">
                 <table class="table-auto w-full text-center"
