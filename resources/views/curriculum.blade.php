@@ -20,7 +20,7 @@
                             <div>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
                                     class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                    id="boton">{{ __('Ver currículum en PDF') }}</a>
+                                    id="boton" target="__blank">{{ __('Ver currículum en PDF') }}</a>
                             </div>
                         @else
                             <div>
@@ -29,7 +29,7 @@
                                 <br>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
                                     class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                    id="boton">{{ __('Ampliar imagen') }}</a>
+                                    id="boton" target="__blank">{{ __('Ampliar imagen') }}</a>
                             </div>
                         @endif
                         <div>
