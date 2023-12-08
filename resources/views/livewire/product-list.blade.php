@@ -3,7 +3,7 @@
         <p style="margin-bottom:30px; margin-top:30px; font-size:20px;">{{ __('Búsqueda: ') }} {{ $search }}</p>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
-                @if ($product->habilitado)
+                @if ($product->habilitado && $product->type != 'Promoción' && $product->type != 'Oferta')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}"
                                 class="w-full max-h-60" id="imgproducto"></a>
