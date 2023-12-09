@@ -1,4 +1,7 @@
 <x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <br><br><br>
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
@@ -7,7 +10,7 @@
         <br><br>
     </x-slot>
     <link rel="stylesheet" href="/css/curriculum.css" />
-    <link rel="stylesheet" href="/css/index_product.css" />
+    <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         @if (Auth::user()->role == 'Jefe')
@@ -19,8 +22,8 @@
                         @if (substr($curriculum->curriculum, -4) == '.pdf')
                             <div>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                    id="boton" target="__blank">{{ __('Ver currículum en PDF') }}</a>
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton"
+                                    target="__blank">{{ __('Ver currículum en PDF') }}</a>
                             </div>
                         @else
                             <div>
@@ -28,8 +31,8 @@
                                     width="200px;">
                                 <br>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                    id="boton" target="__blank">{{ __('Ampliar imagen') }}</a>
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton"
+                                    target="__blank">{{ __('Ampliar imagen') }}</a>
                             </div>
                         @endif
                         <div>
@@ -70,7 +73,8 @@
             <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
             <br><br>
             <div class="mx-auto text-center">
-                <form action="{{ route('curriculum.addCurriculum') }}" method="POST" enctype="multipart/form-data">
+                <form id="curriculum_form" action="{{ route('curriculum.addCurriculum') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @error('curriculum')
                         <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -79,7 +83,7 @@
                     <input type="file" name="curriculum" id="curriculum">
                     <br><br><br>
                     <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        id="boton">{{ __('Enviar currículum') }}</button>
+                        id="boton_submit">{{ __('Enviar currículum') }}</button>
                 </form>
             </div>
         @endif
@@ -123,5 +127,51 @@
                     src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
+
+    <script>
+        $("#boton_submit").click(function(e) {
+            e.preventDefault();
+            let form = $('#curriculum_form')[0];
+            let data = new FormData(form);
+
+            $.ajax({
+                url: "{{ route('curriculum.addCurriculum') }}",
+                type: "POST",
+                data: data,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+
+                success: function(response) {
+                    if (response.errors) {
+                        var errorMsg = '';
+                        $.each(response.errors, function(field, errors) {
+                            $.each(errors, function(index, error) {
+                                errorMsg += error + '<br>';
+                            });
+                        });
+                        iziToast.error({
+                            message: errorMsg,
+                            position: 'topRight'
+                        });
+                    } else {
+                        iziToast.success({
+                            message: response.success,
+                            position: 'topRight'
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    iziToast.error({
+                        message: 'Se ha producido un error: ' + error,
+                        position: 'topRight'
+                    });
+                }
+            });
+        })
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
 
 </x-app-layout>
