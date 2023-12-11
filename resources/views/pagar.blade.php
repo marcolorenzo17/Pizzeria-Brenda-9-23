@@ -116,9 +116,9 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form">
+                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form" name="subscribe_form" onsubmit="return storeValues()">
                                 <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                                <input id="card-holder-name" type="text"><br><br>
+                                <input id="card-holder-name" type="text" name="card_holder_name"><br><br>
                                 @csrf
                                 <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                                 <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
@@ -288,5 +288,23 @@
     <script src="{{ asset('js/pagar-script-2.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{ asset('js/credito.js') }}"></script>
+    <script>
+        // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+        // Please acknowledge use of this code by including this header.
+
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 3600 * 1000);
+
+        var setCookie = function(name, value) {
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        };
+
+        var storeValues = function() {
+            setCookie("card_holder_name", document.forms["subscribe_form"]["card_holder_name"].value);
+            return true;
+        };
+
+        if (card_holder_name = getCookie(card_holder_name)) document.forms["subscribe_form"]["card_holder_name"].value = card_holder_name;
+    </script>
 
 </x-app-layout>

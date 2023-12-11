@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Mail\ReciboEmail;
 use Illuminate\Support\Facades\Mail;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class CartController extends Controller
 {
