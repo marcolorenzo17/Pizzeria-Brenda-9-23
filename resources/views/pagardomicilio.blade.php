@@ -115,9 +115,10 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form">
+                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
+                                name="subscribe_form">
                                 <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                                <input id="card-holder-name" type="text"><br><br>
+                                <input id="card-holder-name" type="text" name="card_holder_name"><br><br>
                                 @csrf
                                 <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                                 <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
@@ -145,7 +146,7 @@
                                     <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
                                         id="card-button" data-secret="{{ $intent->client_secret }}"
                                         class="btn btn-lg btn-success btn-block"
-                                        id="boton">{{ __('Realizar compra') }}</button>
+                                        id="boton" onclick="return storeValues();">{{ __('Realizar compra') }}</button>
                                 </div>
                             </form>
                         </div>
@@ -305,5 +306,31 @@
     <script src="{{ asset('js/pagar-script-2.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{ asset('js/credito.js') }}"></script>
+    <script>
+        // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+        // Please acknowledge use of this code by including this header.
+
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 3600 * 1000);
+
+        var setCookie = function(name, value) {
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        };
+
+        var storeValues = function() {
+            setCookie("card_holder_name", document.forms["subscribe_form"]["card_holder_name"].value);
+            return true;
+        };
+
+        var getCookie = function(name) {
+            var re = new RegExp(name + "=([^;]+)");
+            var value = re.exec(document.cookie);
+            return (value != null) ? decodeURI(value[1]) : null;
+        };
+
+        if (getCookie("card_holder_name")) {
+            document.forms["subscribe_form"]["card_holder_name"].value = getCookie("card_holder_name");
+        };
+    </script>
 
 </x-app-layout>

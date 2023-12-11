@@ -145,10 +145,9 @@
                                 <div class="form-group text-center">
                                     <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
                                         id="card-button" data-secret="{{ $intent->client_secret }}"
-                                        class="btn btn-lg btn-success btn-block"
-                                        id="boton">{{ __('Realizar compra') }}</button>
+                                        class="btn btn-lg btn-success btn-block" id="boton"
+                                        onclick="return storeValues();">{{ __('Realizar compra') }}</button>
                                 </div>
-                                <button type="button" onclick="return storeValues(this);">Porfavor</button>
                             </form>
                         </div>
                     </div>

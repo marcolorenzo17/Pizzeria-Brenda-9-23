@@ -597,7 +597,8 @@
                 <br><br>
                 <div>
                     <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                    <input id="card-holder-name" type="text" style="margin-left:10px; border-radius:20px;">
+                    <input id="card-holder-name" type="text" style="margin-left:10px; border-radius:20px;"
+                        name="card_holder_name">
                     <br><br>
                     <div class="form-row">
                         <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
@@ -623,7 +624,7 @@
                     <div class="form-group text-center">
                         <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button"
                             data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
-                            type="submit">{{ __('Reservar') }}</button>
+                            type="submit" onclick="return storeValues();">{{ __('Reservar') }}</button>
                     </div>
                 </div>
             </div>
@@ -728,6 +729,32 @@
                 return true;
             }
         }
+    </script>
+    <script>
+        // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+        // Please acknowledge use of this code by including this header.
+
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 3600 * 1000);
+
+        var setCookie = function(name, value) {
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        };
+
+        var storeValues = function() {
+            setCookie("card_holder_name", document.forms["reservar"]["card_holder_name"].value);
+            return true;
+        };
+
+        var getCookie = function(name) {
+            var re = new RegExp(name + "=([^;]+)");
+            var value = re.exec(document.cookie);
+            return (value != null) ? decodeURI(value[1]) : null;
+        };
+
+        if (getCookie("card_holder_name")) {
+            document.forms["reservar"]["card_holder_name"].value = getCookie("card_holder_name");
+        };
     </script>
 
 </x-app-layout>

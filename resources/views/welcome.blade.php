@@ -1245,5 +1245,37 @@
 </body>
 
 <script src="{{ asset('js/welcome.js') }}"></script>
+<script>
+    // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+    // Please acknowledge use of this code by including this header.
+
+    var today = new Date();
+    var expiry = new Date(today.getTime() + 3600 * 1000);
+
+    var setCookie = function(name, value) {
+        document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+    };
+
+    var storeValues = function() {
+        setCookie("card_holder_name", document.forms["reservar"]["card_holder_name"].value);
+        return true;
+    };
+
+    var getCookie = function(name) {
+        var re = new RegExp(name + "=([^;]+)");
+        var value = re.exec(document.cookie);
+        return (value != null) ? decodeURI(value[1]) : null;
+    };
+
+    var expired = new Date(today.getTime() - 24 * 3600 * 1000);
+
+    var deleteCookie = function(name) {
+        document.cookie = name + "=null; path=/; expires=" + expired.toGMTString();
+    };
+
+    if (getCookie("card_holder_name")) {
+        deleteCookie("card_holder_name");
+    };
+</script>
 
 </html>
