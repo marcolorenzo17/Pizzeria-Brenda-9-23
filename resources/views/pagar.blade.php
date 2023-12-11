@@ -116,7 +116,8 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form" name="subscribe_form" onsubmit="return storeValues()">
+                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
+                                name="subscribe_form">
                                 <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                                 <input id="card-holder-name" type="text" name="card_holder_name"><br><br>
                                 @csrf
@@ -147,6 +148,7 @@
                                         class="btn btn-lg btn-success btn-block"
                                         id="boton">{{ __('Realizar compra') }}</button>
                                 </div>
+                                <button type="button" onclick="return storeValues(this);">Porfavor</button>
                             </form>
                         </div>
                     </div>
@@ -304,7 +306,15 @@
             return true;
         };
 
-        if (card_holder_name = getCookie(card_holder_name)) document.forms["subscribe_form"]["card_holder_name"].value = card_holder_name;
+        var getCookie = function(name) {
+            var re = new RegExp(name + "=([^;]+)");
+            var value = re.exec(document.cookie);
+            return (value != null) ? decodeURI(value[1]) : null;
+        };
+
+        if (getCookie("card_holder_name")) {
+            document.forms["subscribe_form"]["card_holder_name"].value = getCookie("card_holder_name");
+        };
     </script>
 
 </x-app-layout>
