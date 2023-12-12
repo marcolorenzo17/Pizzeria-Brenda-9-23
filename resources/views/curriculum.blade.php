@@ -1,4 +1,7 @@
 <x-app-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <br><br><br>
         <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
@@ -7,47 +10,58 @@
         <br><br>
     </x-slot>
     <link rel="stylesheet" href="/css/curriculum.css" />
-    <link rel="stylesheet" href="/css/index_product.css" />
+    <link rel="stylesheet" href="/css/index_products.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         @if (Auth::user()->role == 'Jefe')
-            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
-                style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
+            <div style="padding:30px;">
+                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
+                <br><br>
                 @foreach ($curriculums as $curriculum)
-                    <div>
-                        <div class="text-center">
+                    <div style="display:flex; align-items:center; gap:50px;">
+                        @if (substr($curriculum->curriculum, -4) == '.pdf')
+                            <div>
+                                <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton"
+                                    target="__blank">{{ __('Ver currículum en PDF') }}</a>
+                            </div>
+                        @else
+                            <div>
+                                <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="curriculum"
+                                    width="200px;">
+                                <br>
+                                <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton"
+                                    target="__blank">{{ __('Ampliar imagen') }}</a>
+                            </div>
+                        @endif
+                        <div>
+                            {{--
+                                @if ($curriculum->nuevo)
+                                    <p></p>
+                                @else
+                                    <p>{{__('NUEVO')}}</p>
+                                    <br>
+                                @endif
+                            --}}
                             <p>
                                 {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('name')->first() }}
                             </p>
+                            <br>
                             <p>
                                 {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
                             </p>
+                            <br>
+                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                            </form>
                         </div>
-                        <br>
-                        @if (substr($curriculum->curriculum, -4) == '.pdf')
-                            <div class="text-center">
-                                <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                    id="boton">{{ __('Ver currículum en PDF') }}</a>
-                            </div>
-                        @else
-                            <div class="text-center">
-                                <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="curriculum">
-                                <br>
-                                <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                    id="boton">{{ __('Ampliar imagen') }}</a>
-                            </div>
-                        @endif
-                        <br>
-                        <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
-                            @csrf
-                            @method('delete')
-                            <button
-                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
-                        </form>
-                        <br>
                     </div>
+                    <br><br>
+                    <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
                     <br><br>
                 @endforeach
             </div>
@@ -55,9 +69,12 @@
             <div class="mx-auto text-center">
                 <p>{{ __('¿Quieres trabajar con nosotros?') }}<br>{{ __('Envíanos ya tu currículum.') }}</p>
             </div>
+            <br>
+            <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
             <br><br>
             <div class="mx-auto text-center">
-                <form action="{{ route('curriculum.addCurriculum') }}" method="POST" enctype="multipart/form-data">
+                <form id="curriculum_form" action="{{ route('curriculum.addCurriculum') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @error('curriculum')
                         <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -66,7 +83,7 @@
                     <input type="file" name="curriculum" id="curriculum">
                     <br><br><br>
                     <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        id="boton">{{ __('Enviar currículum') }}</button>
+                        id="boton_submit">{{ __('Enviar currículum') }}</button>
                 </form>
             </div>
         @endif
@@ -79,7 +96,8 @@
         <span class="text-sm sm:text-center"
             style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+            style="color: white; justify-content:center; margin-left:auto;">
             <li>
                 <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
             </li>
@@ -98,16 +116,62 @@
                 <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
             </li>
         </ul>
-        <div style="margin-left:auto; display:flex;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+        <div style="margin-left:auto; display:flex; justify-content:center;">
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
+
+    <script>
+        $("#boton_submit").click(function(e) {
+            e.preventDefault();
+            let form = $('#curriculum_form')[0];
+            let data = new FormData(form);
+
+            $.ajax({
+                url: "{{ route('curriculum.addCurriculum') }}",
+                type: "POST",
+                data: data,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+
+                success: function(response) {
+                    if (response.errors) {
+                        var errorMsg = '';
+                        $.each(response.errors, function(field, errors) {
+                            $.each(errors, function(index, error) {
+                                errorMsg += error + '<br>';
+                            });
+                        });
+                        iziToast.error({
+                            message: errorMsg,
+                            position: 'topRight'
+                        });
+                    } else {
+                        iziToast.success({
+                            message: response.success,
+                            position: 'topRight'
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    iziToast.error({
+                        message: 'Se ha producido un error: ' + error,
+                        position: 'topRight'
+                    });
+                }
+            });
+        })
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
 
 </x-app-layout>

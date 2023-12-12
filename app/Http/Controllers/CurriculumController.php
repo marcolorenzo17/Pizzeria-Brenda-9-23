@@ -26,7 +26,8 @@ class CurriculumController extends Controller
         ]);
 
         if($validate->fails()){
-            return back()->withErrors($validate->errors())->withInput();
+            // return back()->withErrors($validate->errors())->withInput();
+            return response()->json(['errors' => $validate->errors()]);
         }
 
         /*
@@ -42,10 +43,14 @@ class CurriculumController extends Controller
         $data = Curriculum::create([
             'idUser' => Auth::user()->id,
             'curriculum' => $image_path,
+            'nuevo' => true,
         ]);
 
+        /*
         session()->flash('notif.success', 'Se ha enviado el currículum con éxito.');
         return redirect('/products');
+        */
+        return response()->json(['success' => 'El currículum se ha enviado con éxito.']);
     }
 
     public function destroy(string $id): RedirectResponse

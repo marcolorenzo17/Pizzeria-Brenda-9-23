@@ -20,7 +20,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/basegrande.jpg',
                 'type' => 'Base',
                 'alergenos' => 'gluten',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'LARGE Base Pizza (Fresh dough, Tomato and Cheese)'
             ],
             [
                 'name' => 'Pizza Base PEQUEÑA (Masa fresca, tomate y queso)',
@@ -28,7 +29,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/basepequeña.jpg',
                 'type' => 'Base',
                 'alergenos' => 'gluten',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'SMALL Base Pizza (Fresh dough, Tomato and Cheese)'
             ],
             [
                 'name' => 'Pizza Base SIN GLUTEN (Masa, tomate y queso)',
@@ -36,7 +38,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/basesingluten.png',
                 'type' => 'Base',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'GLUTEN-FREE Base Pizza (Dough, Tomato and Cheese)'
             ],
             [
                 'name' => 'Jamón York',
@@ -44,7 +47,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/jamonyork.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Cooked Ham'
             ],
             [
                 'name' => 'Pimientos',
@@ -52,7 +56,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/pimientos.png',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Peppers'
             ],
             [
                 'name' => 'Olivas negras',
@@ -60,7 +65,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/olivasnegras.png',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Black Olives'
             ],
             [
                 'name' => 'Alcaparras',
@@ -68,7 +74,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/alcaparras.png',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Capers'
             ],
             [
                 'name' => 'Bacon',
@@ -76,7 +83,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/beicon.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Bacon'
             ],
             [
                 'name' => 'Cebolla',
@@ -84,7 +92,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/cebolla.png',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Onion'
             ],
             [
                 'name' => 'Huevo',
@@ -92,7 +101,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/huevo.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'huevos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Egg'
             ],
             [
                 'name' => 'Salami',
@@ -100,7 +110,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/salami.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Salami'
             ],
             [
                 'name' => 'Chorizo',
@@ -108,7 +119,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/chorizo.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Chorizo'
             ],
             [
                 'name' => 'Champiñones frescos',
@@ -116,7 +128,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/champiñones.png',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Fresh Mushrooms'
             ],
             [
                 'name' => 'Salchichas',
@@ -124,7 +137,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/salchichas.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Sausages'
             ],
             [
                 'name' => 'Hamburguesa',
@@ -132,7 +146,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/hamburguesa.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos-gluten',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Burger'
             ],
             [
                 'name' => 'Atún',
@@ -140,7 +155,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/atun.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'pescado',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Tuna'
             ],
             [
                 'name' => 'Alcachofas',
@@ -148,7 +164,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/alcachofas.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'dioxido',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Artichokes'
             ],
             [
                 'name' => 'Espárragos',
@@ -156,7 +173,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/esparragos.png',
                 'type' => 'Ingrediente',
                 'alergenos' => 'dioxido',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Asparagus'
             ],
             [
                 'name' => 'Rodajas de tomate',
@@ -164,7 +182,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/tomate.jpeg',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Tomato Slices'
             ],
             [
                 'name' => 'Rodajas de berenjena',
@@ -172,7 +191,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/berenjena.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Eggplant Slices'
             ],
             [
                 'name' => 'Ajo',
@@ -180,7 +200,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/ajo.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Garlic'
             ],
             [
                 'name' => 'Cebolla caramelizada',
@@ -188,7 +209,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/cebollacaramel.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Caramelized Onion'
             ],
             [
                 'name' => 'Extra de tomate',
@@ -196,7 +218,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/extratomate.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'dioxido',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Extra Tomato'
             ],
             [
                 'name' => 'Anchoas',
@@ -204,7 +227,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/anchoas.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'pescado',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Anchovies'
             ],
             [
                 'name' => 'Pepperoni',
@@ -212,7 +236,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/pepperoni.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Pepperoni'
             ],
             [
                 'name' => 'Roquefort',
@@ -220,7 +245,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/roquefort.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Roquefort'
             ],
             [
                 'name' => 'Extra de queso',
@@ -228,7 +254,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/extraqueso.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Extra Cheese'
             ],
             [
                 'name' => 'Piña',
@@ -236,7 +263,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/piña.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => '',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Pineapple'
             ],
             [
                 'name' => 'Gambas',
@@ -244,7 +272,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/gambas.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'crustaceos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Shrimp'
             ],
             [
                 'name' => 'Carne picada',
@@ -252,7 +281,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/carnepicada.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos-gluten-apio',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Minced Meat'
             ],
             [
                 'name' => 'Pollo',
@@ -260,7 +290,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/tirasdepollo.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos-gluten',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Chicken'
             ],
             [
                 'name' => 'Rulo de cabra',
@@ -268,7 +299,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/rulodecabra.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'lacteos',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Goat Cheese'
             ],
             [
                 'name' => 'Carne de taco',
@@ -276,7 +308,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/carnedetaco.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'soja-lacteos-gluten',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Taco Meat'
             ],
             [
                 'name' => 'Palometa',
@@ -284,7 +317,8 @@ class IngredienteSeeder extends Seeder
                 'image' => 'img/ingredientes/palometa.jpg',
                 'type' => 'Ingrediente',
                 'alergenos' => 'lacteos-pescado',
-                'habilitado' => true
+                'habilitado' => true,
+                'nameen' => 'Bream'
             ],
         ];
         Ingrediente::insert($ingredientes);

@@ -850,8 +850,7 @@
 
         /* Change background on mouse-over */
         .anavbar:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
 
         #boton:hover {
@@ -881,8 +880,7 @@
 
         /* Change background on mouse-over */
         .afooter:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
@@ -894,7 +892,7 @@
             @include('partials/language_switcher')
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:57px; height:50px;"></a>
+                style="width:67px; height:60px;"></a>
         <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
@@ -923,11 +921,12 @@
         @endif
     </div>
     <br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px;">
         <br>
-        <h2 class="text-center">{{ __('¿QUIÉNES SOMOS?') }}</h2>
+        <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
         <br><br>
-        <h2 class="text-center">{{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
+        <h2 class="text-center" style="font-size:20px; font-weight:bold;">
+            {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
         <br>
         <p>
             {{ __('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.') }}<br><br>
@@ -966,24 +965,28 @@
             {{ __('¡Te esperamos! ¡Visítanos!') }}
         </p>
     </div>
-    <br><br><br>
+    <br><br><br><br><br>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
-            <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-            <a class="anavbar" href="premiosAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            <div style="display:flex; margin-left:auto; gap:30px;">
+                <a class="anavbar" href="privacyAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                        height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
             </div>
         </div>
     </div>

@@ -935,8 +935,7 @@
 
         /* Change background on mouse-over */
         .anavbar:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
 
         #boton:hover {
@@ -966,11 +965,13 @@
 
         /* Change background on mouse-over */
         .afooter:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body class="antialiased">
@@ -979,7 +980,7 @@
             @include('partials/language_switcher')
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:57px; height:50px;"></a>
+                style="width:67px; height:60px;"></a>
         <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
@@ -1007,25 +1008,24 @@
             </div>
         @endif
     </div>
-    <br><br><br><br><br>
-    <h1 style="text-align:center; font-size:70px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:red; text-shadow: 2px 2px 4px #000000;"
+    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white; margin-top:130px; margin-bottom:26px;"
         id="logo1">
-        {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}</h1>
-    <br>
-    <div class="mx-auto" style="background-color:#4a4895;">
-        <video width="859" height="464" autoplay loop>
+        {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}
+    </h1>
+    <div class="mx-auto" style="background-color:#4a4895; margin-bottom:26px;">
+        <video width="859" height="464" autoplay muted loop>
             <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
             Tu navegador no es compatible con este vídeo.
         </video>
     </div>
-    <br>
     <div style="background-color:red;">
         <br>
     </div>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <div style="display:flex; align-items:center; justify-content:center;">
-            <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
+            <div
+                style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
                 <h1 style="font-size:50px; color:yellow;" class="menusgratis">
                     {{ __('¡TUS MENÚS GRATIS!') }}
                 </h1>
@@ -1078,11 +1078,13 @@
                     <br>
                     <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
                     <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
-                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.') }}
+                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
                     </p>
                     <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
                     <br>
                     <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
+                    </p>
+                    <p>{{ __('Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.') }}
                     </p>
                 </div>
             </div>
@@ -1090,13 +1092,20 @@
         <br><br>
     </div>
     <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('OFERTAS') }}
     </h1>
-    <div style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
-        <div style="margin-left:100px;">
-            <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
-        </div>
+    <div
+        style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
+        @if (Lang::locale() == 'es')
+            <div style="margin-left:100px;">
+                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
+            </div>
+        @else
+            <div style="margin-left:100px;">
+                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas">
+            </div>
+        @endif
         <div class="slideshow-container2" style="padding-right:100px;">
             <br>
             @foreach ($products as $product)
@@ -1124,33 +1133,43 @@
     </div>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
-        <h1
-            style="text-align:center; font-size:50px; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; color:white;">
-            {{ __('¿QUÉ PEDIMOS?') }}
-        </h1>
-        <br><br>
-        <div style="display:flex; gap:100px; justify-content:center;">
-            <a href="cartaAnon"
-                style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white;"
-                id="boton">{{ __('NUESTRA CARTA') }}
-            </a>
-            <a href="{{ route('login') }}"
-                style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white;"
-                id="boton">{{ __('¡PIDE AHORA!') }}
-            </a>
+        <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+            <div>
+                <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
+                    {{ __('¿QUÉ PEDIMOS?') }}
+                </h1>
+                <br><br>
+                <div style="display:flex; gap:100px; justify-content:center;">
+                    <a href="cartaAnon"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('NUESTRA CARTA') }}
+                    </a>
+                    <a href="{{ route('login') }}"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('¡PIDE AHORA!') }}
+                    </a>
+                </div>
+            </div>
+            @if (Lang::locale() == 'es')
+                <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
+                    height="400px">
+            @else
+                <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
+                    height="400px">
+            @endif
         </div>
         <br><br>
     </div>
     <div style="background-image:url('img/backgroundpizzared.png');">
         <h1 class="text-center"
-            style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+            style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
             {{ __('TELÉFONOS') }}
         </h1>
         <br>
         <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
         </p>
         <div class="flex items-center justify-center"
-            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000; text-align:center;">
+            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; text-align:center;">
             <p>956 37 11 15</p>
             <p>956 37 47 36</p>
             <p>627 650 605</p>
@@ -1158,10 +1177,11 @@
         <br><br>
     </div>
     <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('HORARIO') }}
     </h1>
-    <div class="container px-12 py-8 mx-auto bg-white" style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
+    <div class="container px-12 py-8 mx-auto bg-white"
+        style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
         <div style="text-align:center;">
             <div class="flex items-center justify-center">
                 <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
@@ -1176,7 +1196,7 @@
         </div>
     </div>
     <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('VISÍTANOS') }}
     </h1>
     <div style="background-image:url('img/backgroundpizza.png');">
@@ -1184,8 +1204,8 @@
         <div style="width:600px; margin-left:auto; margin-right:auto;">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                width="600" height="450" style="border:5px solid darkblue; border-radius:10px;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <br>
             <div class="flex items-center justify-center">
                 <p style="color:white;">{{ __('Atención al cliente:') }}</p>
@@ -1195,21 +1215,25 @@
         <br><br><br><br><br>
     </div>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
-            <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-            <a class="anavbar" href="premiosAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            <div style="display:flex; margin-left:auto; gap:30px;">
+                <a class="anavbar" href="privacyAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                        height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
             </div>
@@ -1218,5 +1242,37 @@
 </body>
 
 <script src="{{ asset('js/welcome.js') }}"></script>
+<script>
+    // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+    // Please acknowledge use of this code by including this header.
+
+    var today = new Date();
+    var expiry = new Date(today.getTime() + 3600 * 1000);
+
+    var setCookie = function(name, value) {
+        document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+    };
+
+    var storeValues = function() {
+        setCookie("card_holder_name", document.forms["reservar"]["card_holder_name"].value);
+        return true;
+    };
+
+    var getCookie = function(name) {
+        var re = new RegExp(name + "=([^;]+)");
+        var value = re.exec(document.cookie);
+        return (value != null) ? decodeURI(value[1]) : null;
+    };
+
+    var expired = new Date(today.getTime() - 24 * 3600 * 1000);
+
+    var deleteCookie = function(name) {
+        document.cookie = name + "=null; path=/; expires=" + expired.toGMTString();
+    };
+
+    if (getCookie("card_holder_name")) {
+        deleteCookie("card_holder_name");
+    };
+</script>
 
 </html>

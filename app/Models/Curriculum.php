@@ -12,6 +12,7 @@ class Curriculum extends Model
     protected $fillable = [
         'idUser',
         'curriculum',
+        'nuevo',
     ];
 
     public function user() {

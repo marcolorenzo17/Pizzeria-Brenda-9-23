@@ -16,5 +16,6 @@ class Ingrediente extends Model
         'type',
         'alergenos',
         'habilitado',
+        'nameen',
     ];
 }

@@ -116,9 +116,10 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form">
+                            <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
+                                name="subscribe_form">
                                 <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                                <input id="card-holder-name" type="text"><br><br>
+                                <input id="card-holder-name" type="text" name="card_holder_name"><br><br>
                                 @csrf
                                 <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                                 <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
@@ -144,8 +145,8 @@
                                 <div class="form-group text-center">
                                     <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
                                         id="card-button" data-secret="{{ $intent->client_secret }}"
-                                        class="btn btn-lg btn-success btn-block"
-                                        id="boton">{{ __('Realizar compra') }}</button>
+                                        class="btn btn-lg btn-success btn-block" id="boton"
+                                        onclick="return storeValues();">{{ __('Realizar compra') }}</button>
                                 </div>
                             </form>
                         </div>
@@ -169,28 +170,30 @@
                     <table>
                         <thead>
                             <tr class="h-12 uppercase">
-                                <th class="hidden md:table-cell"></th>
-                                <th class="text-left">{{ __('Nombre') }}</th>
-                                <th class="pl-5 text-left lg:text-right lg:pl-0">
+                                <th class="hidden md:table-cell" style="padding:10px;"></th>
+                                <th class="text-left" style="padding:10px;">{{ __('Producto') }}</th>
+                                <th class="pl-5 text-left lg:text-right lg:pl-0" style="padding:10px;">
                                     <span class="lg:hidden" title="Quantity">{{ __('Cantidad') }}</span>
                                     <span class="hidden lg:inline">{{ __('Cantidad') }}</span>
                                 </th>
-                                <th class="text-right md:table-cell"> {{ __('Pizzacoins') }}</th>
-                                <th class="hidden text-right md:table-cell"> {{ __('Precio') }}</th>
+                                <th class="text-right md:table-cell" style="padding:10px;"> {{ __('Pizzacoins') }}
+                                </th>
+                                <th class="hidden text-right md:table-cell" style="padding:10px;">
+                                    {{ __('Precio') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($cartItems as $item)
                                 <tr>
-                                    <td class="hidden pb-4 md:table-cell">
+                                    <td class="hidden pb-4 md:table-cell" style="padding:10px;">
                                         <img src="{{ $item->attributes->image }}" class="w-20 rounded"
                                             alt="Thumbnail">
                                     </td>
-                                    <td>
+                                    <td style="padding:10px;">
                                         <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
                                         </p>
                                     </td>
-                                    <td class="justify-center mt-6 md:justify-end md:flex">
+                                    <td class="justify-center mt-6 md:justify-end md:flex" style="padding:10px;">
                                         <div class="h-10 w-28">
                                             <div class="relative flex flex-row w-full h-8">
                                                 <p class="mb-2 md:ml-4 font-bold">{{ $item->quantity }}
@@ -198,12 +201,12 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-right md:table-cell">
+                                    <td class="text-right md:table-cell" style="padding:10px;">
                                         <span class="text-sm font-medium lg:text-base">
                                             {{ $item->attributes->puntos }}
                                         </span>
                                     </td>
-                                    <td class="hidden text-right md:table-cell">
+                                    <td class="hidden text-right md:table-cell" style="padding:10px;">
                                         <span class="text-sm font-medium lg:text-base">
                                             {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
                                         </span>
@@ -211,10 +214,11 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="hidden text-right md:table-cell">
+                                <td style="padding:10px;"></td>
+                                <td style="padding:10px;"></td>
+                                <td style="padding:10px;"></td>
+                                <td style="padding:10px;"></td>
+                                <td class="hidden text-right md:table-cell" style="padding:10px;">
                                     <br>
                                     <b>TOTAL:</b>
                                     <p>{{ number_format(Cart::getTotal(), 2, '.', '') }} €</p>
@@ -223,7 +227,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <p>{{ __('Pizzacoins ganadas con la compra: ') }} {{ Cart::getTotal() * 100 }}</p>
+                    <p>{{ __('Pizzacoins ganadas con la compra: ') }} {{ round(Cart::getTotal() * 10) }}</p>
                     {{--
                     <br>
                         <form action="{{ route('cart.add') }}" method="POST">
@@ -249,7 +253,8 @@
         <span class="text-sm sm:text-center"
             style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+            style="color: white; justify-content:center; margin-left:auto;">
             <li>
                 <a href="{{ route('whoarewe') }}"
                     class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
@@ -269,20 +274,46 @@
                 <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
             </li>
         </ul>
-        <div style="margin-left:auto; display:flex;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+        <div style="margin-left:auto; display:flex; justify-content:center;">
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
 
     <script src="{{ asset('js/pagar-script-2.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{ asset('js/credito.js') }}"></script>
+    <script>
+        // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+        // Please acknowledge use of this code by including this header.
+
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 3600 * 1000);
+
+        var setCookie = function(name, value) {
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        };
+
+        var storeValues = function() {
+            setCookie("card_holder_name", document.forms["subscribe_form"]["card_holder_name"].value);
+            return true;
+        };
+
+        var getCookie = function(name) {
+            var re = new RegExp(name + "=([^;]+)");
+            var value = re.exec(document.cookie);
+            return (value != null) ? decodeURI(value[1]) : null;
+        };
+
+        if (getCookie("card_holder_name")) {
+            document.forms["subscribe_form"]["card_holder_name"].value = getCookie("card_holder_name");
+        };
+    </script>
 
 </x-app-layout>

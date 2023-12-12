@@ -53,6 +53,7 @@ function aniadirBase(nombre, precio) {
     botonelim.setAttribute("id", `b-base`);
     botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
     botonelim.setAttribute("onclick", `eliminarBase()`);
+    botonelim.setAttribute("style", "margin-bottom:30px;");
 
     contenido.appendChild(botonelim);
 
@@ -123,7 +124,7 @@ function aniadir(nombre, precio) {
             contenido.appendChild(parrafo);
 
             var parrafoextra = document.createElement("p");
-            var textoextra = document.createTextNode("EXTRA");
+            var textoextra = document.createTextNode("EXTRA +2€");
             parrafoextra.appendChild(textoextra);
 
             parrafoextra.setAttribute("id", `ext-${indice}`);
@@ -147,7 +148,7 @@ function aniadir(nombre, precio) {
 
             botonextra.setAttribute("id", `ex-${indice}`);
             botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm rounded");
-            botonextra.setAttribute("style", "background-color:green;");
+            botonextra.setAttribute("style", "background-color:green; margin-bottom:30px;");
             botonextra.setAttribute("onclick", `extra(${indice})`);
 
             contenido.appendChild(botonextra);

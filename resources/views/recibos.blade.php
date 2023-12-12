@@ -20,6 +20,8 @@
                     <td class="font-bold">{{ __('Fecha y hora') }}</td>
                     @if (Auth::user()->admin)
                         <td class="font-bold">{{ __('Cliente') }}</td>
+                        <td class="font-bold">{{ __('Dirección') }}</td>
+                        <td class="font-bold">{{ __('Teléfono') }}</td>
                     @endif
                     <td class="font-bold">{{ __('Productos') }}</td>
                     <td class="font-bold">{{ __('Pizzacoins obtenidas') }}</td>
@@ -30,20 +32,36 @@
                         <td class="font-bold">{{ __('Teléfono') }}</td>
                     --}}
                     <td class="font-bold">{{ __('Estado') }}</td>
+                    @if (Auth::user()->admin)
+                        <td></td>
+                    @endif
                     <td class="font-bold">{{ __('Pago') }}</td>
                     @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                         <td class="font-bold">{{ __('Eliminar') }}</td>
                     @endif
                 </tr>
-                <tr>
-                    <td><br></td>
-                </tr>
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>
+                            <td colspan="13"><br></td>
+                        </tr>
+                        <tr>
                             <td>{{ $recibo->created_at }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
-                            <td>{{ $recibo->productos }}</td>
+                            <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
+                            </td>
+                            <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('telefono')->first() }}
+                            </td>
+                            <td>
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p>
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
+                            </td>
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
@@ -55,40 +73,37 @@
                                 <td>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <select id="estado" name="estado"
-                                                        style="border-radius: 10px 0px 0px 10px;">
-                                                        <option value="Pedido registrado">{{ __('Pedido registrado') }}
-                                                        </option>
-                                                        <option value="Pedido en preparación">
-                                                            {{ __('Pedido en preparación') }}
-                                                        </option>
-                                                        <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
-                                                        </option>
-                                                        <option value="Pedido entregado">{{ __('Pedido entregado') }}
-                                                        </option>
-                                                    </select>
-                                                    <br>
-                                                    <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                                </td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <button type="submit"
-                                                            class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                                            id="boton"
-                                                            style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:19px; right:18px;">{{ __('✓') }}</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div style="display:flex; align-items:center; gap:5px;">
+                                            <div>
+                                                <select id="estado" name="estado" style="border-radius: 10px;">
+                                                    <option value="Pedido registrado">{{ __('Pedido registrado') }}
+                                                    </option>
+                                                    <option value="Pedido en preparación">
+                                                        {{ __('Pedido en preparación') }}
+                                                    </option>
+                                                    <option value="Pedido en reparto">{{ __('Pedido en reparto') }}
+                                                    </option>
+                                                    <option value="Pedido entregado">{{ __('Pedido entregado') }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                    id="boton"
+                                                    style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                            </div>
+                                        </div>
                                     </form>
+                                </td>
+                                <td>
+                                    <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
                                 </td>
                             @else
                                 <td>
                                     <p>{{ __($recibo->estado) }}</p>
                                 </td>
+                                <td></td>
                             @endif
                             @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                                 <td>
@@ -124,10 +139,29 @@
                                 </td>
                             @endif
                         </tr>
+                        <tr>
+                            <td colspan="13">
+                                <br>
+                                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br>
+                                </div>
+                            </td>
+                        </tr>
                     @elseif ($recibo->idUser == Auth::user()->id)
                         <tr>
+                            <td colspan="9"><br></td>
+                        </tr>
+                        <tr>
                             <td>{{ $recibo->created_at }}</td>
-                            <td>{{ $recibo->productos }}</td>
+                            <td>
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p>
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
+                            </td>
                             <td>{{ $recibo->total * 100 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
@@ -142,6 +176,13 @@
                                 @else
                                     {{ __('Pago en curso') }}
                                 @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9">
+                                <br>
+                                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br>
+                                </div>
                             </td>
                         </tr>
                     @endif
@@ -173,11 +214,40 @@
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}
+                                </p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">
+                                    {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}
+                                </p>
+                            </td>
+                            <td>
+                                <p style="padding-left:50px;">
+                                    {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('telefono')->first() }}
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Productos') }}
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->productos }}</p>
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p style="padding-left:50px;">
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
                             </td>
                         </tr>
                         <tr>
@@ -186,7 +256,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->total * 100 }}</p>
+                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -236,36 +306,32 @@
                                     <div style="padding-left:50px;">
                                         <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                             @csrf
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <select id="estado" name="estado"
-                                                            style="border-radius: 10px 0px 0px 10px;">
-                                                            <option value="Pedido registrado">
-                                                                {{ __('Pedido registrado') }}
-                                                            </option>
-                                                            <option value="Pedido en preparación">
-                                                                {{ __('Pedido en preparación') }}
-                                                            </option>
-                                                            <option value="Pedido en reparto">
-                                                                {{ __('Pedido en reparto') }}
-                                                            </option>
-                                                            <option value="Pedido entregado">
-                                                                {{ __('Pedido entregado') }}</option>
-                                                        </select>
-                                                        <br>
-                                                        <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <button type="submit"
-                                                                class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                                                id="boton"
-                                                                style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:10px; right:21px;">{{ __('✓') }}</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                            <div style="display:flex; align-items:center; gap:10px;">
+                                                <div>
+                                                    <select id="estado" name="estado" style="border-radius:10px;">
+                                                        <option value="Pedido registrado">
+                                                            {{ __('Pedido registrado') }}
+                                                        </option>
+                                                        <option value="Pedido en preparación">
+                                                            {{ __('Pedido en preparación') }}
+                                                        </option>
+                                                        <option value="Pedido en reparto">
+                                                            {{ __('Pedido en reparto') }}
+                                                        </option>
+                                                        <option value="Pedido entregado">
+                                                            {{ __('Pedido entregado') }}</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <button type="submit"
+                                                        class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
+                                                        id="boton"
+                                                        style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
+                                            </div>
                                         </form>
                                     </div>
                                 </td>
@@ -290,7 +356,8 @@
                                 @if ($recibo->pagado)
                                     <td>
                                         <div style="padding-left:50px;">
-                                            <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
+                                            <form method="post"
+                                                action="{{ route('recibos.nopagado', $recibo->id) }}">
                                                 @csrf
                                                 <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
                                                     style="border-color:green; border-style:solid; border-width:1px;">{{ __('PAGADO') }}</button>
@@ -361,7 +428,14 @@
                                     {{ __('Productos') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->productos }}</p>
+                                <?php
+                                $productoslista = explode(', ', $recibo->productos);
+                                ?>
+                                @foreach ($productoslista as $producto)
+                                    <p style="padding-left:50px;">
+                                        - {{ $producto }}
+                                    </p>
+                                @endforeach
                             </td>
                         </tr>
                         <tr>
@@ -370,7 +444,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->total * 100 }}</p>
+                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -452,7 +526,8 @@
         <span class="text-sm sm:text-center"
             style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+            style="color: white; justify-content:center; margin-left:auto;">
             <li>
                 <a href="{{ route('whoarewe') }}"
                     class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
@@ -472,15 +547,17 @@
                 <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
             </li>
         </ul>
-        <div style="margin-left:auto; display:flex;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+        <div style="margin-left:auto; display:flex; justify-content:center;">
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
         </div>
     </footer>
 

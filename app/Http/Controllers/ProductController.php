@@ -173,15 +173,21 @@ class ProductController extends Controller
     public function aniadir(Request $req) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_product' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
+            'puntos' => 'numeric|min:0',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
+            'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
             'image_product.required' => 'El campo es obligatorio.',
-            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
+            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.',
+            'puntos.min' => 'El campo de pizzacoins no puede ser menor de 0.'
         ]);
 
         if($validate->fails()){
@@ -200,13 +206,18 @@ class ProductController extends Controller
 
         $product = new Product;
         $product->name = $req->name;
+        $product->nameen = $req->nameen;
         $product->price = $req->price;
         $product->description = $req->description;
         $product->image = 'storage/' . $image_path;
         $product->type = $req->type;
         $product->alergenos = $alergenos;
         $product->habilitado = true;
-        $product->puntos = $req->puntos;
+        if ($req->puntos == "") {
+            $product->puntos = 0;
+        } else {
+            $product->puntos = $req->puntos;
+        }
 
         $product->save();
 
@@ -224,14 +235,20 @@ class ProductController extends Controller
     public function actualizar(Request $req, string $id) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
             'price' => 'required|numeric|min:0',
             'image_product' => 'mimes:jpg,png,jpeg,gif,svg,pdf',
+            'puntos' => 'min:0',
         ],[
             'name.required' => 'El campo es obligatorio.',
             'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
             'price.required' => 'El campo es obligatorio.',
+            'price.numeric' => 'El precio debe ser un número.',
             'price.min' => 'El precio no puede ser menor de 0 €.',
-            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.'
+            'image_product.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif o svg.',
+            'puntos.min' => 'El campo de pizzacoins no puede ser menor de 0.'
         ]);
 
         if($validate->fails()){
@@ -249,10 +266,16 @@ class ProductController extends Controller
         }
 
         $product->name = $req->name;
+        $product->nameen = $req->nameen;
         $product->price = $req->price;
         $product->description = $req->description;
         $product->type = $req->type;
-        $product->puntos = $req->puntos;
+
+        if ($req->puntos == "") {
+            $product->puntos = 0;
+        } else {
+            $product->puntos = $req->puntos;
+        }
 
         if ($req->file('image_product') != null) {
             $image_path = $req->file('image_product')->store('image_product', 'public');

@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1535px) {
     #productos-grande {
         display: none;
     }
@@ -7,7 +7,7 @@
     }
 }
 
-@media only screen and (min-width: 1281px) {
+@media only screen and (min-width: 1536px) {
     #productos-pequenio {
         display: none;
     }

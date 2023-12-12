@@ -33,7 +33,11 @@
                                     style="height:120px; width:120px; border: 2px solid gray; border-radius:10px;">
                                 <div>
                                     <p>{{ __($ingrediente->type) }}</p>
-                                    <p>{{ $ingrediente->name }}</p>
+                                    @if (Lang::locale() == 'es')
+                                        <p>{{ $ingrediente->name }}</p>
+                                    @else
+                                        <p>{{ $ingrediente->nameen }}</p>
+                                    @endif
                                     <br>
                                     <p>{{ number_format($ingrediente->price, 2, '.', '') }} €</p>
                                 </div>
@@ -139,7 +143,11 @@
                                 @if ($ingrediente->type == 'Base' && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -162,7 +170,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -185,7 +197,11 @@
                                         $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -208,7 +224,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -231,7 +251,11 @@
                                         $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -254,7 +278,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -273,7 +301,11 @@
                                 @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                                         <?php
-                                        $nombre = $ingrediente->name;
+                                        if (Lang::locale() == 'es') {
+                                            $nombre = $ingrediente->name;
+                                        } else {
+                                            $nombre = $ingrediente->nameen;
+                                        }
                                         $precio = number_format($ingrediente->price, 2, '.', '');
                                         ?>
                                         <a href="#volvermenu">
@@ -296,7 +328,11 @@
                                         <div class="flex items-end justify-end w-full bg-cover">
                                         </div>
                                         <div class="px-5 py-3">
-                                            <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @if (Lang::locale() == 'es')
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                            @else
+                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                            @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
                                                 €</span>
@@ -344,7 +380,8 @@
         <span class="text-sm sm:text-center"
             style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+            style="color: white; justify-content:center; margin-left:auto;">
             <li>
                 <a href="{{ route('whoarewe') }}"
                     class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
@@ -364,15 +401,15 @@
                 <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
             </li>
         </ul>
-        <div style="margin-left:auto; display:flex;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+        <div style="margin-left:auto; display:flex; justify-content:center;">
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
         </div>
     </footer>
 

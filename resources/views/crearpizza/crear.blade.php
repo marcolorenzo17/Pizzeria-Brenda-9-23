@@ -15,15 +15,28 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white">
-            <form action="{{ route('crearpizza.aniadir') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('crearpizza.aniadir') }}" method="POST" enctype="multipart/form-data"
+                name="crearingrediente" onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
-                <label for="name">{{ __('Nombre') }}</label>
+                <label for="name">{{ __('Nombre del ingrediente') }}</label>
                 <br>
-                <input type="text" id="name" name="name" size="80" value="{{ old('name') }}">
+                <input type="text" id="name" name="name" size="80" value="{{ old('name') }}"
+                    onfocusout="validate_name()">
+                <p id="error_name" style="color:red;"></p>
+                <br><br>
+                @error('nameen')
+                    <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                    <br>
+                @enderror
+                <label for="nameen">{{ __('Nombre del ingrediente (Inglés)') }}</label>
+                <br>
+                <input type="text" id="nameen" name="nameen" size="80" value="{{ old('nameen') }}"
+                    onfocusout="validate_nameen()">
+                <p id="error_nameen" style="color:red;"></p>
                 <br><br>
                 @error('price')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -31,7 +44,9 @@
                 @enderror
                 <label for="price">{{ __('Precio') }}</label>
                 <br>
-                <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"> €
+                <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"
+                    onfocusout="validate_price()"> €
+                <p id="error_price" style="color:red;"></p>
                 <br><br>
                 <label for="type">{{ __('Tipo') }}</label>
                 <br>
@@ -205,7 +220,8 @@
             <span class="text-sm sm:text-center"
                 style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </span>
-            <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+            <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+                style="color: white; justify-content:center; margin-left:auto;">
                 <li>
                     <a href="{{ route('whoarewe') }}"
                         class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
@@ -226,18 +242,80 @@
                     <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
                 </li>
             </ul>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                        height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+            <div style="margin-left:auto; display:flex; justify-content:center;">
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
             </div>
         </footer>
+
+        <script>
+            function validate() {
+                if (!(validate_name() && validate_nameen() && validate_price())) {
+                    return false;
+                }
+            }
+
+            function validate_name() {
+                var name = document.forms["crearingrediente"]["name"].value;
+                if (name == "") {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El campo de nombre del ingrediente es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El nombre del ingrediente no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_name").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_nameen() {
+                var name = document.forms["crearingrediente"]["nameen"].value;
+                if (name == "") {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El campo de nombre del ingrediente (inglés) es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El nombre del ingrediente (inglés) no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_nameen").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_price() {
+                var price = document.forms["crearingrediente"]["price"].value;
+                if (price == "") {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El campo de precio es obligatorio.') }}";
+                    return false;
+                } else if (price < 0) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio no puede ser menor de 0€.') }}";
+                    return false;
+                } else if (isNaN(price)) {
+                    document.getElementById("error_price").innerHTML =
+                        "{{ __('El precio debe ser un número.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_price").innerHTML = "";
+                    return true;
+                }
+            }
+        </script>
 
     </x-app-layout>
 @endif

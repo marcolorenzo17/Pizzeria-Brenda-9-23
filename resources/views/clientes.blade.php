@@ -14,13 +14,14 @@
         <div class="container px-12 py-8 mx-auto bg-white">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
                 <tr>
-                    <td class="font-bold">{{ __('Nombre') }}</td>
+                    <td class="font-bold">{{ __('Nombre de usuario') }}</td>
                     <td class="font-bold">{{ __('Correo electrónico') }}</td>
                     <td class="font-bold">{{ __('Dirección') }}</td>
                     <td class="font-bold">{{ __('Teléfono') }}</td>
                     <td class="font-bold">{{ __('Pizzacoins') }}</td>
                     <td class="font-bold">{{ __('Administrador') }}</td>
                     <td class="font-bold">{{ __('Rol') }}</td>
+                    <td></td>
                     <td class="font-bold">{{ __('Validado') }}</td>
                     <td class="font-bold">{{ __('Eliminar') }}</td>
                 </tr>
@@ -36,15 +37,14 @@
                         <td>
                             <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
                                 @csrf
-                                <div style="display:flex;">
+                                <div style="display:flex; align-items:center; gap:5px;">
                                     <input type="text" id="puntos" name="puntos" size="10"
-                                        value="{{ $cliente->puntos }}" style="border-radius: 10px 0px 0px 10px;">
-                                    <br>
+                                        value="{{ $cliente->puntos }}" style="border-radius:10px">
                                     <div class="text-center">
                                         <button type="submit"
                                             class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
                                             id="boton"
-                                            style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px;">{{ __('✓') }}</button>
+                                            style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -68,34 +68,32 @@
                             <td>
                                 <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                                     @csrf
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <select id="role" name="role"
-                                                    style="border-radius: 10px 0px 0px 10px;">
-                                                    <option value="Cliente">{{ __('Cliente') }}</option>
-                                                    <option value="Jefe">{{ __('Jefe') }}</option>
-                                                    <option value="Cajero">{{ __('Cajero') }}</option>
-                                                    <option value="Cocinero">{{ __('Cocinero') }}</option>
-                                                    <option value="Plancha">{{ __('Plancha') }}</option>
-                                                </select>
-                                                <br>
-                                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <button type="submit"
-                                                        class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                                        id="boton"
-                                                        style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:12px; right:2px;">{{ __('✓') }}</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div style="display:flex; align-items:center; gap:5px;">
+                                        <div>
+                                            <select id="role" name="role" style="border-radius: 10px"
+                                                value="Jefe">
+                                                <option value="Cliente">{{ __('Cliente') }}</option>
+                                                <option value="Jefe">{{ __('Jefe') }}</option>
+                                                <option value="Cajero">{{ __('Cajero') }}</option>
+                                                <option value="Cocinero">{{ __('Cocinero') }}</option>
+                                                <option value="Plancha">{{ __('Plancha') }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                id="boton"
+                                                style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                        </div>
+                                    </div>
                                 </form>
+                            </td>
+                            <td>
+                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
                             </td>
                         @else
                             <td>{{ __($cliente->role) }}</td>
+                            <td></td>
                         @endif
                         <td>
                             @if ($cliente->validado)
@@ -127,7 +125,8 @@
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td style="display:flex; justify-content:space-between;">
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Nombre') }}</p>
+                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                {{ __('Nombre de usuario') }}</p>
                         </td>
                         <td>
                             <p style="padding-left:50px;">{{ $cliente->name }}</p>
@@ -165,19 +164,26 @@
                         </td>
                         <td>
                             <p>
-                            <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST">
+                            <form action="{{ route('clientes.actualizarpuntos', $cliente->id) }}" method="POST"
+                                name="puntos" onsubmit="return validate()">
                                 @csrf
-                                <div style="display:flex;">
+                                @error('puntos')
+                                    <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                                    <br>
+                                @enderror
+                                <div style="display:flex; align-items:center; gap:10px;">
                                     <div style="padding-left:50px;">
                                         <input type="text" id="puntos" name="puntos" size="10"
-                                            value="{{ $cliente->puntos }}" style="border-radius: 10px 0px 0px 10px;">
+                                            value="{{ $cliente->puntos }}" style="border-radius:10px;"
+                                            onfocusout="validate_puntos()">
                                     </div>
                                     <div style="padding-left:0px;">
                                         <button type="submit" class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
                                             id="boton"
-                                            style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px;">{{ __('✓') }}</button>
+                                            style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
+                                <p id="error_puntos" style="color:red;"></p>
                             </form>
                             </p>
                         </td>
@@ -221,30 +227,26 @@
                             <div style="padding-left:50px;">
                                 <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                                     @csrf
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <select id="role" name="role"
-                                                    style="border-radius: 10px 0px 0px 10px;">
-                                                    <option value="Cliente">{{ __('Cliente') }}</option>
-                                                    <option value="Jefe">{{ __('Jefe') }}</option>
-                                                    <option value="Cajero">{{ __('Cajero') }}</option>
-                                                    <option value="Cocinero">{{ __('Cocinero') }}</option>
-                                                    <option value="Plancha">{{ __('Plancha') }}</option>
-                                                </select>
-                                                <br>
-                                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <button type="submit"
-                                                        class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                                        id="boton"
-                                                        style="height:42px; font-weight:bolder; border-radius: 0px 10px 10px 0px; position:relative; bottom:12px; right:2px;">{{ __('✓') }}</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div>
+                                            <select id="role" name="role" style="border-radius:10px;">
+                                                <option value="Cliente">{{ __('Cliente') }}</option>
+                                                <option value="Jefe">{{ __('Jefe') }}</option>
+                                                <option value="Cajero">{{ __('Cajero') }}</option>
+                                                <option value="Cocinero">{{ __('Cocinero') }}</option>
+                                                <option value="Plancha">{{ __('Plancha') }}</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
+                                                id="boton"
+                                                style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
+                                    </div>
                                 </form>
                             </div>
                         </td>
@@ -311,7 +313,8 @@
     <span class="text-sm sm:text-center"
         style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
     </span>
-    <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+    <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+        style="color: white; justify-content:center; margin-left:auto;">
         <li>
             <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
         </li>
@@ -329,17 +332,41 @@
             <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
         </li>
     </ul>
-    <div style="margin-left:auto; display:flex;">
-        <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                height="30px" style="margin-right:20px;"></a>
-        <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+    <div style="margin-left:auto; display:flex; justify-content:center;">
+        <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                 width="30px" height="30px" style="margin-right:20px;"></a>
-        <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                width="30px" height="30px" style="margin-right:20px;"></a>
-        <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                width="30px" height="30px" style="margin-right:20px;"></a>
+        <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+        <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+        <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
     </div>
 </footer>
+
+<script>
+    function validate() {
+        if (!(validate_puntos())) {
+            return false;
+        }
+    }
+
+    function validate_puntos() {
+        var puntos = document.forms["puntos"]["puntos"].value;
+        if (puntos < 0) {
+            document.getElementById("error_puntos").innerHTML =
+                "{{ __('Un usuario no puede tener menos de 0 Pizzacoins.') }}";
+            return false;
+        } else if (isNaN(puntos)) {
+            document.getElementById("error_puntos").innerHTML =
+                "{{ __('El campo de Pizzacoins debe ser un número.') }}";
+            return false;
+        } else {
+            document.getElementById("error_puntos").innerHTML = "";
+            return true;
+        }
+    }
+</script>
 
 </x-app-layout>
 @endif

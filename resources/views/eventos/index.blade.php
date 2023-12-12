@@ -3,15 +3,22 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('RESERVAS') }}
-        </h2>
-        <br><br>
+        <div
+            style="background-image:url('img/backgroundpizzasmall.png'); margin-top:50px; padding-bottom:20px; border-radius:30px;">
+            <br><br><br>
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 2px white;">
+                {{ __('RESERVAS') }}
+            </h2>
+            <br><br>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/recibos.css" />
     <link rel="stylesheet" href="/css/eventos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <br>
     <div class="container px-12 py-8 mx-auto bg-white">
         <br>
@@ -50,7 +57,7 @@
                                     <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
                                         @csrf
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELADO') }}</button>
                                     </form>
                                 @else
                                     <table {{-- id="productos-grande" --}}>
@@ -68,7 +75,7 @@
                                                     action="{{ route('eventos.eventono', $evento->id) }}">
                                                     @csrf
                                                     <button
-                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELAR') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -199,7 +206,7 @@
                                     <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
                                         @csrf
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGADO') }}</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELADO') }}</button>
                                     </form>
                                 </div>
                             </td>
@@ -224,7 +231,7 @@
                                                     action="{{ route('eventos.eventono', $evento->id) }}">
                                                     @csrf
                                                     <button
-                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('DENEGAR') }}</button>
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELAR') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -309,6 +316,134 @@
             <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
             --}}
 
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar: false }">
+            <div style="text-align: center;">
+                <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;"
+                    x-on:click="mostrar = !mostrar"
+                    x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'"
+                    id="boton"></button>
+            </div>
+            <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
+                x-show="mostrar">
+                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                    id="eventos-grande">
+                    <tr>
+                        <td class="font-bold">{{ __('Fecha') }}</td>
+                        <td class="font-bold">{{ __('Hora') }}</td>
+                        <td class="font-bold">{{ __('Tipo') }}</td>
+                        <td class="font-bold">{{ __('Personas') }}</td>
+                        <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        <td class="font-bold">{{ __('Reserva') }}</td>
+                        <td class="font-bold">{{ __('Pagado') }}</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    @foreach ($eventos as $evento)
+                        @if ($evento->idUser == Auth::user()->id)
+                            <tr>
+                                <td>{{ $evento->fecha }}</td>
+                                <td>{{ $evento->hora }}</td>
+                                <td>{{ __($evento->tipo) }}</td>
+                                <td>{{ $evento->personas }}</td>
+                                <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                                <td>
+                                    @if ($evento->reservado == 'true')
+                                        <p>{{ __('Reservado') }}</p>
+                                    @elseif ($evento->reservado == 'false')
+                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                        </p>
+                                    @else
+                                        <p>{{ __('Reserva en curso') }}</p>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($evento->pagado)
+                                        <p>{{ __('Pago realizado') }}</p>
+                                    @else
+                                        <p>{{ __('Pago en curso') }}</p>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
+                </table>
+                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                    id="eventos-pequenio">
+                    @foreach ($eventos as $evento)
+                        @if ($evento->idUser == Auth::user()->id)
+                            <tr>
+                                <td style="display:flex; justify-content:space-between;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Fecha y hora') }}</p>
+                                    <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Tipo') }}</p>
+                                    <p>{{ __($evento->tipo) }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Personas') }}
+                                    </p>
+                                    <p>{{ $evento->personas }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Presupuesto') }}</p>
+                                    <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    @if ($evento->reservado == 'true')
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                        <p>{{ __('Reservado') }}</p>
+                                    @elseif ($evento->reservado == 'false')
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                        </p>
+                                    @else
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                        <p>{{ __('Reserva en curso') }}</p>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    @if ($evento->pagado)
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Pagado') }}</p>
+                                        <p>{{ __('Pago realizado') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Pagado') }}</p>
+                                        <p>{{ __('Pago en curso') }}</p>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                        @endif
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
+    <br><br>
     @if (isset($_GET['totalpresupuesto']))
         <p class="text-center">
             {{ __('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.') }}
@@ -329,8 +464,6 @@
     @endif
     <br><br>
     <p class="text-center">{{ __('*Sólo puedes tener un máximo de 5 reservas activas.') }}</p>
-    <p class="text-center">
-        {{ __('*Cada reserva tiene un coste de 10€, los cuales se descontarán de la cuenta a pagar.') }}</p>
     <p class="text-center">{{ __('*Sólo podemos reservar mesas para un máximo de 50 personas cada día.') }}
     </p>
     <br><br>
@@ -415,7 +548,7 @@
     </div>
     <br><br>
     <form action="{{ route('eventos.addEvento') }}" method="POST" enctype="multipart/form-data"
-        id="subscribe-form">
+        id="subscribe-form" name="reservar" onsubmit="return validate()">
         @csrf
         <div id="contenido" style="display: none;">
             <div class="text-center">
@@ -429,61 +562,43 @@
                     <br>
                 @enderror
                 {{ __('Nº Personas:') }} <input type="number" id="personas" name="personas"
-                    value="{{ old('personas') }}">
+                    value="{{ old('personas') }}" style="margin-left:10px; border-radius:20px; width:200px;"
+                    placeholder="50 como máximo." min="1" max="50" onfocusout="validate_personas()">
+                <p id="error_personas" style="color:red;"></p>
                 <br><br>
                 @error('fecha')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
                 {{ __('Fecha:') }} <input type="date" name="fecha" id="fecha"
-                    value="{{ old('fecha') }}">
+                    value="{{ old('fecha') }}" style="margin-left:10px; border-radius:20px;"
+                    onfocusout="validate_fecha()">
+                <p id="error_fecha" style="color:red;"></p>
                 <br><br>
                 @error('hora')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
                 {{ __('Hora:') }} <input type="time" name="hora" id="hora" min="20:30"
-                    max="23:30" value="{{ old('hora') }}">
+                    max="23:30" value="{{ old('hora') }}" style="margin-left:10px; border-radius:20px;"
+                    onfocusout="validate_hora()">
+                <p id="error_hora" style="color:red;"></p>
                 <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                 <br><br><br>
+                <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
+                <br><br>
                 <div>
-                    <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
+                    <p style="align-text:center; font-weight:bolder;">{{ __('PAGO CON TARJETA') }}</p>
                     <br>
-                    <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
-                        <tr>
-                            <td>
-                                <div id="efectivodiv"
-                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <a href="#efectivoparte">
-                                        <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                            onclick="mostrarpago('efectivo')" id="imgpago" />
-                                    </a>
-                                    <div class="p-5">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                            {{ __('En efectivo') }}</h5>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div id="creditodiv"
-                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <a href="#creditoparte">
-                                        <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                            onclick="mostrarpago('credito')" id="imgpago" />
-                                    </a>
-                                    <div class="p-5">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                            {{ __('Tarjeta de crédito') }}</h5>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    <p style="align-text:center; font-weight:bolder; font-size:20px;">
+                        {{ __('*Cada reserva tiene un coste de 10€, los cuales se descontarán de la cuenta a pagar.') }}
+                    </p>
                 </div>
-                <br><br><br>
-                <div id="creditoparte" style="display:none;">
+                <br><br>
+                <div>
                     <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                    <input id="card-holder-name" type="text">
+                    <input id="card-holder-name" type="text" style="margin-left:10px; border-radius:20px;"
+                        name="card_holder_name">
                     <br><br>
                     <div class="form-row">
                         <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
@@ -508,141 +623,14 @@
                     <br><br>
                     <div class="form-group text-center">
                         <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500" id="card-button"
-                            data-secret="{{ $intent->client_secret }}"
-                            class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
+                            data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
+                            type="submit" onclick="return storeValues();">{{ __('Reservar') }}</button>
                     </div>
-                </div>
-                <div class="form-group text-center" id="efectivoparte" style="display:none;">
-                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        class="btn btn-lg btn-success btn-block">{{ __('Reservar') }}</button>
                 </div>
             </div>
         </div>
     </form>
     <br><br>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden sm:rounded-lg" x-data="{ mostrar: false }">
-            <div style="text-align: center;">
-                <button class="px-6 py-2 text-sm rounded shadow" style="background-color:antiquewhite;"
-                    x-on:click="mostrar = !mostrar"
-                    x-text="mostrar ? '{{ __('OCULTAR MIS RESERVAS') }}' : '{{ __('MOSTRAR MIS RESERVAS') }}'"
-                    id="boton"></button>
-            </div>
-            <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="misreservas"
-                x-show="mostrar">
-                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                    id="eventos-grande">
-                    <tr>
-                        <td class="font-bold">{{ __('Fecha') }}</td>
-                        <td class="font-bold">{{ __('Hora') }}</td>
-                        <td class="font-bold">{{ __('Tipo') }}</td>
-                        <td class="font-bold">{{ __('Personas') }}</td>
-                        <td class="font-bold">{{ __('Presupuesto') }}</td>
-                        <td class="font-bold">{{ __('Reserva') }}</td>
-                        <td class="font-bold">{{ __('Pagado') }}</td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                    @foreach ($eventos as $evento)
-                        @if ($evento->idUser == Auth::user()->id)
-                            <tr>
-                                <td>{{ $evento->fecha }}</td>
-                                <td>{{ $evento->hora }}</td>
-                                <td>{{ __($evento->tipo) }}</td>
-                                <td>{{ $evento->personas }}</td>
-                                <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
-                                <td>
-                                    @if ($evento->reservado == 'true')
-                                        <p>{{ __('Reservado') }}</p>
-                                    @elseif ($evento->reservado == 'false')
-                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
-                                    @else
-                                        <p>{{ __('Reserva en curso') }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($evento->pagado)
-                                        <p>{{ __('Pago realizado') }}</p>
-                                    @else
-                                        <p>{{ __('Pago en curso') }}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endif
-                    @endforeach
-                </table>
-                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                    id="eventos-pequenio">
-                    @foreach ($eventos as $evento)
-                        @if ($evento->idUser == Auth::user()->id)
-                            <tr>
-                                <td style="display:flex; justify-content:space-between;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Fecha y hora') }}</p>
-                                    <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Tipo') }}</p>
-                                    <p>{{ __($evento->tipo) }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Personas') }}
-                                    </p>
-                                    <p>{{ $evento->personas }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Presupuesto') }}</p>
-                                    <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    @if ($evento->reservado == 'true')
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Reservado') }}</p>
-                                    @elseif ($evento->reservado == 'false')
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Lo sentimos, no es posible realizar su reserva') }}</p>
-                                    @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Reserva en curso') }}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    @if ($evento->pagado)
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Pagado') }}</p>
-                                        <p>{{ __('Pago realizado') }}</p>
-                                    @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Pagado') }}</p>
-                                        <p>{{ __('Pago en curso') }}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr></tr>
-                            <tr></tr>
-                        @endif
-                    @endforeach
-                </table>
-            </div>
-        </div>
-    </div>
     </div>
     @endif
 
@@ -653,7 +641,8 @@
         <span class="text-sm sm:text-center"
             style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex" style="color: white;">
+        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
+            style="color: white; justify-content:center; margin-left:auto;">
             <li>
                 <a href="{{ route('whoarewe') }}"
                     class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
@@ -673,20 +662,99 @@
                 <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
             </li>
         </ul>
-        <div style="margin-left:auto; display:flex;">
-            <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                    height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+        <div style="margin-left:auto; display:flex; justify-content:center;">
+            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img src="{{ asset('img/face.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
+            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
         </div>
     </footer>
 
     <script src="{{ asset('js/reservas-script.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{ asset('js/credito.js') }}"></script>
+    <script>
+        function validate() {
+            if (!(validate_personas() && validate_fecha() && validate_hora())) {
+                return false;
+            }
+        }
+
+        function validate_personas() {
+            var personas = document.forms["reservar"]["personas"].value;
+            if (personas == "") {
+                document.getElementById("error_personas").innerHTML =
+                    "{{ __('El campo de personas es obligatorio.') }}";
+                return false;
+            } else if (personas < 1) {
+                document.getElementById("error_personas").innerHTML =
+                    "{{ __('La reserva debe ser al menos para una persona.') }}";
+                return false;
+            } else if (personas > 50) {
+                document.getElementById("error_personas").innerHTML =
+                    "{{ __('Sólo se puede reservar para un máximo de 50 personas.') }}";
+                return false;
+            } else {
+                document.getElementById("error_personas").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_fecha() {
+            var fecha = document.forms["reservar"]["fecha"].value;
+            if (fecha == "") {
+                document.getElementById("error_fecha").innerHTML =
+                    "{{ __('El campo de fecha es obligatorio.') }}";
+                return false;
+            } else {
+                document.getElementById("error_fecha").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validate_hora() {
+            var hora = document.forms["reservar"]["hora"].value;
+            if (hora == "") {
+                document.getElementById("error_hora").innerHTML =
+                    "{{ __('El campo de hora es obligatorio.') }}";
+                return false;
+            } else {
+                document.getElementById("error_hora").innerHTML = "";
+                return true;
+            }
+        }
+    </script>
+    <script>
+        // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+        // Please acknowledge use of this code by including this header.
+
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 3600 * 1000);
+
+        var setCookie = function(name, value) {
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        };
+
+        var storeValues = function() {
+            setCookie("card_holder_name", document.forms["reservar"]["card_holder_name"].value);
+            return true;
+        };
+
+        var getCookie = function(name) {
+            var re = new RegExp(name + "=([^;]+)");
+            var value = re.exec(document.cookie);
+            return (value != null) ? decodeURI(value[1]) : null;
+        };
+
+        if (getCookie("card_holder_name")) {
+            document.forms["reservar"]["card_holder_name"].value = getCookie("card_holder_name");
+        };
+    </script>
 
 </x-app-layout>

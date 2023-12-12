@@ -31,7 +31,8 @@ class User extends Authenticatable
         'promocion',
         'inmediato',
         'direccion',
-        'telefono'
+        'telefono',
+        'nuevo'
     ];
 
     /**

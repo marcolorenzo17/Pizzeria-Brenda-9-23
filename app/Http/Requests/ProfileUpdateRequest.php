@@ -19,7 +19,7 @@ class ProfileUpdateRequest extends FormRequest
             'name' => ['string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'direccion' => ['string', 'max:255'],
-            'telefono' => ['numeric'],
+            'telefono' => ['regex:/^(\+34|0034|34)?[ -]*(6|7|8|9)[ -]*([0-9][ -]*){8}$/'],
         ];
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -101,9 +102,24 @@ class UserController extends Controller
     }
 
     public function actualizarpuntos(Request $req, string $id) {
+        $validate = Validator::make($req->all(), [
+            'puntos' => 'numeric|min:0',
+        ],[
+            'puntos.numeric' => 'El campo de pizzacoins debe ser un número.',
+            'puntos.min' => 'El campo de pizzacoins no puede ser menor de 0.'
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
         $cliente = User::findOrFail($id);
 
-        $cliente->puntos = $req->puntos;
+        if ($req->puntos == "") {
+            $cliente->puntos = 0;
+        } else {
+            $cliente->puntos = $req->puntos;
+        }
 
         $cliente->update();
 

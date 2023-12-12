@@ -850,8 +850,7 @@
 
         /* Change background on mouse-over */
         .anavbar:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
 
         #boton:hover {
@@ -881,11 +880,13 @@
 
         /* Change background on mouse-over */
         .afooter:hover {
-            background: lightcoral;
-            color: black;
+            text-decoration: underline;
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body class="antialiased" style="background-image:url('img/fondoanon2.jpg');">
@@ -894,7 +895,7 @@
             @include('partials/language_switcher')
         </div>
         <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:57px; height:50px;"></a>
+                style="width:67px; height:60px;"></a>
         <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
         <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
         <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
@@ -938,7 +939,11 @@
                         style="height:200px; width:200px; border-radius:30px; padding:10px;">
                 </a>
                 <div class="px-5 py-3" style="padding:15px;">
-                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @if (Lang::locale() == 'es')
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @else
+                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                    @endif
                     <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                     {{--
                         <span class="mt-2 text-gray-500">{{ $product->description }}</span>
@@ -958,13 +963,17 @@
             <div id="{{ $idesdesc }}" style="display: none;">
                 <br><br><br><br><br>
                 <h1 class="text-center"
-                    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: Copperplate, 'Copperplate Gothic Light', fantasy; text-shadow: 2px 2px 4px #000000;">
+                    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                     {{ __('DESCRIPCIÓN') }}</h1>
                 <div style="background:white; margin: 0 auto; text-align:center;">
                     <br><br>
                     <img src="{{ asset($product->image) }}" class="mx-auto"
                         style="height:200px; width:200px; border-radius:30px; padding:10px;">
-                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @if (Lang::locale() == 'es')
+                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    @else
+                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                    @endif
                     <br>
                     <span class="mt-2 text-gray-500">{{ $product->description }}</span>
                     <br>
@@ -995,21 +1004,25 @@
     </div>
     <br><br><br><br><br><br><br><br>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
             </p>
-            <a class="anavbar" href="privacyAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-            <a class="anavbar" href="premiosAnon"
-                style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            <div style="display:flex; margin-left:auto; gap:30px;">
+                <a class="anavbar" href="privacyAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon"
+                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA"><img src="{{ asset('img/twit.png') }}" width="30px"
-                        height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es"><img src="{{ asset('img/inst.png') }}"
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es"><img src="{{ asset('img/tik.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES"><img
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
             </div>

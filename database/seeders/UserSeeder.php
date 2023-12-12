@@ -25,7 +25,8 @@ class UserSeeder extends Seeder
             'promocion' => false,
             'inmediato' => false,
             'direccion' => 'C/ Padre Lerchundi, 3',
-            'telefono' => 638421254,
+            'telefono' => '638 42 12 54',
+            'nuevo' => false,
         ]);
     }
 }

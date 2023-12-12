@@ -1,6 +1,7 @@
 {
     "El producto se ha añadido al carrito con éxito.": "The product has been added to the cart successfully.",
     "Se ha realizado el pedido con éxito.": "The order has been made successfully.",
+    "Se ha realizado el pedido con éxito, y se han añadido 500 pizzacoins a tu cuenta, por tu primera compra superior a 10€. ¡Disfrútalas!": "The order has been made successfully, and 500 pizzacoins have been added to your account, for your first purchase over 10€. Enjoy!",
     "El carrito se ha actualizado con éxito.": "The cart has been updated successfully.",
     "El plato se ha eliminado con éxito.": "The dish has been removed successfully.",
     "El carrito se ha vaciado con éxito.": "The cart has been emptied successfully.",
@@ -50,6 +51,7 @@
     "Debes enviar una imagen.": "You must send an image.",
     "*Sólo podemos reservar mesas para un máximo de 50 personas cada día.": "*We can only make reservations for a maximum of 50 people a day.",
    "Todas las reservas están ocupadas para el día escogido. Por favor, inténtalo de nuevo, o elige otro día.": "All reservations for the selected day are occupied. Please try again later, or choose another day.",
+   "Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.": "Sign up, and with your first purchase over 10€, you will receive 500 free Pizzacoins.",
 
     "Tu cuenta está invalidada. Por favor, contacta con un administrador.": "Your account is invalidated. Please contact an admin.",
     "El campo es obligatorio.": "The field is required.",
@@ -58,7 +60,7 @@
     "El nombre no puede tener más de 255 caracteres.": "The name cannot have more than 255 characters.",
     "El precio no puede ser menor de 0 €.": "The price cannot be less than 0 €.",
     "La reserva ha sido aceptada.": "The reservation has been accepted.",
-    "La reserva ha sido denegada.": "The reservation has been denied.",
+    "La reserva ha sido cancelada.": "The reservation has been cancelled.",
 
 
     "Entrar": "Access",
@@ -268,12 +270,13 @@
     "Pago realizado": "Payment complete",
     "Reserva": "Reservation",
     "ACEPTAR": "ACCEPT",
-    "DENEGAR": "DENY",
+    "CANCELAR": "CANCEL",
     "RESERVADO": "RESERVED",
-    "DENEGADO": "DENIED",
+    "CANCELADO": "CANCELLED",
     "Reserva en curso": "Reservation in progress",
     "Reservado": "Reserved",
     "Lo sentimos, no es posible realizar su reserva": "We're sorry, your reservation cannot be made",
+    "Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)": "We're sorry, the reservation cannot be made. Please contact us (956 37 11 15)",
     "MOSTRAR MIS RESERVAS": "SHOW MY RESERVATIONS",
     "OCULTAR MIS RESERVAS": "HIDE MY RESERVATIONS",
     "Jefe": "Boss",
@@ -388,16 +391,25 @@
 
     "Sólo se puede añadir una promoción al mismo tiempo.": "You can only add one promotion at a time.",
 
+    "NUEVO": "NEW",
+
     "Pizzacoins para desbloqueo (Sólo promociones)": "Pizzacoins for unlocking (Promotions only)",
 
     "¿QUÉ SON LAS PIZZACOINS?": "WHAT ARE PIZZACOINS?",
     "Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.": "Pizzacoins are Pizzería Brenda's exclusive currency.",
     "Puedes usar estas monedas para canjearlas por promociones especiales.": "You can use these coins to exchange them for special promotions.",
-    "Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada céntimo que gastes, recibirás 1 Pizzacoin.": "Each time you make an order of any menu or product on this website, you will get Pizzacoins. For each cent you spend, you'll receive 1 Pizzacoin.",
+    "Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.": "Each time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you'll receive 10 Pizzacoins.",
     "¡Acumula esas Pizzacoins y píllate un menú gratis!": "Gather some Pizzacoins and get yourself a free menu!",
     "¡Gracias por crear una cuenta! Te hemos añadido 500 Pizzacoins como regalo de bienvenida. ¡Que las disfrutes!": "Thank you for making an account! We've given you 500 Pizzacoins as a welcome gift. Enjoy them!",
     "¡PIZZACOINS!": "PIZZACOINS!",
     "NUESTRAS OFERTAS": "OUR OFFERS",
+
+    "El campo debe ser un número.": "The field must be a number.",
+
+    "El número de tu tarjeta está incompleto.": "Your credit card number is incomplete.",
+    "El campo de pizzacoins debe ser un número.": "The pizzacoins field must be a number.",
+    "El precio debe ser un número.": "The price must be a number.",
+    "El campo de pizzacoins no puede ser menor de 0.": "The pizzacoins field must be at least 0.",
 
     "Correo electrónico": "Email",
     "Recuérdame": "Remember me",
@@ -405,8 +417,10 @@
     "Iniciar sesión": "Log in",
     "¿Ya tienes una cuenta?": "Already registered?",
     "¿Aún no tienes una cuenta?": "Still not registered?",
-    "¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico, y te enviaremos un enlace donde podrás resetear tu contraseña, y escoger una nueva.": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+    "¿Te has olvidado de tu contraseña? No pasa nada. Tan solo escribe tu correo electrónico y una nueva contraseña, y te enviaremos a tu bandeja de entrada un enlace donde podrás confirmar los cambios.": "Forgot your password? No problem. Just write your email address and a new password, and we will email you a link that will allow you to confirm your changes.",
     "Enviar enlace": "Email Password Reset Link",
+
+    "PAGO CON TARJETA": "CREDIT CARD PAYMENT",
 
     "Ver currículum en PDF": "Show PDF resume",
     "Ampliar imagen": "Amplify image",
@@ -420,6 +434,30 @@
     "Coste:": "Cost:",
     "Dirección:": "Address:",
     "Teléfono:": "Phone number:",
+    "- DETALLES": "- DETAILS",
+
+    "Tu carrito está vacío.": "Your cart is empty.",
+    "Alérgenos:": "Allergens:",
+    "¿Cómo valorarías este plato?": "How would you rate this dish?",
+
+    "¿Quieres algo más de tu estilo?": "Do you want something more your style?",
+    "¡": " ",
+    "Inicia sesión": "Log in",
+    ", y crea tu propia pizza!": ", and you'll be able to make your own pizza!",
+
+    "Tu nombre de usuario.": "Your username.",
+    "ejemplo@ejemplo.com": "example@example.com",
+    "Debe tener al menos 8 caracteres.": "Must be at least 8 characters long.",
+    "Tu dirección de envío a domicilio.": "Your home delivery address.",
+
+    "Nombre de usuario": "Username",
+    "Nombre del ingrediente": "Ingredient name",
+    "Nombre del ingrediente (Inglés)": "Ingredient name (English)",
+    "Nombre del plato": "Dish name",
+    "Nombre del plato (Inglés)": "Dish name (English)",
+    "Confirmar nueva contraseña": "Confirm new password",
+
+    "Pizza Personalizada": "Custom Pizza",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",

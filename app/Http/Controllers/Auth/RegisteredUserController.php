@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'direccion' => ['required', 'string', 'max:255'],
-            'telefono' => ['required', 'numeric'],
+            'telefono' => ['required', 'regex:/^(\+34|0034|34)?[ -]*(6|7|8|9)[ -]*([0-9][ -]*){8}$/'],
         ]);
 
         $user = User::create([
@@ -45,19 +45,19 @@ class RegisteredUserController extends Controller
             'admin' => false,
             'validado' => true,
             'role' => 'Cliente',
-            'puntos' => 500,
+            'puntos' => 0,
             'restapuntos' => 0,
             'promocion' => false,
             'inmediato' => false,
             'direccion' => $request->direccion,
             'telefono' => $request->telefono,
+            'nuevo' => true,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        session()->flash('notif.success', '¡Gracias por crear una cuenta! Te hemos añadido 500 Pizzacoins como regalo de bienvenida. ¡Que las disfrutes!');
         return redirect(RouteServiceProvider::HOME);
     }
 }
