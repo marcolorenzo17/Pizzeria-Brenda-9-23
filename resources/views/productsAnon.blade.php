@@ -924,7 +924,7 @@
         @endif
     </div>
     <br><br><br><br><br>
-    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto">
+    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto" style="margin-top:130px;">
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         <?php

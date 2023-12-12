@@ -14,7 +14,7 @@
             <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
             <br>
         @endif
-        <div class="container px-12 py-8 mx-auto bg-white">
+        <div class="bg-white" style="padding:50px;">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="recibos-grande">
                 <tr>
                     <td class="font-bold">{{ __('Fecha y hora') }}</td>

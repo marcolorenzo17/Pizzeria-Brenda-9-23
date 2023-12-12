@@ -920,8 +920,7 @@
             </div>
         @endif
     </div>
-    <br><br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px;">
+    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-top:130px; margin-bottom:78px;">
         <p style="font-weight: bolder; font-size:20px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
         </p>
@@ -953,7 +952,6 @@
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('2 € adicionales al pedido que se realice.') }}</p>
         <br><br>
     </div>
-    <br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}

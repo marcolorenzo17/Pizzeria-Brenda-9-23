@@ -5,7 +5,7 @@ var e4 = document.getElementById("e4");
 var e5 = document.getElementById("e5");
 var estrellas = document.getElementById("estrellas");
 
-function valoracion(estrella) {
+function valoracion_estrellas(estrella) {
   switch (estrella) {
     case 1:
       e1.setAttribute("src", "/img/star.png");
