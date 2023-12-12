@@ -1008,19 +1008,16 @@
             </div>
         @endif
     </div>
-    <br><br><br><br><br>
-    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white;"
+    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white; margin-top:130px; margin-bottom:26px;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}
     </h1>
-    <br>
-    <div class="mx-auto" style="background-color:#4a4895;">
+    <div class="mx-auto" style="background-color:#4a4895; margin-bottom:26px;">
         <video width="859" height="464" autoplay muted loop>
             <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
             Tu navegador no es compatible con este vídeo.
         </video>
     </div>
-    <br>
     <div style="background-color:red;">
         <br>
     </div>
