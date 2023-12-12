@@ -920,8 +920,7 @@
             </div>
         @endif
     </div>
-    <br><br><br><br><br>
-    <div style="margin:30px;">
+    <div style="margin:30px; margin-bottom:104px; margin-top:130px;">
         <p style="text-align:center;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
         <p style="text-align:center;">www.pizzeriabrenda.com</p>
         <br><br><br>
@@ -1106,7 +1105,6 @@
         Este documento de Aviso Legal y Condiciones Generales de uso del sitio web ha sido creado mediante el
         generador de plantilla de aviso legal y condiciones de uso online el día 28/10/2023.
     </div>
-    <br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}

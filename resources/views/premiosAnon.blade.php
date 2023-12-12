@@ -920,8 +920,7 @@
             </div>
         @endif
     </div>
-    <br><br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:104px; margin-top:130px;">
         <h2 class="text-center">{{ __('PREMIOS') }}</h2>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             style="display:flex; flex-wrap:wrap; align-items:center;">
@@ -954,7 +953,6 @@
             </div>
         </div>
     </div>
-    <br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}

@@ -920,8 +920,7 @@
             </div>
         @endif
     </div>
-    <br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px;">
+    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-bottom:130px; margin-top:104px;">
         <br>
         <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
         <br><br>
@@ -965,7 +964,6 @@
             {{ __('¡Te esperamos! ¡Visítanos!') }}
         </p>
     </div>
-    <br><br><br><br><br>
     <div class="footer">
         <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}

@@ -920,8 +920,7 @@
             </div>
         @endif
     </div>
-    <br><br><br><br><br>
-    <div class="container px-12 py-8 mx-auto bg-white" style="padding-top:30px; padding-bottom:30px;">
+    <div class="container px-12 py-8 mx-auto bg-white" style="padding-top:30px; padding-bottom:30px;  margin-bottom:104px; margin-top:130px;">
         <h2 class="text-center">{{ __('CONTÁCTANOS') }}</h2>
         <br><br>
         <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
