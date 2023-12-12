@@ -172,15 +172,15 @@
                         @csrf
                         <table>
                             <tr>
-                                <td onclick="valoracion(1)"><img src="{{ asset('img/starblank.png') }}"
+                                <td onclick="valoracion_estrellas(1)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e1"></td>
-                                <td onclick="valoracion(2)"><img src="{{ asset('img/starblank.png') }}"
+                                <td onclick="valoracion_estrellas(2)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e2"></td>
-                                <td onclick="valoracion(3)"><img src="{{ asset('img/starblank.png') }}"
+                                <td onclick="valoracion_estrellas(3)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e3"></td>
-                                <td onclick="valoracion(4)"><img src="{{ asset('img/starblank.png') }}"
+                                <td onclick="valoracion_estrellas(4)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e4"></td>
-                                <td onclick="valoracion(5)"><img src="{{ asset('img/starblank.png') }}"
+                                <td onclick="valoracion_estrellas(5)"><img src="{{ asset('img/starblank.png') }}"
                                         alt="*" width="30px" height="30px" id="e5"></td>
                             </tr>
                         </table>
