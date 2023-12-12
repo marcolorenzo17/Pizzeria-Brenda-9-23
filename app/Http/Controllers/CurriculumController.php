@@ -50,7 +50,7 @@ class CurriculumController extends Controller
         session()->flash('notif.success', 'Se ha enviado el currículum con éxito.');
         return redirect('/products');
         */
-        return response()->json(['success' => 'El currículum se ha enviado con éxito.']);
+        return response()->json(['success' => 'Se ha enviado el currículum con éxito.']);
     }
 
     public function destroy(string $id): RedirectResponse
