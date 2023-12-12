@@ -93,9 +93,11 @@
                         --}}
                     <div><a href="#"
                             onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="{{ asset('img/help.png') }}" alt="help" id="productos-grande-navbar"></div></a>
+                                src="{{ asset('img/help.png') }}" alt="help" id="productos-grande-navbar"></div>
+                    </a>
                     <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-grande-navbar"></div>
-                    <p id="productos-grande-navbar">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p id="productos-grande-navbar">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
                     </p>
                 @endif
                 <x-dropdown align="right" width="48">
@@ -103,9 +105,16 @@
                         <button
                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             @if (Auth::user()->admin)
-                                <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p style="margin-right:20px;">{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p></div>
+                                <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user"
+                                        width="20px" height="20px" style="margin-right:10px;">
+                                    <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                        {{ __(Auth::user()->role) }})</p>
+                                </div>
                             @else
-                                <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p style="margin-right:20px;">{{ Auth::user()->name }}</p></div>
+                                <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user"
+                                        width="20px" height="20px" style="margin-right:10px;">
+                                    <p style="margin-right:20px;">{{ Auth::user()->name }}</p>
+                                </div>
                             @endif
 
                             <div class="ml-1">
@@ -159,8 +168,7 @@
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Cerrar sesión') }}
-                                <div id="productos-pequenio-navbar">
-                                    <br><br>
+                                <div id="productos-pequenio-navbar" style="margin-bottom:40px;">
                                 </div>
                             </x-dropdown-link>
                         </form>
@@ -182,9 +190,12 @@
                         --}}
                     <div><a href="#"
                             onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio-navbar"></div></a>
-                    <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-pequenio-navbar"></div>
-                    <p id="productos-pequenio-navbar">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio-navbar"></div>
+                    </a>
+                    <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-pequenio-navbar">
+                    </div>
+                    <p id="productos-pequenio-navbar">&nbsp;x {{ Auth::user()->puntos }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
                     </p>
                 @endif
                 <button @click="open = ! open"
@@ -212,9 +223,17 @@
         <div class="px-4" style="background-color:white; padding:10px;">
             <br><br><br>
             @if (Auth::user()->admin)
-                <div class="font-medium text-base text-gray-800" style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p></div>
+                <div class="font-medium text-base text-gray-800" style="display:flex;"><img
+                        src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px"
+                        style="margin-right:10px;">
+                    <p>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p>
+                </div>
             @else
-                <div class="font-medium text-base text-gray-800" style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px" style="margin-right:10px;"><p>{{ Auth::user()->name }}</p></div>
+                <div class="font-medium text-base text-gray-800" style="display:flex;"><img
+                        src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px"
+                        style="margin-right:10px;">
+                    <p>{{ Auth::user()->name }}</p>
+                </div>
             @endif
             {{--
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
@@ -223,7 +242,7 @@
         @if (!Auth::user()->admin)
             <div style="background-color:white; padding:15px;">
                 <a style="display:inline-block;" href="{{ route('cart.list') }}" class="flex items-center">
-                    <p style="display:inline-block; margin-right:10px;">{{__('Carrito')}}</p>
+                    <p style="display:inline-block; margin-right:10px;">{{ __('Carrito') }}</p>
                     <svg style="display:inline-block;" class="w-5 h-5 text-green-600" fill="none"
                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
                         stroke="currentColor">
