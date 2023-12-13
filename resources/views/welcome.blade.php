@@ -1104,7 +1104,7 @@
             </div>
         @else
             <div style="margin-left:100px;">
-                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas">
+                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas" class="nuestrasofertas">
             </div>
         @endif
         <div class="slideshow-container2" style="padding-right:100px;">
@@ -1153,10 +1153,10 @@
             </div>
             @if (Lang::locale() == 'es')
                 <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                    height="400px">
+                    height="400px" class="nuestrasofertas">
             @else
                 <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
-                    height="400px">
+                    height="400px" class="nuestrasofertas">
             @endif
         </div>
         <br><br>
@@ -1279,7 +1279,7 @@
 <script>
     anime({
         targets: '.nuestrasofertas',
-        scale: 1.2,
+        scale: 1.1,
         duration: 723,
         delay: 200,
         loop: true,
