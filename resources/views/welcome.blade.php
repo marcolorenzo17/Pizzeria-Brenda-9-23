@@ -1276,15 +1276,15 @@
     };
 </script>
 
-{{--
-    <script>
-        anime({
-            targets: '.nuestrasofertas',
-            scale: 1.2,
-            duration: 3000,
-            loop: true
-        });
-    </script>
---}}
+<script>
+    anime({
+        targets: '.nuestrasofertas',
+        scale: 1.2,
+        duration: 723,
+        delay: 200,
+        loop: true,
+        direction: 'alternate'
+    });
+</script>
 
 </html>
