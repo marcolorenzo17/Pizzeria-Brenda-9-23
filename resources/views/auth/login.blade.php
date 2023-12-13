@@ -1,4 +1,6 @@
 <x-guest-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
+    integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -7,6 +9,11 @@
             {{ session('error') }}
         </div>
     @endif
+    {{--
+        <p id="msg1"></p>
+        <p id="msg2"></p>
+        <p id="msg3"></p>
+    --}}
     <form method="POST" action="{{ route('login') }}" name="login">
         @csrf
 
@@ -69,6 +76,7 @@
 
         var storeValues = function() {
             setCookie("email", document.forms["login"]["email"].value);
+            localStorage.password = CryptoJS.AES.encrypt(document.forms["login"]["password"].value, "Secret Passphrase");
             return true;
         };
 
@@ -81,5 +89,19 @@
         if (getCookie("email")) {
             document.forms["login"]["email"].value = getCookie("email");
         };
+
+        if (localStorage.password) {
+            document.forms["login"]["password"].value = CryptoJS.AES.decrypt(localStorage.password, "Secret Passphrase").toString(CryptoJS.enc.Utf8);
+        }
     </script>
+    {{--
+    <script>
+        var encriptado = CryptoJS.AES.encrypt("Mensaje", "Secret Passphrase");
+        var desencriptado = CryptoJS.AES.decrypt(encriptado, "Secret Passphrase");
+
+        document.getElementById("msg1").innerHTML = encriptado;
+        document.getElementById("msg2").innerHTML = desencriptado;
+        document.getElementById("msg3").innerHTML = desencriptado.toString(CryptoJS.enc.Utf8);
+    </script>
+    --}}
 </x-guest-layout>
