@@ -67,27 +67,14 @@
         // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
         // Please acknowledge use of this code by including this header.
 
-        var today = new Date();
-        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
-
-        var setCookie = function(name, value) {
-            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
-        };
-
         var storeValues = function() {
-            setCookie("email", document.forms["login"]["email"].value);
+            localStorage.email = CryptoJS.AES.encrypt(document.forms["login"]["email"].value, "Secret Passphrase");
             localStorage.password = CryptoJS.AES.encrypt(document.forms["login"]["password"].value, "Secret Passphrase");
             return true;
         };
 
-        var getCookie = function(name) {
-            var re = new RegExp(name + "=([^;]+)");
-            var value = re.exec(document.cookie);
-            return (value != null) ? decodeURI(value[1]) : null;
-        };
-
-        if (getCookie("email")) {
-            document.forms["login"]["email"].value = getCookie("email");
+        if (localStorage.email) {
+            document.forms["login"]["email"].value = CryptoJS.AES.decrypt(localStorage.email, "Secret Passphrase").toString(CryptoJS.enc.Utf8);
         };
 
         if (localStorage.password) {
