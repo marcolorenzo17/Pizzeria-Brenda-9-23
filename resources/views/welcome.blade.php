@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <link rel="stylesheet" href="/css/welcome.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
 
 <head>
     <meta charset="utf-8">
@@ -1099,7 +1100,7 @@
         style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
         @if (Lang::locale() == 'es')
             <div style="margin-left:100px;">
-                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
+                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas">
             </div>
         @else
             <div style="margin-left:100px;">
@@ -1274,5 +1275,16 @@
         deleteCookie("card_holder_name");
     };
 </script>
+
+{{--
+    <script>
+        anime({
+            targets: '.nuestrasofertas',
+            scale: 1.2,
+            duration: 3000,
+            loop: true
+        });
+    </script>
+--}}
 
 </html>
