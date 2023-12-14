@@ -218,4 +218,10 @@ use App\Http\Controllers\ProductController;
         </div>
     </footer>
 
+    <script>
+        if (localStorage.promociones) {
+            window.location.replace("{{route('promociones.index')}}");
+        }
+    </script>
+
 </x-app-layout>

@@ -978,6 +978,10 @@
             filter: brightness(75%);
             cursor: pointer;
         }
+
+        #tusmenusgratis:hover {
+            filter: brightness(75%);
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1035,16 +1039,18 @@
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <div style="display:flex; align-items:center; justify-content:center;">
-            <div
-                style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
-                <h1 style="font-size:50px; color:yellow;" class="menusgratis">
-                    {{ __('¡TUS MENÚS GRATIS!') }}
-                </h1>
-                <br>
-                <h1 style="font-size:30px;">
-                    {{ __('CANJEANDO TUS PIZZACOINS') }}
-                </h1>
-            </div>
+            <a href="{{ route('login') }}" onclick="redirigir_promociones()">
+                <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;"
+                    id="tusmenusgratis">
+                    <h1 style="font-size:50px; color:yellow;" class="menusgratis">
+                        {{ __('¡TUS MENÚS GRATIS!') }}
+                    </h1>
+                    <br>
+                    <h1 style="font-size:30px;">
+                        {{ __('CANJEANDO TUS PIZZACOINS') }}
+                    </h1>
+                </div>
+            </a>
             <div class="slideshow-container">
                 @foreach ($products as $product)
                     @if ($product->habilitado and $product->type == 'Promoción')
@@ -1316,7 +1322,7 @@
             document.getElementById("lista_ofertas").style.display = "flex";
             flag_ofertas = true;
         }
-    }
+    };
 
     var flag_pizzacoins = false;
 
@@ -1328,6 +1334,14 @@
             document.getElementById("informacion_pizzacoins").style.display = "block";
             flag_pizzacoins = true;
         }
+    };
+
+    var redirigir_promociones = function() {
+        localStorage.promociones = true;
+    };
+
+    if (localStorage.promociones) {
+        localStorage.removeItem("promociones");
     }
 </script>
 

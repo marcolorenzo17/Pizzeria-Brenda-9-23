@@ -199,4 +199,10 @@
         </div>
     </footer>
 
+    <script>
+        if (localStorage.promociones) {
+            localStorage.removeItem("promociones");
+        }
+    </script>
+
 </x-app-layout>
