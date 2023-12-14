@@ -964,6 +964,11 @@
             font-size: 13px;
         }
 
+        .nuestrasofertas:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
         /* Change background on mouse-over */
         .afooter:hover {
             text-decoration: underline;
@@ -1125,38 +1130,27 @@
             </div>
             <br><br>
         </div>
-        <div
-            style="display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
+        <div style="width:100%;">
             @if (Lang::locale() == 'es')
-                <div style="margin-left:100px;">
-                    <a href="{{ route('login') }}"><img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas"
-                            class="nuestrasofertas"></a>
+                <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
+                    <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas" onclick="ofertas_mostrar(flag_ofertas);">
                 </div>
             @else
-                <div style="margin-left:100px;">
+                <div>
                     <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas" class="nuestrasofertas">
                 </div>
             @endif
-            <div class="slideshow-container2" style="padding-right:100px;">
-                <br>
+            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
                 @foreach ($products as $product)
                     @if ($product->habilitado and $product->type == 'Oferta')
-                        <div class="mySlides2 fade2 mx-auto">
-                            <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                        <div class="mx-auto">
+                            <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
                                 style="border:3px solid black; border-radius:10px;">
                             <br>
                         </div>
                     @endif
                 @endforeach
-                <br>
-                <div style="text-align:center">
-                    @foreach ($products as $product)
-                        @if ($product->habilitado and $product->type == 'Oferta')
-                            <span class="dot2"></span>
-                        @endif
-                    @endforeach
-                </div>
-                <br><br>
             </div>
         </div>
     </div>
@@ -1302,6 +1296,20 @@
         loop: true,
         direction: 'alternate'
     });
+</script>
+
+<script>
+    var flag_ofertas = false;
+
+    var ofertas_mostrar = function(x) {
+        if (x) {
+            document.getElementById("lista_ofertas").style.display = "none";
+            flag_ofertas = false;
+        } else {
+            document.getElementById("lista_ofertas").style.display = "flex";
+            flag_ofertas = true;
+        }
+    }
 </script>
 
 </html>
