@@ -964,14 +964,19 @@
             font-size: 13px;
         }
 
+        /* Change background on mouse-over */
+        .afooter:hover {
+            text-decoration: underline;
+        }
+
         .nuestrasofertas:hover {
             filter: brightness(75%);
             cursor: pointer;
         }
 
-        /* Change background on mouse-over */
-        .afooter:hover {
-            text-decoration: underline;
+        #quesonpizzacoins:hover {
+            filter: brightness(75%);
+            cursor: pointer;
         }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
@@ -1076,11 +1081,12 @@
                     <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¡PIZZACOINS!') }}</p>
                 </div>
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <p style="font-weight:bolder; font-size:20px; color:white; text-align:center;">
+                    <p style="font-weight:bolder; font-size:20px; color:white; text-align:center;"
+                        id="quesonpizzacoins" onclick="pizzacoins_mostrar(flag_pizzacoins);">
                         {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
                     </p>
                 </div>
-                <div style="text-align:center; color:white;">
+                <div style="text-align:center; color:white; display:none;" id="informacion_pizzacoins">
                     <br>
                     <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
                     <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
@@ -1133,7 +1139,8 @@
         <div style="width:100%;">
             @if (Lang::locale() == 'es')
                 <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
-                    <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas" onclick="ofertas_mostrar(flag_ofertas);">
+                    <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas"
+                        onclick="ofertas_mostrar(flag_ofertas);">
                 </div>
             @else
                 <div>
@@ -1141,7 +1148,7 @@
                 </div>
             @endif
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
+                style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
                 @foreach ($products as $product)
                     @if ($product->habilitado and $product->type == 'Oferta')
                         <div class="mx-auto">
@@ -1308,6 +1315,18 @@
         } else {
             document.getElementById("lista_ofertas").style.display = "flex";
             flag_ofertas = true;
+        }
+    }
+
+    var flag_pizzacoins = false;
+
+    var pizzacoins_mostrar = function(x) {
+        if (x) {
+            document.getElementById("informacion_pizzacoins").style.display = "none";
+            flag_pizzacoins = false;
+        } else {
+            document.getElementById("informacion_pizzacoins").style.display = "block";
+            flag_pizzacoins = true;
         }
     }
 </script>
