@@ -1092,116 +1092,116 @@
         </div>
         <br><br>
     </div>
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-        {{ __('OFERTAS') }}
-    </h1>
-    <div
-        style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
-        @if (Lang::locale() == 'es')
-            <div style="margin-left:100px;">
-                <a href="{{ route('login') }}"><img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas"
-                        class="nuestrasofertas"></a>
-            </div>
-        @else
-            <div style="margin-left:100px;">
-                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas" class="nuestrasofertas">
-            </div>
-        @endif
-        <div class="slideshow-container2" style="padding-right:100px;">
-            <br>
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Oferta')
-                    <div class="mySlides2 fade2 mx-auto">
-                        <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                            style="border:3px solid black; border-radius:10px;">
-                        <br>
-                    </div>
-                @endif
-            @endforeach
-            <br>
-            <div style="text-align:center">
-                @foreach ($products as $product)
-                    @if ($product->habilitado and $product->type == 'Oferta')
-                        <span class="dot2"></span>
-                    @endif
-                @endforeach
-            </div>
-            <br><br>
-        </div>
-    </div>
     <div style="background-color:red;">
         <br>
     </div>
-    <div style="background-image:url('img/backgroundpizzasmall.png');">
-        <br>
-        <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
-            <div>
-                <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
-                    {{ __('¿QUÉ PEDIMOS?') }}
-                </h1>
-                <br><br>
-                <div style="display:flex; gap:100px; justify-content:center;">
-                    <a href="cartaAnon"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('NUESTRA CARTA') }}
-                    </a>
-                    <a href="{{ route('login') }}"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('¡PIDE AHORA!') }}
-                    </a>
+    <div style="background-image:url('img/backgroundpizza.png');">
+        <div>
+            <br>
+            <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+                <div>
+                    <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
+                        {{ __('¿QUÉ PEDIMOS?') }}
+                    </h1>
+                    <br><br>
+                    <div style="display:flex; gap:100px; justify-content:center;">
+                        <a href="cartaAnon"
+                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                            id="boton">{{ __('NUESTRA CARTA') }}
+                        </a>
+                        <a href="{{ route('login') }}"
+                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                            id="boton">{{ __('¡PIDE AHORA!') }}
+                        </a>
+                    </div>
                 </div>
+                @if (Lang::locale() == 'es')
+                    <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
+                        height="400px" class="nuestrasofertas">
+                @else
+                    <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
+                        height="400px" class="nuestrasofertas">
+                @endif
             </div>
-            @if (Lang::locale() == 'es')
-                <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                    height="400px" class="nuestrasofertas">
-            @else
-                <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
-                    height="400px" class="nuestrasofertas">
-            @endif
+            <br><br>
         </div>
-        <br><br>
+        <div
+            style="display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
+            @if (Lang::locale() == 'es')
+                <div style="margin-left:100px;">
+                    <a href="{{ route('login') }}"><img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas"
+                            class="nuestrasofertas"></a>
+                </div>
+            @else
+                <div style="margin-left:100px;">
+                    <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas" class="nuestrasofertas">
+                </div>
+            @endif
+            <div class="slideshow-container2" style="padding-right:100px;">
+                <br>
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Oferta')
+                        <div class="mySlides2 fade2 mx-auto">
+                            <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                                style="border:3px solid black; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
+                @endforeach
+                <br>
+                <div style="text-align:center">
+                    @foreach ($products as $product)
+                        @if ($product->habilitado and $product->type == 'Oferta')
+                            <span class="dot2"></span>
+                        @endif
+                    @endforeach
+                </div>
+                <br><br>
+            </div>
+        </div>
     </div>
-    <div style="background-image:url('img/backgroundpizzared.png');">
+    {{--
+        <div style="background-image:url('img/backgroundpizzared.png');">
+            <h1 class="text-center"
+                style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                {{ __('TELÉFONOS') }}
+            </h1>
+            <br>
+            <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
+            </p>
+            <div class="flex items-center justify-center"
+                style="font-size:50px; gap:45px; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; text-align:center;">
+                <p>956 37 11 15</p>
+                <p>956 37 47 36</p>
+                <p>627 650 605</p>
+            </div>
+            <br><br>
+        </div>
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-            {{ __('TELÉFONOS') }}
+            {{ __('HORARIO') }}
         </h1>
-        <br>
-        <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
-        </p>
-        <div class="flex items-center justify-center"
-            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; text-align:center;">
-            <p>956 37 11 15</p>
-            <p>956 37 47 36</p>
-            <p>627 650 605</p>
-        </div>
-        <br><br>
-    </div>
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-        {{ __('HORARIO') }}
-    </h1>
-    <div class="container px-12 py-8 mx-auto bg-white"
-        style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
-        <div style="text-align:center;">
-            <div class="flex items-center justify-center">
-                <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
-                <p style="font-weight:bolder; font-size:30px;">&nbsp;20:30 - 23:30</p>
+        <div class="container px-12 py-8 mx-auto bg-white"
+            style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
+            <div style="text-align:center;">
+                <div class="flex items-center justify-center">
+                    <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
+                    <p style="font-weight:bolder; font-size:30px;">&nbsp;20:30 - 23:30</p>
+                </div>
+                <br>
+                <div class="flex items-center justify-center">
+                    <p style="font-size:20px; font-weight:bold;">{{ __('Domingo por la mañana:') }}</p>
+                    <p style="font-weight:bolder; font-size:30px;">&nbsp;13:30 - 15:00</p>
+                </div>
+                <br>
             </div>
-            <br>
-            <div class="flex items-center justify-center">
-                <p style="font-size:20px; font-weight:bold;">{{ __('Domingo por la mañana:') }}</p>
-                <p style="font-weight:bolder; font-size:30px;">&nbsp;13:30 - 15:00</p>
-            </div>
-            <br>
         </div>
-    </div>
+    --}}
     <h1 class="text-center"
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('VISÍTANOS') }}
     </h1>
-    <div style="background-image:url('img/backgroundpizza.png');">
+    <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
         <div style="width:600px; margin-left:auto; margin-right:auto;">
             <iframe
