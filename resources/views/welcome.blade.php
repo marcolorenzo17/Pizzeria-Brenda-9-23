@@ -1117,10 +1117,10 @@
                 </div>
                 @if (Lang::locale() == 'es')
                     <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                        height="400px" class="nuestrasofertas">
+                        height="400px">
                 @else
                     <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
-                        height="400px" class="nuestrasofertas">
+                        height="400px">
                 @endif
             </div>
             <br><br>
