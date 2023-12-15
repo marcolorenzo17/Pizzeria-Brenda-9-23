@@ -1245,23 +1245,23 @@
             <div style="display:flex; gap: 5px;">
                 <p style="font-size:13px;">{{ __('Teléfonos: ') }}</p>
                 <div>
-                    <p style="font-size:13px;">956 37 11 15</p>
-                    <p style="font-size:13px;">956 37 47 36</p>
-                    <p style="font-size:13px;">627 650 605</p>
-                </div>
-            </div>
-            <div style="display:flex; gap: 5px; margin-left:auto;">
-                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
-                <div>
-                    <p style="font-size:13px;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                    </p>
-                    <p style="font-size:13px;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                    </p>
+                    <p style="font-size:15px; font-weight:bold;">956 37 11 15</p>
+                    <p style="font-size:15px; font-weight:bold;">956 37 47 36</p>
+                    <p style="font-size:15px; font-weight:bold;">627 650 605</p>
                 </div>
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
                 <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
                 <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto;">
+                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <div>
+                    <p style="font-size:15px; font-weight:bold;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                    </p>
+                    <p style="font-size:15px; font-weight:bold;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                    </p>
+                </div>
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
