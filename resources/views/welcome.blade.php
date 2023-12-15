@@ -1040,16 +1040,25 @@
         <br>
         <div style="display:flex; align-items:center; justify-content:center;">
             <a href="{{ route('login') }}" onclick="redirigir_promociones()">
-                <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;"
-                    id="tusmenusgratis">
-                    <h1 style="font-size:50px; color:yellow;" class="menusgratis">
-                        {{ __('¡TUS MENÚS GRATIS!') }}
-                    </h1>
-                    <br>
-                    <h1 style="font-size:30px;">
-                        {{ __('CANJEANDO TUS PIZZACOINS') }}
-                    </h1>
-                </div>
+                {{--
+                    <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;"
+                        id="tusmenusgratis">
+                        <h1 style="font-size:50px; color:yellow;" class="menusgratis">
+                            {{ __('¡TUS MENÚS GRATIS!') }}
+                        </h1>
+                        <br>
+                        <h1 style="font-size:30px;">
+                            {{ __('CANJEANDO TUS PIZZACOINS') }}
+                        </h1>
+                    </div>
+                --}}
+                @if (Lang::locale() == 'es')
+                    <img src="{{ asset('img/tusmenusgratis.png') }}" alt="menusgratis" id="tusmenusgratis"
+                        class="nuestrasofertas">
+                @else
+                    <img src="{{ asset('img/tusmenusgratiseng.png') }}" alt="menusgratis" id="tusmenusgratis"
+                        class="nuestrasofertas">
+                @endif
             </a>
             <div class="slideshow-container">
                 @foreach ($products as $product)
