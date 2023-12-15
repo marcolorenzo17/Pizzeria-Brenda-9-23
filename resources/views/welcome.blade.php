@@ -1065,7 +1065,8 @@
                     @if ($product->habilitado and $product->type == 'Promoción')
                         <div class="mySlides fade">
                             <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;"  onclick="showSlides();">
+                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;"
+                                onclick="showSlides();">
                             <br>
                             <div style="display:flex; justify-content:center;">
                                 @if ($product->puntos)
@@ -1122,46 +1123,51 @@
         <br>
     </div>
     <div style="background-image:url('img/backgroundpizza.png');">
-        <div>
-            <br>
-            <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
-                <div>
-                    <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
-                        {{ __('¿QUÉ PEDIMOS?') }}
-                    </h1>
-                    <br><br>
-                    <div style="display:flex; gap:100px; justify-content:center;">
-                        <a href="cartaAnon"
-                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                            id="boton">{{ __('NUESTRA CARTA') }}
-                        </a>
-                        <a href="{{ route('login') }}"
-                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                            id="boton">{{ __('¡PIDE AHORA!') }}
-                        </a>
-                    </div>
+        <br>
+        <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+            <div>
+                <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
+                    {{ __('¿QUÉ PEDIMOS?') }}
+                </h1>
+                <br><br>
+                <div style="display:flex; gap:100px; justify-content:center;">
+                    <a href="cartaAnon"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('NUESTRA CARTA') }}
+                    </a>
+                    <a href="{{ route('login') }}"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('¡PIDE AHORA!') }}
+                    </a>
                 </div>
-                @if (Lang::locale() == 'es')
-                    <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                        height="400px">
-                @else
-                    <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
-                        height="400px">
-                @endif
             </div>
             <br><br>
         </div>
         <div style="width:100%;">
-            @if (Lang::locale() == 'es')
-                <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
-                    <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas"
-                        onclick="ofertas_mostrar(flag_ofertas);">
-                </div>
-            @else
+            <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
                 <div>
-                    <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas" class="nuestrasofertas">
+                    @if (Lang::locale() == 'es')
+                        <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
+                            <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas"
+                                onclick="ofertas_mostrar(flag_ofertas);">
+                        </div>
+                    @else
+                        <div>
+                            <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas"
+                                class="nuestrasofertas" onclick="ofertas_mostrar(flag_ofertas);">
+                        </div>
+                    @endif
                 </div>
-            @endif
+                <div>
+                    @if (Lang::locale() == 'es')
+                        <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
+                            height="400px">
+                    @else
+                        <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
+                            height="400px">
+                    @endif
+                </div>
+            </div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
                 @foreach ($products as $product)
@@ -1219,7 +1225,7 @@
     </h1>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
-        <div style="width:600px; margin-left:auto; margin-right:auto;">
+        <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:182px;">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
                 width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
@@ -1230,7 +1236,6 @@
                 <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
             </div>
         </div>
-        <br><br><br><br><br>
     </div>
     <div class="footer">
         <div style="text-align:center;">
