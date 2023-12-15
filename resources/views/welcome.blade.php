@@ -1065,7 +1065,7 @@
                     @if ($product->habilitado and $product->type == 'Promoción')
                         <div class="mySlides fade">
                             <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
+                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;"  onclick="showSlides();">
                             <br>
                             <div style="display:flex; justify-content:center;">
                                 @if ($product->puntos)
