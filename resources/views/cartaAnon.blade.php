@@ -1074,7 +1074,9 @@
     ?>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; margin-top:52px;" id="p1">
         {{ __('PIZZAS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center;">
         @foreach ($products as $product)
@@ -1104,7 +1106,8 @@
             @endif
         @endforeach
     </div>
-    <div style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px; margin-top:52px; margin-bottom:78px;">
+    <div
+        style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px; margin-top:52px; margin-bottom:78px;">
         <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
             {{ __('¿Quieres algo más de tu estilo?') }}</p>
         <div style="display:flex; justify-content:center;">
@@ -1117,7 +1120,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
         {{ __('HAMBURGUESAS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1149,7 +1154,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">
         {{ __('SÁNDWICHES') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1181,7 +1188,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">
         {{ __('PASTA') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1213,7 +1222,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">
         {{ __('ARROCES') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1245,7 +1256,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">
         {{ __('BAGUETTES') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1277,7 +1290,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">
         {{ __('ENSALADAS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1309,7 +1324,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">
         {{ __('COMPLEMENTOS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1341,7 +1358,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">
         {{ __('PERRITOS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1373,7 +1392,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">
         {{ __('CERVEZAS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1405,7 +1426,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">
         {{ __('VINOS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -1437,7 +1460,9 @@
     </div>
     <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">
         {{ __('REFRESCOS') }}</p>
-    <div style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;"><br></div>
+    <div
+        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+        <br></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
         @foreach ($products as $product)
@@ -2121,19 +2146,36 @@
     </div>
     <div style="position:fixed; bottom:100px; right:10px;">
         <a href="#">
-            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px" id="boton">
+            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
+                id="boton">
         </a>
     </div>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
-            <p style="position:relative; top:5px;">
-                {{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </p>
-            <div style="display:flex; margin-left:auto; gap:30px;">
+        <div style="text-align:center;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px;">
+                <p style="font-size:13px;">{{ __('Teléfonos: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
+                    <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
+                    <p style="font-size:18px; font-weight:bolder;">627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
                 <a class="anavbar" href="privacyAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+                    style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto;">
+                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                    </p>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                    </p>
+                </div>
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"

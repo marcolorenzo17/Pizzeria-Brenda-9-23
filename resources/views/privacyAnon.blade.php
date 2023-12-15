@@ -1106,14 +1106,30 @@
         generador de plantilla de aviso legal y condiciones de uso online el día 28/10/2023.
     </div>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
-            <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </p>
-            <div style="display:flex; margin-left:auto; gap:30px;">
-                <a class="anavbar" href="privacyAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+        <div style="text-align:center;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px;">
+                <p style="font-size:13px;">{{ __('Teléfonos: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
+                    <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
+                    <p style="font-size:18px; font-weight:bolder;">627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto;">
+                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                    </p>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                    </p>
+                </div>
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
@@ -1123,7 +1139,8 @@
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
                         src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
             </div>
         </div>
     </div>

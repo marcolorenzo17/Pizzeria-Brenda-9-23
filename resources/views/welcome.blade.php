@@ -1073,21 +1073,26 @@
                                 style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
                             <div style="display:flex; justify-content:center;">
                                 @if ($product->puntos)
-                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
+                                    <div class="-mr-2 flex items-center"
+                                        style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
                                             src="{{ asset('img/pizzacoin.png') }}" alt="coin">
                                         {{ $product->puntos }}
                                     </div>
                                 @else
-                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
+                                    <div class="-mr-2 flex items-center"
+                                        style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
                                             src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
                                 @endif
                             </div>
                         </div>
                     @endif
                 @endforeach
-                <div style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
-                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel" style="transform:rotate(270deg);" onclick="showSlides();">
-                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel" style="transform:rotate(90deg);" onclick="showSlides();">
+                <div
+                    style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
+                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                        style="transform:rotate(270deg);" onclick="showSlides();">
+                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                        style="transform:rotate(90deg);" onclick="showSlides();">
                 </div>
                 <div style="text-align:center">
                     @foreach ($products as $product)
