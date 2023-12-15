@@ -979,6 +979,11 @@
             cursor: pointer;
         }
 
+        #botoncarrusel:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
         #tusmenusgratis:hover {
             filter: brightness(75%);
         }
@@ -1065,24 +1070,25 @@
                     @if ($product->habilitado and $product->type == 'Promoción')
                         <div class="mySlides fade">
                             <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;"
-                                onclick="showSlides();">
-                            <br>
+                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
                             <div style="display:flex; justify-content:center;">
                                 @if ($product->puntos)
-                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
+                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
                                             src="{{ asset('img/pizzacoin.png') }}" alt="coin">
                                         {{ $product->puntos }}
                                     </div>
                                 @else
-                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
+                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
                                             src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
                                 @endif
                             </div>
                         </div>
                     @endif
                 @endforeach
-                <br>
+                <div style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
+                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel" style="transform:rotate(270deg);" onclick="showSlides();">
+                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel" style="transform:rotate(90deg);" onclick="showSlides();">
+                </div>
                 <div style="text-align:center">
                     @foreach ($products as $product)
                         @if ($product->habilitado and $product->type == 'Promoción')
@@ -1225,7 +1231,7 @@
     </h1>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
-        <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:182px;">
+        <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:200px;">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
                 width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
