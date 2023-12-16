@@ -809,7 +809,7 @@ class ProductSeeder extends Seeder
                 'nameen' => '1 More €'
             ],
             [
-                'name' => 'Pizza Familiar + Patatas + Bebida',
+                'name' => 'Pizza Familiar + Patatas + Coca-Cola',
                 'price' => 10,
                 'description' => '',
                 'image' => 'img/promocion3.png',
@@ -817,7 +817,7 @@ class ProductSeeder extends Seeder
                 'alergenos' => '',
                 'habilitado' => true,
                 'puntos' => 0,
-                'nameen' => 'Family Pizza + Fries + Drink'
+                'nameen' => 'Family Pizza + Fries + Coca-Cola'
             ],
             [
                 'name' => 'Menú Hamburguesa de ternera + Nuggets + Patatas',
