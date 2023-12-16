@@ -172,7 +172,7 @@ use App\Http\Controllers\ProductController;
 
         @include('products.partials.search-box')
 
-        <div style="margin-left:50px; margin-right:50px; margin-bottom:300px;">
+        <div style="margin-left:50px; margin-right:50px; margin-bottom:350px;">
             <livewire:product-list />
         </div>
 
@@ -183,7 +183,7 @@ use App\Http\Controllers\ProductController;
         <span class="text-sm sm:text-center"
             style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
         </span>
-        <div class="md:flex md:items-center md:justify-between">
+        <div class="md:flex md:items-center md:justify-between flex-wrap">
             <div style="display:flex; gap: 5px; color:white;">
                 <p style="font-size:13px;">{{ __('Teléfonos: ') }}</p>
                 <div>
@@ -213,7 +213,7 @@ use App\Http\Controllers\ProductController;
                     <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
                 </li>
             </ul>
-            <div style="display:flex; gap: 5px; margin-left:auto; color:white;">
+            <div class="flex-wrap" style="display:flex; gap: 5px; margin-left:auto; color:white;">
                 <p style="font-size:13px;">{{ __('Horario: ') }}</p>
                 <div>
                     <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
@@ -228,7 +228,8 @@ use App\Http\Controllers\ProductController;
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
                         src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
