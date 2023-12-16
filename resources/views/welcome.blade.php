@@ -1090,7 +1090,7 @@
                 <div
                     style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
                     <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
-                        style="transform:rotate(270deg);" onclick="showSlides();">
+                        style="transform:rotate(270deg);" onclick="showSlidesLeft();">
                     <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
                         style="transform:rotate(90deg);" onclick="showSlides();">
                 </div>
