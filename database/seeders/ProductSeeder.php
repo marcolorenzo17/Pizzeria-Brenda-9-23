@@ -809,7 +809,7 @@ class ProductSeeder extends Seeder
                 'nameen' => '1 More €'
             ],
             [
-                'name' => 'Pizza Familiar + Patatas + Coca-Cola',
+                'name' => 'Pizza Familiar Vegetal + Coca-Cola 1L + Patatas',
                 'price' => 10,
                 'description' => '',
                 'image' => 'img/promocion3.png',
@@ -817,7 +817,18 @@ class ProductSeeder extends Seeder
                 'alergenos' => '',
                 'habilitado' => true,
                 'puntos' => 0,
-                'nameen' => 'Family Pizza + Fries + Coca-Cola'
+                'nameen' => 'Family-sized Veggie Pizza + Coca-Cola 1L + Fries'
+            ],
+            [
+                'name' => 'Pizza Pequeña JYCB + Hamburguesa de Pollo + Naranja KAS',
+                'price' => 12,
+                'description' => '',
+                'image' => 'img/promocion4.png',
+                'type' => 'Oferta',
+                'alergenos' => 'gluten-lacteos-sesamo-dioxido',
+                'habilitado' => true,
+                'puntos' => 0,
+                'nameen' => 'Small CHCB Pizza + Chicken Hamburger + Orange KAS'
             ],
             [
                 'name' => 'Menú Hamburguesa de ternera + Nuggets + Patatas',
