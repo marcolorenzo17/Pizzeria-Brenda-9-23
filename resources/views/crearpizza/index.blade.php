@@ -410,15 +410,6 @@
                     <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
                 </li>
             </ul>
-            <div class="flex-wrap" style="display:flex; gap: 5px; margin-left:auto; color:white;">
-                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                    </p>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                    </p>
-                </div>
-            </div>
             <div style="margin-left:auto; display:flex; justify-content:center;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
@@ -431,6 +422,15 @@
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
+            </div>
+            <div class="flex-wrap" style="display:flex; gap: 5px; margin-left:auto; color:white;">
+                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                    </p>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                    </p>
+                </div>
             </div>
         </div>
     </footer>

@@ -15,8 +15,8 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-            <form action="{{ route('products.aniadir') }}" method="POST" enctype="multipart/form-data" name="crearplato"
-                onsubmit="return validate()">
+            <form action="{{ route('products.aniadir') }}" method="POST" enctype="multipart/form-data"
+                name="crearplato" onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -273,16 +273,6 @@
                             class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
                     </li>
                 </ul>
-                <div class="flex-wrap" style="display:flex; gap: 5px; margin-left:auto; color:white;">
-                    <p style="font-size:13px;">{{ __('Horario: ') }}</p>
-                    <div>
-                        <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                        </p>
-                        <p style="font-size:18px; font-weight:bolder;">
-                            {{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                        </p>
-                    </div>
-                </div>
                 <div style="margin-left:auto; display:flex; justify-content:center;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
                             src="{{ asset('img/twit.png') }}" width="30px" height="30px"
@@ -296,6 +286,16 @@
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                             src="{{ asset('img/face.png') }}" width="30px" height="30px"
                             style="margin-right:20px;"></a>
+                </div>
+                <div class="flex-wrap" style="display:flex; gap: 5px; margin-left:auto; color:white;">
+                    <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                    <div>
+                        <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                        </p>
+                        <p style="font-size:18px; font-weight:bolder;">
+                            {{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>
