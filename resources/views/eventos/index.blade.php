@@ -579,10 +579,11 @@
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                     <br>
                 @enderror
-                {{ __('Hora:') }} <input type="time" name="hora" id="hora" min="20:30"
-                    max="23:30" value="{{ old('hora') }}" style="margin-left:10px; border-radius:20px;"
+                {{ __('Hora:') }} <input type="time" name="hora" id="hora"
+                    value="{{ old('hora') }}" style="margin-left:10px; border-radius:20px;"
                     onfocusout="validate_hora()">
                 <p id="error_hora" style="color:red;"></p>
+                <input type="hidden" value="" name="dia" id="dia">
                 <input type="hidden" value="false" name="ifcredito" id="ifcredito">
                 <br><br><br>
                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
@@ -728,6 +729,11 @@
 
         function validate_fecha() {
             var fecha = document.forms["reservar"]["fecha"].value;
+            var fechaDate = new Date(fecha);
+            var dia = document.getElementById("dia");
+
+            dia.value = fechaDate.getDay();
+
             if (fecha == "") {
                 document.getElementById("error_fecha").innerHTML =
                     "{{ __('El campo de fecha es obligatorio.') }}";

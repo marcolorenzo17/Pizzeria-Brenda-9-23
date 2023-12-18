@@ -53,6 +53,18 @@ class EventoController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
+        if (strtotime($req->hora) < strtotime("20:30") or strtotime($req->hora) > strtotime("23:30")) {
+            if ($req->dia == 0) {
+                if (strtotime($req->hora) < strtotime("13:30") or strtotime($req->hora) > strtotime("15:00")) {
+                    session()->flash('notif.success', 'La pizzería no está abierta a esa hora los domingos.');
+                    return redirect()->route('eventos.index');
+                }
+            } else {
+                session()->flash('notif.success', 'La pizzería no está abierta a esa hora.');
+                return redirect()->route('eventos.index');
+            }
+        }
+
         $evento = new Evento;
         $evento->idUser = Auth::user()->id;
         $evento->personas = $req->personas;
