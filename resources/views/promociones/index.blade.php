@@ -99,7 +99,7 @@
     @endforeach
     </div>
     <br>
-    <div style="background-color:white;">
+    <div style="background-color:white; margin-bottom:300px;">
         <br>
         <div style="text-align:center; font-size:30px; font-weight:bolder;">
             {{ __('OFERTAS') }}

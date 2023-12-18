@@ -13,7 +13,7 @@
                 id="boton">{{ __('VOLVER') }}</a>
         </div>
         <br>
-        <div class="container px-12 py-8 mx-auto bg-white">
+        <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
             <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST" enctype="multipart/form-data"
                 name="editaringrediente" onsubmit="return validate()">
                 @csrf
@@ -220,7 +220,6 @@
             </form>
         </div>
 
-        <br><br><br><br>
         <footer class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:p-6"
             style="background-color:red;">
             <span class="text-sm sm:text-center"

@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
         <br>
         @if (Auth::user()->admin)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
