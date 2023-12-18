@@ -1028,7 +1028,7 @@
             </div>
         @endif
     </div>
-    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white; margin-top:130px; margin-bottom:26px;"
+    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white; margin-top:200px; margin-bottom:26px;"
         id="logo1">
         {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}
     </h1>
@@ -1236,7 +1236,7 @@
     </h1>
     <div style="background-image:url('img/backgroundpizzasmall.png');">
         <br>
-        <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:200px;">
+        <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:300px;">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
                 width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
@@ -1265,15 +1265,6 @@
                 <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
                 <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
             </div>
-            <div style="display:flex; gap: 5px; margin-left:auto;">
-                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                    </p>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                    </p>
-                </div>
-            </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
@@ -1286,6 +1277,15 @@
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto;">
+                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                    </p>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

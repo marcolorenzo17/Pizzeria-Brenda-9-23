@@ -921,7 +921,7 @@
         @endif
     </div>
     <div class="container px-12 py-8 mx-auto bg-white"
-        style="padding-top:30px; padding-bottom:30px;  margin-bottom:104px; margin-top:130px;">
+        style="padding-top:30px; padding-bottom:30px;  margin-bottom:300px; margin-top:200px; margin-left:20px; margin-right:20px;">
         <h2 class="text-center">{{ __('CONTÁCTANOS') }}</h2>
         <br><br>
         <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
@@ -990,15 +990,6 @@
                 <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
                 <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
             </div>
-            <div style="display:flex; gap: 5px; margin-left:auto;">
-                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                    </p>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                    </p>
-                </div>
-            </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                         width="30px" height="30px" style="margin-right:20px;"></a>
@@ -1011,6 +1002,15 @@
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto;">
+                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <div>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                    </p>
+                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
