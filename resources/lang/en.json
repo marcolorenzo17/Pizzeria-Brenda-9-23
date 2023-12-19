@@ -464,6 +464,9 @@
     "La pizzería no está abierta a esa hora." : "The pizzeria is not open at that time.",
     "La pizzería no está abierta a esa hora los domingos." : "The pizzeria is not open at that time on sundays.",
 
+    "Factura": "Bill",
+    "Ver factura": "Check bill",
+
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
     "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"
