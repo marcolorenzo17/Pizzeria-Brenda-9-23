@@ -63,12 +63,12 @@ class ReciboController extends Controller
 
     public function factura(string $id) {
         $data = [
-            'numero' => $id
+            'recibo' => Recibo::findOrFail($id),
         ];
 
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('factura', $data);
 
-        return $pdf->stream('archivo2.pdf');
+        return $pdf->stream('factura.pdf');
     }
 }

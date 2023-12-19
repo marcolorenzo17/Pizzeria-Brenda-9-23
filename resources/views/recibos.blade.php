@@ -39,6 +39,9 @@
                     @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                         <td class="font-bold">{{ __('Eliminar') }}</td>
                     @endif
+                    @if (!Auth::user()->admin)
+                        <td class="font-bold">{{ __('Factura') }}</td>
+                    @endif
                 </tr>
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
@@ -176,6 +179,10 @@
                                 @else
                                     {{ __('Pago en curso') }}
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"><button
+                                        type="button">{{ __('Ver factura') }}</button></a>
                             </td>
                         </tr>
                         <tr>
@@ -510,6 +517,17 @@
                                     <p style="padding-left:50px;">{{ __('Pago en curso') }}</p>
                                 </td>
                             @endif
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Factura') }}</p>
+                            </td>
+                            <td>
+                                <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
+                                    style="margin-left:50px;"><button
+                                        type="button">{{ __('Ver factura') }}</button></a>
+                            </td>
                         </tr>
                         <tr></tr>
                         <tr></tr>

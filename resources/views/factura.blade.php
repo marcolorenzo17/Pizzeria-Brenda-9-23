@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>¡Factura!</h1>
-    <p>{{ $numero }}</p>
+    <p>{{ $recibo->total }}</p>
 </body>
 </html>
