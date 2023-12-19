@@ -262,10 +262,13 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+Route::get('/factura/{id}', [ReciboController::class, 'factura'])->name('recibos.factura');
+/*
 Route::get('/generate-pdf', function () {
     $pdf = App::make('dompdf.wrapper');
     $pdf->loadView('welcomeAntiguo');
     return $pdf->stream();
 });
+*/
 
 require __DIR__.'/auth.php';

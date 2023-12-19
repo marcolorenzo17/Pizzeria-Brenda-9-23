@@ -60,4 +60,15 @@ class ReciboController extends Controller
         session()->flash('notif.success', 'El pedido ahora está pendiente de cobro.');
         return redirect()->route('recibos.index');
     }
+
+    public function factura(string $id) {
+        $data = [
+            'numero' => $id
+        ];
+
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('factura', $data);
+
+        return $pdf->stream('archivo2.pdf');
+    }
 }
