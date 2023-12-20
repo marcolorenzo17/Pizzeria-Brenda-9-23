@@ -9,7 +9,7 @@
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />
 
-    <div class="py-12">
+    <div class="py-12" style="margin-bottom:300px;">
         @if (Auth::user()->admin)
             <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
             <br>
@@ -181,8 +181,9 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"><button
-                                        type="button">{{ __('Ver factura') }}</button></a>
+                                <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
+                                    style="background-color:aquamarine; padding:8px; border-radius:8px;"
+                                    id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
                             </td>
                         </tr>
                         <tr>
@@ -315,7 +316,8 @@
                                             @csrf
                                             <div style="display:flex; align-items:center; gap:10px;">
                                                 <div>
-                                                    <select id="estado" name="estado" style="border-radius:10px;">
+                                                    <select id="estado" name="estado"
+                                                        style="border-radius:10px;">
                                                         <option value="Pedido registrado">
                                                             {{ __('Pedido registrado') }}
                                                         </option>
@@ -525,8 +527,8 @@
                             </td>
                             <td>
                                 <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
-                                    style="margin-left:50px;"><button
-                                        type="button">{{ __('Ver factura') }}</button></a>
+                                    style="margin-left:50px; background-color:aquamarine; padding:8px; border-radius:8px;"
+                                    id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
                             </td>
                         </tr>
                         <tr></tr>
@@ -537,7 +539,6 @@
         </div>
     </div>
 
-    <br><br><br><br>
     <footer class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:p-6"
         style="background-color:red;">
         <span class="text-sm sm:text-center"

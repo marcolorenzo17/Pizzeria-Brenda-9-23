@@ -9,7 +9,17 @@
 </head>
 
 <body>
-    <h1 style="text-align:center;">{{__('Factura')}}</h1>
+    <h1>{{ __('FACTURA') }}</h1>
+
+    <h2 style="text-align:right;">Pizzería Brenda</h2>
+    <h4 style="text-align:right;">C/ Padre Lerchundi, 3</h4>
+    <h4 style="text-align:right;">11550 - Chipiona (Cádiz)</h4>
+
+    <p style="text-align:center;">{{ __('Entrega') }}: {{ __($recibo->direccion) }}</p>
+    @if ($recibo->direccion == 'A domicilio')
+        <p style="text-align:center;">{{ __('Dirección') }}: {{Auth::User()->direccion}}</p>
+    @endif
+
     <table>
         <tr>
             <td>
@@ -42,23 +52,9 @@
                 <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
             </td>
         </tr>
-        <tr>
-            <td>
-                <p style="font-weight:bolder;">{{ __('Entrega') }}</p>
-            </td>
-            <td>
-                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p style="font-weight:bolder;">{{ __('Total') }}</p>
-            </td>
-            <td>
-                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
-            </td>
-        </tr>
     </table>
+
+    <h2 style="text-align:right;">{{ __('Total') }}: {{ number_format($recibo->total, 2, '.', '') }} €</h2>
 </body>
 
 </html>
