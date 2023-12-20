@@ -296,7 +296,7 @@
                         <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (2.30 € +)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
-                        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="margin-bottom:300px;">
                             @foreach ($ingredientes as $ingrediente)
                                 @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
