@@ -913,7 +913,7 @@
         /* The navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: red;
+            background-color: black;
             position: fixed;
             /* Set the navbar to fixed position */
             top: 0;
@@ -948,7 +948,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: red;
+            background-color: black;
             color: white;
             padding: 20px;
             z-index: 1;
@@ -1010,7 +1010,7 @@
                 @auth
                     <a href="{{ url('/products') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                        style="color:white; font-size:15px; background-color:#498500; padding:15px; border-radius:15px;"
                         id="boton">{{ __('Iniciar pedido') }}</a>
                 @else
                     <a href="{{ route('login') }}"
@@ -1028,20 +1028,20 @@
             </div>
         @endif
     </div>
-    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white; margin-top:200px; margin-bottom:26px;"
+    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
         id="logo1">
-        {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}
+        {{ __('PIZZA ARTESANA Y NATURAL') }}
     </h1>
-    <div class="mx-auto" style="background-color:#4a4895; margin-bottom:26px;">
-        <video width="859" height="464" autoplay muted loop>
-            <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
-            Tu navegador no es compatible con este vídeo.
-        </video>
-    </div>
-    <div style="background-color:red;">
+        <div class="mx-auto" style="background-color:#4a4895; margin-bottom:26px;">
+            <video width="859" height="464" autoplay muted loop>
+                <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
+                Tu navegador no es compatible con este vídeo.
+            </video>
+        </div>
+    <div style="background-color:#498500;">
         <br>
     </div>
-    <div style="background-image:url('img/backgroundpizzasmall.png');">
+    <div>
         <br>
         <div style="display:flex; align-items:center; justify-content:center;">
             <a href="{{ route('login') }}" onclick="redirigir_promociones()">
@@ -1074,13 +1074,13 @@
                             <div style="display:flex; justify-content:center;">
                                 @if ($product->puntos)
                                     <div class="-mr-2 flex items-center"
-                                        style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
+                                        style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
                                             src="{{ asset('img/pizzacoin.png') }}" alt="coin">
                                         {{ $product->puntos }}
                                     </div>
                                 @else
                                     <div class="-mr-2 flex items-center"
-                                        style="font-size:20px; color:white; margin-top:10px; margin-bottom:10px;"><img
+                                        style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
                                             src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
                                 @endif
                             </div>
@@ -1105,15 +1105,15 @@
             <div style="margin-left:100px; margin-right:100px;">
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
                     <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
-                    <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¡PIZZACOINS!') }}</p>
+                    <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
                 </div>
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <p style="font-weight:bolder; font-size:20px; color:white; text-align:center;"
+                    <p style="font-weight:bolder; font-size:20px; text-align:center;"
                         id="quesonpizzacoins" onclick="pizzacoins_mostrar(flag_pizzacoins);">
                         {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
                     </p>
                 </div>
-                <div style="text-align:center; color:white; display:none;" id="informacion_pizzacoins">
+                <div style="text-align:center; display:none;" id="informacion_pizzacoins">
                     <br>
                     <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
                     <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
@@ -1130,10 +1130,10 @@
         </div>
         <br><br>
     </div>
-    <div style="background-color:red;">
+    <div style="background-color:#498500;">
         <br>
     </div>
-    <div style="background-image:url('img/backgroundpizza.png');">
+    <div>
         <br>
         <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
             <div>
