@@ -913,7 +913,7 @@
         /* The navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: black;
+            background-color: #141414;
             position: fixed;
             /* Set the navbar to fixed position */
             top: 0;
@@ -948,7 +948,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: black;
+            background-color: #141414;
             color: white;
             padding: 20px;
             z-index: 1;
@@ -1010,7 +1010,7 @@
                 @auth
                     <a href="{{ url('/products') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:white; font-size:15px; background-color:#498500; padding:15px; border-radius:15px;"
+                        style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
                         id="boton">{{ __('Iniciar pedido') }}</a>
                 @else
                     <a href="{{ route('login') }}"
@@ -1028,12 +1028,14 @@
             </div>
         @endif
     </div>
-    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
-        id="logo1">
-        {{ __('PIZZA ARTESANA Y NATURAL') }}
-    </h1>
-        <div class="mx-auto" style="background-color:#4a4895; margin-bottom:26px;">
-            <video width="859" height="464" autoplay muted loop>
+    {{--
+        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
+            id="logo1">
+            {{ __('PIZZA ARTESANA Y NATURAL') }}
+        </h1>
+    --}}
+        <div class="mx-auto" style="background-color:#141414; margin-top:120px;">
+            <video width="1920" height="500" autoplay muted loop>
                 <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
                 Tu navegador no es compatible con este vídeo.
             </video>
