@@ -1252,7 +1252,7 @@
         style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
         {{ __('VISÍTANOS') }}
     </h1>
-    <div style="background-image:url('img/backgroundpizzasmall.png');">
+    <div style="background-color:#568c2c;">
         <br>
         <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:300px;">
             <iframe
@@ -1272,7 +1272,7 @@
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
             <div style="display:flex; gap: 5px;">
-                <p style="font-size:13px;">{{ __('Teléfonos: ') }}</p>
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder;">{{ __('Teléfonos: ') }}</p>
                 <div>
                     <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
                     <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
@@ -1297,7 +1297,7 @@
                         style="margin-right:20px;"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto;">
-                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder;">{{ __('Horario: ') }}</p>
                 <div>
                     <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
                     </p>
