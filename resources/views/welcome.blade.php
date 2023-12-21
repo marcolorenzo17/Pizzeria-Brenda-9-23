@@ -1034,12 +1034,26 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div class="mx-auto" style="background-color:#141414; margin-top:120px;">
-            <video width="1920" height="500" autoplay muted loop>
-                <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
-                Tu navegador no es compatible con este vídeo.
-            </video>
+    <div class="mx-auto" style="background-color:#141414; margin-top:120px;">
+        <video width="1920" height="500" autoplay muted loop>
+            <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
+            Tu navegador no es compatible con este vídeo.
+        </video>
+        <div style="position: absolute; top: 15vw; width: 100%; text-align: right; padding-right:2vw;">
+            <div style="margin-bottom:8vw;">
+                <a href="cartaAnon"
+                    style="color:black; font-size:1.5vw; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                    id="boton">{{ __('NUESTRA CARTA') }}
+                </a>
+            </div>
+            <div>
+                <a href="{{ route('login') }}"
+                    style="color:black; font-size:1.5vw; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                    id="boton">{{ __('¡PIDE AHORA!') }}
+                </a>
+            </div>
         </div>
+    </div>
     <div style="background-color:#498500;">
         <br>
     </div>
@@ -1110,8 +1124,8 @@
                     <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
                 </div>
                 <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <p style="font-weight:bolder; font-size:20px; text-align:center;"
-                        id="quesonpizzacoins" onclick="pizzacoins_mostrar(flag_pizzacoins);">
+                    <p style="font-weight:bolder; font-size:20px; text-align:center;" id="quesonpizzacoins"
+                        onclick="pizzacoins_mostrar(flag_pizzacoins);">
                         {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
                     </p>
                 </div>
