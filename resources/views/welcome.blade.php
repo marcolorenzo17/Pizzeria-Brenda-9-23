@@ -995,62 +995,64 @@
 </head>
 
 <body class="antialiased">
-    <div class="navbar">
-        <div style="position: relative; top: 15px;">
-            @include('partials/language_switcher')
-        </div>
-        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:67px; height:60px;"></a>
-        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
-        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
-        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
-                @auth
-                    <a href="{{ url('/products') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar pedido') }}</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar sesión') }}</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Registrarse') }}</a>
-                    @endif
-                @endauth
+    <div style="background-color:#141414;">
+        <div class="navbar" style="display:flex;">
+            <div
+                style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
+                <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
+                <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
             </div>
-        @endif
-    </div>
-    {{--
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo_blanco.png') }}" alt="logo_header"
+                        style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
+                    @include('partials/language_switcher')
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar sesión') }}</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                    id="boton">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+            @endif
+        </div>
+        {{--
         <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
             id="logo1">
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-    <div class="mx-auto" style="background-color:#141414; margin-top:120px;">
-        <video width="1920" height="500" autoplay muted loop>
-            <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
-            Tu navegador no es compatible con este vídeo.
-        </video>
-        <div style="position: absolute; top: 15vw; width: 100%; text-align: right; padding-right:2vw;">
-            <div style="margin-bottom:8vw;">
-                <a href="cartaAnon"
-                    style="color:black; font-size:1.5vw; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                    id="boton">{{ __('NUESTRA CARTA') }}
-                </a>
-            </div>
-            <div>
-                <a href="{{ route('login') }}"
-                    style="color:black; font-size:1.5vw; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                    id="boton">{{ __('¡PIDE AHORA!') }}
-                </a>
+        <div class="mx-auto" style="background-color:#141414; margin-top:150px;">
+            <video width="1920" height="500" autoplay muted loop>
+                <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
+                Tu navegador no es compatible con este vídeo.
+            </video>
+            <div style="position: absolute; top: 25vw; width: 100%; text-align: right; padding-right:2vw;">
+                <div style="margin-bottom:8vw;">
+                    <a href="cartaAnon"
+                        style="color:black; font-size:1.5vw; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('NUESTRA CARTA') }}
+                    </a>
+                </div>
             </div>
         </div>
     </div>
