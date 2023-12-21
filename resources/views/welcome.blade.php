@@ -1005,8 +1005,8 @@
                 <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
-                <a href="/"><img src="{{ asset('img/logo_blanco.png') }}" alt="logo_header"
-                        style="width:100px;"></a>
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                        style="width:130px;"></a>
             </div>
             @if (Route::has('login'))
                 <div id="login"
