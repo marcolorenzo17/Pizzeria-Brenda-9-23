@@ -1029,7 +1029,7 @@
                         @auth
                             <a href="{{ url('/products') }}"
                                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                style="color:white; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
                                 id="boton">{{ __('Iniciar pedido') }}</a>
                         @else
                             <a href="{{ route('login') }}"
@@ -1158,14 +1158,15 @@
             </div>
             <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
                 <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                    style="font-size:18px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
-                    id="boton">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    style="font-size:22px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                    id="boton">{{ __('¡A GASTAR PIZZACOINS!') }}
                 </a>
             </div>
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
             id="carrusel_uno">
-            <p style="text-align:center; font-size:30px; font-weight:bolder;">{{ __('PROMOCIONES') }}</p>
+            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#568c2c;">{{ __('PROMOCIONES') }}
+            </p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
@@ -1207,14 +1208,12 @@
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
             id="carrusel_dos">
-            <p style="text-align:center; font-size:30px; font-weight:bolder;">{{ __('OFERTAS') }}</p>
+            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#568c2c;">{{ __('OFERTAS') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="150px" height="150px"
+                        <img src="{{ asset($product->image) }}" alt="..." width="199px" height="199px"
                             style="margin-left:auto; margin-right:auto;">
-                        <div style="margin-top:70px;">
-                        </div>
                         <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
                         </p>
                     </div>
@@ -1237,7 +1236,7 @@
         </div>
         <div style="color:white; background-color:white; flex:0.7; position: relative;" id="fondoOfer">
             <div style="text-align:center;">
-                <div style=" background-color:#141414; padding:5px; border:2px solid #f5f0e9; border-radius:10px; margin:20px;"
+                <div style=" background-color:#141414; padding:15px; border:2px solid #f5f0e9; border-radius:10px; margin:20px; text-align:center;"
                     onclick="mostrarCarruselDos()" id="botonofer">
                     <p style="font-size:40px; font-weight:bolder;">
                         {{ __('OFERTAS') }}
@@ -1245,7 +1244,7 @@
                 </div>
                 <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
                     <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                        style="font-size:18px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                        style="font-size:22px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
                         id="boton">{{ __('¡APROVECHA LAS OFERTAS!') }}
                     </a>
                 </div>
@@ -1376,7 +1375,7 @@
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
             <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:22px; color:white; font-weight:bolder; text-transform:uppercase;">
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
                     {{ __('Teléfonos: ') }}
                 </p>
                 <div style="font-size:18px; font-weight:bolder;">
@@ -1401,7 +1400,7 @@
                         style="margin-right:20px;"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:22px; color:white; font-weight:bolder; text-transform:uppercase;">
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
                     {{ __('Horario: ') }}
                 </p>
                 <div style="font-size:18px; font-weight:bolder;">
