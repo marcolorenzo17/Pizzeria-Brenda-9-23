@@ -462,6 +462,8 @@
     "Pizza Personalizada": "Custom Pizza",
     "Teléfonos: ": "Phone numbers: ",
     "Horario: ": "Schedule: ",
+    "Teléfonos": "Phone numbers",
+    "Horario": "Schedule",
 
     "La pizzería no está abierta a esa hora." : "The pizzeria is not open at that time.",
     "La pizzería no está abierta a esa hora los domingos." : "The pizzeria is not open at that time on sundays.",

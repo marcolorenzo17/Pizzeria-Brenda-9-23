@@ -1004,7 +1004,7 @@
                 <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
-                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:130px;"></a>
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
             </div>
             @if (Route::has('login'))
                 <div id="login"
@@ -1129,8 +1129,11 @@
         </div>
     --}}
     <div style="background-color:#141414;">
-        <div style="width: 70%; float:left; color:white; text-align:center; margin-top:100px;">
-            <p>Hola</p>
+        <div style="width: 70%; float:left; color:white; margin-top:100px;">
+            <div style="display:flex; justify-content:center;">
+                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                <p style="font-size:40px; font-weight:bolder;">{{ __('¡PIZZACOINS!') }}</p>
+            </div>
         </div>
         <div class="slideshow-container" style="width:30%; float:right; background-color:white; padding:5px;">
             @foreach ($products as $product)
@@ -1138,18 +1141,20 @@
                     <div class="mySlides fade">
                         <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
                             style="margin-left:auto; margin-right:auto;">
-                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}</p>
+                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
+                        </p>
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
-                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;"><img
-                                        src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;">
+                                    <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">
                                     {{ $product->puntos }}
                                 </div>
                             @else
                                 <div class="-mr-2 flex items-center"
-                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;"><img
-                                        src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;">
+                                    <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">0
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -1295,12 +1300,15 @@
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
             <div style="display:flex; gap: 5px;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder;">{{ __('Teléfonos: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
-                    <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
-                    <p style="font-size:18px; font-weight:bolder;">627 650 605</p>
-                </div>
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos') }}</p>
+                {{--
+                    <div>
+                        <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
+                        <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
+                        <p style="font-size:18px; font-weight:bolder;">627 650 605</p>
+                    </div>
+                --}}
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
                 <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
@@ -1320,13 +1328,16 @@
                         style="margin-right:20px;"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder;">{{ __('Horario: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                    </p>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                    </p>
-                </div>
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario') }}</p>
+                {{--
+                    <div>
+                        <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
+                        </p>
+                        <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
+                        </p>
+                    </div>
+                --}}
             </div>
         </div>
     </div>
