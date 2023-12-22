@@ -1046,7 +1046,7 @@
             </video>
         </div>
     </div>
-    <div style="background-color:#498500;">
+    <div style="background-color:#568c2c;">
         <br>
     </div>
     {{--
@@ -1128,18 +1128,21 @@
             <br><br>
         </div>
     --}}
-    <div style="background-color:#141414;">
-        <div style="width: 70%; float:left; color:white; margin-top:100px;">
-            <div style="display:flex; justify-content:center;">
-                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">
-                <p style="font-size:40px; font-weight:bolder;">{{ __('¡PIZZACOINS!') }}</p>
+    <div style="background-color:#141414; display:flex;">
+        <div style="color:white; flex:1; background-color:#568c2c;" id="fondoProm">
+            <div style="text-align:center;">
+                <p style="font-size:40px; font-weight:bolder;" onclick="mostrarCarruselUno()">{{ __('¡PIZZACOINS!') }}
+                </p>
+                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="150px;" width="150px;"
+                    style="margin-left:auto; margin-right:auto; margin-top:20px;">
             </div>
         </div>
-        <div class="slideshow-container" style="width:30%; float:right; background-color:white; padding:5px;">
+        <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
+            id="carrusel_uno">
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
+                        <img src="{{ asset($product->image) }}" alt="..." width="250px" height="250px"
                             style="margin-left:auto; margin-right:auto;">
                         <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
                         </p>
@@ -1175,11 +1178,41 @@
                 @endforeach
             </div>
         </div>
+        <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
+            id="carrusel_dos">
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Oferta')
+                    <div class="mySlides2 fade">
+                        <img src="{{ asset($product->image) }}" alt="..." width="250px" height="250px"
+                            style="margin-left:auto; margin-right:auto;">
+                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
+                        </p>
+                    </div>
+                @endif
+            @endforeach
+            <div
+                style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(270deg);" onclick="showSlidesLeft2();">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(90deg);" onclick="showSlides2();">
+            </div>
+            <div style="text-align:center">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Oferta')
+                        <span class="dot2"></span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div style="color:white; background-color:#141414; flex:1;" id="fondoOfer">
+            <p onclick="mostrarCarruselDos()">Prueba</p>
+        </div>
     </div>
-    <div style="background-color:#498500;">
+    <div style="background-color:#568c2c;">
         <br>
     </div>
-    <div style="background-color:#141414;">
+    <div style="background-color:#141414; padding-bottom:50px;">
         <br>
         <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
             <div>
@@ -1200,44 +1233,37 @@
             </div>
             <br><br>
         </div>
-        <div style="width:100%;">
-            <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
-                <div>
-                    @if (Lang::locale() == 'es')
-                        <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
-                            <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas"
-                                onclick="ofertas_mostrar(flag_ofertas);">
-                        </div>
-                    @else
-                        <div>
-                            <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas"
-                                class="nuestrasofertas" onclick="ofertas_mostrar(flag_ofertas);">
-                        </div>
-                    @endif
+        {{--
+            <div style="width:100%;">
+                <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+                    <div>
+                        @if (Lang::locale() == 'es')
+                            <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
+                                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas"
+                                    onclick="ofertas_mostrar(flag_ofertas);">
+                            </div>
+                        @else
+                            <div>
+                                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas"
+                                    class="nuestrasofertas" onclick="ofertas_mostrar(flag_ofertas);">
+                            </div>
+                        @endif
+                    </div>
                 </div>
-                <div>
-                    @if (Lang::locale() == 'es')
-                        <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                            height="400px">
-                    @else
-                        <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
-                            height="400px">
-                    @endif
+                <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                    style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
+                    @foreach ($products as $product)
+                        @if ($product->habilitado and $product->type == 'Oferta')
+                            <div class="mx-auto">
+                                <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
+                                    style="border:3px solid black; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
-            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
-                @foreach ($products as $product)
-                    @if ($product->habilitado and $product->type == 'Oferta')
-                        <div class="mx-auto">
-                            <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
-                                style="border:3px solid black; border-radius:10px;">
-                            <br>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-        </div>
+        --}}
     </div>
     {{--
         <div style="background-image:url('img/backgroundpizzared.png');">
@@ -1276,22 +1302,29 @@
             </div>
         </div>
     --}}
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-        {{ __('VISÍTANOS') }}
-    </h1>
     <div style="background-color:#568c2c;">
         <br>
-        <div style="width:600px; margin-left:auto; margin-right:auto; margin-bottom:300px;">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <br>
-            <div class="flex items-center justify-center">
-                <p style="color:white;">{{ __('Atención al cliente:') }}</p>
-                <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
+    </div>
+    <div style="background-color:#141414; padding-top:20px; padding-bottom:150px;">
+        <h1 class="text-center"
+            style="font-size:60px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; padding:20px;">
+            {{ __('VISÍTANOS') }}
+        </h1>
+        <div style="display:flex; justify-content:center; align-items:center; gap: 50px;">
+            <div>
+                <img src="{{ asset('img/fondo/maps.jpg') }}" alt="localizacion" width="600"
+                    style="border:2px solid #568c2c; border-radius:20px;">
             </div>
+            <div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                    width="500" height="300" style="border:5px solid #568c2c; border-radius:10px;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="flex items-center justify-center" style="margin-top:20px;">
+            <p style="color:white;">{{ __('Atención al cliente:') }}</p>
+            <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
         </div>
     </div>
     <div class="footer">
@@ -1299,16 +1332,13 @@
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-            <div style="display:flex; gap: 5px;">
+            <div style="display:flex; gap: 5px; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Teléfonos') }}</p>
-                {{--
-                    <div>
-                        <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
-                        <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
-                        <p style="font-size:18px; font-weight:bolder;">627 650 605</p>
-                    </div>
-                --}}
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
                 <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
@@ -1327,17 +1357,14 @@
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
             </div>
-            <div style="display:flex; gap: 5px; margin-left:auto;">
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Horario') }}</p>
-                {{--
-                    <div>
-                        <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                        </p>
-                        <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                        </p>
-                    </div>
-                --}}
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
             </div>
         </div>
     </div>
