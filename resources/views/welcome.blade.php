@@ -1129,12 +1129,23 @@
         </div>
     --}}
     <div style="background-color:#141414; display:flex;">
-        <div style="color:white; flex:1; background-color:#568c2c;" id="fondoProm">
+        <div style="color:white; flex:1; background-color:#568c2c; position: relative;" id="fondoProm">
             <div style="text-align:center;">
-                <p style="font-size:40px; font-weight:bolder;" onclick="mostrarCarruselUno()" id="botoncarrusel">
+                <p style="font-size:40px; font-weight:bolder; background-color:#274014; padding:5px; border:2px solid #f5f0e9; border-radius:10px; margin:20px;"
+                    onclick="mostrarCarruselUno()" id="botoncarrusel">
                     {{ __('¡CANJEA TUS PIZZACOINS!') }}</p>
-                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="150px;" width="150px;"
-                    style="margin-left:auto; margin-right:auto; margin-top:20px;">
+                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
+                    style="margin-left:auto; margin-right:auto; margin-top:20px;" class="nuestrasofertas">
+                <div
+                    style="background-color:#274014; border-radius:30px; text-align:center; padding:20px; margin-bottom:100px; margin-left:60px; margin-right:60px; font-weight:bold; font-size:20px; margin-top:30px;">
+                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+                </div>
+                <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
+                    <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                        style="font-size:25px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                        id="boton">{{ __('MÁS INFORMACIÓN') }}
+                    </a>
+                </div>
             </div>
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
@@ -1207,10 +1218,22 @@
                 @endforeach
             </div>
         </div>
-        <div style="color:white; background-color:#14210b; flex:1;" id="fondoOfer">
+        <div style="color:white; background-color:#14210b; flex:1; position: relative;" id="fondoOfer">
             <div style="text-align:center;">
-                <p style="font-size:40px; font-weight:bolder;" onclick="mostrarCarruselDos()" id="botoncarrusel">
-                    {{ __('¡APLICA OFERTAS!') }}</p>
+                <p style="font-size:40px; font-weight:bolder; background-color:#274014; padding:5px; border:2px solid #f5f0e9; border-radius:10px; margin:20px;"
+                    onclick="mostrarCarruselDos()" id="botoncarrusel">
+                    {{ __('¡APLICA OFERTAS!') }}
+                </p>
+                <div
+                    style="background-color:#274014; border-radius:30px; text-align:center; padding:20px; margin-bottom:100px; margin-left:60px; margin-right:60px; margin-top:40px; font-weight:bold; font-size:20px;">
+                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+                </div>
+                <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
+                    <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                        style="font-size:25px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                        id="boton">{{ __('MÁS INFORMACIÓN') }}
+                    </a>
+                </div>
             </div>
         </div>
     </div>
