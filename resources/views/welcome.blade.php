@@ -1138,6 +1138,7 @@
                     <div class="mySlides fade">
                         <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
                             style="margin-left:auto; margin-right:auto;">
+                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}</p>
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
