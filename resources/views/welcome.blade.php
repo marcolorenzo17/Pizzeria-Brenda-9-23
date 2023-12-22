@@ -987,6 +987,21 @@
         #tusmenusgratis:hover {
             filter: brightness(75%);
         }
+
+        .pizzacoinhelp:hover {
+            filter: brightness(75%);
+            cursor: help;
+        }
+
+        #botonprom:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
+        #botonofer:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1014,7 +1029,7 @@
                         @auth
                             <a href="{{ url('/products') }}"
                                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                                style="color:white; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
                                 id="boton">{{ __('Iniciar pedido') }}</a>
                         @else
                             <a href="{{ route('login') }}"
@@ -1046,7 +1061,7 @@
             </video>
         </div>
     </div>
-    <div style="background-color:#568c2c;">
+    <div style="background-color:white;">
         <br>
     </div>
     {{--
@@ -1129,32 +1144,32 @@
         </div>
     --}}
     <div style="background-color:#141414; display:flex;">
-        <div style="color:white; flex:1; background-color:#568c2c; position: relative;" id="fondoProm">
-            <div style="text-align:center;">
-                <p style="font-size:40px; font-weight:bolder; background-color:#274014; padding:5px; border:2px solid #f5f0e9; border-radius:10px; margin:20px;"
-                    onclick="mostrarCarruselUno()" id="botoncarrusel">
-                    {{ __('¡CANJEA TUS PIZZACOINS!') }}</p>
+        <div style="color:white; flex:0.7; background-color:white; position: relative;" id="fondoProm">
+            <div>
+                <div style="background-color:#568c2c; padding:15px; border:2px solid #f5f0e9; border-radius:10px; margin:20px; text-align:center;"
+                    onclick="mostrarCarruselUno()" id="botonprom">
+                    <p style="font-size:40px; font-weight:bolder; ">{{ __('PROMOCIONES') }}</p>
+                    <p style="font-size:20px; font-weight:bold; ">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    </p>
+                </div>
                 <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
-                    style="margin-left:auto; margin-right:auto; margin-top:20px;" class="nuestrasofertas">
-                <div
-                    style="background-color:#274014; border-radius:30px; text-align:center; padding:20px; margin-bottom:100px; margin-left:60px; margin-right:60px; font-weight:bold; font-size:20px; margin-top:30px;">
-                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
-                </div>
-                <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
-                    <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                        style="font-size:25px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
-                        id="boton">{{ __('MÁS INFORMACIÓN') }}
-                    </a>
-                </div>
+                    style="margin-top:20px; margin-left:auto; margin-right:auto;" class="pizzacoinhelp"
+                    onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\nPara empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.\nRegístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!\nTo start using Pizzacoins, you have to log into the webpage with an account first.\nSign up, and with your first purchase over 10€, you will receive 500 free Pizzacoins.') }}')">
+            </div>
+            <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
+                <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                    style="font-size:18px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                    id="boton">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                </a>
             </div>
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
             id="carrusel_uno">
-            <p style="text-align:center; font-size:20px; font-weight:bolder;">{{ __('PROMOCIONES') }}</p>
+            <p style="text-align:center; font-size:30px; font-weight:bolder;">{{ __('PROMOCIONES') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="250px" height="250px"
+                        <img src="{{ asset($product->image) }}" alt="..." width="150px" height="150px"
                             style="margin-left:auto; margin-right:auto;">
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
@@ -1192,12 +1207,14 @@
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
             id="carrusel_dos">
-            <p style="text-align:center; font-size:20px; font-weight:bolder;">{{ __('OFERTAS') }}</p>
+            <p style="text-align:center; font-size:30px; font-weight:bolder;">{{ __('OFERTAS') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="250px" height="250px"
+                        <img src="{{ asset($product->image) }}" alt="..." width="150px" height="150px"
                             style="margin-left:auto; margin-right:auto;">
+                        <div style="margin-top:70px;">
+                        </div>
                         <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
                         </p>
                     </div>
@@ -1218,26 +1235,24 @@
                 @endforeach
             </div>
         </div>
-        <div style="color:white; background-color:#14210b; flex:1; position: relative;" id="fondoOfer">
+        <div style="color:white; background-color:white; flex:0.7; position: relative;" id="fondoOfer">
             <div style="text-align:center;">
-                <p style="font-size:40px; font-weight:bolder; background-color:#274014; padding:5px; border:2px solid #f5f0e9; border-radius:10px; margin:20px;"
-                    onclick="mostrarCarruselDos()" id="botoncarrusel">
-                    {{ __('¡APLICA OFERTAS!') }}
-                </p>
-                <div
-                    style="background-color:#274014; border-radius:30px; text-align:center; padding:20px; margin-bottom:100px; margin-left:60px; margin-right:60px; margin-top:40px; font-weight:bold; font-size:20px;">
-                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+                <div style=" background-color:#141414; padding:5px; border:2px solid #f5f0e9; border-radius:10px; margin:20px;"
+                    onclick="mostrarCarruselDos()" id="botonofer">
+                    <p style="font-size:40px; font-weight:bolder;">
+                        {{ __('OFERTAS') }}
+                    </p>
                 </div>
                 <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
                     <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                        style="font-size:25px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
-                        id="boton">{{ __('MÁS INFORMACIÓN') }}
+                        style="font-size:18px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                        id="boton">{{ __('¡APROVECHA LAS OFERTAS!') }}
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <div style="background-color:#568c2c;">
+    <div style="background-color:white;">
         <br>
     </div>
     <div style="background-color:#141414; padding-bottom:50px;">
@@ -1330,7 +1345,7 @@
             </div>
         </div>
     --}}
-    <div style="background-color:#568c2c;">
+    <div style="background-color:white;">
         <br>
     </div>
     <div style="background-color:#141414; padding-top:20px; padding-bottom:150px;">
@@ -1341,12 +1356,12 @@
         <div style="display:flex; justify-content:center; align-items:center; gap: 50px;">
             <div>
                 <img src="{{ asset('img/fondo/maps.jpg') }}" alt="localizacion" width="600"
-                    style="border:2px solid #568c2c; border-radius:20px;">
+                    style="border:2px solid white; border-radius:20px;">
             </div>
             <div>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                    width="500" height="300" style="border:5px solid #568c2c; border-radius:10px;"
+                    width="500" height="300" style="border:5px solid white; border-radius:10px;"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -1361,7 +1376,7 @@
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
             <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                <p style="font-size:22px; color:white; font-weight:bolder; text-transform:uppercase;">
                     {{ __('Teléfonos: ') }}
                 </p>
                 <div style="font-size:18px; font-weight:bolder;">
@@ -1386,7 +1401,7 @@
                         style="margin-right:20px;"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                <p style="font-size:22px; color:white; font-weight:bolder; text-transform:uppercase;">
                     {{ __('Horario: ') }}
                 </p>
                 <div style="font-size:18px; font-weight:bolder;">
@@ -1434,7 +1449,7 @@
 
 <script>
     anime({
-        targets: '.nuestrasofertas',
+        targets: '.pizzacoinhelp',
         scale: 1.1,
         duration: 723,
         delay: 200,
