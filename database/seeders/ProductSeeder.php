@@ -1028,17 +1028,6 @@ class ProductSeeder extends Seeder
                 'puntos' => 680,
                 'nameen' => 'Small Pepperoni Pizza'
             ],
-            [
-                'name' => 'Nachos con guacamole',
-                'price' => 0,
-                'description' => '',
-                'image' => 'img/prom/prom19.png',
-                'type' => 'Promoción',
-                'alergenos' => 'lacteos-dioxido',
-                'habilitado' => true,
-                'puntos' => 550,
-                'nameen' => 'Nachos with Guacamole'
-            ],
         ];
         Product::insert($products);
     }

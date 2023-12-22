@@ -997,16 +997,14 @@
 <body class="antialiased">
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
-            <div
-                style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
                 <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
                 <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
                 <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
                 <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
-                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
-                        style="width:130px;"></a>
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:130px;"></a>
             </div>
             @if (Route::has('login'))
                 <div id="login"
@@ -1046,112 +1044,136 @@
                 <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
                 Tu navegador no es compatible con este vídeo.
             </video>
-            <div style="position: absolute; top: 25vw; width: 100%; text-align: right; padding-right:2vw;">
-                <div style="margin-bottom:8vw;">
-                    <a href="cartaAnon"
-                        style="color:black; font-size:1.5vw; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('NUESTRA CARTA') }}
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <div style="background-color:#498500;">
         <br>
     </div>
-    <div>
-        <br>
-        <div style="display:flex; align-items:center; justify-content:center;">
-            <a href="{{ route('login') }}" onclick="redirigir_promociones()">
-                {{--
-                    <div style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;"
-                        id="tusmenusgratis">
-                        <h1 style="font-size:50px; color:yellow;" class="menusgratis">
-                            {{ __('¡TUS MENÚS GRATIS!') }}
-                        </h1>
-                        <br>
-                        <h1 style="font-size:30px;">
-                            {{ __('CANJEANDO TUS PIZZACOINS') }}
-                        </h1>
-                    </div>
-                --}}
-                @if (Lang::locale() == 'es')
-                    <img src="{{ asset('img/tusmenusgratis.png') }}" alt="menusgratis" id="tusmenusgratis"
-                        class="nuestrasofertas">
-                @else
-                    <img src="{{ asset('img/tusmenusgratiseng.png') }}" alt="menusgratis" id="tusmenusgratis"
-                        class="nuestrasofertas">
-                @endif
-            </a>
-            <div class="slideshow-container">
-                @foreach ($products as $product)
-                    @if ($product->habilitado and $product->type == 'Promoción')
-                        <div class="mySlides fade">
-                            <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
-                            <div style="display:flex; justify-content:center;">
-                                @if ($product->puntos)
-                                    <div class="-mr-2 flex items-center"
-                                        style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
-                                            src="{{ asset('img/pizzacoin.png') }}" alt="coin">
-                                        {{ $product->puntos }}
-                                    </div>
-                                @else
-                                    <div class="-mr-2 flex items-center"
-                                        style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
-                                            src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
-                                @endif
-                            </div>
-                        </div>
+    {{--
+        <div>
+            <br>
+            <div style="display:flex; align-items:center; justify-content:center;">
+                <a href="{{ route('login') }}" onclick="redirigir_promociones()">
+                    @if (Lang::locale() == 'es')
+                        <img src="{{ asset('img/tusmenusgratis.png') }}" alt="menusgratis" id="tusmenusgratis"
+                            class="nuestrasofertas">
+                    @else
+                        <img src="{{ asset('img/tusmenusgratiseng.png') }}" alt="menusgratis" id="tusmenusgratis"
+                            class="nuestrasofertas">
                     @endif
-                @endforeach
-                <div
-                    style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
-                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
-                        style="transform:rotate(270deg);" onclick="showSlidesLeft();">
-                    <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
-                        style="transform:rotate(90deg);" onclick="showSlides();">
-                </div>
-                <div style="text-align:center">
+                </a>
+                <div class="slideshow-container">
                     @foreach ($products as $product)
                         @if ($product->habilitado and $product->type == 'Promoción')
-                            <span class="dot"></span>
+                            <div class="mySlides fade">
+                                <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                                    style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
+                                <div style="display:flex; justify-content:center;">
+                                    @if ($product->puntos)
+                                        <div class="-mr-2 flex items-center"
+                                            style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
+                                                src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                            {{ $product->puntos }}
+                                        </div>
+                                    @else
+                                        <div class="-mr-2 flex items-center"
+                                            style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
+                                                src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                                    @endif
+                                </div>
+                            </div>
                         @endif
                     @endforeach
+                    <div
+                        style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
+                        <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                            style="transform:rotate(270deg);" onclick="showSlidesLeft();">
+                        <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                            style="transform:rotate(90deg);" onclick="showSlides();">
+                    </div>
+                    <div style="text-align:center">
+                        @foreach ($products as $product)
+                            @if ($product->habilitado and $product->type == 'Promoción')
+                                <span class="dot"></span>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div style="margin-left:100px; margin-right:100px;">
+                    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                        <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
+                        <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
+                    </div>
+                    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                        <p style="font-weight:bolder; font-size:20px; text-align:center;" id="quesonpizzacoins"
+                            onclick="pizzacoins_mostrar(flag_pizzacoins);">
+                            {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
+                        </p>
+                    </div>
+                    <div style="text-align:center; display:none;" id="informacion_pizzacoins">
+                        <br>
+                        <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+                        <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
+                        <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
+                        </p>
+                        <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
+                        <br>
+                        <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
+                        </p>
+                        <p>{{ __('Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.') }}
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div style="margin-left:100px; margin-right:100px;">
-                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
-                    <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
-                </div>
-                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <p style="font-weight:bolder; font-size:20px; text-align:center;" id="quesonpizzacoins"
-                        onclick="pizzacoins_mostrar(flag_pizzacoins);">
-                        {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
-                    </p>
-                </div>
-                <div style="text-align:center; display:none;" id="informacion_pizzacoins">
-                    <br>
-                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
-                    <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
-                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
-                    </p>
-                    <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
-                    <br>
-                    <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
-                    </p>
-                    <p>{{ __('Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.') }}
-                    </p>
-                </div>
+            <br><br>
+        </div>
+    --}}
+    <div style="background-color:#141414;">
+        <div style="width: 70%; float:left; color:white; text-align:center; margin-top:100px;">
+            <p>Hola</p>
+        </div>
+        <div class="slideshow-container" style="width:30%; float:right; background-color:white; padding:5px;">
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Promoción')
+                    <div class="mySlides fade">
+                        <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
+                            style="margin-left:auto; margin-right:auto;">
+                        <div style="display:flex; justify-content:center;">
+                            @if ($product->puntos)
+                                <div class="-mr-2 flex items-center"
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;"><img
+                                        src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                    {{ $product->puntos }}
+                                </div>
+                            @else
+                                <div class="-mr-2 flex items-center"
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;"><img
+                                        src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                            @endif
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+            <div
+                style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(270deg);" onclick="showSlidesLeft();">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(90deg);" onclick="showSlides();">
+            </div>
+            <div style="text-align:center">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Promoción')
+                        <span class="dot"></span>
+                    @endif
+                @endforeach
             </div>
         </div>
-        <br><br>
     </div>
     <div style="background-color:#498500;">
         <br>
     </div>
-    <div>
+    <div style="background-color:#141414;">
         <br>
         <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
             <div>
