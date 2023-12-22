@@ -71,13 +71,13 @@ function showSlidesLeft2() {
 function mostrarCarruselUno() {
   document.getElementById("carrusel_dos").style.display = "none";
   document.getElementById("carrusel_uno").style.display = "block";
-  document.getElementById("fondoOfer").style.backgroundColor = "#141414";
+  document.getElementById("fondoOfer").style.backgroundColor = "#14210b";
   document.getElementById("fondoProm").style.backgroundColor = "#568c2c";
 }
 
 function mostrarCarruselDos() {
   document.getElementById("carrusel_uno").style.display = "none";
   document.getElementById("carrusel_dos").style.display = "block";
-  document.getElementById("fondoProm").style.backgroundColor = "#141414";
+  document.getElementById("fondoProm").style.backgroundColor = "#14210b";
   document.getElementById("fondoOfer").style.backgroundColor = "#568c2c";
 }

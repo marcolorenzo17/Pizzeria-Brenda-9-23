@@ -1131,21 +1131,20 @@
     <div style="background-color:#141414; display:flex;">
         <div style="color:white; flex:1; background-color:#568c2c;" id="fondoProm">
             <div style="text-align:center;">
-                <p style="font-size:40px; font-weight:bolder;" onclick="mostrarCarruselUno()">{{ __('¡PIZZACOINS!') }}
-                </p>
+                <p style="font-size:40px; font-weight:bolder;" onclick="mostrarCarruselUno()" id="botoncarrusel">
+                    {{ __('¡CANJEA TUS PIZZACOINS!') }}</p>
                 <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="150px;" width="150px;"
                     style="margin-left:auto; margin-right:auto; margin-top:20px;">
             </div>
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
             id="carrusel_uno">
+            <p style="text-align:center; font-size:20px; font-weight:bolder;">{{ __('PROMOCIONES') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
                         <img src="{{ asset($product->image) }}" alt="..." width="250px" height="250px"
                             style="margin-left:auto; margin-right:auto;">
-                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
-                        </p>
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
@@ -1160,6 +1159,8 @@
                                 </div>
                             @endif
                         </div>
+                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
+                        </p>
                     </div>
                 @endif
             @endforeach
@@ -1180,6 +1181,7 @@
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
             id="carrusel_dos">
+            <p style="text-align:center; font-size:20px; font-weight:bolder;">{{ __('OFERTAS') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
@@ -1205,8 +1207,11 @@
                 @endforeach
             </div>
         </div>
-        <div style="color:white; background-color:#141414; flex:1;" id="fondoOfer">
-            <p onclick="mostrarCarruselDos()">Prueba</p>
+        <div style="color:white; background-color:#14210b; flex:1;" id="fondoOfer">
+            <div style="text-align:center;">
+                <p style="font-size:40px; font-weight:bolder;" onclick="mostrarCarruselDos()" id="botoncarrusel">
+                    {{ __('¡APLICA OFERTAS!') }}</p>
+            </div>
         </div>
     </div>
     <div style="background-color:#568c2c;">
