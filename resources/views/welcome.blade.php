@@ -1308,23 +1308,29 @@
             </div>
         --}}
         <div style="display:flex;">
-            <div style="flex:1;">
-                <div style="background-color:red;">
-                    a
+            <div style="flex:0.95;">
+                <div>
+                    <img src="{{ asset('img/nuestracarta/i.jpg') }}" alt="izquierda">
                 </div>
-                <div style="background-color:blue;">
-                    b
+                <div style="text-align:center; margin-top:2vw;">
+                    <a href="cartaAnon"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('NUESTRA CARTA') }}
+                    </a>
                 </div>
             </div>
-            <div style="background-color:green; flex:1;">
-                c
-            </div>
             <div style="flex:1;">
-                <div style="background-color:yellow;">
-                    d
+                <img src="{{ asset('img/nuestracarta/centro.jpg') }}" alt="centro">
+            </div>
+            <div style="flex:0.95;">
+                <div>
+                    <img src="{{ asset('img/nuestracarta/d.jpg') }}" alt="derecha">
                 </div>
-                <div style="background-color:pink;">
-                    e
+                <div style="text-align:center; margin-top:2vw;">
+                    <a href="{{ route('login') }}"
+                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        id="boton">{{ __('HAZ TU PEDIDO') }}
+                    </a>
                 </div>
             </div>
         </div>
