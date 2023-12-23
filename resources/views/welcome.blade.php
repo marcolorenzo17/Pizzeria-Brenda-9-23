@@ -13,6 +13,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1009,7 +1012,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
-<body class="antialiased">
+<body class="antialiased" style="background-color:#141414; margin:20px;">
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
@@ -1158,7 +1161,7 @@
             </div>
             <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
                 <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                    style="font-size:22px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                    style="font-size:22px; background-color:white; padding:15px; border-radius:10px; color:#f12d2d; border:3px solid #f12d2d;"
                     id="boton">{{ __('¡CANJEA TUS PIZZACOINS!') }}
                 </a>
             </div>
@@ -1241,10 +1244,12 @@
                     <p style="font-size:40px; font-weight:bolder;">
                         {{ __('OFERTAS') }}
                     </p>
+                    <p style="font-size:20px; font-weight:bold; ">{{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
+                    </p>
                 </div>
                 <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
                     <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                        style="font-size:22px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
+                        style="font-size:22px; background-color:white; padding:15px; border-radius:10px; color:#f12d2d; border:3px solid #f12d2d;"
                         id="boton">{{ __('¡APROVECHA LAS OFERTAS!') }}
                     </a>
                 </div>
@@ -1307,12 +1312,25 @@
                 </div>
             </div>
         --}}
-        <div style="display:flex;">
-            <div style="flex:0.95;">
+        <div style="display:flex; justify-content:center; align-items:center; background-color:#14210b;">
+            <div style="flex:1;">
                 <div>
                     <img src="{{ asset('img/nuestracarta/i.jpg') }}" alt="izquierda">
                 </div>
-                <div style="text-align:center; margin-top:2vw;">
+            </div>
+            <div style="flex:1; text-align:center;">
+                <p style="font-size:4vw; color:#568c2c; font-family: 'Titan One', sans-serif;">
+                    {{ __('¡COMPARTE Y DISFRUTA!') }}</p>
+            </div>
+            <div style="flex:1;">
+                <div>
+                    <img src="{{ asset('img/nuestracarta/d.jpg') }}" alt="derecha">
+                </div>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center; align-items:center;">
+            <div style="flex:1;">
+                <div style="text-align:center;">
                     <a href="cartaAnon"
                         style="color:black; font-size:28px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
                         id="boton">{{ __('NUESTRA CARTA') }}
@@ -1322,11 +1340,8 @@
             <div style="flex:1;">
                 <img src="{{ asset('img/nuestracarta/centro.jpg') }}" alt="centro">
             </div>
-            <div style="flex:0.95;">
-                <div>
-                    <img src="{{ asset('img/nuestracarta/d.jpg') }}" alt="derecha">
-                </div>
-                <div style="text-align:center; margin-top:2vw; background-color:">
+            <div style="flex:1;">
+                <div style="text-align:center; background-color:">
                     <a href="{{ route('login') }}"
                         style="color:black; font-size:28px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
                         id="boton">{{ __('HAZ TU PEDIDO') }}
