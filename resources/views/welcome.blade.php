@@ -1159,7 +1159,7 @@
             <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
                 <a href="{{ route('login') }}" onclick="redirigir_promociones()"
                     style="font-size:22px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
-                    id="boton">{{ __('¡A GASTAR PIZZACOINS!') }}
+                    id="boton">{{ __('¡CANJEA PIZZACOINS!') }}
                 </a>
             </div>
         </div>
@@ -1254,27 +1254,28 @@
     <div style="background-color:white;">
         <br>
     </div>
-    <div style="background-color:#141414; padding-bottom:50px;">
-        <br>
-        <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
-            <div>
-                <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
-                    {{ __('¿QUÉ PEDIMOS?') }}
-                </h1>
-                <br><br>
-                <div style="display:flex; gap:100px; justify-content:center;">
-                    <a href="cartaAnon"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('NUESTRA CARTA') }}
-                    </a>
-                    <a href="{{ route('login') }}"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('¡PIDE AHORA!') }}
-                    </a>
+    <div style="background-color:#141414;">
+        {{--
+            <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+                <div>
+                    <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
+                        {{ __('¿QUÉ PEDIMOS?') }}
+                    </h1>
+                    <br><br>
+                    <div style="display:flex; gap:100px; justify-content:center;">
+                        <a href="cartaAnon"
+                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                            id="boton">{{ __('NUESTRA CARTA') }}
+                        </a>
+                        <a href="{{ route('login') }}"
+                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                            id="boton">{{ __('¡PIDE AHORA!') }}
+                        </a>
+                    </div>
                 </div>
+                <br><br>
             </div>
-            <br><br>
-        </div>
+        --}}
         {{--
             <div style="width:100%;">
                 <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
@@ -1306,6 +1307,27 @@
                 </div>
             </div>
         --}}
+        <div style="display:flex;">
+            <div style="flex:1;">
+                <div style="background-color:red;">
+                    a
+                </div>
+                <div style="background-color:blue;">
+                    b
+                </div>
+            </div>
+            <div style="background-color:green; flex:1;">
+                c
+            </div>
+            <div style="flex:1;">
+                <div style="background-color:yellow;">
+                    d
+                </div>
+                <div style="background-color:pink;">
+                    e
+                </div>
+            </div>
+        </div>
     </div>
     {{--
         <div style="background-image:url('img/backgroundpizzared.png');">
