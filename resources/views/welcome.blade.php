@@ -16,6 +16,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1005,6 +1009,11 @@
             filter: brightness(75%);
             cursor: pointer;
         }
+
+        #botonDown:hover {
+            cursor: pointer;
+            background-color: #274014;
+        }
     </style>
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1151,8 +1160,8 @@
             <div>
                 <div style="background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselUno()" id="botonprom">
-                    <p style="font-size:40px; font-weight:bolder; ">{{ __('PROMOCIONES') }}</p>
-                    <p style="font-size:20px; font-weight:bold; ">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">{{ __('PROMOCIONES') }}</p>
+                    <p style="font-size:20px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
                     </p>
                 </div>
                 <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
@@ -1161,14 +1170,14 @@
             </div>
             <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
                 <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                    style="font-size:22px; background-color:white; padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c;"
-                    id="boton">{{ __('¡CANJEA TUS PIZZACOINS!') }}
+                    style="font-size:33px; padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c; font-family: 'Concert One', sans-serif;"
+                    id="botonDown">{{ __('¡CANJEA TUS PIZZACOINS!') }}
                 </a>
             </div>
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
             id="carrusel_uno">
-            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#141414;">{{ __('PROMOCIONES') }}
+            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">{{ __('PROMOCIONES') }}
             </p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
@@ -1189,7 +1198,7 @@
                                 </div>
                             @endif
                         </div>
-                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
+                        <p style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">{{ $product->name }}
                         </p>
                     </div>
                 @endif
@@ -1211,13 +1220,13 @@
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
             id="carrusel_dos">
-            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#141414;">{{ __('OFERTAS') }}</p>
+            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">{{ __('OFERTAS') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
                         <img src="{{ asset($product->image) }}" alt="..." width="199px" height="199px"
                             style="margin-left:auto; margin-right:auto;">
-                        <p style="text-align:center; font-size:20px; text-transform:uppercase;">{{ $product->name }}
+                        <p style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">{{ $product->name }}
                         </p>
                     </div>
                 @endif
@@ -1241,16 +1250,16 @@
             <div style="text-align:center;">
                 <div style=" background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselDos()" id="botonofer">
-                    <p style="font-size:40px; font-weight:bolder;">
+                    <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
                         {{ __('OFERTAS') }}
                     </p>
-                    <p style="font-size:20px; font-weight:bold; ">{{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
+                    <p style="font-size:20px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
                     </p>
                 </div>
                 <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
                     <a href="{{ route('login') }}" onclick="redirigir_promociones()"
-                        style="font-size:22px; background-color:white; padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c;"
-                        id="boton">{{ __('¡APROVECHA LAS OFERTAS!') }}
+                        style="font-size:33px; padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c; font-family: 'Concert One', sans-serif;"
+                        id="botonDown">{{ __('¡APROVECHA LAS OFERTAS!') }}
                     </a>
                 </div>
             </div>
@@ -1332,7 +1341,7 @@
             <div style="flex:1;">
                 <div style="text-align:center;">
                     <a href="cartaAnon"
-                        style="color:black; font-size:28px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
                         id="boton">{{ __('NUESTRA CARTA') }}
                     </a>
                 </div>
@@ -1343,7 +1352,7 @@
             <div style="flex:1;">
                 <div style="text-align:center; background-color:">
                     <a href="{{ route('login') }}"
-                        style="color:black; font-size:28px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
                         id="boton">{{ __('HAZ TU PEDIDO') }}
                     </a>
                 </div>
