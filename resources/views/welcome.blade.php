@@ -1377,7 +1377,7 @@
     </div>
     <div style="background-color:#141414; padding-top:20px; padding-bottom:150px;">
         <h1 class="text-center"
-            style="font-size:60px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; padding:20px;">
+            style="font-size:60px; color:white; font-family: 'Anton', sans-serif; margin-bottom:10px;">
             {{ __('VISÍTANOS') }}
         </h1>
         <div style="display:flex; justify-content:center; align-items:center; gap: 50px;">
@@ -1392,7 +1392,7 @@
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-        <div class="flex items-center justify-center" style="margin-top:20px;">
+        <div class="flex items-center justify-center" style="margin-top:30px;">
             <p style="color:white;">{{ __('Atención al cliente:') }}</p>
             <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
         </div>
