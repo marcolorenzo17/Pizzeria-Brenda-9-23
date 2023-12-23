@@ -1159,7 +1159,7 @@
             <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
                 <a href="{{ route('login') }}" onclick="redirigir_promociones()"
                     style="font-size:22px; background-color:#f12d2d; padding:15px; border-radius:10px; color:white; border:3px solid white;"
-                    id="boton">{{ __('¡CANJEA PIZZACOINS!') }}
+                    id="boton">{{ __('¡CANJEA TUS PIZZACOINS!') }}
                 </a>
             </div>
         </div>
@@ -1314,7 +1314,7 @@
                 </div>
                 <div style="text-align:center; margin-top:2vw;">
                     <a href="cartaAnon"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        style="color:black; font-size:28px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
                         id="boton">{{ __('NUESTRA CARTA') }}
                     </a>
                 </div>
@@ -1326,9 +1326,9 @@
                 <div>
                     <img src="{{ asset('img/nuestracarta/d.jpg') }}" alt="derecha">
                 </div>
-                <div style="text-align:center; margin-top:2vw;">
+                <div style="text-align:center; margin-top:2vw; background-color:">
                     <a href="{{ route('login') }}"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                        style="color:black; font-size:28px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
                         id="boton">{{ __('HAZ TU PEDIDO') }}
                     </a>
                 </div>
