@@ -1073,9 +1073,6 @@
             </video>
         </div>
     </div>
-    <div style="background-color:white;">
-        <br>
-    </div>
     {{--
         <div>
             <br>
@@ -1156,12 +1153,12 @@
         </div>
     --}}
     <div style="background-color:#141414; display:flex;">
-        <div style="color:white; flex:0.7; background-color:white; position: relative;" id="fondoProm">
+        <div style="color:white; flex:1; background-color:white; position: relative; border-right:5px solid white;" id="fondoProm">
             <div>
                 <div style="background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselUno()" id="botonprom">
                     <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">{{ __('PROMOCIONES') }}</p>
-                    <p style="font-size:20px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
                     </p>
                 </div>
                 <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
@@ -1182,7 +1179,7 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="150px" height="150px"
+                        <img src="{{ asset($product->image) }}" alt="..." width="200px" height="200px"
                             style="margin-left:auto; margin-right:auto;">
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
@@ -1224,7 +1221,7 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="199px" height="199px"
+                        <img src="{{ asset($product->image) }}" alt="..." width="249px" height="249px"
                             style="margin-left:auto; margin-right:auto;">
                         <p style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">{{ $product->name }}
                         </p>
@@ -1246,14 +1243,14 @@
                 @endforeach
             </div>
         </div>
-        <div style="color:white; background-color:white; flex:0.7; position: relative;" id="fondoOfer">
+        <div style="color:white; background-color:white; flex:0.7; position: relative; border-left:5px solid #568c2c;" id="fondoOfer">
             <div style="text-align:center;">
                 <div style=" background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselDos()" id="botonofer">
                     <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
                         {{ __('OFERTAS') }}
                     </p>
-                    <p style="font-size:20px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
                     </p>
                 </div>
                 <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
@@ -1264,9 +1261,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div style="background-color:white;">
-        <br>
     </div>
     <div style="background-color:#141414;">
         {{--
