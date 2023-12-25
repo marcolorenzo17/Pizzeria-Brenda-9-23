@@ -1025,6 +1025,7 @@
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
+                <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
                 <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
                 <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
                 <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
@@ -1153,12 +1154,15 @@
         </div>
     --}}
     <div style="background-color:#141414; display:flex;">
-        <div style="color:white; flex:1; background-color:white; position: relative; border-right:5px solid white;" id="fondoProm">
+        <div style="color:white; flex:1; background-color:white; position: relative; border-right:5px solid white;"
+            id="fondoProm">
             <div>
                 <div style="background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselUno()" id="botonprom">
-                    <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">{{ __('PROMOCIONES') }}</p>
-                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
+                        {{ __('PROMOCIONES') }}</p>
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">
+                        {{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
                     </p>
                 </div>
                 <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
@@ -1174,7 +1178,9 @@
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
             id="carrusel_uno">
-            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">{{ __('PROMOCIONES') }}
+            <p
+                style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">
+                {{ __('PROMOCIONES') }}
             </p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
@@ -1195,7 +1201,9 @@
                                 </div>
                             @endif
                         </div>
-                        <p style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">{{ $product->name }}
+                        <p
+                            style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                            {{ $product->name }}
                         </p>
                     </div>
                 @endif
@@ -1217,13 +1225,17 @@
         </div>
         <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
             id="carrusel_dos">
-            <p style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">{{ __('OFERTAS') }}</p>
+            <p
+                style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">
+                {{ __('OFERTAS') }}</p>
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
                         <img src="{{ asset($product->image) }}" alt="..." width="249px" height="249px"
                             style="margin-left:auto; margin-right:auto;">
-                        <p style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">{{ $product->name }}
+                        <p
+                            style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                            {{ $product->name }}
                         </p>
                     </div>
                 @endif
@@ -1243,14 +1255,16 @@
                 @endforeach
             </div>
         </div>
-        <div style="color:white; background-color:white; flex:0.7; position: relative; border-left:5px solid #568c2c;" id="fondoOfer">
+        <div style="color:white; background-color:white; flex:0.7; position: relative; border-left:5px solid #568c2c;"
+            id="fondoOfer">
             <div style="text-align:center;">
                 <div style=" background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselDos()" id="botonofer">
                     <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
                         {{ __('OFERTAS') }}
                     </p>
-                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">{{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">
+                        {{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
                     </p>
                 </div>
                 <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">

@@ -827,7 +827,7 @@
         /* The navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: red;
+            background-color: #141414;
             position: fixed;
             /* Set the navbar to fixed position */
             top: 0;
@@ -862,7 +862,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: red;
+            background-color: #141414;
             color: white;
             padding: 20px;
             z-index: 1;
@@ -887,36 +887,41 @@
 </head>
 
 <body class="antialiased">
-    <div class="navbar">
-        <div style="position: relative; top: 15px;">
-            @include('partials/language_switcher')
+    <div class="navbar" style="display:flex;">
+        <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
+            <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
+            <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
+            <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
+            <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
+            <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
         </div>
-        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:67px; height:60px;"></a>
-        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
-        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
-        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
+        <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+            <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+        </div>
         @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
-                @auth
-                    <a href="{{ url('/products') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar pedido') }}</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar sesión') }}</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+            <div id="login"
+                style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
+                @include('partials/language_switcher')
+                <div>
+                    @auth
+                        <a href="{{ url('/products') }}"
+                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                            id="boton">{{ __('Iniciar pedido') }}</a>
+                    @else
+                        <a href="{{ route('login') }}"
+                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                             style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Registrarse') }}</a>
-                    @endif
-                @endauth
+                            id="boton">{{ __('Iniciar sesión') }}</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}"
+                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Registrarse') }}</a>
+                        @endif
+                    @endauth
+                </div>
             </div>
         @endif
     </div>
@@ -969,12 +974,12 @@
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-            <div style="display:flex; gap: 5px;">
-                <p style="font-size:13px;">{{ __('Teléfonos: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">956 37 11 15</p>
-                    <p style="font-size:18px; font-weight:bolder;">956 37 47 36</p>
-                    <p style="font-size:18px; font-weight:bolder;">627 650 605</p>
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
                 </div>
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
@@ -994,13 +999,13 @@
                         src="{{ asset('img/face.png') }}" width="30px" height="30px"
                         style="margin-right:20px;"></a>
             </div>
-            <div style="display:flex; gap: 5px; margin-left:auto;">
-                <p style="font-size:13px;">{{ __('Horario: ') }}</p>
-                <div>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('De lunes a domingo: 20:30 - 23:30') }}
-                    </p>
-                    <p style="font-size:18px; font-weight:bolder;">{{ __('Domingo por la mañana: 13:30 - 15:00') }}
-                    </p>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
                 </div>
             </div>
         </div>
