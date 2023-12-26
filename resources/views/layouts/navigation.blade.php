@@ -4,7 +4,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16"
-            style="position: fixed; background-color:red; color:white; width: 100%; z-index: 1; right:0px;">
+            style="position: fixed; background-color:#141414; color:white; width: 100%; z-index: 1; right:0px;">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
