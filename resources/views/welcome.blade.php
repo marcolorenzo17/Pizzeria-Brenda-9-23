@@ -1025,8 +1025,9 @@
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
-                <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
-                <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
+                <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}</a>
+                <a class="anavbar" href="cartaAnon"
+                    style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}</a>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
                 <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
@@ -1064,7 +1065,10 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div class="mx-auto" style="background-color:#141414; margin-top:150px;">
+        <div style="background-color:white; margin-top:130px;">
+            <br>
+        </div>
+        <div class="mx-auto" style="background-color:#141414;">
             <video width="1920" height="500" autoplay muted loop>
                 <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
                 Tu navegador no es compatible con este vídeo.
