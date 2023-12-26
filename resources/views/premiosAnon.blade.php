@@ -886,115 +886,119 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased" style="background-color:white;">
-    <div class="navbar" style="display:flex;">
-        <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
-            <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
-            <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
-            <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
-            <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
-            <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
-        </div>
-        <div style="display:flex; flex:1; justify-content:center; align-items:center;">
-            <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
-        </div>
-        @if (Route::has('login'))
-            <div id="login"
-                style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
-                @include('partials/language_switcher')
-                <div>
-                    @auth
-                        <a href="{{ url('/products') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Iniciar pedido') }}</a>
-                    @else
-                        <a href="{{ route('login') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Iniciar sesión') }}</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+<body class="antialiased" style="background-color:#141414; margin:20px;">
+    <div style="background-color:#f5f0e9;">
+        <div class="navbar" style="display:flex;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
+                <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
+                <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
+            </div>
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
+                    @include('partials/language_switcher')
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Registrarse') }}</a>
-                        @endif
-                    @endauth
+                                id="boton">{{ __('Iniciar sesión') }}</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                    id="boton">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+            @endif
+        </div>
+        <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px; margin-top:200px;">
+            <h2 class="text-center">{{ __('PREMIOS') }}</h2>
+            <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                style="display:flex; flex-wrap:wrap; align-items:center;">
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px">
+                </div>
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px">
                 </div>
             </div>
-        @endif
-    </div>
-    <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px; margin-top:200px;">
-        <h2 class="text-center">{{ __('PREMIOS') }}</h2>
-        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center;">
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px">
-            </div>
         </div>
-    </div>
-    <div class="footer">
-        <div style="text-align:center;">
-            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-            <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Teléfonos: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+        <div class="footer">
+            <div style="text-align:center;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
                 </div>
-            </div>
-            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
-            </div>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-            </div>
-            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Horario: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <a class="anavbar" href="whoareweAnon" style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="contactAnon" style="font-size:13px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="privacyAnon"
+                        style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
                 </div>
             </div>
         </div>

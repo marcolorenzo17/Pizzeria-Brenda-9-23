@@ -1024,12 +1024,9 @@
 <body class="antialiased" style="background-color:#141414; margin:20px;">
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
-            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
                 <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
                 <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
-                <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
-                <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
-                <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
                 <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
@@ -1443,6 +1440,9 @@
                 </div>
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="whoareweAnon" style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="contactAnon" style="font-size:13px;">{{ __('Contáctanos') }}</a>
                 <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
                 <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
             </div>

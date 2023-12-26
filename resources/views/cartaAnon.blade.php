@@ -974,1237 +974,1259 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
-<body class="antialiased" style="background-image:url('img/fondoanon2.jpg');">
-    <div class="navbar" style="display:flex;">
-        <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
-            <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
-            <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
-            <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
-            <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
-            <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
-        </div>
-        <div style="display:flex; flex:1; justify-content:center; align-items:center;">
-            <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
-        </div>
-        @if (Route::has('login'))
-            <div id="login"
-                style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
-                @include('partials/language_switcher')
-                <div>
-                    @auth
-                        <a href="{{ url('/products') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Iniciar pedido') }}</a>
-                    @else
-                        <a href="{{ route('login') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Iniciar sesión') }}</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Registrarse') }}</a>
-                        @endif
-                    @endauth
-                </div>
+<body class="antialiased" style="background-color:#141414; margin:20px;">
+    <div style="background-color:#f5f0e9;">
+        <div class="navbar" style="display:flex;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
+                <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
+                <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
             </div>
-        @endif
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; margin-top:200px;">
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">PIZZAS</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('HAMBURGUESAS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('SÁNDWICHES') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">PASTA</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('ARROCES') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">BAGUETTES</a>
-        </div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('ENSALADAS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('COMPLEMENTOS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('PERRITOS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p10"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('CERVEZAS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p11"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('VINOS') }}</a></div>
-        <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
-                href="#p12"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
-                    style="display: block; margin-left: auto; margin-right: auto;"
-                    id="filtroproducto">{{ __('REFRESCOS') }}</a></div>
-    </div>
-    <?php
-    $ides = 0;
-    ?>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; margin-top:52px;" id="p1">
-        {{ __('PIZZAS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Pizza')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
+                    @include('partials/language_switcher')
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
                         @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar sesión') }}</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                    id="boton">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+            @endif
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; margin-top:200px;">
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">PIZZAS</a>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('HAMBURGUESAS') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('SÁNDWICHES') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;" id="filtroproducto">PASTA</a>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('ARROCES') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">BAGUETTES</a>
+            </div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('ENSALADAS') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('COMPLEMENTOS') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('PERRITOS') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p10"><img src="{{ asset('img/cervezaicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('CERVEZAS') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p11"><img src="{{ asset('img/vinoicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('VINOS') }}</a></div>
+            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;"><a
+                    href="#p12"><img src="{{ asset('img/refrescoicon.png') }}" width="70px" height="70px"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        id="filtroproducto">{{ __('REFRESCOS') }}</a></div>
+        </div>
+        <?php
+        $ides = 0;
+        ?>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; margin-top:52px;"
+            id="p1">
+            {{ __('PIZZAS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Pizza')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
                     <span class="mt-2 text-gray-500">{{ $product->description }}</span>
                 --}}
+                        </div>
                     </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div
-        style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px; margin-top:52px; margin-bottom:78px;">
-        <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
-            {{ __('¿Quieres algo más de tu estilo?') }}</p>
-        <div style="display:flex; justify-content:center;">
-            <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
-            <a href="{{ route('login') }}"
-                style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{ __('Inicia sesión') }}</a>
-            <p style="color:red; font-weight:bolder; font-size:25px;">
-                {{ __(', y crea tu propia pizza!') }}</p>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
         </div>
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
-        {{ __('HAMBURGUESAS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Hamburguesa')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">
-        {{ __('SÁNDWICHES') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Sándwich')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">
-        {{ __('PASTA') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Pasta')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">
-        {{ __('ARROCES') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Arroz')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">
-        {{ __('BAGUETTES') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Baguette')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">
-        {{ __('ENSALADAS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Ensalada')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">
-        {{ __('COMPLEMENTOS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Complemento')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">
-        {{ __('PERRITOS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Perrito')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">
-        {{ __('CERVEZAS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Cerveza')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">
-        {{ __('VINOS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Vino')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">
-        {{ __('REFRESCOS') }}</p>
-    <div
-        style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
-        <br>
-    </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:300px;">
-        @foreach ($products as $product)
-            @if ($product->type == 'Refresco')
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="border-radius:30px; border: 2px solid black;">
-
-                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                        <img src="{{ asset($product->image) }}" class="mx-auto"
-                            style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
-                    </a>
-                    <div class="px-5 py-3" style="padding:15px;">
-                        @if (Lang::locale() == 'es')
-                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                        @else
-                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                        @endif
-                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                        {{--
-                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-            --}}
-                    </div>
-                </div>
-                <?php
-                $ides += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <?php
-    $idesdesc = 0;
-    ?>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Pizza')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}
-                    </h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Hamburguesa')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Sándwich')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Pasta')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Arroz')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Baguette')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Ensalada')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Complemento')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Perrito')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Cerveza')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Vino')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div>
-        @foreach ($products as $product)
-            @if ($product->type == 'Refresco')
-                <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
-                    <br><br><br><br><br>
-                    <h1 class="text-center"
-                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                        {{ __('DESCRIPCIÓN') }}</h1>
-                    <div style="display:flex; align-items:center; justify-content:center; background:white;">
-                        <div style="margin: 0 auto; text-align:center;">
-                            <br><br>
-                            <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
-                            <br>
-                            @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">{{ $product->name }}
-                                </h3>
-                            @else
-                                <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
-                                    {{ $product->nameen }}</h3>
-                            @endif
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                            <br>
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
-                                €</span>
-                            <br><br>
-                            <?php
-                            $alergenoslista = explode('-', $product->alergenos);
-                            ?>
-                            <div
-                                style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
-                                @if ($product->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <br><br>
-                        </div>
-                        <div style="margin: 0 auto; text-align:center;">
-                            <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
-                                height="350px" class="max-h-60 mx-auto"
-                                style="border: 1px solid black; border-radius:30px;">
-                        </div>
-                    </div>
-                </div>
-                <?php
-                $idesdesc += 1;
-                ?>
-            @endif
-        @endforeach
-    </div>
-    <div style="position:fixed; bottom:100px; right:10px;">
-        <a href="#">
-            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                id="boton">
-        </a>
-    </div>
-    <div class="footer">
-        <div style="text-align:center;">
-            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+        <div
+            style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px; margin-top:52px; margin-bottom:78px;">
+            <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
+                {{ __('¿Quieres algo más de tu estilo?') }}</p>
+            <div style="display:flex; justify-content:center;">
+                <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
+                <a href="{{ route('login') }}"
+                    style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{ __('Inicia sesión') }}</a>
+                <p style="color:red; font-weight:bolder; font-size:25px;">
+                    {{ __(', y crea tu propia pizza!') }}</p>
+            </div>
         </div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-            <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Teléfonos: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
+            {{ __('HAMBURGUESAS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Hamburguesa')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">
+            {{ __('SÁNDWICHES') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Sándwich')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">
+            {{ __('PASTA') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Pasta')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">
+            {{ __('ARROCES') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Arroz')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">
+            {{ __('BAGUETTES') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Baguette')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">
+            {{ __('ENSALADAS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Ensalada')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">
+            {{ __('COMPLEMENTOS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Complemento')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">
+            {{ __('PERRITOS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Perrito')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">
+            {{ __('CERVEZAS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Cerveza')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">
+            {{ __('VINOS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Vino')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">
+            {{ __('REFRESCOS') }}</p>
+        <div
+            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            <br>
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:300px;">
+            @foreach ($products as $product)
+                @if ($product->type == 'Refresco')
+                    <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                        style="border-radius:30px; border: 2px solid black;">
+
+                        <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                            <img src="{{ asset($product->image) }}" class="mx-auto"
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                        </a>
+                        <div class="px-5 py-3" style="padding:15px;">
+                            @if (Lang::locale() == 'es')
+                                <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                            @else
+                                <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                            @endif
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
+                            {{--
+                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+            --}}
+                        </div>
+                    </div>
+                    <?php
+                    $ides += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <?php
+        $idesdesc = 0;
+        ?>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Pizza')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}
+                        </h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Hamburguesa')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Sándwich')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Pasta')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Arroz')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Baguette')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Ensalada')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Complemento')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Perrito')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Cerveza')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Vino')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($products as $product)
+                @if ($product->type == 'Refresco')
+                    <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
+                        <br><br><br><br><br>
+                        <h1 class="text-center"
+                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            {{ __('DESCRIPCIÓN') }}</h1>
+                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                            <div style="margin: 0 auto; text-align:center;">
+                                <br><br>
+                                <img src="{{ asset($product->image) }}" class="mx-auto"
+                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <br>
+                                @if (Lang::locale() == 'es')
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->name }}
+                                    </h3>
+                                @else
+                                    <h3 class="text-gray-700 uppercase" style="font-weight: bold;">
+                                        {{ $product->nameen }}</h3>
+                                @endif
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                                <br>
+                                <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                    €</span>
+                                <br><br>
+                                <?php
+                                $alergenoslista = explode('-', $product->alergenos);
+                                ?>
+                                <div
+                                    style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center;">
+                                    @if ($product->alergenos != '')
+                                        @foreach ($alergenoslista as $alergeno)
+                                            <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                                width="40px" height="40px">
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin: 0 auto; text-align:center;">
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                    height="350px" class="max-h-60 mx-auto"
+                                    style="border: 1px solid black; border-radius:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $idesdesc += 1;
+                    ?>
+                @endif
+            @endforeach
+        </div>
+        <div style="position:fixed; bottom:130px; right:10px;">
+            <a href="#">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
+                    id="boton">
+            </a>
+        </div>
+        <div class="footer">
+            <div style="text-align:center;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
                 </div>
-            </div>
-            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                <a class="anavbar" href="privacyAnon"
-                    style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
-            </div>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-            </div>
-            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Horario: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <a class="anavbar" href="whoareweAnon" style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="contactAnon" style="font-size:13px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="privacyAnon"
+                        style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
                 </div>
             </div>
         </div>

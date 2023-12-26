@@ -886,135 +886,138 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased" style="background-color:white;">
-    <div class="navbar" style="display:flex;">
-        <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center;">
-            <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
-            <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
-            <a class="anavbar" href="whoareweAnon" style="font-size:15px;">{{ __('¿Quiénes somos?') }}</a>
-            <a class="anavbar" href="faqAnon" style="font-size:15px;">{{ __('Preguntas frecuentes') }}</a>
-            <a class="anavbar" href="contactAnon" style="font-size:15px;">{{ __('Contáctanos') }}</a>
-        </div>
-        <div style="display:flex; flex:1; justify-content:center; align-items:center;">
-            <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
-        </div>
-        @if (Route::has('login'))
-            <div id="login"
-                style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
-                @include('partials/language_switcher')
-                <div>
-                    @auth
-                        <a href="{{ url('/products') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Iniciar pedido') }}</a>
-                    @else
-                        <a href="{{ route('login') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Iniciar sesión') }}</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+<body class="antialiased" style="background-color:#141414; margin:20px;">
+    <div style="background-color:#f5f0e9;">
+        <div class="navbar" style="display:flex;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
+                <a class="anavbar" href="/" style="font-size:15px;">{{ __('Inicio') }}</a>
+                <a class="anavbar" href="cartaAnon" style="font-size:15px;">{{ __('Nuestra carta') }}</a>
+            </div>
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
+                    @include('partials/language_switcher')
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Registrarse') }}</a>
-                        @endif
-                    @endauth
+                                id="boton">{{ __('Iniciar sesión') }}</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                    id="boton">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+            @endif
+        </div>
+        <div class="container px-12 py-8 mx-auto bg-white"
+            style="padding-top:30px; padding-bottom:30px;  margin-bottom:300px; margin-top:200px; margin-left:20px; margin-right:20px;">
+            <h2 class="text-center">{{ __('CONTÁCTANOS') }}</h2>
+            <br><br>
+            <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
+            <br>
+            <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
+                <tr>
+                    <td>956 37 11 15</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>956 37 47 36</td>
+                    <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
+                </tr>
+                <tr>
+                    <td>627 650 605</td>
+                    <td></td>
+                </tr>
+            </table>
+            <br><br>
+            <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+            <br><br>
+            <div class="text-center">
+                <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
+                <br>
+                <p>
+                    C/ Padre Lerchundi, 3<br>
+                    {{ __('(junto a antigua estación de Los Amarillos)') }}<br>
+                    11550 - Chipiona (Cádiz)
+                </p>
+                <br>
+                <div style="width:600px; margin-left:auto; margin-right:auto;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                        width="600" height="450" style="border:5px solid gray; border-radius:10px;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-        @endif
-    </div>
-    <div class="container px-12 py-8 mx-auto bg-white"
-        style="padding-top:30px; padding-bottom:30px;  margin-bottom:300px; margin-top:200px; margin-left:20px; margin-right:20px;">
-        <h2 class="text-center">{{ __('CONTÁCTANOS') }}</h2>
-        <br><br>
-        <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
-        <br>
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
-            <tr>
-                <td>956 37 11 15</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>956 37 47 36</td>
-                <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
-            </tr>
-            <tr>
-                <td>627 650 605</td>
-                <td></td>
-            </tr>
-        </table>
-        <br><br>
-        <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-        <br>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
-        <br><br>
-        <div class="text-center">
-            <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
-            <br>
-            <p>
-                C/ Padre Lerchundi, 3<br>
-                {{ __('(junto a antigua estación de Los Amarillos)') }}<br>
-                11550 - Chipiona (Cádiz)
-            </p>
-            <br>
-            <div style="width:600px; margin-left:auto; margin-right:auto;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                    width="600" height="450" style="border:5px solid gray; border-radius:10px;" allowfullscreen=""
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br><br>
+            <div class="text-center">
+                <h3 style="font-weight: bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
+                <br>
+                <p>
+                    brendapizza@hotmail.com
+                </p>
             </div>
         </div>
-        <br><br>
-        <div class="text-center">
-            <h3 style="font-weight: bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
-            <br>
-            <p>
-                brendapizza@hotmail.com
-            </p>
-        </div>
-    </div>
-    <br><br><br><br>
-    <div class="footer">
-        <div style="text-align:center;">
-            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-            <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Teléfonos: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+        <br><br><br><br>
+        <div class="footer">
+            <div style="text-align:center;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
                 </div>
-            </div>
-            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                <a class="anavbar" href="privacyAnon" style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
-            </div>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-            </div>
-            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Horario: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <a class="anavbar" href="whoareweAnon" style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="contactAnon" style="font-size:13px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="privacyAnon"
+                        style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                            width="30px" height="30px" style="margin-right:20px;"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                            style="margin-right:20px;"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
                 </div>
             </div>
         </div>

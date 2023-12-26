@@ -176,6 +176,13 @@ use App\Http\Controllers\ProductController;
             <livewire:product-list />
         </div>
 
+        <div style="position:fixed; bottom:130px; right:10px;">
+            <a href="#">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
+                    id="boton">
+            </a>
+        </div>
+
     @endif
 
     <footer class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:p-6"
