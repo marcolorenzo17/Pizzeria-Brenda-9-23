@@ -9,7 +9,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <a href="/" class="logo_link"><img src="{{ asset('img/logo_green.png') }}"
+                        <a href="/" class="logo_link"><img src="{{ asset('img/logo.png') }}"
                                 alt="logo_header" class="logo_header"></a>
                     </a>
                 </div>
