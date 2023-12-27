@@ -1,19 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
         <div
-            style="background-image:url('img/backgroundpizzasmall.png'); margin-top:50px; padding-bottom:20px; border-radius:30px;">
-            <br><br><br>
+            style="margin-top:110px;">
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 2px white;">
-                {{ __('PROMOCIONES') }}
+            style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('PROMOCIONES Y OFERTAS') }}
             </h2>
-            <br><br>
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/promociones.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <br>
     <div style="padding:30px; background-color:white;">
         <div style="text-align:center;">

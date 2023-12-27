@@ -84,7 +84,7 @@
         <div class="container px-12 py-8 mx-auto">
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="productos-grande">
                 <table class="table-auto w-full text-center"
-                    style="border-collapse: separate; border-spacing:25px 25px;">
+                    style="border-collapse: separate; border-spacing:10px 10px;">
                     <tr>
                         <td>
                             <a href="#1"><img src="{{ asset('img/vegetal.jpg') }}"

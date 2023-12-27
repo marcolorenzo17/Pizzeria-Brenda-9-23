@@ -6,9 +6,10 @@ use App\Http\Controllers\ProductController;
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <div style="margin-top:110px;">
+        <div style="margin-top:110px; display:flex; justify-content:center; align-items:center; gap:5vw;">
+            @include('products.partials.search-box')
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                style="font-size:60px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; letter-spacing: 3px; font-weight:lighter; -webkit-text-stroke: 2px white;">
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('NUESTRO MENÚ') }}
             </h2>
             {{--
@@ -24,6 +25,7 @@ use App\Http\Controllers\ProductController;
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <?php
     if (Cart::getTotalQuantity() == 0) {
         echo ProductController::devolver();
@@ -169,8 +171,6 @@ use App\Http\Controllers\ProductController;
         </div>
         <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
         --}}
-
-        @include('products.partials.search-box')
 
         <div style="margin-left:50px; margin-right:50px; margin-bottom:350px;">
             <livewire:product-list />
