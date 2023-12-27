@@ -3,8 +3,8 @@
 <nav x-data="{ open: false }" class="border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16"
-            style="position: fixed; background-color:#141414; color:white; width: 100%; z-index: 1; right:0px;">
+        <div class="flex justify-between"
+            style="position: fixed; background-color:#141414; color:white; width: 100%; z-index: 1; right:0px; height:110px;">
             <div class="flex">
                 <!-- Navigation Links -->
                 {{--
@@ -17,17 +17,17 @@
                 --}}
                 @if (Auth::user()->admin)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white;">
+                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Menú') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')" style="color:white;">
+                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Ingredientes') }}
                         </x-nav-link>
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white;">
+                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
                                 {{ __('Reservas') }}
                             </x-nav-link>
                         @endif
@@ -47,16 +47,16 @@
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white;">
+                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Menú') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')" style="color:white;">
+                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Promociones') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white;">
+                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
                             {{ __('Reservas') }}
                         </x-nav-link>
                         <a href="{{ route('cart.list') }}" class="flex items-center">
@@ -67,9 +67,9 @@
                                 </path>
                             </svg>
                             @if (Auth::user()->inmediato)
-                                <span style="color:white;">0</span>
+                                <span style="color:white; font-size:20px;">0</span>
                             @else
-                                <span style="color:white;">{{ Cart::getTotalQuantity() }}</span>
+                                <span style="color:white; font-size:20px;">{{ Cart::getTotalQuantity() }}</span>
                             @endif
                         </a>
                     </div>
@@ -78,11 +78,10 @@
 
             <!-- Logo -->
             <div style="margin-left:auto; margin-right:0;">
-                <a href="/" class="logo_link"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
-                        class="logo_header"></a>
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px; margin-top:10px;"></a>
             </div>
 
-            <div style="margin-left:auto; margin-right:0; margin-top:20px;" id="productos-grande-navbar">
+            <div style="margin-left:auto; margin-right:0; margin-top:40px;" id="productos-grande-navbar">
                 @include('partials/language_switcher')
             </div>
 

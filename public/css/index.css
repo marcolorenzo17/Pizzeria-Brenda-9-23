@@ -15,17 +15,6 @@ body {
     margin: auto;
 }
 
-.logo_header {
-    height: 100px;
-    width: 100px;
-}
-
-.logo_link {
-    display:block;
-    width:100px;
-    position:relative;
-}
-
 header {
     min-height: 50px;
 }

@@ -1353,6 +1353,7 @@
                         style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
                         id="boton">{{ __('NUESTRA CARTA') }}
                     </a>
+                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">{{__('¿QUÉ PEDIMOS?')}}</p>
                 </div>
             </div>
             <div style="flex:1;">
@@ -1364,6 +1365,7 @@
                         style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
                         id="boton">{{ __('HAZ TU PEDIDO') }}
                     </a>
+                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">{{__('¡TE LO LLEVAMOS A CASA!')}}</p>
                 </div>
             </div>
         </div>
