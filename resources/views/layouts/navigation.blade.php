@@ -6,14 +6,6 @@
         <div class="flex justify-between h-16"
             style="position: fixed; background-color:#141414; color:white; width: 100%; z-index: 1; right:0px;">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="/">
-                        <a href="/" class="logo_link"><img src="{{ asset('img/logo.png') }}"
-                                alt="logo_header" class="logo_header"></a>
-                    </a>
-                </div>
-
                 <!-- Navigation Links -->
                 {{--
                     <x-nav-link href="index" :active="request()->routeIs('index')">
@@ -25,9 +17,9 @@
                 --}}
                 @if (Auth::user()->admin)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <div style="position:relative; top:20px;" id="productos-grande-navbar">
-                            @include('partials/language_switcher')
-                        </div>
+                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white;">
+                            {{ __('Inicio') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
                             {{ __('Menú') }}
                         </x-nav-link>
@@ -55,9 +47,9 @@
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <div style="position:relative; top:20px;" id="productos-grande-navbar">
-                            @include('partials/language_switcher')
-                        </div>
+                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white;">
+                            {{ __('Inicio') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
                             {{ __('Menú') }}
                         </x-nav-link>
@@ -82,6 +74,16 @@
                         </a>
                     </div>
                 @endif
+            </div>
+
+            <!-- Logo -->
+            <div style="margin-left:auto; margin-right:0;">
+                <a href="/" class="logo_link"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                        class="logo_header"></a>
+            </div>
+
+            <div style="margin-left:auto; margin-right:0; margin-top:20px;" id="productos-grande-navbar">
+                @include('partials/language_switcher')
             </div>
 
             <!-- Settings Dropdown -->
@@ -260,6 +262,9 @@
         @endif
         @if (Auth::user()->admin)
             <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')">
+                    {{ __('Inicio') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
                     {{ __('Menú') }}
                 </x-responsive-nav-link>
@@ -274,6 +279,9 @@
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')">
+                    {{ __('Inicio') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
                     {{ __('Menú') }}
                 </x-responsive-nav-link>
