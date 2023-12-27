@@ -1,4 +1,4 @@
-<div class="flex justify-center pt-8 sm:justify-start sm:pt-0" style="display:flex; gap:0px;">
+<div class="flex justify-center pt-8 sm:justify-start sm:pt-0" style="display:flex; gap:10px;">
     @foreach ($available_locales as $locale_name => $available_locale)
         @if ($available_locale === $current_locale)
             {{--

@@ -44,7 +44,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -62,7 +62,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                             </form>
                             @if (Auth::user()->admin)
@@ -259,9 +259,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -290,7 +290,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -309,7 +309,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                             </form>
                             @if (Auth::user()->admin)
@@ -383,9 +383,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -415,7 +415,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -434,7 +434,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -472,9 +472,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -504,7 +504,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -523,7 +523,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -561,9 +561,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -593,7 +593,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -612,7 +612,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -650,9 +650,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -682,7 +682,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -701,7 +701,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -739,9 +739,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -771,7 +771,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -790,7 +790,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -828,9 +828,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -860,7 +860,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -879,7 +879,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -915,9 +915,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -947,7 +947,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -966,7 +966,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1004,9 +1004,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1036,7 +1036,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1055,7 +1055,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1091,9 +1091,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1123,7 +1123,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1142,7 +1142,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1178,9 +1178,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1210,7 +1210,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1229,7 +1229,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1265,9 +1265,9 @@
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1298,7 +1298,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1317,7 +1317,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>

@@ -890,9 +890,15 @@
     <div style="background-color:#f5f0e9;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
-                <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}</a>
-                <a class="anavbar" href="cartaAnon"
-                    style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}</a>
+                <div>
+                    <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}
+                    </a>
+                </div>
+                <div>
+                    <a class="anavbar" href="cartaAnon"
+                        style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}
+                    </a>
+                </div>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
                 <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
@@ -972,7 +978,12 @@
                 </div>
                 <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
                     <a class="anavbar" href="whoareweAnon" style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
-                    <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                    <div>
+                        <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    </div>
                     <a class="anavbar" href="contactAnon" style="font-size:13px;">{{ __('Contáctanos') }}</a>
                     <a class="anavbar" href="privacyAnon"
                         style="font-size:13px;">{{ __('Política de privacidad') }}</a>

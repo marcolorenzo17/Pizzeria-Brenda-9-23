@@ -1025,9 +1025,18 @@
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
-                <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}</a>
-                <a class="anavbar" href="cartaAnon"
-                    style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}</a>
+                <div>
+                    <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}
+                    </a>
+                    <div style="background-color:#f12d2d; margin-top:50px; height:5px; border-radius:10px;">
+                        <br>
+                    </div>
+                </div>
+                <div>
+                    <a class="anavbar" href="cartaAnon"
+                        style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}
+                    </a>
+                </div>
             </div>
             <div style="display:flex; flex:1; justify-content:center; align-items:center;">
                 <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
@@ -1353,7 +1362,8 @@
                         style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
                         id="boton">{{ __('NUESTRA CARTA') }}
                     </a>
-                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">{{__('¿QUÉ PEDIMOS?')}}</p>
+                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('¿QUÉ PEDIMOS?') }}</p>
                 </div>
             </div>
             <div style="flex:1;">
@@ -1365,7 +1375,8 @@
                         style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
                         id="boton">{{ __('HAZ TU PEDIDO') }}
                     </a>
-                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">{{__('¡TE LO LLEVAMOS A CASA!')}}</p>
+                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('¡TE LO LLEVAMOS A CASA!') }}</p>
                 </div>
             </div>
         </div>

@@ -107,28 +107,28 @@ Route::get('/refrescosAnon', function() {
 
 Route::get('/whoareweAnon', function() {
     return view('whoareweAnon');
-});
+})->name('whoareweAnon');
 
 Route::get('/faqAnon', function() {
     return view('faqAnon');
-});
+})->name('faqAnon');
 
 Route::get('/contactAnon', function() {
     return view('contactAnon');
-});
+})->name('contactAnon');
 
 Route::get('/privacyAnon', function() {
     return view('privacyAnon');
-});
+})->name('privacyAnon');
 
 Route::get('/premiosAnon', function() {
     return view('premiosAnon');
-});
+})->name('premiosAnon');
 
 Route::get('/cartaAnon', function() {
     $products = DB::table('products')->get();
     return view('cartaAnon', ['products' => $products]);
-});
+})->name('cartaAnon');
 
 
 Route::resource('products', ProductController::class);
