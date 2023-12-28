@@ -1,11 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ __('TU CUENTA') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('TU CUENTA') }}
+            </h2>
+        </div>
     </x-slot>
+
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">

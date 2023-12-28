@@ -3,16 +3,41 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('CURRÍCULUM') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('CURRÍCULUM') }}
+            </h2>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/curriculum.css" />
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function() {
+                    if (reader.result.substr(0, 20) == "data:application/pdf") {
+                        $("#previewImg").attr("style", "display:none;");
+                        $("#verPDF").attr("style", "display:block;");
+                        $("#verPDF").attr("src", reader.result);
+                    } else {
+                        $("#verPDF").attr("style", "display:none;");
+                        $("#previewImg").attr("style", "display:block;");
+                        $("#previewImg").attr("src", reader.result);
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
     <br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
         @if (Auth::user()->role == 'Jefe')
             <div style="padding:30px;">
                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
@@ -80,8 +105,14 @@
                         <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                         <br>
                     @enderror
-                    <input type="file" name="curriculum" id="curriculum">
-                    <br><br><br>
+                    <input type="file" name="curriculum" id="curriculum" onchange="previewFile(this);" required>
+                    <div style="margin-top:20px; margin-bottom:20px; width:200px; margin-left:auto; margin-right:auto;">
+                        <img id="previewImg" src="/images/example.png" alt="Placeholder" style="display:none;">
+                    </div>
+                    <div style="margin-top:20px; margin-bottom:20px; width:375px; margin-left:auto; margin-right:auto;">
+                        <embed src="#" width="375" height="500" type="application/pdf" style="display:none;"
+                            name="verPDF" id="verPDF">
+                    </div>
                     <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
                         id="boton_submit">{{ __('Enviar currículum') }}</button>
                 </form>
@@ -89,7 +120,6 @@
         @endif
     </div>
 
-    <br><br><br><br>
     <div class="footer">
         <div style="text-align:center;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
@@ -121,7 +151,8 @@
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
                         src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                        style="margin-right:20px;"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">

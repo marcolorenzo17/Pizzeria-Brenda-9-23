@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="/css/index.css" />
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ __('RECIBOS') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('RECIBOS') }}
+            </h2>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 
     <div class="py-12" style="margin-bottom:300px;">
         @if (Auth::user()->admin)
