@@ -2,14 +2,14 @@
     <x-slot name="header">
         <div style="margin-top:110px;">
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('CARRITO') }}
             </h2>
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <main class="my-8">
+    <main class="my-8" style="margin-bottom:300px;">
         <div class="container px-6 mx-auto">
             <div style="text-align:center;">
                 <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
@@ -181,8 +181,6 @@
             </div>
         </div>
     </main>
-
-    <br><br><br><br>
 
     <div class="footer">
         <div style="text-align:center;">

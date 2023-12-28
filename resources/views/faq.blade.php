@@ -1,13 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('PREGUNTAS FRECUENTES') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('PREGUNTAS FRECUENTES') }}
+            </h2>
+        </div>
     </x-slot>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <br>
-    <div class="container px-12 py-8 mx-auto bg-white">
+    <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
         <p style="font-weight: bolder; font-size:20px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
         </p>
@@ -39,7 +41,6 @@
         <br><br>
     </div>
 
-    <br><br><br><br>
     <div class="footer">
         <div style="text-align:center;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>

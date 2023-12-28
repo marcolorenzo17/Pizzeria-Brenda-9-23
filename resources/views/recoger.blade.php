@@ -1,12 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('¿CÓMO QUIERES RECIBIR TU PEDIDO?') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                {{ __('¿CÓMO QUIERES RECIBIR TU PEDIDO?') }}
+            </h2>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap" rel="stylesheet">
     <br>
     <div style="text-align:center;">
         @if (Auth::User()->inmediato)
@@ -17,7 +19,7 @@
                 id="boton">{{ __('ATRÁS') }}</a>
         @endif
     </div>
-    <div class="container px-12 py-8 mx-auto">
+    <div class="container px-12 py-8 mx-auto" style="margin-bottom:300px;">
         <br>
         <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
             <tr>
@@ -103,7 +105,6 @@
         </form>
     </div>
 
-    <br><br><br><br>
     <div class="footer">
         <div style="text-align:center;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>

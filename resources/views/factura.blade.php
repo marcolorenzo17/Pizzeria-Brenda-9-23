@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ __('Factura') }} - {{ $recibo->created_at }}</title>
+    <title>{{ __('Recibo') }} - {{ $recibo->created_at }}</title>
 </head>
 
 <body>
-    <h1>{{ __('FACTURA') }}</h1>
+    <h1>{{ __('RECIBO') }}</h1>
 
     <h2 style="text-align:right;">Pizzería Brenda</h2>
     <h4 style="text-align:right;">C/ Padre Lerchundi, 3</h4>

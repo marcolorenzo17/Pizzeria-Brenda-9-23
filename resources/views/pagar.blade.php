@@ -14,14 +14,16 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('PAGAR - RECOGER EN PIZZERÍA') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                {{ __('PAGAR - RECOGER EN PIZZERÍA') }}
+            </h2>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap" rel="stylesheet">
 
     {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
@@ -50,7 +52,7 @@
             id="boton">{{ __('ATRÁS') }}</a>
     </div>
     <br>
-    <table class="mx-auto">
+    <table class="mx-auto" style="margin-bottom:300px;">
         <tr>
             <td>
                 <div class="container px-12 py-8 mx-auto bg-white">
@@ -246,7 +248,6 @@
         </tr>
     </table>
 
-    <br><br><br><br>
     <div class="footer">
         <div style="text-align:center;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>

@@ -3,21 +3,26 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
         @if (Lang::locale() == 'es')
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center"
-                style="font-size:25px; text-transform:uppercase;">
-                {{ $products->name }} {{ __('- DETALLES') }}
-            </h2>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                    {{ $products->name }} {{ __('- DETALLES') }}
+                </h2>
+            </div>
         @else
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center"
-                style="font-size:25px; text-transform:uppercase;">
-                {{ $products->nameen }} {{ __('- DETALLES') }}
-            </h2>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                    {{ $products->nameen }} {{ __('- DETALLES') }}
+                </h2>
+            </div>
         @endif
-        <br><br>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+        rel="stylesheet">
 
     {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
@@ -40,7 +45,7 @@
     <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
     --}}
 
-    <div class="py-12">
+    <div class="py-12" style="margin-bottom:300px;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -392,8 +397,6 @@
             </div>
         </div>
     </div>
-
-    <br><br><br><br>
 
     <div class="footer">
         <div style="text-align:center;">

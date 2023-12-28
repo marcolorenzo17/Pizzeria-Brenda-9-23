@@ -7,9 +7,11 @@ use App\Http\Controllers\ProductController;
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <div style="margin-top:110px; display:flex; justify-content:center; align-items:center; gap:5vw;">
-            @include('products.partials.search-box')
+            @if (!Auth::user()->admin)
+                @include('products.partials.search-box')
+            @endif
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                style="font-size:60px; font-family: 'Anton', sans-serif; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('NUESTRO MENÚ') }}
             </h2>
             {{--
@@ -40,7 +42,7 @@ use App\Http\Controllers\ProductController;
                 id="boton">{{ __('CREAR PLATO') }}</a>
         </div>
         <br>
-        <div style="background:white;">
+        <div style="background:white; margin-bottom:300px;">
             <table style="width:100%;">
                 @foreach ($products as $product)
                     <tr>

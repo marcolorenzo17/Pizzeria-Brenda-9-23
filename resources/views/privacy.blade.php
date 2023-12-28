@@ -1,13 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('POLÍTICA DE PRIVACIDAD') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('POLÍTICA DE PRIVACIDAD') }}
+            </h2>
+        </div>
     </x-slot>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <br>
-    <div class="bg-white" style="width:100%; padding:30px;">
+    <div class="bg-white" style="width:100%; padding:30px; margin-bottom:300px;">
         <p style="text-align:center;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
         <p style="text-align:center;">www.pizzeriabrenda.com</p>
         <br><br><br>
@@ -193,7 +195,6 @@
         generador de plantilla de aviso legal y condiciones de uso online el día 28/10/2023.
     </div>
 
-    <br><br><br><br>
     <div class="footer">
         <div style="text-align:center;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
