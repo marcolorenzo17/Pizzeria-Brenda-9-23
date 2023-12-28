@@ -1,15 +1,17 @@
 @if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
-            <br><br><br>
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-                {{ __('VALORACIONES') }}
-            </h2>
-            <br><br>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                    {{ __('VALORACIONES') }}
+                </h2>
+            </div>
         </x-slot>
         <link rel="stylesheet" href="/css/index_products.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <br>
-        <div class="container px-12 py-8 mx-auto bg-white">
+        <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
                 <tr>
                     <td class="font-bold">{{ __('Producto') }}</td>
@@ -109,7 +111,6 @@
             </table>
         </div>
 
-        <br><br><br><br>
         <div class="footer">
             <div style="text-align:center;">
                 <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>

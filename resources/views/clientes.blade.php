@@ -1,18 +1,21 @@
 @if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
-            <br><br><br>
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-                {{ __('CLIENTES') }}
-            </h2>
-            <br><br>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                    {{ __('CLIENTES') }}
+                </h2>
+            </div>
         </x-slot>
         <link rel="stylesheet" href="/css/clientes.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
-        <div class="container px-12 py-8 mx-auto bg-white">
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
+        <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                id="productos-grande">
                 <tr>
                     <td class="font-bold">{{ __('Nombre de usuario') }}</td>
                     <td class="font-bold">{{ __('Correo electrónico') }}</td>
@@ -178,8 +181,8 @@
                                             onfocusout="validate_puntos()">
                                     </div>
                                     <div style="padding-left:0px;">
-                                        <button type="submit" class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                            id="boton"
+                                        <button type="submit"
+                                            class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500" id="boton"
                                             style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
@@ -306,7 +309,6 @@
 </table>
 </div>
 
-<br><br><br><br>
 <div class="footer">
     <div style="text-align:center;">
         <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>

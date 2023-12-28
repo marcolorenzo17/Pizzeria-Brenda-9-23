@@ -1,12 +1,14 @@
 @if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
-            <br><br><br>
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-                {{ __('EDITAR INGREDIENTE') }}
-            </h2>
-            <br><br>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                    {{ __('EDITAR INGREDIENTE') }}
+                </h2>
+            </div>
         </x-slot>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <br>
         <div style="text-align:center;">
             <a href="{{ route('crearpizza') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
@@ -14,8 +16,8 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-            <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST" enctype="multipart/form-data"
-                name="editaringrediente" onsubmit="return validate()">
+            <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST"
+                enctype="multipart/form-data" name="editaringrediente" onsubmit="return validate()">
                 @csrf
                 @error('name')
                     <span class="text-danger" style="color:red;">{{ __($message) }}</span>
