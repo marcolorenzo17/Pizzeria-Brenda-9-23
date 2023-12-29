@@ -13,6 +13,7 @@
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
+
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
                 id="productos-grande">

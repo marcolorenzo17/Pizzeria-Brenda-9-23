@@ -17,7 +17,7 @@
 
     <p style="text-align:center;">{{ __('Entrega') }}: {{ __($recibo->direccion) }}</p>
     @if ($recibo->direccion == 'A domicilio')
-        <p style="text-align:center;">{{ __('Dirección') }}: {{Auth::User()->direccion}}</p>
+        <p style="text-align:center;">{{ __('Dirección') }}: {{ Auth::User()->direccion }}</p>
     @endif
 
     <table>
