@@ -20,7 +20,7 @@
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
             style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw;" x-data="{ nombre: '', name: '' }">
-            <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
+            <div>
                 <form action="{{ route('products.actualizar', $product) }}" method="POST" enctype="multipart/form-data"
                     name="editarplato" onsubmit="return validate()">
                     @csrf
@@ -30,7 +30,7 @@
                     @enderror
                     <label for="name">{{ __('Nombre del plato') }}</label>
                     <br>
-                    <input type="text" id="name" name="name" size="80" value="{{ $product->name }}"
+                    <input type="text" id="name" name="name" size="80"
                         onfocusout="validate_name()" x-model="nombre">
                     <br>
                     <strong>{{ __('Nombre del plato actual:') }}</strong>&nbsp;{{ __($product->name) }}
@@ -42,7 +42,7 @@
                     @enderror
                     <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                     <br>
-                    <input type="text" id="nameen" name="nameen" size="80" value="{{ $product->nameen }}"
+                    <input type="text" id="nameen" name="nameen" size="80"
                         onfocusout="validate_nameen()" x-model="name">
                     <br>
                     <strong>{{ __('Nombre del plato actual (Inglés):') }}</strong>&nbsp;{{ __($product->nameen) }}
