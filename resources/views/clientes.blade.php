@@ -10,11 +10,71 @@
         </x-slot>
         <link rel="stylesheet" href="/css/clientes.css" />
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
 
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
+
+            <div>
+                <form id="validacion_form" action="{{ route('clientes.validacion') }}" method="POST">
+                    @csrf
+                    <input type="text" name="id_user">
+                    <button type="submit" id="validacion_btn">Por favor</button>
+                </form>
+            </div>
+            <script>
+                $("#validacion_btn").click(function(e) {
+                    e.preventDefault();
+                    let form = $('#validacion_form')[0];
+                    let data = new FormData(form);
+
+                    $.ajax({
+                        url: "{{ route('clientes.validacion') }}",
+                        type: "POST",
+                        data: data,
+                        dataType: "JSON",
+                        processData: false,
+                        contentType: false,
+
+                        success: function(response) {
+
+                            if (response.errors) {
+                                var errorMsg = '';
+                                $.each(response.errors, function(field, errors) {
+                                    $.each(errors, function(index, error) {
+                                        errorMsg += error + '<br>';
+                                    });
+                                });
+                                iziToast.error({
+                                    message: errorMsg,
+                                    position: 'topRight'
+                                });
+
+                            } else {
+                                iziToast.success({
+                                    message: response.success,
+                                    position: 'topRight'
+
+                                });
+                            }
+
+                        },
+                        error: function(xhr, status, error) {
+
+                            iziToast.error({
+                                message: 'Se ha producido un error: ' + error,
+                                position: 'topRight'
+                            });
+                        }
+
+                    });
+
+                })
+            </script>
+
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
                 id="productos-grande">
                 <tr>
@@ -115,7 +175,8 @@
                             @endif
                         </td>
                         <td>
-                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
+                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
+                                onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                                 @csrf
                                 @method('delete')
                                 <button
@@ -296,7 +357,8 @@
     </td>
     <td>
         <div style="padding-left:50px;">
-            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
+            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
+                onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                 @csrf
                 @method('delete')
                 <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>

@@ -90,6 +90,36 @@ class UserController extends Controller
         }
     }
 
+    public function validacion(Request $req) {
+        $validator = Validator::make($req->all(), [
+            'id_user' => 'required',
+        ],
+        [
+            'id_user.required' => 'Introduce pls'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+        $cliente = User::findOrFail($req->id_user);
+
+        if ($cliente->validado) {
+            if (Auth::user()->id == $req->id_user) {
+                return response()->json(['success' => 'Un usuario no puede invalidarse a sí mismo.']);
+            } else {
+                $cliente->validado = false;
+
+                $cliente->update();
+
+                return response()->json(['success' => 'Se ha invalidado al usuario con éxito.']);
+            }
+        } else {
+            $cliente->validado = true;
+
+            return response()->json(['success' => 'Se ha validado al usuario con éxito.']);
+        }
+    }
+
     public function actualizarrol(Request $req, string $id) {
         $cliente = User::findOrFail($id);
 
