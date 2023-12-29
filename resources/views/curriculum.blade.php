@@ -77,7 +77,7 @@
                                 {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
                             </p>
                             <br>
-                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
+                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este currículum?')">
                                 @csrf
                                 @method('delete')
                                 <button

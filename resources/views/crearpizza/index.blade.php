@@ -72,7 +72,7 @@
                                         </td>
                                         <td>
                                             <form method="post"
-                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
+                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button
@@ -111,7 +111,7 @@
                                     <tr>
                                         <td style="padding:5px">
                                             <form method="post"
-                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
+                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button

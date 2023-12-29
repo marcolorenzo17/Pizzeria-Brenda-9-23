@@ -44,7 +44,7 @@
                         @if (Auth::user()->role != 'Cliente')
                             <td>
                                 <form method="post"
-                                    action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
+                                    action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">
                                     @csrf
                                     @method('delete')
                                     <button
@@ -112,7 +112,7 @@
                             <td>
                                 <div style="padding-left:50px;">
                                     <form method="post"
-                                        action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
+                                        action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">
                                         @csrf
                                         @method('delete')
                                         <button

@@ -35,7 +35,7 @@
                         @if (Auth::user()->role != 'Cliente')
                             <td>
                                 <form method="post"
-                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
+                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
                                     @csrf
                                     @method('delete')
                                     <button
@@ -94,7 +94,7 @@
                             </td>
                             <td>
                                 <form method="post"
-                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
+                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
                                     @csrf
                                     @method('delete')
                                     <div style="padding-left:50px;">

@@ -127,7 +127,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
+                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
                                         @csrf
                                         @method('delete')
                                         <button
@@ -395,7 +395,7 @@
                                 </td>
                                 <td>
                                     <div style="padding-left:50px;">
-                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
+                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
                                             @csrf
                                             @method('delete')
                                             <button

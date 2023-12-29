@@ -92,7 +92,7 @@ use App\Http\Controllers\ProductController;
                                         </td>
                                         <td>
                                             <form method="post"
-                                                action="{{ route('products.destroy', $product->id) }}">
+                                                action="{{ route('products.destroy', $product->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button
@@ -131,7 +131,7 @@ use App\Http\Controllers\ProductController;
                                     <tr>
                                         <td style="padding:5px">
                                             <form method="post"
-                                                action="{{ route('products.destroy', $product->id) }}">
+                                                action="{{ route('products.destroy', $product->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button

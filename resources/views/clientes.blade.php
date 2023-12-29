@@ -115,7 +115,7 @@
                             @endif
                         </td>
                         <td>
-                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                                 @csrf
                                 @method('delete')
                                 <button
@@ -296,7 +296,7 @@
     </td>
     <td>
         <div style="padding-left:50px;">
-            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                 @csrf
                 @method('delete')
                 <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
