@@ -12,21 +12,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
         <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
 
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
 
+            {{--
             <div>
-                <form id="validacion_form" action="{{ route('clientes.validacion') }}" method="POST">
+                <form id="validacion_form" method="POST">
                     @csrf
                     <input type="text" name="id_user">
-                    <button type="submit" id="validacion_btn">Por favor</button>
+                    <button type="submit" id="validacion_btn" onclick="validar_switch(event)">Por favor</button>
                 </form>
             </div>
             <script>
-                $("#validacion_btn").click(function(e) {
+                var validar_switch = function(e) {
                     e.preventDefault();
                     let form = $('#validacion_form')[0];
                     let data = new FormData(form);
@@ -52,7 +54,11 @@
                                     message: errorMsg,
                                     position: 'topRight'
                                 });
-
+                            } else if (response.error) {
+                                iziToast.error({
+                                    message: response.error,
+                                    position: 'topRight'
+                                });
                             } else {
                                 iziToast.success({
                                     message: response.success,
@@ -72,8 +78,9 @@
 
                     });
 
-                })
+                }
             </script>
+            --}}
 
             <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
                 id="productos-grande">
@@ -92,6 +99,7 @@
                 <tr>
                     <td><br></td>
                 </tr>
+                <?php $usuario = 0; ?>
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td>{{ $cliente->name }}</td>
@@ -161,19 +169,135 @@
                         @endif
                         <td>
                             @if ($cliente->validado)
-                                <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
+                                <form method="POST" id="validacion_form_{{ $usuario }}">
                                     @csrf
-                                    <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
+                                    <input type="hidden" name="id_user" value="{{ $cliente->id }}">
+                                    <button id="validacion_btn_{{ $usuario }}" style="border:1px solid #f12d2d; padding:10px; border-radius:5px;" onclick="validar_off(event, {{ $usuario }})">{{ __('INVALIDAR') }}</button>
                                 </form>
                             @else
-                                <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
+                                <form method="POST" id="validacion_form_{{ $usuario }}">
                                     @csrf
-                                    <button
-                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
+                                    <input type="hidden" name="id_user" value="{{ $cliente->id }}">
+                                    <button id="validacion_btn_{{ $usuario }}" style="border:1px solid #568c2c; padding:10px; border-radius:5px;" onclick="validar_on(event, {{ $usuario }})">{{ __('VALIDAR') }}</button>
                                 </form>
                             @endif
                         </td>
+                        <script>
+                            var validar_off = function(e, usuario) {
+                                e.preventDefault();
+                                let form = $(`#validacion_form_${usuario}`)[0];
+                                let data = new FormData(form);
+
+                                $.ajax({
+                                    url: "{{ route('clientes.validacion') }}",
+                                    type: "POST",
+                                    data: data,
+                                    dataType: "JSON",
+                                    processData: false,
+                                    contentType: false,
+
+                                    success: function(response) {
+
+                                        if (response.errors) {
+                                            var errorMsg = '';
+                                            $.each(response.errors, function(field, errors) {
+                                                $.each(errors, function(index, error) {
+                                                    errorMsg += error + '<br>';
+                                                });
+                                            });
+                                            iziToast.error({
+                                                message: errorMsg,
+                                                position: 'topRight'
+                                            });
+                                        } else if (response.error) {
+                                            iziToast.error({
+                                                message: response.error,
+                                                position: 'topRight'
+                                            });
+                                        } else {
+                                            iziToast.success({
+                                                message: response.success,
+                                                position: 'topRight'
+
+                                            });
+                                            document.getElementById(`validacion_btn_${usuario}`).setAttribute("style",
+                                                "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                            document.getElementById(`validacion_btn_${usuario}`).setAttribute("onclick",
+                                                `validar_on(event, ${usuario})`);
+                                            document.getElementById(`validacion_btn_${usuario}`).innerHTML =
+                                                "{{ __('VALIDAR') }}";
+                                        }
+
+                                    },
+                                    error: function(xhr, status, error) {
+
+                                        iziToast.error({
+                                            message: 'Se ha producido un error: ' + error,
+                                            position: 'topRight'
+                                        });
+                                    }
+
+                                });
+                            }
+
+                            var validar_on = function(e, usuario) {
+                                e.preventDefault();
+                                let form = $(`#validacion_form_${usuario}`)[0];
+                                let data = new FormData(form);
+
+                                $.ajax({
+                                    url: "{{ route('clientes.validacion') }}",
+                                    type: "POST",
+                                    data: data,
+                                    dataType: "JSON",
+                                    processData: false,
+                                    contentType: false,
+
+                                    success: function(response) {
+
+                                        if (response.errors) {
+                                            var errorMsg = '';
+                                            $.each(response.errors, function(field, errors) {
+                                                $.each(errors, function(index, error) {
+                                                    errorMsg += error + '<br>';
+                                                });
+                                            });
+                                            iziToast.error({
+                                                message: errorMsg,
+                                                position: 'topRight'
+                                            });
+                                        } else if (response.error) {
+                                            iziToast.error({
+                                                message: response.error,
+                                                position: 'topRight'
+                                            });
+                                        } else {
+                                            iziToast.success({
+                                                message: response.success,
+                                                position: 'topRight'
+
+                                            });
+
+                                            document.getElementById(`validacion_btn_${usuario}`).setAttribute("style",
+                                                "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                            document.getElementById(`validacion_btn_${usuario}`).setAttribute("onclick",
+                                                `validar_off(event, ${usuario})`);
+                                            document.getElementById(`validacion_btn_${usuario}`).innerHTML =
+                                                "{{ __('INVALIDAR') }}";
+                                        }
+
+                                    },
+                                    error: function(xhr, status, error) {
+
+                                        iziToast.error({
+                                            message: 'Se ha producido un error: ' + error,
+                                            position: 'topRight'
+                                        });
+                                    }
+
+                                });
+                            }
+                        </script>
                         <td>
                             <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
                                 onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
@@ -184,9 +308,11 @@
                             </form>
                         </td>
                     </tr>
+                    <?php $usuario += 1; ?>
                 @endforeach
             </table>
             <table style="border-collapse:separate; border-spacing:10px;" id="productos-pequenio">
+                <?php $usuario_sm = 0; ?>
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td style="display:flex; justify-content:space-between;">
@@ -324,50 +450,194 @@
                     </tr>
                 @endif
                 <tr>
+                    {{--
+                        <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                            @if ($cliente->validado)
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
+                        </td>
+                        <td>
+                            <div style="padding-left:50px;">
+                                <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
+                                    @csrf
+                                    <button
+                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
+                                </form>
+                            </div>
+                        </td>
+                    @else
+                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
+                        </td>
+                        <td>
+                            <div style="padding-left:50px;">
+                                <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
+                                    @csrf
+                                    <button
+                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
+                                </form>
+                            </div>
+                        </td>
+    @endif
+                    --}}
                     <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                        @if ($cliente->validado)
-                            <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
+                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
                     </td>
                     <td>
                         <div style="padding-left:50px;">
-                            <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
-                                @csrf
-                                <button
-                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('INVALIDAR') }}</button>
-                            </form>
+                            @if ($cliente->validado)
+                                <form method="POST" id="validacion_form_sm_{{ $usuario_sm }}">
+                                    @csrf
+                                    <input type="hidden" name="id_user" value="{{ $cliente->id }}">
+                                    <button id="validacion_btn_sm_{{ $usuario_sm }}"
+                                        style="border:1px solid #f12d2d; padding:10px; border-radius:5px;"
+                                        onclick="validar_sm_off(event, {{ $usuario_sm }})">{{ __('INVALIDAR') }}</button>
+                                </form>
+                            @else
+                                <form method="POST" id="validacion_form_sm_{{ $usuario_sm }}">
+                                    @csrf
+                                    <input type="hidden" name="id_user" value="{{ $cliente->id }}">
+                                    <button id="validacion_btn_sm_{{ $usuario_sm }}"
+                                        style="border:1px solid #568c2c; padding:10px; border-radius:5px;"
+                                        onclick="validar_sm_on(event, {{ $usuario_sm }})">{{ __('VALIDAR') }}</button>
+                                </form>
+                            @endif
                         </div>
                     </td>
-                @else
-                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
+                </tr>
+                <script>
+                    var validar_sm_off = function(e, usuario_sm) {
+                        e.preventDefault();
+                        let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
+                        let data = new FormData(form);
+
+                        $.ajax({
+                            url: "{{ route('clientes.validacion') }}",
+                            type: "POST",
+                            data: data,
+                            dataType: "JSON",
+                            processData: false,
+                            contentType: false,
+
+                            success: function(response) {
+
+                                if (response.errors) {
+                                    var errorMsg = '';
+                                    $.each(response.errors, function(field, errors) {
+                                        $.each(errors, function(index, error) {
+                                            errorMsg += error + '<br>';
+                                        });
+                                    });
+                                    iziToast.error({
+                                        message: errorMsg,
+                                        position: 'topRight'
+                                    });
+                                } else if (response.error) {
+                                    iziToast.error({
+                                        message: response.error,
+                                        position: 'topRight'
+                                    });
+                                } else {
+                                    iziToast.success({
+                                        message: response.success,
+                                        position: 'topRight'
+
+                                    });
+                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
+                                        "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
+                                        `validar_on(event, ${usuario_sm})`);
+                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                        "{{ __('VALIDAR') }}";
+                                }
+
+                            },
+                            error: function(xhr, status, error) {
+
+                                iziToast.error({
+                                    message: 'Se ha producido un error: ' + error,
+                                    position: 'topRight'
+                                });
+                            }
+
+                        });
+                    }
+
+                    var validar_sm_on = function(e, usuario_sm) {
+                        e.preventDefault();
+                        let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
+                        let data = new FormData(form);
+
+                        $.ajax({
+                            url: "{{ route('clientes.validacion') }}",
+                            type: "POST",
+                            data: data,
+                            dataType: "JSON",
+                            processData: false,
+                            contentType: false,
+
+                            success: function(response) {
+
+                                if (response.errors) {
+                                    var errorMsg = '';
+                                    $.each(response.errors, function(field, errors) {
+                                        $.each(errors, function(index, error) {
+                                            errorMsg += error + '<br>';
+                                        });
+                                    });
+                                    iziToast.error({
+                                        message: errorMsg,
+                                        position: 'topRight'
+                                    });
+                                } else if (response.error) {
+                                    iziToast.error({
+                                        message: response.error,
+                                        position: 'topRight'
+                                    });
+                                } else {
+                                    iziToast.success({
+                                        message: response.success,
+                                        position: 'topRight'
+
+                                    });
+
+                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
+                                        "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
+                                        `validar_off(event, ${usuario_sm})`);
+                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                        "{{ __('INVALIDAR') }}";
+                                }
+
+                            },
+                            error: function(xhr, status, error) {
+
+                                iziToast.error({
+                                    message: 'Se ha producido un error: ' + error,
+                                    position: 'topRight'
+                                });
+                            }
+
+                        });
+                    }
+                </script>
+                <tr>
+                    <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
                     </td>
                     <td>
                         <div style="padding-left:50px;">
-                            <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
+                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
+                                onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                                 @csrf
+                                @method('delete')
                                 <button
-                                    class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('VALIDAR') }}</button>
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
                             </form>
                         </div>
                     </td>
-@endif
-</tr>
-<tr>
-    <td style="display:flex; justify-content:space-between; padding-left:50px;">
-        <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
-    </td>
-    <td>
-        <div style="padding-left:50px;">
-            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
-                onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
-                @csrf
-                @method('delete')
-                <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
-            </form>
-        </div>
-    </td>
-</tr>
-<tr></tr>
-<tr></tr>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <?php $usuario_sm += 1; ?>
 @endforeach
 </table>
 </div>

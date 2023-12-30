@@ -98,7 +98,7 @@
             <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
             <br><br>
             <div class="mx-auto text-center">
-                <form id="curriculum_form" action="{{ route('curriculum.addCurriculum') }}" method="POST"
+                <form id="curriculum_form" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @error('curriculum')

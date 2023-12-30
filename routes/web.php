@@ -236,7 +236,7 @@ Route::post('adminsicliente/{id}', [UserController::class, 'adminsi'])->name('cl
 Route::post('adminnocliente/{id}', [UserController::class, 'adminno'])->name('clientes.adminno');
 Route::post('validarcliente/{id}', [UserController::class, 'validar'])->name('clientes.validar');
 Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->name('clientes.desvalidar');
-Route::post('clientes/validacion', [UserController::class, 'validacion'])->name('clientes.validacion');
+Route::post('/validacion', [UserController::class, 'validacion'])->name('clientes.validacion');
 Route::post('actualizarrol/{id}', [UserController::class, 'actualizarrol'])->name('clientes.actualizarrol');
 Route::post('actualizarpuntos/{id}', [UserController::class, 'actualizarpuntos'])->name('clientes.actualizarpuntos');
 

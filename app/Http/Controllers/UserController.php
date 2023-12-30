@@ -95,7 +95,7 @@ class UserController extends Controller
             'id_user' => 'required',
         ],
         [
-            'id_user.required' => 'Introduce pls'
+            'id_user.required' => 'Introduce un valor.'
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()]);
@@ -105,7 +105,7 @@ class UserController extends Controller
 
         if ($cliente->validado) {
             if (Auth::user()->id == $req->id_user) {
-                return response()->json(['success' => 'Un usuario no puede invalidarse a sí mismo.']);
+                return response()->json(['error' => 'Un usuario no puede invalidarse a sí mismo.']);
             } else {
                 $cliente->validado = false;
 
@@ -115,6 +115,8 @@ class UserController extends Controller
             }
         } else {
             $cliente->validado = true;
+
+            $cliente->update();
 
             return response()->json(['success' => 'Se ha validado al usuario con éxito.']);
         }
