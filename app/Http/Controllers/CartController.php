@@ -164,6 +164,8 @@ class CartController extends Controller
         $recibo->estado = 'Pedido registrado';
         $recibo->pagado = $req->pagado;
         $recibo->productos = $req->productos;
+        $recibo->precios = $req->precios;
+        $recibo->cantidades = $req->cantidades;
 
         $recibo->save();
 
