@@ -172,13 +172,17 @@
                                 <form method="POST" id="validacion_form_{{ $usuario }}">
                                     @csrf
                                     <input type="hidden" name="id_user" value="{{ $cliente->id }}">
-                                    <button id="validacion_btn_{{ $usuario }}" style="border:1px solid #f12d2d; padding:10px; border-radius:5px;" onclick="validar_off(event, {{ $usuario }})">{{ __('INVALIDAR') }}</button>
+                                    <button id="validacion_btn_{{ $usuario }}"
+                                        style="border:1px solid #f12d2d; padding:10px; border-radius:5px;"
+                                        onclick="validar_off(event, {{ $usuario }})">{{ __('INVALIDAR') }}</button>
                                 </form>
                             @else
                                 <form method="POST" id="validacion_form_{{ $usuario }}">
                                     @csrf
                                     <input type="hidden" name="id_user" value="{{ $cliente->id }}">
-                                    <button id="validacion_btn_{{ $usuario }}" style="border:1px solid #568c2c; padding:10px; border-radius:5px;" onclick="validar_on(event, {{ $usuario }})">{{ __('VALIDAR') }}</button>
+                                    <button id="validacion_btn_{{ $usuario }}"
+                                        style="border:1px solid #568c2c; padding:10px; border-radius:5px;"
+                                        onclick="validar_on(event, {{ $usuario }})">{{ __('VALIDAR') }}</button>
                                 </form>
                             @endif
                         </td>
@@ -225,6 +229,13 @@
                                             document.getElementById(`validacion_btn_${usuario}`).setAttribute("onclick",
                                                 `validar_on(event, ${usuario})`);
                                             document.getElementById(`validacion_btn_${usuario}`).innerHTML =
+                                                "{{ __('VALIDAR') }}";
+
+                                            document.getElementById(`validacion_btn_sm_${usuario}`).setAttribute("style",
+                                                "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                            document.getElementById(`validacion_btn_sm_${usuario}`).setAttribute("onclick",
+                                                `validar_sm_on(event, ${usuario})`);
+                                            document.getElementById(`validacion_btn_sm_${usuario}`).innerHTML =
                                                 "{{ __('VALIDAR') }}";
                                         }
 
@@ -283,6 +294,13 @@
                                             document.getElementById(`validacion_btn_${usuario}`).setAttribute("onclick",
                                                 `validar_off(event, ${usuario})`);
                                             document.getElementById(`validacion_btn_${usuario}`).innerHTML =
+                                                "{{ __('INVALIDAR') }}";
+
+                                            document.getElementById(`validacion_btn_sm_${usuario}`).setAttribute("style",
+                                                "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                            document.getElementById(`validacion_btn_sm_${usuario}`).setAttribute("onclick",
+                                                `validar_sm_off(event, ${usuario})`);
+                                            document.getElementById(`validacion_btn_sm_${usuario}`).innerHTML =
                                                 "{{ __('INVALIDAR') }}";
                                         }
 
@@ -544,8 +562,15 @@
                                     document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
                                         "border:1px solid #568c2c; padding:10px; border-radius:5px;");
                                     document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_on(event, ${usuario_sm})`);
+                                        `validar_sm_on(event, ${usuario_sm})`);
                                     document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                        "{{ __('VALIDAR') }}";
+
+                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
+                                        "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
+                                        `validar_on(event, ${usuario_sm})`);
+                                    document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
                                         "{{ __('VALIDAR') }}";
                                 }
 
@@ -602,8 +627,15 @@
                                     document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
                                         "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
                                     document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_off(event, ${usuario_sm})`);
+                                        `validar_sm_off(event, ${usuario_sm})`);
                                     document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                        "{{ __('INVALIDAR') }}";
+
+                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
+                                        "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
+                                        `validar_off(event, ${usuario_sm})`);
+                                    document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
                                         "{{ __('INVALIDAR') }}";
                                 }
 
@@ -669,11 +701,13 @@
             <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                     width="30px" height="30px" style="margin-right:20px;"></a>
             <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
             <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
                     src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
             <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                    style="margin-right:20px;"></a>
         </div>
         <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
             <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
