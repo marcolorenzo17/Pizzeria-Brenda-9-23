@@ -20,22 +20,38 @@
         <p style="text-align:center;">{{ __('Dirección') }}: {{ Auth::User()->direccion }}</p>
     @endif
 
-    <table>
+    <?php
+    $productoslista = explode(', ', $recibo->productos);
+    $cantidadeslista = explode(', ', $recibo->cantidades);
+    $precioslista = explode(', ', $recibo->precios);
+    ?>
+    <table style="width:100%;">
         <tr>
             <td>
                 <p style="font-weight:bolder;">{{ __('Productos') }}</p>
             </td>
             <td>
-                <?php
-                $productoslista = explode(', ', $recibo->productos);
-                ?>
-                @foreach ($productoslista as $producto)
-                    <p style="padding-left:50px;">
-                        - {{ $producto }}
-                    </p>
-                @endforeach
+                <p style="font-weight:bolder;">{{ __('Cantidad') }}</p>
+            </td>
+            <td>
+                <p style="font-weight:bolder;">{{ __('Precio') }}</p>
             </td>
         </tr>
+        @foreach (range(0, count($productoslista) - 1) as $index)
+            <tr>
+                <td>
+                    <p>{{ $productoslista[$index] }}</p>
+                </td>
+                <td>
+                    <p>{{ $cantidadeslista[$index] }}</p>
+                </td>
+                <td>
+                    <p>{{ $precioslista[$index] }}</p>
+                </td>
+            </tr>
+        @endforeach
+    </table>
+    <table>
         <tr>
             <td>
                 <p style="font-weight:bolder;">{{ __('Pizzacoins obtenidas') }}</p>
