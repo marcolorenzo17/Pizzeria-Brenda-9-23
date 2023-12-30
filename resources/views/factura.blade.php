@@ -15,6 +15,7 @@
     <h4 style="text-align:right;">C/ Padre Lerchundi, 3</h4>
     <h4 style="text-align:right;">11550 - Chipiona (Cádiz)</h4>
 
+    <p style="text-align:center;">{{ __('Usuario') }}: {{ Auth::User()->name }}</p>
     <p style="text-align:center;">{{ __('Entrega') }}: {{ __($recibo->direccion) }}</p>
     @if ($recibo->direccion == 'A domicilio')
         <p style="text-align:center;">{{ __('Dirección') }}: {{ Auth::User()->direccion }}</p>
