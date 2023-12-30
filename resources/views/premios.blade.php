@@ -59,7 +59,12 @@
                 <a class="anavbar" href="{{ route('contact') }}" style="font-size:13px;">{{ __('Contáctanos') }}</a>
                 <a class="anavbar" href="{{ route('privacy') }}"
                     style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="{{ route('premios') }}" style="font-size:13px;">{{ __('Premios') }}</a>
+                <div>
+                    <a class="anavbar" href="{{ route('premios') }}" style="font-size:13px;">{{ __('Premios') }}</a>
+                    <div style="background-color:red; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                </div>
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"

@@ -17,19 +17,47 @@
                 --}}
                 @if (Auth::user()->admin)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Inicio') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Menú') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Ingredientes') }}
-                        </x-nav-link>
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
-                                {{ __('Reservas') }}
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Inicio') }}
                             </x-nav-link>
+                            @if (Route::current()->getName() == 'indexAnon')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Menú') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'products.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('crearpizza')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Ingredientes') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'crearpizza')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                            <div style="margin-top:43px;">
+                                <x-nav-link :href="route('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                                    {{ __('Reservas') }}
+                                </x-nav-link>
+                                @if (Route::current()->getName() == 'eventos.index')
+                                    <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </div>
                         @endif
                         {{--
                             @if (Auth::user()->role == 'Jefe')
@@ -47,38 +75,74 @@
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Inicio') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Menú') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Promociones') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
-                            {{ __('Reservas') }}
-                        </x-nav-link>
-                        <a href="{{ route('cart.list') }}" class="flex items-center">
-                            <svg class="w-5 h-5 text-green-600" fill="none" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                                </path>
-                            </svg>
-                            @if (Auth::user()->inmediato)
-                                <span style="color:white; font-size:20px;">0</span>
-                            @else
-                                <span style="color:white; font-size:20px;">{{ Cart::getTotalQuantity() }}</span>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Inicio') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'indexAnon')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
                             @endif
-                        </a>
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Menú') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'products.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('promociones.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Promociones') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'promociones.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                                {{ __('Reservas') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'eventos.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <a href="{{ route('cart.list') }}" class="flex items-center">
+                                <svg class="w-5 h-5 text-green-600" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                @if (Auth::user()->inmediato)
+                                    <span style="color:white; font-size:20px;">0</span>
+                                @else
+                                    <span style="color:white; font-size:20px;">{{ Cart::getTotalQuantity() }}</span>
+                                @endif
+                            </a>
+                            @if (Route::current()->getName() == 'cart.list')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 @endif
             </div>
 
             <!-- Logo -->
             <div style="margin-left:auto; margin-right:0;">
-                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px; margin-top:10px;"></a>
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                        style="width:100px; margin-top:10px;"></a>
             </div>
 
             <div style="margin-left:auto; margin-right:0; margin-top:40px;" id="productos-grande-navbar">
@@ -139,26 +203,56 @@
                         @if (Auth::user()->admin)
                             @if (Auth::user()->role == 'Jefe')
                                 <x-dropdown-link :href="route('clientes.index')">
-                                    {{ __('Clientes') }}
+                                    <p>{{ __('Clientes') }}</p>
+                                    @if (Route::current()->getName() == 'clientes.index')
+                                        <div style="background-color:red; height:3px; border-radius:10px;">
+                                            <br>
+                                        </div>
+                                    @endif
                                 </x-dropdown-link>
                             @endif
                             <x-dropdown-link :href="route('products.indexValoraciones')">
-                                {{ __('Valoraciones') }}
+                                <p>{{ __('Valoraciones') }}</p>
+                                @if (Route::current()->getName() == 'products.indexValoraciones')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('products.indexComentarios')">
-                                {{ __('Comentarios') }}
+                                <p>{{ __('Comentarios') }}</p>
+                                @if (Route::current()->getName() == 'products.indexComentarios')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
                             </x-dropdown-link>
                         @endif
-                        <x-dropdown-link href="/recibos">
-                            {{ __('Recibos') }}
+                        <x-dropdown-link :href="route('recibos.index')">
+                            <p>{{ __('Recibos') }}</p>
+                            @if (Route::current()->getName() == 'recibos.index')
+                                <div style="background-color:red; height:3px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
                         </x-dropdown-link>
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
-                            <x-dropdown-link href="/curriculum">
-                                {{ __('Currículum') }}
+                            <x-dropdown-link :href="route('curriculum.index')">
+                                <p>{{ __('Currículum') }}</p>
+                                @if (Route::current()->getName() == 'curriculum.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
                             </x-dropdown-link>
                         @endif
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Tu cuenta') }}
+                            <p>{{ __('Tu cuenta') }}</p>
+                            @if (Route::current()->getName() == 'profile.edit')
+                                <div style="background-color:red; height:3px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -175,7 +269,7 @@
                         </form>
 
                         <div id="productos-pequenio-navbar" style="position:relative; top:-20px;">
-                            @include('partials/language_switcher')ç
+                            @include('partials/language_switcher')
                         </div>
                     </x-slot>
 
@@ -191,7 +285,8 @@
                         --}}
                     <div><a href="#"
                             onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio-navbar"></div>
+                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio-navbar">
+                    </div>
                     </a>
                     <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-pequenio-navbar">
                     </div>
