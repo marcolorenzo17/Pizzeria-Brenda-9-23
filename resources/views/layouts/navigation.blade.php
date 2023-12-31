@@ -356,34 +356,74 @@
         @endif
         @if (Auth::user()->admin)
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')">
-                    {{ __('Inicio') }}
+                <x-responsive-nav-link :href="route('indexAnon')">
+                    <p>{{ __('Inicio') }}</p>
+                    @if (Route::current()->getName() == 'indexAnon')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                    {{ __('Menú') }}
+                <x-responsive-nav-link :href="route('products.index')">
+                    <p>{{ __('Menú') }}</p>
+                    @if (Route::current()->getName() == 'products.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
-                    {{ __('Ingredientes') }}
+                <x-responsive-nav-link :href="route('crearpizza')">
+                    <p>{{ __('Ingredientes') }}</p>
+                    @if (Route::current()->getName() == 'crearpizza')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
                 @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                    <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                        {{ __('Reservas') }}
+                    <x-responsive-nav-link :href="route('eventos.index')">
+                        <p>{{ __('Reservas') }}</p>
+                        @if (Route::current()->getName() == 'eventos.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
                 @endif
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('indexAnon')" :active="request()->routeIs('indexAnon')">
-                    {{ __('Inicio') }}
+                <x-responsive-nav-link :href="route('indexAnon')">
+                    <p>{{ __('Inicio') }}</p>
+                    @if (Route::current()->getName() == 'indexAnon')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                    {{ __('Menú') }}
+                <x-responsive-nav-link :href="route('products.index')">
+                    <p>{{ __('Menú') }}</p>
+                    @if (Route::current()->getName() == 'products.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                    {{ __('Promociones') }}
+                <x-responsive-nav-link :href="route('promociones.index')">
+                    <p>{{ __('Promociones') }}</p>
+                    @if (Route::current()->getName() == 'promociones.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                    {{ __('Reservas') }}
+                <x-responsive-nav-link :href="route('eventos.index')">
+                    <p>{{ __('Reservas') }}</p>
+                    @if (Route::current()->getName() == 'eventos.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
             </div>
         @endif
@@ -393,23 +433,48 @@
             <div class="mt-3 space-y-1">
                 @if (Auth::user()->admin)
                     @if (Auth::user()->role == 'Jefe')
-                        <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                            {{ __('Clientes') }}
+                        <x-responsive-nav-link :href="route('clientes.index')">
+                            <p>{{ __('Clientes') }}</p>
+                            @if (Route::current()->getName() == 'clientes.index')
+                                <div style="background-color:red; height:3px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
                         </x-responsive-nav-link>
                     @endif
-                    <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
-                        {{ __('Valoraciones') }}
+                    <x-responsive-nav-link :href="route('products.indexValoraciones')">
+                        <p>{{ __('Valoraciones') }}</p>
+                        @if (Route::current()->getName() == 'products.indexValoraciones')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
-                        {{ __('Comentarios') }}
+                    <x-responsive-nav-link :href="route('products.indexComentarios')">
+                        <p>{{ __('Comentarios') }}</p>
+                        @if (Route::current()->getName() == 'products.indexComentarios')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
                 @endif
-                <x-responsive-nav-link :href="route('recibos.index')" :active="request()->routeIs('recibos.index')">
-                    {{ __('Recibos') }}
+                <x-responsive-nav-link :href="route('recibos.index')">
+                    <p>{{ __('Recibos') }}</p>
+                    @if (Route::current()->getName() == 'recibos.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
                 @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
-                    <x-responsive-nav-link :href="route('curriculum.index')" :active="request()->routeIs('curriculum.index')">
-                        {{ __('Currículum') }}
+                    <x-responsive-nav-link :href="route('curriculum.index')">
+                        <p>{{ __('Currículum') }}</p>
+                        @if (Route::current()->getName() == 'curriculum.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
                 @endif
 
@@ -418,28 +483,58 @@
 
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('whoarewe')" :active="request()->routeIs('whoarewe')">
-                    {{ __('¿Quiénes somos?') }}
+                <x-responsive-nav-link :href="route('whoarewe')">
+                    <p>{{ __('¿Quiénes somos?') }}</p>
+                    @if (Route::current()->getName() == 'whoarewe')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
-                    {{ __('Preguntas frecuentes') }}
+                <x-responsive-nav-link :href="route('faq')">
+                    <p>{{ __('Preguntas frecuentes') }}</p>
+                    @if (Route::current()->getName() == 'faq')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
-                    {{ __('Contáctanos') }}
+                <x-responsive-nav-link :href="route('contact')">
+                    <p>{{ __('Contáctanos') }}</p>
+                    @if (Route::current()->getName() == 'contact')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
-                    {{ __('Política de privacidad') }}
+                <x-responsive-nav-link :href="route('privacy')">
+                    <p>{{ __('Política de privacidad') }}</p>
+                    @if (Route::current()->getName() == 'privacy')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('premios')" :active="request()->routeIs('premios')">
-                    {{ __('Premios') }}
+                <x-responsive-nav-link :href="route('premios')">
+                    <p>{{ __('Premios') }}</p>
+                    @if (Route::current()->getName() == 'premios')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
             </div>
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
-                    {{ __('Tu cuenta') }}
+                <x-responsive-nav-link :href="route('profile.edit')">
+                    <p>{{ __('Tu cuenta') }}</p>
+                    @if (Route::current()->getName() == 'profile.edit')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

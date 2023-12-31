@@ -239,7 +239,7 @@
             <div class="sm:hidden">Hola</div>
         --}}
         </div>
-        <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="1">PIZZAS</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <h2 class="text-2xl font-bold text-center" style="color:blue;">
@@ -330,11 +330,11 @@
         <br><br>
         <div class="text-center"
             style="border-style: solid; border-width: 3px; border-color: purple; background-color: #efff91; padding: 20px; border-radius:10px;">
-            <a href="{{ route('crearpizza') }}" class="text-2xl font-bold text-purple-700"
+            <a href="{{ route('crearpizza') }}" class="text-2xl font-bold" style="color:#568c2c;"
                 id="crearpizza">{{ __('¡CREA TU PROPIA PIZZA AQUÍ!') }}</a>
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="2">{{ __('HAMBURGUESAS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="2">{{ __('HAMBURGUESAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <h2 class="text-2xl font-bold text-center" style="color:darkblue;">
@@ -456,7 +456,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="3">{{ __('SÁNDWICHES') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="3">{{ __('SÁNDWICHES') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <img src="img/alergenos/gluten-lacteos-huevos-soja.png" width="200px" height="200px">
@@ -545,7 +545,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="4">PASTA</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="4">PASTA</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
@@ -634,7 +634,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="5">{{ __('ARROCES') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="5">{{ __('ARROCES') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
@@ -723,7 +723,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="6">BAGUETTES</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="6">BAGUETTES</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
@@ -812,7 +812,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="7">{{ __('ENSALADAS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="7">{{ __('ENSALADAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <img src="img/alergenos/dioxido.png" width="200px" height="200px">
@@ -901,7 +901,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="8">{{ __('COMPLEMENTOS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="8">{{ __('COMPLEMENTOS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
@@ -988,7 +988,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="9">{{ __('PERRITOS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="9">{{ __('PERRITOS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
@@ -1077,7 +1077,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="10">{{ __('CERVEZAS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;" id="10">{{ __('CERVEZAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
@@ -1164,7 +1164,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700">{{ __('VINOS Y LICORES') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('VINOS Y LICORES') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
@@ -1251,7 +1251,7 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700">{{ __('REFRESCOS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('REFRESCOS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)

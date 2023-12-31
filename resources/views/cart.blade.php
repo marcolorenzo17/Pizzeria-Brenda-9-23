@@ -12,8 +12,8 @@
     <main class="my-8" style="margin-bottom:300px;">
         <div class="container px-6 mx-auto">
             <div style="text-align:center;">
-                <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                    id="boton">{{ __('VOLVER AL MENÚ') }}</a>
+                <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
+                    id="boton" style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
             </div>
             <div class="flex justify-center my-6">
                 <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
@@ -55,7 +55,7 @@
                                         --}}
                                             <td>
                                                 <a href="#">
-                                                    <p class="mb-2 md:ml-4 text-purple-600 font-bold">
+                                                    <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
                                                         {{ __($item->name) }}
                                                     </p>
 
@@ -74,8 +74,8 @@
                                                                     value="{{ $item->quantity }}"
                                                                     class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
                                                                 <button
-                                                                    class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100 bg-violet-500"
-                                                                    id="boton">{{ __('Actualizar') }}</button>
+                                                                    class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100"
+                                                                    id="boton" style="background-color:#568c2c;">{{ __('Actualizar') }}</button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -157,8 +157,8 @@
                                     <tr>
                                         <td>
                                             <a href="recoger"><button type="button"
-                                                    class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500"
-                                                    id="boton">{{ __('Realizar pedido') }}</button></a>
+                                                    class="px-6 py-2 text-sm  rounded shadow text-red-100"
+                                                    id="boton" style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button></a>
                                         </td>
                                         <td>
                                             <form action="{{ route('cart.clear') }}" method="POST">

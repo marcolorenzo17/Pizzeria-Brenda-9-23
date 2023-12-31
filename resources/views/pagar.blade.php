@@ -70,8 +70,8 @@
 
     <br>
     <div style="text-align:center;">
-        <a href="{{ route('recoger.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-            id="boton">{{ __('ATRÁS') }}</a>
+        <a href="{{ route('recoger.index') }}" class="text-white px-4 py-2 rounded-md"
+            id="boton" style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
     </div>
     <br>
     <table class="mx-auto" style="margin-bottom:300px;">
@@ -218,7 +218,7 @@
                                             alt="Thumbnail">
                                     </td>
                                     <td style="padding:10px;">
-                                        <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
+                                        <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">{{ $item->name }}
                                         </p>
                                     </td>
                                     <td class="justify-center mt-6 md:justify-end md:flex" style="padding:10px;">

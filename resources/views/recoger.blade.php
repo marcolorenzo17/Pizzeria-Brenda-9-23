@@ -12,11 +12,11 @@
     <br>
     <div style="text-align:center;">
         @if (Auth::User()->inmediato)
-            <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('ATRÁS') }}</a>
+            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
+                id="boton" style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
         @else
-            <a href="{{ route('cart.list') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('ATRÁS') }}</a>
+            <a href="{{ route('cart.list') }}" class="text-white px-4 py-2 rounded-md"
+                id="boton" style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
         @endif
     </div>
     <div class="container px-12 py-8 mx-auto" style="margin-bottom:300px;">

@@ -49,8 +49,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                        id="boton">{{ __('VOLVER') }}
+                    <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
+                        id="boton" style="background-color:#f12d2d;">{{ __('VOLVER') }}
                     </a>
                     <br><br>
                     <div class="mb-6">
@@ -144,8 +144,8 @@
                             <input type="hidden" value="{{ $products->image }}" name="image">
                             <input type="hidden" value="1" name="quantity">
                             <div style="text-align:center;">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
-                                    id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded
+                                    id="boton" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                             </div>
                         </form>
                         <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
@@ -161,7 +161,7 @@
                             <input type="hidden" value="1" name="quantity">
                             <div style="text-align:center;">
                                 <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                             </div>
                         </form>
                     </div>
@@ -200,8 +200,8 @@
                         <p id="error_resenia" style="color:red;"></p>
                         <br><br>
                         <div>
-                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                id="boton">{{ __('Publicar') }}</button>
+                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                                id="boton" style="background-color:#568c2c;">{{ __('Publicar') }}</button>
                         </div>
                     </form>
                     <br><br>
@@ -246,7 +246,7 @@
                                     <br>
                                     <div x-data="{ mostrarVal: false }">
                                         <button type="button" class="px-6 py-2 text-sm rounded shadow"
-                                            style="font-size:13px; background-color:lightgray; color:blue;"
+                                            style="font-size:13px; background-color:lightgray; color:#568c2c;"
                                             id="boton" x-on:click="mostrarVal = !mostrarVal"
                                             x-text="mostrarVal ? '{{ __('Editar valoración') }}' : '{{ __('Editar valoración') }}'"></button>
                                         <div x-show="mostrarVal">
@@ -266,7 +266,7 @@
                                                         style="border-radius:10px;"
                                                         onfocusout="validate_editarvaloracion_input()">
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                        style="color:green; background-color:lightgray; margin-left:10px;"
+                                                        style="color:#568c2c; background-color:lightgray; margin-left:10px;"
                                                         id="boton">{{ __('Publicar') }}
                                                     </button>
                                                     <p id="error_reseniaeditar" style="color:red;"></p>
@@ -309,9 +309,9 @@
                                             <br><br>
                                             <div>
                                                 <button type="submit"
-                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100"
                                                     id="boton"
-                                                    style="margin-left:10px;">{{ __('Publicar comentario') }}
+                                                    style="margin-left:10px; background-color:#568c2c;">{{ __('Publicar comentario') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -335,7 +335,7 @@
                                                 <br>
                                                 <div x-data="{ mostrarCom: false }">
                                                     <button class="px-6 py-2 text-sm rounded shadow"
-                                                        style="font-size:13px; background-color:lightgray; color:blue;"
+                                                        style="font-size:13px; background-color:lightgray; color:#568c2c;"
                                                         x-on:click="mostrarCom = !mostrarCom"
                                                         x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"
                                                         id="boton"></button>
@@ -358,7 +358,7 @@
                                                                     onfocusout="validate_editarcomentario_input()">
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
-                                                                    style="color:green; background-color:lightgray; margin-left:10px;"
+                                                                    style="color:#568c2c; background-color:lightgray; margin-left:10px;"
                                                                     id="boton">{{ __('Publicar') }}
                                                                 </button>
                                                             </div>

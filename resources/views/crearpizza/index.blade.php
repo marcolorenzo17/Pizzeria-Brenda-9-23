@@ -132,15 +132,15 @@
                 <td>
                     <br>
                     <div style="text-align:center;" id="volvermenu">
-                        <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                            id="boton">{{ __('VOLVER AL MENÚ') }}</a>
+                        <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
+                            id="boton" style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
                     </div>
                     <div class="container px-12 py-8 mx-auto">
                         <br>
                         <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px"
                             class="mx-auto">
                         <br>
-                        <h3 class="text-2xl font-bold text-purple-700">BASES</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">BASES</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -190,7 +190,7 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (1.50 € - 1.79 €)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.50 € - 1.79 €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -244,7 +244,7 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (1.80 € - 2.29 €)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.80 € - 2.29 €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -298,7 +298,7 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (2.30 € +)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (2.30 € +)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"

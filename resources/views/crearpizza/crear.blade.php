@@ -14,8 +14,8 @@
             rel="stylesheet">
         <br>
         <div style="text-align:center;">
-            <a href="{{ route('crearpizza') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('VOLVER') }}</a>
+            <a href="{{ route('crearpizza') }}" class="text-white px-4 py-2 rounded-md"
+                id="boton" style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
