@@ -24,8 +24,8 @@
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('crearpizza.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('CREAR INGREDIENTE') }}</a>
+            <a href="{{ route('crearpizza.crear') }}" class="text-white px-4 py-2 rounded-md"
+                id="boton" style="background-color:#568c2c;">{{ __('CREAR INGREDIENTE') }}</a>
         </div>
         <br>
         <div style="background:white; margin-bottom:300px;">
@@ -67,8 +67,8 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('crearpizza.editar', $ingrediente) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                                id="boton">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md"
+                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
                                             <form method="post"
@@ -104,8 +104,8 @@
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('crearpizza.editar', $ingrediente) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                                id="boton">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md"
+                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -370,8 +370,8 @@
                             <input type="hidden" value="" name="price" id="price">
                             <input type="hidden" value="img/pizzagenerica.jpg" name="image">
                             <input type="hidden" value="1" name="quantity">
-                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
-                                id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded"
+                                id="boton" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                         </form>
                     </div>
                 </td>

@@ -38,8 +38,8 @@ use App\Http\Controllers\ProductController;
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('products.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('CREAR PLATO') }}</a>
+            <a href="{{ route('products.crear') }}" class="text-white px-4 py-2 rounded-md"
+                id="boton" style="background-color:#568c2c;">{{ __('CREAR PLATO') }}</a>
         </div>
         <br>
         <div style="background:white; margin-bottom:300px;">
@@ -87,8 +87,8 @@ use App\Http\Controllers\ProductController;
                                         </td>
                                         <td>
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                                id="boton">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md"
+                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
                                             <form method="post"
@@ -124,8 +124,8 @@ use App\Http\Controllers\ProductController;
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                                id="boton">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md"
+                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>

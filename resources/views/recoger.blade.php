@@ -71,8 +71,8 @@
                     </div>
                 </div>
                 <div id="botondiv1" class="text-center" style="display:none;">
-                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        value="{{ __('Pagar') }}" id="boton">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c;">
                 </div>
             </div>
         </form>
@@ -98,8 +98,8 @@
                     {{ __('*Servicio a domicilio: 2€ adicionales') }}</p>
                 <br>
                 <div id="botondiv2" class="text-center" style="display:none;">
-                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        value="{{ __('Pagar') }}" id="boton">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c;">
                 </div>
             </div>
         </form>

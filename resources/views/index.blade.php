@@ -30,7 +30,7 @@
                             <input type="hidden" value="{{ $plato->precio }}" name="precio">
                             <input type="hidden" value="{{ $plato->foto }}" name="foto">
                             <input type="hidden" value="1" name="cantidad">
-                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">Add To Cart</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded" style="background-color:#568c2c;">Add To Cart</button>
                         </form>
                         <br>
                     @endforeach

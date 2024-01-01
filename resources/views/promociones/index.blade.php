@@ -60,7 +60,7 @@
                                 style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             <br>
                             <button
-                                class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
+                                class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('APLICAR') }}</button>
                         @else
                             <div>
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -124,7 +124,7 @@
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                                 <br>
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('APLICAR') }}</button>
+                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('APLICAR') }}</button>
                             @else
                                 <div>
                                     <img src="{{ asset($promotion->image) }}" alt="submit"

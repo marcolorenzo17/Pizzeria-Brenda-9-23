@@ -47,8 +47,8 @@
                         @if (substr($curriculum->curriculum, -4) == '.pdf')
                             <div>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton"
-                                    target="__blank">{{ __('Ver currículum en PDF') }}</a>
+                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                    target="__blank" style="background-color:#568c2c;">{{ __('Ver currículum en PDF') }}</a>
                             </div>
                         @else
                             <div>
@@ -56,8 +56,8 @@
                                     width="200px;">
                                 <br>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md" id="boton"
-                                    target="__blank">{{ __('Ampliar imagen') }}</a>
+                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                    target="__blank" style="background-color:#568c2c;">{{ __('Ampliar imagen') }}</a>
                             </div>
                         @endif
                         <div>
@@ -113,8 +113,8 @@
                         <embed src="#" width="375" height="500" type="application/pdf" style="display:none;"
                             name="verPDF" id="verPDF">
                     </div>
-                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        id="boton_submit">{{ __('Enviar currículum') }}</button>
+                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                        id="boton_submit" style="background-color:#568c2c;">{{ __('Enviar currículum') }}</button>
                 </form>
             </div>
         @endif

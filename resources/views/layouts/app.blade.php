@@ -26,7 +26,7 @@
 
                         {{-- check if there is a notif.success flash session --}}
                         @if (Session::has('notif.success'))
-                        <div class="bg-blue-300 mt-2 p-4">
+                        <div class="mt-2 p-4" style="background-color:#568c2c;">
                             {{-- if it's there then print the notification --}}
                             <span class="text-white">{{ __(Session::get('notif.success')) }}</span>
                         </div>

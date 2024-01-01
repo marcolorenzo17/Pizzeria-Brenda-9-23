@@ -114,9 +114,9 @@
                                         value="{{ $cliente->puntos }}" style="border-radius:10px">
                                     <div class="text-center">
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                            class="px-6 py-2 text-sm rounded shadow text-red-100"
                                             id="boton"
-                                            style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                            style="height:40px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -153,9 +153,9 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                class="px-6 py-2 text-sm rounded shadow text-red-100"
                                                 id="boton"
-                                                style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                                style="height:40px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                         </div>
                                     </div>
                                 </form>
@@ -388,8 +388,8 @@
                                     </div>
                                     <div style="padding-left:0px;">
                                         <button type="submit"
-                                            class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500" id="boton"
-                                            style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                            class="px-6 py-2 text-sm shadow text-red-100" id="boton"
+                                            style="height:42px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                     </div>
                                 </div>
                                 <p id="error_puntos" style="color:red;"></p>
@@ -448,9 +448,9 @@
                                         </div>
                                         <div>
                                             <button type="submit"
-                                                class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
+                                                class="px-6 py-2 text-sm shadow text-red-100"
                                                 id="boton"
-                                                style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                                style="height:42px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                         </div>
                                     </div>
                                     <div>
