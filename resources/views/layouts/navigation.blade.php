@@ -548,5 +548,20 @@
                 </form>
             </div>
         </div>
+
+        <div class="pt-4 pb-1 border-t border-gray-200" style="margin-bottom:20px;">
+            <div class="mt-3 space-y-1">
+                <div style="display:flex; justify-content:center; gap:30px;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
