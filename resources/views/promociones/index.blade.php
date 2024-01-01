@@ -1,9 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <div
-            style="margin-top:110px;">
+        <div style="margin-top:110px;">
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-            style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('PROMOCIONES Y OFERTAS') }}
             </h2>
         </div>
@@ -59,8 +58,8 @@
                                 width="422" height="600"
                                 style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                             <br>
-                            <button
-                                class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('APLICAR') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                style="background-color:#568c2c;">{{ __('APLICAR') }}</button>
                         @else
                             <div>
                                 <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -123,8 +122,8 @@
                                     width="422" height="600"
                                     style="border-color:black; border-style:solid; border-width:5px; border-radius:30px;">
                                 <br>
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm rounded acercar" style="background-color:#568c2c;">{{ __('APLICAR') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('APLICAR') }}</button>
                             @else
                                 <div>
                                     <img src="{{ asset($promotion->image) }}" alt="submit"
@@ -185,16 +184,16 @@
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -222,6 +221,16 @@
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

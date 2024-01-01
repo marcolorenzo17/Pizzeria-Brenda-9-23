@@ -12,8 +12,8 @@
     <main class="my-8" style="margin-bottom:300px;">
         <div class="container px-6 mx-auto">
             <div style="text-align:center;">
-                <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
-                    id="boton" style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
+                <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                    style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
             </div>
             <div class="flex justify-center my-6">
                 <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
@@ -75,7 +75,8 @@
                                                                     class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
                                                                 <button
                                                                     class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100"
-                                                                    id="boton" style="background-color:#568c2c;">{{ __('Actualizar') }}</button>
+                                                                    id="boton"
+                                                                    style="background-color:#568c2c;">{{ __('Actualizar') }}</button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -158,7 +159,8 @@
                                         <td>
                                             <a href="recoger"><button type="button"
                                                     class="px-6 py-2 text-sm  rounded shadow text-red-100"
-                                                    id="boton" style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button></a>
+                                                    id="boton"
+                                                    style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button></a>
                                         </td>
                                         <td>
                                             <form action="{{ route('cart.clear') }}" method="POST">
@@ -207,16 +209,16 @@
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -244,6 +246,16 @@
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

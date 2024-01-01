@@ -24,8 +24,8 @@
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('crearpizza.crear') }}" class="text-white px-4 py-2 rounded-md"
-                id="boton" style="background-color:#568c2c;">{{ __('CREAR INGREDIENTE') }}</a>
+            <a href="{{ route('crearpizza.crear') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#568c2c;">{{ __('CREAR INGREDIENTE') }}</a>
         </div>
         <br>
         <div style="background:white; margin-bottom:300px;">
@@ -67,12 +67,13 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('crearpizza.editar', $ingrediente) }}"
-                                                class="text-white px-4 py-2 rounded-md"
-                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md" id="boton"
+                                                style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
                                             <form method="post"
-                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
+                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button
@@ -104,14 +105,15 @@
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('crearpizza.editar', $ingrediente) }}"
-                                                class="text-white px-4 py-2 rounded-md"
-                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md" id="boton"
+                                                style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="padding:5px">
                                             <form method="post"
-                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
+                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button
@@ -132,8 +134,8 @@
                 <td>
                     <br>
                     <div style="text-align:center;" id="volvermenu">
-                        <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
-                            id="boton" style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
+                        <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                            style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
                     </div>
                     <div class="container px-12 py-8 mx-auto">
                         <br>
@@ -190,7 +192,8 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.50 € - 1.79 €)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.50 € - 1.79
+                            €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -244,7 +247,8 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.80 € - 2.29 €)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.80 € - 2.29
+                            €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -298,7 +302,8 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (2.30 € +)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (2.30 € +)
+                        </h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -370,8 +375,8 @@
                             <input type="hidden" value="" name="price" id="price">
                             <input type="hidden" value="img/pizzagenerica.jpg" name="image">
                             <input type="hidden" value="1" name="quantity">
-                            <button class="px-4 py-1.5 text-white text-sm rounded"
-                                id="boton" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
+                                style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                         </form>
                     </div>
                 </td>
@@ -406,16 +411,16 @@
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -443,6 +448,16 @@
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

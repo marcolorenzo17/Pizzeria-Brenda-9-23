@@ -10,7 +10,6 @@
     }
     $productosvalores = substr($productosvalores, 0, -2);
 
-
     $preciosarray = [];
     foreach ($cartItems as $item) {
         array_push($preciosarray, number_format($item->price * $item->quantity, 2, '.', '') . ' €');
@@ -20,7 +19,6 @@
         $preciosvalores .= $precio . ', ';
     }
     $preciosvalores = substr($preciosvalores, 0, -2);
-
 
     $cantidadesarray = [];
     foreach ($cartItems as $item) {
@@ -70,8 +68,8 @@
 
     <br>
     <div style="text-align:center;">
-        <a href="{{ route('recoger.index') }}" class="text-white px-4 py-2 rounded-md"
-            id="boton" style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
+        <a href="{{ route('recoger.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+            style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
     </div>
     <br>
     <table class="mx-auto" style="margin-bottom:300px;">
@@ -170,10 +168,11 @@
                                 @endif
                                 <br>
                                 <div class="form-group text-center">
-                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100"
-                                        id="card-button" data-secret="{{ $intent->client_secret }}"
+                                    <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
+                                        data-secret="{{ $intent->client_secret }}"
                                         class="btn btn-lg btn-success btn-block" id="boton"
-                                        onclick="return storeValues();" style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
+                                        onclick="return storeValues();"
+                                        style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
                                 </div>
                             </form>
                         </div>
@@ -247,7 +246,8 @@
                                 <td style="padding:10px;">
                                 </td>
                                 <td style="padding:10px;">
-                                    <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">{{ __('Pedido a domicilio') }}
+                                    <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
+                                        {{ __('Pedido a domicilio') }}
                                     </p>
                                 </td>
                                 <td style="padding:10px;">
@@ -318,16 +318,16 @@
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -355,6 +355,16 @@
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

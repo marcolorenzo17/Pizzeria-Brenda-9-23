@@ -47,8 +47,8 @@
                         @if (substr($curriculum->curriculum, -4) == '.pdf')
                             <div>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="text-white px-4 py-2 rounded-md" id="boton"
-                                    target="__blank" style="background-color:#568c2c;">{{ __('Ver currículum en PDF') }}</a>
+                                    class="text-white px-4 py-2 rounded-md" id="boton" target="__blank"
+                                    style="background-color:#568c2c;">{{ __('Ver currículum en PDF') }}</a>
                             </div>
                         @else
                             <div>
@@ -56,8 +56,8 @@
                                     width="200px;">
                                 <br>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
-                                    class="text-white px-4 py-2 rounded-md" id="boton"
-                                    target="__blank" style="background-color:#568c2c;">{{ __('Ampliar imagen') }}</a>
+                                    class="text-white px-4 py-2 rounded-md" id="boton" target="__blank"
+                                    style="background-color:#568c2c;">{{ __('Ampliar imagen') }}</a>
                             </div>
                         @endif
                         <div>
@@ -77,7 +77,8 @@
                                 {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
                             </p>
                             <br>
-                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este currículum?')">
+                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}"
+                                onclick="return confirm('¿Estás seguro de que quieres eliminar este currículum?')">
                                 @csrf
                                 @method('delete')
                                 <button
@@ -98,8 +99,7 @@
             <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
             <br><br>
             <div class="mx-auto text-center">
-                <form id="curriculum_form" method="POST"
-                    enctype="multipart/form-data">
+                <form id="curriculum_form" method="POST" enctype="multipart/form-data">
                     @csrf
                     @error('curriculum')
                         <span class="text-danger" style="color:red;">{{ __($message) }}</span>
@@ -113,8 +113,8 @@
                         <embed src="#" width="375" height="500" type="application/pdf" style="display:none;"
                             name="verPDF" id="verPDF">
                     </div>
-                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
-                        id="boton_submit" style="background-color:#568c2c;">{{ __('Enviar currículum') }}</button>
+                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton_submit"
+                        style="background-color:#568c2c;">{{ __('Enviar currículum') }}</button>
                 </form>
             </div>
         @endif
@@ -145,14 +145,16 @@
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -180,6 +182,16 @@
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

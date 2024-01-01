@@ -242,7 +242,7 @@
         <h3 class="text-2xl font-bold" style="color:#568c2c;" id="1">PIZZAS</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <h2 class="text-2xl font-bold text-center" style="color:blue;">
+        <h2 class="text-2xl font-bold text-center" style="color:#568c2c;">
             {{ __('"EL PLACER DE UNA BUENA PIZZA ARTESANAL"') }}</h2>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">

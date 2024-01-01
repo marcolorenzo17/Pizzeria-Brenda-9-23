@@ -38,8 +38,8 @@ use App\Http\Controllers\ProductController;
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('products.crear') }}" class="text-white px-4 py-2 rounded-md"
-                id="boton" style="background-color:#568c2c;">{{ __('CREAR PLATO') }}</a>
+            <a href="{{ route('products.crear') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#568c2c;">{{ __('CREAR PLATO') }}</a>
         </div>
         <br>
         <div style="background:white; margin-bottom:300px;">
@@ -87,12 +87,12 @@ use App\Http\Controllers\ProductController;
                                         </td>
                                         <td>
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="text-white px-4 py-2 rounded-md"
-                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md" id="boton"
+                                                style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
-                                            <form method="post"
-                                                action="{{ route('products.destroy', $product->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
+                                            <form method="post" action="{{ route('products.destroy', $product->id) }}"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button
@@ -124,14 +124,14 @@ use App\Http\Controllers\ProductController;
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('products.editar', $product) }}"
-                                                class="text-white px-4 py-2 rounded-md"
-                                                id="boton" style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md" id="boton"
+                                                style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="padding:5px">
-                                            <form method="post"
-                                                action="{{ route('products.destroy', $product->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
+                                            <form method="post" action="{{ route('products.destroy', $product->id) }}"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
                                                 @csrf
                                                 @method('delete')
                                                 <button
@@ -270,16 +270,16 @@ use App\Http\Controllers\ProductController;
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -307,6 +307,16 @@ use App\Http\Controllers\ProductController;
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

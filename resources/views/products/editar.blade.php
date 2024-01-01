@@ -14,8 +14,8 @@
             rel="stylesheet">
         <br>
         <div style="text-align:center;">
-            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
-                id="boton" style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
+            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
@@ -30,8 +30,8 @@
                     @enderror
                     <label for="name">{{ __('Nombre del plato') }}</label>
                     <br>
-                    <input type="text" id="name" name="name" size="80"
-                        onfocusout="validate_name()" x-model="nombre">
+                    <input type="text" id="name" name="name" size="80" onfocusout="validate_name()"
+                        x-model="nombre">
                     <br>
                     <strong>{{ __('Nombre del plato actual:') }}</strong>&nbsp;{{ __($product->name) }}
                     <p id="error_name" style="color:red;"></p>
@@ -42,8 +42,8 @@
                     @enderror
                     <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                     <br>
-                    <input type="text" id="nameen" name="nameen" size="80"
-                        onfocusout="validate_nameen()" x-model="name">
+                    <input type="text" id="nameen" name="nameen" size="80" onfocusout="validate_nameen()"
+                        x-model="name">
                     <br>
                     <strong>{{ __('Nombre del plato actual (Inglés):') }}</strong>&nbsp;{{ __($product->nameen) }}
                     <p id="error_nameen" style="color:red;"></p>
@@ -102,8 +102,8 @@
                     <table>
                         <tr>
                             <td>
-                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten"
-                                    height="50px" width="50px">
+                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten" height="50px"
+                                    width="50px">
                             </td>
                             <td>
                                 <input type="checkbox" id="gluten" name="alergenos[]" value="gluten">
@@ -249,8 +249,8 @@
                     <strong>{{ __('Alérgenos actuales:') }}</strong>&nbsp;{{ $listacomas }}
                     <br><br><br><br>
                     <div class="text-center">
-                        <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
-                            id="boton" style="background-color:#568c2c;">{{ __('ACTUALIZAR') }}</button>
+                        <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
+                            style="background-color:#568c2c;">{{ __('ACTUALIZAR') }}</button>
                     </div>
                 </form>
             </div>
@@ -311,16 +311,16 @@
                 <div style="margin-left:auto; display:flex;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
                             src="{{ asset('img/twit.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
                             src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
                             src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                             src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                 </div>
                 <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                     <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -348,6 +348,16 @@
 
             .anavbar:hover {
                 text-decoration: underline;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
             }
         </style>
 

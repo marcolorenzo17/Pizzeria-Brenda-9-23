@@ -94,8 +94,7 @@
                                             </div>
                                             <div class="text-center">
                                                 <button type="submit"
-                                                    class="px-6 py-2 text-sm rounded shadow text-red-100"
-                                                    id="boton"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
                                                     style="height:40px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                             </div>
                                         </div>
@@ -127,7 +126,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
+                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}"
+                                        onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
                                         @csrf
                                         @method('delete')
                                         <button
@@ -335,8 +335,7 @@
                                                 </div>
                                                 <div>
                                                     <button type="submit"
-                                                        class="px-6 py-2 text-sm shadow text-red-100"
-                                                        id="boton"
+                                                        class="px-6 py-2 text-sm shadow text-red-100" id="boton"
                                                         style="height:42px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                                 </div>
                                             </div>
@@ -395,7 +394,8 @@
                                 </td>
                                 <td>
                                     <div style="padding-left:50px;">
-                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
+                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}"
+                                            onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
                                             @csrf
                                             @method('delete')
                                             <button
@@ -567,16 +567,16 @@
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -604,6 +604,16 @@
 
         .anavbar:hover {
             text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
         }
     </style>
 

@@ -14,8 +14,8 @@
             rel="stylesheet">
         <br>
         <div style="text-align:center;">
-            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
-                id="boton" style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
+            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
@@ -96,8 +96,8 @@
                     <table>
                         <tr>
                             <td>
-                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten" height="50px"
-                                    width="50px">
+                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten"
+                                    height="50px" width="50px">
                             </td>
                             <td>
                                 <input type="checkbox" id="gluten" name="alergenos[]" value="gluten">
@@ -236,8 +236,8 @@
                         </tr>
                     </table>
                     <div class="text-center" style="margin-top:50px;">
-                        <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
-                            id="boton" style="background-color:#568c2c;">{{ __('AÑADIR') }}</button>
+                        <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
+                            style="background-color:#568c2c;">{{ __('AÑADIR') }}</button>
                     </div>
                 </form>
             </div>
@@ -298,16 +298,16 @@
                 <div style="margin-left:auto; display:flex;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
                             src="{{ asset('img/twit.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
                             src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
                             src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                             src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                 </div>
                 <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                     <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -335,6 +335,16 @@
 
             .anavbar:hover {
                 text-decoration: underline;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
             }
         </style>
 

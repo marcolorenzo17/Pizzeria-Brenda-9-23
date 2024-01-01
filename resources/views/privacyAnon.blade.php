@@ -1134,30 +1134,28 @@
                     </div>
                 </div>
                 <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                    <a class="anavbar" href="whoareweAnon" style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
-                    <a class="anavbar" href="faqAnon" style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
-                    <a class="anavbar" href="contactAnon" style="font-size:13px;">{{ __('Contáctanos') }}</a>
-                    <div>
-                        <a class="anavbar" href="privacyAnon"
-                            style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                        <div style="background-color:red; height:3px; border-radius:10px;">
-                            <br>
-                        </div>
-                    </div>
-                    <a class="anavbar" href="premiosAnon" style="font-size:13px;">{{ __('Premios') }}</a>
+                    <a class="anavbar" href="{{ route('whoarewe') }}"
+                        style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="{{ route('faq') }}"
+                        style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="{{ route('contact') }}"
+                        style="font-size:13px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="{{ route('privacy') }}"
+                        style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="{{ route('premios') }}" style="font-size:13px;">{{ __('Premios') }}</a>
                 </div>
                 <div style="margin-left:auto; display:flex;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                            width="30px" height="30px" style="margin-right:20px;"></a>
+                            width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                             src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            style="margin-right:20px;" class="redes_sociales"></a>
                 </div>
                 <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                     <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -1170,6 +1168,33 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #141414;
+                color: white;
+                padding: 20px;
+                z-index: 1;
+            }
+
+            .anavbar:hover {
+                text-decoration: underline;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
+            }
+        </style>
     </div>
 </body>
 

@@ -12,7 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <br>
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                id="productos-grande">
                 <tr>
                     <td class="font-bold">{{ __('Producto') }}</td>
                     <td class="font-bold">{{ __('Cliente') }}</td>
@@ -35,7 +36,8 @@
                         @if (Auth::user()->role != 'Cliente')
                             <td>
                                 <form method="post"
-                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
+                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}"
+                                    onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
                                     @csrf
                                     @method('delete')
                                     <button
@@ -94,7 +96,8 @@
                             </td>
                             <td>
                                 <form method="post"
-                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
+                                    action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}"
+                                    onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
                                     @csrf
                                     @method('delete')
                                     <div style="padding-left:50px;">
@@ -137,16 +140,16 @@
                 </div>
                 <div style="margin-left:auto; display:flex;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                            width="30px" height="30px" style="margin-right:20px;"></a>
+                            width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                            src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                            style="margin-right:20px;"></a>
+                            src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
                 </div>
                 <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                     <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -174,6 +177,16 @@
 
             .anavbar:hover {
                 text-decoration: underline;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
             }
         </style>
 
