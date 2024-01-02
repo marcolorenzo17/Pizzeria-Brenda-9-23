@@ -979,15 +979,15 @@
     <div style="background-color:#f5f0e9;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
-                <div>
+                <div id="boton_switch">
                     <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}
                     </a>
                 </div>
-                <div>
+                <div id="boton_switch">
                     <a class="anavbar" href="cartaAnon"
                         style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}
                     </a>
-                    <div style="background-color:red; margin-top:50px; height:5px; border-radius:10px;">
+                    <div style="background-color:#f12d2d; margin-top:50px; height:5px; border-radius:10px;">
                         <br>
                     </div>
                 </div>
@@ -998,32 +998,141 @@
             @if (Route::has('login'))
                 <div id="login"
                     style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
-                    @include('partials/language_switcher')
+                    <div id="boton_switch">
+                        @include('partials/language_switcher')
+                    </div>
                     <div>
                         @auth
                             <a href="{{ url('/products') }}"
                                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Iniciar pedido') }}</a>
+                                id="boton_login">{{ __('Iniciar pedido') }}</a>
                         @else
                             <a href="{{ route('login') }}"
                                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Iniciar sesión') }}</a>
+                                id="boton_login">{{ __('Iniciar sesión') }}</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
                                     class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                    id="boton_login">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                    <a href="#"><img src="{{ asset('img/burger_menu.png') }}" alt="menu_hamburguesa"
+                            width="40px" id="menu_hamburguesa" onclick="mostrar_hamburguesa()"
+                            style="padding:5px; border-radius:10px;"></a>
+                </div>
+            @endif
+        </div>
+        {{--
+        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
+            id="logo1">
+            {{ __('PIZZA ARTESANA Y NATURAL') }}
+        </h1>
+    --}}
+        <div style="margin-top:130px;">
+            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+                <div style="padding:10px;">
+                    @include('partials/language_switcher')
+                </div>
+                @if (Route::has('login'))
+                    <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                id="boton">{{ __('Iniciar sesión') }}</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
                                     id="boton">{{ __('Registrarse') }}</a>
                             @endif
                         @endauth
                     </div>
+                @endif
+                <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <br>
                 </div>
-            @endif
+                <a href="/">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('Inicio') }}</p>
+                    </div>
+                </a>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('Nuestra carta') }}</p>
+                        <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    </div>
+                </a>
+                <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <br>
+                </div>
+                <a href="whoareweAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('¿Quiénes somos?') }}</p>
+                    </div>
+                </a>
+                <a href="faqAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('Preguntas frecuentes') }}</p>
+                    </div>
+                </a>
+                <a href="contactAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('Contáctanos') }}</p>
+                    </div>
+                </a>
+                <a href="privacyAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('Política de privacidad') }}</p>
+                    </div>
+                </a>
+                <a href="premiosAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        id="boton_responsive">
+                        <p>{{ __('Premios') }}</p>
+                    </div>
+                </a>
+                <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <br>
+                </div>
+                <div>
+                    <div
+                        style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414; display:flex; justify-content:center; align-items:center; gap:30px;">
+                        <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                                src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                        <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                                src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                        <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                                src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                        <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                                src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:200px;">
+            </div>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; margin-top:200px; justify-content:center;">
+            style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;">
             <div>
                 <a href="#p1"><img src="{{ asset('img/vegetal.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250; height:200px;"
@@ -1055,7 +1164,8 @@
                 <a href="#p5"><img src="{{ asset('img/arrozfrito.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
-                <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">{{ __('ARROCES') }}
+                <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                    {{ __('ARROCES') }}
                 </p>
             </div>
             <div>
@@ -1357,7 +1467,8 @@
                             @else
                                 <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
                             @endif
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
                             {{--
                 <span class="mt-2 text-gray-500">{{ $product->description }}</span>
             --}}
@@ -1392,7 +1503,8 @@
                             @else
                                 <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
                             @endif
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
                             {{--
                 <span class="mt-2 text-gray-500">{{ $product->description }}</span>
             --}}
@@ -1427,7 +1539,8 @@
                             @else
                                 <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
                             @endif
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
                             {{--
                 <span class="mt-2 text-gray-500">{{ $product->description }}</span>
             --}}
@@ -2231,15 +2344,15 @@
                     </div>
                 </div>
                 <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                    <a class="anavbar" href="{{ route('whoarewe') }}"
+                    <a class="anavbar" href="{{ route('whoareweAnon') }}"
                         style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
-                    <a class="anavbar" href="{{ route('faq') }}"
+                    <a class="anavbar" href="{{ route('faqAnon') }}"
                         style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
-                    <a class="anavbar" href="{{ route('contact') }}"
+                    <a class="anavbar" href="{{ route('contactAnon') }}"
                         style="font-size:13px;">{{ __('Contáctanos') }}</a>
-                    <a class="anavbar" href="{{ route('privacy') }}"
+                    <a class="anavbar" href="{{ route('privacyAnon') }}"
                         style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                    <a class="anavbar" href="{{ route('premios') }}"
+                    <a class="anavbar" href="{{ route('premiosAnon') }}"
                         style="font-size:13px;">{{ __('Premios') }}</a>
                 </div>
                 <div style="margin-left:auto; display:flex;">
@@ -2284,6 +2397,19 @@
                 text-decoration: underline;
             }
 
+            #boton_login:hover {
+                filter: brightness(75%);
+            }
+
+            #menu_hamburguesa:hover {
+                cursor: pointer;
+                background-color: white;
+            }
+
+            #boton_responsive:hover {
+                background-color: white;
+            }
+
             @media only screen and (max-width: 639px) {
                 .anavbar {
                     display: none;
@@ -2292,8 +2418,39 @@
                 .redes_sociales {
                     display: none;
                 }
+
+                #boton_login {
+                    display: none;
+                }
+
+                #boton_switch {
+                    display: none;
+                }
+            }
+
+            @media only screen and (min-width: 640px) {
+                #menu_hamburguesa {
+                    display: none;
+                }
             }
         </style>
+
+        <script>
+            var menu_responsive = document.getElementById("menu_responsive");
+            var menu_hamburguesa = document.getElementById("menu_hamburguesa");
+
+            var mostrar_hamburguesa = function() {
+                menu_responsive.style.display = "block";
+                menu_hamburguesa.setAttribute("src", "{{ asset('img/burger_menu_x.png') }}");
+                menu_hamburguesa.setAttribute("onclick", "ocultar_hamburguesa()");
+            };
+
+            var ocultar_hamburguesa = function() {
+                menu_responsive.style.display = "none";
+                menu_hamburguesa.setAttribute("src", "{{ asset('img/burger_menu.png') }}");
+                menu_hamburguesa.setAttribute("onclick", "mostrar_hamburguesa()");
+            };
+        </script>
     </div>
 </body>
 

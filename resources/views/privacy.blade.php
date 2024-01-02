@@ -214,8 +214,13 @@
                 <a class="anavbar" href="{{ route('faq') }}"
                     style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
                 <a class="anavbar" href="{{ route('contact') }}" style="font-size:13px;">{{ __('Contáctanos') }}</a>
-                <a class="anavbar" href="{{ route('privacy') }}"
-                    style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                <div>
+                    <a class="anavbar" href="{{ route('privacy') }}"
+                        style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                    <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                </div>
                 <a class="anavbar" href="{{ route('premios') }}" style="font-size:13px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">

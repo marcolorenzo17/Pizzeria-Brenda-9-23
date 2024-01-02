@@ -1067,7 +1067,7 @@
                             @endif
                         @endauth
                     </div>
-                    <img src="{{asset('img/burger_menu.png')}}" alt="menu_hamburguesa" width="30px" id="menu_hamburguesa">
+                    <a href="#"><img src="{{asset('img/burger_menu.png')}}" alt="menu_hamburguesa" width="40px" id="menu_hamburguesa" onclick="mostrar_hamburguesa()" style="padding:5px; border-radius:10px;"></a>
                 </div>
             @endif
         </div>
@@ -1078,7 +1078,7 @@
         </h1>
     --}}
         <div style="margin-top:130px;">
-            <div style="background-color:#f5f0e9; color:#141414;">
+            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
                 <div style="padding:10px;">
                     @include('partials/language_switcher')
                 </div>
@@ -1104,7 +1104,7 @@
                     <br>
                 </div>
                 <a href="/">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('Inicio') }}</p>
                         <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
                             <br>
@@ -1112,35 +1112,35 @@
                     </div>
                 </a>
                 <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('Nuestra carta') }}</p>
                     </div>
                 </a>
                 <div style="background-color:#141414; height:3px; border-radius:10px;">
                     <br>
                 </div>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                <a href="whoareweAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('¿Quiénes somos?') }}</p>
                     </div>
                 </a>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                <a href="faqAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('Preguntas frecuentes') }}</p>
                     </div>
                 </a>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                <a href="contactAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('Contáctanos') }}</p>
                     </div>
                 </a>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                <a href="privacyAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('Política de privacidad') }}</p>
                     </div>
                 </a>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                <a href="premiosAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;" id="boton_responsive">
                         <p>{{ __('Premios') }}</p>
                     </div>
                 </a>
@@ -1549,15 +1549,15 @@
                 </div>
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                <a class="anavbar" href="{{ route('whoarewe') }}"
+                <a class="anavbar" href="{{ route('whoareweAnon') }}"
                     style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
-                <a class="anavbar" href="{{ route('faq') }}"
+                <a class="anavbar" href="{{ route('faqAnon') }}"
                     style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
-                <a class="anavbar" href="{{ route('contact') }}"
+                <a class="anavbar" href="{{ route('contactAnon') }}"
                     style="font-size:13px;">{{ __('Contáctanos') }}</a>
-                <a class="anavbar" href="{{ route('privacy') }}"
+                <a class="anavbar" href="{{ route('privacyAnon') }}"
                     style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="{{ route('premios') }}" style="font-size:13px;">{{ __('Premios') }}</a>
+                <a class="anavbar" href="{{ route('premiosAnon') }}" style="font-size:13px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
@@ -1604,6 +1604,15 @@
             filter: brightness(75%);
         }
 
+        #menu_hamburguesa:hover {
+            cursor: pointer;
+            background-color:white;
+        }
+
+        #boton_responsive:hover {
+            background-color:white;
+        }
+
         @media only screen and (max-width: 639px) {
             .anavbar {
                 display: none;
@@ -1629,6 +1638,23 @@
         }
     </style>
 </body>
+
+<script>
+    var menu_responsive = document.getElementById("menu_responsive");
+    var menu_hamburguesa = document.getElementById("menu_hamburguesa");
+
+    var mostrar_hamburguesa = function() {
+        menu_responsive.style.display = "block";
+        menu_hamburguesa.setAttribute("src", "{{asset('img/burger_menu_x.png')}}");
+        menu_hamburguesa.setAttribute("onclick", "ocultar_hamburguesa()");
+    };
+
+    var ocultar_hamburguesa = function() {
+        menu_responsive.style.display = "none";
+        menu_hamburguesa.setAttribute("src", "{{asset('img/burger_menu.png')}}");
+        menu_hamburguesa.setAttribute("onclick", "mostrar_hamburguesa()");
+    };
+</script>
 
 <script src="{{ asset('js/welcome.js') }}"></script>
 <script>
