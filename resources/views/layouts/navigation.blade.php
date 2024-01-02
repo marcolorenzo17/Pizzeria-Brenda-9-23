@@ -312,7 +312,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden" style="padding-top:45px;">
         <div style="position:relative; top:60px;">
             @include('partials/language_switcher')
         </div>

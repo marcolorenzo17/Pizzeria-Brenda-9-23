@@ -1074,8 +1074,94 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div style="background-color:white; margin-top:130px;">
-            <br>
+        <div style="margin-top:130px;">
+            <div style="background-color:#f5f0e9; color:#141414;">
+                @if (Route::has('login'))
+                    <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                id="boton">{{ __('Iniciar sesión') }}</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+                <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <br>
+                </div>
+                <a href="/">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('Inicio') }}</p>
+                        <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    </div>
+                </a>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('Nuestra carta') }}</p>
+                    </div>
+                </a>
+                <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <br>
+                </div>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('¿Quiénes somos?') }}</p>
+                    </div>
+                </a>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('Preguntas frecuentes') }}</p>
+                    </div>
+                </a>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('Contáctanos') }}</p>
+                    </div>
+                </a>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('Política de privacidad') }}</p>
+                    </div>
+                </a>
+                <a href="cartaAnon">
+                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;">
+                        <p>{{ __('Premios') }}</p>
+                    </div>
+                </a>
+                <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <br>
+                </div>
+                <div>
+                    <div
+                        style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414; display:flex; justify-content:center; align-items:center; gap:30px;">
+                        <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                                src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                        <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                                src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                        <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                                src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                        <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                                src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                                style="filter: brightness(0%);"></a>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:white;">
+                <br>
+            </div>
         </div>
         <div class="mx-auto" style="background-color:#141414;">
             <video width="1920" height="500" autoplay muted loop>
