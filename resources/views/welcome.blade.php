@@ -1025,14 +1025,14 @@
     <div style="background-color:#141414;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
-                <div>
+                <div id="boton_switch">
                     <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}
                     </a>
                     <div style="background-color:#f12d2d; margin-top:50px; height:5px; border-radius:10px;">
                         <br>
                     </div>
                 </div>
-                <div>
+                <div id="boton_switch">
                     <a class="anavbar" href="cartaAnon"
                         style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}
                     </a>
@@ -1044,27 +1044,30 @@
             @if (Route::has('login'))
                 <div id="login"
                     style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
-                    @include('partials/language_switcher')
+                    <div id="boton_switch">
+                        @include('partials/language_switcher')
+                    </div>
                     <div>
                         @auth
                             <a href="{{ url('/products') }}"
                                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Iniciar pedido') }}</a>
+                                id="boton_login">{{ __('Iniciar pedido') }}</a>
                         @else
                             <a href="{{ route('login') }}"
                                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                                id="boton">{{ __('Iniciar sesión') }}</a>
+                                id="boton_login">{{ __('Iniciar sesión') }}</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
                                     class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                                    id="boton">{{ __('Registrarse') }}</a>
+                                    id="boton_login">{{ __('Registrarse') }}</a>
                             @endif
                         @endauth
                     </div>
+                    <img src="{{asset('img/burger_menu.png')}}" alt="menu_hamburguesa" width="30px" id="menu_hamburguesa">
                 </div>
             @endif
         </div>
@@ -1076,6 +1079,9 @@
     --}}
         <div style="margin-top:130px;">
             <div style="background-color:#f5f0e9; color:#141414;">
+                <div style="padding:10px;">
+                    @include('partials/language_switcher')
+                </div>
                 @if (Route::has('login'))
                     <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
                         @auth
@@ -1594,12 +1600,30 @@
             text-decoration: underline;
         }
 
+        #boton_login:hover {
+            filter: brightness(75%);
+        }
+
         @media only screen and (max-width: 639px) {
             .anavbar {
                 display: none;
             }
 
             .redes_sociales {
+                display: none;
+            }
+
+            #boton_login {
+                display: none;
+            }
+
+            #boton_switch {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 640px) {
+            #menu_hamburguesa {
                 display: none;
             }
         }
