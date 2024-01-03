@@ -16,9 +16,9 @@
                     </x-nav-link>
                 --}}
                 @if (Auth::user()->admin)
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden sm:-my-px sm:ml-10 sm:flex" style="gap:15px;">
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Inicio') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'indexAnon')
@@ -28,7 +28,7 @@
                             @endif
                         </div>
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('products.index')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Menú') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'products.index')
@@ -38,7 +38,7 @@
                             @endif
                         </div>
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('crearpizza')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('crearpizza')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Ingredientes') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'crearpizza')
@@ -49,7 +49,7 @@
                         </div>
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
                             <div style="margin-top:43px;">
-                                <x-nav-link :href="route('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                                <x-nav-link :href="route('eventos.index')" style="color:white; font-size:15px; font-weight:bolder;">
                                     {{ __('Reservas') }}
                                 </x-nav-link>
                                 @if (Route::current()->getName() == 'eventos.index')
@@ -74,9 +74,9 @@
                         --}}
                     </div>
                 @else
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden sm:-my-px sm:ml-10 sm:flex" style="gap:15px;">
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Inicio') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'indexAnon')
@@ -86,7 +86,7 @@
                             @endif
                         </div>
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('products.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('products.index')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Menú') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'products.index')
@@ -96,7 +96,7 @@
                             @endif
                         </div>
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('promociones.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('promociones.index')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Promociones') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'promociones.index')
@@ -106,7 +106,7 @@
                             @endif
                         </div>
                         <div style="margin-top:43px;">
-                            <x-nav-link :href="route('eventos.index')" style="color:white; font-size:20px; font-weight:bolder;">
+                            <x-nav-link :href="route('eventos.index')" style="color:white; font-size:15px; font-weight:bolder;">
                                 {{ __('Reservas') }}
                             </x-nav-link>
                             @if (Route::current()->getName() == 'eventos.index')

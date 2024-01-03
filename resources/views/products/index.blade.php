@@ -6,7 +6,8 @@ use App\Http\Controllers\ProductController;
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <div style="margin-top:110px; display:flex; justify-content:center; align-items:center; gap:5vw;">
+        <div style="margin-top:110px; justify-content:center; align-items:center; gap:5vw;"
+            id="titular-grande">
             @if (!Auth::user()->admin)
                 @include('products.partials.search-box')
             @endif
@@ -14,6 +15,19 @@ use App\Http\Controllers\ProductController;
                 style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('NUESTRO MENÚ') }}
             </h2>
+            {{--
+            <br>
+            <a href="{{ route('products.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">AÑADIR PRODUCTO</a>
+        --}}
+        </div>
+        <div style="margin-top:110px;" id="titular-pequenio">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('NUESTRO MENÚ') }}
+            </h2>
+            @if (!Auth::user()->admin)
+                @include('products.partials.search-box')
+            @endif
             {{--
             <br>
             <a href="{{ route('products.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">AÑADIR PRODUCTO</a>
@@ -178,7 +192,7 @@ use App\Http\Controllers\ProductController;
             <livewire:product-list />
         </div>
 
-        <div style="position:fixed; bottom:130px; right:10px;">
+        <div style="position:fixed; bottom:180px; right:10px;">
             <a href="#">
                 <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px" id="boton">
             </a>

@@ -7,22 +7,36 @@
     width: 200px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 895px) {
     #productos-grande {
         display: none;
     }
     #productos-pequenio {
         display: flex;
     }
+    #titular-grande {
+        display: none;
+    }
+    #titular-pequenio {
+        display: block;
+    }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 896px) {
     #productos-pequenio {
+        display: none;
+    }
+
+    #titular-grande {
+        display: flex;
+    }
+
+    #titular-pequenio {
         display: none;
     }
 }
 
-@media only screen and (max-width: 1017px) {
+@media only screen and (max-width: 1016px) {
     #productos-grande-navbar {
         display: none;
     }

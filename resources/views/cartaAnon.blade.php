@@ -2324,7 +2324,7 @@
                 @endif
             @endforeach
         </div>
-        <div style="position:fixed; bottom:130px; right:10px;">
+        <div style="position:fixed; bottom:180px; right:10px;">
             <a href="#">
                 <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
                     id="boton">
