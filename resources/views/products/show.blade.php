@@ -49,8 +49,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md"
-                        id="boton" style="background-color:#f12d2d;">{{ __('VOLVER') }}
+                    <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                        style="background-color:#f12d2d;">{{ __('VOLVER') }}
                     </a>
                     <br><br>
                     <div class="mb-6">
@@ -144,8 +144,10 @@
                             <input type="hidden" value="{{ $products->image }}" name="image">
                             <input type="hidden" value="1" name="quantity">
                             <div style="text-align:center;">
-                                <button class="px-4 py-1.5 text-white text-sm rounded
-                                    id="boton" style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button
+                                    class="px-4 py-1.5 text-white text-sm rounded
+                                    id="boton"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                             </div>
                         </form>
                         <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
@@ -399,12 +401,12 @@
     </div>
 
     <div class="footer">
-        <div style="text-align:center;">
+        <div style="text-align:center; font-size:13px;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
             <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
                     {{ __('Teléfonos: ') }}
                 </p>
                 <div style="font-size:18px; font-weight:bolder;">
@@ -413,29 +415,30 @@
             </div>
             <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
                 <a class="anavbar" href="{{ route('whoarewe') }}"
-                    style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
                 <a class="anavbar" href="{{ route('faq') }}"
-                    style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
-                <a class="anavbar" href="{{ route('contact') }}" style="font-size:13px;">{{ __('Contáctanos') }}</a>
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
                 <a class="anavbar" href="{{ route('privacy') }}"
-                    style="font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="{{ route('premios') }}" style="font-size:13px;">{{ __('Premios') }}</a>
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
                 <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;" class="redes_sociales"></a>
+                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;" class="redes_sociales"></a>
+                        src="{{ asset('img/inst.png') }}" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;" class="redes_sociales"></a>
+                        src="{{ asset('img/tik.png') }}" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;" class="redes_sociales"></a>
+                        src="{{ asset('img/face.png') }}" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
                     {{ __('Horario: ') }}
                 </p>
                 <div style="font-size:18px; font-weight:bolder;">
