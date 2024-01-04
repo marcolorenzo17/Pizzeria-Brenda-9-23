@@ -4,6 +4,12 @@
 * {box-sizing: border-box;}
 .mySlides2 {display: none;}
 
+* {box-sizing: border-box;}
+.mySlides_res {display: none;}
+
+* {box-sizing: border-box;}
+.mySlides2_res {display: none;}
+
 /* Slideshow container */
 .slideshow-container2 {
   max-width: 1000px;
@@ -43,6 +49,26 @@
 }
 
 .dot2 {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot_res {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot2_res {
   height: 15px;
   width: 15px;
   margin: 0 2px;

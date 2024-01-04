@@ -1,0 +1,53 @@
+@media only screen and (max-width: 1671px) {
+    .aprovecha_ofertas {
+        font-size: 25px;
+    }
+
+    .canjea_pizzacoins {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 1672px) {
+    .aprovecha_ofertas {
+        font-size: 33px;
+    }
+
+    .canjea_pizzacoins {
+        font-size: 33px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #prom_y_of {
+        display: none;
+    }
+
+    #prom_y_of_res {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1101px) {
+    #prom_y_of {
+        display: flex;
+    }
+
+    #prom_y_of_res {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 571px) {
+    #mapa {
+        width: 400px;
+        height: 200px;
+    }
+}
+
+@media only screen and (min-width: 572px) {
+    #mapa {
+        width: 500px;
+        height: 300px;
+    }
+}
