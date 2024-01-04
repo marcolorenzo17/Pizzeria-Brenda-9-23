@@ -140,7 +140,7 @@
             </div>
 
             <!-- Logo -->
-            <div style="margin-left:auto; margin-right:0;">
+            <div style="margin-left:auto;" id="logo_header">
                 <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
                         style="width:100px; margin-top:10px;"></a>
             </div>
