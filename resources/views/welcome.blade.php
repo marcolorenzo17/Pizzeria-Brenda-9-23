@@ -1389,8 +1389,7 @@
         </div>
     </div>
     <div style="background-color:#141414;" id="prom_y_of_res">
-        <div style="background-color:white; border-bottom:5px solid white;"
-            id="fondoProm_res">
+        <div style="background-color:white; border-bottom:5px solid white;" id="fondoProm_res">
             <div>
                 <div style="background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselUno_res()" id="botonprom">
@@ -1490,8 +1489,7 @@
                 @endforeach
             </div>
         </div>
-        <div style="background-color:white; border-top:5px solid #568c2c;"
-            id="fondoOfer_res">
+        <div style="background-color:white; border-top:5px solid #568c2c;" id="fondoOfer_res">
             <div style="text-align:center;">
                 <div style=" background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
                     onclick="mostrarCarruselDos_res()" id="botonofer">
@@ -1580,12 +1578,12 @@
                 </div>
             </div>
         </div>
-        <div style="display:flex; justify-content:center; align-items:center;">
+        <div style="justify-content:center; align-items:center;" id="carta_y_pedido">
             <div style="flex:1;">
                 <div style="text-align:center;">
                     <a href="cartaAnon"
-                        style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
-                        id="boton">{{ __('NUESTRA CARTA') }}
+                        style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                        id="boton" class="nuestra_carta_btn">{{ __('NUESTRA CARTA') }}
                     </a>
                     <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('¿QUÉ PEDIMOS?') }}</p>
@@ -1595,14 +1593,35 @@
                 <img src="{{ asset('img/nuestracarta/centro.jpg') }}" alt="centro">
             </div>
             <div style="flex:1;">
-                <div style="text-align:center; background-color:">
+                <div style="text-align:center;">
                     <a href="{{ route('login') }}"
-                        style="color:black; font-size:50px; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
-                        id="boton">{{ __('HAZ TU PEDIDO') }}
+                        style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                        id="boton" class="haz_pedido_btn">{{ __('HAZ TU PEDIDO') }}
                     </a>
                     <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('¡TE LO LLEVAMOS A CASA!') }}</p>
                 </div>
+            </div>
+        </div>
+        <div id="carta_y_pedido_res">
+            <div style="text-align:center; margin:50px;">
+                <a href="cartaAnon"
+                    style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                    id="boton" class="nuestra_carta_btn">{{ __('NUESTRA CARTA') }}
+                </a>
+                <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                    {{ __('¿QUÉ PEDIMOS?') }}</p>
+            </div>
+            <div>
+                <img src="{{ asset('img/nuestracarta/centro.jpg') }}" alt="centro">
+            </div>
+            <div style="text-align:center; margin:50px;">
+                <a href="{{ route('login') }}"
+                    style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                    id="boton" class="haz_pedido_btn">{{ __('HAZ TU PEDIDO') }}
+                </a>
+                <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                    {{ __('¡TE LO LLEVAMOS A CASA!') }}</p>
             </div>
         </div>
     </div>
@@ -1651,15 +1670,16 @@
             style="font-size:60px; color:white; font-family: 'Anton', sans-serif; margin-bottom:10px;">
             {{ __('VISÍTANOS') }}
         </h1>
-        <div style="display:flex; justify-content:center; align-items:center; gap: 50px;">
+        <div style="justify-content:center; align-items:center; gap:50px;" id="visitanos">
             <div>
                 <img src="{{ asset('img/fondo/maps.jpg') }}" alt="localizacion" width="600"
-                    style="border:2px solid white; border-radius:20px;">
+                    style="border:2px solid white; border-radius:20px; margin-left:auto; margin-right:auto;" id="localizacion">
             </div>
             <div>
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses" style="border:5px solid white; border-radius:10px;"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa"></iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                    style="border:5px solid white; border-radius:10px; margin-left:auto; margin-right:auto;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" id="mapa"></iframe>
             </div>
         </div>
         <div class="flex items-center justify-center" style="margin-top:30px;">

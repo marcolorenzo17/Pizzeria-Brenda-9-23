@@ -18,6 +18,26 @@
     }
 }
 
+@media only screen and (max-width: 1195px) {
+    .nuestra_carta_btn {
+        font-size: 40px;
+    }
+
+    .haz_pedido_btn {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 1196px) {
+    .nuestra_carta_btn {
+        font-size: 50px;
+    }
+
+    .haz_pedido_btn {
+        font-size: 50px;
+    }
+}
+
 @media only screen and (max-width: 1100px) {
     #prom_y_of {
         display: none;
@@ -25,6 +45,22 @@
 
     #prom_y_of_res {
         display: block;
+    }
+
+    #carta_y_pedido {
+        display: none;
+    }
+
+    #carta_y_pedido_res {
+        display: block;
+    }
+
+    #visitanos {
+        display: block;
+    }
+
+    #localizacion {
+        margin-bottom: 50px;
     }
 }
 
@@ -35,6 +71,22 @@
 
     #prom_y_of_res {
         display: none;
+    }
+
+    #carta_y_pedido {
+        display: flex;
+    }
+
+    #carta_y_pedido_res {
+        display: none;
+    }
+
+    #visitanos {
+        display: flex;
+    }
+
+    #localizacion {
+        margin-bottom: 0px;
     }
 }
 
