@@ -38,8 +38,17 @@
     <br>
     <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto"
         style="border:3px solid gray; border-radius:10px;">
+    <div
+        style="background-color:white; padding:30px; margin-top:30px; display:flex; justify-content:center; align-items:center; gap:5vw;">
+        <a href="#promociones_lista" id="boton">
+            <div style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif; color:#141414; font-size:40px;">PROMOCIONES</div>
+        </a>
+        <a href="#ofertas_lista" id="boton">
+            <div style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif;color:#141414; font-size:40px;">OFERTAS</div>
+        </a>
+    </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
-        style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
+        style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;" id="promociones_lista">
         @foreach ($promotions as $promotion)
             @if ($promotion->habilitado and $promotion->type == 'Promoción')
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -99,7 +108,7 @@
     <br>
     <div style="background-color:white; margin-bottom:300px;">
         <br>
-        <div style="text-align:center; font-size:30px; font-weight:bolder;">
+        <div style="text-align:center; font-size:30px; font-weight:bolder;" id="ofertas_lista">
             {{ __('OFERTAS') }}
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"

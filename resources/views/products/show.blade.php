@@ -236,7 +236,7 @@
                                         <img src="{{ asset('img/e5.png') }}" alt="*" width="100px" height="100px">
                                     @break
                                 @endswitch
-                                <p style="margin-top:10px;">
+                                <p style="margin-top:10px; word-wrap:break-word;">
                                     {{ $valoracion->resenia }}
                                 </p>
                                 <p style="font-size:12px; color:gray;">
@@ -325,7 +325,7 @@
                                             <p style="font-size:13px; margin-bottom:5px;">
                                                 {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                                             </p>
-                                            <p>
+                                            <p style="word-wrap:break-word;">
                                                 {{ $comentario->resenia }}
                                             </p>
                                             <p style="font-size:12px; color:gray;">
