@@ -268,7 +268,7 @@
                             </x-dropdown-link>
                         </form>
 
-                        <div id="productos-pequenio-navbar" style="position:relative; top:-20px;">
+                        <div id="productos-pequenio-navbar" style="position:relative; top:-20px; left:40px;">
                             @include('partials/language_switcher')
                         </div>
                     </x-slot>
