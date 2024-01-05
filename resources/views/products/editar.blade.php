@@ -19,7 +19,34 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
-            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw;" x-data="{ nombre: '', name: '' }">
+            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;" x-data="{ nombre: '', name: '' }">
+            <div>
+                <script>
+                    function previewFile(input) {
+                        var file = $("input[type=file]").get(0).files[0];
+
+                        if (file) {
+                            var reader = new FileReader();
+
+                            reader.onload = function() {
+                                $("#previewImg").attr("style",
+                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
+                                $("#previewImg").attr("src", reader.result);
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                </script>
+                <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
+                    <img id="previewImg" src="{{ asset($product->image) }}" placeholder="Preview"
+                        style="display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
+                        width="300px">
+                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
+                        x-text="nombre"></p>
+                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
+                        x-text="name"></p>
+                </div>
+            </div>
             <div>
                 <form action="{{ route('products.actualizar', $product) }}" method="POST" enctype="multipart/form-data"
                     name="editarplato" onsubmit="return validate()">
@@ -102,8 +129,8 @@
                     <table>
                         <tr>
                             <td>
-                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten" height="50px"
-                                    width="50px">
+                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten"
+                                    height="50px" width="50px">
                             </td>
                             <td>
                                 <input type="checkbox" id="gluten" name="alergenos[]" value="gluten">
@@ -253,33 +280,6 @@
                             style="background-color:#568c2c;">{{ __('ACTUALIZAR') }}</button>
                     </div>
                 </form>
-            </div>
-            <div>
-                <script>
-                    function previewFile(input) {
-                        var file = $("input[type=file]").get(0).files[0];
-
-                        if (file) {
-                            var reader = new FileReader();
-
-                            reader.onload = function() {
-                                $("#previewImg").attr("style",
-                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
-                                $("#previewImg").attr("src", reader.result);
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                    }
-                </script>
-                <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
-                    <img id="previewImg" src="{{ asset($product->image) }}" placeholder="Preview"
-                        style="display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
-                        width="300px">
-                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
-                        x-text="nombre"></p>
-                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
-                        x-text="name"></p>
-                </div>
             </div>
         </div>
 

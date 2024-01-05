@@ -19,7 +19,35 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
-            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw;" x-data="{ nombre: '', name: '' }">
+            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;"
+            x-data="{ nombre: '', name: '' }">
+            <div>
+                <script>
+                    function previewFile(input) {
+                        var file = $("input[type=file]").get(0).files[0];
+
+                        if (file) {
+                            var reader = new FileReader();
+
+                            reader.onload = function() {
+                                $("#previewImg").attr("style",
+                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
+                                $("#previewImg").attr("src", reader.result);
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                </script>
+                <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
+                    <img id="previewImg" src="#" placeholder="Preview"
+                        style="display:none; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
+                        width="300px">
+                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
+                        x-text="nombre"></p>
+                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
+                        x-text="name"></p>
+                </div>
+            </div>
             <div>
                 <form action="{{ route('crearpizza.aniadir') }}" method="POST" enctype="multipart/form-data"
                     name="crearingrediente" onsubmit="return validate()">
@@ -92,8 +120,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <img src="{{ asset('img/alergenos/single/huevos.png') }}" alt="huevos" height="50px"
-                                    width="50px">
+                                <img src="{{ asset('img/alergenos/single/huevos.png') }}" alt="huevos"
+                                    height="50px" width="50px">
                             </td>
                             <td>
                                 <input type="checkbox" id="huevos" name="alergenos[]" value="huevos">
@@ -217,33 +245,6 @@
                             style="background-color:#568c2c;">{{ __('AÑADIR') }}</button>
                     </div>
                 </form>
-            </div>
-            <div>
-                <script>
-                    function previewFile(input) {
-                        var file = $("input[type=file]").get(0).files[0];
-
-                        if (file) {
-                            var reader = new FileReader();
-
-                            reader.onload = function() {
-                                $("#previewImg").attr("style",
-                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
-                                $("#previewImg").attr("src", reader.result);
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                    }
-                </script>
-                <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
-                    <img id="previewImg" src="#" placeholder="Preview"
-                        style="display:none; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
-                        width="300px">
-                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
-                        x-text="nombre"></p>
-                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
-                        x-text="name"></p>
-                </div>
             </div>
         </div>
 

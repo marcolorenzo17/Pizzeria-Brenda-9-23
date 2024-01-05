@@ -10,7 +10,7 @@
         @else
             <div style="margin-top:110px;">
                 <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;" id="volvermenu">
                     {{ __('CREA TU PROPIA PIZZA') }}
                 </h2>
             </div>
@@ -133,7 +133,7 @@
             <tr>
                 <td>
                     <br>
-                    <div style="text-align:center;" id="volvermenu">
+                    <div style="text-align:center;">
                         <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
                             style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
                     </div>

@@ -39,7 +39,7 @@
     <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto"
         style="border:3px solid gray; border-radius:10px;">
     <div
-        style="background-color:white; padding:30px; margin-top:30px; display:flex; justify-content:center; align-items:center; gap:5vw;">
+        style="background-color:white; padding:30px; margin-top:30px; display:flex; justify-content:center; align-items:center; gap:5vw; flex-wrap:wrap;">
         <a href="#promociones_lista" id="boton">
             <div style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif; color:#141414; font-size:40px;">PROMOCIONES</div>
         </a>

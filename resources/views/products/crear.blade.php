@@ -19,7 +19,35 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
-            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw;" x-data="{ nombre: '', name: '' }">
+            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;"
+            x-data="{ nombre: '', name: '' }">
+            <div>
+                <script>
+                    function previewFile(input) {
+                        var file = $("input[type=file]").get(0).files[0];
+
+                        if (file) {
+                            var reader = new FileReader();
+
+                            reader.onload = function() {
+                                $("#previewImg").attr("style",
+                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
+                                $("#previewImg").attr("src", reader.result);
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                </script>
+                <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
+                    <img id="previewImg" src="#" placeholder="Preview"
+                        style="display:none; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
+                        width="300px">
+                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
+                        x-text="nombre"></p>
+                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
+                        x-text="name"></p>
+                </div>
+            </div>
             <div>
                 <form action="{{ route('products.aniadir') }}" method="POST" enctype="multipart/form-data"
                     name="crearplato" onsubmit="return validate()">
@@ -89,8 +117,8 @@
                     <br><br>
                     <label for="puntos">{{ __('Pizzacoins para desbloqueo (Sólo promociones)') }}</label>
                     <br>
-                    <input type="number" id="puntos" name="puntos" step="1" value="0" min="0"
-                        onfocusout="validate_puntos()">
+                    <input type="number" id="puntos" name="puntos" step="1" value="0"
+                        min="0" onfocusout="validate_puntos()">
                     <p id="error_puntos" style="color:red;"></p>
                     <br><br>
                     <table>
@@ -240,33 +268,6 @@
                             style="background-color:#568c2c;">{{ __('AÑADIR') }}</button>
                     </div>
                 </form>
-            </div>
-            <div>
-                <script>
-                    function previewFile(input) {
-                        var file = $("input[type=file]").get(0).files[0];
-
-                        if (file) {
-                            var reader = new FileReader();
-
-                            reader.onload = function() {
-                                $("#previewImg").attr("style",
-                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
-                                $("#previewImg").attr("src", reader.result);
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                    }
-                </script>
-                <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
-                    <img id="previewImg" src="#" placeholder="Preview"
-                        style="display:none; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
-                        width="300px">
-                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
-                        x-text="nombre"></p>
-                    <p style="font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase; margin:10px;"
-                        x-text="name"></p>
-                </div>
             </div>
         </div>
 

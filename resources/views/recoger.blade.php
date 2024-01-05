@@ -10,52 +10,50 @@
     <link rel="stylesheet" href="/css/index_products.css" />
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap" rel="stylesheet">
     <br>
-    <div style="text-align:center;">
-        @if (Auth::User()->inmediato)
-            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
-                style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
-        @else
-            <a href="{{ route('cart.list') }}" class="text-white px-4 py-2 rounded-md" id="boton"
-                style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
-        @endif
-    </div>
-    <div class="container px-12 py-8 mx-auto" style="margin-bottom:300px;">
-        <br>
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
-            <tr>
-                <td>
-                    <div id="recogerdiv"
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')"
-                                id="imgproducto" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{ __('Recoger en Pizzería') }}</h5>
-                        </div>
+    <div style="margin-bottom:300px;">
+        <div style="text-align:center;">
+            @if (Auth::User()->inmediato)
+                <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                    style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
+            @else
+                <a href="{{ route('cart.list') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                    style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
+            @endif
+        </div>
+        <div class="container px-12 py-8 mx-auto">
+            <br>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:5vw;">
+                <div id="recogerdiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')"
+                            id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">
+                            {{ __('Recoger en Pizzería') }}</h5>
                     </div>
-                </td>
-                <td>
-                    <div id="domiciliodiv"
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')"
-                                id="imgproducto" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{ __('A domicilio') }}
-                            </h5>
-                        </div>
+                </div>
+                <div id="domiciliodiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')"
+                            id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">
+                            {{ __('A domicilio') }}
+                        </h5>
                     </div>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
         <br>
         <form action="pagar" method="get" enctype="multipart/form-data" id="ruta1">
             @csrf
-            <div id="contenido1">
+            <div id="contenido1" style="margin:30px;">
                 <!--
                 <div id="formulario"></div>
                 <div id="botondiv"></div>
@@ -77,7 +75,7 @@
             </div>
         </form>
         <form action="pagardomicilio" method="get" enctype="multipart/form-data" id="ruta2">
-            <div id="contenido2">
+            <div id="contenido2" style="margin:30px;">
                 <div id="form2" style="display:none;">
                     <div class="mb-6">
                         <label for="direccion2"
