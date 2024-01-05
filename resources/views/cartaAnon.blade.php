@@ -1672,7 +1672,7 @@
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}
                         </h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1727,7 +1727,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1782,7 +1782,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1837,7 +1837,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1892,7 +1892,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1947,7 +1947,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -2002,7 +2002,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -2057,7 +2057,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -2112,7 +2112,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -2167,7 +2167,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -2222,7 +2222,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -2277,7 +2277,7 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="display:flex; align-items:center; justify-content:center; background:white;">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
