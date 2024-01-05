@@ -887,7 +887,7 @@
 </head>
 
 <body class="antialiased" style="background-color:#141414; margin:20px;">
-    <div style="background-color:#f5f0e9;">
+    <div style="background-color:white;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
                 <div id="boton_switch">
@@ -942,7 +942,7 @@
         </h1>
     --}}
         <div style="margin-top:130px;">
-            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+            <div style="background-color:white; color:#141414; display:none;" id="menu_responsive">
                 <div style="padding:10px;">
                     @include('partials/language_switcher')
                 </div>
@@ -1035,8 +1035,6 @@
                                 style="filter: brightness(0%);"></a>
                     </div>
                 </div>
-            </div>
-            <div style="margin-top:200px;">
             </div>
         </div>
         <div style="margin:30px; margin-bottom:300px;">

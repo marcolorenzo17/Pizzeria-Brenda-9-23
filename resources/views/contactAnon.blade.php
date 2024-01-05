@@ -887,7 +887,7 @@
 </head>
 
 <body class="antialiased" style="background-color:#141414; margin:20px;">
-    <div style="background-color:#f5f0e9;">
+    <div style="background-color:white;">
         <div class="navbar" style="display:flex;">
             <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
                 <div id="boton_switch">
@@ -941,8 +941,8 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div style="margin-top:130px;">
-            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+        <div style="margin-top:100px;">
+            <div style="background-color:white; color:#141414; display:none;" id="menu_responsive">
                 <div style="padding:10px;">
                     @include('partials/language_switcher')
                 </div>
@@ -1036,8 +1036,6 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-top:200px;">
-            </div>
         </div>
         <div class="container px-12 py-8 mx-auto bg-white"
             style="padding-top:30px; padding-bottom:30px;  margin-bottom:300px; margin-left:20px; margin-right:20px;">
@@ -1045,20 +1043,16 @@
             <br><br>
             <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
             <br>
-            <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
-                <tr>
-                    <td>956 37 11 15</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>956 37 47 36</td>
-                    <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
-                </tr>
-                <tr>
-                    <td>627 650 605</td>
-                    <td></td>
-                </tr>
-            </table>
+            <div style="display:flex; justify-content:center; align-items:center; gap:8vw; flex-wrap:wrap;">
+                <div>
+                    <p>956 37 11 15</p>
+                    <p>956 37 47 36</p>
+                    <p>627 650 605</p>
+                </div>
+                <div>
+                    <p>{{ __('Puedes hacer tu pedido por teléfono') }}</p>
+                </div>
+            </div>
             <br><br>
             <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
             <br>
