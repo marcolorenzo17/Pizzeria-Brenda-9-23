@@ -8,25 +8,22 @@
         </div>
     </x-slot>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css" />
     <br>
     <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
         <br>
         <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
         <br>
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 100px 0;">
-            <tr>
-                <td>956 37 11 15</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>956 37 47 36</td>
-                <td>{{ __('Puedes hacer tu pedido por teléfono') }}</td>
-            </tr>
-            <tr>
-                <td>627 650 605</td>
-                <td></td>
-            </tr>
-        </table>
+        <div style="display:flex; justify-content:center; align-items:center; gap:8vw; flex-wrap:wrap;">
+            <div>
+                <p>956 37 11 15</p>
+                <p>956 37 47 36</p>
+                <p>627 650 605</p>
+            </div>
+            <div>
+                <p>{{ __('Puedes hacer tu pedido por teléfono') }}</p>
+            </div>
+        </div>
         <br><br>
         <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
         <br>
@@ -43,11 +40,11 @@
                 11550 - Chipiona (Cádiz)
             </p>
             <br>
-            <div style="width:600px; margin-left:auto; margin-right:auto;">
+            <div>
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                    width="600" height="450" style="border:5px solid gray; border-radius:10px;" allowfullscreen=""
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                style="border:5px solid gray; border-radius:10px; margin-left:auto; margin-right:auto;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa_contact"></iframe>
             </div>
         </div>
         <br><br>

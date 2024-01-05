@@ -478,6 +478,7 @@
 
     <script src="{{ asset('js/product-script.js') }}"></script>
     <script>
+        /*
         function validate_valoracion() {
             if (!(validate_valoracion_input())) {
                 return false;
@@ -549,6 +550,7 @@
                 return true;
             }
         }
+        */
     </script>
 
 </x-app-layout>

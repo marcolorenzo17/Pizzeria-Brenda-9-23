@@ -134,6 +134,7 @@ class UserController extends Controller
     }
 
     public function actualizarpuntos(Request $req, string $id) {
+        /*
         $validate = Validator::make($req->all(), [
             'puntos' => 'numeric|min:0',
         ],[
@@ -144,13 +145,14 @@ class UserController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $cliente = User::findOrFail($id);
 
-        if ($req->puntos == "") {
+        if (intval($req->puntos) < 0) {
             $cliente->puntos = 0;
         } else {
-            $cliente->puntos = $req->puntos;
+            $cliente->puntos = intval($req->puntos);
         }
 
         $cliente->update();

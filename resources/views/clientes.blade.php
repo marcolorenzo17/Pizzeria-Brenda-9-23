@@ -747,6 +747,7 @@
 </style>
 
 <script>
+    /*
     function validate() {
         if (!(validate_puntos())) {
             return false;
@@ -768,6 +769,7 @@
             return true;
         }
     }
+    */
 </script>
 
 </x-app-layout>

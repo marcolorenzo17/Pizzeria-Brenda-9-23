@@ -30,14 +30,14 @@ article {
     flex: 1;
 }
 
-@media only screen and (max-width: 710px) {
+@media only screen and (max-width: 780px) {
     #mapa_contact {
         width:400px;
         height:300px;
     }
 }
 
-@media only screen and (min-width: 711px) {
+@media only screen and (min-width: 781px) {
     #mapa_contact {
         width:600px;
         height:450px;

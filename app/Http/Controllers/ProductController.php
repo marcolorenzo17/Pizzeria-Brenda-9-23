@@ -297,6 +297,7 @@ class ProductController extends Controller
         ]);
         */
 
+        /*
         $validate = Validator::make($req->all(), [
             'resenia' => 'required',
         ],[
@@ -306,6 +307,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($id);
 
@@ -352,6 +354,7 @@ class ProductController extends Controller
     }
 
     public function actualizarValoracion(Request $req, string $idProduct, string $idValoracion) {
+        /*
         $validate = Validator::make($req->all(), [
             'modifVal' => 'required|max:255',
         ],[
@@ -362,6 +365,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($idProduct);
         $valoracion = Valoracione::findOrFail($idValoracion);
@@ -376,6 +380,7 @@ class ProductController extends Controller
     }
 
     public function addComentario(Request $req, string $idProduct, string $idValoracion) {
+        /*
         $validate = Validator::make($req->all(), [
             'reseniaCom' => 'required',
         ],[
@@ -385,6 +390,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($idProduct);
         $valoracion = Valoracione::findOrFail($idValoracion);
@@ -431,6 +437,7 @@ class ProductController extends Controller
     }
 
     public function actualizarComentario(Request $req, string $idProduct, string $idComentario) {
+        /*
         $validate = Validator::make($req->all(), [
             'modifCom' => 'required|max:255',
         ],[
@@ -441,6 +448,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($idProduct);
         $comentario = Comentario::findOrFail($idComentario);
