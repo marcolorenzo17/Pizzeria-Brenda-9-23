@@ -43,7 +43,7 @@
                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
                 <br><br>
                 @foreach ($curriculums as $curriculum)
-                    <div style="display:flex; align-items:center; gap:50px;">
+                    <div style="display:flex; align-items:center; gap:50px; flex-wrap:wrap;">
                         @if (substr($curriculum->curriculum, -4) == '.pdf')
                             <div>
                                 <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
