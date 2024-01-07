@@ -148,7 +148,7 @@
                         </form>
                     --}}
         </div>
-        <div class="container px-12 py-8 mx-auto bg-white">
+        <div class="container px-12 py-8 mx-auto bg-white" style="margin-top:50px;">
             <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
             <br>
             <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
