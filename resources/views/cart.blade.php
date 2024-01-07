@@ -124,7 +124,8 @@
                                             <a href="recoger"><button type="button"
                                                     class="px-6 py-2 text-sm  rounded shadow text-red-100"
                                                     id="boton"
-                                                    style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button></a>
+                                                    style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button>
+                                            </a>
                                         </td>
                                         <td>
                                             <form action="{{ route('cart.clear') }}" method="POST">
@@ -140,13 +141,70 @@
                         </div>
                         <div id="carrito_pequenio">
                             @foreach ($cartItems as $item)
-                                <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
-                                <a href="#">
-                                    <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
-                                        {{ __($item->name) }}
-                                    </p>
-                                </a>
+                                <div style="margin-bottom:30px;">
+                                    <div style="display:flex; gap:10px;">
+                                        <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                                        @if ($item->attributes->type != 'Promoción')
+                                            <div class="h-10 w-28">
+                                                <form action="{{ route('cart.update') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                                    <input type="text" name="quantity"
+                                                        value="{{ $item->quantity }}"
+                                                        class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
+                                                    <button
+                                                        class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100"
+                                                        id="boton"
+                                                        style="background-color:#568c2c;">{{ __('Actualizar') }}</button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                        <form action="{{ route('cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $item->id }}" name="id">
+                                            <input type="hidden" value="{{ $item->attributes->type }}"
+                                                name="type">
+                                            <input type="hidden" value="{{ $item->attributes->puntos }}"
+                                                name="puntos">
+                                            <button class="px-4 py-2 text-white bg-red-600 shadow rounded-full"
+                                                id="boton">x</button>
+                                        </form>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                        <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
+                                            {{ __($item->name) }}
+                                        </p>
+                                    </div>
+                                    <div style="margin-left:20px;">
+                                        @if ($item->attributes->type != 'Promoción')
+                                            <p>
+                                                {{ __('- Precio:') }}
+                                                {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
+                                            </p>
+                                        @endif
+                                        @if ($item->attributes->puntos >= 0 and $item->attributes->puntos != "")
+                                            <p>
+                                                - Pizzacoins: {{ $item->attributes->puntos }}
+                                            </p>
+                                        @endif
+                                    </div>
+                                </div>
                             @endforeach
+                            <div style="margin-top:30px;">
+                                Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
+                            </div>
+                            <div
+                                style="margin-top:30px; display:flex; align-items:center; justify-content:center; gap:50px;">
+                                <a href="recoger"><button type="button"
+                                        class="px-6 py-2 text-sm  rounded shadow text-red-100" id="boton"
+                                        style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button>
+                                </a>
+                                <form action="{{ route('cart.clear') }}" method="POST">
+                                    @csrf
+                                    <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500"
+                                        id="boton">{{ __('Vaciar carrito') }}</button>
+                                </form>
+                            </div>
                         </div>
                     @else
                         <div style="text-align:center; font-weight:bold; font-size:18px;">
