@@ -141,6 +141,11 @@
                         <div id="carrito_pequenio">
                             @foreach ($cartItems as $item)
                                 <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                                <a href="#">
+                                    <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
+                                        {{ __($item->name) }}
+                                    </p>
+                                </a>
                             @endforeach
                         </div>
                     @else
