@@ -140,14 +140,30 @@
             </div>
 
             <!-- Logo -->
-            <div style="margin-left:auto;" id="logo_header">
-                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
-                        style="width:100px; margin-top:10px;"></a>
-            </div>
+            @if (Route::current()->getName() == 'products.show' or
+                    Route::current()->getName() == 'products.editar' or
+                    Route::current()->getName() == 'crearpizza.editar')
+                <div style="margin-left:auto; margin-right:auto;" id="logo_header">
+                    <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                            style="width:100px; margin-top:10px;"></a>
+                </div>
+            @else
+                <div style="margin-left:auto;" id="logo_header">
+                    <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                            style="width:100px; margin-top:10px;"></a>
+                </div>
+            @endif
 
-            <div style="margin-left:auto; margin-right:0; margin-top:40px;" id="productos-grande-navbar">
-                @include('partials/language_switcher')
-            </div>
+            @if (Route::current()->getName() == 'products.show' or
+                    Route::current()->getName() == 'products.editar' or
+                    Route::current()->getName() == 'crearpizza.editar')
+                <div>
+                </div>
+            @else
+                <div style="margin-left:auto; margin-right:0; margin-top:40px;" id="productos-grande-navbar">
+                    @include('partials/language_switcher')
+                </div>
+            @endif
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -268,9 +284,15 @@
                             </x-dropdown-link>
                         </form>
 
-                        <div id="productos-pequenio-navbar" style="position:relative; top:-20px; left:40px;">
-                            @include('partials/language_switcher')
-                        </div>
+                        @if (Route::current()->getName() == 'products.show' or
+                                Route::current()->getName() == 'products.editar' or
+                                Route::current()->getName() == 'crearpizza.editar')
+                            <div></div>
+                        @else
+                            <div id="productos-pequenio-navbar" style="position:relative; top:-20px; left:40px;">
+                                @include('partials/language_switcher')
+                            </div>
+                        @endif
                     </x-slot>
 
                 </x-dropdown>
@@ -313,9 +335,15 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden" style="padding-top:45px;">
-        <div style="position:relative; top:60px;">
-            @include('partials/language_switcher')
-        </div>
+        @if (Route::current()->getName() == 'products.show' or
+                Route::current()->getName() == 'products.editar' or
+                Route::current()->getName() == 'crearpizza.editar')
+            <div></div>
+        @else
+            <div style="position:relative; top:60px;">
+                @include('partials/language_switcher')
+            </div>
+        @endif
         <div class="px-4" style="background-color:white; padding:10px;">
             <br><br><br>
             @if (Auth::user()->admin)
@@ -553,13 +581,17 @@
             <div class="mt-3 space-y-1">
                 <div style="display:flex; justify-content:center; gap:30px;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
-                            src="{{ asset('img/twit.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                            src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                            src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                            src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                            src="{{ asset('img/face.png') }}" width="30px" height="30px" style="filter: brightness(0%);"></a>
+                            src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
                 </div>
             </div>
         </div>

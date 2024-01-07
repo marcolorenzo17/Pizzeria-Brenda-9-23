@@ -8,6 +8,7 @@
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link rel="stylesheet" href="/css/carrito.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <main class="my-8" style="margin-bottom:300px;">
         <div class="container px-6 mx-auto">
@@ -18,12 +19,13 @@
             <div class="flex justify-center my-6">
                 <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
                     @if ($message = Session::get('success'))
-                        <div class="p-4 mb-3 rounded" style="background-color:#568c2c; color:white; font-weight:bolder;">
+                        <div class="p-4 mb-3 rounded"
+                            style="background-color:#568c2c; color:white; font-weight:bolder;">
                             <p>{{ __($message) }}</p>
                         </div>
                     @endif
                     @if (Cart::getTotalQuantity() != 0)
-                        <div class="flex-1">
+                        <div class="flex-1" id="carrito_grande">
                             <table class="w-full text-sm lg:text-base" cellspacing="0">
                                 <thead>
                                     <tr class="h-12 uppercase">
@@ -108,48 +110,10 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                        {{-- A lo mejor debería mejorar esto de aquí abajo... --}}
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
-                            <div>
+                            <div style="margin-top:30px;">
                                 Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
                             </div>
                             @if (Cart::getTotalQuantity() != 0)
@@ -173,6 +137,11 @@
                                     </tr>
                                 </table>
                             @endif
+                        </div>
+                        <div id="carrito_pequenio">
+                            @foreach ($cartItems as $item)
+                                <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                            @endforeach
                         </div>
                     @else
                         <div style="text-align:center; font-weight:bold; font-size:18px;">
@@ -202,7 +171,8 @@
                     style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
                 <a class="anavbar" href="{{ route('faq') }}"
                     style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
-                <a class="anavbar" href="{{ route('contact') }}" style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
                 <a class="anavbar" href="{{ route('privacy') }}"
                     style="font-size:12px;">{{ __('Política de privacidad') }}</a>
                 <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>

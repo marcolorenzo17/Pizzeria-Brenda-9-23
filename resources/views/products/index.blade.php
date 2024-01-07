@@ -6,8 +6,7 @@ use App\Http\Controllers\ProductController;
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <div style="margin-top:110px; justify-content:center; align-items:center; gap:5vw;"
-            id="titular-grande">
+        <div style="margin-top:110px; justify-content:center; align-items:center; gap:5vw;" id="titular-grande">
             @if (!Auth::user()->admin)
                 @include('products.partials.search-box')
             @endif
@@ -334,10 +333,12 @@ use App\Http\Controllers\ProductController;
         }
     </style>
 
-    <script>
-        if (localStorage.promociones) {
-            window.location.replace("{{ route('promociones.index') }}");
-        }
-    </script>
+    @if (!Auth::User()->admin)
+        <script>
+            if (localStorage.promociones) {
+                window.location.replace("{{ route('promociones.index') }}");
+            }
+        </script>
+    @endif
 
 </x-app-layout>

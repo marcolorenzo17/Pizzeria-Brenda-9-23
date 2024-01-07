@@ -47,8 +47,11 @@
             <div style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif;color:#141414; font-size:40px;">OFERTAS</div>
         </a>
     </div>
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
-        style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;" id="promociones_lista">
+    <div style="text-align:center; font-size:30px; font-weight:bolder; background-color:white; margin-top:100px; padding-top:50px;" id="promociones_lista">
+        {{ __('PROMOCIONES') }}
+    </div>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
+        style="flex-wrap:wrap; align-items:center; text-align:center; padding:30px;">
         @foreach ($promotions as $promotion)
             @if ($promotion->habilitado and $promotion->type == 'Promoción')
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
