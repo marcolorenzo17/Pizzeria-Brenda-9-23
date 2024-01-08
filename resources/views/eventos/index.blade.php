@@ -367,7 +367,7 @@
                         @endif
                     @endforeach
                 </table>
-                <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                <table style="border-collapse:separate; border-spacing:10px;"
                     id="eventos-pequenio">
                     @foreach ($eventos as $evento)
                         @if ($evento->idUser == Auth::user()->id)
@@ -375,14 +375,18 @@
                                 <td style="display:flex; justify-content:space-between;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Fecha y hora') }}</p>
-                                    <p>{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                </td>
+                                <td>
+                                    <p style="margin-left:30px;">{{ $evento->fecha }} {{ $evento->hora }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Tipo') }}</p>
-                                    <p>{{ __($evento->tipo) }}</p>
+                                </td>
+                                <td>
+                                    <p style="margin-left:30px;">{{ __($evento->tipo) }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -390,14 +394,18 @@
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Personas') }}
                                     </p>
-                                    <p>{{ $evento->personas }}</p>
+                                </td>
+                                <td>
+                                    <p style="margin-left:30px;">{{ $evento->personas }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Presupuesto') }}</p>
-                                    <p>{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
+                                </td>
+                                <td>
+                                    <p style="margin-left:30px;">{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
                                 </td>
                             </tr>
                             <tr>
@@ -405,35 +413,55 @@
                                     @if ($evento->reservado == 'true')
                                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                             {{ __('Reserva') }}</p>
-                                        <p>{{ __('Reservado') }}</p>
-                                    @elseif ($evento->reservado == 'false')
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
-                                        </p>
-                                    @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Reserva') }}</p>
-                                        <p>{{ __('Reserva en curso') }}</p>
-                                    @endif
                                 </td>
-                            </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    @if ($evento->pagado)
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Pagado') }}</p>
-                                        <p>{{ __('Pago realizado') }}</p>
-                                    @else
-                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                            {{ __('Pagado') }}</p>
-                                        <p>{{ __('Pago en curso') }}</p>
-                                    @endif
+                                <td>
+                                    <p style="margin-left:30px;">{{ __('Reservado') }}</p>
+                                @elseif ($evento->reservado == 'false')
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Reserva') }}</p>
                                 </td>
-                            </tr>
-                            <tr></tr>
-                            <tr></tr>
+                                <td>
+                                    <p style="margin-left:30px;">{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                    </p>
+                                @else
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Reserva') }}</p>
+                                </td>
+                                <td>
+                                    <p style="margin-left:30px;">{{ __('Reserva en curso') }}</p>
                         @endif
+                        </td>
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                @if ($evento->pagado)
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Pagado') }}</p>
+                            </td>
+                            <td>
+                                <p style="margin-left:30px;">{{ __('Pago realizado') }}</p>
+                            @else
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Pagado') }}</p>
+                            </td>
+                            <td>
+                                <p style="margin-left:30px;">{{ __('Pago en curso') }}</p>
+                    @endif
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    @endif
                     @endforeach
                 </table>
             </div>

@@ -169,7 +169,12 @@
         </div>
     </div>
 
-    <br><br><br><br>
+    <div style="position:fixed; bottom:180px; right:10px;">
+        <a href="#">
+            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px" id="boton">
+        </a>
+    </div>
+
     <div class="footer">
         <div style="text-align:center; font-size:13px;">
             <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
