@@ -185,7 +185,8 @@
             <div style="margin-top:50px;">
                 Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
             </div>
-            <p style="margin-top:10px;">{{ __('Pizzacoins ganadas con la compra: ') }} {{ round(Cart::getTotal() * 10) }}</p>
+            <p style="margin-top:10px;">{{ __('Pizzacoins ganadas con la compra: ') }}
+                {{ round(Cart::getTotal() * 10) }}</p>
         </div>
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-top:50px;">
             <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
@@ -282,7 +283,7 @@
                         <div class="form-group text-center">
                             <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
                                 data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
-                                id="boton" onclick="return storeValues();"
+                                onclick="return storeValues();"
                                 style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
                         </div>
                     </form>
@@ -378,6 +379,13 @@
             .redes_sociales {
                 display: none;
             }
+        }
+    </style>
+
+    <style>
+        #card-button:hover {
+            filter:brightness(75%);
+            cursor:pointer;
         }
     </style>
 

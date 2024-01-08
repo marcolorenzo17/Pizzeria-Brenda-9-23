@@ -79,6 +79,7 @@
 
 #boton:hover {
     filter: brightness(75%);
+    cursor:pointer;
 }
 
 #filtroproducto {

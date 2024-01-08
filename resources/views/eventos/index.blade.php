@@ -713,7 +713,14 @@
 
     <style>
         #imgproducto:hover {
-            cursor:pointer;
+            cursor: pointer;
+        }
+    </style>
+
+    <style>
+        #card-button:hover {
+            filter: brightness(75%);
+            cursor: pointer;
         }
     </style>
 

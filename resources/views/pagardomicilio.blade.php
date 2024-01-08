@@ -311,7 +311,7 @@
                         <div class="form-group text-center">
                             <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
                                 data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
-                                id="boton" onclick="return storeValues();"
+                                onclick="return storeValues();"
                                 style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
                         </div>
                     </form>
@@ -408,6 +408,13 @@
             .redes_sociales {
                 display: none;
             }
+        }
+    </style>
+
+    <style>
+        #card-button:hover {
+            filter: brightness(75%);
+            cursor: pointer;
         }
     </style>
 
