@@ -470,7 +470,7 @@
             <tr>
                 <td>
                     <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#contenido">
+                        <a>
                             <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
                                 height="300px" width="300px" id="imgproducto" />
                         </a>
@@ -482,7 +482,7 @@
                 </td>
                 <td>
                     <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#contenido">
+                        <a>
                             <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
                                 height="300px" width="300px" id="imgproducto" />
                         </a>
@@ -495,7 +495,7 @@
                 @if (!isset($_GET['esconder']))
                     <td>
                         <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#contenido">
+                            <a>
                                 <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
                                     height="300px" width="300px" id="imgproducto" />
                             </a>
@@ -511,8 +511,8 @@
     </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         style="flex-wrap:wrap; align-items:center; text-align:center;" id="reservas-pequenio">
-        <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-            <a href="#contenido">
+        <div id="cumple_res" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+            <a>
                 <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
                     height="300px" width="300px" id="imgproducto" />
             </a>
@@ -521,8 +521,8 @@
                     {{ __('Cumpleaños') }}</h5>
             </div>
         </div>
-        <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-            <a href="#contenido">
+        <div id="evento_res" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+            <a>
                 <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
                     height="300px" width="300px" id="imgproducto" />
             </a>
@@ -532,8 +532,8 @@
             </div>
         </div>
         @if (!isset($_GET['esconder']))
-            <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                <a href="#contenido">
+            <div id="cena_res" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                <a>
                     <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
                         height="300px" width="300px" id="imgproducto" />
                 </a>
@@ -708,6 +708,12 @@
             .redes_sociales {
                 display: none;
             }
+        }
+    </style>
+
+    <style>
+        #imgproducto:hover {
+            cursor:pointer;
         }
     </style>
 
