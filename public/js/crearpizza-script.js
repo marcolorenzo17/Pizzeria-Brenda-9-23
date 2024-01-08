@@ -51,7 +51,7 @@ function aniadirBase(nombre, precio) {
     botonelim.appendChild(textoelim);
 
     botonelim.setAttribute("id", `b-base`);
-    botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+    botonelim.setAttribute("class", "boton px-4 py-1.5 text-white text-sm bg-red-800 rounded");
     botonelim.setAttribute("onclick", `eliminarBase()`);
     botonelim.setAttribute("style", "margin-bottom:30px;");
 
@@ -137,7 +137,7 @@ function aniadir(nombre, precio) {
             botonelim.appendChild(textoelim);
 
             botonelim.setAttribute("id", `b-${indice}`);
-            botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+            botonelim.setAttribute("class", "boton px-4 py-1.5 text-white text-sm bg-red-800 rounded");
             botonelim.setAttribute("onclick", `eliminar(${indice}, '${nombre}')`);
 
             contenido.appendChild(botonelim);
@@ -147,7 +147,7 @@ function aniadir(nombre, precio) {
             botonextra.appendChild(textoextra);
 
             botonextra.setAttribute("id", `ex-${indice}`);
-            botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm rounded");
+            botonextra.setAttribute("class", "boton px-4 py-1.5 text-white text-sm rounded");
             botonextra.setAttribute("style", "background-color:green; margin-bottom:30px;");
             botonextra.setAttribute("onclick", `extra(${indice})`);
 

@@ -461,6 +461,12 @@
         }
     </style>
 
+    <style>
+        .boton:hover {
+            filter:brightness(75%);
+        }
+    </style>
+
     <script src="{{ asset('js/crearpizza-script.js') }}"></script>
 
 </x-app-layout>
