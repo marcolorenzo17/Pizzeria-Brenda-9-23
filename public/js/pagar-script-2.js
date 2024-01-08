@@ -7,14 +7,14 @@ function mostrar(parte) {
   switch (parte) {
     case "efectivo":
       creditodiv.setAttribute("style", "");
-      efectivodiv.setAttribute("style", "border: turquoise; border-width: 5px; border-style: solid;");
+      efectivodiv.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
       contenido.style.display = 'none';
       pagoefectivo.style.display = 'block';
       break;
 
     case "credito":
       efectivodiv.setAttribute("style", "");
-      creditodiv.setAttribute("style", "border: turquoise; border-width: 5px; border-style: solid;");
+      creditodiv.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
       contenido.style.display = 'block';
       pagoefectivo.style.display = 'none';
       break;

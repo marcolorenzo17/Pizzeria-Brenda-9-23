@@ -8,7 +8,7 @@ function mostrar(parte) {
   switch (parte) {
     case "form1":
       domiciliodiv.setAttribute("style", "");
-      recogerdiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
+      recogerdiv.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
       form1.style.display = 'block';
       form2.style.display = 'none';
       mensajeeuros.style.display = 'none';
@@ -18,7 +18,7 @@ function mostrar(parte) {
 
     case "form2":
       recogerdiv.setAttribute("style", "");
-      domiciliodiv.setAttribute("style", "border: blue; border-width: 5px; border-style: solid");
+      domiciliodiv.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid");
       form1.style.display = 'none';
       form2.style.display = 'block';
       mensajeeuros.style.display = 'block';
