@@ -336,7 +336,7 @@
                                 {{ __('Nombre de usuario') }}</p>
                         </td>
                         <td>
-                            <p style="padding-left:50px;">{{ $cliente->name }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $cliente->name }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -345,7 +345,7 @@
                                 {{ __('Correo electrónico') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:100px;">
-                            <p style="padding-left:50px;">{{ $cliente->email }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $cliente->email }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -353,7 +353,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}</p>
                         </td>
                         <td>
-                            <p style="padding-left:50px;">{{ $cliente->direccion }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $cliente->direccion }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -361,7 +361,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Teléfono') }}</p>
                         </td>
                         <td>
-                            <p style="padding-left:50px;">{{ $cliente->telefono }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $cliente->telefono }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -379,7 +379,7 @@
                                     <br>
                                 @enderror
                                 <div style="display:flex; align-items:center; gap:10px;">
-                                    <div style="padding-left:50px;">
+                                    <div style="margin-left:30px; text-align:right;">
                                         <input type="text" id="puntos" name="puntos" size="10"
                                             value="{{ $cliente->puntos }}" style="border-radius:10px;"
                                             onfocusout="validate_puntos()">
@@ -402,7 +402,7 @@
                                     {{ __('Administrador') }}</p>
                         </td>
                         <td>
-                            <div style="padding-left:50px;">
+                            <div style="margin-left:30px; text-align:right;">
                                 <form method="post" action="{{ route('clientes.adminno', $cliente->id) }}">
                                     @csrf
                                     <button
@@ -415,7 +415,7 @@
                         </p>
                         </td>
                         <td>
-                            <div style="padding-left:50px;">
+                            <div style="margin-left:30px; text-align:right;">
                                 <form method="post" action="{{ route('clientes.adminsi', $cliente->id) }}">
                                     @csrf
                                     <button class="hover:text-white px-4 py-2 rounded-md"
@@ -431,7 +431,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Rol') }}</p>
                         </td>
                         <td>
-                            <div style="padding-left:50px;">
+                            <div style="margin-left:30px; text-align:right;">
                                 <form action="{{ route('clientes.actualizarrol', $cliente->id) }}" method="POST">
                                     @csrf
                                     <div style="display:flex; align-items:center; gap:10px;">
@@ -471,7 +471,7 @@
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
                         </td>
                         <td>
-                            <div style="padding-left:50px;">
+                            <div style="margin-left:30px; text-align:right;">
                                 <form method="post" action="{{ route('clientes.desvalidar', $cliente->id) }}">
                                     @csrf
                                     <button
@@ -483,7 +483,7 @@
                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
                         </td>
                         <td>
-                            <div style="padding-left:50px;">
+                            <div style="margin-left:30px; text-align:right;">
                                 <form method="post" action="{{ route('clientes.validar', $cliente->id) }}">
                                     @csrf
                                     <button
@@ -497,7 +497,7 @@
                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Validado') }}</p>
                     </td>
                     <td>
-                        <div style="padding-left:50px;">
+                        <div style="margin-left:30px; text-align:right;">
                             @if ($cliente->validado)
                                 <form method="POST" id="validacion_form_sm_{{ $usuario_sm }}">
                                     @csrf
@@ -653,7 +653,7 @@
                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}</p>
                     </td>
                     <td>
-                        <div style="padding-left:50px;">
+                        <div style="margin-left:30px; text-align:right;">
                             <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
                                 onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
                                 @csrf

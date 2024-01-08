@@ -138,7 +138,7 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $evento->fecha }} {{ $evento->hora }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -147,7 +147,7 @@
                                 </p>
                             </td>
                             <td style="word-wrap: break-word; max-width:300px;">
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}
                                 </p>
                             </td>
@@ -158,7 +158,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ __($evento->tipo) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($evento->tipo) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -167,7 +167,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $evento->personas }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $evento->personas }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -176,7 +176,7 @@
                                     {{ __('Presupuesto') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ number_format($evento->presupuesto, 2, '.', '') }} €
+                                <p style="margin-left:30px; text-align:right;">{{ number_format($evento->presupuesto, 2, '.', '') }} €
                                 </p>
                             </td>
                         </tr>
@@ -187,7 +187,7 @@
                                         {{ __('Reserva') }}</p>
                             </td>
                             <td>
-                                <div style="padding-left:50px;">
+                                <div style="margin-left:30px; text-align:right;">
                                     <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
                                         @csrf
                                         <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
@@ -200,7 +200,7 @@
                                 {{ __('Reserva') }}</p>
                             </td>
                             <td>
-                                <div style="padding-left:50px;">
+                                <div style="margin-left:30px; text-align:right;">
                                     <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
                                         @csrf
                                         <button
@@ -213,7 +213,7 @@
                                 {{ __('Reserva') }}</p>
                             </td>
                             <td>
-                                <div style="padding-left:50px;">
+                                <div style="margin-left:30px; text-align:right;">
                                     <table {{-- id="productos-grande" --}}>
                                         <tr>
                                             <td>
@@ -246,7 +246,7 @@
                                         {{ __('Pagado') }}</p>
                             </td>
                             <td>
-                                <div style="padding-left:50px;">
+                                <div style="margin-left:30px; text-align:right;">
                                     <form method="post" action="{{ route('eventos.nopagado', $evento->id) }}">
                                         @csrf
                                         <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
@@ -259,7 +259,7 @@
                                 {{ __('Pagado') }}</p>
                             </td>
                             <td>
-                                <div style="padding-left:50px;">
+                                <div style="margin-left:30px; text-align:right;">
                                     <form method="post" action="{{ route('eventos.pagado', $evento->id) }}">
                                         @csrf
                                         <button
@@ -269,20 +269,20 @@
                             </td>
                         @endif
                     @else
-                        <td style="padding-left:50px;">
+                        <td style="margin-left:30px; text-align:right;">
                             @if ($evento->pagado)
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Pagado') }}</p>
                         </td>
                         <td>
-                            <p style="padding-left:50px;">{{ __('PAGADO') }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ __('PAGADO') }}</p>
                         </td>
                     @else
                         <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                             {{ __('Pagado') }}</p>
                         </td>
                         <td>
-                            <p style="padding-left:50px;">{{ __('PENDIENTE') }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ __('PENDIENTE') }}</p>
                         </td>
         @endif
         @endif

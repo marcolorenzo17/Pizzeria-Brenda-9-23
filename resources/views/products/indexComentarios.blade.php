@@ -57,7 +57,7 @@
                 @endforeach
             </table>
             <table
-                style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
+                style="border-collapse:separate; border-spacing:5px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                 id="productos-pequenio">
                 @foreach ($comentarios as $comentario)
                     <?php
@@ -70,7 +70,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Producto') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
+                            <p style="margin-left:30px; text-align:right;">
                                 {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
                             </p>
                         </td>
@@ -81,7 +81,7 @@
                             </p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
+                            <p style="margin-left:30px; text-align:right;">
                                 {{ \App\Models\Valoracione::where(['id' => $comentario->idValoracion])->pluck('resenia')->first() }}
                             </p>
                         </td>
@@ -91,7 +91,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
+                            <p style="margin-left:30px; text-align:right;">
                                 {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                             </p>
                         </td>
@@ -101,7 +101,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Reseña') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">{{ $comentario->resenia }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $comentario->resenia }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -111,7 +111,7 @@
                                 </p>
                             </td>
                             <td>
-                                <div style="padding-left:50px;">
+                                <div style="margin-left:20px; text-align:right;">
                                     <form method="post"
                                         action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}"
                                         onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">

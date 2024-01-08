@@ -198,7 +198,7 @@
                     @endif
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+            <table style="border-collapse:separate; border-spacing:10px;"
                 id="recibos-pequenio">
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
@@ -208,7 +208,7 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->created_at }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->created_at }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -217,7 +217,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}
                                 </p>
                             </td>
@@ -228,7 +228,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
                                 </p>
                             </td>
@@ -239,7 +239,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('telefono')->first() }}
                                 </p>
                             </td>
@@ -254,7 +254,7 @@
                                 $productoslista = explode(', ', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
-                                    <p style="padding-left:50px;">
+                                    <p style="margin-left:30px; text-align:right;">
                                         - {{ $producto }}
                                     </p>
                                 @endforeach
@@ -266,7 +266,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -275,7 +275,7 @@
                                     {{ __('Pizzacoins gastadas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->puntos }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -284,7 +284,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                                <p style="margin-left:30px; text-align:right;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
@@ -293,7 +293,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -313,13 +313,13 @@
                                         {{ __('Estado') }}</p>
                                 </td>
                                 <td>
-                                    <div style="padding-left:50px;">
+                                    <div>
                                         <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                             @csrf
-                                            <div style="display:flex; align-items:center; gap:10px;">
+                                            <div style="display:flex; align-items:center; gap:10px; float:right;">
                                                 <div>
                                                     <select id="estado" name="estado"
-                                                        style="border-radius:10px;">
+                                                        style="border-radius:10px; width:190px;">
                                                         <option value="Pedido registrado">
                                                             {{ __('Pedido registrado') }}
                                                         </option>
@@ -339,10 +339,10 @@
                                                         style="height:42px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                            </div>
                                         </form>
+                                    </div>
+                                    <div style="display:flex; margin-left:30px; float:right;">
+                                        <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
                                     </div>
                                 </td>
                             </tr>
@@ -353,7 +353,7 @@
                                         {{ __('Estado') }}</p>
                                 </td>
                                 <td>
-                                    <p style="padding-left:50px;">{{ __($recibo->estado) }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __($recibo->estado) }}</p>
                                 </td>
                             </tr>
                         @endif
@@ -365,7 +365,7 @@
                                 </td>
                                 @if ($recibo->pagado)
                                     <td>
-                                        <div style="padding-left:50px;">
+                                        <div style="margin-left:30px; text-align:right;">
                                             <form method="post"
                                                 action="{{ route('recibos.nopagado', $recibo->id) }}">
                                                 @csrf
@@ -376,7 +376,7 @@
                                     </td>
                                 @else
                                     <td>
-                                        <div style="padding-left:50px;">
+                                        <div style="margin-left:30px; text-align:right;">
                                             <form method="post" action="{{ route('recibos.pagado', $recibo->id) }}">
                                                 @csrf
                                                 <button
@@ -393,7 +393,7 @@
                                         {{ __('Eliminar') }}</p>
                                 </td>
                                 <td>
-                                    <div style="padding-left:50px;">
+                                    <div style="margin-left:30px; text-align:right;">
                                         <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}"
                                             onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
                                             @csrf
@@ -412,11 +412,11 @@
                                 </td>
                                 @if ($recibo->pagado)
                                     <td>
-                                        <p style="padding-left:50px;">{{ __('PAGADO') }}</p>
+                                        <p style="margin-left:30px; text-align:right;">{{ __('PAGADO') }}</p>
                                     </td>
                                 @else
                                     <td>
-                                        <p style="padding-left:50px;">{{ __('PENDIENTE') }}</p>
+                                        <p style="margin-left:30px; text-align:right;">{{ __('PENDIENTE') }}</p>
                                     </td>
                                 @endif
                             </tr>

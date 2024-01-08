@@ -49,7 +49,7 @@
                 @endforeach
             </table>
             <table
-                style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
+                style="border-collapse:separate; border-spacing:5px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                 id="productos-pequenio">
                 @foreach ($valoraciones as $valoracion)
                     <tr>
@@ -57,7 +57,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Producto') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
+                            <p style="margin-left:30px; text-align:right;">
                                 {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
                             </p>
                         </td>
@@ -67,7 +67,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
+                            <p style="margin-left:30px; text-align:right;">
                                 {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
                             </p>
                         </td>
@@ -77,7 +77,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Estrellas') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">{{ $valoracion->estrellas }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $valoracion->estrellas }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -85,7 +85,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Reseña') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">{{ $valoracion->resenia }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $valoracion->resenia }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +100,7 @@
                                     onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">
                                     @csrf
                                     @method('delete')
-                                    <div style="padding-left:50px;">
+                                    <div style="margin-left:30px; text-align:right;">
                                         <button
                                             class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
                                     </div>
