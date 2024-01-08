@@ -43,7 +43,9 @@
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
     <link rel="stylesheet" href="/css/index_products.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/pagar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+        rel="stylesheet">
 
     {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
@@ -73,7 +75,7 @@
     </div>
     <br>
     <div class="mx-auto" style="margin-bottom:300px;">
-        <div class="container px-12 py-8 mx-auto bg-white">
+        <div class="container px-12 py-8 mx-auto bg-white" id="carrito_grande">
             <table>
                 <thead>
                     <tr class="h-12 uppercase">
@@ -148,6 +150,43 @@
                         </form>
                     --}}
         </div>
+        <div style="background-color:white; padding:50px;" id="carrito_pequenio">
+            @foreach ($cartItems as $item)
+                <div style="margin-bottom:30px;">
+                    <div style="display:flex; gap:30px;">
+                        <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                        @if ($item->attributes->type != 'Promoción')
+                            <div class="h-10 w-28">
+                                <p class="mb-2 md:ml-4 font-bold">{{ $item->quantity }}
+                                </p>
+                            </div>
+                        @endif
+                    </div>
+                    <div style="margin-top:10px;">
+                        <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
+                            {{ __($item->name) }}
+                        </p>
+                    </div>
+                    <div style="margin-left:20px;">
+                        @if ($item->attributes->type != 'Promoción')
+                            <p>
+                                {{ __('- Precio:') }}
+                                {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
+                            </p>
+                        @endif
+                        @if ($item->attributes->puntos >= 0 and $item->attributes->puntos != '')
+                            <p>
+                                - Pizzacoins: {{ $item->attributes->puntos }}
+                            </p>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+            <div style="margin-top:50px;">
+                Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
+            </div>
+            <p style="margin-top:10px;">{{ __('Pizzacoins ganadas con la compra: ') }} {{ round(Cart::getTotal() * 10) }}</p>
+        </div>
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-top:50px;">
             <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
             <br>
@@ -211,7 +250,8 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form" name="subscribe_form">
+                    <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
+                        name="subscribe_form">
                         <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                         <input id="card-holder-name" type="text" name="card_holder_name"
                             style="margin-left:10px; border-radius:20px;"><br><br>

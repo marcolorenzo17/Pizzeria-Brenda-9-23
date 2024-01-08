@@ -51,6 +51,19 @@
                 </td>
             </tr>
         @endforeach
+        @if ($recibo->direccion == 'A domicilio')
+            <tr>
+                <td>
+                    <p>{{ __('Pedido a domicilio') }}</p>
+                </td>
+                <td>
+                    <p></p>
+                </td>
+                <td>
+                    <p>2.00 €</p>
+                </td>
+            </tr>
+        @endif
     </table>
     <table>
         <tr>
