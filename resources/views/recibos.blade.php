@@ -430,7 +430,7 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->created_at }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->created_at }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -443,7 +443,7 @@
                                 $productoslista = explode(', ', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
-                                    <p style="padding-left:50px;">
+                                    <p style="margin-left:30px; text-align:right;">
                                         - {{ $producto }}
                                     </p>
                                 @endforeach
@@ -455,7 +455,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -464,7 +464,7 @@
                                     {{ __('Pizzacoins gastadas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->puntos }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -473,7 +473,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                                <p style="margin-left:30px; text-align:right;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
@@ -482,7 +482,7 @@
                                     {{ __('Entrega') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -500,7 +500,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->estado }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->estado }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -510,7 +510,7 @@
                                         {{ __('Pago') }}</p>
                                 </td>
                                 <td>
-                                    <p style="padding-left:50px;">{{ __('Pago realizado') }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Pago realizado') }}</p>
                                 </td>
                             @else
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
@@ -518,7 +518,7 @@
                                         {{ __('Pago') }}</p>
                                 </td>
                                 <td>
-                                    <p style="padding-left:50px;">{{ __('Pago en curso') }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Pago en curso') }}</p>
                                 </td>
                             @endif
                         </tr>
@@ -529,7 +529,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
-                                    style="margin-left:50px; background-color:aquamarine; padding:8px; border-radius:8px;"
+                                    style="margin-left:30px; background-color:aquamarine; padding:8px; border-radius:8px; float:right;"
                                     id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
                             </td>
                         </tr>

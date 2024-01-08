@@ -377,7 +377,7 @@
                                         {{ __('Fecha y hora') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ $evento->fecha }} {{ $evento->hora }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -386,7 +386,7 @@
                                         {{ __('Tipo') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ __($evento->tipo) }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __($evento->tipo) }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -396,7 +396,7 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ $evento->personas }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ $evento->personas }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -405,7 +405,7 @@
                                         {{ __('Presupuesto') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
                                 </td>
                             </tr>
                             <tr>
@@ -415,20 +415,20 @@
                                             {{ __('Reserva') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ __('Reservado') }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Reservado') }}</p>
                                 @elseif ($evento->reservado == 'false')
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Reserva') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
                                     </p>
                                 @else
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Reserva') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px;">{{ __('Reserva en curso') }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Reserva en curso') }}</p>
                         @endif
                         </td>
                         </tr>
@@ -439,13 +439,13 @@
                                         {{ __('Pagado') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px;">{{ __('Pago realizado') }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __('Pago realizado') }}</p>
                             @else
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                     {{ __('Pagado') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px;">{{ __('Pago en curso') }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __('Pago en curso') }}</p>
                     @endif
                     </td>
                     </tr>
