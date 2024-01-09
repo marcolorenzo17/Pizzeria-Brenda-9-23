@@ -258,10 +258,18 @@
                         </table>
                         <br>
                         <?php
-                        $alergenoslista = $ingrediente->alergenos;
-                        $listacomas = str_replace('-', ', ', $alergenoslista);
+                        $alergenoslista = explode('-', $ingrediente->alergenos);
                         ?>
-                        <strong>{{ __('Alérgenos actuales:') }}</strong>&nbsp;{{ $listacomas }}
+                        <div
+                            style="display:flex; flex-wrap:wrap; margin-top:10px; margin-bottom:10px; gap:5px; align-items:center;">
+                            <strong>{{ __('Alérgenos actuales:') }}</strong>&nbsp;
+                            @if ($ingrediente->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                        width="30px" height="30px">
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                     <br><br><br><br>
                     <div class="text-center">
