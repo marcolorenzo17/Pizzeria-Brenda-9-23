@@ -51,7 +51,7 @@
                             <td colspan="13"><br></td>
                         </tr>
                         <tr>
-                            <td>{{ $recibo->created_at }}</td>
+                            <td>{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
                             </td>
@@ -156,7 +156,7 @@
                             <td colspan="9"><br></td>
                         </tr>
                         <tr>
-                            <td>{{ $recibo->created_at }}</td>
+                            <td>{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</td>
                             <td>
                                 <?php
                                 $productoslista = explode(', ', $recibo->productos);
@@ -208,7 +208,7 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ $recibo->created_at }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -430,7 +430,7 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ $recibo->created_at }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
                             </td>
                         </tr>
                         <tr>

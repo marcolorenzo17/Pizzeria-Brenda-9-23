@@ -38,8 +38,8 @@
                     </tr>
                     @foreach ($eventos as $evento)
                         <tr>
-                            <td>{{ $evento->fecha }}</td>
-                            <td>{{ $evento->hora }}</td>
+                            <td>{{ date('d/m/Y', strtotime($evento->fecha)) }}</td>
+                            <td>{{ date('H:i', strtotime($evento->hora)) }}</td>
                             <td>{{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}</td>
                             <td>{{ __($evento->tipo) }}</td>
                             <td>{{ $evento->personas }}</td>
@@ -138,7 +138,7 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y', strtotime($evento->fecha)) }} - {{ date('H:i', strtotime($evento->hora)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -341,8 +341,8 @@
                     @foreach ($eventos as $evento)
                         @if ($evento->idUser == Auth::user()->id)
                             <tr>
-                                <td>{{ $evento->fecha }}</td>
-                                <td>{{ $evento->hora }}</td>
+                                <td>{{ date('d/m/Y', strtotime($evento->fecha)) }}</td>
+                                <td>{{ date('H:i', strtotime($evento->hora)) }}</td>
                                 <td>{{ __($evento->tipo) }}</td>
                                 <td>{{ $evento->personas }}</td>
                                 <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
@@ -377,7 +377,7 @@
                                         {{ __('Fecha y hora') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px; text-align:right;">{{ $evento->fecha }} {{ $evento->hora }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y', strtotime($evento->fecha)) }} - {{ date('H:i', strtotime($evento->hora)) }}</p>
                                 </td>
                             </tr>
                             <tr>
