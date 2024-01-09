@@ -1180,10 +1180,17 @@
             </div>
         </div>
         <div class="mx-auto" style="background-color:#141414;">
-            <video width="1920" height="500" autoplay muted loop>
-                <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
-                Tu navegador no es compatible con este vídeo.
-            </video>
+            @if (Lang::locale() == 'es')
+                <video width="1920" height="500" autoplay muted loop>
+                    <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
+                    Tu navegador no es compatible con este vídeo.
+                </video>
+            @else
+                <video width="1920" height="500" autoplay muted loop>
+                    <source src="{{ 'vid/pizzaeng.webm' }}" type="video/webm">
+                    Tu navegador no es compatible con este vídeo.
+                </video>
+            @endif
         </div>
     </div>
     {{--
