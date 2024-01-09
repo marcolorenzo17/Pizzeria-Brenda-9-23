@@ -19,7 +19,8 @@
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
-            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;" x-data="{ nombre: '', name: '' }">
+            style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;"
+            x-data="{ nombre: '', name: '' }">
             <div>
                 <script>
                     function previewFile(input) {
@@ -51,205 +52,217 @@
                 <form action="{{ route('crearpizza.actualizar', $ingrediente) }}" method="POST"
                     enctype="multipart/form-data" name="editaringrediente" onsubmit="return validate()">
                     @csrf
-                    @error('name')
-                        <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                    <div id="input_div" style="margin:auto; display:block;">
+                        @error('name')
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                            <br>
+                        @enderror
+                        <label for="name">{{ __('Nombre del ingrediente') }}</label>
                         <br>
-                    @enderror
-                    <label for="name">{{ __('Nombre del ingrediente') }}</label>
-                    <br>
-                    <input type="text" id="name" name="name" size="80" onfocusout="validate_name()"
-                        x-model="nombre">
-                    <br>
-                    <strong>{{ __('Nombre del ingrediente actual:') }}</strong>&nbsp;{{ __($ingrediente->name) }}
-                    <p id="error_name" style="color:red;"></p>
-                    <br><br>
-                    @error('nameen')
-                        <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                        <input type="text" id="name" name="name" size="80" onfocusout="validate_name()"
+                            x-model="nombre" style="width:100%;">
                         <br>
-                    @enderror
-                    <label for="nameen">{{ __('Nombre del ingrediente (Inglés)') }}</label>
-                    <br>
-                    <input type="text" id="nameen" name="nameen" size="80" onfocusout="validate_nameen()"
-                        x-model="name">
-                    <br>
-                    <strong>{{ __('Nombre del ingrediente actual (Inglés):') }}</strong>&nbsp;{{ __($ingrediente->nameen) }}
-                    <p id="error_nameen" style="color:red;"></p>
+                        <strong>{{ __('Nombre del ingrediente actual:') }}</strong>&nbsp;{{ __($ingrediente->name) }}
+                        <p id="error_name" style="color:red;"></p>
+                    </div>
                     <br><br>
-                    <label for="image_ingredient">{{ __('Imagen') }}</label>
-                    <br>
-                    @error('image_ingredient')
-                        <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                    <div id="input_div" style="margin:auto; display:block;">
+                        @error('nameen')
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                            <br>
+                        @enderror
+                        <label for="nameen">{{ __('Nombre del ingrediente (Inglés)') }}</label>
                         <br>
-                    @enderror
-                    <input type="file" name="image_ingredient" id="image_ingredient" onchange="previewFile(this);"
-                        required>
-                    <br><br>
-                    @error('price')
-                        <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                        <input type="text" id="nameen" name="nameen" size="80"
+                            onfocusout="validate_nameen()" x-model="name" style="width:100%;">
                         <br>
-                    @enderror
-                    <label for="price">{{ __('Precio') }}</label>
-                    <br>
-                    <input type="number" id="price" name="price" step=".01"
-                        value="{{ $ingrediente->price }}" onfocusout="validate_price()"> €
-                    <p id="error_price" style="color:red;"></p>
+                        <strong>{{ __('Nombre del ingrediente actual (Inglés):') }}</strong>&nbsp;{{ __($ingrediente->nameen) }}
+                        <p id="error_nameen" style="color:red;"></p>
+                    </div>
                     <br><br>
-                    <label for="type">{{ __('Tipo') }}</label>
-                    <br>
-                    <select id="type" name="type">
-                        <option value="Base">Base</option>
-                        <option value="Ingrediente">{{ __('Ingrediente') }}</option>
-                    </select>
-                    <br>
-                    <strong>{{ __('Tipo actual:') }}</strong>&nbsp;{{ __($ingrediente->type) }}
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten" height="50px"
-                                    width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="gluten" name="alergenos[]" value="gluten">
-                                <label for="gluten">{{ __('Contiene gluten') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/crustaceos.png') }}" alt="crustaceos"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="crustaceos" name="alergenos[]" value="crustaceos">
-                                <label for="crustaceos">{{ __('Crustáceos') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/huevos.png') }}" alt="huevos"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="huevos" name="alergenos[]" value="huevos">
-                                <label for="huevos">{{ __('Huevos') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/pescado.png') }}" alt="pescado"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="pescado" name="alergenos[]" value="pescado">
-                                <label for="pescado">{{ __('Pescado') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/cacahuetes.png') }}" alt="cacahuetes"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="cacahuetes" name="alergenos[]" value="cacahuetes">
-                                <label for="cacahuetes">{{ __('Cacahuetes') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/soja.png') }}" alt="soja"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="soja" name="alergenos[]" value="soja">
-                                <label for="soja">{{ __('Soja') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/lacteos.png') }}" alt="lacteos"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="lacteos" name="alergenos[]" value="lacteos">
-                                <label for="lacteos">{{ __('Lácteos') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/cascara.png') }}" alt="cascara"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="cascara" name="alergenos[]" value="cascara">
-                                <label for="cascaro">{{ __('Frutos de cáscara') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/apio.png') }}" alt="apio"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="apio" name="alergenos[]" value="apio">
-                                <label for="apio">{{ __('Apio') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/mostaza.png') }}" alt="mostaza"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="mostaza" name="alergenos[]" value="mostaza">
-                                <label for="mostaza">{{ __('Mostaza') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/sesamo.png') }}" alt="sesamo"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="sesamo" name="alergenos[]" value="sesamo">
-                                <label for="sesamo">{{ __('Granos de sésamo') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/dioxido.png') }}" alt="dioxido"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="dioxido" name="alergenos[]" value="dioxido">
-                                <label for="dioxido">{{ __('Dióxido de azufre y sulfitos') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/altramuces.png') }}" alt="altramuces"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="altramuces" name="alergenos[]" value="altramuces">
-                                <label for="altramuces">{{ __('Altramuces') }}</label><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('img/alergenos/single/moluscos.png') }}" alt="moluscos"
-                                    height="50px" width="50px">
-                            </td>
-                            <td>
-                                <input type="checkbox" id="moluscos" name="alergenos[]" value="moluscos">
-                                <label for="moluscos">{{ __('Moluscos') }}</label>
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-                    <?php
-                    $alergenoslista = $ingrediente->alergenos;
-                    $listacomas = str_replace('-', ', ', $alergenoslista);
-                    ?>
-                    <strong>{{ __('Alérgenos actuales:') }}</strong>&nbsp;{{ $listacomas }}
+                    <div id="input_div" style="margin:auto; display:block;">
+                        <label for="image_ingredient">{{ __('Imagen') }}</label>
+                        <br>
+                        @error('image_ingredient')
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                            <br>
+                        @enderror
+                        <input type="file" name="image_ingredient" id="image_ingredient"
+                            onchange="previewFile(this);" required>
+                    </div>
+                    <br><br>
+                    <div id="input_div" style="margin:auto; display:block;">
+                        @error('price')
+                            <span class="text-danger" style="color:red;">{{ __($message) }}</span>
+                            <br>
+                        @enderror
+                        <label for="price">{{ __('Precio') }}</label>
+                        <br>
+                        <input type="number" id="price" name="price" step=".01"
+                            value="{{ $ingrediente->price }}" onfocusout="validate_price()"> €
+                        <p id="error_price" style="color:red;"></p>
+                    </div>
+                    <br><br>
+                    <div id="input_div" style="margin:auto; display:block;">
+                        <label for="type">{{ __('Tipo') }}</label>
+                        <br>
+                        <select id="type" name="type">
+                            <option value="Base">Base</option>
+                            <option value="Ingrediente">{{ __('Ingrediente') }}</option>
+                        </select>
+                        <br>
+                        <strong>{{ __('Tipo actual:') }}</strong>&nbsp;{{ __($ingrediente->type) }}
+                    </div>
+                    <div id="input_div" style="margin:auto; display:block; margin-top:50px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/gluten.png') }}" alt="gluten"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="gluten" name="alergenos[]" value="gluten">
+                                    <label for="gluten">{{ __('Contiene gluten') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/crustaceos.png') }}" alt="crustaceos"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="crustaceos" name="alergenos[]" value="crustaceos">
+                                    <label for="crustaceos">{{ __('Crustáceos') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/huevos.png') }}" alt="huevos"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="huevos" name="alergenos[]" value="huevos">
+                                    <label for="huevos">{{ __('Huevos') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/pescado.png') }}" alt="pescado"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="pescado" name="alergenos[]" value="pescado">
+                                    <label for="pescado">{{ __('Pescado') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/cacahuetes.png') }}" alt="cacahuetes"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="cacahuetes" name="alergenos[]" value="cacahuetes">
+                                    <label for="cacahuetes">{{ __('Cacahuetes') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/soja.png') }}" alt="soja"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="soja" name="alergenos[]" value="soja">
+                                    <label for="soja">{{ __('Soja') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/lacteos.png') }}" alt="lacteos"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="lacteos" name="alergenos[]" value="lacteos">
+                                    <label for="lacteos">{{ __('Lácteos') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/cascara.png') }}" alt="cascara"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="cascara" name="alergenos[]" value="cascara">
+                                    <label for="cascaro">{{ __('Frutos de cáscara') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/apio.png') }}" alt="apio"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="apio" name="alergenos[]" value="apio">
+                                    <label for="apio">{{ __('Apio') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/mostaza.png') }}" alt="mostaza"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="mostaza" name="alergenos[]" value="mostaza">
+                                    <label for="mostaza">{{ __('Mostaza') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/sesamo.png') }}" alt="sesamo"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="sesamo" name="alergenos[]" value="sesamo">
+                                    <label for="sesamo">{{ __('Granos de sésamo') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/dioxido.png') }}" alt="dioxido"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="dioxido" name="alergenos[]" value="dioxido">
+                                    <label for="dioxido">{{ __('Dióxido de azufre y sulfitos') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/altramuces.png') }}" alt="altramuces"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="altramuces" name="alergenos[]" value="altramuces">
+                                    <label for="altramuces">{{ __('Altramuces') }}</label><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('img/alergenos/single/moluscos.png') }}" alt="moluscos"
+                                        height="50px" width="50px">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="moluscos" name="alergenos[]" value="moluscos">
+                                    <label for="moluscos">{{ __('Moluscos') }}</label>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <?php
+                        $alergenoslista = $ingrediente->alergenos;
+                        $listacomas = str_replace('-', ', ', $alergenoslista);
+                        ?>
+                        <strong>{{ __('Alérgenos actuales:') }}</strong>&nbsp;{{ $listacomas }}
+                    </div>
                     <br><br><br><br>
                     <div class="text-center">
                         <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
@@ -333,6 +346,20 @@
 
                 .redes_sociales {
                     display: none;
+                }
+            }
+        </style>
+
+        <style>
+            @media only screen and (max-width: 780px) {
+                #input_div {
+                    width: 75%;
+                }
+            }
+
+            @media only screen and (min-width: 781px) {
+                #input_div {
+                    width: 100%;
                 }
             }
         </style>
