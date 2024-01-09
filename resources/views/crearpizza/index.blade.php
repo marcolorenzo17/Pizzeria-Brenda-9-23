@@ -19,6 +19,7 @@
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
     @if (Auth::user()->admin)
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
@@ -178,7 +179,7 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
                                                 <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
                                             @endif
@@ -233,7 +234,7 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
                                                 <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
                                             @endif
@@ -288,7 +289,7 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
                                                 <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
                                             @endif
@@ -340,7 +341,7 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
                                                 <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
                                             @endif
