@@ -500,7 +500,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ $recibo->estado }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($recibo->estado) }}</p>
                             </td>
                         </tr>
                         <tr>

@@ -69,12 +69,13 @@
 }
 
 #crearpizza {
+    color: #f12d2d;
     transition: font-size 0.15s, color 0.15s;
 }
 
 #crearpizza:hover {
     font-size: 30px;
-    color: blue;
+    color: #568c2c;
 }
 
 #boton:hover {

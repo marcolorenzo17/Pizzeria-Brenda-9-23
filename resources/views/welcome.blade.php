@@ -1080,7 +1080,7 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div style="margin-top:130px;">
+        <div style="margin-top:90px;">
             <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
                 <div style="padding:10px;">
                     @include('partials/language_switcher')

@@ -41,13 +41,18 @@
     <div
         style="background-color:white; padding:30px; margin-top:30px; display:flex; justify-content:center; align-items:center; gap:5vw; flex-wrap:wrap;">
         <a href="#promociones_lista" id="boton">
-            <div style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif; color:#141414; font-size:40px;">PROMOCIONES</div>
+            <div
+                style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif; color:#141414; font-size:40px;">
+                {{ __('PROMOCIONES') }}</div>
         </a>
         <a href="#ofertas_lista" id="boton">
-            <div style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif;color:#141414; font-size:40px;">OFERTAS</div>
+            <div
+                style="background-color:white; border-radius:15px; padding:20px; font-weight:bolder; font-family: 'Alfa Slab One', serif;color:#141414; font-size:40px;">
+                {{ __('OFERTAS') }}</div>
         </a>
     </div>
-    <div style="text-align:center; font-size:30px; font-weight:bolder; background-color:white; margin-top:100px; padding-top:50px;" id="promociones_lista">
+    <div style="text-align:center; font-size:30px; font-weight:bolder; background-color:white; margin-top:100px; padding-top:50px;"
+        id="promociones_lista">
         {{ __('PROMOCIONES') }}
     </div>
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white"
@@ -81,7 +86,11 @@
                             </div>
                         @endif
                         <br><br>
-                        <div style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
+                        @if (Lang::Locale() == 'es')
+                            <div style="font-size:20px; font-weight:bold;">{{ $promotion->name }}</div>
+                        @else
+                            <div style="font-size:20px; font-weight:bold;">{{ $promotion->nameen }}</div>
+                        @endif
                         <?php
                         $alergenoslista = explode('-', $promotion->alergenos);
                         ?>
@@ -145,28 +154,34 @@
                                 </div>
                             @endif
                             <br><br>
-                            <div class="text-center" style="font-size:20px; font-weight:bold;">{{ $promotion->name }}
-                            </div>
-                            <?php
-                            $alergenoslista = explode('-', $promotion->alergenos);
-                            ?>
-                            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:5px;">
-                                @if ($promotion->alergenos != '')
-                                    @foreach ($alergenoslista as $alergeno)
-                                        <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="30px" height="30px">
-                                    @endforeach
-                                @endif
-                            </div>
-                            <div class="text-center" style="font-size:20px;">
-                                {{ number_format($promotion->price, 2, '.', '') }} €
-                            </div>
-                            <br><br>
+                            @if (Lang::Locale() == 'es')
+                                <div class="text-center" style="font-size:20px; font-weight:bold;">
+                                    {{ $promotion->name }}
+                                @else
+                                    <div class="text-center" style="font-size:20px; font-weight:bold;">
+                                        {{ $promotion->nameen }}
+                            @endif
                         </div>
-                    </form>
-                @endif
-            @endforeach
+                        <?php
+                        $alergenoslista = explode('-', $promotion->alergenos);
+                        ?>
+                        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:5px;">
+                            @if ($promotion->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
+                                        width="30px" height="30px">
+                                @endforeach
+                            @endif
+                        </div>
+                        <div class="text-center" style="font-size:20px;">
+                            {{ number_format($promotion->price, 2, '.', '') }} €
+                        </div>
+                        <br><br>
         </div>
+        </form>
+        @endif
+        @endforeach
+    </div>
     </div>
 
     <div style="position:fixed; bottom:180px; right:10px;">

@@ -6,7 +6,7 @@
         <div>
             <x-input-label for="name" :value="__('Nombre de usuario')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}"
+             autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}"
                 onfocusout="validate_name()" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
@@ -55,7 +55,7 @@
         <div>
             <x-input-label for="direccion" :value="__('Dirección')" />
             <x-text-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')"
-                required autofocus autocomplete="direccion" placeholder="{{ __('Tu dirección de envío a domicilio.') }}"
+                required autocomplete="direccion" placeholder="{{ __('Tu dirección de envío a domicilio.') }}"
                 onfocusout="validate_direccion()" />
             <x-input-error :messages="$errors->get('direccion')" class="mt-2" />
 
@@ -67,7 +67,7 @@
         <div>
             <x-input-label for="telefono" :value="__('Teléfono')" />
             <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')"
-                required autofocus autocomplete="telefono" placeholder="{{ __('+34') }}"
+                required autocomplete="telefono" placeholder="{{ __('+34') }}"
                 onfocusout="validate_telefono()" />
             <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
 

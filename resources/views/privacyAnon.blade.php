@@ -941,8 +941,8 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div style="margin-top:130px;">
-            <div style="background-color:white; color:#141414; display:none;" id="menu_responsive">
+        <div style="margin-top:90px;">
+            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
                 <div style="padding:10px;">
                     @include('partials/language_switcher')
                 </div>
@@ -1038,7 +1038,7 @@
             </div>
         </div>
         <div style="margin:30px; margin-bottom:300px;">
-            <p style="text-align:center;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
+            <p style="text-align:center; padding-top:30px;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
             <p style="text-align:center;">www.pizzeriabrenda.com</p>
             <br><br><br>
             I. INFORMACIÓN GENERAL

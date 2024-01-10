@@ -5,7 +5,7 @@
     <x-slot name="header">
         <div style="margin-top:110px;">
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                style="font-size:50px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('RESERVAS') }}
             </h2>
         </div>
@@ -587,7 +587,7 @@
                 @enderror
                 {{ __('Nº Personas:') }} <input type="number" id="personas" name="personas"
                     value="{{ old('personas') }}" style="margin-left:10px; border-radius:20px; width:200px;"
-                    placeholder="50 como máximo." min="1" max="50" onfocusout="validate_personas()">
+                    placeholder="{{__('50 como máximo.')}}" min="1" max="50" onfocusout="validate_personas()">
                 <p id="error_personas" style="color:red;"></p>
                 <br><br>
                 @error('fecha')

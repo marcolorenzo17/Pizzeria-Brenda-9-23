@@ -138,6 +138,10 @@
 
     "PROMOCIONES": "PROMOTIONS",
 
+    "APLICAR": "APPLY",
+
+    "50 como máximo.": "50 people max.",
+
     "CARRITO": "CART",
     "Tu carrito": "Your cart",
     "NOMBRE": "NAME",
@@ -495,6 +499,17 @@
     "¡TE LO LLEVAMOS A CASA!": "WE'LL DELIVER IT TO YOUR HOME!",
 
     "¡COMPARTE Y DISFRUTA!": "SHARE AND ENJOY!",
+
+    "DESCRIPCIÓN": "DESCRIPTION",
+
+    "Buscar plato": "Search dish",
+    "Buscar": "Search",
+
+    "El nombre de usuario no puede quedar en blanco.": "The username cannot be blank.",
+    "El correo electrónico no puede quedar en blanco.": "The email cannot be blank.",
+    "La dirección no se puede quedar en blanco.": "The address cannot be blank.",
+    "El número de teléfono no puede quedar en blanco.": "The phone number cannot be blank.",
+    "La nueva contraseña no puede quedar en blanco.": "The new password cannot be blank.",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",

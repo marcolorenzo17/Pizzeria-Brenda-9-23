@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/css/index_products.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
     @if (Auth::user()->admin)
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
@@ -167,7 +169,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -179,9 +181,9 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -222,7 +224,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -234,9 +236,9 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -277,7 +279,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -289,9 +291,9 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -329,7 +331,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -341,9 +343,9 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}

@@ -1028,12 +1028,12 @@
             @endif
         </div>
         {{--
-        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
+        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; margin-top:200px; margin-bottom:26px; background-color:#f12d2d;"
             id="logo1">
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div style="margin-top:130px;">
+        <div style="margin-top:90px;">
             <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
                 <div style="padding:10px;">
                     @include('partials/language_switcher')
@@ -1225,7 +1225,7 @@
             id="p1">
             {{ __('PIZZAS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1264,7 +1264,7 @@
             <div style="display:flex; justify-content:center;">
                 <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
                 <a href="{{ route('login') }}"
-                    style="color:darkgreen; font-weight:bolder; font-size:25px; text-decoration:underline;">{{ __('Inicia sesión') }}</a>
+                    style="font-weight:bolder; font-size:25px; text-decoration:underline;" id="inicia_sesion">{{ __('Inicia sesión') }}</a>
                 <p style="color:red; font-weight:bolder; font-size:25px;">
                     {{ __(', y crea tu propia pizza!') }}</p>
             </div>
@@ -1272,7 +1272,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
             {{ __('HAMBURGUESAS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1307,7 +1307,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">
             {{ __('SÁNDWICHES') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1342,7 +1342,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">
             {{ __('PASTA') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1377,7 +1377,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">
             {{ __('ARROCES') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1412,7 +1412,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">
             {{ __('BAGUETTES') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1447,7 +1447,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">
             {{ __('ENSALADAS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1483,7 +1483,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">
             {{ __('COMPLEMENTOS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1519,7 +1519,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">
             {{ __('PERRITOS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1555,7 +1555,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">
             {{ __('CERVEZAS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1591,7 +1591,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">
             {{ __('VINOS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1627,7 +1627,7 @@
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">
             {{ __('REFRESCOS') }}</p>
         <div
-            style="background-color:red; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
+            style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -1669,7 +1669,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}
                         </h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
@@ -1725,7 +1725,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -1780,7 +1780,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -1835,7 +1835,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -1890,7 +1890,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -1945,7 +1945,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2000,7 +2000,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2055,7 +2055,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2110,7 +2110,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2165,7 +2165,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2220,7 +2220,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2275,7 +2275,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
@@ -2432,6 +2432,16 @@
                 #menu_hamburguesa {
                     display: none;
                 }
+            }
+        </style>
+
+        <style>
+            #inicia_sesion {
+                color:#568c2c;
+            }
+
+            #inicia_sesion:hover {
+                color:#274014;
             }
         </style>
 
