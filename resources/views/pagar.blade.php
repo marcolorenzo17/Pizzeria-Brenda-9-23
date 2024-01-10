@@ -76,7 +76,7 @@
     <br>
     <div class="mx-auto" style="margin-bottom:300px;">
         <div class="container px-12 py-8 mx-auto bg-white" id="carrito_grande">
-            <table>
+            <table style="width:100%;">
                 <thead>
                     <tr class="h-12 uppercase">
                         <th class="hidden md:table-cell" style="padding:10px;"></th>
@@ -191,36 +191,30 @@
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-top:50px;">
             <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
             <br>
-            <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
-                <tr>
-                    <td>
-                        <div id="efectivodiv"
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#contenido">
-                                <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                    onclick="mostrar('efectivo')" id="imgproducto" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                    {{ __('En efectivo') }}</h5>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div id="creditodiv"
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#contenido">
-                                <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                    onclick="mostrar('credito')" id="imgproducto" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                    {{ __('Tarjeta de crédito') }}</h5>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:5vw;">
+                <div id="efectivodiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/efectivo.png" alt="" onclick="mostrar('efectivo')"
+                            id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                            {{ __('En efectivo') }}</h5>
+                    </div>
+                </div>
+                <div id="creditodiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
+                            onclick="mostrar('credito')" id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                            {{ __('Tarjeta de crédito') }}</h5>
+                    </div>
+                </div>
+            </div>
             {{--
                         <br>
                         <div id="contenido" style="display:none;">
@@ -384,8 +378,8 @@
 
     <style>
         #card-button:hover {
-            filter:brightness(75%);
-            cursor:pointer;
+            filter: brightness(75%);
+            cursor: pointer;
         }
     </style>
 

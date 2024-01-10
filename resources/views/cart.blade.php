@@ -118,7 +118,7 @@
                             </div>
                             @if (Cart::getTotalQuantity() != 0)
                                 <br>
-                                <table style="border-collapse: separate; border-spacing: 100px 0;">
+                                <div style="display:flex; align-items:center; justify-content:center; gap:100px;">
                                     <tr>
                                         <td>
                                             <a href="recoger"><button type="button"
@@ -136,7 +136,7 @@
                                             </form>
                                         </td>
                                     </tr>
-                                </table>
+                                </div>
                             @endif
                         </div>
                         <div id="carrito_pequenio">

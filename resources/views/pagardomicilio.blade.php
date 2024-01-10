@@ -76,7 +76,7 @@
     <br>
     <div class="mx-auto" style="margin-bottom:300px;">
         <div class="container px-12 py-8 mx-auto bg-white" id="carrito_grande">
-            <table>
+            <table style="width:100%;">
                 <thead>
                     <tr class="h-12 uppercase">
                         <th class="hidden md:table-cell" style="padding:10px;"></th>
@@ -218,37 +218,31 @@
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-top:50px;">
             <h2 class="text-center">{{ __('ELIGE UN MÉTODO DE PAGO') }}</h2>
             <br>
-            <table class="mx-auto" style="border-collapse: separate; border-spacing: 50px 0;">
-                <tr>
-                    <td>
-                        <div id="efectivodiv"
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#contenido">
-                                <img class="rounded-t-lg" src="img/efectivo.png" alt=""
-                                    onclick="mostrar('efectivo')" id="imgproducto" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                    {{ __('En efectivo') }}</h5>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div id="creditodiv"
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#contenido">
-                                <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
-                                    onclick="mostrar('credito')" id="imgproducto" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
-                                    {{ __('Tarjeta de crédito') }}</h5>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            {{--
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:5vw;">
+                <div id="efectivodiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/efectivo.png" alt="" onclick="mostrar('efectivo')"
+                            id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                            {{ __('En efectivo') }}</h5>
+                    </div>
+                </div>
+                <div id="creditodiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/tarjetacredito.png" alt=""
+                            onclick="mostrar('credito')" id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center">
+                            {{ __('Tarjeta de crédito') }}</h5>
+                    </div>
+                </div>
+            </div>
+                {{--
                         <br>
                         <div id="contenido" style="display:none;">
                             <div id="formulario">
@@ -269,183 +263,185 @@
                             </div>
                         </div>
                     --}}
-            <br>
-            <div id="contenido" style="display:none;">
-                <div id="formulario">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
-                        name="subscribe_form">
-                        <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                        <input id="card-holder-name" type="text" name="card_holder_name"
-                            style="margin-left:10px; border-radius:20px;"><br><br>
-                        @csrf
-                        <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
-                        <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
-                        <input type="hidden" value="{{ $_GET['direccion2'] }}" name="direccion">
-                        <input type="hidden" value="{{ $_GET['telefono'] }}" name="telefono">
-                        <input type="hidden" value="true" name="pagado" id="pagado">
-                        <input type="hidden" value="{{ $productosvalores }}" name="productos">
-                        <input type="hidden" value="{{ $preciosvalores }}" name="precios">
-                        <input type="hidden" value="{{ $cantidadesvalores }}" name="cantidades">
-                        <div class="form-row">
-                            <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
-                            <div id="card-element" class="form-control">
-                            </div>
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-                        <div class="stripe-errors"></div>
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    {{ $error }}<br>
-                                @endforeach
+                <br>
+                <div id="contenido" style="display:none;">
+                    <div id="formulario">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
                             </div>
                         @endif
-                        <br>
-                        <div class="form-group text-center">
-                            <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
-                                data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
-                                onclick="return storeValues();"
-                                style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <form action="{{ route('cart.add') }}" method="POST">
-                @csrf
-                <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
-                <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
-                <input type="hidden" value="{{ $_GET['direccion2'] }}" name="direccion">
-                <input type="hidden" value="{{ $_GET['telefono'] }}" name="telefono">
-                <input type="hidden" value="false" name="pagado" id="pagado">
-                <input type="hidden" value="{{ $productosvalores }}" name="productos">
-                <input type="hidden" value="{{ $preciosvalores }}" name="precios">
-                <input type="hidden" value="{{ $cantidadesvalores }}" name="cantidades">
-                <div class="text-center" id="pagoefectivo" style="display:none;">
-                    <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
-                        style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <div class="footer">
-        <div style="text-align:center; font-size:13px;">
-            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
-        </div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-            <div style="display:flex; gap: 5px; align-items:center;">
-                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Teléfonos: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                        <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
+                            name="subscribe_form">
+                            <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
+                            <input id="card-holder-name" type="text" name="card_holder_name"
+                                style="margin-left:10px; border-radius:20px;"><br><br>
+                            @csrf
+                            <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
+                            <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
+                            <input type="hidden" value="{{ $_GET['direccion2'] }}" name="direccion">
+                            <input type="hidden" value="{{ $_GET['telefono'] }}" name="telefono">
+                            <input type="hidden" value="true" name="pagado" id="pagado">
+                            <input type="hidden" value="{{ $productosvalores }}" name="productos">
+                            <input type="hidden" value="{{ $preciosvalores }}" name="precios">
+                            <input type="hidden" value="{{ $cantidadesvalores }}" name="cantidades">
+                            <div class="form-row">
+                                <label for="card-element">{{ __('Tarjeta de crédito o de débito') }}</label>
+                                <div id="card-element" class="form-control">
+                                </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                            <div class="stripe-errors"></div>
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                        {{ $error }}<br>
+                                    @endforeach
+                                </div>
+                            @endif
+                            <br>
+                            <div class="form-group text-center">
+                                <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
+                                    data-secret="{{ $intent->client_secret }}"
+                                    class="btn btn-lg btn-success btn-block" onclick="return storeValues();"
+                                    style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
-                <a class="anavbar" href="{{ route('whoarewe') }}"
-                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
-                <a class="anavbar" href="{{ route('faq') }}"
-                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
-                <a class="anavbar" href="{{ route('contact') }}"
-                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
-                <a class="anavbar" href="{{ route('privacy') }}"
-                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
-            </div>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
-            </div>
-            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
-                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
-                    {{ __('Horario: ') }}
-                </p>
-                <div style="font-size:18px; font-weight:bolder;">
-                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
-                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
-                </div>
+                <form action="{{ route('cart.add') }}" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
+                    <input type="hidden" value="{{ Cart::getTotal() + 2 }}" name="total">
+                    <input type="hidden" value="{{ $_GET['direccion2'] }}" name="direccion">
+                    <input type="hidden" value="{{ $_GET['telefono'] }}" name="telefono">
+                    <input type="hidden" value="false" name="pagado" id="pagado">
+                    <input type="hidden" value="{{ $productosvalores }}" name="productos">
+                    <input type="hidden" value="{{ $preciosvalores }}" name="precios">
+                    <input type="hidden" value="{{ $cantidadesvalores }}" name="cantidades">
+                    <div class="text-center" id="pagoefectivo" style="display:none;">
+                        <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
+                            style="background-color:#568c2c;">{{ __('Realizar compra') }}</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
 
-    <style>
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #141414;
-            color: white;
-            padding: 20px;
-            z-index: 1;
-        }
+        <div class="footer">
+            <div style="text-align:center; font-size:13px;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
+                </div>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <a class="anavbar" href="{{ route('whoarewe') }}"
+                        style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="{{ route('faq') }}"
+                        style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="{{ route('contact') }}"
+                        style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="{{ route('privacy') }}"
+                        style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="{{ route('premios') }}"
+                        style="font-size:12px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        .anavbar:hover {
-            text-decoration: underline;
-        }
-
-        @media only screen and (max-width: 639px) {
-            .anavbar {
-                display: none;
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #141414;
+                color: white;
+                padding: 20px;
+                z-index: 1;
             }
 
-            .redes_sociales {
-                display: none;
+            .anavbar:hover {
+                text-decoration: underline;
             }
-        }
-    </style>
 
-    <style>
-        #card-button:hover {
-            filter: brightness(75%);
-            cursor: pointer;
-        }
-    </style>
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
 
-    <script src="{{ asset('js/pagar-script-2.js') }}"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ asset('js/credito.js') }}"></script>
-    <script>
-        // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
-        // Please acknowledge use of this code by including this header.
+                .redes_sociales {
+                    display: none;
+                }
+            }
+        </style>
 
-        var today = new Date();
-        var expiry = new Date(today.getTime() + 3600 * 1000);
+        <style>
+            #card-button:hover {
+                filter: brightness(75%);
+                cursor: pointer;
+            }
+        </style>
 
-        var setCookie = function(name, value) {
-            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
-        };
+        <script src="{{ asset('js/pagar-script-2.js') }}"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="{{ asset('js/credito.js') }}"></script>
+        <script>
+            // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+            // Please acknowledge use of this code by including this header.
 
-        var storeValues = function() {
-            setCookie("card_holder_name", document.forms["subscribe_form"]["card_holder_name"].value);
-            return true;
-        };
+            var today = new Date();
+            var expiry = new Date(today.getTime() + 3600 * 1000);
 
-        var getCookie = function(name) {
-            var re = new RegExp(name + "=([^;]+)");
-            var value = re.exec(document.cookie);
-            return (value != null) ? decodeURI(value[1]) : null;
-        };
+            var setCookie = function(name, value) {
+                document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+            };
 
-        if (getCookie("card_holder_name")) {
-            document.forms["subscribe_form"]["card_holder_name"].value = getCookie("card_holder_name");
-        };
-    </script>
+            var storeValues = function() {
+                setCookie("card_holder_name", document.forms["subscribe_form"]["card_holder_name"].value);
+                return true;
+            };
+
+            var getCookie = function(name) {
+                var re = new RegExp(name + "=([^;]+)");
+                var value = re.exec(document.cookie);
+                return (value != null) ? decodeURI(value[1]) : null;
+            };
+
+            if (getCookie("card_holder_name")) {
+                document.forms["subscribe_form"]["card_holder_name"].value = getCookie("card_holder_name");
+            };
+        </script>
 
 </x-app-layout>
