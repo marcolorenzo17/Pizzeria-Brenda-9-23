@@ -67,7 +67,7 @@
                                     </p>
                                 @endforeach
                             </td>
-                            <td>{{ $recibo->total * 100 }}</td>
+                            <td>{{ $recibo->total * 10 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                             <td>{{ __($recibo->direccion) }}</td>
@@ -167,7 +167,7 @@
                                     </p>
                                 @endforeach
                             </td>
-                            <td>{{ $recibo->total * 100 }}</td>
+                            <td>{{ $recibo->total * 10 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                             <td>{{ __($recibo->direccion) }}</td>
