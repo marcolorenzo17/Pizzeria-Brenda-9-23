@@ -247,9 +247,11 @@
 
                     <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
                         name="subscribe_form">
-                        <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
-                        <input id="card-holder-name" type="text" name="card_holder_name"
-                            style="margin-left:10px; border-radius:20px;"><br><br>
+                        <div style="text-align:center;">
+                            <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
+                            <input id="card-holder-name" type="text" name="card_holder_name"
+                                style="margin-left:10px; border-radius:20px;">
+                        </div>
                         @csrf
                         <input type="hidden" value="{{ Auth::user()->restapuntos }}" name="puntos">
                         <input type="hidden" value="{{ Cart::getTotal() }}" name="total">

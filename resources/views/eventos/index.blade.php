@@ -138,7 +138,9 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y', strtotime($evento->fecha)) }} - {{ date('H:i', strtotime($evento->hora)) }}</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ date('d/m/Y', strtotime($evento->fecha)) }} -
+                                    {{ date('H:i', strtotime($evento->hora)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -176,7 +178,8 @@
                                     {{ __('Presupuesto') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ number_format($evento->presupuesto, 2, '.', '') }} €
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ number_format($evento->presupuesto, 2, '.', '') }} €
                                 </p>
                             </td>
                         </tr>
@@ -367,8 +370,7 @@
                         @endif
                     @endforeach
                 </table>
-                <table style="border-collapse:separate; border-spacing:10px;"
-                    id="eventos-pequenio">
+                <table style="border-collapse:separate; border-spacing:10px;" id="eventos-pequenio">
                     @foreach ($eventos as $evento)
                         @if ($evento->idUser == Auth::user()->id)
                             <tr>
@@ -377,7 +379,9 @@
                                         {{ __('Fecha y hora') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y', strtotime($evento->fecha)) }} - {{ date('H:i', strtotime($evento->hora)) }}</p>
+                                    <p style="margin-left:30px; text-align:right;">
+                                        {{ date('d/m/Y', strtotime($evento->fecha)) }} -
+                                        {{ date('H:i', strtotime($evento->hora)) }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -405,7 +409,8 @@
                                         {{ __('Presupuesto') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px; text-align:right;">{{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
+                                    <p style="margin-left:30px; text-align:right;">
+                                        {{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
                                 </td>
                             </tr>
                             <tr>
@@ -421,7 +426,8 @@
                                         {{ __('Reserva') }}</p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:30px; text-align:right;">{{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
+                                    <p style="margin-left:30px; text-align:right;">
+                                        {{ __('Lo sentimos, no es posible realizar la reserva. Por favor, contacta con nosotros (956 37 11 15)') }}
                                     </p>
                                 @else
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
@@ -494,51 +500,43 @@
     </p>
     <br><br>
     <div id="reservas-grande">
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
-            <tr>
-                <td>
-                    <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a>
-                            <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
-                                height="300px" width="300px" id="imgproducto" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{ __('Cumpleaños') }}</h5>
-                        </div>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:5vw;">
+            <div id="cumple" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                <a>
+                    <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
+                        height="300px" width="300px" id="imgproducto" style="width:250px; padding:10px;" />
+                </a>
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">
+                        {{ __('Cumpleaños') }}</h5>
+                </div>
+            </div>
+            <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                <a>
+                    <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
+                        height="300px" width="300px" id="imgproducto" style="width:250px; padding:10px;" />
+                </a>
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center" style="color: red;">
+                        {{ __('Evento') }}</h5>
+                </div>
+            </div>
+            @if (!isset($_GET['esconder']))
+                <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                    <a>
+                        <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
+                            height="300px" width="300px" id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">{{ __('Cena') }}</h5>
                     </div>
-                </td>
-                <td>
-                    <div id="evento" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a>
-                            <img class="rounded-t-lg" src="img/evento.jpg" alt="" onclick="mostrar(evento)"
-                                height="300px" width="300px" id="imgproducto" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{ __('Evento') }}</h5>
-                        </div>
-                    </div>
-                </td>
-                @if (!isset($_GET['esconder']))
-                    <td>
-                        <div id="cena" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                            <a>
-                                <img class="rounded-t-lg" src="img/cena.jpg" alt="" onclick="mostrar(cena)"
-                                    height="300px" width="300px" id="imgproducto" />
-                            </a>
-                            <div class="p-5">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                    style="color: red;">{{ __('Cena') }}</h5>
-                            </div>
-                        </div>
-                    </td>
-                @endif
-            </tr>
-        </table>
+                </div>
+            @endif
+        </div>
     </div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="flex-wrap:wrap; align-items:center; text-align:center;" id="reservas-pequenio">
+        style="flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;" id="reservas-pequenio">
         <div id="cumple_res" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
             <a>
                 <img class="rounded-t-lg" src="img/globo.png" alt="" onclick="mostrar(cumple)"
