@@ -64,7 +64,7 @@
                 return false;
             } else if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email))) {
                 document.getElementById("error_email").innerHTML =
-                    "{{ __('El formato del correo electrónico debe ser "ejemplo@ejemplo.com"') }}";
+                    "{{ __('El formato del correo electrónico debe ser [ ejemplo@ejemplo.com ].') }}";
                 return false;
             } else if (email.length > 255) {
                 document.getElementById("error_email").innerHTML =

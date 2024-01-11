@@ -96,9 +96,9 @@
                 document.getElementById("error_name").innerHTML =
                     "{{ __('El nombre de usuario no puede quedar en blanco.') }}";
                 return false;
-            } else if (name.length > 255) {
+            } else if (name.length > 12) {
                 document.getElementById("error_name").innerHTML =
-                    "{{ __('El nombre de usuario no puede tener más de 255 caracteres.') }}";
+                    "{{ __('El nombre de usuario no puede tener más de 12 caracteres.') }}";
                 return false;
             } else {
                 document.getElementById("error_name").innerHTML = "";

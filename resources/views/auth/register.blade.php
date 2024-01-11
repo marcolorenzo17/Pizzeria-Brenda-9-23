@@ -99,9 +99,9 @@
                 document.getElementById("error_name").innerHTML =
                     "{{ __('El campo de nombre de usuario es obligatorio.') }}";
                 return false;
-            } else if (name.length > 255) {
+            } else if (name.length > 12) {
                 document.getElementById("error_name").innerHTML =
-                    "{{ __('El nombre de usuario no puede tener más de 255 caracteres.') }}";
+                    "{{ __('El nombre de usuario no puede tener más de 12 caracteres.') }}";
                 return false;
             } else {
                 document.getElementById("error_name").innerHTML = "";
@@ -117,7 +117,7 @@
                 return false;
             } else if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email))) {
                 document.getElementById("error_email").innerHTML =
-                    "{{ __('El formato del correo electrónico debe ser "ejemplo@ejemplo.com"') }}";
+                    "{{ __('El formato del correo electrónico debe ser [ ejemplo@ejemplo.com ].') }}";
                 return false;
             } else if (email.length > 255) {
                 document.getElementById("error_email").innerHTML =

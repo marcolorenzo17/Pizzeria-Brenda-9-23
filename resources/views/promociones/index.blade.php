@@ -63,7 +63,11 @@
                     <div class="text-center">
                         @csrf
                         <input type="hidden" value="{{ $promotion->id }}" name="id">
-                        <input type="hidden" value="{{ $promotion->name }}" name="name">
+                        @if (Lang::locale() == 'es')
+                            <input type="hidden" value="{{ $promotion->name }}" name="name">
+                        @else
+                            <input type="hidden" value="{{ $promotion->nameen }}" name="name">
+                        @endif
                         <input type="hidden" value="{{ $promotion->price }}" name="price">
                         <input type="hidden" value="{{ $promotion->puntos }}" name="puntos">
                         <input type="hidden" value="{{ $promotion->type }}" name="type">
@@ -131,7 +135,11 @@
                         <div class="text-center">
                             @csrf
                             <input type="hidden" value="{{ $promotion->id }}" name="id">
-                            <input type="hidden" value="{{ $promotion->name }}" name="name">
+                            @if (Lang::locale() == 'es')
+                                <input type="hidden" value="{{ $promotion->name }}" name="name">
+                            @else
+                                <input type="hidden" value="{{ $promotion->nameen }}" name="name">
+                            @endif
                             <input type="hidden" value="{{ $promotion->price }}" name="price">
                             <input type="hidden" value="{{ $promotion->puntos }}" name="puntos">
                             <input type="hidden" value="{{ $promotion->type }}" name="type">
