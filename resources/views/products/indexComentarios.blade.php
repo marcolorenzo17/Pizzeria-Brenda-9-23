@@ -34,7 +34,11 @@
                     ?>
                     <tr>
                         <td style="word-wrap: break-word; max-width:100px;">
-                            {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
+                            @if (Lang::locale() == 'es')
+                                {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
+                            @else
+                                {{ \App\Models\Product::where(['id' => $idProduct])->pluck('nameen')->first() }}
+                            @endif
                         </td>
                         <td style="word-wrap: break-word; max-width:100px;">
                             {{ \App\Models\Valoracione::where(['id' => $comentario->idValoracion])->pluck('resenia')->first() }}
@@ -71,7 +75,11 @@
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
                             <p style="margin-left:30px; text-align:right;">
-                                {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
+                                @if (Lang::locale() == 'es')
+                                    {{ \App\Models\Product::where(['id' => $idProduct])->pluck('name')->first() }}
+                                @else
+                                    {{ \App\Models\Product::where(['id' => $idProduct])->pluck('nameen')->first() }}
+                                @endif
                             </p>
                         </td>
                     </tr>

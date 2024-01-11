@@ -247,7 +247,7 @@
 
                     <form action="{{ route('cart.add') }}" method="POST" id="subscribe-form"
                         name="subscribe_form">
-                        <div style="text-align:center;">
+                        <div style="text-align:center; margin-bottom:20px; margin-top:20px;">
                             <label for="card-holder-name">{{ __('Titular de la tarjeta') }}</label>
                             <input id="card-holder-name" type="text" name="card_holder_name"
                                 style="margin-left:10px; border-radius:20px;">

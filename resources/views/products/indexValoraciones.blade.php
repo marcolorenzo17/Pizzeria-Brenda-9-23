@@ -28,7 +28,12 @@
                 </tr>
                 @foreach ($valoraciones as $valoracion)
                     <tr>
-                        <td>{{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                        <td>
+                            @if (Lang::locale() == 'es')
+                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                            @else
+                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('nameen')->first() }}
+                            @endif
                         </td>
                         <td>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</td>
                         <td style="word-wrap: break-word; max-width:100px;">{{ $valoracion->estrellas }}</td>
@@ -58,7 +63,11 @@
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
                             <p style="margin-left:30px; text-align:right;">
-                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                                @if (Lang::locale() == 'es')
+                                    {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                                @else
+                                    {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('nameen')->first() }}
+                                @endif
                             </p>
                         </td>
                     </tr>
