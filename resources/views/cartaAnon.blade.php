@@ -1221,7 +1221,7 @@
         <?php
         $ides = 0;
         ?>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; margin-top:52px;"
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; margin-top:52px; font-family: 'Grandstander', cursive; font-size:30px;"
             id="p1">
             {{ __('PIZZAS') }}</p>
         <div
@@ -1269,7 +1269,7 @@
                     {{ __(', y crea tu propia pizza!') }}</p>
             </div>
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p2">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p2">
             {{ __('HAMBURGUESAS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1304,7 +1304,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p3">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p3">
             {{ __('SÁNDWICHES') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1339,7 +1339,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p4">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p4">
             {{ __('PASTA') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1374,7 +1374,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p5">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p5">
             {{ __('ARROCES') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1409,7 +1409,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p6">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p6">
             {{ __('BAGUETTES') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1444,7 +1444,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p7">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p7">
             {{ __('ENSALADAS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1480,7 +1480,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p8">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p8">
             {{ __('COMPLEMENTOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1516,7 +1516,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p9">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p9">
             {{ __('PERRITOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1552,7 +1552,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p10">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p10">
             {{ __('CERVEZAS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1588,7 +1588,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p11">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p11">
             {{ __('VINOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1624,7 +1624,7 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen;" id="p12">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p12">
             {{ __('REFRESCOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">

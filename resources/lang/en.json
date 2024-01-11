@@ -7,8 +7,6 @@
     "El carrito se ha vaciado con éxito.": "The cart has been emptied successfully.",
     "Alérgenos actuales:": "Current allergens:",
 
-    "Se ha enviado el currículum con éxito.": "The resume has been sent successfully.",
-
     "Se ha realizado la reserva con éxito.": "The reservation has been made successfully.",
 
     "Se ha creado el plato con éxito.": "The dish has been created successfully.",
@@ -545,6 +543,14 @@
     "El nombre del plato (inglés) no puede tener más de 255 caracteres.": "The dish name field cannot have more than 255 characters.",
     "El campo de precio es obligatorio.": "The price field is required.",
     "El precio no puede ser menor de 0€.": "The price cannot be less than 0€.",
+    "El producto no puede costar menos de 0 Pizzacoins.": "The product cannot cost less than 0 Pizzacoins.",
+    "El campo de Pizzacoins debe ser un número.": "The Pizzacoins field must be a number.",
+    "El campo de nombre del ingrediente es obligatorio.": "The ingredient name (Spanish) field is required.",
+    "El nombre del ingrediente no puede tener más de 255 caracteres.": "The ingredient name (Spanish) field cannot have more than 255 characters.",
+    "El campo de nombre del ingrediente (inglés) es obligatorio.": "The ingredient name field is required.",
+    "El nombre del ingrediente (inglés) no puede tener más de 255 caracteres.": "The ingredient name field cannot have more than 255 characters.",
+
+    "Se ha enviado el currículum con éxito.": "The resume has been sent successfully.",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
