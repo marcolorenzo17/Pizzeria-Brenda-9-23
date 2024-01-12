@@ -105,6 +105,9 @@
                         <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                         <br>
                     @enderror
+                    @if (Lang::locale() == 'es')
+                        <input type="hidden" name="lang_es" value="es">
+                    @endif
                     <input type="file" name="curriculum" id="curriculum" onchange="previewFile(this);" required>
                     <div style="margin-top:20px; margin-bottom:20px; width:200px; margin-left:auto; margin-right:auto;">
                         <img id="previewImg" src="/images/example.png" alt="Placeholder" style="display:none;">

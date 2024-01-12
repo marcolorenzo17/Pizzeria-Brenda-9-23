@@ -10,7 +10,8 @@
         @else
             <div style="margin-top:110px;">
                 <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
-                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;" id="volvermenu">
+                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;"
+                    id="volvermenu">
                     {{ __('CREA TU PROPIA PIZZA') }}
                 </h2>
             </div>
@@ -21,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     @if (Auth::user()->admin)
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
@@ -181,9 +182,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -236,9 +241,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -291,9 +300,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -343,9 +356,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase" style="font-family: 'Acme', sans-serif; font-size:20px;">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -466,9 +483,15 @@
 
     <style>
         .boton:hover {
-            filter:brightness(75%);
+            filter: brightness(75%);
         }
     </style>
+
+    <script>
+        if (localStorage.crearpizza) {
+            localStorage.removeItem("crearpizza");
+        }
+    </script>
 
     <script src="{{ asset('js/crearpizza-script.js') }}"></script>
 

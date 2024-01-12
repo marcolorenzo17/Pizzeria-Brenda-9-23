@@ -1221,7 +1221,7 @@
         <?php
         $ides = 0;
         ?>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; margin-top:52px; font-family: 'Grandstander', cursive; font-size:30px;"
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; margin-top:52px; font-family: 'Grandstander', cursive; font-size:30px;"
             id="p1">
             {{ __('PIZZAS') }}</p>
         <div
@@ -1241,9 +1241,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             {{--
@@ -1263,13 +1267,15 @@
                 {{ __('¿Quieres algo más de tu estilo?') }}</p>
             <div style="display:flex; justify-content:center;">
                 <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
-                <a href="{{ route('login') }}"
-                    style="font-weight:bolder; font-size:25px; text-decoration:underline;" id="inicia_sesion">{{ __('Inicia sesión') }}</a>
+                <a href="{{ route('login') }}" onclick="redirigir_crearpizza()"
+                    style="font-weight:bolder; font-size:25px; text-decoration:underline;"
+                    id="inicia_sesion">{{ __('Inicia sesión') }}</a>
                 <p style="color:red; font-weight:bolder; font-size:25px;">
                     {{ __(', y crea tu propia pizza!') }}</p>
             </div>
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p2">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p2">
             {{ __('HAMBURGUESAS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1288,9 +1294,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             {{--
@@ -1304,7 +1314,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p3">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p3">
             {{ __('SÁNDWICHES') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1323,9 +1334,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             {{--
@@ -1339,7 +1354,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p4">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p4">
             {{ __('PASTA') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1358,9 +1374,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             {{--
@@ -1374,7 +1394,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p5">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p5">
             {{ __('ARROCES') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1393,9 +1414,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             {{--
@@ -1409,7 +1434,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p6">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p6">
             {{ __('BAGUETTES') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1428,9 +1454,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
                             {{--
@@ -1444,7 +1474,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p7">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p7">
             {{ __('ENSALADAS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1463,9 +1494,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                 €</span>
@@ -1480,7 +1515,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p8">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p8">
             {{ __('COMPLEMENTOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1499,9 +1535,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                 €</span>
@@ -1516,7 +1556,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p9">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p9">
             {{ __('PERRITOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1535,9 +1576,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                 €</span>
@@ -1552,7 +1597,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p10">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p10">
             {{ __('CERVEZAS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1571,9 +1617,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                 €</span>
@@ -1588,7 +1638,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p11">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p11">
             {{ __('VINOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1607,9 +1658,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                 €</span>
@@ -1624,7 +1679,8 @@
                 @endif
             @endforeach
         </div>
-        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:darkgreen; font-family: 'Grandstander', cursive; font-size:30px;" id="p12">
+        <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="p12">
             {{ __('REFRESCOS') }}</p>
         <div
             style="background-color:#f12d2d; margin-left:40px; height:5px; width:300px; border-radius:300px; margin-bottom:52px;">
@@ -1643,9 +1699,13 @@
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->name }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->name }}</h3>
                             @else
-                                <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">{{ $product->nameen }}</h3>
+                                <h3 class="text-gray-700 uppercase"
+                                    style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    {{ $product->nameen }}</h3>
                             @endif
                             <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
                                 €</span>
@@ -1672,18 +1732,21 @@
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}
                         </h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -1727,18 +1790,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -1782,18 +1848,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -1837,18 +1906,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -1892,18 +1964,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -1947,18 +2022,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2002,18 +2080,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2057,18 +2138,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2112,18 +2196,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2167,18 +2254,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2222,18 +2312,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2277,18 +2370,21 @@
                         <h1 class="text-center"
                             style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
-                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;" id="descripcion">
+                        <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
+                            id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
                                 <img src="{{ asset($product->image) }}" class="mx-auto"
                                     style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
                                 <br>
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->name }}
                                     </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase" style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                         {{ $product->nameen }}</h3>
                                 @endif
                                 <br>
@@ -2437,11 +2533,11 @@
 
         <style>
             #inicia_sesion {
-                color:#568c2c;
+                color: #568c2c;
             }
 
             #inicia_sesion:hover {
-                color:#274014;
+                color: #274014;
             }
         </style>
 
@@ -2463,6 +2559,16 @@
         </script>
     </div>
 </body>
+
+<script>
+    var redirigir_crearpizza = function() {
+        localStorage.crearpizza = true;
+    };
+
+    if (localStorage.crearpizza) {
+        localStorage.removeItem("crearpizza");
+    }
+</script>
 
 <script src="{{ asset('js/productsAnon-script.js') }}"></script>
 

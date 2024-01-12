@@ -341,4 +341,12 @@ use App\Http\Controllers\ProductController;
         </script>
     @endif
 
+    @if (!Auth::User()->admin)
+        <script>
+            if (localStorage.crearpizza) {
+                window.location.replace("{{ route('crearpizza') }}");
+            }
+        </script>
+    @endif
+
 </x-app-layout>
