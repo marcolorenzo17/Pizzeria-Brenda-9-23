@@ -91,34 +91,66 @@ class UserController extends Controller
     }
 
     public function validacion(Request $req) {
-        $validator = Validator::make($req->all(), [
-            'id_user' => 'required',
-        ],
-        [
-            'id_user.required' => 'Introduce un valor.'
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()]);
-        }
+        if ($req->lang_es) {
+            $validator = Validator::make($req->all(), [
+                'id_user' => 'required',
+            ],
+            [
+                'id_user.required' => 'Introduce un valor.'
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()]);
+            }
 
-        $cliente = User::findOrFail($req->id_user);
+            $cliente = User::findOrFail($req->id_user);
 
-        if ($cliente->validado) {
-            if (Auth::user()->id == $req->id_user) {
-                return response()->json(['error' => 'Un usuario no puede invalidarse a sí mismo.']);
+            if ($cliente->validado) {
+                if (Auth::user()->id == $req->id_user) {
+                    return response()->json(['error' => 'Un usuario no puede invalidarse a sí mismo.']);
+                } else {
+                    $cliente->validado = false;
+
+                    $cliente->update();
+
+                    return response()->json(['success' => 'Se ha invalidado al usuario con éxito.']);
+                }
             } else {
-                $cliente->validado = false;
+                $cliente->validado = true;
 
                 $cliente->update();
 
-                return response()->json(['success' => 'Se ha invalidado al usuario con éxito.']);
+                return response()->json(['success' => 'Se ha validado al usuario con éxito.']);
             }
         } else {
-            $cliente->validado = true;
+            $validator = Validator::make($req->all(), [
+                'id_user' => 'required',
+            ],
+            [
+                'id_user.required' => 'Input a value.'
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()]);
+            }
 
-            $cliente->update();
+            $cliente = User::findOrFail($req->id_user);
 
-            return response()->json(['success' => 'Se ha validado al usuario con éxito.']);
+            if ($cliente->validado) {
+                if (Auth::user()->id == $req->id_user) {
+                    return response()->json(['error' => 'A user cannot invalidate itself.']);
+                } else {
+                    $cliente->validado = false;
+
+                    $cliente->update();
+
+                    return response()->json(['success' => 'The user has been invalidated successfully.']);
+                }
+            } else {
+                $cliente->validado = true;
+
+                $cliente->update();
+
+                return response()->json(['success' => 'The user has been validated successfully.']);
+            }
         }
     }
 

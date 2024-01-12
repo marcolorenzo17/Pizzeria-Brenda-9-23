@@ -551,6 +551,7 @@
     "El nombre del ingrediente (inglés) no puede tener más de 255 caracteres.": "The ingredient name field cannot have more than 255 characters.",
 
     "Se ha enviado el currículum con éxito.": "The resume has been sent successfully.",
+    "Se ha producido un error: ": "An error has occurred: ",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",

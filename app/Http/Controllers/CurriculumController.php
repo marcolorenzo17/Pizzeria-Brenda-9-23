@@ -18,16 +18,30 @@ class CurriculumController extends Controller
     }
 
     public function add(Request $req) {
-        $validate = Validator::make($req->all(), [
-            'curriculum' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
-        ],[
-            'curriculum.required' => 'El campo es obligatorio.',
-            'curriculum.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.'
-        ]);
+        if ($req->lang_es) {
+            $validate = Validator::make($req->all(), [
+                'curriculum' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
+            ],[
+                'curriculum.required' => 'El campo es obligatorio.',
+                'curriculum.mimes' => 'El archivo debe estar en formato: jpg, png, jpeg, gif, svg o pdf.'
+            ]);
 
-        if($validate->fails()){
-            // return back()->withErrors($validate->errors())->withInput();
-            return response()->json(['errors' => $validate->errors()]);
+            if($validate->fails()){
+                // return back()->withErrors($validate->errors())->withInput();
+                return response()->json(['errors' => $validate->errors()]);
+            }
+        } else {
+            $validate = Validator::make($req->all(), [
+                'curriculum' => 'required|mimes:jpg,png,jpeg,gif,svg,pdf',
+            ],[
+                'curriculum.required' => 'The field is required.',
+                'curriculum.mimes' => 'The file must be in format: jpg, png, jpeg, gif, svg or pdf.'
+            ]);
+
+            if($validate->fails()){
+                // return back()->withErrors($validate->errors())->withInput();
+                return response()->json(['errors' => $validate->errors()]);
+            }
         }
 
         /*

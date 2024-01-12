@@ -198,48 +198,93 @@
         }
     </style>
 
-    <script>
-        $("#boton_submit").click(function(e) {
-            e.preventDefault();
-            let form = $('#curriculum_form')[0];
-            let data = new FormData(form);
+    @if (Lang::locale() == 'es')
+        <script>
+            $("#boton_submit").click(function(e) {
+                e.preventDefault();
+                let form = $('#curriculum_form')[0];
+                let data = new FormData(form);
 
-            $.ajax({
-                url: "{{ route('curriculum.addCurriculum') }}",
-                type: "POST",
-                data: data,
-                dataType: "JSON",
-                processData: false,
-                contentType: false,
+                $.ajax({
+                    url: "{{ route('curriculum.addCurriculum') }}",
+                    type: "POST",
+                    data: data,
+                    dataType: "JSON",
+                    processData: false,
+                    contentType: false,
 
-                success: function(response) {
-                    if (response.errors) {
-                        var errorMsg = '';
-                        $.each(response.errors, function(field, errors) {
-                            $.each(errors, function(index, error) {
-                                errorMsg += error + '<br>';
+                    success: function(response) {
+                        if (response.errors) {
+                            var errorMsg = '';
+                            $.each(response.errors, function(field, errors) {
+                                $.each(errors, function(index, error) {
+                                    errorMsg += error + '<br>';
+                                });
                             });
-                        });
+                            iziToast.error({
+                                message: errorMsg,
+                                position: 'topRight'
+                            });
+                        } else {
+                            iziToast.success({
+                                message: response.success,
+                                position: 'topRight'
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
                         iziToast.error({
-                            message: errorMsg,
-                            position: 'topRight'
-                        });
-                    } else {
-                        iziToast.success({
-                            message: response.success,
+                            message: 'Se ha producido un error: ' + error,
                             position: 'topRight'
                         });
                     }
-                },
-                error: function(xhr, status, error) {
-                    iziToast.error({
-                        message: 'Se ha producido un error: ' + error,
-                        position: 'topRight'
-                    });
-                }
-            });
-        })
-    </script>
+                });
+            })
+        </script>
+    @else
+        <script>
+            $("#boton_submit").click(function(e) {
+                e.preventDefault();
+                let form = $('#curriculum_form')[0];
+                let data = new FormData(form);
+
+                $.ajax({
+                    url: "{{ route('curriculum.addCurriculum') }}",
+                    type: "POST",
+                    data: data,
+                    dataType: "JSON",
+                    processData: false,
+                    contentType: false,
+
+                    success: function(response) {
+                        if (response.errors) {
+                            var errorMsg = '';
+                            $.each(response.errors, function(field, errors) {
+                                $.each(errors, function(index, error) {
+                                    errorMsg += error + '<br>';
+                                });
+                            });
+                            iziToast.error({
+                                message: errorMsg,
+                                position: 'topRight'
+                            });
+                        } else {
+                            iziToast.success({
+                                message: response.success,
+                                position: 'topRight'
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        iziToast.error({
+                            message: 'An error has occurred: ' + error,
+                            position: 'topRight'
+                        });
+                    }
+                });
+            })
+        </script>
+    @endif
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
     <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
