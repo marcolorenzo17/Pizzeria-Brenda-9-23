@@ -6,7 +6,9 @@
                 style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('RECIBOS') }}
             </h2>
-            <a href="{{route('recibos.todosRecibos')}}">TODOS</a>
+            @if (Route::current()->getName() == 'recibos.index')
+                <a href="{{ route('recibos.todosRecibos') }}">TODOS</a>
+            @endif
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />
@@ -199,8 +201,7 @@
                     @endif
                 @endforeach
             </table>
-            <table style="border-collapse:separate; border-spacing:10px;"
-                id="recibos-pequenio">
+            <table style="border-collapse:separate; border-spacing:10px;" id="recibos-pequenio">
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>
@@ -209,7 +210,8 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -285,7 +287,8 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
@@ -431,7 +434,8 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -474,7 +478,8 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="margin-left:30px; text-align:right;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
