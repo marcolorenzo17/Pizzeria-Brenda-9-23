@@ -6,6 +6,7 @@
                 style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('RECIBOS') }}
             </h2>
+            <a href="{{route('recibos.todosRecibos')}}">TODOS</a>
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />

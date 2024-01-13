@@ -241,6 +241,7 @@ Route::post('actualizarrol/{id}', [UserController::class, 'actualizarrol'])->nam
 Route::post('actualizarpuntos/{id}', [UserController::class, 'actualizarpuntos'])->name('clientes.actualizarpuntos');
 
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
+Route::get('/todosRecibos', [ReciboController::class, 'todosRecibos'])->name('recibos.todosRecibos');
 Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
 Route::post('actualizarrecibo/{id}', [ReciboController::class, 'actualizar'])->name('recibos.actualizar');
 Route::post('pagadorecibo/{id}', [ReciboController::class, 'pagado'])->name('recibos.pagado');

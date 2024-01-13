@@ -14,6 +14,11 @@ class ReciboController extends Controller
         return view('recibos', ['recibos' => $recibos]);
     }
 
+    public function todosRecibos() {
+        $recibos = DB::select("select * from recibos order by id desc");
+        return view('recibos', ['recibos' => $recibos]);
+    }
+
     public function destroy(string $id): RedirectResponse
     {
         $recibo = Recibo::findOrFail($id);
