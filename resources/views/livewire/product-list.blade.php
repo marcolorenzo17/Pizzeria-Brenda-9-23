@@ -236,7 +236,7 @@
             id="1">PIZZAS</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <h2 class="text-2xl font-bold text-center" style="color:#568c2c;">
+        <h2 class="text-2xl font-bold text-center" style="color:#568c2c; font-family: 'Acme', sans-serif; font-size:25px;">
             {{ __('"EL PLACER DE UNA BUENA PIZZA ARTESANAL"') }}</h2>
         <br>
         <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
@@ -327,7 +327,7 @@
         </div>
         <br><br>
         <div class="text-center"
-            style="border-style: solid; border-width: 3px; border-color: #f12d2d; background-color:white; padding: 20px; border-radius:10px;">
+            style="border-style: solid; border-width: 3px; border-color: #f12d2d; background-color:white; padding: 20px; border-radius:10px; font-family: 'Acme', sans-serif; font-size:25px;">
             <a href="{{ route('crearpizza') }}" class="text-2xl font-bold"
                 id="crearpizza">{{ __('¡CREA TU PROPIA PIZZA AQUÍ!') }}</a>
         </div>
@@ -336,7 +336,7 @@
             id="2">{{ __('HAMBURGUESAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <h2 class="text-2xl font-bold text-center" style="color:#568c2c;">
+        <h2 class="text-2xl font-bold text-center" style="color:#568c2c; font-family: 'Acme', sans-serif; font-size:25px;">
             {{ __('"COCINA RÁPIDA DE CALIDAD"') }}</h2>
         <br>
         <img src="img/alergenos/gluten-sesamo.png" width="200px" height="200px">
