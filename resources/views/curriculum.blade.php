@@ -14,28 +14,63 @@
     <link rel="stylesheet" href="/css/index_products.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        function previewFile(input) {
-            var file = $("input[type=file]").get(0).files[0];
+    @if (Lang::locale() == 'es')
+        <script>
+            function previewFile(input) {
+                var file = $("input[type=file]").get(0).files[0];
 
-            if (file) {
-                var reader = new FileReader();
+                if (file.size > 10485760) {
+                    alert("El archivo del currículum no puede pesar más de 10 MB.");
+                    input.value = "";
+                } else {
+                    if (file) {
+                        var reader = new FileReader();
 
-                reader.onload = function() {
-                    if (reader.result.substr(0, 20) == "data:application/pdf") {
-                        $("#previewImg").attr("style", "display:none;");
-                        $("#verPDF").attr("style", "display:block;");
-                        $("#verPDF").attr("src", reader.result);
-                    } else {
-                        $("#verPDF").attr("style", "display:none;");
-                        $("#previewImg").attr("style", "display:block;");
-                        $("#previewImg").attr("src", reader.result);
+                        reader.onload = function() {
+                            if (reader.result.substr(0, 20) == "data:application/pdf") {
+                                $("#previewImg").attr("style", "display:none;");
+                                $("#verPDF").attr("style", "display:block;");
+                                $("#verPDF").attr("src", reader.result);
+                            } else {
+                                $("#verPDF").attr("style", "display:none;");
+                                $("#previewImg").attr("style", "display:block;");
+                                $("#previewImg").attr("src", reader.result);
+                            }
+                        }
+                        reader.readAsDataURL(file);
                     }
                 }
-                reader.readAsDataURL(file);
             }
-        }
-    </script>
+        </script>
+    @else
+        <script>
+            function previewFile(input) {
+                var file = $("input[type=file]").get(0).files[0];
+
+                if (file.size > 10485760) {
+                    alert("The file size of the resume cannot be more than 10 MB.");
+                    input.value = "";
+                } else {
+                    if (file) {
+                        var reader = new FileReader();
+
+                        reader.onload = function() {
+                            if (reader.result.substr(0, 20) == "data:application/pdf") {
+                                $("#previewImg").attr("style", "display:none;");
+                                $("#verPDF").attr("style", "display:block;");
+                                $("#verPDF").attr("src", reader.result);
+                            } else {
+                                $("#verPDF").attr("style", "display:none;");
+                                $("#previewImg").attr("style", "display:block;");
+                                $("#previewImg").attr("src", reader.result);
+                            }
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+            }
+        </script>
+    @endif
     <br>
     <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
         @if (Auth::user()->role == 'Jefe')
@@ -110,7 +145,7 @@
                     @endif
                     <input type="file" name="curriculum" id="curriculum" onchange="previewFile(this);" required>
                     <div style="margin-top:20px; margin-bottom:20px; width:200px; margin-left:auto; margin-right:auto;">
-                        <img id="previewImg" src="/images/example.png" alt="Placeholder" style="display:none;">
+                        <img id="previewImg" src="/images/example.png" alt="Archivo" style="display:none;">
                     </div>
                     <div style="margin-top:20px; margin-bottom:20px; width:375px; margin-left:auto; margin-right:auto;">
                         <embed src="#" width="375" height="500" type="application/pdf" style="display:none;"

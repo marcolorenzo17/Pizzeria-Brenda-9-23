@@ -22,22 +22,53 @@
             style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;"
             x-data="{ nombre: '', name: '' }">
             <div>
-                <script>
-                    function previewFile(input) {
-                        var file = $("input[type=file]").get(0).files[0];
+                @if (Lang::locale() == 'es')
+                    <script>
+                        function previewFile(input) {
+                            var file = $("input[type=file]").get(0).files[0];
 
-                        if (file) {
-                            var reader = new FileReader();
+                            if (file.size > 10485760) {
+                                alert("La imagen no puede pesar más de 10 MB.");
+                                input.value = "";
+                            } else {
+                                if (file) {
+                                    var reader = new FileReader();
 
-                            reader.onload = function() {
-                                $("#previewImg").attr("style",
-                                    "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;");
-                                $("#previewImg").attr("src", reader.result);
+                                    reader.onload = function() {
+                                        $("#previewImg").attr("style",
+                                            "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
+                                        );
+                                        $("#previewImg").attr("src", reader.result);
+                                    }
+                                    reader.readAsDataURL(file);
+                                }
                             }
-                            reader.readAsDataURL(file);
                         }
-                    }
-                </script>
+                    </script>
+                @else
+                    <script>
+                        function previewFile(input) {
+                            var file = $("input[type=file]").get(0).files[0];
+
+                            if (file.size > 10485760) {
+                                alert("The image file size cannot be more than 10 MB.");
+                                input.value = "";
+                            } else {
+                                if (file) {
+                                    var reader = new FileReader();
+
+                                    reader.onload = function() {
+                                        $("#previewImg").attr("style",
+                                            "display:block; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
+                                        );
+                                        $("#previewImg").attr("src", reader.result);
+                                    }
+                                    reader.readAsDataURL(file);
+                                }
+                            }
+                        }
+                    </script>
+                @endif
                 <div style="width:400px; border:3px solid #141414; border-radius:20px; overflow-wrap: break-word;">
                     <img id="previewImg" src="#" placeholder="Preview"
                         style="display:none; margin-top:10px; margin-bottom:10px; margin-left:auto; margin-right:auto;"
