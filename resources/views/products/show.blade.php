@@ -145,7 +145,7 @@
                             <input type="hidden" value="1" name="quantity">
                             <div style="text-align:center;">
                                 <button
-                                    class="px-4 py-1.5 text-white text-sm rounded
+                                    class="px-4 py-1.5 text-white text-sm rounded"
                                     id="boton"
                                     style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                             </div>

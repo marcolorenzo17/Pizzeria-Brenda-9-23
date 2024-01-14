@@ -15,23 +15,23 @@ class ReciboController extends Controller
 {
     public function __invoke() {
         $user = User::findOrFail(Auth::user()->id);
-        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(3))->where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(3);
+        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(5))->where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(3);
         return view('recibos', ['recibos' => $recibos]);
     }
 
     public function todosRecibos() {
         $user = User::findOrFail(Auth::user()->id);
-        $recibos = Recibo::where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(3);
+        $recibos = Recibo::where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(5);
         return view('recibos', ['recibos' => $recibos]);
     }
 
     public function recibosIndexAdmin() {
-        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(3))->orderBy('id', 'desc')->paginate(3);
+        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(3))->orderBy('id', 'desc')->paginate(5);
         return view('recibos', ['recibos' => $recibos]);
     }
 
     public function todosRecibosAdmin() {
-        $recibos = Recibo::orderBy('id', 'desc')->paginate(3);
+        $recibos = Recibo::orderBy('id', 'desc')->paginate(5);
         return view('recibos', ['recibos' => $recibos]);
     }
 
