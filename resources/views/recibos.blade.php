@@ -7,7 +7,15 @@
                 {{ __('RECIBOS') }}
             </h2>
             @if (Route::current()->getName() == 'recibos.index')
-                <a href="{{ route('recibos.todosRecibos') }}">TODOS</a>
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Recibos de los últimos tres meses') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.todosRecibos') }}" style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;" id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
+                </div>
+            @else
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Todos los recibos') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.index') }}" style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;" id="boton">{{__('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
+                </div>
             @endif
         </div>
     </x-slot>
@@ -187,7 +195,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
-                                    style="background-color:aquamarine; padding:8px; border-radius:8px;"
+                                    style="background-color:#568c2c; padding:8px; border-radius:8px; color:white;"
                                     id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
                             </td>
                         </tr>
@@ -535,7 +543,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
-                                    style="margin-left:30px; background-color:aquamarine; padding:8px; border-radius:8px; float:right;"
+                                    style="margin-left:30px; background-color:#568c2c; padding:8px; border-radius:8px; float:right; color:white;"
                                     id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
                             </td>
                         </tr>
