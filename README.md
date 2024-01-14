@@ -19,6 +19,10 @@ Casos de uso: Personalizar pizzas y diferentes platos (burgers, pasta y compleme
 
 Sus elementos de innovación son: Crear un personaje animado que actúe como asistente virtual, con el que el usuario podrá interactuar mediante una conversación de chat automatizada. Para cada página de los platos que hay en la carta, habrá una sección para las opiniones, valoraciones y comentarios de los clientes. Se dará la opción de traducir toda la página web al inglés con un sólo paso. Se utilizará el Framework de Laravel 10.
 
+## Cómo desplegar la aplicación web
+
+---
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
