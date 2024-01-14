@@ -15,7 +15,7 @@ class ReciboController extends Controller
 {
     public function __invoke() {
         $user = User::findOrFail(Auth::user()->id);
-        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(5))->where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(3);
+        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(3))->where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(5);
         return view('recibos', ['recibos' => $recibos]);
     }
 
