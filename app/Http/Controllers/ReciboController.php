@@ -6,16 +6,17 @@ use App\Models\Recibo;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ReciboController extends Controller
 {
     public function __invoke() {
-        $recibos = DB::select("select * from recibos where created_at > current_date - interval '3 months' order by id desc");
+        $recibos = Recibo::where('created_at', '>', Carbon::now()->subMonths(3))->orderBy('id', 'desc')->paginate(3);
         return view('recibos', ['recibos' => $recibos]);
     }
 
     public function todosRecibos() {
-        $recibos = Recibo::paginate(3);
+        $recibos = Recibo::orderBy('id', 'desc')->paginate(3);
         return view('recibos', ['recibos' => $recibos]);
     }
 

@@ -557,11 +557,9 @@
                 @endforeach
             </table>
 
-            @if (Route::current()->getName() == 'recibos.todosRecibos')
-                <div>
-                    {{$recibos->links()}}
-                </div>
-            @endif
+            <div>
+                {{ $recibos->links() }}
+            </div>
         </div>
     </div>
 
