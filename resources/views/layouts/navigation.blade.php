@@ -244,14 +244,25 @@
                                 @endif
                             </x-dropdown-link>
                         @endif
-                        <x-dropdown-link :href="route('recibos.index')">
-                            <p>{{ __('Recibos') }}</p>
-                            @if (Route::current()->getName() == 'recibos.index')
-                                <div style="background-color:red; height:3px; border-radius:10px;">
-                                    <br>
-                                </div>
-                            @endif
-                        </x-dropdown-link>
+                        @if (Auth::User()->admin)
+                            <x-dropdown-link :href="route('recibos.index.admin')">
+                                <p>{{ __('Recibos') }}</p>
+                                @if (Route::current()->getName() == 'recibos.index.admin')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
+                        @else
+                            <x-dropdown-link :href="route('recibos.index')">
+                                <p>{{ __('Recibos') }}</p>
+                                @if (Route::current()->getName() == 'recibos.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
+                        @endif
                         @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
                             <x-dropdown-link :href="route('curriculum.index')">
                                 <p>{{ __('Currículum') }}</p>

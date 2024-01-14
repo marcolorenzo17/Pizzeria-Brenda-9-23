@@ -13,10 +13,24 @@
                         style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
                         id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
                 </div>
-            @else
+            @elseif (Route::current()->getName() == 'recibos.todosRecibos')
                 <p style="text-align:center; margin-bottom:30px;">{{ __('Todos los recibos') }}</p>
                 <div style="text-align:center;">
                     <a href="{{ route('recibos.index') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
+                </div>
+            @elseif (Route::current()->getName() == 'recibos.index.admin')
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Recibos de los últimos tres meses') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.todosRecibos.admin') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
+                </div>
+            @elseif (Route::current()->getName() == 'recibos.todosRecibos.admin')
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Todos los recibos') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.index.admin') }}"
                         style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
                         id="boton">{{ __('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
                 </div>
@@ -261,7 +275,8 @@
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Productos') }}
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Productos') }}
                                 </p>
                             </td>
                             <td>
