@@ -9,12 +9,16 @@
             @if (Route::current()->getName() == 'recibos.index')
                 <p style="text-align:center; margin-bottom:30px;">{{ __('Recibos de los últimos tres meses') }}</p>
                 <div style="text-align:center;">
-                    <a href="{{ route('recibos.todosRecibos') }}" style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;" id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
+                    <a href="{{ route('recibos.todosRecibos') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
                 </div>
             @else
                 <p style="text-align:center; margin-bottom:30px;">{{ __('Todos los recibos') }}</p>
                 <div style="text-align:center;">
-                    <a href="{{ route('recibos.index') }}" style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;" id="boton">{{__('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
+                    <a href="{{ route('recibos.index') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
                 </div>
             @endif
         </div>
@@ -552,6 +556,12 @@
                     @endif
                 @endforeach
             </table>
+
+            @if (Route::current()->getName() == 'recibos.todosRecibos')
+                <div>
+                    {{$recibos->links()}}
+                </div>
+            @endif
         </div>
     </div>
 

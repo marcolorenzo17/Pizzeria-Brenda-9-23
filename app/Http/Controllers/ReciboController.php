@@ -15,7 +15,7 @@ class ReciboController extends Controller
     }
 
     public function todosRecibos() {
-        $recibos = DB::select("select * from recibos order by id desc");
+        $recibos = Recibo::paginate(3);
         return view('recibos', ['recibos' => $recibos]);
     }
 
