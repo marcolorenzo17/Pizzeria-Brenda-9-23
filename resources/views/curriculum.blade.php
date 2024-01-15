@@ -81,16 +81,16 @@
                     <div style="display:flex; align-items:center; gap:50px; flex-wrap:wrap;">
                         @if (substr($curriculum->curriculum, -4) == '.pdf')
                             <div>
-                                <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
+                                <a href="{{ asset($curriculum->curriculum) }}"
                                     class="text-white px-4 py-2 rounded-md" id="boton" target="__blank"
                                     style="background-color:#568c2c;">{{ __('Ver currículum en PDF') }}</a>
                             </div>
                         @else
                             <div>
-                                <img src="{{ asset('storage/' . $curriculum->curriculum) }}" alt="curriculum"
+                                <img src="{{ asset($curriculum->curriculum) }}" alt="curriculum"
                                     width="200px;">
                                 <br>
-                                <a href="{{ asset('storage/' . $curriculum->curriculum) }}"
+                                <a href="{{ asset($curriculum->curriculum) }}"
                                     class="text-white px-4 py-2 rounded-md" id="boton" target="__blank"
                                     style="background-color:#568c2c;">{{ __('Ampliar imagen') }}</a>
                             </div>

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 class ProductController extends Controller
 {
     /**
@@ -158,6 +160,11 @@ class ProductController extends Controller
         $delete = $product->delete($id);
 
         if($delete) {
+            $foto = $product->image;
+            $token = explode('/', $foto);
+            $token2 = explode('.', $token[sizeof($token) - 1]);
+            Cloudinary::destroy('image_product/'.$token2[0]);
+
             session()->flash('notif.success', 'El plato se ha borrado con éxito.');
             return redirect()->route('products.index');
         }
@@ -194,7 +201,7 @@ class ProductController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
-        $image_path = $req->file('image_product')->store('image_product', 'public');
+        $image_path = $req->file('image_product')->storeOnCloudinary('image_product');
 
         $alergenos = '';
         if ($req->input('alergenos') != null) {
@@ -209,7 +216,7 @@ class ProductController extends Controller
         $product->nameen = $req->nameen;
         $product->price = $req->price;
         $product->description = $req->description;
-        $product->image = 'storage/' . $image_path;
+        $product->image = $image_path->getSecurePath();
         $product->type = $req->type;
         $product->alergenos = $alergenos;
         $product->habilitado = true;
@@ -277,9 +284,14 @@ class ProductController extends Controller
             $product->puntos = $req->puntos;
         }
 
+        $foto = $product->image;
+        $token = explode('/', $foto);
+        $token2 = explode('.', $token[sizeof($token) - 1]);
+        Cloudinary::destroy('image_product/'.$token2[0]);
+
         if ($req->file('image_product') != null) {
-            $image_path = $req->file('image_product')->store('image_product', 'public');
-            $product->image = 'storage/' . $image_path;
+            $image_path = $req->file('image_product')->storeOnCloudinary('image_product');
+            $product->image = $image_path->getSecurePath();
         }
 
         $product->alergenos = $alergenos;

@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class CurriculumController extends Controller
 {
@@ -52,11 +53,11 @@ class CurriculumController extends Controller
         $curriculum->save();
         */
 
-        $image_path = $req->file('curriculum')->store('curriculum', 'public');
+        $image_path = $req->file('curriculum')->storeOnCloudinary('curriculum');
 
         $data = Curriculum::create([
             'idUser' => Auth::user()->id,
-            'curriculum' => $image_path,
+            'curriculum' => $image_path->getSecurePath(),
             'nuevo' => true,
         ]);
 
@@ -79,6 +80,11 @@ class CurriculumController extends Controller
         $delete = $curriculum->delete($id);
 
         if($delete) {
+            $fotopdf = $curriculum->curriculum;
+            $token = explode('/', $fotopdf);
+            $token2 = explode('.', $token[sizeof($token) - 1]);
+            Cloudinary::destroy('curriculum/'.$token2[0]);
+
             session()->flash('notif.success', 'El currículum se ha borrado con éxito.');
             return redirect()->route('curriculum.index');
         }
