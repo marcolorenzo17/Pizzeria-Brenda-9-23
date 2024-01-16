@@ -18,6 +18,7 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WhoareweController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PremiosController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -254,7 +255,7 @@ Route::get('/curriculum', CurriculumController::class)->name('curriculum.index')
 Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
 Route::delete('borrarCurriculum/{id}', [CurriculumController::class, 'destroy'])->name('curriculum.destroy');
 
-Route::get('/rolesIndex', CurriculumController::class)->name('roles.index');
+Route::get('/rolesIndex', RoleController::class)->name('roles.index');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);

@@ -18,6 +18,7 @@ class RoleSeeder extends Seeder
                 'nombre' => 'Jefe',
                 'privilegios' => 'verres-canres-pagres-vercli-borval-borcom-estrec-pagrec-borrec-vercur',
                 'primero' => true,
+                'nombreen' => 'Boss',
             ],
         ];
         Role::insert($roles);
