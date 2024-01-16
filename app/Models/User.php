@@ -33,7 +33,8 @@ class User extends Authenticatable
         'direccion',
         'telefono',
         'nuevo',
-        'id_role'
+        'id_role',
+        'primero'
     ];
 
     /**

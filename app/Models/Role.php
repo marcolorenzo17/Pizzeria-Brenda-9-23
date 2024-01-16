@@ -13,6 +13,7 @@ class Role extends Model
         'id',
         'nombre',
         'privilegios',
+        'primero'
     ];
 
     public function users() {

@@ -15,9 +15,9 @@ class RoleSeeder extends Seeder
     {
         $roles = [
             [
-                'id' => 1,
                 'nombre' => 'Jefe',
                 'privilegios' => 'verres-canres-pagres-vercli-borval-borcom-estrec-pagrec-borrec-vercur',
+                'primero' => true,
             ],
         ];
         Role::insert($roles);
