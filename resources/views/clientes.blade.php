@@ -664,267 +664,267 @@
                     </td>
                 </tr>
                 @if (Lang::locale() == 'es')
-                <script>
-                    var validar_sm_off = function(e, usuario_sm) {
-                        e.preventDefault();
-                        let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
-                        let data = new FormData(form);
+                    <script>
+                        var validar_sm_off = function(e, usuario_sm) {
+                            e.preventDefault();
+                            let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
+                            let data = new FormData(form);
 
-                        $.ajax({
-                            url: "{{ route('clientes.validacion') }}",
-                            type: "POST",
-                            data: data,
-                            dataType: "JSON",
-                            processData: false,
-                            contentType: false,
+                            $.ajax({
+                                url: "{{ route('clientes.validacion') }}",
+                                type: "POST",
+                                data: data,
+                                dataType: "JSON",
+                                processData: false,
+                                contentType: false,
 
-                            success: function(response) {
+                                success: function(response) {
 
-                                if (response.errors) {
-                                    var errorMsg = '';
-                                    $.each(response.errors, function(field, errors) {
-                                        $.each(errors, function(index, error) {
-                                            errorMsg += error + '<br>';
+                                    if (response.errors) {
+                                        var errorMsg = '';
+                                        $.each(response.errors, function(field, errors) {
+                                            $.each(errors, function(index, error) {
+                                                errorMsg += error + '<br>';
+                                            });
                                         });
-                                    });
-                                    iziToast.error({
-                                        message: errorMsg,
-                                        position: 'topRight'
-                                    });
-                                } else if (response.error) {
-                                    iziToast.error({
-                                        message: response.error,
-                                        position: 'topRight'
-                                    });
-                                } else {
-                                    iziToast.success({
-                                        message: response.success,
-                                        position: 'topRight'
+                                        iziToast.error({
+                                            message: errorMsg,
+                                            position: 'topRight'
+                                        });
+                                    } else if (response.error) {
+                                        iziToast.error({
+                                            message: response.error,
+                                            position: 'topRight'
+                                        });
+                                    } else {
+                                        iziToast.success({
+                                            message: response.success,
+                                            position: 'topRight'
 
-                                    });
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #568c2c; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_sm_on(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
-                                        "{{ __('VALIDAR') }}";
+                                        });
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_sm_on(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                            "{{ __('VALIDAR') }}";
 
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #568c2c; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_on(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
-                                        "{{ __('VALIDAR') }}";
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_on(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
+                                            "{{ __('VALIDAR') }}";
+                                    }
+
+                                },
+                                error: function(xhr, status, error) {
+
+                                    iziToast.error({
+                                        message: 'Se ha producido un error: ' + error,
+                                        position: 'topRight'
+                                    });
                                 }
 
-                            },
-                            error: function(xhr, status, error) {
+                            });
+                        }
 
-                                iziToast.error({
-                                    message: 'Se ha producido un error: ' + error,
-                                    position: 'topRight'
-                                });
-                            }
+                        var validar_sm_on = function(e, usuario_sm) {
+                            e.preventDefault();
+                            let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
+                            let data = new FormData(form);
 
-                        });
-                    }
+                            $.ajax({
+                                url: "{{ route('clientes.validacion') }}",
+                                type: "POST",
+                                data: data,
+                                dataType: "JSON",
+                                processData: false,
+                                contentType: false,
 
-                    var validar_sm_on = function(e, usuario_sm) {
-                        e.preventDefault();
-                        let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
-                        let data = new FormData(form);
+                                success: function(response) {
 
-                        $.ajax({
-                            url: "{{ route('clientes.validacion') }}",
-                            type: "POST",
-                            data: data,
-                            dataType: "JSON",
-                            processData: false,
-                            contentType: false,
-
-                            success: function(response) {
-
-                                if (response.errors) {
-                                    var errorMsg = '';
-                                    $.each(response.errors, function(field, errors) {
-                                        $.each(errors, function(index, error) {
-                                            errorMsg += error + '<br>';
+                                    if (response.errors) {
+                                        var errorMsg = '';
+                                        $.each(response.errors, function(field, errors) {
+                                            $.each(errors, function(index, error) {
+                                                errorMsg += error + '<br>';
+                                            });
                                         });
-                                    });
+                                        iziToast.error({
+                                            message: errorMsg,
+                                            position: 'topRight'
+                                        });
+                                    } else if (response.error) {
+                                        iziToast.error({
+                                            message: response.error,
+                                            position: 'topRight'
+                                        });
+                                    } else {
+                                        iziToast.success({
+                                            message: response.success,
+                                            position: 'topRight'
+
+                                        });
+
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_sm_off(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                            "{{ __('INVALIDAR') }}";
+
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_off(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
+                                            "{{ __('INVALIDAR') }}";
+                                    }
+
+                                },
+                                error: function(xhr, status, error) {
+
                                     iziToast.error({
-                                        message: errorMsg,
+                                        message: 'Se ha producido un error: ' + error,
                                         position: 'topRight'
                                     });
-                                } else if (response.error) {
-                                    iziToast.error({
-                                        message: response.error,
-                                        position: 'topRight'
-                                    });
-                                } else {
-                                    iziToast.success({
-                                        message: response.success,
-                                        position: 'topRight'
-
-                                    });
-
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_sm_off(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
-                                        "{{ __('INVALIDAR') }}";
-
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_off(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
-                                        "{{ __('INVALIDAR') }}";
                                 }
 
-                            },
-                            error: function(xhr, status, error) {
-
-                                iziToast.error({
-                                    message: 'Se ha producido un error: ' + error,
-                                    position: 'topRight'
-                                });
-                            }
-
-                        });
-                    }
-                </script>
+                            });
+                        }
+                    </script>
                 @else
-                <script>
-                    var validar_sm_off = function(e, usuario_sm) {
-                        e.preventDefault();
-                        let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
-                        let data = new FormData(form);
+                    <script>
+                        var validar_sm_off = function(e, usuario_sm) {
+                            e.preventDefault();
+                            let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
+                            let data = new FormData(form);
 
-                        $.ajax({
-                            url: "{{ route('clientes.validacion') }}",
-                            type: "POST",
-                            data: data,
-                            dataType: "JSON",
-                            processData: false,
-                            contentType: false,
+                            $.ajax({
+                                url: "{{ route('clientes.validacion') }}",
+                                type: "POST",
+                                data: data,
+                                dataType: "JSON",
+                                processData: false,
+                                contentType: false,
 
-                            success: function(response) {
+                                success: function(response) {
 
-                                if (response.errors) {
-                                    var errorMsg = '';
-                                    $.each(response.errors, function(field, errors) {
-                                        $.each(errors, function(index, error) {
-                                            errorMsg += error + '<br>';
+                                    if (response.errors) {
+                                        var errorMsg = '';
+                                        $.each(response.errors, function(field, errors) {
+                                            $.each(errors, function(index, error) {
+                                                errorMsg += error + '<br>';
+                                            });
                                         });
-                                    });
-                                    iziToast.error({
-                                        message: errorMsg,
-                                        position: 'topRight'
-                                    });
-                                } else if (response.error) {
-                                    iziToast.error({
-                                        message: response.error,
-                                        position: 'topRight'
-                                    });
-                                } else {
-                                    iziToast.success({
-                                        message: response.success,
-                                        position: 'topRight'
+                                        iziToast.error({
+                                            message: errorMsg,
+                                            position: 'topRight'
+                                        });
+                                    } else if (response.error) {
+                                        iziToast.error({
+                                            message: response.error,
+                                            position: 'topRight'
+                                        });
+                                    } else {
+                                        iziToast.success({
+                                            message: response.success,
+                                            position: 'topRight'
 
-                                    });
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #568c2c; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_sm_on(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
-                                        "{{ __('VALIDAR') }}";
+                                        });
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_sm_on(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                            "{{ __('VALIDAR') }}";
 
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #568c2c; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_on(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
-                                        "{{ __('VALIDAR') }}";
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #568c2c; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_on(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
+                                            "{{ __('VALIDAR') }}";
+                                    }
+
+                                },
+                                error: function(xhr, status, error) {
+
+                                    iziToast.error({
+                                        message: 'An error has occurred: ' + error,
+                                        position: 'topRight'
+                                    });
                                 }
 
-                            },
-                            error: function(xhr, status, error) {
+                            });
+                        }
 
-                                iziToast.error({
-                                    message: 'An error has occurred: ' + error,
-                                    position: 'topRight'
-                                });
-                            }
+                        var validar_sm_on = function(e, usuario_sm) {
+                            e.preventDefault();
+                            let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
+                            let data = new FormData(form);
 
-                        });
-                    }
+                            $.ajax({
+                                url: "{{ route('clientes.validacion') }}",
+                                type: "POST",
+                                data: data,
+                                dataType: "JSON",
+                                processData: false,
+                                contentType: false,
 
-                    var validar_sm_on = function(e, usuario_sm) {
-                        e.preventDefault();
-                        let form = $(`#validacion_form_sm_${usuario_sm}`)[0];
-                        let data = new FormData(form);
+                                success: function(response) {
 
-                        $.ajax({
-                            url: "{{ route('clientes.validacion') }}",
-                            type: "POST",
-                            data: data,
-                            dataType: "JSON",
-                            processData: false,
-                            contentType: false,
-
-                            success: function(response) {
-
-                                if (response.errors) {
-                                    var errorMsg = '';
-                                    $.each(response.errors, function(field, errors) {
-                                        $.each(errors, function(index, error) {
-                                            errorMsg += error + '<br>';
+                                    if (response.errors) {
+                                        var errorMsg = '';
+                                        $.each(response.errors, function(field, errors) {
+                                            $.each(errors, function(index, error) {
+                                                errorMsg += error + '<br>';
+                                            });
                                         });
-                                    });
+                                        iziToast.error({
+                                            message: errorMsg,
+                                            position: 'topRight'
+                                        });
+                                    } else if (response.error) {
+                                        iziToast.error({
+                                            message: response.error,
+                                            position: 'topRight'
+                                        });
+                                    } else {
+                                        iziToast.success({
+                                            message: response.success,
+                                            position: 'topRight'
+
+                                        });
+
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_sm_off(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
+                                            "{{ __('INVALIDAR') }}";
+
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
+                                            "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
+                                            `validar_off(event, ${usuario_sm})`);
+                                        document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
+                                            "{{ __('INVALIDAR') }}";
+                                    }
+
+                                },
+                                error: function(xhr, status, error) {
+
                                     iziToast.error({
-                                        message: errorMsg,
+                                        message: 'An error has occurred: ' + error,
                                         position: 'topRight'
                                     });
-                                } else if (response.error) {
-                                    iziToast.error({
-                                        message: response.error,
-                                        position: 'topRight'
-                                    });
-                                } else {
-                                    iziToast.success({
-                                        message: response.success,
-                                        position: 'topRight'
-
-                                    });
-
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_sm_off(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_sm_${usuario_sm}`).innerHTML =
-                                        "{{ __('INVALIDAR') }}";
-
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("style",
-                                        "border:1px solid #f12d2d; padding:10px; border-radius:5px;");
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).setAttribute("onclick",
-                                        `validar_off(event, ${usuario_sm})`);
-                                    document.getElementById(`validacion_btn_${usuario_sm}`).innerHTML =
-                                        "{{ __('INVALIDAR') }}";
                                 }
 
-                            },
-                            error: function(xhr, status, error) {
-
-                                iziToast.error({
-                                    message: 'An error has occurred: ' + error,
-                                    position: 'topRight'
-                                });
-                            }
-
-                        });
-                    }
-                </script>
+                            });
+                        }
+                    </script>
                 @endif
                 <tr>
                     <td style="display:flex; justify-content:space-between; padding-left:50px;">
@@ -947,7 +947,11 @@
                 <?php $usuario_sm += 1; ?>
 @endforeach
 </table>
+<div>
+    {{ $clientes->links() }}
 </div>
+</div>
+
 
 <div class="footer">
     <div style="text-align:center; font-size:13px;">

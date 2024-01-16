@@ -1304,8 +1304,8 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="200px" height="200px"
-                            style="margin-left:auto; margin-right:auto;">
+                        <img src="{{ asset($product->image) }}" alt="..."
+                            style="margin-left:auto; margin-right:auto; width:200px; height:270px;">
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
@@ -1357,8 +1357,8 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="249px" height="249px"
-                            style="margin-left:auto; margin-right:auto;">
+                        <img src="{{ asset($product->image) }}" alt="..."
+                            style="margin-left:auto; margin-right:auto; width:240px; height:340px;">
                         @if (Lang::locale() == 'es')
                             <p
                                 style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
@@ -1440,8 +1440,8 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides_res fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="200px" height="200px"
-                            style="margin-left:auto; margin-right:auto;">
+                        <img src="{{ asset($product->image) }}" alt="..."
+                            style="margin-left:auto; margin-right:auto; width:200px; height:270px;">
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
@@ -1493,8 +1493,8 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2_res fade">
-                        <img src="{{ asset($product->image) }}" alt="..." width="249px" height="249px"
-                            style="margin-left:auto; margin-right:auto;">
+                        <img src="{{ asset($product->image) }}" alt="..."
+                            style="margin-left:auto; margin-right:auto; width:240px; height:340px;">
                         @if (Lang::locale() == 'es')
                             <p
                                 style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
