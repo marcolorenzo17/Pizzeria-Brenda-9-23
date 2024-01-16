@@ -121,6 +121,9 @@
                     <tr></tr>
                 @endforeach
             </table>
+            <div>
+                {{ $valoraciones->links() }}
+            </div>
         </div>
 
         <div class="footer">

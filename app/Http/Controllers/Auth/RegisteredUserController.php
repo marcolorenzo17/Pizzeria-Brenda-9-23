@@ -52,6 +52,7 @@ class RegisteredUserController extends Controller
             'direccion' => $request->direccion,
             'telefono' => $request->telefono,
             'nuevo' => true,
+            'id_role' => '',
         ]);
 
         event(new Registered($user));

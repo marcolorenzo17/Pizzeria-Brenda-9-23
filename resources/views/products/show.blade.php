@@ -476,6 +476,24 @@
         }
     </style>
 
+    <style>
+        #e1 {
+            cursor: pointer;
+        }
+        #e2 {
+            cursor: pointer;
+        }
+        #e3 {
+            cursor: pointer;
+        }
+        #e4 {
+            cursor: pointer;
+        }
+        #e5 {
+            cursor: pointer;
+        }
+    </style>
+
     <script src="{{ asset('js/product-script.js') }}"></script>
     <script>
         /*

@@ -61,14 +61,14 @@ class ProductController extends Controller
     public function indexValoraciones(): Response
     {
         return response()->view('products.indexValoraciones', [
-            'valoraciones' => Valoracione::orderBy('id', 'desc')->get(),
+            'valoraciones' => Valoracione::orderBy('id', 'desc')->paginate(10),
         ]);
     }
 
     public function indexComentarios(): Response
     {
         return response()->view('products.indexComentarios', [
-            'comentarios' => Comentario::orderBy('id', 'desc')->get(),
+            'comentarios' => Comentario::orderBy('id', 'desc')->paginate(10),
         ]);
     }
 

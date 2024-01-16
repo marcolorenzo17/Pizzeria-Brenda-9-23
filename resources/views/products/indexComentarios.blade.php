@@ -136,6 +136,9 @@
                     <tr></tr>
                 @endforeach
             </table>
+            <div>
+                {{ $comentarios->links() }}
+            </div>
         </div>
 
         <div class="footer">
