@@ -227,6 +227,14 @@
                                     @endif
                                 </x-dropdown-link>
                             @endif
+                            <x-dropdown-link :href="route('roles.index')">
+                                <p>{{ __('Roles') }}</p>
+                                @if (Route::current()->getName() == 'roles.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
                             <x-dropdown-link :href="route('products.indexValoraciones')">
                                 <p>{{ __('Valoraciones') }}</p>
                                 @if (Route::current()->getName() == 'products.indexValoraciones')
@@ -481,6 +489,14 @@
                             @endif
                         </x-responsive-nav-link>
                     @endif
+                    <x-responsive-nav-link :href="route('roles.index')">
+                        <p>{{ __('Roles') }}</p>
+                        @if (Route::current()->getName() == 'roles.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
+                    </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('products.indexValoraciones')">
                         <p>{{ __('Valoraciones') }}</p>
                         @if (Route::current()->getName() == 'products.indexValoraciones')

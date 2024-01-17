@@ -1,7 +1,4 @@
 <x-app-layout>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
         <div style="margin-top:110px;">
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
@@ -10,23 +7,80 @@
             </h2>
         </div>
     </x-slot>
-    <link rel="stylesheet" href="/css/curriculum.css" />
     <link rel="stylesheet" href="/css/index_products.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <br>
-    <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-        @if (Auth::user()->role == 'Jefe')
-            <div>
-                @foreach ($roles as $rol)
-                    @if (Lang::locale() == 'es')
-                        <p>{{ $rol->nombre }}</p>
-                    @else
-                        <p>{{ $rol->nombreen }}</p>
-                    @endif
+    @if (Auth::user()->admin)
+        <br>
+        <div style="margin-left:20px;">
+            <a href="{{ route('roles.crear') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#568c2c;">{{ __('CREAR ROL') }}</a>
+        </div>
+        <br>
+        <div style="background:white; margin-bottom:300px;">
+            <table style="width:100%;">
+                @foreach ($roles as $role)
+                    <tr>
+                        <td>
+                            <div style="margin:20px; display:flex; gap:20px;">
+                                <div>
+                                    @if (Lang::locale() == 'es')
+                                        <p>{{ $role->nombre }}</p>
+                                    @else
+                                        <p>{{ $role->nombreen }}</p>
+                                    @endif
+                                </div>
+                                <table style="margin-left:auto; margin-right:0;" id="productos-grande">
+                                    <tr>
+                                        @if (!$role->primero)
+                                            <td>
+                                                <a href="{{ route('roles.editar', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
+                                            </td>
+                                            {{--
+                                            <td>
+                                                <form method="post" action="{{ route('roles.destroy', $role->id) }}"
+                                                    onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que se borrarán también todos los usuarios que tengan este rol asignado.')">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                </form>
+                                            </td>
+                                        --}}
+                                        @endif
+                                    </tr>
+                                </table>
+                                <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
+                                    @if (!$role->primero)
+                                        <tr>
+                                            <td style="padding:5px">
+                                                <a href="{{ route('roles.editar', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
+                                            </td>
+                                        </tr>
+                                        {{--
+                                        <tr>
+                                            <td style="padding:5px">
+                                                <form method="post" action="{{ route('roles.destroy', $role->id) }}"
+                                                    onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que borrarán también todos los usuarios que tengan este rol asignado.')">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button
+                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    --}}
+                                    @endif
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
-            </div>
-        @endif
-    </div>
+            </table>
+        </div>
+    @endif
 
 </x-app-layout>

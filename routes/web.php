@@ -258,6 +258,7 @@ Route::delete('borrarCurriculum/{id}', [CurriculumController::class, 'destroy'])
 Route::get('/rolesIndex', RoleController::class)->name('roles.index');
 Route::get('/crearRol', [RoleController::class, 'crear'])->name('roles.crear');
 Route::get('/editarRol/{id}', [RoleController::class, 'editar'])->name('roles.editar');
+Route::delete('/borrarRol/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
