@@ -1206,6 +1206,8 @@
                 menu_hamburguesa.setAttribute("onclick", "mostrar_hamburguesa()");
             };
         </script>
+
+        @vite(['resources/scss/app.scss'])
     </div>
 </body>
 
