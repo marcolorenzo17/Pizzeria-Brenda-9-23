@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Role;
+use Illuminate\Http\RedirectResponse;
 
 class RoleController extends Controller
 {
@@ -23,5 +24,19 @@ class RoleController extends Controller
         return response()->view('roles.editar', [
             'role' => Role::findOrFail($role),
         ]);
+    }
+
+    public function destroy(string $id): RedirectResponse
+    {
+        $role = Role::findOrFail($id);
+
+        $delete = $role->delete($id);
+
+        if($delete) {
+            session()->flash('notif.success', 'El rol se ha borrado con éxito.');
+            return redirect()->route('roles.index');
+        }
+
+        return abort(500);
     }
 }
