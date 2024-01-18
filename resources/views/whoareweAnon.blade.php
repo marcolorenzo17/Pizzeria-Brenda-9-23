@@ -1049,8 +1049,8 @@
                 {{ __('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.') }}
             </p>
             <br>
-            <div>
-                <img class="mx-auto" src="{{ asset('img/waw1.png') }}" alt="waw1">
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
+                <img src="{{ asset('img/waw1.png') }}" alt="waw1" class="img_ensi">
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1059,9 +1059,9 @@
                 {{ __('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.') }}
             </p>
             <br>
-            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;">
-                <img src="{{ asset('img/waw2.png') }}" alt="waw2">
-                <img src="{{ asset('img/waw3.png') }}" alt="waw3" style="height:215px;">
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
+                <img src="{{ asset('img/waw2.png') }}" alt="waw2" class="img_ensi">
+                <img src="{{ asset('img/waw3.png') }}" alt="waw3" class="img_ensi">
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1070,9 +1070,9 @@
                 {{ __('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.') }}
             </p>
             <br>
-            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;">
-                <img src="{{ asset('img/waw4.png') }}" alt="waw4">
-                <img src="{{ asset('img/waw5.png') }}" alt="waw5">
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
+                <img src="{{ asset('img/waw4.png') }}" alt="waw4" class="img_ensi">
+                <img src="{{ asset('img/waw5.png') }}" alt="waw5" class="img_ensi">
             </div>
             <br>
             <p style="font-size:20px;">
