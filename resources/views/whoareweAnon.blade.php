@@ -1061,7 +1061,7 @@
             <br>
             <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;">
                 <img src="{{ asset('img/waw2.png') }}" alt="waw2">
-                <img src="{{ asset('img/waw3.png') }}" alt="waw3">
+                <img src="{{ asset('img/waw3.png') }}" alt="waw3" style="height:215px;">
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1070,8 +1070,9 @@
                 {{ __('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.') }}
             </p>
             <br>
-            <div>
-                <img class="mx-auto" src="{{ asset('img/waw4.png') }}" alt="waw4">
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;">
+                <img src="{{ asset('img/waw4.png') }}" alt="waw4">
+                <img src="{{ asset('img/waw5.png') }}" alt="waw5">
             </div>
             <br>
             <p style="font-size:20px;">
