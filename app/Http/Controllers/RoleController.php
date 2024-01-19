@@ -41,7 +41,6 @@ class RoleController extends Controller
         return abort(500);
     }
 
-    /*
     public function aniadir(Request $req) {
         $validate = Validator::make($req->all(), [
             'name' => 'required|max:255',
@@ -57,33 +56,58 @@ class RoleController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
-        $alergenos = '';
-        if ($req->input('alergenos') != null) {
-            foreach (array_values($req->input('alergenos')) as $alergeno) {
-                $alergenos .= $alergeno . '-';
+        $privilegios = '';
+        if ($req->input('privilegios') != null) {
+            foreach (array_values($req->input('privilegios')) as $privilegio) {
+                $privilegios .= $privilegio . '-';
             }
-            $alergenos = rtrim($alergenos, '-');
+            $privilegios = rtrim($privilegios, '-');
         }
 
-        $product = new Role;
-        $product->name = $req->name;
-        $product->nameen = $req->nameen;
-        $product->price = $req->price;
-        $product->description = $req->description;
-        $product->image = $image_path->getSecurePath();
-        $product->type = $req->type;
-        $product->alergenos = $alergenos;
-        $product->habilitado = true;
-        if ($req->puntos == "") {
-            $product->puntos = 0;
-        } else {
-            $product->puntos = $req->puntos;
-        }
+        $role = new Role;
+        $role->nombre = $req->name;
+        $role->nombreen = $req->nameen;
+        $role->privilegios = $privilegios;
+        $role->primero = false;
 
-        $product->save();
+        $role->save();
 
-        session()->flash('notif.success', 'Se ha añadido el plato con éxito.');
-        return redirect()->route('products.index');
+        session()->flash('notif.success', 'Se ha añadido el rol con éxito.');
+        return redirect()->route('roles.index');
     }
-    */
+
+    public function actualizar(Request $req, string $id) {
+        $validate = Validator::make($req->all(), [
+            'name' => 'required|max:255',
+            'nameen' => 'required|max:255',
+        ],[
+            'name.required' => 'El campo es obligatorio.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'nameen.required' => 'El campo es obligatorio.',
+            'nameen.max' => 'El nombre no puede tener más de 255 caracteres.',
+        ]);
+
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
+        $role = Role::findOrFail($id);
+
+        $privilegios = '';
+        if ($req->input('privilegios') != null) {
+            foreach (array_values($req->input('privilegios')) as $privilegio) {
+                $privilegios .= $privilegio . '-';
+            }
+            $privilegios = rtrim($privilegios, '-');
+        }
+
+        $role->nombre = $req->name;
+        $role->nombreen = $req->nameen;
+        $role->privilegios = $privilegios;
+
+        $role->update();
+
+        session()->flash('notif.success', 'Se ha actualizado el rol con éxito.');
+        return redirect()->route('roles.index');
+    }
 }
