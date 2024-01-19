@@ -566,6 +566,23 @@
     "Tu cuenta se ha creado con éxito.": "Your account has been created successfully.",
     "El rol se ha borrado con éxito.": "The role has been deleted successfully.",
 
+    "CREAR ROL": "CREATE ROLE",
+    "EDITAR ROL": "EDIT ROLE",
+
+    "Nombre del rol": "Role name (Spanish)",
+    "Nombre del rol (Inglés)": "Role name",
+
+    "El usuario puede ver la lista de reservas": "The user can view the reservation list",
+    "El usuario puede aceptar y cancelar reservas": "The user can accept and cancel reservations",
+    "El usuario puede editar el pago de las reservas": "The user can edit a reservation's payment",
+    "El usuario puede ver la lista de clientes": "The user can view the customers list",
+    "El usuario puede borrar valoraciones": "The user can delete reviews",
+    "El usuario puede borrar comentarios": "The user can delete comments",
+    "El usuario puede editar el estado de un pedido": "The user can edit an order's status",
+    "El usuario puede editar el pago de un pedido": "The user can edit an order's payment",
+    "El usuario puede borrar recibos": "The user can delete receipts",
+    "El usuario puede ver la lista de currículums": "The user can view the resume list",
+
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
     "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"
