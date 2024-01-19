@@ -14,15 +14,15 @@
             rel="stylesheet">
         <br>
         <div style="text-align:center;">
-            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+            <a href="{{ route('roles.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
                 style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
         </div>
         <br>
         <div class="container px-12 py-8 mx-auto bg-white"
             style="margin-bottom:300px; display:flex; justify-content:center; gap:5vw; flex-wrap:wrap;">
             <div>
-                <form action="{{ route('products.aniadir') }}" method="POST" enctype="multipart/form-data"
-                    name="crearrol" onsubmit="return validate()">
+                <form action="{{ route('roles.aniadir') }}" method="POST" enctype="multipart/form-data" name="crearrol"
+                    onsubmit="return validate()">
                     @csrf
                     <div id="input_div" style="margin:auto; display:block;">
                         @error('name')
@@ -52,62 +52,69 @@
                         <table>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="verres" name="privilegios[]" value="verres">
-                                    <label for="verres">{{ __('El usuario puede ver la lista de reservas') }}</label><br>
+                                    <input type="checkbox" id="1" name="privilegios[]" value="1">
+                                    <label
+                                        for="1">{{ __('El usuario puede ver la lista de reservas') }} [ 1 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="canres" name="privilegios[]" value="canres">
-                                    <label for="canres">{{ __('El usuario puede aceptar y cancelar reservas') }}</label><br>
+                                    <input type="checkbox" id="2" name="privilegios[]" value="2">
+                                    <label
+                                        for="2">{{ __('El usuario puede aceptar y cancelar reservas') }} [ 2 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="pagres" name="privilegios[]" value="pagres">
-                                    <label for="pagres">{{ __('El usuario puede editar el pago de las reservas') }}</label><br>
+                                    <input type="checkbox" id="3" name="privilegios[]" value="3">
+                                    <label
+                                        for="3">{{ __('El usuario puede editar el pago de las reservas') }} [ 3 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="vercli" name="privilegios[]" value="vercli">
-                                    <label for="vercli">{{ __('El usuario puede ver la lista de clientes') }}</label><br>
+                                    <input type="checkbox" id="4" name="privilegios[]" value="4">
+                                    <label
+                                        for="4">{{ __('El usuario puede ver la lista de clientes') }} [ 4 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="borval" name="privilegios[]" value="borval">
-                                    <label for="borval">{{ __('El usuario puede borrar valoraciones') }}</label><br>
+                                    <input type="checkbox" id="5" name="privilegios[]" value="5">
+                                    <label for="5">{{ __('El usuario puede borrar valoraciones') }} [ 5 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="borcom" name="privilegios[]" value="borcom">
-                                    <label for="borcom">{{ __('El usuario puede borrar comentarios') }}</label><br>
+                                    <input type="checkbox" id="6" name="privilegios[]" value="6">
+                                    <label for="6">{{ __('El usuario puede borrar comentarios') }} [ 6 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="estrec" name="privilegios[]" value="estrec">
-                                    <label for="estrec">{{ __('El usuario puede editar el estado de un pedido') }}</label><br>
+                                    <input type="checkbox" id="7" name="privilegios[]" value="7">
+                                    <label
+                                        for="7">{{ __('El usuario puede editar el estado de un pedido') }} [ 7 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="pagrec" name="privilegios[]" value="pagrec">
-                                    <label for="pagrec">{{ __('El usuario puede editar el pago de un pedido') }}</label><br>
+                                    <input type="checkbox" id="8" name="privilegios[]" value="8">
+                                    <label
+                                        for="8">{{ __('El usuario puede editar el pago de un pedido') }} [ 8 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="borrec" name="privilegios[]" value="borrec">
-                                    <label for="borrec">{{ __('El usuario puede borrar recibos') }}</label><br>
+                                    <input type="checkbox" id="9" name="privilegios[]" value="9">
+                                    <label for="9">{{ __('El usuario puede borrar recibos') }} [ 9 ]</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="checkbox" id="vercur" name="privilegios[]" value="vercur">
-                                    <label for="vercur">{{ __('El usuario puede ver la lista de currículums') }}</label><br>
+                                    <input type="checkbox" id="10" name="privilegios[]" value="10">
+                                    <label
+                                        for="10">{{ __('El usuario puede ver la lista de currículums') }} [ 10 ]</label><br>
                                 </td>
                             </tr>
                         </table>
@@ -211,6 +218,46 @@
                 }
             }
         </style>
+
+        <script>
+            function validate() {
+                if (!(validate_name() && validate_nameen())) {
+                    return false;
+                }
+            }
+
+            function validate_name() {
+                var name = document.forms["crearrol"]["name"].value;
+                if (name == "") {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El campo de nombre del rol es obligatorio.') }}";
+                    return false;
+                } else if (name.length > 255) {
+                    document.getElementById("error_name").innerHTML =
+                        "{{ __('El nombre del rol no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_name").innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validate_nameen() {
+                var nameen = document.forms["crearrol"]["nameen"].value;
+                if (nameen == "") {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El campo de nombre del rol (inglés) es obligatorio.') }}";
+                    return false;
+                } else if (nameen.length > 255) {
+                    document.getElementById("error_nameen").innerHTML =
+                        "{{ __('El nombre del rol (inglés) no puede tener más de 255 caracteres.') }}";
+                    return false;
+                } else {
+                    document.getElementById("error_nameen").innerHTML = "";
+                    return true;
+                }
+            }
+        </script>
 
     </x-app-layout>
 @endif

@@ -259,6 +259,8 @@ Route::get('/rolesIndex', RoleController::class)->name('roles.index');
 Route::get('/crearRol', [RoleController::class, 'crear'])->name('roles.crear');
 Route::get('/editarRol/{id}', [RoleController::class, 'editar'])->name('roles.editar');
 Route::delete('/borrarRol/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+Route::post('/aniadirRol', [RoleController::class, 'aniadir'])->name('roles.aniadir');
+Route::post('/actualizarRol/{id}', [RoleController::class, 'actualizar'])->name('roles.actualizar');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);

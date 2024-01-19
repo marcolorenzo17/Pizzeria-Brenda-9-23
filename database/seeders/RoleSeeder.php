@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
         $roles = [
             [
                 'nombre' => 'Jefe',
-                'privilegios' => 'verres-canres-pagres-vercli-borval-borcom-estrec-pagrec-borrec-vercur',
+                'privilegios' => '1-2-3-4-5-6-7-8-9-10',
                 'primero' => true,
                 'nombreen' => 'Boss',
             ],

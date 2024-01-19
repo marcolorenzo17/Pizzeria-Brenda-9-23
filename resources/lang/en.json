@@ -572,6 +572,11 @@
     "Nombre del rol": "Role name (Spanish)",
     "Nombre del rol (Inglés)": "Role name",
 
+    "Nombre del rol actual:": "Current role name (Spanish):",
+    "Nombre del rol actual (inglés):": "Current role name:",
+
+    "Privilegios actuales:": "Current privileges:",
+
     "El usuario puede ver la lista de reservas": "The user can view the reservation list",
     "El usuario puede aceptar y cancelar reservas": "The user can accept and cancel reservations",
     "El usuario puede editar el pago de las reservas": "The user can edit a reservation's payment",
@@ -582,6 +587,11 @@
     "El usuario puede editar el pago de un pedido": "The user can edit an order's payment",
     "El usuario puede borrar recibos": "The user can delete receipts",
     "El usuario puede ver la lista de currículums": "The user can view the resume list",
+
+    "El campo de nombre del rol es obligatorio.": "The role name (Spanish) field is required.",
+    "El nombre del rol no puede tener más de 255 caracteres.": "The role name (Spanish) field cannot have more than 255 characters.",
+    "El campo de nombre del rol (inglés) es obligatorio.": "The role name field is required.",
+    "El nombre del rol (inglés) no puede tener más de 255 caracteres.": "The role name field cannot have more than 255 characters.",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
