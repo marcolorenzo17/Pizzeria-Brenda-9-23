@@ -1038,7 +1038,7 @@
             </div>
         </div>
         <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-            <h2 class="text-center" style="padding-top:30px;">{{ __('PREMIOS') }}</h2>
+            <h2 class="text-center" style="padding-top:30px; font-size:30px; font-weight:bolder;">{{ __('PREMIOS') }}</h2>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 style="display:flex; flex-wrap:wrap; align-items:center;">
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">

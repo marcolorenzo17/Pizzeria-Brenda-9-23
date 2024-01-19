@@ -1037,7 +1037,7 @@
                 </div>
             </div>
         </div>
-        <div style="margin:30px; margin-bottom:300px;">
+        <div style="margin:30px; margin-bottom:300px; font-size:20px;">
             <p style="text-align:center; padding-top:30px;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
             <p style="text-align:center;">www.pizzeriabrenda.com</p>
             <br><br><br>

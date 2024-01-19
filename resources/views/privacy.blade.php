@@ -9,7 +9,7 @@
     </x-slot>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <br>
-    <div class="bg-white" style="width:100%; padding:30px; margin-bottom:300px;">
+    <div class="bg-white" style="width:100%; padding:30px; margin-bottom:300px; font-size:20px;">
         <p style="text-align:center;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
         <p style="text-align:center;">www.pizzeriabrenda.com</p>
         <br><br><br>

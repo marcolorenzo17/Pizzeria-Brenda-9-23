@@ -1039,11 +1039,11 @@
         </div>
         <div class="container px-12 py-8 mx-auto bg-white"
             style="padding-top:30px; padding-bottom:30px;  margin-bottom:300px; margin-left:20px; margin-right:20px;">
-            <h2 class="text-center">{{ __('CONTÁCTANOS') }}</h2>
+            <h2 class="text-center" style="font-size:30px; font-weight:bolder;">{{ __('CONTÁCTANOS') }}</h2>
             <br><br>
-            <h3 style="font-weight: bolder;">{{ __('TELÉFONOS') }}</h3>
+            <h3 style="font-weight: bolder; font-size:22px;">{{ __('TELÉFONOS') }}</h3>
             <br>
-            <div style="display:flex; justify-content:center; align-items:center; gap:8vw; flex-wrap:wrap;">
+            <div style="display:flex; justify-content:center; align-items:center; gap:8vw; flex-wrap:wrap; font-size:20px;">
                 <div>
                     <p>956 37 11 15</p>
                     <p>956 37 47 36</p>
@@ -1054,16 +1054,16 @@
                 </div>
             </div>
             <br><br>
-            <h3 style="font-weight: bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
+            <h3 style="font-weight: bolder; font-size:22px;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+            <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+            <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
             <br><br>
             <div class="text-center">
-                <h3 style="font-weight: bolder;">{{ __('VISÍTANOS EN:') }}</h3>
+                <h3 style="font-weight: bolder; font-size:22px;">{{ __('VISÍTANOS EN:') }}</h3>
                 <br>
-                <p>
+                <p style="font-size:20px;">
                     C/ Padre Lerchundi, 3<br>
                     {{ __('(junto a antigua estación de Los Amarillos)') }}<br>
                     11550 - Chipiona (Cádiz)
@@ -1078,9 +1078,9 @@
             </div>
             <br><br>
             <div class="text-center">
-                <h3 style="font-weight: bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
+                <h3 style="font-weight: bolder; font-size:22px;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
                 <br>
-                <p>
+                <p style="font-size:20px;">
                     brendapizza@hotmail.com
                 </p>
             </div>
