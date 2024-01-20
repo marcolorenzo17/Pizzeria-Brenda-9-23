@@ -13,7 +13,8 @@ class UserController extends Controller
 {
     public function __invoke() {
         $clientes = User::orderBy('id', 'desc')->paginate(5);
-        return view('clientes', ['clientes' => $clientes]);
+        $roles = DB::select('select * from roles order by id desc');
+        return view('clientes', ['clientes' => $clientes, 'roles' => $roles]);
     }
 
     public function destroy(string $id): RedirectResponse
@@ -42,7 +43,7 @@ class UserController extends Controller
 
         $cliente->update();
 
-        session()->flash('notif.success', 'El usuario seleccionado es ahora un administrador.');
+        session()->flash('notif.success', 'El usuario seleccionado es ahora un administrador. Asegúrate de asignarle un rol.');
         return redirect()->route('clientes.index');
     }
 
@@ -54,7 +55,7 @@ class UserController extends Controller
             $cliente = User::findOrFail($id);
 
             $cliente->admin = false;
-            $cliente->role = 'Cliente';
+            $cliente->id_role = null;
 
             $cliente->update();
 
@@ -157,7 +158,7 @@ class UserController extends Controller
     public function actualizarrol(Request $req, string $id) {
         $cliente = User::findOrFail($id);
 
-        $cliente->role = $req->role;
+        $cliente->id_role = $req->role;
 
         $cliente->update();
 

@@ -141,13 +141,18 @@
                                     @csrf
                                     <div style="display:flex; align-items:center; gap:5px;">
                                         <div>
-                                            <select id="role" name="role" style="border-radius: 10px"
-                                                value="Jefe">
-                                                <option value="Cliente">{{ __('Cliente') }}</option>
-                                                <option value="Jefe">{{ __('Jefe') }}</option>
-                                                <option value="Cajero">{{ __('Cajero') }}</option>
-                                                <option value="Cocinero">{{ __('Cocinero') }}</option>
-                                                <option value="Plancha">{{ __('Plancha') }}</option>
+                                            <select id="role" name="role" style="border-radius: 10px">
+                                                @if (Lang::locale() == 'es')
+                                                    @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}">{{ $role->nombre }}
+                                                        </option>
+                                                    @endforeach
+                                                @else
+                                                    @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}">{{ $role->nombreen }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
                                         <div class="text-center">
@@ -159,10 +164,10 @@
                                 </form>
                             </td>
                             <td>
-                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
+                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
                             </td>
                         @else
-                            <td>{{ __($cliente->role) }}</td>
+                            <td>{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}</td>
                             <td></td>
                         @endif
                         <td>
@@ -576,11 +581,17 @@
                                     <div style="display:flex; align-items:center; gap:10px;">
                                         <div>
                                             <select id="role" name="role" style="border-radius:10px;">
-                                                <option value="Cliente">{{ __('Cliente') }}</option>
-                                                <option value="Jefe">{{ __('Jefe') }}</option>
-                                                <option value="Cajero">{{ __('Cajero') }}</option>
-                                                <option value="Cocinero">{{ __('Cocinero') }}</option>
-                                                <option value="Plancha">{{ __('Plancha') }}</option>
+                                                @if (Lang::locale() == 'es')
+                                                    @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}">{{ $role->nombre }}
+                                                        </option>
+                                                    @endforeach
+                                                @else
+                                                    @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}">{{ $role->nombreen }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
                                         <div>
@@ -590,7 +601,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __($cliente->role) }}
+                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
                                     </div>
                                 </form>
                             </div>
@@ -600,6 +611,9 @@
                     <tr>
                         <td style="display:flex; justify-content:space-between; padding-left:50px;">
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Rol') }}</p>
+                        </td>
+                        <td style="word-wrap: break-word; max-width:100px;">
+                            <p style="margin-left:30px; text-align:right;">{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}</p>
                         </td>
                     </tr>
                 @endif

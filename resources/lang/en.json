@@ -24,7 +24,7 @@
     "El recibo se ha borrado con éxito.": "The receipt was deleted successfully.",
     "Un usuario no puede eliminarse a sí mismo.": "A user cannot delete itself.",
     "El usuario se ha eliminado con éxito.": "The user has been deleted successfully.",
-    "El usuario seleccionado es ahora un administrador.": "The selected user is now an admin.",
+    "El usuario seleccionado es ahora un administrador. Asegúrate de asignarle un rol.": "The selected user is now an admin. Be sure to assign them a role.",
     "Un administrador no puede deshabilitarse a sí mismo.": "An admin cannot disable itself.",
     "El usuario seleccionado ya no es un administrador.": "The selected user is no longer an admin.",
     "Se ha validado al usuario con éxito.": "The user has been validated succesfully.",
