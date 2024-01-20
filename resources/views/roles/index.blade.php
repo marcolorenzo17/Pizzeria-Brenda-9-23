@@ -33,6 +33,11 @@
                                     <tr>
                                         @if (!$role->primero)
                                             <td>
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                            <td>
                                                 <a href="{{ route('roles.editar', $role) }}"
                                                     class="text-white px-4 py-2 rounded-md" id="boton"
                                                     style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
@@ -51,6 +56,13 @@
                                 </table>
                                 <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
                                     @if (!$role->primero)
+                                        <tr>
+                                            <td style="padding:5px">
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td style="padding:5px">
                                                 <a href="{{ route('roles.editar', $role) }}"

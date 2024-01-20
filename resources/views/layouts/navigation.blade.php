@@ -142,7 +142,9 @@
             <!-- Logo -->
             @if (Route::current()->getName() == 'products.show' or
                     Route::current()->getName() == 'products.editar' or
-                    Route::current()->getName() == 'crearpizza.editar')
+                    Route::current()->getName() == 'crearpizza.editar' or
+                    Route::current()->getName() == 'roles.editar' or
+                    Route::current()->getName() == 'roles.show')
                 <div style="margin-left:auto; margin-right:auto;" id="logo_header">
                     <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
                             style="width:100px; margin-top:10px;"></a>
@@ -156,7 +158,9 @@
 
             @if (Route::current()->getName() == 'products.show' or
                     Route::current()->getName() == 'products.editar' or
-                    Route::current()->getName() == 'crearpizza.editar')
+                    Route::current()->getName() == 'crearpizza.editar' or
+                    Route::current()->getName() == 'roles.editar' or
+                    Route::current()->getName() == 'roles.show')
                 <div>
                 </div>
             @else
@@ -305,7 +309,9 @@
 
                         @if (Route::current()->getName() == 'products.show' or
                                 Route::current()->getName() == 'products.editar' or
-                                Route::current()->getName() == 'crearpizza.editar')
+                                Route::current()->getName() == 'crearpizza.editar' or
+                                Route::current()->getName() == 'roles.editar' or
+                                Route::current()->getName() == 'roles.show')
                             <div></div>
                         @else
                             <div id="productos-pequenio-navbar" style="position:relative; top:-20px; left:40px;">
@@ -356,7 +362,9 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden" style="padding-top:45px;">
         @if (Route::current()->getName() == 'products.show' or
                 Route::current()->getName() == 'products.editar' or
-                Route::current()->getName() == 'crearpizza.editar')
+                Route::current()->getName() == 'crearpizza.editar' or
+                Route::current()->getName() == 'roles.editar' or
+                Route::current()->getName() == 'roles.show')
             <div></div>
         @else
             <div style="position:relative; top:60px;">

@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use App\Models\Role;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -109,5 +110,15 @@ class RoleController extends Controller
 
         session()->flash('notif.success', 'Se ha actualizado el rol con éxito.');
         return redirect()->route('roles.index');
+    }
+
+    public function show(string $id): Response
+    {
+        $users = DB::select('select * from users order by id desc');
+
+        return response()->view('roles.show', [
+            'role' => Role::findOrFail($id),
+            'users' => $users
+        ]);
     }
 }

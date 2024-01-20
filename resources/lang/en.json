@@ -595,6 +595,10 @@
     "El campo de nombre del rol (inglés) es obligatorio.": "The role name field is required.",
     "El nombre del rol (inglés) no puede tener más de 255 caracteres.": "The role name field cannot have more than 255 characters.",
 
+    "DETALLES": "DETAILS",
+    "DETALLES DEL ROL": "ROLE DETAILS",
+    "Usuarios con este rol": "Users with this role",
+
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
     "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"
