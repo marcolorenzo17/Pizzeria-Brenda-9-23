@@ -577,6 +577,7 @@
     "Nombre del rol actual (inglés):": "Current role name:",
 
     "Privilegios actuales:": "Current privileges:",
+    "Ninguno": "None",
 
     "El usuario puede ver la lista de reservas": "The user can view the reservation list",
     "El usuario puede aceptar y cancelar reservas": "The user can accept and cancel reservations",

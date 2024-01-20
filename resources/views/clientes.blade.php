@@ -164,11 +164,28 @@
                                 </form>
                             </td>
                             <td>
-                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
+                                @if (\App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() == null)
+                                    <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Ninguno') }}
+                                @elseif (Lang::locale() == 'es')
+                                    <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
+                                @else
+                                    <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombreen')->first() }}
+                                @endif
                             </td>
                         @else
-                            <td>{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}</td>
-                            <td></td>
+                            @if (\App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() == null)
+                                <td>{{ __('Ninguno') }}
+                                </td>
+                                <td></td>
+                            @elseif (Lang::locale() == 'es')
+                                <td>{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
+                                </td>
+                                <td></td>
+                            @else
+                                <td>{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombreen')->first() }}
+                                </td>
+                                <td></td>
+                            @endif
                         @endif
                         <td>
                             @if ($cliente->validado)
@@ -601,7 +618,13 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
+                                        @if (\App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() == null)
+                                            <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Ninguno') }}
+                                        @elseif (Lang::locale() == 'es')
+                                            <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
+                                        @else
+                                            <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombreen')->first() }}
+                                        @endif
                                     </div>
                                 </form>
                             </div>
@@ -613,7 +636,19 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Rol') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:100px;">
-                            <p style="margin-left:30px; text-align:right;">{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}</p>
+                            @if (\App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() == null)
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ __('Ninguno') }}
+                                </p>
+                            @elseif (Lang::locale() == 'es')
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
+                                </p>
+                            @else
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombreen')->first() }}
+                                </p>
+                            @endif
                         </td>
                     </tr>
                 @endif
