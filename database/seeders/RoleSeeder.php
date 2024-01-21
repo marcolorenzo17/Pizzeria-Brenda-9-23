@@ -20,6 +20,30 @@ class RoleSeeder extends Seeder
                 'primero' => true,
                 'nombreen' => 'Boss',
             ],
+            [
+                'nombre' => 'Trabajador',
+                'privilegios' => '',
+                'primero' => false,
+                'nombreen' => 'Worker',
+            ],
+            [
+                'nombre' => 'Cajero',
+                'privilegios' => '1-2-3-5-6-8-9',
+                'primero' => false,
+                'nombreen' => 'Cashier',
+            ],
+            [
+                'nombre' => 'Cocinero',
+                'privilegios' => '5-6-7',
+                'primero' => false,
+                'nombreen' => 'Cook',
+            ],
+            [
+                'nombre' => 'Plancha',
+                'privilegios' => '5-6-7',
+                'primero' => false,
+                'nombreen' => 'Iron',
+            ],
         ];
         Role::insert($roles);
     }

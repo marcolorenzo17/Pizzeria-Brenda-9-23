@@ -109,6 +109,9 @@
                     </tr>
                 @endforeach
             </table>
+            <div>
+                {{ $roles->links() }}
+            </div>
         </div>
     @endif
 

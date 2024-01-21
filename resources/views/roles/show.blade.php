@@ -27,7 +27,7 @@
             <p style="font-size:20px; margin-left:30px;">{{ $role->privilegios }}</p>
             <p style="font-size:22px; font-weight:bolder; margin-top:50px;">{{ __('Usuarios con este rol') }}</p>
             @foreach ($users as $user)
-                @if ($user->primero)
+                @if ($user->primero and $role->primero)
                     <p style="font-size:20px; margin-left:30px;">- admin</p>
                 @elseif ($user->id_role == $role->id)
                     <p style="font-size:20px; margin-left:30px;">- {{ $user->name }}</p>
