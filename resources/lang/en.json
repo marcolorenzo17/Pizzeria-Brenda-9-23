@@ -301,6 +301,11 @@
     "Se ha actualizado el plato con éxito.": "The dish has been updated succesfully.",
     "Se ha añadido el plato con éxito.": "The dish has been added succesfully.",
 
+    "- SÍ": "- YES",
+    "SÍ": "YES",
+    "Actualmente: SÍ": "Currently: YES",
+    "Actualmente: NO": "Currently: NO",
+
     "¿La pizzería abre por la mañana?": "Does the pizzeria open in the morning?",
     "La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.": "The pizzeria opens every Sunday morning from October 1st to May 30th.",
     "¿Hay servicio a domicilio fuera de Chipiona?": "Is there home delivery service outside of Chipiona?",

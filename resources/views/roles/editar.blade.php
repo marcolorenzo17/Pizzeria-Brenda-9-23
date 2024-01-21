@@ -51,84 +51,128 @@
                     </div>
                     <br><br>
                     <div id="input_div" style="margin:auto; display:block;">
+                        <?php
+                        $privilegioslista = explode('-', $role->privilegios);
+                        ?>
                         <table>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="1" name="privilegios[]" value="1">
-                                    <label for="1">{{ __('El usuario puede ver la lista de reservas') }} [ 1
-                                        ]</label><br>
+                                    <label
+                                        for="1">{{ __('El usuario puede ver la lista de reservas') }}</label><br>
+                                    @if (in_array('1', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="2" name="privilegios[]" value="2">
-                                    <label for="2">{{ __('El usuario puede aceptar y cancelar reservas') }} [ 2
-                                        ]</label><br>
+                                    <label
+                                        for="2">{{ __('El usuario puede aceptar y cancelar reservas') }}</label><br>
+                                    @if (in_array('2', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="3" name="privilegios[]" value="3">
-                                    <label for="3">{{ __('El usuario puede editar el pago de las reservas') }} [
-                                        3 ]</label><br>
+                                    <label
+                                        for="3">{{ __('El usuario puede editar el pago de las reservas') }}</label><br>
+                                    @if (in_array('3', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="4" name="privilegios[]" value="4">
-                                    <label for="4">{{ __('El usuario puede ver la lista de clientes') }} [ 4
-                                        ]</label><br>
+                                    <label
+                                        for="4">{{ __('El usuario puede ver la lista de clientes') }}</label><br>
+                                    @if (in_array('4', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="5" name="privilegios[]" value="5">
-                                    <label for="5">{{ __('El usuario puede borrar valoraciones') }} [ 5
-                                        ]</label><br>
+                                    <label for="5">{{ __('El usuario puede borrar valoraciones') }}</label><br>
+                                    @if (in_array('5', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="6" name="privilegios[]" value="6">
-                                    <label for="6">{{ __('El usuario puede borrar comentarios') }} [ 6
-                                        ]</label><br>
+                                    <label for="6">{{ __('El usuario puede borrar comentarios') }}</label><br>
+                                    @if (in_array('6', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="7" name="privilegios[]" value="7">
-                                    <label for="7">{{ __('El usuario puede editar el estado de un pedido') }} [
-                                        7 ]</label><br>
+                                    <label
+                                        for="7">{{ __('El usuario puede editar el estado de un pedido') }}</label><br>
+                                    @if (in_array('7', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="8" name="privilegios[]" value="8">
-                                    <label for="8">{{ __('El usuario puede editar el pago de un pedido') }} [ 8
-                                        ]</label><br>
+                                    <label
+                                        for="8">{{ __('El usuario puede editar el pago de un pedido') }}</label><br>
+                                    @if (in_array('8', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="9" name="privilegios[]" value="9">
-                                    <label for="9">{{ __('El usuario puede borrar recibos') }} [ 9 ]</label><br>
+                                    <label for="9">{{ __('El usuario puede borrar recibos') }}</label><br>
+                                    @if (in_array('9', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom:30px;">
                                     <input type="checkbox" id="10" name="privilegios[]" value="10">
-                                    <label for="10">{{ __('El usuario puede ver la lista de currículums') }} [
-                                        10 ]</label><br>
+                                    <label
+                                        for="10">{{ __('El usuario puede ver la lista de currículums') }}</label><br>
+                                    @if (in_array('10', $privilegioslista))
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                    @else
+                                        <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                         </table>
-                        <br>
-                        <?php
-                        $privilegioslista = $role->privilegios;
-                        $listacomas = str_replace('-', ', ', $privilegioslista);
-                        ?>
-                        <strong>{{ __('Privilegios actuales:') }}</strong>&nbsp;{{ $listacomas }}
-                        <br><br><br><br>
                     </div>
                     <div class="text-center" style="margin-top:50px;">
                         <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"

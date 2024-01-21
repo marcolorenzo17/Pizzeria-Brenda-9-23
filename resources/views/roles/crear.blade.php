@@ -54,67 +54,67 @@
                                 <td>
                                     <input type="checkbox" id="1" name="privilegios[]" value="1">
                                     <label
-                                        for="1">{{ __('El usuario puede ver la lista de reservas') }} [ 1 ]</label><br>
+                                        for="1">{{ __('El usuario puede ver la lista de reservas') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="2" name="privilegios[]" value="2">
                                     <label
-                                        for="2">{{ __('El usuario puede aceptar y cancelar reservas') }} [ 2 ]</label><br>
+                                        for="2">{{ __('El usuario puede aceptar y cancelar reservas') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="3" name="privilegios[]" value="3">
                                     <label
-                                        for="3">{{ __('El usuario puede editar el pago de las reservas') }} [ 3 ]</label><br>
+                                        for="3">{{ __('El usuario puede editar el pago de las reservas') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="4" name="privilegios[]" value="4">
                                     <label
-                                        for="4">{{ __('El usuario puede ver la lista de clientes') }} [ 4 ]</label><br>
+                                        for="4">{{ __('El usuario puede ver la lista de clientes') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="5" name="privilegios[]" value="5">
-                                    <label for="5">{{ __('El usuario puede borrar valoraciones') }} [ 5 ]</label><br>
+                                    <label for="5">{{ __('El usuario puede borrar valoraciones') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="6" name="privilegios[]" value="6">
-                                    <label for="6">{{ __('El usuario puede borrar comentarios') }} [ 6 ]</label><br>
+                                    <label for="6">{{ __('El usuario puede borrar comentarios') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="7" name="privilegios[]" value="7">
                                     <label
-                                        for="7">{{ __('El usuario puede editar el estado de un pedido') }} [ 7 ]</label><br>
+                                        for="7">{{ __('El usuario puede editar el estado de un pedido') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="8" name="privilegios[]" value="8">
                                     <label
-                                        for="8">{{ __('El usuario puede editar el pago de un pedido') }} [ 8 ]</label><br>
+                                        for="8">{{ __('El usuario puede editar el pago de un pedido') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="9" name="privilegios[]" value="9">
-                                    <label for="9">{{ __('El usuario puede borrar recibos') }} [ 9 ]</label><br>
+                                    <label for="9">{{ __('El usuario puede borrar recibos') }}</label><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="10" name="privilegios[]" value="10">
                                     <label
-                                        for="10">{{ __('El usuario puede ver la lista de currículums') }} [ 10 ]</label><br>
+                                        for="10">{{ __('El usuario puede ver la lista de currículums') }}</label><br>
                                 </td>
                             </tr>
                         </table>

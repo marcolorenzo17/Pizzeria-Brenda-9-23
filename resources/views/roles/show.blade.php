@@ -24,7 +24,111 @@
             <p style="font-size:22px; font-weight:bolder; margin-top:50px;">{{ __('Nombre del rol (Inglés)') }}</p>
             <p style="font-size:20px; margin-left:30px;">{{ $role->nombreen }}</p>
             <p style="font-size:22px; font-weight:bolder; margin-top:50px;">{{ __('Privilegios') }}</p>
-            <p style="font-size:20px; margin-left:30px;">{{ $role->privilegios }}</p>
+            <?php
+            $privilegioslista = explode('-', $role->privilegios);
+            ?>
+            <table style="margin-left:30px;">
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="1">{{ __('El usuario puede ver la lista de reservas') }}</label><br>
+                        @if (in_array('1', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="2">{{ __('El usuario puede aceptar y cancelar reservas') }}</label><br>
+                        @if (in_array('2', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="3">{{ __('El usuario puede editar el pago de las reservas') }}</label><br>
+                        @if (in_array('3', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="4">{{ __('El usuario puede ver la lista de clientes') }}</label><br>
+                        @if (in_array('4', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="5">{{ __('El usuario puede borrar valoraciones') }}</label><br>
+                        @if (in_array('5', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="6">{{ __('El usuario puede borrar comentarios') }}</label><br>
+                        @if (in_array('6', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="7">{{ __('El usuario puede editar el estado de un pedido') }}</label><br>
+                        @if (in_array('7', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="8">{{ __('El usuario puede editar el pago de un pedido') }}</label><br>
+                        @if (in_array('8', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="9">{{ __('El usuario puede borrar recibos') }}</label><br>
+                        @if (in_array('9', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="10">{{ __('El usuario puede ver la lista de currículums') }}</label><br>
+                        @if (in_array('10', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+            </table>
             <p style="font-size:22px; font-weight:bolder; margin-top:50px;">{{ __('Usuarios con este rol') }}</p>
             @foreach ($users as $user)
                 @if ($user->primero and $role->primero)
@@ -63,14 +167,14 @@
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
                             width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                            src="{{ asset('img/inst.png') }}" width="25px" height="25px" style="margin-right:20px;"
-                            class="redes_sociales"></a>
+                            src="{{ asset('img/inst.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                            src="{{ asset('img/tik.png') }}" width="25px" height="25px" style="margin-right:20px;"
-                            class="redes_sociales"></a>
+                            src="{{ asset('img/tik.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                            src="{{ asset('img/face.png') }}" width="25px" height="25px" style="margin-right:20px;"
-                            class="redes_sociales"></a>
+                            src="{{ asset('img/face.png') }}" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
                 </div>
                 <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                     <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
