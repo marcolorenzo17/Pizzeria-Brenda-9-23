@@ -165,7 +165,11 @@
                             </td>
                             <td>
                                 @if (\App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() == null)
-                                    <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Ninguno') }}
+                                    @if ($cliente->primero)
+                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Jefe') }}
+                                    @else
+                                        <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Ninguno') }}
+                                    @endif
                                 @elseif (Lang::locale() == 'es')
                                     <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
                                 @else
@@ -619,7 +623,11 @@
                                     </div>
                                     <div>
                                         @if (\App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() == null)
-                                            <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Ninguno') }}
+                                            @if ($cliente->primero)
+                                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Jefe') }}
+                                            @else
+                                                <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ __('Ninguno') }}
+                                            @endif
                                         @elseif (Lang::locale() == 'es')
                                             <strong>{{ __('Rol actual:') }}</strong>&nbsp;{{ \App\Models\Role::where(['id' => $cliente->id_role])->pluck('nombre')->first() }}
                                         @else

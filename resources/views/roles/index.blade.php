@@ -51,6 +51,16 @@
                                                         class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
                                                 </form>
                                             </td>
+                                        @else
+                                            <td>
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                            <td>
+                                                <p style="color:gray;">{{ __('No se puede editar el rol de Jefe.') }}
+                                                </p>
+                                            </td>
                                         @endif
                                     </tr>
                                 </table>
@@ -81,6 +91,17 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                    @else
+                                        <tr>
+                                            <td style="padding:5px">
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                        </tr>
+                                        <td>
+                                            <p style="color:gray;">{{ __('No se puede editar el rol de Jefe.') }}</p>
+                                        </td>
                                     @endif
                                 </table>
                             </div>

@@ -57,6 +57,10 @@ class UserController extends Controller
             $cliente->admin = false;
             $cliente->id_role = null;
 
+            if ($cliente->primero) {
+                $cliente->primero = false;
+            }
+
             $cliente->update();
 
             session()->flash('notif.success', 'El usuario seleccionado ya no es un administrador.');
@@ -159,6 +163,10 @@ class UserController extends Controller
         $cliente = User::findOrFail($id);
 
         $cliente->id_role = $req->role;
+
+        if ($cliente->primero) {
+            $cliente->primero = false;
+        }
 
         $cliente->update();
 
