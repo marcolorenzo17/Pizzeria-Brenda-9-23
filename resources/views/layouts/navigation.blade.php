@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="/css/index.css" />
 <link rel="stylesheet" href="/css/index_products.css" />
 <nav x-data="{ open: false }" class="border-b border-gray-100">
+    <?php
+    $role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+        ->pluck('privilegios')
+        ->first();
+    $privilegioslista = [];
+    if ($role_actual) {
+        $privilegioslista = explode('-', $role_actual);
+    }
+    ?>
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between"
@@ -47,7 +56,7 @@
                                 </div>
                             @endif
                         </div>
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                        @if (in_array('1', $privilegioslista) || Auth::user()->primero)
                             <div style="margin-top:43px;">
                                 <x-nav-link :href="route('eventos.index')" style="color:white; font-size:15px; font-weight:bolder;">
                                     {{ __('Reservas') }}
@@ -192,8 +201,20 @@
                             @if (Auth::user()->admin)
                                 <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user"
                                         width="20px" height="20px" style="margin-right:10px;">
-                                    <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
-                                        {{ __(Auth::user()->role) }})</p>
+                                    @if (Auth::user()->primero)
+                                        <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                            {{ __('Jefe') }})</p>
+                                    @else
+                                        @if (Lang::locale() == 'es')
+                                            <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
+                                            </p>
+                                        @else
+                                            <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
+                                            </p>
+                                        @endif
+                                    @endif
                                 </div>
                             @else
                                 <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user"
