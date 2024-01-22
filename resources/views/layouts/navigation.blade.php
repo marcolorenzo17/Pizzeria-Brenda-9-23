@@ -240,14 +240,14 @@
                                 </x-dropdown-link>
                             @endif
                             @if (in_array('3', $privilegioslista) || Auth::user()->primero)
-                            <x-dropdown-link :href="route('roles.index')">
-                                <p>{{ __('Roles') }}</p>
-                                @if (Route::current()->getName() == 'roles.index')
-                                    <div style="background-color:red; height:3px; border-radius:10px;">
-                                        <br>
-                                    </div>
-                                @endif
-                            </x-dropdown-link>
+                                <x-dropdown-link :href="route('roles.index')">
+                                    <p>{{ __('Roles') }}</p>
+                                    @if (Route::current()->getName() == 'roles.index')
+                                        <div style="background-color:red; height:3px; border-radius:10px;">
+                                            <br>
+                                        </div>
+                                    @endif
+                                </x-dropdown-link>
                             @endif
                             <x-dropdown-link :href="route('products.indexValoraciones')">
                                 <p>{{ __('Valoraciones') }}</p>
@@ -387,7 +387,20 @@
                 <div class="font-medium text-base text-gray-800" style="display:flex;"><img
                         src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px"
                         style="margin-right:10px;">
-                    <p>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p>
+                    @if (Auth::user()->primero)
+                        <p>{{ Auth::user()->name }} (Admin -
+                            {{ __('Jefe') }})</p>
+                    @else
+                        @if (Lang::locale() == 'es')
+                            <p>{{ Auth::user()->name }} (Admin -
+                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
+                            </p>
+                        @else
+                            <p>{{ Auth::user()->name }} (Admin -
+                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
+                            </p>
+                        @endif
+                    @endif
                 </div>
             @else
                 <div class="font-medium text-base text-gray-800" style="display:flex;"><img
@@ -508,14 +521,14 @@
                         </x-responsive-nav-link>
                     @endif
                     @if (in_array('3', $privilegioslista) || Auth::user()->primero)
-                    <x-responsive-nav-link :href="route('roles.index')">
-                        <p>{{ __('Roles') }}</p>
-                        @if (Route::current()->getName() == 'roles.index')
-                            <div style="background-color:red; height:3px; border-radius:10px;">
-                                <br>
-                            </div>
-                        @endif
-                    </x-responsive-nav-link>
+                        <x-responsive-nav-link :href="route('roles.index')">
+                            <p>{{ __('Roles') }}</p>
+                            @if (Route::current()->getName() == 'roles.index')
+                                <div style="background-color:red; height:3px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </x-responsive-nav-link>
                     @endif
                     <x-responsive-nav-link :href="route('products.indexValoraciones')">
                         <p>{{ __('Valoraciones') }}</p>
