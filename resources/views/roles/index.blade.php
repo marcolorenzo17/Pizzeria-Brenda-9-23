@@ -19,6 +19,8 @@ if ($role_actual) {
         </x-slot>
         <link rel="stylesheet" href="/css/index_products.css" />
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+        rel="stylesheet">
         @if (Auth::user()->admin)
             <br>
             <div style="margin-left:20px;">
@@ -34,9 +36,9 @@ if ($role_actual) {
                                 <div style="margin:20px; display:flex; gap:20px;">
                                     <div>
                                         @if (Lang::locale() == 'es')
-                                            <p>{{ $role->nombre }}</p>
+                                            <p style="font-weight:bolder; font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase;">{{ $role->nombre }}</p>
                                         @else
-                                            <p>{{ $role->nombreen }}</p>
+                                            <p style="font-weight:bolder; font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase;">{{ $role->nombreen }}</p>
                                         @endif
                                     </div>
                                     <table style="margin-left:auto; margin-right:0;" id="productos-grande">
@@ -79,21 +81,21 @@ if ($role_actual) {
                                     <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
                                         @if (!$role->primero)
                                             <tr>
-                                                <td style="padding:5px">
+                                                <td style="padding:8px">
                                                     <a href="{{ route('roles.show', $role) }}"
                                                         class="text-white px-4 py-2 rounded-md" id="boton"
                                                         style="background-color:#274014;">{{ __('DETALLES') }}</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="padding:5px">
+                                                <td style="padding:8px;">
                                                     <a href="{{ route('roles.editar', $role) }}"
                                                         class="text-white px-4 py-2 rounded-md" id="boton"
                                                         style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="padding:5px">
+                                                <td style="padding:8px">
                                                     <form method="post"
                                                         action="{{ route('roles.destroy', $role->id) }}"
                                                         onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que borrarán también todos los usuarios que tengan este rol asignado.')">
@@ -106,7 +108,7 @@ if ($role_actual) {
                                             </tr>
                                         @else
                                             <tr>
-                                                <td style="padding:5px">
+                                                <td style="padding:8px">
                                                     <a href="{{ route('roles.show', $role) }}"
                                                         class="text-white px-4 py-2 rounded-md" id="boton"
                                                         style="background-color:#274014;">{{ __('DETALLES') }}</a>
