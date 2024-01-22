@@ -91,20 +91,16 @@ class EventoController extends Controller
             session()->flash('notif.success', 'Todas las reservas están ocupadas para el día escogido. Por favor, inténtalo de nuevo, o elige otro día.');
             return redirect()->route('eventos.index');
         } else {
-            if ($req->ifcredito == "true") {
-                $paymentMethod = $req->payment_method;
+            $paymentMethod = $req->payment_method;
 
-                $user = auth()->user();
-                $user->createOrGetStripeCustomer();
+            $user = auth()->user();
+            $user->createOrGetStripeCustomer();
 
-                $paymentMethod = $user->addPaymentMethod($paymentMethod);
+            $paymentMethod = $user->addPaymentMethod($paymentMethod);
 
-                $user->charge(1000, $paymentMethod->id);
+            $user->charge(1000, $paymentMethod->id);
 
-                $evento->pagado = true;
-            } else {
-                $evento->pagado = false;
-            };
+            $evento->pagado = true;
 
             $evento->save();
 

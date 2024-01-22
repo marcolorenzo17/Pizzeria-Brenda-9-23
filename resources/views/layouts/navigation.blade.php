@@ -296,7 +296,7 @@
                                 @endif
                             </x-dropdown-link>
                         @endif
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
+                        @if (in_array('10', $privilegioslista) || Auth::user()->primero || !Auth::user()->admin)
                             <x-dropdown-link :href="route('curriculum.index')">
                                 <p>{{ __('Currículum') }}</p>
                                 @if (Route::current()->getName() == 'curriculum.index')

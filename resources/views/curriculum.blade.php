@@ -1,4 +1,13 @@
 <x-app-layout>
+    <?php
+    $role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+        ->pluck('privilegios')
+        ->first();
+    $privilegioslista = [];
+    if ($role_actual) {
+        $privilegioslista = explode('-', $role_actual);
+    }
+    ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -73,7 +82,7 @@
     @endif
     <br>
     <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-        @if (Auth::user()->role == 'Jefe')
+        @if (in_array('10', $privilegioslista) || Auth::user()->primero)
             <div style="padding:30px;">
                 <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
                 <br><br>
@@ -125,7 +134,7 @@
                     <br><br>
                 @endforeach
             </div>
-        @else
+        @elseif (!Auth::user()->admin)
             <div class="mx-auto text-center">
                 <p>{{ __('¿Quieres trabajar con nosotros?') }}<br>{{ __('Envíanos ya tu currículum.') }}</p>
             </div>
