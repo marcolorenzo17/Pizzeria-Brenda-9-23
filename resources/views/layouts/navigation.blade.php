@@ -239,6 +239,7 @@
                                     @endif
                                 </x-dropdown-link>
                             @endif
+                            @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                             <x-dropdown-link :href="route('roles.index')">
                                 <p>{{ __('Roles') }}</p>
                                 @if (Route::current()->getName() == 'roles.index')
@@ -247,6 +248,7 @@
                                     </div>
                                 @endif
                             </x-dropdown-link>
+                            @endif
                             <x-dropdown-link :href="route('products.indexValoraciones')">
                                 <p>{{ __('Valoraciones') }}</p>
                                 @if (Route::current()->getName() == 'products.indexValoraciones')
@@ -505,6 +507,7 @@
                             @endif
                         </x-responsive-nav-link>
                     @endif
+                    @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                     <x-responsive-nav-link :href="route('roles.index')">
                         <p>{{ __('Roles') }}</p>
                         @if (Route::current()->getName() == 'roles.index')
@@ -513,6 +516,7 @@
                             </div>
                         @endif
                     </x-responsive-nav-link>
+                    @endif
                     <x-responsive-nav-link :href="route('products.indexValoraciones')">
                         <p>{{ __('Valoraciones') }}</p>
                         @if (Route::current()->getName() == 'products.indexValoraciones')

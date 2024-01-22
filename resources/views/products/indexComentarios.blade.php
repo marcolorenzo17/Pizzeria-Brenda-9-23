@@ -1,3 +1,12 @@
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
 @if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
@@ -19,7 +28,7 @@
                     <td class="font-bold">{{ __('Valoración') }}</td>
                     <td class="font-bold">{{ __('Cliente') }}</td>
                     <td class="font-bold">{{ __('Comentario') }}</td>
-                    @if (Auth::user()->role != 'Cliente')
+                    @if (in_array('6', $privilegioslista) || Auth::user()->primero)
                         <td class="font-bold">{{ __('Eliminar') }}</td>
                     @endif
                 </tr>
@@ -45,7 +54,7 @@
                         </td>
                         <td>{{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}</td>
                         <td style="word-wrap: break-word; max-width:100px;">{{ $comentario->resenia }}</td>
-                        @if (Auth::user()->role != 'Cliente')
+                        @if (in_array('6', $privilegioslista) || Auth::user()->primero)
                             <td>
                                 <form method="post"
                                     action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}"
@@ -113,7 +122,7 @@
                         </td>
                     </tr>
                     <tr>
-                        @if (Auth::user()->role != 'Cliente')
+                        @if (in_array('6', $privilegioslista) || Auth::user()->primero)
                             <td style="padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}
                                 </p>

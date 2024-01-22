@@ -1,4 +1,13 @@
-@if (Auth::user()->admin)
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
+@if (in_array('3', $privilegioslista) || Auth::user()->primero)
     <x-app-layout>
         <x-slot name="header">
             <div style="margin-top:110px;">
@@ -75,7 +84,7 @@
                                 <td>
                                     <input type="checkbox" id="4" name="privilegios[]" value="4">
                                     <label
-                                        for="4">{{ __('El usuario puede ver la lista de clientes') }}</label><br>
+                                        for="4">{{ __('El usuario puede acceder a la lista de clientes') }}</label><br>
                                 </td>
                             </tr>
                             <tr>

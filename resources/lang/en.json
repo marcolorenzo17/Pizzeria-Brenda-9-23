@@ -589,7 +589,7 @@
     "El usuario puede ver la lista de reservas": "The user can view the reservation list",
     "El usuario puede aceptar y cancelar reservas": "The user can accept and cancel reservations",
     "El usuario puede editar el pago de las reservas": "The user can edit a reservation's payment",
-    "El usuario puede ver la lista de clientes": "The user can view the customers list",
+    "El usuario puede acceder a la lista de clientes": "The user can access the customers list",
     "El usuario puede borrar valoraciones": "The user can delete reviews",
     "El usuario puede borrar comentarios": "The user can delete comments",
     "El usuario puede editar el estado de un pedido": "The user can edit an order's status",

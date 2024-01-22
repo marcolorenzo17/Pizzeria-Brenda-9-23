@@ -1,4 +1,13 @@
-@if (Auth::user()->admin)
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
+@if (in_array('3', $privilegioslista) || Auth::user()->primero)
     <x-app-layout>
         <x-slot name="header">
             <div style="margin-top:110px;">
@@ -25,13 +34,13 @@
             <p style="font-size:20px; margin-left:30px;">{{ $role->nombreen }}</p>
             <p style="font-size:22px; font-weight:bolder; margin-top:50px;">{{ __('Privilegios') }}</p>
             <?php
-            $privilegioslista = explode('-', $role->privilegios);
+            $privilegioslista_2 = explode('-', $role->privilegios);
             ?>
             <table style="margin-left:30px;">
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="1">{{ __('El usuario puede ver la lista de reservas') }}</label><br>
-                        @if (in_array('1', $privilegioslista))
+                        @if (in_array('1', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -41,7 +50,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="2">{{ __('El usuario puede aceptar y cancelar reservas') }}</label><br>
-                        @if (in_array('2', $privilegioslista))
+                        @if (in_array('2', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -51,7 +60,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="3">{{ __('El usuario puede ver y modificar la lista de roles') }}</label><br>
-                        @if (in_array('3', $privilegioslista))
+                        @if (in_array('3', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -60,8 +69,8 @@
                 </tr>
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
-                        <label for="4">{{ __('El usuario puede ver la lista de clientes') }}</label><br>
-                        @if (in_array('4', $privilegioslista))
+                        <label for="4">{{ __('El usuario puede acceder a la lista de clientes') }}</label><br>
+                        @if (in_array('4', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -71,7 +80,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="5">{{ __('El usuario puede borrar valoraciones') }}</label><br>
-                        @if (in_array('5', $privilegioslista))
+                        @if (in_array('5', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -81,7 +90,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="6">{{ __('El usuario puede borrar comentarios') }}</label><br>
-                        @if (in_array('6', $privilegioslista))
+                        @if (in_array('6', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -91,7 +100,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="7">{{ __('El usuario puede editar el estado de un pedido') }}</label><br>
-                        @if (in_array('7', $privilegioslista))
+                        @if (in_array('7', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -101,7 +110,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="8">{{ __('El usuario puede editar el pago de un pedido') }}</label><br>
-                        @if (in_array('8', $privilegioslista))
+                        @if (in_array('8', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -111,7 +120,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="9">{{ __('El usuario puede borrar recibos') }}</label><br>
-                        @if (in_array('9', $privilegioslista))
+                        @if (in_array('9', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>
@@ -121,7 +130,7 @@
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="10">{{ __('El usuario puede ver la lista de currículums') }}</label><br>
-                        @if (in_array('10', $privilegioslista))
+                        @if (in_array('10', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else
                             <p style="font-weight:bolder; font-size:20px;">- NO</p>

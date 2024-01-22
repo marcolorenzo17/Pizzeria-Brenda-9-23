@@ -1,3 +1,12 @@
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
 <link rel="stylesheet" href="/css/index.css" />
 <x-app-layout>
     <x-slot name="header">
@@ -67,7 +76,7 @@
                         <td></td>
                     @endif
                     <td class="font-bold">{{ __('Pago') }}</td>
-                    @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                    @if (in_array('9', $privilegioslista) || Auth::user()->primero)
                         <td class="font-bold">{{ __('Eliminar') }}</td>
                     @endif
                     @if (!Auth::user()->admin)
@@ -103,7 +112,7 @@
                             {{--
                                 <td>{{ $recibo->telefono }}</td>
                             --}}
-                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
+                            @if (in_array('7', $privilegioslista) || Auth::user()->primero)
                                 <td>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
@@ -138,7 +147,7 @@
                                 </td>
                                 <td></td>
                             @endif
-                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                            @if (in_array('8', $privilegioslista) || Auth::user()->primero)
                                 <td>
                                     @if ($recibo->pagado)
                                         <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
@@ -337,7 +346,7 @@
                             </tr>
                         --}}
 
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
+                        @if (in_array('7', $privilegioslista) || Auth::user()->primero)
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
@@ -388,7 +397,7 @@
                                 </td>
                             </tr>
                         @endif
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                        @if (in_array('8', $privilegioslista) || Auth::user()->primero)
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
