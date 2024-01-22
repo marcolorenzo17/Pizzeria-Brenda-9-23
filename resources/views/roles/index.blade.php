@@ -16,7 +16,7 @@
                 style="background-color:#568c2c;">{{ __('CREAR ROL') }}</a>
         </div>
         <br>
-        <div style="background:white; margin-bottom:300px;">
+        <div style="background:white; margin-bottom:300px; padding:30px;">
             <table style="width:100%;">
                 @foreach ($roles as $role)
                     <tr>
@@ -109,7 +109,7 @@
                     </tr>
                 @endforeach
             </table>
-            <div>
+            <div style="margin-top:50px;">
                 {{ $roles->links() }}
             </div>
         </div>

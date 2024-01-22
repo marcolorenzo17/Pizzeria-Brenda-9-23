@@ -68,19 +68,6 @@
                                 @endif
                             </div>
                         @endif
-                        {{--
-                            @if (Auth::user()->role == 'Jefe')
-                                <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                                    {{ __('Clientes') }}
-                                </x-nav-link>
-                            @endif
-                            <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
-                                {{ __('Valoraciones') }}
-                            </x-nav-link>
-                            <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
-                                {{ __('Comentarios') }}
-                            </x-nav-link>
-                        --}}
                     </div>
                 @else
                     <div class="hidden sm:-my-px sm:ml-10 sm:flex" style="gap:15px;">
@@ -242,7 +229,7 @@
                             </x-dropdown-link>
                         @endif
                         @if (Auth::user()->admin)
-                            @if (Auth::user()->role == 'Jefe')
+                            @if (in_array('4', $privilegioslista) || Auth::user()->primero)
                                 <x-dropdown-link :href="route('clientes.index')">
                                     <p>{{ __('Clientes') }}</p>
                                     @if (Route::current()->getName() == 'clientes.index')
@@ -508,7 +495,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
                 @if (Auth::user()->admin)
-                    @if (Auth::user()->role == 'Jefe')
+                    @if (in_array('4', $privilegioslista) || Auth::user()->primero)
                         <x-responsive-nav-link :href="route('clientes.index')">
                             <p>{{ __('Clientes') }}</p>
                             @if (Route::current()->getName() == 'clientes.index')
@@ -551,7 +538,7 @@
                         </div>
                     @endif
                 </x-responsive-nav-link>
-                @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
+                @if (in_array('10', $privilegioslista) || Auth::user()->primero || !Auth::user()->admin)
                     <x-responsive-nav-link :href="route('curriculum.index')">
                         <p>{{ __('Currículum') }}</p>
                         @if (Route::current()->getName() == 'curriculum.index')

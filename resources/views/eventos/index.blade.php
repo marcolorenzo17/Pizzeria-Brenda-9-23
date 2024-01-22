@@ -187,6 +187,67 @@
                                 </p>
                             </td>
                         </tr>
+                        @if (in_array('2', $privilegioslista) || Auth::user()->primero)
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    @if ($evento->reservado == 'true')
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Reserva') }}</p>
+                                </td>
+                                <td>
+                                    <div style="margin-left:30px; text-align:right;">
+                                        <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
+                                            @csrf
+                                            <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
+                                                style="border-color:green; border-style:solid; border-width:1px;">{{ __('RESERVADO') }}</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            @elseif ($evento->reservado == 'false')
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Reserva') }}</p>
+                                </td>
+                                <td>
+                                    <div style="margin-left:30px; text-align:right;">
+                                        <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
+                                            @csrf
+                                            <button
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELADO') }}</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            @else
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Reserva') }}</p>
+                                </td>
+                                <td>
+                                    <div style="margin-left:30px; text-align:right;">
+                                        <table {{-- id="productos-grande" --}}>
+                                            <tr>
+                                                <td>
+                                                    <form method="post"
+                                                        action="{{ route('eventos.eventosi', $evento->id) }}">
+                                                        @csrf
+                                                        <button id="pagado"
+                                                            class="hover:text-white px-4 py-2 rounded-md"
+                                                            style="border-color:green; border-style:solid; border-width:1px;">{{ __('ACEPTAR') }}</button>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form method="post"
+                                                        action="{{ route('eventos.eventono', $evento->id) }}">
+                                                        @csrf
+                                                        <button
+                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELAR') }}</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                        @endif
+                        </tr>
+                    @else
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                 @if ($evento->reservado == 'true')
@@ -195,11 +256,7 @@
                             </td>
                             <td>
                                 <div style="margin-left:30px; text-align:right;">
-                                    <form method="post" action="{{ route('eventos.eventono', $evento->id) }}">
-                                        @csrf
-                                        <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
-                                            style="border-color:green; border-style:solid; border-width:1px;">{{ __('RESERVADO') }}</button>
-                                    </form>
+                                    <p>{{ __('RESERVADO') }}</p>
                                 </div>
                             </td>
                         @elseif ($evento->reservado == 'false')
@@ -208,11 +265,7 @@
                             </td>
                             <td>
                                 <div style="margin-left:30px; text-align:right;">
-                                    <form method="post" action="{{ route('eventos.eventosi', $evento->id) }}">
-                                        @csrf
-                                        <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELADO') }}</button>
-                                    </form>
+                                    <p>{{ __('CANCELADO') }}</p>
                                 </div>
                             </td>
                         @else
@@ -221,31 +274,13 @@
                             </td>
                             <td>
                                 <div style="margin-left:30px; text-align:right;">
-                                    <table {{-- id="productos-grande" --}}>
-                                        <tr>
-                                            <td>
-                                                <form method="post"
-                                                    action="{{ route('eventos.eventosi', $evento->id) }}">
-                                                    @csrf
-                                                    <button id="pagado" class="hover:text-white px-4 py-2 rounded-md"
-                                                        style="border-color:green; border-style:solid; border-width:1px;">{{ __('ACEPTAR') }}</button>
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form method="post"
-                                                    action="{{ route('eventos.eventono', $evento->id) }}">
-                                                    @csrf
-                                                    <button
-                                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('CANCELAR') }}</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <p>{{ __('PENDIENTE') }}</p>
                                 </div>
                             </td>
                     @endif
                     </tr>
-                    {{--
+        @endif
+        {{--
                         <tr>
                             @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
@@ -467,18 +502,18 @@
                         </td>
                         </tr>
                         --}}
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
                     @endif
                     @endforeach
                 </table>

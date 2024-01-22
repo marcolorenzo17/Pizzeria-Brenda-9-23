@@ -1,4 +1,13 @@
-@if (Auth::user()->admin)
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
+@if (in_array('4', $privilegioslista) || Auth::user()->primero)
     <x-app-layout>
         <x-slot name="header">
             <div style="margin-top:110px;">
