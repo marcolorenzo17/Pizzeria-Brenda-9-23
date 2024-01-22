@@ -48,18 +48,16 @@
                         @endif
                     </td>
                 </tr>
-                {{--
-                    <tr>
-                        <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
-                            <label for="3">{{ __('El usuario puede editar el pago de las reservas') }}</label><br>
-                            @if (in_array('3', $privilegioslista))
-                                <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
-                            @else
-                                <p style="font-weight:bolder; font-size:20px;">- NO</p>
-                            @endif
-                        </td>
-                    </tr>
-                --}}
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="3">{{ __('El usuario puede ver y modificar la lista de roles') }}</label><br>
+                        @if (in_array('3', $privilegioslista))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="4">{{ __('El usuario puede ver la lista de clientes') }}</label><br>

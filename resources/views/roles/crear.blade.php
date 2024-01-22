@@ -64,15 +64,13 @@
                                         for="2">{{ __('El usuario puede aceptar y cancelar reservas') }}</label><br>
                                 </td>
                             </tr>
-                            {{--
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="3" name="privilegios[]" value="3">
-                                        <label
-                                            for="3">{{ __('El usuario puede editar el pago de las reservas') }}</label><br>
-                                    </td>
-                                </tr>
-                            --}}
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="3" name="privilegios[]" value="3">
+                                    <label
+                                        for="3">{{ __('El usuario puede ver y modificar la lista de roles') }}</label><br>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" id="4" name="privilegios[]" value="4">
