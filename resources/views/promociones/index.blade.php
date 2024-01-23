@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
     <br>
     <div style="padding:30px; background-color:white;">
         <div style="text-align:center;">
@@ -51,7 +53,7 @@
                 {{ __('OFERTAS') }}</div>
         </a>
     </div>
-    <div style="text-align:center; font-size:30px; font-weight:bolder; background-color:white; margin-top:100px; padding-top:50px;"
+    <div style="text-align:center; font-size:30px; font-weight:bolder; background-color:white; margin-top:100px; padding-top:50px; font-family: 'Acme', sans-serif;"
         id="promociones_lista">
         {{ __('PROMOCIONES') }}
     </div>
@@ -124,7 +126,7 @@
     <br>
     <div style="background-color:white; margin-bottom:300px;">
         <br>
-        <div style="text-align:center; font-size:30px; font-weight:bolder;" id="ofertas_lista">
+        <div style="text-align:center; font-size:30px; font-weight:bolder; font-family: 'Acme', sans-serif;" id="ofertas_lista">
             {{ __('OFERTAS') }}
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
