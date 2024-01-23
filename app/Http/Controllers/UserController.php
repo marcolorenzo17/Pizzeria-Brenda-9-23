@@ -160,18 +160,23 @@ class UserController extends Controller
     }
 
     public function actualizarrol(Request $req, string $id) {
-        $cliente = User::findOrFail($id);
+        if (Auth::user()->id == $id) {
+            session()->flash('notif.success', 'Un usuario no puede cambiarse su propio rol.');
+            return redirect()->route('clientes.index');
+        } else {
+            $cliente = User::findOrFail($id);
 
-        $cliente->id_role = $req->role;
+            $cliente->id_role = $req->role;
 
-        if ($cliente->primero) {
-            $cliente->primero = false;
+            if ($cliente->primero) {
+                $cliente->primero = false;
+            }
+
+            $cliente->update();
+
+            session()->flash('notif.success', 'Se ha actualizado el rol con éxito.');
+            return redirect()->route('clientes.index');
         }
-
-        $cliente->update();
-
-        session()->flash('notif.success', 'Se ha actualizado el rol con éxito.');
-        return redirect()->route('clientes.index');
     }
 
     public function actualizarpuntos(Request $req, string $id) {

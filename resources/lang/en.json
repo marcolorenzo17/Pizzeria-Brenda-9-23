@@ -359,6 +359,8 @@
     "*Sólo puedes tener un máximo de 5 reservas activas.": "*You can only have a maximum of 5 active reservations.",
     "Sólo puedes tener un máximo de 5 reservas activas.": "You can only have a maximum of 5 active reservations.",
 
+    "Un usuario no puede cambiarse su propio rol.": "A user cannot change its own role.",
+
     "Actualiza la información y el correo del perfil de tu cuenta.": "Update your account's profile information and e-mail.",
     "Asegúrate de utilizar una contraseña larga y complicada para mayor seguridad.": "Make sure to use a long and complex password for better security.",
     "Una vez eliminada tu cuenta, todos sus recursos y datos serán borrados permanentemente. Por favor, antes de eliminar tu cuenta, asegúrate de respaldar cualquier información o datos que desees mantener.": "Once your account is deleted, all its resources and data will be permanently erased. Please, before deleting your account, make sure to backup any information or data you wish to keep.",
