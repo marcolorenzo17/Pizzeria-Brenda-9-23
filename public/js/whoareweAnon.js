@@ -12,10 +12,10 @@ enlaces.forEach(( cadaEnlace, i )=>{
 
     lightbox.classList.add('activo');
     grande.setAttribute('src', ruta);
+    lightbox.setAttribute('style', 'transition:all .5s ease;');
   })
 })
 
 cerrar.addEventListener('click', ()=>{
   lightbox.classList.remove('activo');
-  grande.setAttribute('src', '')
 })
