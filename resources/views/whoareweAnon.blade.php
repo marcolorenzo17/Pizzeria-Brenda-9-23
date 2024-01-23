@@ -1050,7 +1050,7 @@
             </p>
             <br>
             <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-                <a href="#" class="alb" title="Imagen 1"><img src="{{ asset('img/waw1.png') }}" alt="waw1" class="img_ensi" loading="lazy"></a>
+                <a href="#" class="alb" title="Imagen 1"><img src="{{ asset('img/waw1.png') }}" alt="waw1" class="img_ensi" loading="lazy" style="height:400px;"></a>
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1060,8 +1060,8 @@
             </p>
             <br>
             <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-                <a href="#" class="alb" title="Imagen 2"><img src="{{ asset('img/waw2.png') }}" alt="waw2" class="img_ensi" loading="lazy"></a>
-                <a href="#" class="alb" title="Imagen 3"><img src="{{ asset('img/waw3.png') }}" alt="waw3" class="img_ensi" loading="lazy"></a>
+                <a href="#" class="alb" title="Imagen 2"><img src="{{ asset('img/waw2.png') }}" alt="waw2" class="img_ensi" loading="lazy" style="height:400px;"></a>
+                <a href="#" class="alb" title="Imagen 3"><img src="{{ asset('img/waw3.png') }}" alt="waw3" class="img_ensi" loading="lazy" style="height:400px;"></a>
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1071,8 +1071,8 @@
             </p>
             <br>
             <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-                <a href="#" class="alb" title="Imagen 4"><img src="{{ asset('img/waw4.png') }}" alt="waw4" class="img_ensi" loading="lazy"></a>
-                <a href="#" class="alb" title="Imagen 5"><img src="{{ asset('img/waw5.png') }}" alt="waw5" class="img_ensi" loading="lazy"></a>
+                <a href="#" class="alb" title="Imagen 4"><img src="{{ asset('img/waw4.png') }}" alt="waw4" class="img_ensi" loading="lazy" style="height:300px;"></a>
+                <a href="#" class="alb" title="Imagen 5"><img src="{{ asset('img/waw5.png') }}" alt="waw5" class="img_ensi" loading="lazy" style="height:300px;"></a>
             </div>
             <br>
             <p style="font-size:20px;">

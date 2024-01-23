@@ -1,11 +1,12 @@
 .img_container .img_ensi {
+    object-fit: contain;
     padding:30px;
     transition: all .5s ease;
     transform:scale(1);
 }
 
 .img_container .img_ensi:hover {
-    transform:scale(1.25);
+    transform:scale(1.2);
 }
 
 .lightbox {
@@ -44,7 +45,7 @@
     margin: 0 0 1em;
 }
 .lightbox .grande{
+    object-fit: contain;
     width: 80%;
-    height: 80vh;
-    background: #f5f0e9;
+    height: 80%;
 }

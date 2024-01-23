@@ -12,7 +12,9 @@
 
     <br>
     <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-        <h2 class="text-center" style="font-size:22px; font-weight:bolder;">
+        <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
+        <br><br>
+        <h2 class="text-center" style="font-size:22px; font-weight:bold;">
             {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
         <br>
         <p style="font-size:20px;">
@@ -21,7 +23,8 @@
         </p>
         <br>
         <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-            <img src="{{ asset('img/waw1.png') }}" alt="waw1" class="img_ensi">
+            <a href="#" class="alb" title="Imagen 1"><img src="{{ asset('img/waw1.png') }}" alt="waw1"
+                    class="img_ensi" loading="lazy" style="height:400px;"></a>
         </div>
         <br>
         <p style="font-size:20px;">
@@ -31,8 +34,10 @@
         </p>
         <br>
         <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-            <img src="{{ asset('img/waw2.png') }}" alt="waw2" class="img_ensi">
-            <img src="{{ asset('img/waw3.png') }}" alt="waw3" class="img_ensi">
+            <a href="#" class="alb" title="Imagen 2"><img src="{{ asset('img/waw2.png') }}" alt="waw2"
+                    class="img_ensi" loading="lazy" style="height:400px;"></a>
+            <a href="#" class="alb" title="Imagen 3"><img src="{{ asset('img/waw3.png') }}" alt="waw3"
+                    class="img_ensi" loading="lazy" style="height:400px;"></a>
         </div>
         <br>
         <p style="font-size:20px;">
@@ -42,14 +47,20 @@
         </p>
         <br>
         <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-            <img src="{{ asset('img/waw4.png') }}" alt="waw4" class="img_ensi">
-            <img src="{{ asset('img/waw5.png') }}" alt="waw5" class="img_ensi">
+            <a href="#" class="alb" title="Imagen 4"><img src="{{ asset('img/waw4.png') }}" alt="waw4"
+                    class="img_ensi" loading="lazy" style="height:300px;"></a>
+            <a href="#" class="alb" title="Imagen 5"><img src="{{ asset('img/waw5.png') }}" alt="waw5"
+                    class="img_ensi" loading="lazy" style="height:300px;"></a>
         </div>
         <br>
         <p style="font-size:20px;">
             {{ __('También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos sin moverte de casa.') }}<br><br>
             {{ __('¡Te esperamos! ¡Visítanos!') }}
         </p>
+        <div class="lightbox">
+            <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+            <img src="{{ asset('img/waw1.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+        </div>
     </div>
 
     <div class="footer">
@@ -133,5 +144,7 @@
     </style>
 
     @vite(['resources/scss/app.scss'])
+
+    <script src="{{ asset('js/whoareweAnon.js') }}"></script>
 
 </x-app-layout>
