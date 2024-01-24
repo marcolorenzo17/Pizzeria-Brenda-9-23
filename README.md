@@ -25,15 +25,14 @@ Sus elementos de innovación son: Crear un personaje animado que actúe como asi
 ### 1. INSTALACIÓN DE PHP
 
 
-sudo add-apt-repository ppa:ondrej/php
+    sudo add-apt-repository ppa:ondrej/php
 
-sudo apt-get update
+    sudo apt-get update
 
-sudo apt install php8.1 php8.1-amqp php8.1-cgi php8.1-cli php8.1-common php8.1-curl php8.1-fpm php8.1-gd php8.1-igbinary php8.1-intl php8.1-mbstring php8.1-opcache php8.1-pgsql php8.1-readline php8.1-redis php8.1-sqlite3 php8.1-xml php8.1-zip
+    sudo apt install php8.1 php8.1-amqp php8.1-cgi php8.1-cli php8.1-common php8.1-curl php8.1-fpm php8.1-gd php8.1-igbinary php8.1-intl php8.1-mbstring php8.1-opcache php8.1-pgsql php8.1-readline php8.1-redis php8.1-sqlite3 php8.1-xml php8.1-zip
 
-sudo update-alternatives --config php
-
-	- Seleccionar la opción correspondiente a php8.1. De esta forma, se evita que se creen conflictos si ya hay instalada otra versión de PHP.
+    sudo update-alternatives --config php
+(Seleccionar la opción correspondiente a php8.1. De esta forma, se evita que se creen conflictos si ya hay instalada otra versión de PHP.)
 
 sudo nano /etc/php/8.1/cli/php.ini
 (También se puede usar vim: sudo vim /etc/php/8.1/cli/php.ini)
