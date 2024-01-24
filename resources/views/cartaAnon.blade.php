@@ -7,12 +7,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pizzería Brenda - Carta</title>
+    <title>{{__('Nuestra carta')}}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1128,8 +1131,11 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-top:200px;">
+            <div style="margin-top:120px;">
             </div>
+        </div>
+        <div style="margin-bottom:30px;">
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('NUESTRA CARTA') }}</h2>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;">

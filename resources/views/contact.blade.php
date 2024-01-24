@@ -9,10 +9,12 @@
     </x-slot>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
     <br>
     <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
         <br>
-        <h3 style="font-weight: bolder; font-size:22px;">{{ __('TELÉFONOS') }}</h3>
+        <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('TELÉFONOS') }}</h3>
         <br>
         <div style="display:flex; justify-content:center; align-items:center; gap:8vw; flex-wrap:wrap; font-size:20px;">
             <div>
@@ -25,14 +27,14 @@
             </div>
         </div>
         <br><br>
-        <h3 style="font-weight: bolder; font-size:22px;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
+        <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
         <br>
         <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
         <br>
         <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder; font-size:22px;">{{ __('VISÍTANOS EN:') }}</h3>
+            <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('VISÍTANOS EN:') }}</h3>
             <br>
             <p style="font-size:20px;">
                 C/ Padre Lerchundi, 3<br>
@@ -49,7 +51,7 @@
         </div>
         <br><br>
         <div class="text-center">
-            <h3 style="font-weight: bolder; font-size:22px;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
+            <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
             <br>
             <p style="font-size:20px;">
                 brendapizza@hotmail.com

@@ -9,12 +9,12 @@
     </x-slot>
 
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
 
     <br>
     <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
-        <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
-        <br><br>
-        <h2 class="text-center" style="font-size:22px; font-weight:bold;">
+        <h2 class="text-center" style="font-size:22px; font-weight:bold; font-family: 'Acme', sans-serif;">
             {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
         <br>
         <p style="font-size:20px;">

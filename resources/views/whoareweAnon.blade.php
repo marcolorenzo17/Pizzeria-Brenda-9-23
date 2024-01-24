@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>¿Quiénes somos?</title>
+    <title>{{__('¿Quiénes somos?')}}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1039,9 +1042,9 @@
         </div>
         <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-bottom:300px;">
             <br>
-            <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One', serif;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
             <br><br>
-            <h2 class="text-center" style="font-size:22px; font-weight:bold;">
+            <h2 class="text-center" style="font-size:22px; font-weight:bold; font-family: 'Acme', sans-serif;">
                 {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
             <br>
             <p style="font-size:20px;">

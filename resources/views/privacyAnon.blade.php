@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Política de privacidad</title>
+    <title>{{__('Política de privacidad')}}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1038,7 +1041,10 @@
             </div>
         </div>
         <div style="margin:30px; margin-bottom:300px; font-size:20px;">
-            <p style="text-align:center; padding-top:30px;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
+            <div style="padding-top:30px;">
+                <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('POLÍTICA DE PRIVACIDAD') }}</h2>
+            </div>
+            <p style="text-align:center; padding-top:60px;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
             <p style="text-align:center;">www.pizzeriabrenda.com</p>
             <br><br><br>
             I. INFORMACIÓN GENERAL

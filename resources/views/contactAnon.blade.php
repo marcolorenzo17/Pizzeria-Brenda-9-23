@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Contáctanos</title>
+    <title>{{__('Contáctanos')}}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1039,9 +1042,9 @@
         </div>
         <div class="container px-12 py-8 mx-auto bg-white"
             style="padding-top:30px; padding-bottom:30px;  margin-bottom:300px; margin-left:20px; margin-right:20px;">
-            <h2 class="text-center" style="font-size:30px; font-weight:bolder;">{{ __('CONTÁCTANOS') }}</h2>
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('CONTÁCTANOS') }}</h2>
             <br><br>
-            <h3 style="font-weight: bolder; font-size:22px;">{{ __('TELÉFONOS') }}</h3>
+            <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('TELÉFONOS') }}</h3>
             <br>
             <div style="display:flex; justify-content:center; align-items:center; gap:8vw; flex-wrap:wrap; font-size:20px;">
                 <div>
@@ -1054,14 +1057,14 @@
                 </div>
             </div>
             <br><br>
-            <h3 style="font-weight: bolder; font-size:22px;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
+            <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('TE ATENDEREMOS EN HORARIO:') }}</h3>
             <br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
             <br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
             <br><br>
             <div class="text-center">
-                <h3 style="font-weight: bolder; font-size:22px;">{{ __('VISÍTANOS EN:') }}</h3>
+                <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('VISÍTANOS EN:') }}</h3>
                 <br>
                 <p style="font-size:20px;">
                     C/ Padre Lerchundi, 3<br>
@@ -1078,7 +1081,7 @@
             </div>
             <br><br>
             <div class="text-center">
-                <h3 style="font-weight: bolder; font-size:22px;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
+                <h3 style="font-family: 'Acme', sans-serif; font-size:22px; font-weight:bolder;">{{ __('ATENCIÓN AL CLIENTE:') }}</h3>
                 <br>
                 <p style="font-size:20px;">
                     brendapizza@hotmail.com

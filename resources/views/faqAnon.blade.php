@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Preguntas frecuentes</title>
+    <title>{{__('Preguntas frecuentes')}}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+    rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1038,35 +1041,36 @@
             </div>
         </div>
         <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-bottom:300px;">
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One', serif; margin-bottom:30px;">{{ __('PREGUNTAS FRECUENTES') }}</h2>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿La pizzería abre por la mañana?') }}</p><br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.') }}
             </p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Hay servicio a domicilio fuera de Chipiona?') }}
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Hay servicio a domicilio fuera de Chipiona?') }}
             </p>
             <br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, sólo ofrecemos nuestro servicio dentro del término municipal.') }}
             </p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Qué horario tiene la pizzería?') }}</p><br>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Qué horario tiene la pizzería?') }}</p><br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('De lunes a domingo de 20:30 a 23:30.') }}</p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Se puede aparcar cerca?') }}</p><br>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Se puede aparcar cerca?') }}</p><br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Hay un aparcamiento a 500 m.') }}</p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Hay pizza para celíacos?') }}</p><br>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Hay pizza para celíacos?') }}</p><br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una base de pizza sin gluten especialmente elaborada para celíacos a la que se le puede añadir los ingredientes que desees. Además, en la carta se puede consultar los alérgenos de cada ingrediente.') }}
             </p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Los camareros sirven en la mesa?') }}</p><br>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Los camareros sirven en la mesa?') }}</p><br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('No, la pizzería es autoservicio, pero los camareros te ayudarán en todo lo que necesites.') }}
             </p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Qué tamaños de pizzas hay?') }}</p><br>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Qué tamaños de pizzas hay?') }}</p><br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('Tenemos una pizza grande para 4 personas y otra pequeña para 2 personas aprox.') }}
             </p>
             <br><br>
-            <p style="font-weight: bolder; font-size:22px;">{{ __('¿Cuánto cuesta el servicio a domicilio?') }}</p>
+            <p style="font-weight: bolder; font-size:22px; font-family: 'Acme', sans-serif;">{{ __('¿Cuánto cuesta el servicio a domicilio?') }}</p>
             <br>
             <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('2 € adicionales al pedido que se realice.') }}</p>
             <br><br>
