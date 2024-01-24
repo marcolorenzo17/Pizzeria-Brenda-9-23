@@ -55,58 +55,81 @@ Cambiar las siguientes líneas a estos valores:
 
 ### 2. INSTALACIÓN DE COMPOSER
 
+&nbsp;
 
-- Descargar el instalador:
+Descargar el instalador:
+
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+&nbsp;
 
-- Verificar el hash SHA-384 del instalador:
-php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+Verificar el hash SHA-384 del instalador:
 
-- Ejecutar el instalador:
-php composer-setup.php
+    php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+&nbsp;
 
-- Eliminar el instalador:
-php -r "unlink('composer-setup.php');"
+Ejecutar el instalador:
 
-- Extender globalmente el ámbito de Composer al sistema de rutas:
-sudo mv composer.phar /usr/local/bin/composer
+    php composer-setup.php
+&nbsp;
+
+Eliminar el instalador:
+
+    php -r "unlink('composer-setup.php');"
+&nbsp;
+
+Extender globalmente el ámbito de Composer al sistema de rutas:
+
+    sudo mv composer.phar /usr/local/bin/composer
+&nbsp;
 
 
 ### 3. INSTALACIÓN DE GITHUB CLI
 
+&nbsp;
 
-type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
-
+    type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y
+<br/><br/>
 
 ### 4. INSTALACIÓN DE POSTGRESQL
 
+&nbsp;
 
-sudo apt-get update
+    sudo apt-get update
+&nbsp;
 
-sudo apt install postgresql
-
+    sudo apt install postgresql
+<br/><br/>
 
 ### 5. INSTALAR APLICACIÓN Y PREPARAR LA BASE DE DATOS
 
+&nbsp;
 
 Hacer un fork al repositorio de la aplicación en https://github.com/marcolorenzo17/Pizzeria-Brenda-9-23
 
-Clonar ese fork con: git clone [ url_fork_del_repositorio ]
+Clonar ese fork con:
 
-composer dump-autoload
+    git clone [ url_fork_del_repositorio ]
+&nbsp;
 
-composer install
+    composer dump-autoload
+&nbsp;
 
-npm install
+    composer install
+&nbsp;
 
-npm run dev
+    npm install
+&nbsp;
 
-sudo cp .env.example .env
+    npm run dev
+&nbsp;
+
+    sudo cp .env.example .env
+&nbsp;
 
 Editar las siguientes líneas del archivo .env:
 
@@ -116,28 +139,43 @@ Editar las siguientes líneas del archivo .env:
 	DB_DATABASE=laravel
 	DB_USERNAME=laravel
 	DB_PASSWORD=laravel
+&nbsp;
 
-sudo -u postgresql psql
+    sudo -u postgresql psql
+&nbsp;
 
-\c template1
+    \c template1
+&nbsp;
 
-CREATE EXTENSION pgcrypto;
+    CREATE EXTENSION pgcrypto;
+&nbsp;
 
-\q
+    \q
+&nbsp;
 
-sudo -u postgres createdb laravel
+    sudo -u postgres createdb laravel
+&nbsp;
 
-sudo -u postgres createuser -P laravel
+    sudo -u postgres createuser -P laravel
+&nbsp;
 
-php artisan key:generate
+    php artisan key:generate
+&nbsp;
 
-php artisan migrate
-(SI OCURRE ALGÚN ERROR AL MIGRAR: php artisan migrate:fresh)
+    php artisan migrate
+SI OCURRE ALGÚN ERROR AL MIGRAR:
+    
+    php artisan migrate:fresh
+<br/><br/>
 
-php artisan db:seed
-(SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder: php artisan db:seed --class=RoleSeeder)
+    php artisan db:seed
+SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
+    
+    php artisan db:seed --class=RoleSeeder
+<br/><br/>
 
-php artisan storage:link
+    php artisan storage:link
+&nbsp;
 
 Crear una cuenta en Stripe
 
@@ -146,8 +184,10 @@ Crear una cuenta en Cloudinary
 Poner datos de la cuenta de Stripe en el .env
 
 Poner datos de la cuenta de Cloudinary en el .env
+<br/><br/>
 
-php artisan serve
+    php artisan serve
+&nbsp;
 
 Ir a localhost:8000 en el navegador
 
