@@ -51,6 +51,7 @@ Cambiar las siguientes líneas a estos valores:
 	display_errors = On
 	display_startup_errors = On
 	date.timezone = 'UTC' --> 974.1
+&nbsp;
 
 
 ### 2. INSTALACIÓN DE COMPOSER
@@ -178,13 +179,16 @@ SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
 &nbsp;
 
 Crear una cuenta en Stripe
+- Paso 1
+- Paso 2
+- Poner datos de la cuenta de Stripe en el .env
 
 Crear una cuenta en Cloudinary
+- Paso 1
+- Paso 2
+- Poner datos de la cuenta de Cloudinary en el .env
 
-Poner datos de la cuenta de Stripe en el .env
-
-Poner datos de la cuenta de Cloudinary en el .env
-<br/><br/>
+&nbsp;
 
     php artisan serve
 &nbsp;
