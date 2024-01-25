@@ -97,7 +97,7 @@ if ($role_actual) {
                             </td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
                                     <p>
@@ -197,7 +197,7 @@ if ($role_actual) {
                             <td>{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
                                     <p>
@@ -290,7 +290,7 @@ if ($role_actual) {
                             </td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
                                     <p style="margin-left:30px; text-align:right;">
@@ -481,7 +481,7 @@ if ($role_actual) {
                             </td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productos);
                                 ?>
                                 @foreach ($productoslista as $producto)
                                     <p style="margin-left:30px; text-align:right;">

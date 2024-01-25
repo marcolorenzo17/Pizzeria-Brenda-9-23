@@ -29,6 +29,25 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+        if ($request->ingredientes_input != "") {
+            $ingredientes = explode(",",$request->ingredientes_input);
+            $extras = explode(",",$request->extras_input);
+
+            $adicional = $request->name . " ~ ";
+
+            foreach ($ingredientes as $ing) {
+                if (in_array($ing, $extras)) {
+                    $adicional .= "Extra " . $ing . " ~ ";
+                } else {
+                    $adicional .= $ing . " ~ ";
+                }
+            }
+
+            $adicional = substr($adicional, 0, -3);
+        } else {
+            $adicional = $request->name;
+        }
+
         $user = User::findOrFail(Auth::user()->id);
         if ($request->type == "Promoción" and $user->promocion == true) {
             session()->flash('success', 'Sólo se puede añadir una promoción al mismo tiempo.');
@@ -36,7 +55,7 @@ class CartController extends Controller
         } else {
             \Cart::add([
                 'id' => $request->id,
-                'name' => $request->name,
+                'name' => $adicional,
                 'price' => $request->price,
                 'quantity' => $request->quantity,
                 'attributes' => array(

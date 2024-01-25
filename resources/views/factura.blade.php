@@ -22,9 +22,9 @@
     @endif
 
     <?php
-    $productoslista = explode(', ', $recibo->productos);
-    $cantidadeslista = explode(', ', $recibo->cantidades);
-    $precioslista = explode(', ', $recibo->precios);
+    $productoslista = explode('¬', $recibo->productos);
+    $cantidadeslista = explode('¬', $recibo->cantidades);
+    $precioslista = explode('¬', $recibo->precios);
     ?>
     <table style="width:100%;">
         <tr>

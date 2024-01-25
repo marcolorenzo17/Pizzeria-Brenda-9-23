@@ -391,7 +391,9 @@
                         <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input id="id-custom" type="hidden" value="" name="id">
-                            <input type="hidden" value="Pizza Personalizada" name="name">
+                            <input type="hidden" value="" name="name" id="nombre">
+                            <input type="hidden" value="" name="ingredientes_input" id="ingredientes_input">
+                            <input type="hidden" value="" name="extras_input" id="extras_input">
                             <input type="hidden" value="" name="price" id="price">
                             <input type="hidden" value="img/pizzagenerica.jpg" name="image">
                             <input type="hidden" value="1" name="quantity">

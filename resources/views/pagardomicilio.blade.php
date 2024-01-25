@@ -6,7 +6,7 @@
     }
     $productosvalores = '';
     foreach (array_values($productosarray) as $producto) {
-        $productosvalores .= $producto . ', ';
+        $productosvalores .= $producto . '¬';
     }
     $productosvalores = substr($productosvalores, 0, -2);
 
@@ -16,7 +16,7 @@
     }
     $preciosvalores = '';
     foreach (array_values($preciosarray) as $precio) {
-        $preciosvalores .= $precio . ', ';
+        $preciosvalores .= $precio . '¬';
     }
     $preciosvalores = substr($preciosvalores, 0, -2);
 
@@ -26,7 +26,7 @@
     }
     $cantidadesvalores = '';
     foreach (array_values($cantidadesarray) as $cantidad) {
-        $cantidadesvalores .= $cantidad . ', ';
+        $cantidadesvalores .= $cantidad . '¬';
     }
     $cantidadesvalores = substr($cantidadesvalores, 0, -2);
     ?>
