@@ -59,7 +59,7 @@
         </p>
         <div class="lightbox">
             <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
-            <img src="{{ asset('img/waw1.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+            <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
         </div>
     </div>
 

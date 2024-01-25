@@ -1272,6 +1272,10 @@
             <br><br>
         </div>
     --}}
+    <div class="lightbox_2" style="color: rgba(255,255,255,0);">
+        <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+        <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+    </div>
     <div style="background-color:#141414;" id="prom_y_of">
         <div style="color:white; flex:1; background-color:white; position: relative; border-right:5px solid white;"
             id="fondoProm">
@@ -1304,8 +1308,12 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides fade">
-                        <img src="{{ asset($product->image) }}" alt="..."
-                            style="margin-left:auto; margin-right:auto; width:200px; height:270px;">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Promoción"><img
+                                    src="{{ asset($product->image) }}" alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:200px; height:270px;"
+                                    loading="lazy" class="img_ensi_3"></a>
+                        </div>
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
@@ -1357,8 +1365,12 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2 fade">
-                        <img src="{{ asset($product->image) }}" alt="..."
-                            style="margin-left:auto; margin-right:auto; width:240px; height:340px;">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Oferta"><img src="{{ asset($product->image) }}"
+                                    alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:240px; height:340px;"
+                                    loading="lazy" class="img_ensi_3"></a>
+                        </div>
                         @if (Lang::locale() == 'es')
                             <p
                                 style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
@@ -1440,8 +1452,10 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides_res fade">
-                        <img src="{{ asset($product->image) }}" alt="..."
-                            style="margin-left:auto; margin-right:auto; width:200px; height:270px;">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Promoción"><img src="{{ asset($product->image) }}" alt="..."
+                            style="margin-left:auto; margin-right:auto; width:200px; height:270px;" loading="lazy" class="img_ensi_3"></a>
+                        </div>
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
                                 <div class="-mr-2 flex items-center"
@@ -1493,8 +1507,10 @@
             @foreach ($products as $product)
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2_res fade">
-                        <img src="{{ asset($product->image) }}" alt="..."
-                            style="margin-left:auto; margin-right:auto; width:240px; height:340px;">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Oferta"><img src="{{ asset($product->image) }}" alt="..."
+                            style="margin-left:auto; margin-right:auto; width:240px; height:340px;" loading="lazy" class="img_ensi_3"></a>
+                        </div>
                         @if (Lang::locale() == 'es')
                             <p
                                 style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
@@ -1924,5 +1940,9 @@
         localStorage.removeItem("promociones");
     }
 </script>
+
+@vite(['resources/scss/app.scss'])
+
+<script src="{{ asset('js/whoareweAnon_3.js') }}"></script>
 
 </html>
