@@ -46,6 +46,10 @@
     --}}
 
     <div class="py-12" style="margin-bottom:300px;">
+        <div class="lightbox_2" style="color: rgba(255,255,255,0);">
+            <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+            <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+        </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -53,9 +57,9 @@
                         style="background-color:#f12d2d;">{{ __('VOLVER') }}
                     </a>
                     <br><br>
-                    <div class="mb-6">
-                        <img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto"
-                            style="border:5px solid gray; border-radius:10px;">
+                    <div class="mb-6 img_container_2">
+                        <a href="#" class="alb" title="producto"><img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto img_ensi_2"
+                            style="border:5px solid gray; border-radius:10px;" loading="lazy"></a>
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
@@ -570,5 +574,9 @@
         }
         */
     </script>
+
+@vite(['resources/scss/app.scss'])
+
+<script src="{{ asset('js/whoareweAnon_2.js') }}"></script>
 
 </x-app-layout>
