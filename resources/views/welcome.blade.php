@@ -1453,8 +1453,10 @@
                 @if ($product->habilitado and $product->type == 'Promoción')
                     <div class="mySlides_res fade">
                         <div class="img_container_3">
-                            <a href="#" class="alb" title="Promoción"><img src="{{ asset($product->image) }}" alt="..."
-                            style="margin-left:auto; margin-right:auto; width:200px; height:270px;" loading="lazy" class="img_ensi_3"></a>
+                            <a href="#" class="alb" title="Promoción"><img
+                                    src="{{ asset($product->image) }}" alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:200px; height:270px;"
+                                    loading="lazy" class="img_ensi_3"></a>
                         </div>
                         <div style="display:flex; justify-content:center;">
                             @if ($product->puntos)
@@ -1508,8 +1510,10 @@
                 @if ($product->habilitado and $product->type == 'Oferta')
                     <div class="mySlides2_res fade">
                         <div class="img_container_3">
-                            <a href="#" class="alb" title="Oferta"><img src="{{ asset($product->image) }}" alt="..."
-                            style="margin-left:auto; margin-right:auto; width:240px; height:340px;" loading="lazy" class="img_ensi_3"></a>
+                            <a href="#" class="alb" title="Oferta"><img src="{{ asset($product->image) }}"
+                                    alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:240px; height:340px;"
+                                    loading="lazy" class="img_ensi_3"></a>
                         </div>
                         @if (Lang::locale() == 'es')
                             <p
@@ -1722,10 +1726,12 @@
             {{ __('VISÍTANOS') }}
         </h1>
         <div style="justify-content:center; align-items:center; gap:50px;" id="visitanos">
-            <div>
-                <img src="{{ asset('img/fondo/maps.jpg') }}" alt="localizacion" width="600"
-                    style="border:2px solid white; border-radius:20px; margin-left:auto; margin-right:auto;"
-                    id="localizacion">
+            <div class="img_container_3">
+                <a href="#" class="alb" title="Pizzería">
+                    <img src="{{ asset('img/fondo/maps.jpg') }}" alt="localizacion" width="600"
+                        style="border:2px solid white; border-radius:20px; margin-left:auto; margin-right:auto;"
+                        id="localizacion" class="img_ensi_3" loading="lazy">
+                </a>
             </div>
             <div>
                 <iframe

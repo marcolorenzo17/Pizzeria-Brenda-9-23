@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{__('Nuestra carta')}}</title>
+    <title>{{ __('Nuestra carta') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -1134,8 +1134,13 @@
             <div style="margin-top:120px;">
             </div>
         </div>
+        <div class="lightbox_2" style="color: rgba(255,255,255,0);">
+            <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+            <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+        </div>
         <div style="margin-bottom:30px;">
-            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('NUESTRA CARTA') }}</h2>
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('NUESTRA CARTA') }}
+            </h2>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;">
@@ -1217,7 +1222,7 @@
                     {{ __('VINOS') }}</p>
             </div>
             <div>
-                <a href="#p11"><img src="{{ asset('img/lata.jpg') }}"
+                <a href="#p12"><img src="{{ asset('img/lata.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
@@ -1468,7 +1473,8 @@
                                     style="font-family: 'Grandstander', cursive; text-transform:uppercase; font-size:20px;">
                                     {{ $product->nameen }}</h3>
                             @endif
-                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                            <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }}
+                                €</span>
                             {{--
                 <span class="mt-2 text-gray-500">{{ $product->description }}</span>
             --}}
@@ -1742,8 +1748,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -1800,8 +1810,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -1858,8 +1872,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -1916,8 +1934,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -1974,8 +1996,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2032,8 +2058,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2090,8 +2120,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2148,8 +2182,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2206,8 +2244,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2264,8 +2306,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2322,8 +2368,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2380,8 +2430,12 @@
                             id="descripcion">
                             <div style="margin: 0 auto; text-align:center;">
                                 <br><br>
-                                <img src="{{ asset($product->image) }}" class="mx-auto"
-                                    style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;">
+                                <div class="img_container_2">
+                                    <a href="#" class="alb" title="Producto"><img
+                                            src="{{ asset($product->image) }}"
+                                            style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
+                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
                                     <h3 class="text-gray-700 uppercase"
@@ -2577,5 +2631,9 @@
 </script>
 
 <script src="{{ asset('js/productsAnon-script.js') }}"></script>
+
+@vite(['resources/scss/app.scss'])
+
+<script src="{{ asset('js/whoareweAnon_2.js') }}"></script>
 
 </html>
