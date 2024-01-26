@@ -343,7 +343,7 @@
         <br>
         <table>
             <tr>
-                <td class="font-bold text-decoration-line: underline">{{ __('Extras para hamburguesas:') }}
+                <td style="font-family: 'Acme', sans-serif; font-size:18px;">{{ __('Extras para hamburguesas:') }}
                 </td>
                 <td></td>
                 <td></td>
