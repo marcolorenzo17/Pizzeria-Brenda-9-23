@@ -38,7 +38,12 @@ function aniadirBase(nombre, precio) {
     document.getElementById("b-base").remove();
     document.getElementById("p-base").remove();
 
-    idcustom.setAttribute("value", `pers-${getRandomInt(999999)}`);
+    if (localStorage.id_pers) {
+        localStorage.id_pers = parseInt(localStorage.id_pers) + 1;
+    } else {
+        localStorage.id_pers = 0;
+    }
+    idcustom.setAttribute("value", `pers-${localStorage.id_pers}`);
 
     var parrafo = document.createElement("p");
     var texto = document.createTextNode(`${nombre} -> ${precio} €`);
@@ -126,7 +131,12 @@ function aniadir(nombre, precio) {
         if (!ingredientes.includes(nombre)) {
             ingredientes.push(nombre);
 
-            idcustom.setAttribute("value", `pers-${getRandomInt(999999)}`);
+            if (localStorage.id_pers) {
+                localStorage.id_pers = parseInt(localStorage.id_pers) + 1;
+            } else {
+                localStorage.id_pers = 0;
+            }
+            idcustom.setAttribute("value", `pers-${localStorage.id_pers}`);
 
             var parrafo = document.createElement("p");
             var texto = document.createTextNode(`${nombre} -> ${precio} €`);

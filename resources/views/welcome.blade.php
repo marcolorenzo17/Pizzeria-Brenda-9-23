@@ -1947,6 +1947,16 @@
     }
 </script>
 
+@auth
+    <script></script>
+@else
+    <script>
+        if (localStorage.id_pers) {
+            localStorage.removeItem("id_pers");
+        }
+    </script>
+@endauth
+
 @vite(['resources/scss/app.scss'])
 
 <script src="{{ asset('js/whoareweAnon_3.js') }}"></script>
