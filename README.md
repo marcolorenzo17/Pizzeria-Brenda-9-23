@@ -184,9 +184,13 @@ Crear una cuenta en Stripe
 - Poner datos de la cuenta de Stripe en el .env
 
 Crear una cuenta en Cloudinary
-- Paso 1
-- Paso 2
-- Poner datos de la cuenta de Cloudinary en el .env
+- Ir a https://cloudinary.com/ y crear una cuenta (Se puede con tu correo electrónico, con tu cuenta de Google o con la de GitHub).
+- Cuando hayas creado tu cuenta, dirígete al "Dashboard", en la sección de "Programmable Media", y copia la sección de "API environment variable".
+- Una vez copiado, abre el archivo .env de la aplicación, añade una nueva línea al final, y agrégale el texto que has copiado. Debería quedar algo similar a:
+
+&nbsp;
+
+    CLOUDINARY_URL=cloudinary://**********:**********@**********
 
 &nbsp;
 
