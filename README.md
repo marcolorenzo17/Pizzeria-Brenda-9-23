@@ -217,20 +217,37 @@ Integrar el servicio de Cloudinary
 &nbsp;
 
 Configurar los correos electrónicos
-- Ir al archivo .env de la aplicación, y cambiar las siguientes líneas con el valor indicado:
+- Ve a https://myaccount.google.com/ para gestionar tu cuenta de Gmail.
+- Dirígete al apartado de "Seguridad", y asegúrate de que tienes activada la verificación en dos pasos para tu cuenta de Gmail.
+- En el buscador donde pone "Buscar en la cuenta de Google", escribe "Contraseñas de aplicación", y haz clic en el resultado con el mismo nombre.
+- En el recuadro de "Nombre de la aplicación", escribe el nombre que quieras (Pizzería Brenda, por ejemplo), y haz clic en "Crear".
+- Aparecerá en pantalla un código de 16 dígitos. Cópialo.
+- Ahora, dirígete al archivo .env de la aplicación, y cambia las siguientes líneas con el valor indicado:
 
 &nbsp;
 
     MAIL_MAILER=smtp
     MAIL_HOST=smtp.gmail.com
     MAIL_PORT=587
-    MAIL_USERNAME=[ Tu correo electrónico (ejemplo@ejemplo.com) ]
-    MAIL_PASSWORD=[ La contraseña de tu correo electrónico ]
+    MAIL_USERNAME=[ El correo electrónico de tu cuenta de Gmail (La misma que has gestionado anteriormente) ]
+    MAIL_PASSWORD="[ El código de 16 dígitos que acabas de copiar. Asegúrate de quitarle los espacios y ponerlo entre comillas. ]"
     MAIL_ENCRYPTION=tls
-    MAIL_FROM_ADDRESS=[ Tu correo electrónico (ejemplo@ejemplo.com) ]
+    MAIL_FROM_ADDRESS=[ El correo electrónico de tu cuenta de Gmail (La misma que has gestionado anteriormente) ]
     MAIL_FROM_NAME="Pizzería Brenda"
 &nbsp;
 
+- El resultado debería ser algo parecido a:
+
+&nbsp;
+
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=587
+    MAIL_USERNAME=ejemplo@gmail.com
+    MAIL_PASSWORD="****************"
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS=ejemplo@gmail.com
+    MAIL_FROM_NAME="Pizzería Brenda"
 &nbsp;
 
     php artisan serve
