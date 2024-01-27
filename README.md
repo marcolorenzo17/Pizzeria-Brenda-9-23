@@ -178,12 +178,35 @@ SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
     php artisan storage:link
 &nbsp;
 
-Crear una cuenta en Stripe
-- Paso 1
-- Paso 2
-- Poner datos de la cuenta de Stripe en el .env
+Integrar el servicio de Stripe
+- Abre el archivo .env de la aplicación, y añade las siguientes líneas al final:
 
-Crear una cuenta en Cloudinary
+&nbsp;
+
+    STRIPE_KEY=
+    STRIPE_SECRET=
+    CASHIER_CURRENCY=eur
+    CASHIER_LOGGER=stack
+&nbsp;
+
+- Ir a https://dashboard.stripe.com/register/ y crear una cuenta.
+- Después de haber creado una cuenta e iniciado sesión, dirígete a la página de "Desarrolladores", y luego a la sección de "Claves de API".
+- En el recuadro de "Claves estándar" hay dos claves. Haz clic en la Clave publicable para copiarla, y luego, en el archivo .env, pégala en la línea de "STRIPE_KEY=". El resultado debería ser similar a:
+
+&nbsp;
+
+    STRIPE_KEY=pk_test_********************
+&nbsp;
+
+- Ahora, vuelve a Stripe, y haz clic en el botón de "Revelar la clave de prueba". Una vez hecho, copia la Clave secreta, dirígete al archivo .env, y pégala en la línea de "STRIPE_SECRET=". Debería quedar de esta forma:
+
+&nbsp;
+
+    STRIPE_SECRET=sk_test_********************
+&nbsp;
+<br/><br/>
+
+Integrar el servicio de Cloudinary
 - Ir a https://cloudinary.com/ y crear una cuenta (Se puede con tu correo electrónico, con tu cuenta de Google o con la de GitHub).
 - Cuando hayas creado tu cuenta, dirígete al "Dashboard", en la sección de "Programmable Media", y copia la sección de "API environment variable".
 - Una vez copiado, abre el archivo .env de la aplicación, añade una nueva línea al final, y agrégale el texto que has copiado. Debería quedar algo similar a:
@@ -191,6 +214,10 @@ Crear una cuenta en Cloudinary
 &nbsp;
 
     CLOUDINARY_URL=cloudinary://**********:**********@**********
+&nbsp;
+
+Configurar los correos electrónicos
+- configuraciones
 
 &nbsp;
 
