@@ -217,7 +217,19 @@ Integrar el servicio de Cloudinary
 &nbsp;
 
 Configurar los correos electrónicos
-- configuraciones
+- Ir al archivo .env de la aplicación, y cambiar las siguientes líneas con el valor indicado:
+
+&nbsp;
+
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=587
+    MAIL_USERNAME=[ Tu correo electrónico (ejemplo@ejemplo.com) ]
+    MAIL_PASSWORD=[ La contraseña de tu correo electrónico ]
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS=[ Tu correo electrónico (ejemplo@ejemplo.com) ]
+    MAIL_FROM_NAME="Pizzería Brenda"
+&nbsp;
 
 &nbsp;
 
