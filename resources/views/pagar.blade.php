@@ -29,6 +29,16 @@
         $cantidadesvalores .= $cantidad . '¬';
     }
     $cantidadesvalores = substr($cantidadesvalores, 0, -2);
+
+    $productosycantidadarray = [];
+    foreach ($cartItems as $item) {
+        array_push($productosycantidadarray, $item->quantity . " " . $item->name);
+    }
+    $productosycantidadvalores = '';
+    foreach (array_values($productosycantidadarray) as $producto) {
+        $productosycantidadvalores .= $producto . '¬';
+    }
+    $productosycantidadvalores = substr($productosycantidadvalores, 0, -2);
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
@@ -257,6 +267,7 @@
                         <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
                         <input type="hidden" value="{{ $_GET['direccion1'] }}" name="direccion">
                         <input type="hidden" value="true" name="pagado" id="pagado">
+                        <input type="hidden" value="{{ $productosycantidadvalores }}" name="productosycantidad">
                         <input type="hidden" value="{{ $productosvalores }}" name="productos">
                         <input type="hidden" value="{{ $preciosvalores }}" name="precios">
                         <input type="hidden" value="{{ $cantidadesvalores }}" name="cantidades">
@@ -291,6 +302,7 @@
                 <input type="hidden" value="{{ Cart::getTotal() }}" name="total">
                 <input type="hidden" value="{{ $_GET['direccion1'] }}" name="direccion">
                 <input type="hidden" value="false" name="pagado" id="pagado">
+                <input type="hidden" value="{{ $productosycantidadvalores }}" name="productosycantidad">
                 <input type="hidden" value="{{ $productosvalores }}" name="productos">
                 <input type="hidden" value="{{ $preciosvalores }}" name="precios">
                 <input type="hidden" value="{{ $cantidadesvalores }}" name="cantidades">

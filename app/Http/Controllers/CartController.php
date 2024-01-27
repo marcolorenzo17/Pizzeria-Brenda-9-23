@@ -185,6 +185,7 @@ class CartController extends Controller
         $recibo->productos = $req->productos;
         $recibo->precios = $req->precios;
         $recibo->cantidades = $req->cantidades;
+        $recibo->productosycantidad = $req->productosycantidad;
 
         $recibo->save();
 
@@ -216,7 +217,7 @@ class CartController extends Controller
 
             $coste = number_format($req->total, 2, '.', '');
 
-            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productosycantidad, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
 
             session()->flash('notif.success', 'Se ha realizado el pedido con éxito, y se han añadido 500 pizzacoins a tu cuenta, por tu primera compra superior a 10€. ¡Disfrútalas!');
             return redirect('products');
@@ -227,7 +228,7 @@ class CartController extends Controller
 
             $coste = number_format($req->total, 2, '.', '');
 
-            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productosycantidad, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
 
             session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
             return redirect('products');
