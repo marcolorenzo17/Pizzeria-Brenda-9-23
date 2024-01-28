@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
 
     <title>{{__('Premios')}}</title>
 
@@ -1044,35 +1045,110 @@
             <h2 class="text-center" style="padding-top:30px; font-size:30px; font-family: 'Alfa Slab One'">{{ __('PREMIOS') }}</h2>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 style="display:flex; flex-wrap:wrap; align-items:center;">
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px" class="premio1">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px" class="premio2">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px" class="premio3">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px" class="premio4">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px" class="premio5">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px" class="premio6">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px" class="premio7">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px" class="premio8">
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-                    <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px">
+                <div class="w-full max-w-sm mx-auto bg-white rounded-md shadow-md">
+                    <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px" class="premio9">
                 </div>
             </div>
         </div>
+
+        <script>
+            anime({
+                targets: '.premio1',
+                scale: 1.2,
+                duration: 723,
+                delay: 500,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio2',
+                scale: 1.2,
+                duration: 723,
+                delay: 600,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio3',
+                scale: 1.2,
+                duration: 723,
+                delay: 700,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio4',
+                scale: 1.2,
+                duration: 723,
+                delay: 800,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio5',
+                scale: 1.2,
+                duration: 723,
+                delay: 900,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio6',
+                scale: 1.2,
+                duration: 723,
+                delay: 1000,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio7',
+                scale: 1.2,
+                duration: 723,
+                delay: 1100,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio8',
+                scale: 1.2,
+                duration: 723,
+                delay: 1200,
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '.premio9',
+                scale: 1.2,
+                duration: 723,
+                delay: 1300,
+                direction: 'alternate'
+            });
+        </script>
+
         <div class="footer">
             <div style="text-align:center; font-size:13px;">
                 <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
