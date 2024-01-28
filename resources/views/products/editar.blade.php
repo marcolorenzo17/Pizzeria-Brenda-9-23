@@ -91,7 +91,7 @@
                         <label for="name">{{ __('Nombre del plato') }}</label>
                         <br>
                         <input type="text" id="name" name="name" size="80" onfocusout="validate_name()"
-                        style="width:100%;">
+                            style="width:100%;" x-model="nombre">
                         <br>
                         <strong>{{ __('Nombre del plato actual:') }}</strong>&nbsp;{{ __($product->name) }}
                         <p id="error_name" style="color:red;"></p>
@@ -105,7 +105,7 @@
                         <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                         <br>
                         <input type="text" id="nameen" name="nameen" size="80"
-                            onfocusout="validate_nameen()" style="width:100%;">
+                            onfocusout="validate_nameen()" style="width:100%;" x-model="name">
                         <br>
                         <strong>{{ __('Nombre del plato actual (Inglés):') }}</strong>&nbsp;{{ __($product->nameen) }}
                         <p id="error_nameen" style="color:red;"></p>
@@ -503,6 +503,20 @@
                     return true;
                 }
             }
+        </script>
+
+        <script>
+            var regex = new RegExp("^[^¬]*$");
+
+            document.getElementById("name").addEventListener("beforeinput", (event) => {
+                if (event.data != null && !regex.test(event.data))
+                    event.preventDefault();
+            })
+
+            document.getElementById("nameen").addEventListener("beforeinput", (event) => {
+                if (event.data != null && !regex.test(event.data))
+                    event.preventDefault();
+            })
         </script>
 
     </x-app-layout>
