@@ -1722,7 +1722,7 @@
     </div>
     <div style="background-color:#141414; padding-top:20px; padding-bottom:150px;">
         <h1 class="text-center"
-            style="font-size:60px; color:white; font-family: 'Anton', sans-serif; margin-bottom:10px;">
+            style="font-size:50px; color:white; font-family: 'Alfa Slab One', serif; margin-bottom:10px;">
             {{ __('VISÍTANOS') }}
         </h1>
         <div style="justify-content:center; align-items:center; gap:50px;" id="visitanos">

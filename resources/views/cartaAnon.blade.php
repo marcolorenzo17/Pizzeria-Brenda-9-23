@@ -1031,7 +1031,7 @@
             @endif
         </div>
         {{--
-        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; margin-top:200px; margin-bottom:26px; background-color:#f12d2d;"
+        <h1 style="text-align:center; font-size:70px; font-family: 'Alfa Slab One', serif; color:white; margin-top:200px; margin-bottom:26px; background-color:#f12d2d;"
             id="logo1">
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
@@ -1146,34 +1146,34 @@
             style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;">
             <div>
                 <a href="#p1"><img src="{{ asset('img/vegetal.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250; height:200px;"
                         id="filtroproducto">
                 </a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS</p>
             </div>
             <div>
                 <a href="#p2"><img src="{{ asset('img/crunchi.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('HAMBURGUESAS') }}</p>
             </div>
             <div>
                 <a href="#p3"><img src="{{ asset('img/especial.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('SÁNDWICHES') }}</p>
             </div>
             <div>
                 <a href="#p4"><img src="{{ asset('img/boloñesa.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PASTA</p>
             </div>
             <div>
                 <a href="#p5"><img src="{{ asset('img/arrozfrito.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('ARROCES') }}
@@ -1181,49 +1181,49 @@
             </div>
             <div>
                 <a href="#p6"><img src="{{ asset('img/bavegetal.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('BAGUETTES') }}</p>
             </div>
             <div>
                 <a href="#p7"><img src="{{ asset('img/enormal.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('ENSALADAS') }}</p>
             </div>
             <div>
                 <a href="#p8"><img src="{{ asset('img/nuggets.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('COMPLEMENTOS') }}</p>
             </div>
             <div>
                 <a href="#p9"><img src="{{ asset('img/perrito.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('PERRITOS') }}</p>
             </div>
             <div>
                 <a href="#p10"><img src="{{ asset('img/cervezamaceta.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('CERVEZAS') }}</p>
             </div>
             <div>
                 <a href="#p11"><img src="{{ asset('img/copafino.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('VINOS') }}</p>
             </div>
             <div>
                 <a href="#p12"><img src="{{ asset('img/lata.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('REFRESCOS') }}</p>
@@ -1240,11 +1240,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center;">
+            style="display:flex; flex-wrap:wrap; align-items:center; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Pizza')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1293,11 +1293,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Hamburguesa')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1333,11 +1333,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Sándwich')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1373,11 +1373,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Pasta')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1413,11 +1413,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Arroz')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1453,11 +1453,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Baguette')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1494,11 +1494,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Ensalada')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1535,11 +1535,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Complemento')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1576,11 +1576,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Perrito')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1617,11 +1617,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Cerveza')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1658,11 +1658,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:78px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Vino')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1699,11 +1699,11 @@
             <br>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:300px;">
+            style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:300px; padding:30px;">
             @foreach ($products as $product)
                 @if ($product->type == 'Refresco')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                        style="border-radius:30px; border: 2px solid black;">
+                        style="border-radius:30px; border: 2px solid gray;">
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
@@ -1741,7 +1741,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}
                         </h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
@@ -1788,7 +1788,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -1804,7 +1804,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -1850,7 +1850,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -1866,7 +1866,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -1912,7 +1912,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -1928,7 +1928,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -1974,7 +1974,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -1990,7 +1990,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2036,7 +2036,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2052,7 +2052,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2098,7 +2098,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2114,7 +2114,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2160,7 +2160,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2176,7 +2176,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2222,7 +2222,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2238,7 +2238,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2284,7 +2284,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2300,7 +2300,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2346,7 +2346,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2362,7 +2362,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2408,7 +2408,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
@@ -2424,7 +2424,7 @@
                     <div id="{{ $idesdesc }}" style="display: none; margin-bottom:300px;">
                         <br><br><br><br><br>
                         <h1 class="text-center"
-                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Anton', sans-serif;">
+                            style="font-size:30px; background-color:#f12d2d; padding:10px; color:white; font-family: 'Alfa Slab One', serif;">
                             {{ __('DESCRIPCIÓN') }}</h1>
                         <div style="align-items:center; justify-content:center; background:white; padding-bottom:50px;"
                             id="descripcion">
@@ -2470,7 +2470,7 @@
                             <div style="margin: 0 auto; text-align:center;">
                                 <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
-                                    style="border: 1px solid black; border-radius:30px;">
+                                    style="border: 1px solid gray; border-radius:30px;">
                             </div>
                         </div>
                     </div>
