@@ -486,5 +486,14 @@
             }
         </script>
 
+        <script>
+            var regex = new RegExp("^[^¬]*$");
+
+            document.getElementById("name").addEventListener("beforeinput", (event) => {
+                if (event.data != null && !regex.test(event.data))
+                    event.preventDefault();
+            })
+        </script>
+
     </x-app-layout>
 @endif
