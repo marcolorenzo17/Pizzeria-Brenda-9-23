@@ -262,15 +262,15 @@
                                                 method="POST" onsubmit="return validate_editarvaloracion()"
                                                 name="editarvaloracion">
                                                 @csrf
-                                                <div style="align-items:center;">
+                                                <div style="display:flex; align-items:center;">
                                                     @error('modifVal')
                                                         <span class="text-danger"
                                                             style="color:red;">{{ __($message) }}</span>
                                                         <br>
                                                     @enderror
-                                                    <input type="text" id="modifVal" name="modifVal"
+                                                    <textarea id="modifVal" name="modifVal"
                                                         style="border-radius:10px;"
-                                                        onfocusout="validate_editarvaloracion_input()">
+                                                        onfocusout="validate_editarvaloracion_input()"></textarea>
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
                                                         style="color:#568c2c; background-color:lightgray; margin-left:10px;"
                                                         id="boton">{{ __('Publicar') }}
@@ -309,9 +309,9 @@
                                             <br>
                                         @enderror
                                         <div style="display:flex; align-items:center;">
-                                            <input type="text" id="reseniaCom" name="reseniaCom"
+                                            <textarea id="reseniaCom" name="reseniaCom"
                                                 placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30"
-                                                style="border-radius:10px;" onfocusout="validate_comentario_input()">
+                                                style="border-radius:10px;" onfocusout="validate_comentario_input()"></textarea>
                                             <br><br>
                                             <div>
                                                 <button type="submit"
@@ -353,15 +353,15 @@
                                                             onsubmit="return validate_editarcomentario()"
                                                             name="editarcomentario">
                                                             @csrf
-                                                            <div style="align-items:center;">
+                                                            <div style="display:flex; align-items:center;">
                                                                 @error('modifCom')
                                                                     <span class="text-danger"
                                                                         style="color:red;">{{ __($message) }}</span>
                                                                     <br>
                                                                 @enderror
-                                                                <input type="text" id="modifCom" name="modifCom"
+                                                                <textarea id="modifCom" name="modifCom"
                                                                     style="border-radius:10px;"
-                                                                    onfocusout="validate_editarcomentario_input()">
+                                                                    onfocusout="validate_editarcomentario_input()"></textarea>
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
                                                                     style="color:#568c2c; background-color:lightgray; margin-left:10px;"
