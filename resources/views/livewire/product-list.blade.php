@@ -80,35 +80,35 @@
                     <tr>
                         <td>
                             <a href="#1"><img src="{{ asset('img/vegetal.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS
                             </p>
                         </td>
                         <td>
                             <a href="#2"><img src="{{ asset('img/crunchi.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('HAMBURGUESAS') }}</p>
                         </td>
                         <td>
                             <a href="#3"><img src="{{ asset('img/especial.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('SÁNDWICHES') }}</p>
                         </td>
                         <td>
                             <a href="#4"><img src="{{ asset('img/boloñesa.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PASTA
                             </p>
                         </td>
                         <td>
                             <a href="#5"><img src="{{ asset('img/arrozfrito.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('ARROCES') }}</p>
@@ -117,35 +117,35 @@
                     <tr>
                         <td>
                             <a href="#6"><img src="{{ asset('img/bavegetal.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('BAGUETTES') }}</p>
                         </td>
                         <td>
                             <a href="#7"><img src="{{ asset('img/enormal.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('ENSALADAS') }}</p>
                         </td>
                         <td>
                             <a href="#8"><img src="{{ asset('img/nuggets.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('COMPLEMENTOS') }}</p>
                         </td>
                         <td>
                             <a href="#9"><img src="{{ asset('img/perrito.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('PERRITOS') }}</p>
                         </td>
                         <td>
                             <a href="#10"><img src="{{ asset('img/lata.jpg') }}"
-                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                                     id="filtroproducto"></a>
                             <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                                 {{ __('BEBIDAS') }}</p>
@@ -158,34 +158,34 @@
                 id="productos-pequenio">
                 <div>
                     <a href="#1"><img src="{{ asset('img/vegetal.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto">
                     </a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS</p>
                 </div>
                 <div>
                     <a href="#2"><img src="{{ asset('img/crunchi.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('HAMBURGUESAS') }}</p>
                 </div>
                 <div>
                     <a href="#3"><img src="{{ asset('img/especial.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('SÁNDWICHES') }}</p>
                 </div>
                 <div>
                     <a href="#4"><img src="{{ asset('img/boloñesa.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PASTA</p>
                 </div>
                 <div>
                     <a href="#5"><img src="{{ asset('img/arrozfrito.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('ARROCES') }}
@@ -193,35 +193,35 @@
                 </div>
                 <div>
                     <a href="#6"><img src="{{ asset('img/bavegetal.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('BAGUETTES') }}</p>
                 </div>
                 <div>
                     <a href="#7"><img src="{{ asset('img/enormal.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('ENSALADAS') }}</p>
                 </div>
                 <div>
                     <a href="#8"><img src="{{ asset('img/nuggets.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('COMPLEMENTOS') }}</p>
                 </div>
                 <div>
                     <a href="#9"><img src="{{ asset('img/perrito.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('PERRITOS') }}</p>
                 </div>
                 <div>
                     <a href="#10"><img src="{{ asset('img/lata.jpg') }}"
-                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: black; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                             id="filtroproducto"></a>
                     <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                         {{ __('BEBIDAS') }}</p>
