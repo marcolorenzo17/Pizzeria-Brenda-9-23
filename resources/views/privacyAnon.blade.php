@@ -1059,13 +1059,13 @@
             <br>
             La titularidad de este sitio web, www.pizzeriabrenda.com, (en adelante, Sitio Web) la ostenta: Manuel
             Lorenzo
-            Mellado, con NIF: 12345678F, y cuyos datos de contacto son:
+            Mellado, con NIF: 52322020X, y cuyos datos de contacto son:
             <br>
-            Dirección: direcciondeste7
+            Dirección: C/ Madre Teresa de Calcuta 7
             <br>
-            Teléfono de contacto: 999888777
+            Teléfono de contacto: 666 81 85 94
             <br>
-            Email de contacto: pizzabrenda@medaigual.com
+            Email de contacto: brendapizza@hotmail.com
             <br><br><br>
             II. TÉRMINOS Y CONDICIONES GENERALES DE USO
             <br><br><br>

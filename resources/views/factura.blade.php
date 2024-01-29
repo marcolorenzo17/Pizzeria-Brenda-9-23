@@ -85,6 +85,48 @@
     </table>
 
     <h2 style="text-align:right;">{{ __('Total') }}: {{ number_format($recibo->total, 2, '.', '') }} €</h2>
+
+    <table style="width:100%;">
+        <tr>
+            <td>
+                <p style="font-weight:bolder;">{{__('IVA desglosado:')}}</p>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p style="font-weight:bold;">{{__('Porcentaje')}}</p>
+            </td>
+            <td>
+                <p style="font-weight:bold;">{{__('Neto')}}</p>
+            </td>
+            <td>
+                <p style="font-weight:bold;">{{__('IVA')}}</p>
+            </td>
+            <td>
+                <p style="font-weight:bold;">{{__('Total')}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>10.00 %</p>
+            </td>
+            <td>
+                <p>{{ number_format(number_format($recibo->total, 2, '.', '') / 1.10, 2, '.', '') }} €</p>
+            </td>
+            <td>
+                <p>{{ number_format(number_format(number_format($recibo->total, 2, '.', '') / 1.10, 2, '.', '') * 0.10, 2, '.', '') }} €</p>
+            </td>
+            <td>
+                <p>{{ number_format($recibo->total, 2, '.', '') }} €</p>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>

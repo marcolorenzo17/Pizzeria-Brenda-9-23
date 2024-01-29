@@ -611,6 +611,12 @@
     "DETALLES DEL ROL": "ROLE DETAILS",
     "Usuarios con este rol": "Users with this role",
 
+    "IVA desglosado:": "VAT breakdown:",
+    "Porcentaje": "Percentage",
+    "Neto": "Net",
+    "IVA": "VAT",
+    "Total": "Total",
+
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",
     "CAMBIAR CONTRASEÑA": "CHANGE PASSWORD"
