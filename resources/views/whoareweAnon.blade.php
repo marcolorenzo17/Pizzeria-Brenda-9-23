@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{__('¿Quiénes somos?')}}</title>
+    <title>{{ __('¿Quiénes somos?') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -945,104 +945,107 @@
         </h1>
     --}}
         <div style="margin-top:90px;">
-            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
-                <div style="padding:10px;">
-                    @include('partials/language_switcher')
-                </div>
-                @if (Route::has('login'))
-                    <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
-                        @auth
-                            <a href="{{ url('/products') }}"
-                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
-                                id="boton">{{ __('Iniciar pedido') }}</a>
-                        @else
-                            <a href="{{ route('login') }}"
-                                style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
-                                id="boton">{{ __('Iniciar sesión') }}</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
+            <div id="menu_responsive_container">
+                <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+                    <div style="padding:10px;">
+                        @include('partials/language_switcher')
+                    </div>
+                    @if (Route::has('login'))
+                        <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
+                            @auth
+                                <a href="{{ url('/products') }}"
+                                    style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Iniciar pedido') }}</a>
+                            @else
+                                <a href="{{ route('login') }}"
                                     style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
-                                    id="boton">{{ __('Registrarse') }}</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-                <div style="background-color:#141414; height:3px; border-radius:10px;">
-                    <br>
-                </div>
-                <a href="/">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Inicio') }}</p>
-                    </div>
-                </a>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Nuestra carta') }}</p>
-                    </div>
-                </a>
-                <div style="background-color:#141414; height:3px; border-radius:10px;">
-                    <br>
-                </div>
-                <a href="whoareweAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('¿Quiénes somos?') }}</p>
-                        <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
-                            <br>
+                                    id="boton">{{ __('Iniciar sesión') }}</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"
+                                        style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                        id="boton">{{ __('Registrarse') }}</a>
+                                @endif
+                            @endauth
                         </div>
+                    @endif
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
                     </div>
-                </a>
-                <a href="faqAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Preguntas frecuentes') }}</p>
+                    <a href="/">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Inicio') }}</p>
+                        </div>
+                    </a>
+                    <a href="cartaAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Nuestra carta') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
                     </div>
-                </a>
-                <a href="contactAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Contáctanos') }}</p>
+                    <a href="whoareweAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('¿Quiénes somos?') }}</p>
+                            <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="faqAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Preguntas frecuentes') }}</p>
+                        </div>
+                    </a>
+                    <a href="contactAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Contáctanos') }}</p>
+                        </div>
+                    </a>
+                    <a href="privacyAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Política de privacidad') }}</p>
+                        </div>
+                    </a>
+                    <a href="premiosAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Premios') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
                     </div>
-                </a>
-                <a href="privacyAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Política de privacidad') }}</p>
-                    </div>
-                </a>
-                <a href="premiosAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Premios') }}</p>
-                    </div>
-                </a>
-                <div style="background-color:#141414; height:3px; border-radius:10px;">
-                    <br>
-                </div>
-                <div>
-                    <div
-                        style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414; display:flex; justify-content:center; align-items:center; gap:30px;">
-                        <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
-                                src="{{ asset('img/twit.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
-                        <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                                src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
-                        <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                                src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
-                        <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                                src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
+                    <div>
+                        <div
+                            style="padding:10px; font-weight:bolder; border-bottom:1px solid gray; display:flex; justify-content:center; align-items:center; gap:30px;">
+                            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                                    src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                                    src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-bottom:300px;">
             <br>
-            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One', serif;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One', serif;">
+                {{ __('¿QUIÉNES SOMOS?') }}</h2>
             <br><br>
             <h2 class="text-center" style="font-size:22px; font-weight:bold; font-family: 'Acme', sans-serif;">
                 {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
@@ -1052,8 +1055,10 @@
                 {{ __('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.') }}
             </p>
             <br>
-            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-                <a href="#" class="alb" title="Imagen 1"><img src="{{ asset('img/waw1.png') }}" alt="waw1" class="img_ensi" loading="lazy" style="height:400px;"></a>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;"
+                class="img_container">
+                <a href="#" class="alb" title="Imagen 1"><img src="{{ asset('img/waw1.png') }}"
+                        alt="waw1" class="img_ensi" loading="lazy" style="height:400px;"></a>
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1062,9 +1067,12 @@
                 {{ __('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.') }}
             </p>
             <br>
-            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-                <a href="#" class="alb" title="Imagen 2"><img src="{{ asset('img/waw2.png') }}" alt="waw2" class="img_ensi" loading="lazy" style="height:400px;"></a>
-                <a href="#" class="alb" title="Imagen 3"><img src="{{ asset('img/waw3.png') }}" alt="waw3" class="img_ensi" loading="lazy" style="height:400px;"></a>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;"
+                class="img_container">
+                <a href="#" class="alb" title="Imagen 2"><img src="{{ asset('img/waw2.png') }}"
+                        alt="waw2" class="img_ensi" loading="lazy" style="height:400px;"></a>
+                <a href="#" class="alb" title="Imagen 3"><img src="{{ asset('img/waw3.png') }}"
+                        alt="waw3" class="img_ensi" loading="lazy" style="height:400px;"></a>
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1073,9 +1081,12 @@
                 {{ __('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.') }}
             </p>
             <br>
-            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;" class="img_container">
-                <a href="#" class="alb" title="Imagen 4"><img src="{{ asset('img/waw4.png') }}" alt="waw4" class="img_ensi" loading="lazy" style="height:300px;"></a>
-                <a href="#" class="alb" title="Imagen 5"><img src="{{ asset('img/waw5.png') }}" alt="waw5" class="img_ensi" loading="lazy" style="height:300px;"></a>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;"
+                class="img_container">
+                <a href="#" class="alb" title="Imagen 4"><img src="{{ asset('img/waw4.png') }}"
+                        alt="waw4" class="img_ensi" loading="lazy" style="height:300px;"></a>
+                <a href="#" class="alb" title="Imagen 5"><img src="{{ asset('img/waw5.png') }}"
+                        alt="waw5" class="img_ensi" loading="lazy" style="height:300px;"></a>
             </div>
             <br>
             <p style="font-size:20px;">
@@ -1083,7 +1094,7 @@
                 {{ __('¡Te esperamos! ¡Visítanos!') }}
             </p>
             <div class="lightbox">
-                <button class="cerrar" id="boton">{{__('Cerrar')}}</button>
+                <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
                 <img src="{{ asset('img/waw1.png') }}" alt="Imagen grande" class="grande" loading="lazy">
             </div>
         </div>
@@ -1190,8 +1201,18 @@
                 }
             }
 
+            @media only screen and (max-width: 639px) {
+                #menu_responsive_container {
+                    display: block;
+                }
+            }
+
             @media only screen and (min-width: 640px) {
                 #menu_hamburguesa {
+                    display: none;
+                }
+
+                #menu_responsive_container {
                     display: none;
                 }
             }

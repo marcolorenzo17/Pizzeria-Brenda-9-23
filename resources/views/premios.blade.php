@@ -11,33 +11,42 @@
     </x-slot>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="background-color:white; padding:50px; margin-bottom:300px;">
+        style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:300px; background-color:white; padding:30px;">
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio1">
+            <img src="{{ asset('img/premio1.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio1">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio2">
+            <img src="{{ asset('img/premio2.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio2">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio3">
+            <img src="{{ asset('img/premio3.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio3">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio4">
+            <img src="{{ asset('img/premio4.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio4">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px" class="mx-auto premio5">
+            <img src="{{ asset('img/premio5.png') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio5">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio6">
+            <img src="{{ asset('img/premio6.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio6">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px" class="mx-auto premio7">
+            <img src="{{ asset('img/premio7.png') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio7">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio8">
+            <img src="{{ asset('img/premio8.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio8">
         </div>
         <div class="w-full max-w-sm mx-auto bg-white rounded-md">
-            <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px" class="mx-auto premio9">
+            <img src="{{ asset('img/premio9.jpg') }}" alt="..." width="150px" height="150px"
+                class="mx-auto premio9">
         </div>
     </div>
 

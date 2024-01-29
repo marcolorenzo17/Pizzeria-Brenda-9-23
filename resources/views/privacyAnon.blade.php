@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{__('Política de privacidad')}}</title>
+    <title>{{ __('Política de privacidad') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -945,104 +945,107 @@
         </h1>
     --}}
         <div style="margin-top:90px;">
-            <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
-                <div style="padding:10px;">
-                    @include('partials/language_switcher')
-                </div>
-                @if (Route::has('login'))
-                    <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
-                        @auth
-                            <a href="{{ url('/products') }}"
-                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
-                                id="boton">{{ __('Iniciar pedido') }}</a>
-                        @else
-                            <a href="{{ route('login') }}"
-                                style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
-                                id="boton">{{ __('Iniciar sesión') }}</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
+            <div id="menu_responsive_container">
+                <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+                    <div style="padding:10px;">
+                        @include('partials/language_switcher')
+                    </div>
+                    @if (Route::has('login'))
+                        <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
+                            @auth
+                                <a href="{{ url('/products') }}"
+                                    style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Iniciar pedido') }}</a>
+                            @else
+                                <a href="{{ route('login') }}"
                                     style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
-                                    id="boton">{{ __('Registrarse') }}</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-                <div style="background-color:#141414; height:3px; border-radius:10px;">
-                    <br>
-                </div>
-                <a href="/">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Inicio') }}</p>
-                    </div>
-                </a>
-                <a href="cartaAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Nuestra carta') }}</p>
-                    </div>
-                </a>
-                <div style="background-color:#141414; height:3px; border-radius:10px;">
-                    <br>
-                </div>
-                <a href="whoareweAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('¿Quiénes somos?') }}</p>
-                    </div>
-                </a>
-                <a href="faqAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Preguntas frecuentes') }}</p>
-                    </div>
-                </a>
-                <a href="contactAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Contáctanos') }}</p>
-                    </div>
-                </a>
-                <a href="privacyAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Política de privacidad') }}</p>
-                        <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
-                            <br>
+                                    id="boton">{{ __('Iniciar sesión') }}</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"
+                                        style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                        id="boton">{{ __('Registrarse') }}</a>
+                                @endif
+                            @endauth
                         </div>
+                    @endif
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
                     </div>
-                </a>
-                <a href="premiosAnon">
-                    <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
-                        id="boton_responsive">
-                        <p>{{ __('Premios') }}</p>
+                    <a href="/">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Inicio') }}</p>
+                        </div>
+                    </a>
+                    <a href="cartaAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Nuestra carta') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
                     </div>
-                </a>
-                <div style="background-color:#141414; height:3px; border-radius:10px;">
-                    <br>
-                </div>
-                <div>
-                    <div
-                        style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414; display:flex; justify-content:center; align-items:center; gap:30px;">
-                        <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
-                                src="{{ asset('img/twit.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
-                        <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                                src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
-                        <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                                src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
-                        <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                                src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                                style="filter: brightness(0%);"></a>
+                    <a href="whoareweAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('¿Quiénes somos?') }}</p>
+                        </div>
+                    </a>
+                    <a href="faqAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Preguntas frecuentes') }}</p>
+                        </div>
+                    </a>
+                    <a href="contactAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Contáctanos') }}</p>
+                        </div>
+                    </a>
+                    <a href="privacyAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Política de privacidad') }}</p>
+                            <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="premiosAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Premios') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <div>
+                        <div
+                            style="padding:10px; font-weight:bolder; border-bottom:1px solid gray; display:flex; justify-content:center; align-items:center; gap:30px;">
+                            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                                    src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                                    src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div style="margin:30px; margin-bottom:300px; font-size:20px;">
             <div style="padding-top:30px;">
-                <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('POLÍTICA DE PRIVACIDAD') }}</h2>
+                <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">
+                    {{ __('POLÍTICA DE PRIVACIDAD') }}</h2>
             </div>
             <p style="text-align:center; padding-top:60px;">AVISO LEGAL Y CONDICIONES GENERALES DE USO</p>
             <p style="text-align:center;">www.pizzeriabrenda.com</p>
@@ -1336,8 +1339,18 @@
                 }
             }
 
+            @media only screen and (max-width: 639px) {
+                #menu_responsive_container {
+                    display: block;
+                }
+            }
+
             @media only screen and (min-width: 640px) {
                 #menu_hamburguesa {
+                    display: none;
+                }
+
+                #menu_responsive_container {
                     display: none;
                 }
             }

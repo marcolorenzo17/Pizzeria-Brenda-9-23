@@ -1036,7 +1036,7 @@
             {{ __('PIZZA ARTESANA Y NATURAL') }}
         </h1>
     --}}
-        <div style="margin-top:120px;">
+        <div style="margin-top:90px;">
             <div id="menu_responsive_container">
                 <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
                     <div style="padding:10px;">
@@ -1060,17 +1060,17 @@
                             @endauth
                         </div>
                     @endif
-                    <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
                         <br>
                     </div>
                     <a href="/">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('Inicio') }}</p>
                         </div>
                     </a>
                     <a href="cartaAnon">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('Nuestra carta') }}</p>
                             <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
@@ -1078,45 +1078,45 @@
                             </div>
                         </div>
                     </a>
-                    <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
                         <br>
                     </div>
                     <a href="whoareweAnon">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('¿Quiénes somos?') }}</p>
                         </div>
                     </a>
                     <a href="faqAnon">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('Preguntas frecuentes') }}</p>
                         </div>
                     </a>
                     <a href="contactAnon">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('Contáctanos') }}</p>
                         </div>
                     </a>
                     <a href="privacyAnon">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('Política de privacidad') }}</p>
                         </div>
                     </a>
                     <a href="premiosAnon">
-                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414;"
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
                             id="boton_responsive">
                             <p>{{ __('Premios') }}</p>
                         </div>
                     </a>
-                    <div style="background-color:#141414; height:3px; border-radius:10px;">
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
                         <br>
                     </div>
                     <div>
                         <div
-                            style="padding:10px; font-weight:bolder; border-bottom:1px solid #141414; display:flex; justify-content:center; align-items:center; gap:30px;">
+                            style="padding:10px; font-weight:bolder; border-bottom:1px solid gray; display:flex; justify-content:center; align-items:center; gap:30px;">
                             <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
                                     src="{{ asset('img/twit.png') }}" width="30px" height="30px"
                                     style="filter: brightness(0%);"></a>
@@ -1140,7 +1140,7 @@
             <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
             <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
         </div>
-        <div style="margin-bottom:30px;">
+        <div style="margin-bottom:30px; padding-top: 10px;">
             <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One'">{{ __('NUESTRA CARTA') }}
             </h2>
         </div>
