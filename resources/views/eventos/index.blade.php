@@ -524,7 +524,11 @@
     <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
     <br><br>
     @if (isset($_GET['totalpresupuesto']))
-        <p class="text-center">
+        <div style="text-align:center;">
+            <a href="{{ route('eventos.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
+        </div>
+        <p class="text-center" style="margin-top:30px;">
             {{ __('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.') }}
         </p>
         <br>
@@ -536,7 +540,7 @@
                 <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto"
                     name="totalpresupuesto">
                 <input type="hidden" value="esconder" id="esconder" name="esconder">
-                <button type="submit" class="px-6 py-2 text-sm  rounded shadow" style="background-color:gold;"
+                <button type="submit" class="px-6 py-2 text-sm  rounded shadow" style="background-color:#568c2c; color:white; font-weight:bolder;"
                     id="boton">{{ __('Calcula el presupuesto para tu evento') }}</button>
             </form>
         </div>
