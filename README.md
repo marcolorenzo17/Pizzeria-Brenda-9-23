@@ -128,22 +128,68 @@ Hacer un fork al repositorio de la aplicación en https://github.com/marcolorenz
 
 Clonar ese fork con:
 
-    git clone [ url_fork_del_repositorio ]
+    git clone [ Url del fork del repositorio ]
+&nbsp;
+
+Entrar dentro de la carpeta de la aplicación con:
+
+    cd [ Nombre de la carpeta de la aplicación ]
+&nbsp;
+
+    composer install
 &nbsp;
 
     composer dump-autoload
 &nbsp;
 
-    composer install
+    sudo apt install npm
 &nbsp;
 
     npm install
 &nbsp;
 
     npm run dev
+<br/><br/>
+En caso de que "npm run dev" no funcione, hacer lo siguiente:
+
+    npm audit fix
 &nbsp;
 
+    npm update
+&nbsp;
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+&nbsp;
+
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+&nbsp;
+
+    source ~/.bashrc
+&nbsp;
+
+    nvm install 18.1.0
+&nbsp;
+
+    nvm use 18.1.0
+&nbsp;
+
+    npm install
+&nbsp;
+Entonces, ejecuta "npm run dev" otra vez.
+<br/><br/>
+
+Abre otra terminal, y dirígete de nuevo a la carpeta de la aplicación.
+<br/><br/>
+
     sudo cp .env.example .env
+&nbsp;
+
+    sudo nano .env
+
+    Ó
+
+    sudo vim .env
 &nbsp;
 
 Editar las siguientes líneas del archivo .env:
@@ -156,7 +202,7 @@ Editar las siguientes líneas del archivo .env:
 	DB_PASSWORD=laravel
 &nbsp;
 
-    sudo -u postgresql psql
+    sudo -u postgres psql
 &nbsp;
 
     \c template1
@@ -173,9 +219,25 @@ Editar las siguientes líneas del archivo .env:
 
     sudo -u postgres createuser -P laravel
 &nbsp;
+Cuando te pida que le asignes una contraseña al usuario, escribe "laravel" (Sin las comillas).
+<br/><br/>
 
     php artisan key:generate
 &nbsp;
+Si ocurre algún fallo, ejecutar los siguientes comandos:
+
+    chmod -R 777 storage/*
+&nbsp;
+
+    php artisan cache:clear
+&nbsp;
+
+    php artisan key:generate
+&nbsp;
+Si aún así sigue fallando, ejecutar:
+
+    sudo php artisan key:generate
+<br/><br/>
 
     php artisan migrate
 SI OCURRE ALGÚN ERROR AL MIGRAR:
