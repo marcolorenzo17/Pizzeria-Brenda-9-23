@@ -27,7 +27,11 @@ Sus elementos de innovación son: Crear un personaje animado que actúe como asi
 &nbsp;
 
     sudo add-apt-repository ppa:ondrej/php
-&nbsp;
+En caso de que no funcione, ejecuta el siguiente comando:
+
+    $ sudo apt install python3-launchpadlib
+Después, vuelve a ejecutar el comando anterior.
+<br/><br/>
 
     sudo apt-get update
 &nbsp;
