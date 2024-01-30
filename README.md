@@ -53,10 +53,15 @@ También se puede usar vim:
 Cambiar las siguientes líneas a estos valores:
 
     error_reporting = E_ALL
+    
 	display_errors = On
+ 
 	display_startup_errors = On
-	date.timezone = 'UTC' --> 974.1
-&nbsp;
+ 
+	date.timezone = 'UTC'
+    (Descomenta esta última línea)
+Guarda los cambios, y sal de nano, o vim.
+<br/><br/>
 
 
 ### 2. INSTALACIÓN DE COMPOSER
@@ -109,6 +114,10 @@ Extender globalmente el ámbito de Composer al sistema de rutas:
 &nbsp;
 
     sudo apt install postgresql
+&nbsp;
+
+    sudo service postgresql start
+&nbsp;
 <br/><br/>
 
 ### 5. INSTALAR APLICACIÓN Y PREPARAR LA BASE DE DATOS
