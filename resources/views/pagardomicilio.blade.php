@@ -428,6 +428,9 @@
 
     <script src="{{ asset('js/pagar-script-2.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var key = '{{ env('STRIPE_KEY') }}';
+    </script>
     <script src="{{ asset('js/credito.js') }}"></script>
     <script>
         // Original JavaScript code by Chirp Internet: www.chirpinternet.eu

@@ -804,6 +804,9 @@
 
     <script src="{{ asset('js/reservas-script.js') }}"></script>
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var key = '{{ env('STRIPE_KEY') }}';
+    </script>
     <script src="{{ asset('js/credito.js') }}"></script>
     <script>
         function validate() {

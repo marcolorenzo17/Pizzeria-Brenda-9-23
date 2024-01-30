@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_test_51NHlC8B5ly9PlXldOF2lXzrjjiShuNRpv4nMX6NFv2W1dwKrmwkzXNiVNWBPlDAvZliBSqIbQ4QnYqEsZznVwEin001OrJXJFa');
+var stripe = Stripe(key);
 var elements = stripe.elements();
 var style = {
     base: {
