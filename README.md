@@ -292,6 +292,10 @@ Integrar el servicio de Cloudinary
     CLOUDINARY_URL=cloudinary://**********:**********@**********
 &nbsp;
 
+- Ahora, dirígete de nuevo a Cloudinary, y haz clic en el icono del engranaje, abajo a la izquierda, para acceder a la configuración.
+- Ve a la sección de "Security", navega hasta abajo del todo, y marca la casilla de "Allow delivery of PDF and ZIP files". Una vez hecho esto, guarda los cambios.
+<br/><br/>
+
 Configurar los correos electrónicos
 - Ve a https://myaccount.google.com/ para gestionar tu cuenta de Gmail.
 - Dirígete al apartado de "Seguridad", y asegúrate de que tienes activada la verificación en dos pasos para tu cuenta de Gmail.
@@ -332,6 +336,10 @@ Configurar los correos electrónicos
 Ir a localhost:8000 en el navegador
 
 Aplicación lista (en teoría)
+
+Por defecto las credenciales del usuario jefe principal son:
+- Correo electrónico: marco.lorenzo@iesdonana.org
+- Contraseña: UrMaiyorAdumono_17
 
 
 ## About Laravel
