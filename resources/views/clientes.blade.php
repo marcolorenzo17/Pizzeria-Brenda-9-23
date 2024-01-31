@@ -140,7 +140,7 @@ if ($role_actual) {
                                 <form method="post" action="{{ route('clientes.adminsi', $cliente->id) }}">
                                     @csrf
                                     <button
-                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('HABILITAR') }}</button>
+                                        class="border hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md" style="border-color:#568c2c;">{{ __('HABILITAR') }}</button>
                                 </form>
                             @endif
                         </td>
