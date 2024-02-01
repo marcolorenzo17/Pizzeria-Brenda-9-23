@@ -150,7 +150,7 @@
                     @if (Lang::locale() == 'es')
                         <input type="hidden" name="lang_es" value="es">
                     @endif
-                    <input type="file" name="curriculum" id="curriculum" onchange="previewFile(this);" required>
+                    <input type="file" accept=".jpg,.png,.jpeg,.gif,.svg,.pdf" name="curriculum" id="curriculum" onchange="previewFile(this);" required>
                     <div style="margin-top:20px; margin-bottom:20px; width:200px; margin-left:auto; margin-right:auto;">
                         <img id="previewImg" src="/images/example.png" alt="Archivo" style="display:none;">
                     </div>

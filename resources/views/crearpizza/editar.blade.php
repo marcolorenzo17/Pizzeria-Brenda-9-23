@@ -118,7 +118,7 @@
                             <span class="text-danger" style="color:red;">{{ __($message) }}</span>
                             <br>
                         @enderror
-                        <input type="file" name="image_ingredient" id="image_ingredient"
+                        <input type="file" accept=".jpg,.png,.jpeg,.gif,.svg" name="image_ingredient" id="image_ingredient"
                             onchange="previewFile(this);" required>
                     </div>
                     <br><br>
