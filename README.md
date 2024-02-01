@@ -88,7 +88,6 @@ Extender globalmente el ámbito de Composer al sistema de rutas:
 ---
 ### 3. INSTALACIÓN DE GITHUB CLI
 ---
-
     type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
     && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
@@ -97,48 +96,39 @@ Extender globalmente el ámbito de Composer al sistema de rutas:
     && sudo apt install gh -y
 <br/><br/>
 
+---
 ### 4. INSTALACIÓN DE POSTGRESQL
-
-&nbsp;
-
+---
     sudo apt-get update
-&nbsp;
-
+---
     sudo apt install postgresql
-&nbsp;
-
+---
     sudo service postgresql start
-&nbsp;
 <br/><br/>
 
+---
 ### 5. INSTALAR APLICACIÓN Y PREPARAR LA BASE DE DATOS
-
-&nbsp;
+---
 
 Hacer un fork al repositorio de la aplicación en https://github.com/marcolorenzo17/Pizzeria-Brenda-9-23
 
 Clonar ese fork con:
 
     git clone [ Url del fork del repositorio ]
-&nbsp;
+---
 
 Entrar dentro de la carpeta de la aplicación con:
 
     cd [ Nombre de la carpeta de la aplicación ]
-&nbsp;
-
+---
     composer install
-&nbsp;
-
+---
     composer dump-autoload
-&nbsp;
-
+---
     sudo apt install npm
-&nbsp;
-
+---
     npm install
-&nbsp;
-
+---
     npm run dev
 <br/><br/>
 En caso de que "npm run dev" no funcione, hacer lo siguiente:
@@ -168,17 +158,15 @@ En caso de que "npm run dev" no funcione, hacer lo siguiente:
     npm install
 &nbsp;
 Entonces, ejecuta "npm run dev" otra vez.
-<br/><br/>
 
+---
 Abre otra terminal, y dirígete de nuevo a la carpeta de la aplicación.
-<br/><br/>
 
+---
     sudo cp .env.example .env
-&nbsp;
-
+---
     sudo nano .env
-
-    Ó
+También se puede usar vim:
 
     sudo vim .env
 &nbsp;
@@ -191,8 +179,7 @@ Editar las siguientes líneas del archivo .env:
 	DB_DATABASE=laravel
 	DB_USERNAME=laravel
 	DB_PASSWORD=laravel
-&nbsp;
-
+---
     sudo -u postgres psql
 &nbsp;
 
@@ -203,16 +190,15 @@ Editar las siguientes líneas del archivo .env:
 &nbsp;
 
     \q
-&nbsp;
-
+---
     sudo -u postgres createdb laravel
-&nbsp;
-
+---
     sudo -u postgres createuser -P laravel
 &nbsp;
 Cuando te pida que le asignes una contraseña al usuario, escribe "laravel" (Sin las comillas).
 <br/><br/>
 
+---
     php artisan key:generate
 &nbsp;
 Si ocurre algún fallo, ejecutar los siguientes comandos:
@@ -230,22 +216,25 @@ Si aún así sigue fallando, ejecutar:
     sudo php artisan key:generate
 <br/><br/>
 
+---
     php artisan migrate
 SI OCURRE ALGÚN ERROR AL MIGRAR:
     
     php artisan migrate:fresh
 <br/><br/>
 
+---
     php artisan db:seed
 SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
     
     php artisan db:seed --class=RoleSeeder
 <br/><br/>
 
+---
     php artisan storage:link
-&nbsp;
+---
 
-Integrar el servicio de Stripe
+### Integrar el servicio de Stripe
 - Abre el archivo .env de la aplicación, y añade las siguientes líneas al final:
 
 &nbsp;
@@ -273,7 +262,7 @@ Integrar el servicio de Stripe
 &nbsp;
 <br/><br/>
 
-Integrar el servicio de Cloudinary
+### Integrar el servicio de Cloudinary
 - Ir a https://cloudinary.com/ y crear una cuenta (Se puede con tu correo electrónico, con tu cuenta de Google o con la de GitHub).
 - Cuando hayas creado tu cuenta, dirígete al "Dashboard", en la sección de "Programmable Media", y copia la sección de "API environment variable".
 - Una vez copiado, abre el archivo .env de la aplicación, añade una nueva línea al final, y agrégale el texto que has copiado. Debería quedar algo similar a:
@@ -287,7 +276,7 @@ Integrar el servicio de Cloudinary
 - Ve a la sección de "Security", navega hasta abajo del todo, y marca la casilla de "Allow delivery of PDF and ZIP files". Una vez hecho esto, guarda los cambios.
 <br/><br/>
 
-Configurar los correos electrónicos
+### Configurar los correos electrónicos
 - Ve a https://myaccount.google.com/ para gestionar tu cuenta de Gmail.
 - Dirígete al apartado de "Seguridad", y asegúrate de que tienes activada la verificación en dos pasos para tu cuenta de Gmail.
 - En el buscador donde pone "Buscar en la cuenta de Google", escribe "Contraseñas de aplicación", y haz clic en el resultado con el mismo nombre.
@@ -319,19 +308,20 @@ Configurar los correos electrónicos
     MAIL_ENCRYPTION=tls
     MAIL_FROM_ADDRESS=ejemplo@gmail.com
     MAIL_FROM_NAME="Pizzería Brenda"
-&nbsp;
-
+---
     php artisan serve
-&nbsp;
+---
+Ve a la dirección localhost:8000 en tu navegador de Internet.
 
-Ir a localhost:8000 en el navegador
+---
+La aplicación ya estaría completamente lista para su uso.
 
-Aplicación lista (en teoría)
-
+---
 Por defecto las credenciales del usuario jefe principal son:
 - Correo electrónico: marco.lorenzo@iesdonana.org
 - Contraseña: UrMaiyorAdumono_17
 
+---
 
 ## About Laravel
 
