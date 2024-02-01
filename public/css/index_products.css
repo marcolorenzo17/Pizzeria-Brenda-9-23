@@ -68,14 +68,27 @@
     filter: brightness(150%);
 }
 
+@keyframes crearpizza_anim {
+    from {
+        color: #f12d2d;
+        font-size: 40px;
+    }
+
+    to {
+        color: #568c2c;
+        font-size: 42px;
+    }
+}
+
 #crearpizza {
-    color: #f12d2d;
-    transition: font-size 0.15s, color 0.15s;
+    animation-duration: 1s;
+    animation-name: crearpizza_anim;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #crearpizza:hover {
-    font-size: 30px;
-    color: #568c2c;
+    filter: brightness(75%);
 }
 
 #boton:hover {

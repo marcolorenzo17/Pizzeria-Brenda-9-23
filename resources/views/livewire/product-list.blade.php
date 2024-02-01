@@ -327,7 +327,7 @@
         </div>
         <br><br>
         <div class="text-center"
-            style="border-style: solid; border-width: 3px; border-color: #f12d2d; background-color:white; padding: 20px; border-radius:10px; font-family: 'Acme', sans-serif; font-size:25px;">
+            style="border-style: solid; border-width: 3px; border-color: #f12d2d; background-color:white; padding: 30px; border-radius:10px; font-family: 'Acme', sans-serif;">
             <a href="{{ route('crearpizza') }}" class="text-2xl font-bold"
                 id="crearpizza">{{ __('¡CREA TU PROPIA PIZZA AQUÍ!') }}</a>
         </div>
