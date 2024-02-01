@@ -1041,16 +1041,16 @@
                 </div>
                 <div style="margin-left:auto; display:flex;">
                     <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
-                            src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                            src="{{ asset('img/twit.png') }}" alt="twitter" width="30px" height="30px"
                             style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                            src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                            src="{{ asset('img/inst.png') }}" alt="instagram" width="30px" height="30px"
                             style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                            src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="30px" height="30px"
                             style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                            src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                            src="{{ asset('img/face.png') }}" alt="facebook" width="30px" height="30px"
                             style="margin-right:20px;" class="redes_sociales"></a>
                 </div>
                 <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">

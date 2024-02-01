@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<link rel="stylesheet" href="/css/welcome.css" />
+<link rel="stylesheet" href="/css/welcome.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
 
 <head>
@@ -12,7 +12,7 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
@@ -1015,8 +1015,8 @@
             background-color: #274014;
         }
     </style>
-    <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/welcome_responsive.css" />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/welcome_responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -1162,16 +1162,16 @@
                         <div
                             style="padding:10px; font-weight:bolder; border-bottom:1px solid gray; display:flex; justify-content:center; align-items:center; gap:30px;">
                             <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
-                                    src="{{ asset('img/twit.png') }}" width="30px" height="30px"
+                                    src="{{ asset('img/twit.png') }}" alt="twitter" width="30px" height="30px"
                                     style="filter: brightness(0%);"></a>
                             <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
+                                    src="{{ asset('img/inst.png') }}" alt="instagram" width="30px" height="30px"
                                     style="filter: brightness(0%);"></a>
                             <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                                    src="{{ asset('img/tik.png') }}" width="30px" height="30px"
+                                    src="{{ asset('img/tik.png') }}" alt="tiktok" width="30px" height="30px"
                                     style="filter: brightness(0%);"></a>
                             <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
+                                    src="{{ asset('img/face.png') }}" alt="facebook" width="30px" height="30px"
                                     style="filter: brightness(0%);"></a>
                         </div>
                     </div>
@@ -1774,16 +1774,16 @@
                     style="font-size:12px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
                         width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="25px" height="25px" style="margin-right:20px;"
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
                         class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="25px" height="25px" style="margin-right:20px;"
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
                         class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="25px" height="25px" style="margin-right:20px;"
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
                         class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
