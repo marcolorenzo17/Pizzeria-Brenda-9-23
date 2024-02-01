@@ -1275,16 +1275,17 @@
             @endforeach
         </div>
         <div
-            style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px; margin-top:52px; margin-bottom:78px;">
-            <p style="text-align:center; color:red; font-weight:bold; font-size:20px;">
+            style="border:3px solid red; margin-left:100px; margin-right:100px; padding:10px; border-radius:20px; margin-top:52px; margin-bottom:78px; background-color:white;">
+            <p style="text-align:center; color:red; font-weight:bold; font-size:30px; font-family: 'Acme', sans-serif;">
                 {{ __('¿Quieres algo más de tu estilo?') }}</p>
-            <div style="display:flex; justify-content:center;">
-                <p style="color:red; font-weight:bolder; font-size:25px;">{{ __('¡') }}</p>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;">
+                <p style="color:red; font-weight:bolder; font-size:35px; font-family: 'Acme', sans-serif;">{{ __('¡') }}</p>
                 <a href="{{ route('login') }}" onclick="redirigir_crearpizza()"
-                    style="font-weight:bolder; font-size:25px; text-decoration:underline;"
+                    style="font-weight:bolder; font-size:35px; text-decoration:underline; font-family: 'Acme', sans-serif;"
                     id="inicia_sesion">{{ __('Inicia sesión') }}</a>
-                <p style="color:red; font-weight:bolder; font-size:25px;">
-                    {{ __(', y crea tu propia pizza!') }}</p>
+                &nbsp;&nbsp;
+                <p style="color:red; font-weight:bolder; font-size:35px; font-family: 'Acme', sans-serif;">
+                    {{ __(' y crea tu propia pizza!') }}</p>
             </div>
         </div>
         <p style="margin-left:40px; font-weight:bolder; font-size:30px; color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"

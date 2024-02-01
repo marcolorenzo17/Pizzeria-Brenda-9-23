@@ -38,7 +38,9 @@
                         <td class="font-bold">{{ __('Cliente') }}</td>
                         <td class="font-bold">{{ __('Tipo') }}</td>
                         <td class="font-bold">{{ __('Personas') }}</td>
-                        <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        {{--
+                            <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        --}}
                         <td class="font-bold">{{ __('Reserva') }}</td>
                         {{--
                             <td class="font-bold">{{ __('Pagado') }}</td>
@@ -54,7 +56,9 @@
                             <td>{{ \App\Models\User::where(['id' => $evento->idUser])->pluck('name')->first() }}</td>
                             <td>{{ __($evento->tipo) }}</td>
                             <td>{{ $evento->personas }}</td>
-                            <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                            {{--
+                                <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                            --}}
                             <td>
                                 @if (in_array('2', $privilegioslista) || Auth::user()->primero)
                                     @if ($evento->reservado == 'true')
@@ -176,17 +180,19 @@
                                 <p style="margin-left:30px; text-align:right;">{{ $evento->personas }}</p>
                             </td>
                         </tr>
-                        <tr>
-                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                    {{ __('Presupuesto') }}</p>
-                            </td>
-                            <td>
-                                <p style="margin-left:30px; text-align:right;">
-                                    {{ number_format($evento->presupuesto, 2, '.', '') }} €
-                                </p>
-                            </td>
-                        </tr>
+                        {{--
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Presupuesto') }}</p>
+                                </td>
+                                <td>
+                                    <p style="margin-left:30px; text-align:right;">
+                                        {{ number_format($evento->presupuesto, 2, '.', '') }} €
+                                    </p>
+                                </td>
+                            </tr>
+                        --}}
                         @if (in_array('2', $privilegioslista) || Auth::user()->primero)
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
@@ -375,7 +381,9 @@
                         <td class="font-bold">{{ __('Hora') }}</td>
                         <td class="font-bold">{{ __('Tipo') }}</td>
                         <td class="font-bold">{{ __('Personas') }}</td>
-                        <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        {{--
+                            <td class="font-bold">{{ __('Presupuesto') }}</td>
+                        --}}
                         <td class="font-bold">{{ __('Reserva') }}</td>
                         {{--
                             <td class="font-bold">{{ __('Pagado') }}</td>
@@ -391,7 +399,9 @@
                                 <td>{{ date('H:i', strtotime($evento->hora)) }}</td>
                                 <td>{{ __($evento->tipo) }}</td>
                                 <td>{{ $evento->personas }}</td>
-                                <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                                {{--
+                                    <td>{{ number_format($evento->presupuesto, 2, '.', '') }} €</td>
+                                --}}
                                 <td>
                                     @if ($evento->reservado == 'true')
                                         <p>{{ __('Reservado') }}</p>
@@ -448,16 +458,18 @@
                                     <p style="margin-left:30px; text-align:right;">{{ $evento->personas }}</p>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Presupuesto') }}</p>
-                                </td>
-                                <td>
-                                    <p style="margin-left:30px; text-align:right;">
-                                        {{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
-                                </td>
-                            </tr>
+                            {{--
+                                <tr>
+                                    <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                        <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                            {{ __('Presupuesto') }}</p>
+                                    </td>
+                                    <td>
+                                        <p style="margin-left:30px; text-align:right;">
+                                            {{ number_format($evento->presupuesto, 2, '.', '') }} €</p>
+                                    </td>
+                                </tr>
+                            --}}
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     @if ($evento->reservado == 'true')
@@ -528,10 +540,17 @@
             <a href="{{ route('eventos.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
                 style="background-color:#f12d2d;">{{ __('VOLVER') }}</a>
         </div>
-        <p class="text-center" style="margin-top:30px;">
+        <p class="text-center" style="margin:30px;">
             {{ __('*Al reservar mesa para un cumpleaños o un evento, se hace un 5% de descuento al coste total del pedido.') }}
         </p>
-        <br>
+        <div style="text-align:center; margin:30px;">
+            <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md aniadeproductos" id="boton"
+                style="background-color:#568c2c; font-weight:bolder;">{{ __('Añade productos al carrito para ver tu presupuesto') }}</a>
+        </div>
+        @if (isset($_GET['totalpresupuesto']))
+            <p style="font-weight:bolder; text-align:center;">{{ __('Presupuesto:') }}
+                {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
+        @endif
     @endif
     @if (!isset($_GET['totalpresupuesto']))
         <div class="text-center">
@@ -540,7 +559,8 @@
                 <input type="hidden" value="{{ Cart::getTotal() * 0.95 }}" id="totalpresupuesto"
                     name="totalpresupuesto">
                 <input type="hidden" value="esconder" id="esconder" name="esconder">
-                <button type="submit" class="px-6 py-2 text-sm  rounded shadow" style="background-color:#568c2c; color:white; font-weight:bolder;"
+                <button type="submit" class="px-6 py-2 text-sm  rounded shadow"
+                    style="background-color:#568c2c; color:white; font-weight:bolder;"
                     id="boton">{{ __('Calcula el presupuesto para tu evento') }}</button>
             </form>
         </div>
@@ -692,11 +712,13 @@
                             @endforeach
                         </div>
                     @endif
-                    @if (isset($_GET['totalpresupuesto']))
-                        <br><br><br>
-                        <p style="font-weight:bolder;">{{ __('Presupuesto:') }}
-                            {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
-                    @endif
+                    {{--
+                        @if (isset($_GET['totalpresupuesto']))
+                            <br><br><br>
+                            <p style="font-weight:bolder;">{{ __('Presupuesto:') }}
+                                {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
+                        @endif
+                    --}}
                     <br><br>
                     <div class="form-group text-center">
                         <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
@@ -738,17 +760,18 @@
                 <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
-                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                        alt="twitter" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
@@ -785,6 +808,16 @@
 
             .redes_sociales {
                 display: none;
+            }
+
+            .aniadeproductos {
+                font-size:12px;
+            }
+        }
+
+        @media only screen and (min-width: 640px) {
+            .aniadeproductos {
+                font-size:18px;
             }
         }
     </style>
