@@ -76,12 +76,11 @@
                                         </td>
                                         <td>
                                             <form method="post"
-                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}"
-                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
+                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">{{ __('BORRAR') }}</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -116,12 +115,11 @@
                                     <tr>
                                         <td style="padding:5px">
                                             <form method="post"
-                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}"
-                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">
+                                                action="{{ route('crearpizza.destroy', $ingrediente->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">{{ __('BORRAR') }}</button>
                                             </form>
                                         </td>
                                     </tr>

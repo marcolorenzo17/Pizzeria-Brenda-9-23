@@ -1148,7 +1148,7 @@
             style="display:flex; flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;">
             <div>
                 <a href="#p1"><img src="{{ asset('img/vegetal.jpg') }}"
-                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250; height:200px;"
+                        style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
                         id="filtroproducto">
                 </a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS</p>

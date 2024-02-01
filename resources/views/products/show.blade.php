@@ -289,7 +289,7 @@
                                         <div>
                                             <button type="submit" class="px-6 py-2 text-sm rounded shadow"
                                                 style="color:red; background-color:lightgray;"
-                                                id="boton">{{ __('Borrar valoración') }}</button>
+                                                id="boton" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">{{ __('Borrar valoración') }}</button>
                                         </div>
                                     </form>
                                 @endif
@@ -382,7 +382,7 @@
                                                         <button type="submit"
                                                             class="px-6 py-2 text-sm rounded shadow"
                                                             style="color:red; background-color:lightgray;"
-                                                            id="boton">{{ __('Borrar comentario') }}</button>
+                                                            id="boton" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">{{ __('Borrar comentario') }}</button>
                                                     </div>
                                                 </form>
                                             @endif

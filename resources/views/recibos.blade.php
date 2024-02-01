@@ -164,12 +164,11 @@ if ($role_actual) {
                                     @endif
                                 </td>
                                 <td>
-                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}"
-                                        onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
+                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
                                         @csrf
                                         @method('delete')
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
                                     </form>
                                 </td>
                             @else
@@ -434,12 +433,11 @@ if ($role_actual) {
                                 </td>
                                 <td>
                                     <div style="margin-left:30px; text-align:right;">
-                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}"
-                                            onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">
+                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
                                             @csrf
                                             @method('delete')
                                             <button
-                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
                                         </form>
                                     </div>
                                 </td>

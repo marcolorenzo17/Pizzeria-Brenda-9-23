@@ -120,12 +120,11 @@
                                 {{ \App\Models\User::where(['id' => $curriculum->idUser])->pluck('email')->first() }}
                             </p>
                             <br>
-                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}"
-                                onclick="return confirm('¿Estás seguro de que quieres eliminar este currículum?')">
+                            <form method="post" action="{{ route('curriculum.destroy', $curriculum->id) }}">
                                 @csrf
                                 @method('delete')
                                 <button
-                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este currículum?')">{{ __('BORRAR') }}</button>
                             </form>
                         </div>
                     </div>

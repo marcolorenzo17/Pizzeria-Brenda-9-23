@@ -489,12 +489,11 @@ if ($role_actual) {
                             </script>
                         @endif
                         <td>
-                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
-                                onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
+                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
                                 @csrf
                                 @method('delete')
                                 <button
-                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">x</button>
                             </form>
                         </td>
                     </tr>
@@ -998,12 +997,11 @@ if ($role_actual) {
                     </td>
                     <td>
                         <div style="margin-left:30px; text-align:right;">
-                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}"
-                                onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">
+                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
                                 @csrf
                                 @method('delete')
                                 <button
-                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar a este usuario?')">x</button>
                             </form>
                         </div>
                     </td>

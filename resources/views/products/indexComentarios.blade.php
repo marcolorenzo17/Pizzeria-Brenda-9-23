@@ -57,12 +57,11 @@ if ($role_actual) {
                         @if (in_array('6', $privilegioslista) || Auth::user()->primero)
                             <td>
                                 <form method="post"
-                                    action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}"
-                                    onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">
+                                    action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">x</button>
                                 </form>
                             </td>
                         @endif
@@ -130,12 +129,11 @@ if ($role_actual) {
                             <td>
                                 <div style="margin-left:20px; text-align:right;">
                                     <form method="post"
-                                        action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}"
-                                        onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">
+                                        action="{{ route('products.destroyComentarioAdmin', $comentario->id) }}">
                                         @csrf
                                         @method('delete')
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">x</button>
                                     </form>
                                 </div>
                             </td>

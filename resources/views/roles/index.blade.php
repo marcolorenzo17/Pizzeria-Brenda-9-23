@@ -56,12 +56,11 @@ if ($role_actual) {
                                                 </td>
                                                 <td>
                                                     <form method="post"
-                                                        action="{{ route('roles.destroy', $role->id) }}"
-                                                        onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que se borrarán también todos los usuarios que tengan este rol asignado.')">
+                                                        action="{{ route('roles.destroy', $role->id) }}">
                                                         @csrf
                                                         @method('delete')
                                                         <button
-                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que se borrarán también todos los usuarios que tengan este rol asignado.')">{{ __('BORRAR') }}</button>
                                                     </form>
                                                 </td>
                                             @else
@@ -97,12 +96,11 @@ if ($role_actual) {
                                             <tr>
                                                 <td style="padding:8px">
                                                     <form method="post"
-                                                        action="{{ route('roles.destroy', $role->id) }}"
-                                                        onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que borrarán también todos los usuarios que tengan este rol asignado.')">
+                                                        action="{{ route('roles.destroy', $role->id) }}">
                                                         @csrf
                                                         @method('delete')
                                                         <button
-                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que borrarán también todos los usuarios que tengan este rol asignado.')">{{ __('BORRAR') }}</button>
                                                     </form>
                                                 </td>
                                             </tr>

@@ -104,12 +104,11 @@ use App\Http\Controllers\ProductController;
                                                 style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
-                                            <form method="post" action="{{ route('products.destroy', $product->id) }}"
-                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
+                                            <form method="post" action="{{ route('products.destroy', $product->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">{{ __('BORRAR') }}</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -143,12 +142,11 @@ use App\Http\Controllers\ProductController;
                                     </tr>
                                     <tr>
                                         <td style="padding:5px">
-                                            <form method="post" action="{{ route('products.destroy', $product->id) }}"
-                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">
+                                            <form method="post" action="{{ route('products.destroy', $product->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este plato?')">{{ __('BORRAR') }}</button>
                                             </form>
                                         </td>
                                     </tr>
