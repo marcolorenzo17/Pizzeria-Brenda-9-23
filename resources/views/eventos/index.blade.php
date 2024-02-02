@@ -551,6 +551,7 @@
             <p style="font-weight:bolder; text-align:center;">{{ __('Presupuesto:') }}
                 {{ number_format($_GET['totalpresupuesto'], 2, '.', '') }} €</p>
         @endif
+        <div style="background-color:gray; width:100%; height:2px; border-radius:10px; margin-top:30px;"><br></div>
     @endif
     @if (!isset($_GET['totalpresupuesto']))
         <div class="text-center">

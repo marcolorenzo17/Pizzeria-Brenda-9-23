@@ -135,7 +135,8 @@
             </div>
         @elseif (!Auth::user()->admin)
             <div class="mx-auto text-center">
-                <p>{{ __('¿Quieres trabajar con nosotros?') }}<br>{{ __('Envíanos ya tu currículum.') }}</p>
+                <p style="font-weight:bolder; font-size:22px;">{{ __('¿Quieres trabajar con nosotros?') }}</p>
+                <p style="font-weight:bolder; font-size:22px;">{{ __('Envíanos ya tu currículum.') }}</p>
             </div>
             <br>
             <div style="background-color:gray; width:100%; height:2px; border-radius:10px;"><br></div>
