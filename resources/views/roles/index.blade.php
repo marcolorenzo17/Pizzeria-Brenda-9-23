@@ -7,7 +7,7 @@ if ($role_actual) {
     $privilegioslista = explode('-', $role_actual);
 }
 ?>
-@if (in_array('3', $privilegioslista) || Auth::user()->primero)
+@if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
             <div style="margin-top:110px;">
@@ -20,72 +20,83 @@ if ($role_actual) {
         <link rel="stylesheet" href="/css/index_products.css" />
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
-        rel="stylesheet">
-        @if (Auth::user()->admin)
-            <br>
+            rel="stylesheet">
+        <br>
+        @if (in_array('3', $privilegioslista) || Auth::user()->primero)
             <div style="margin-left:20px;">
                 <a href="{{ route('roles.crear') }}" class="text-white px-4 py-2 rounded-md" id="boton"
                     style="background-color:#568c2c;">{{ __('CREAR ROL') }}</a>
             </div>
-            <br>
-            <div style="background:white; margin-bottom:300px; padding:30px;">
-                <table style="width:100%;">
-                    @foreach ($roles as $role)
-                        <tr>
-                            <td>
-                                <div style="margin:20px; display:flex; gap:20px;">
-                                    <div>
-                                        @if (Lang::locale() == 'es')
-                                            <p style="font-weight:bolder; font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase;">{{ $role->nombre }}</p>
-                                        @else
-                                            <p style="font-weight:bolder; font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase;">{{ $role->nombreen }}</p>
-                                        @endif
-                                    </div>
-                                    <table style="margin-left:auto; margin-right:0;" id="productos-grande">
-                                        <tr>
-                                            @if (!$role->primero)
-                                                <td>
-                                                    <a href="{{ route('roles.show', $role) }}"
-                                                        class="text-white px-4 py-2 rounded-md" id="boton"
-                                                        style="background-color:#274014;">{{ __('DETALLES') }}</a>
-                                                </td>
+        @endif
+        <br>
+        <div style="background:white; margin-bottom:300px; padding:30px;">
+            <table style="width:100%;">
+                @foreach ($roles as $role)
+                    <tr>
+                        <td>
+                            <div style="margin:20px; display:flex; gap:20px;">
+                                <div>
+                                    @if (Lang::locale() == 'es')
+                                        <p
+                                            style="font-weight:bolder; font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase;">
+                                            {{ $role->nombre }}</p>
+                                    @else
+                                        <p
+                                            style="font-weight:bolder; font-family: 'Acme', sans-serif; font-size:25px; text-transform:uppercase;">
+                                            {{ $role->nombreen }}</p>
+                                    @endif
+                                </div>
+                                <table style="margin-left:auto; margin-right:0;" id="productos-grande">
+                                    <tr>
+                                        @if (!$role->primero)
+                                            <td>
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                            @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                                                 <td>
                                                     <a href="{{ route('roles.editar', $role) }}"
                                                         class="text-white px-4 py-2 rounded-md" id="boton"
                                                         style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                                 </td>
+                                            @endif
+                                            @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                                                 <td>
                                                     <form method="post"
                                                         action="{{ route('roles.destroy', $role->id) }}">
                                                         @csrf
                                                         @method('delete')
                                                         <button
-                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que se borrarán también todos los usuarios que tengan este rol asignado.')">{{ __('BORRAR') }}</button>
+                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                                            onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que se borrarán también todos los usuarios que tengan este rol asignado.')">{{ __('BORRAR') }}</button>
                                                     </form>
                                                 </td>
-                                            @else
-                                                <td>
-                                                    <a href="{{ route('roles.show', $role) }}"
-                                                        class="text-white px-4 py-2 rounded-md" id="boton"
-                                                        style="background-color:#274014;">{{ __('DETALLES') }}</a>
-                                                </td>
-                                                <td>
-                                                    <p style="color:gray;">
-                                                        {{ __('No se puede editar el rol de Jefe.') }}
-                                                    </p>
-                                                </td>
                                             @endif
+                                        @else
+                                            <td>
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                            <td>
+                                                <p style="color:gray;">
+                                                    {{ __('No se puede editar el rol de Jefe.') }}
+                                                </p>
+                                            </td>
+                                        @endif
+                                    </tr>
+                                </table>
+                                <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
+                                    @if (!$role->primero)
+                                        <tr>
+                                            <td style="padding:8px">
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
                                         </tr>
-                                    </table>
-                                    <table style="margin-left:auto; margin-right:0;" id="productos-pequenio">
-                                        @if (!$role->primero)
-                                            <tr>
-                                                <td style="padding:8px">
-                                                    <a href="{{ route('roles.show', $role) }}"
-                                                        class="text-white px-4 py-2 rounded-md" id="boton"
-                                                        style="background-color:#274014;">{{ __('DETALLES') }}</a>
-                                                </td>
-                                            </tr>
+                                        @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                                             <tr>
                                                 <td style="padding:8px;">
                                                     <a href="{{ route('roles.editar', $role) }}"
@@ -93,6 +104,8 @@ if ($role_actual) {
                                                         style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                                 </td>
                                             </tr>
+                                        @endif
+                                        @if (in_array('3', $privilegioslista) || Auth::user()->primero)
                                             <tr>
                                                 <td style="padding:8px">
                                                     <form method="post"
@@ -100,34 +113,35 @@ if ($role_actual) {
                                                         @csrf
                                                         @method('delete')
                                                         <button
-                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que borrarán también todos los usuarios que tengan este rol asignado.')">{{ __('BORRAR') }}</button>
+                                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                                            onclick="return confirm('¿Estás seguro de que quieres eliminar este rol? Ten en cuenta que borrarán también todos los usuarios que tengan este rol asignado.')">{{ __('BORRAR') }}</button>
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @else
-                                            <tr>
-                                                <td style="padding:8px">
-                                                    <a href="{{ route('roles.show', $role) }}"
-                                                        class="text-white px-4 py-2 rounded-md" id="boton"
-                                                        style="background-color:#274014;">{{ __('DETALLES') }}</a>
-                                                </td>
-                                            </tr>
-                                            <td>
-                                                <p style="color:gray;">{{ __('No se puede editar el rol de Jefe.') }}
-                                                </p>
-                                            </td>
                                         @endif
-                                    </table>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                </table>
-                <div style="margin-top:50px;">
-                    {{ $roles->links() }}
-                </div>
+                                    @else
+                                        <tr>
+                                            <td style="padding:8px">
+                                                <a href="{{ route('roles.show', $role) }}"
+                                                    class="text-white px-4 py-2 rounded-md" id="boton"
+                                                    style="background-color:#274014;">{{ __('DETALLES') }}</a>
+                                            </td>
+                                        </tr>
+                                        <td>
+                                            <p style="color:gray;">{{ __('No se puede editar el rol de Jefe.') }}
+                                            </p>
+                                        </td>
+                                    @endif
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+            <div style="margin-top:50px;">
+                {{ $roles->links() }}
             </div>
-        @endif
+        </div>
 
         <div class="footer">
             <div style="text-align:center; font-size:13px;">
@@ -154,14 +168,15 @@ if ($role_actual) {
                     <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
                 </div>
                 <div style="margin-left:auto; display:flex;">
-                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
-                            width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                            alt="twitter" width="25px" height="25px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
                     <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                            src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
-                            class="redes_sociales"></a>
+                            src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
-                            class="redes_sociales"></a>
+                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
                     <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
                             src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
                             style="margin-right:20px;" class="redes_sociales"></a>

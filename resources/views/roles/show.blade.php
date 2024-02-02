@@ -7,7 +7,7 @@ if ($role_actual) {
     $privilegioslista = explode('-', $role_actual);
 }
 ?>
-@if (in_array('3', $privilegioslista) || Auth::user()->primero)
+@if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
             <div style="margin-top:110px;">
@@ -59,7 +59,7 @@ if ($role_actual) {
                 </tr>
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
-                        <label for="3">{{ __('El usuario puede ver y modificar la lista de roles') }}</label><br>
+                        <label for="3">{{ __('El usuario puede modificar la lista de roles') }}</label><br>
                         @if (in_array('3', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
                         @else

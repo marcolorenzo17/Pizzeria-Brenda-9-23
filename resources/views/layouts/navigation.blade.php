@@ -193,13 +193,25 @@
                                             {{ __('Jefe') }})</p>
                                     @else
                                         @if (Lang::locale() == 'es')
-                                            <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
-                                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
-                                            </p>
+                                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin - Sin
+                                                    rol)
+                                                </p>
+                                            @else
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
+                                                </p>
+                                            @endif
                                         @else
-                                            <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
-                                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
-                                            </p>
+                                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin - No
+                                                    role)
+                                                </p>
+                                            @else
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
+                                                </p>
+                                            @endif
                                         @endif
                                     @endif
                                 </div>
@@ -239,16 +251,14 @@
                                     @endif
                                 </x-dropdown-link>
                             @endif
-                            @if (in_array('3', $privilegioslista) || Auth::user()->primero)
-                                <x-dropdown-link :href="route('roles.index')">
-                                    <p>{{ __('Roles') }}</p>
-                                    @if (Route::current()->getName() == 'roles.index')
-                                        <div style="background-color:red; height:3px; border-radius:10px;">
-                                            <br>
-                                        </div>
-                                    @endif
-                                </x-dropdown-link>
-                            @endif
+                            <x-dropdown-link :href="route('roles.index')">
+                                <p>{{ __('Roles') }}</p>
+                                @if (Route::current()->getName() == 'roles.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
                             <x-dropdown-link :href="route('products.indexValoraciones')">
                                 <p>{{ __('Valoraciones') }}</p>
                                 @if (Route::current()->getName() == 'products.indexValoraciones')
@@ -392,13 +402,23 @@
                             {{ __('Jefe') }})</p>
                     @else
                         @if (Lang::locale() == 'es')
-                            <p>{{ Auth::user()->name }} (Admin -
-                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
-                            </p>
+                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                <p>{{ Auth::user()->name }} (Admin - Sin rol)
+                                </p>
+                            @else
+                                <p>{{ Auth::user()->name }} (Admin -
+                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
+                                </p>
+                            @endif
                         @else
-                            <p>{{ Auth::user()->name }} (Admin -
-                                {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
-                            </p>
+                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                <p>{{ Auth::user()->name }} (Admin - No role)
+                                </p>
+                            @else
+                                <p>{{ Auth::user()->name }} (Admin -
+                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
+                                </p>
+                            @endif
                         @endif
                     @endif
                 </div>
@@ -520,16 +540,14 @@
                             @endif
                         </x-responsive-nav-link>
                     @endif
-                    @if (in_array('3', $privilegioslista) || Auth::user()->primero)
-                        <x-responsive-nav-link :href="route('roles.index')">
-                            <p>{{ __('Roles') }}</p>
-                            @if (Route::current()->getName() == 'roles.index')
-                                <div style="background-color:red; height:3px; border-radius:10px;">
-                                    <br>
-                                </div>
-                            @endif
-                        </x-responsive-nav-link>
-                    @endif
+                    <x-responsive-nav-link :href="route('roles.index')">
+                        <p>{{ __('Roles') }}</p>
+                        @if (Route::current()->getName() == 'roles.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
+                    </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('products.indexValoraciones')">
                         <p>{{ __('Valoraciones') }}</p>
                         @if (Route::current()->getName() == 'products.indexValoraciones')
