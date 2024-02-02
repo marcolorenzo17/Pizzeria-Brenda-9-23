@@ -115,6 +115,10 @@ Hacer un fork al repositorio de la aplicación en https://github.com/marcolorenz
 Clonar ese fork con:
 
     git clone [ Url del fork del repositorio ]
+<br/>
+
+Como alternativa, también puedes descargar el código fuente de la Release más reciente de la aplicación (en un archivo .zip): https://github.com/marcolorenzo17/Pizzeria-Brenda-9-23/releases
+
 ---
 
 Entrar dentro de la carpeta de la aplicación con:
