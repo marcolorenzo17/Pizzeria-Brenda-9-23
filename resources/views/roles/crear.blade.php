@@ -42,7 +42,7 @@ if ($role_actual) {
                             <label for="name">{{ __('Nombre del rol') }}</label>
                             <br>
                             <input type="text" id="name" name="name" value="{{ old('name') }}"
-                                onfocusout="validate_name()" style="width:100%;">
+                                onfocusout="validate_name()" style="width:100%; border-radius:30px;">
                             <p id="error_name" style="color:red;"></p>
                         </div>
                         <br><br>
@@ -54,7 +54,7 @@ if ($role_actual) {
                             <label for="nameen">{{ __('Nombre del rol (Inglés)') }}</label>
                             <br>
                             <input type="text" id="nameen" name="nameen" size="80"
-                                value="{{ old('nameen') }}" onfocusout="validate_nameen()" style="width:100%;">
+                                value="{{ old('nameen') }}" onfocusout="validate_nameen()" style="width:100%; border-radius:30px;">
                             <p id="error_nameen" style="color:red;"></p>
                         </div>
                         <br><br>

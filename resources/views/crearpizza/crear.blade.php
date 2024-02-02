@@ -91,7 +91,7 @@
                         <label for="name">{{ __('Nombre del ingrediente') }}</label>
                         <br>
                         <input type="text" id="name" name="name" size="80" value="{{ old('name') }}"
-                            onfocusout="validate_name()" x-model="nombre" style="width:100%;">
+                            onfocusout="validate_name()" x-model="nombre" style="width:100%; border-radius:30px;">
                         <p id="error_name" style="color:red;"></p>
                     </div>
                     <br><br>
@@ -103,7 +103,7 @@
                         <label for="nameen">{{ __('Nombre del ingrediente (Inglés)') }}</label>
                         <br>
                         <input type="text" id="nameen" name="nameen" size="80" value="{{ old('nameen') }}"
-                            onfocusout="validate_nameen()" x-model="name" style="width:100%;">
+                            onfocusout="validate_nameen()" x-model="name" style="width:100%; border-radius:30px;">
                         <p id="error_nameen" style="color:red;"></p>
                     </div>
                     <br><br>
@@ -126,7 +126,7 @@
                         <label for="price">{{ __('Precio') }}</label>
                         <br>
                         <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"
-                            onfocusout="validate_price()"> €
+                            onfocusout="validate_price()" style="border-radius:30px;"> €
                         <p id="error_price" style="color:red;"></p>
                     </div>
                     <br><br>

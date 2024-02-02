@@ -91,7 +91,7 @@
                         <label for="name">{{ __('Nombre del plato') }}</label>
                         <br>
                         <input type="text" id="name" name="name" size="80" onfocusout="validate_name()"
-                            style="width:100%;" x-model="nombre">
+                            style="width:100%; border-radius:30px;" x-model="nombre">
                         <br>
                         <strong>{{ __('Nombre del plato actual:') }}</strong>&nbsp;{{ __($product->name) }}
                         <p id="error_name" style="color:red;"></p>
@@ -105,7 +105,7 @@
                         <label for="nameen">{{ __('Nombre del plato (Inglés)') }}</label>
                         <br>
                         <input type="text" id="nameen" name="nameen" size="80"
-                            onfocusout="validate_nameen()" style="width:100%;" x-model="name">
+                            onfocusout="validate_nameen()" style="width:100%; border-radius:30px;" x-model="name">
                         <br>
                         <strong>{{ __('Nombre del plato actual (Inglés):') }}</strong>&nbsp;{{ __($product->nameen) }}
                         <p id="error_nameen" style="color:red;"></p>
@@ -128,15 +128,15 @@
                         <label for="price">{{ __('Precio') }}</label>
                         <br>
                         <input type="number" id="price" name="price" step=".01"
-                            value="{{ $product->price }}" onfocusout="validate_price()"> €
+                            value="{{ $product->price }}" onfocusout="validate_price()" style="border-radius:30px;"> €
                         <p id="error_price" style="color:red;"></p>
                     </div>
                     <br><br>
                     <div id="input_div" style="margin:auto; display:block;">
                         <label for="description">{{ __('Descripción') }}</label>
                         <br>
-                        <input type="text" id="description" name="description" size="80"
-                            value="{{ $product->description }}" style="width:100%;">
+                        <textarea id="description" name="description" size="80"
+                            style="width:100%;">{{ $product->description }}</textarea>
                     </div>
                     <br><br>
                     <div id="input_div" style="margin:auto; display:block;">
@@ -166,7 +166,7 @@
                         <label for="puntos">{{ __('Pizzacoins para desbloqueo (Sólo promociones)') }}</label>
                         <br>
                         <input type="number" id="puntos" name="puntos" step="1"
-                            value="{{ $product->puntos }}" min="0" onfocusout="validate_puntos()">
+                            value="{{ $product->puntos }}" min="0" onfocusout="validate_puntos()" style="border-radius:30px;">
                         <p id="error_puntos" style="color:red;"></p>
                     </div>
                     <br><br>
