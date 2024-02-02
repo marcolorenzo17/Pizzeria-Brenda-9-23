@@ -32,7 +32,7 @@
 
     $productosycantidadarray = [];
     foreach ($cartItems as $item) {
-        array_push($productosycantidadarray, $item->quantity . " " . $item->name);
+        array_push($productosycantidadarray, $item->quantity . ' ' . $item->name);
     }
     $productosycantidadvalores = '';
     foreach (array_values($productosycantidadarray) as $producto) {
@@ -119,11 +119,16 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-right md:table-cell" style="padding:10px;">
-                                <span class="text-sm font-medium lg:text-base">
-                                    {{ $item->attributes->puntos }}
-                                </span>
-                            </td>
+                            @if ($item->attributes->puntos > 0 and $item->attributes->puntos != '')
+                                <td class="text-right md:table-cell" style="padding:10px;">
+                                    <span class="text-sm font-medium lg:text-base">
+                                        {{ $item->attributes->puntos }}
+                                    </span>
+                                </td>
+                            @else
+                                <td class="text-right md:table-cell" style="padding:10px;">
+                                </td>
+                            @endif
                             <td class="hidden text-right md:table-cell" style="padding:10px;">
                                 <span class="text-sm font-medium lg:text-base">
                                     {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
@@ -201,7 +206,7 @@
                                 {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
                             </p>
                         @endif
-                        @if ($item->attributes->puntos >= 0 and $item->attributes->puntos != '')
+                        @if ($item->attributes->puntos > 0 and $item->attributes->puntos != '')
                             <p>
                                 - Pizzacoins: {{ $item->attributes->puntos }}
                             </p>
@@ -368,17 +373,18 @@
                 <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
-                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                        alt="twitter" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
