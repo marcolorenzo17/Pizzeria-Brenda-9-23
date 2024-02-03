@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<link rel="stylesheet" href="/css/cartaAnon.css" />
+<link rel="stylesheet" href="/css/cartaAnon.css">
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
@@ -972,7 +972,7 @@
             text-decoration: underline;
         }
     </style>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -1149,34 +1149,34 @@
             <div>
                 <a href="#p1"><img src="{{ asset('img/vegetal.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto">
+                        id="filtroproducto" alt="pizzas">
                 </a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS</p>
             </div>
             <div>
                 <a href="#p2"><img src="{{ asset('img/crunchi.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="hamburguesas"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('HAMBURGUESAS') }}</p>
             </div>
             <div>
                 <a href="#p3"><img src="{{ asset('img/especial.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="sandwiches"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('SÁNDWICHES') }}</p>
             </div>
             <div>
                 <a href="#p4"><img src="{{ asset('img/boloñesa.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="pasta"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PASTA</p>
             </div>
             <div>
                 <a href="#p5"><img src="{{ asset('img/arrozfrito.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="arroces"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('ARROCES') }}
                 </p>
@@ -1184,49 +1184,49 @@
             <div>
                 <a href="#p6"><img src="{{ asset('img/bavegetal.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="baguettes"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('BAGUETTES') }}</p>
             </div>
             <div>
                 <a href="#p7"><img src="{{ asset('img/enormal.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="ensaladas"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('ENSALADAS') }}</p>
             </div>
             <div>
                 <a href="#p8"><img src="{{ asset('img/nuggets.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="complementos"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('COMPLEMENTOS') }}</p>
             </div>
             <div>
                 <a href="#p9"><img src="{{ asset('img/perrito.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="perritos"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('PERRITOS') }}</p>
             </div>
             <div>
                 <a href="#p10"><img src="{{ asset('img/cervezamaceta.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="cervezas"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('CERVEZAS') }}</p>
             </div>
             <div>
                 <a href="#p11"><img src="{{ asset('img/copafino.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="vinos"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('VINOS') }}</p>
             </div>
             <div>
                 <a href="#p12"><img src="{{ asset('img/lata.jpg') }}"
                         style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
-                        id="filtroproducto"></a>
+                        id="filtroproducto" alt="refrescos"></a>
                 <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
                     {{ __('REFRESCOS') }}</p>
             </div>
@@ -1250,7 +1250,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1304,7 +1304,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1344,7 +1344,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1384,7 +1384,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1424,7 +1424,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1464,7 +1464,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1505,7 +1505,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1546,7 +1546,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1587,7 +1587,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1628,7 +1628,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1669,7 +1669,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1710,7 +1710,7 @@
 
                         <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
                             <img src="{{ asset($product->image) }}" class="mx-auto"
-                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto">
+                                style="height:200px; width:200px; border-radius:30px; padding:10px;" id="imgproducto" alt="producto">
                         </a>
                         <div class="px-5 py-3" style="padding:15px;">
                             @if (Lang::locale() == 'es')
@@ -1755,7 +1755,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -1782,14 +1782,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -1817,7 +1817,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -1844,14 +1844,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -1879,7 +1879,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -1906,14 +1906,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -1941,7 +1941,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -1968,14 +1968,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2003,7 +2003,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2030,14 +2030,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2065,7 +2065,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2092,14 +2092,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2127,7 +2127,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2154,14 +2154,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2189,7 +2189,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2216,14 +2216,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2251,7 +2251,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2278,14 +2278,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2313,7 +2313,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2340,14 +2340,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2375,7 +2375,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2402,14 +2402,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
@@ -2437,7 +2437,7 @@
                                     <a href="#" class="alb" title="Producto"><img
                                             src="{{ asset($product->image) }}"
                                             style="height:200px; width:200px; border-radius:30px; padding:10px; border: 2px solid gray;"
-                                            loading="lazy" class="mx-auto img_ensi_2"></a>
+                                            loading="lazy" class="mx-auto img_ensi_2" alt="producto"></a>
                                 </div>
                                 <br>
                                 @if (Lang::locale() == 'es')
@@ -2464,14 +2464,14 @@
                                     @if ($product->alergenos != '')
                                         @foreach ($alergenoslista as $alergeno)
                                             <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                                width="40px" height="40px">
+                                                width="40px" height="40px" alt="alergeno">
                                         @endforeach
                                     @endif
                                 </div>
                                 <br><br>
                             </div>
                             <div style="margin: 0 auto; text-align:center;">
-                                <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px"
+                                <img src="{{ asset('img/alergenos.jpg') }}" alt="alergenos" width="350px"
                                     height="350px" class="max-h-60 mx-auto"
                                     style="border: 1px solid gray; border-radius:30px;">
                             </div>
