@@ -7,17 +7,32 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Sobre Pizzeria-Brenda
+## Sobre Pizzeria-Brenda-9-23
 
 Una página web para la Pizzería Brenda de Chipiona.
 
-Su funcionalidad principal es proporcionar una página web para dar a conocer la Pizzería Brenda de Chipiona y poder hacer los pedidos online.
+Su funcionalidad principal es proporcionar una página web para dar a conocer los servicios que ofrece la Pizzería Brenda de Chipiona y poder hacer los pedidos online.
 
-Objetivos: Realizar pedidos a domicilio, ofrecer los diferentes productos y promociones de la pizzería, y ofrecer la oportunidad de opinar y hacer sugerencias sobre los diferentes platos.
+Objetivos generales:
+- Realizar pedidos a domicilio.
+- Ofrecer y gestionar los diferentes productos y promociones de la pizzería.
+- Ofrecer la oportunidad de opinar y hacer sugerencias sobre los diferentes platos.
+- Personalizar pizzas con los ingredientes deseados.
+- Pagar los pedidos a través de la página.
+- Reservar mesa para un día y hora concretos.
+- Presupuestos para reuniones, cumpleaños, etc…
+- Ver información detallada sobre los componentes de cada plato y sus posibles alérgenos.
+- Dar valoraciones, sugerencias, comentarios y quejas acerca de los diferentes productos de la carta.
+- Consultar pedidos anteriores.
+- Entrega de currículum.
+- Los administradores podrán gestionar los pedidos y reservas, y consultar las preferencias de los clientes.
 
-Casos de uso: Personalizar pizzas y diferentes platos (burgers, pasta y complementos) con los ingredientes deseados. Pagar los pedidos a través de la página. Recibir el pedido a domicilio a una hora establecida. Reservar mesa para un día y hora concretos. Presupuestos para reuniones, cumpleaños, etc… Ver información detallada sobre los componentes de cada plato y sus posibles alérgenos. Iniciar sesión y registrarse en la página para: Dar valoraciones, sugerencias, comentarios y quejas acerca de los diferentes productos de la carta, consultar pedidos anteriores o entregar su currículum.
-
-Sus elementos de innovación son: Crear un personaje animado que actúe como asistente virtual, con el que el usuario podrá interactuar mediante una conversación de chat automatizada. Para cada página de los platos que hay en la carta, habrá una sección para las opiniones, valoraciones y comentarios de los clientes. Se dará la opción de traducir toda la página web al inglés con un sólo paso. Se utilizará el Framework de Laravel 10.
+Elementos de innovación:
+- Uso del Framework Web de Laravel 10.
+- Uso una API que gestione los pagos con tarjeta de crédito.
+- Con cada compra en la página web, el usuario irá acumulando unas monedas virtuales exclusivas de la pizzería, las cuales se podrán canjear por promociones.
+- Para cada página de los platos que hay en la carta, habrá una sección para las opiniones, valoraciones y comentarios de los clientes.
+- Se dará la opción de traducir toda la página web al inglés con un sólo paso.
 
 ## Cómo desplegar la aplicación web
 - Se ha probado el despliegue en local de la aplicación utilizando Ubuntu 22.04.3 LTS. La siguiente guía está escrita para dicho sistema operativo.
