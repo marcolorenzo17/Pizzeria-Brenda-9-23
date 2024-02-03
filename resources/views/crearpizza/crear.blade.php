@@ -125,7 +125,7 @@
                         @enderror
                         <label for="price">{{ __('Precio') }}</label>
                         <br>
-                        <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"
+                        <input type="number" id="price" name="price" step=".01" value="0"
                             onfocusout="validate_price()" style="border-radius:30px;"> €
                         <p id="error_price" style="color:red;"></p>
                     </div>

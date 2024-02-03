@@ -201,6 +201,16 @@ class ProductController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
+        if ($req->type == "Promoción" and $req->price != 0) {
+            session()->flash('notif.success', 'Las promociones sólo pueden tener un precio de 0 €.');
+            return back();
+        }
+
+        if ($req->type != "Promoción" and ($req->puntos != 0 and $req->puntos != "")) {
+            session()->flash('notif.success', 'Sólo las promociones pueden tener asignado un valor de Pizzacoins.');
+            return back();
+        }
+
         $image_path = $req->file('image_product')->storeOnCloudinary('image_product');
 
         $alergenos = '';
@@ -260,6 +270,16 @@ class ProductController extends Controller
 
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
+        }
+
+        if ($req->type == "Promoción" and $req->price != 0) {
+            session()->flash('notif.success', 'Las promociones sólo pueden tener un precio de 0 €.');
+            return back();
+        }
+
+        if ($req->type != "Promoción" and ($req->puntos != 0 and $req->puntos != "")) {
+            session()->flash('notif.success', 'Sólo las promociones pueden tener asignado un valor de Pizzacoins.');
+            return back();
         }
 
         $product = Product::findOrFail($id);

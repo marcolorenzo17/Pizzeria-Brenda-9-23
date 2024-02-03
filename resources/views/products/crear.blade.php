@@ -125,7 +125,7 @@
                         @enderror
                         <label for="price">{{ __('Precio') }}</label>
                         <br>
-                        <input type="number" id="price" name="price" step=".01" value="{{ old('price') }}"
+                        <input type="number" id="price" name="price" step=".01" value="0"
                             onfocusout="validate_price()" style="border-radius:30px;"> €
                         <p id="error_price" style="color:red;"></p>
                         <br><br>
@@ -471,7 +471,11 @@
 
             function validate_puntos() {
                 var puntos = document.forms["crearplato"]["puntos"].value;
-                if (puntos < 0) {
+                if (puntos == "") {
+                    document.getElementById("error_puntos").innerHTML =
+                        "{{ __('El campo de Pizzacoins es obligatorio.') }}";
+                    return false;
+                } else if (puntos < 0) {
                     document.getElementById("error_puntos").innerHTML =
                         "{{ __('El producto no puede costar menos de 0 Pizzacoins.') }}";
                     return false;

@@ -490,7 +490,11 @@
 
             function validate_puntos() {
                 var puntos = document.forms["editarplato"]["puntos"].value;
-                if (puntos < 0) {
+                if (puntos == "") {
+                    document.getElementById("error_puntos").innerHTML =
+                        "{{ __('El campo de Pizzacoins es obligatorio.') }}";
+                    return false;
+                } else if (puntos < 0) {
                     document.getElementById("error_puntos").innerHTML =
                         "{{ __('El producto no puede costar menos de 0 Pizzacoins.') }}";
                     return false;
