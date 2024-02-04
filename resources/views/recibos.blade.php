@@ -44,6 +44,18 @@ if ($role_actual) {
                         id="boton">{{ __('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
                 </div>
             @endif
+            <?php
+            $pendientes = 0;
+            foreach ($recibos as $recibo) {
+                if ($recibo->estado != 'Pedido entregado' or !$recibo->pagado) {
+                    $pendientes += 1;
+                }
+            }
+            ?>
+            @if (Auth::user()->admin)
+                <p style="text-align: center; margin-top:20px; font-weight:bolder;">{{ __('Pedidos pendientes en esta página: ') }}
+                    {{ $pendientes }}</p>
+            @endif
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />
@@ -168,7 +180,8 @@ if ($role_actual) {
                                         @csrf
                                         @method('delete')
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                            onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
                                     </form>
                                 </td>
                             @else
@@ -261,7 +274,8 @@ if ($role_actual) {
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Dirección') }}
                                 </p>
                             </td>
                             <td>
@@ -437,7 +451,8 @@ if ($role_actual) {
                                             @csrf
                                             @method('delete')
                                             <button
-                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
                                         </form>
                                     </div>
                                 </td>
@@ -610,17 +625,18 @@ if ($role_actual) {
                 <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
-                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                        alt="twitter" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
-                        class="redes_sociales"></a>
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
             </div>
             <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
                 <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">

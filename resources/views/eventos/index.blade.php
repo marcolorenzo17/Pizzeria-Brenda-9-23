@@ -17,6 +17,17 @@
                 style="font-size:50px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
                 {{ __('RESERVAS') }}
             </h2>
+            <?php
+                $pendientes = 0;
+                foreach ($eventos as $evento) {
+                    if ($evento->reservado == null) {
+                        $pendientes += 1;
+                    }
+                }
+            ?>
+            @if (in_array('1', $privilegioslista) || Auth::user()->primero)
+                <p style="text-align: center; margin-top:20px; font-weight:bolder;">{{__('Reservas pendientes: ')}} {{$pendientes}}</p>
+            @endif
         </div>
     </x-slot>
     <link rel="stylesheet" href="/css/credito.css" />
