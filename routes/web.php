@@ -161,6 +161,7 @@ Route::post('eventosi/{id}', [EventoController::class, 'eventosi'])->name('event
 Route::post('eventono/{id}', [EventoController::class, 'eventono'])->name('eventos.eventono');
 Route::post('pagadoevento/{id}', [EventoController::class, 'pagado'])->name('eventos.pagado');
 Route::post('nopagadoevento/{id}', [EventoController::class, 'nopagado'])->name('eventos.nopagado');
+Route::delete('/borrarevento/{id}', [EventoController::class, 'destroy'])->name('eventos.destroy');
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');

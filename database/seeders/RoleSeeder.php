@@ -16,31 +16,31 @@ class RoleSeeder extends Seeder
         $roles = [
             [
                 'nombre' => 'Jefe',
-                'privilegios' => '1-2-3-4-5-6-7-8-9-10',
+                'privilegios' => '1-2-3-4-5-6-7-8-9-10-11',
                 'primero' => true,
                 'nombreen' => 'Boss',
             ],
             [
                 'nombre' => 'Trabajador',
-                'privilegios' => '',
+                'privilegios' => '1',
                 'primero' => false,
                 'nombreen' => 'Worker',
             ],
             [
                 'nombre' => 'Cajero',
-                'privilegios' => '1-2-5-6-8-9',
+                'privilegios' => '1-2-5-6-8-9-11',
                 'primero' => false,
                 'nombreen' => 'Cashier',
             ],
             [
                 'nombre' => 'Cocinero',
-                'privilegios' => '5-6-7',
+                'privilegios' => '1-5-6-7',
                 'primero' => false,
                 'nombreen' => 'Cook',
             ],
             [
                 'nombre' => 'Plancha',
-                'privilegios' => '5-6-7',
+                'privilegios' => '1-5-6-7',
                 'primero' => false,
                 'nombreen' => 'Iron',
             ],

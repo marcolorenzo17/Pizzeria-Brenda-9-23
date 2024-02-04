@@ -317,6 +317,9 @@
     "Actualmente: NO": "Currently: NO",
 
     "El usuario puede modificar la lista de roles": "The user can modify the role list",
+    "El usuario puede borrar reservas": "The user can delete reservations",
+
+    "La reserva se ha borrado con éxito.": "The reservation has been deleted succesfully.",
 
     "¿La pizzería abre por la mañana?": "Does the pizzeria open in the morning?",
     "La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.": "The pizzeria opens every Sunday morning from October 1st to May 30th.",

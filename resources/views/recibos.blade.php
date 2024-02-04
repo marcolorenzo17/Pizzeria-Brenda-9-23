@@ -53,7 +53,8 @@ if ($role_actual) {
             }
             ?>
             @if (Auth::user()->admin)
-                <p style="text-align: center; margin-top:20px; font-weight:bolder;">{{ __('Pedidos pendientes en esta página: ') }}
+                <p style="text-align: center; margin-top:20px; font-weight:bolder;">
+                    {{ __('Pedidos pendientes en esta página: ') }}
                     {{ $pendientes }}</p>
             @endif
         </div>
@@ -175,6 +176,16 @@ if ($role_actual) {
                                         </form>
                                     @endif
                                 </td>
+                            @else
+                                <td>
+                                    @if ($recibo->pagado)
+                                        <p>{{ __('PAGADO') }}</p>
+                                    @else
+                                        <p>{{ __('PENDIENTE') }}</p>
+                                    @endif
+                                </td>
+                            @endif
+                            @if (in_array('9', $privilegioslista) || Auth::user()->primero)
                                 <td>
                                     <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
                                         @csrf
@@ -183,14 +194,6 @@ if ($role_actual) {
                                             class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
                                             onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
                                     </form>
-                                </td>
-                            @else
-                                <td>
-                                    @if ($recibo->pagado)
-                                        <p>{{ __('PAGADO') }}</p>
-                                    @else
-                                        <p>{{ __('PENDIENTE') }}</p>
-                                    @endif
                                 </td>
                             @endif
                         </tr>
@@ -440,6 +443,24 @@ if ($role_actual) {
                                 @endif
                                 </td>
                             </tr>
+                        @else
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Pago') }}</p>
+                                </td>
+                                @if ($recibo->pagado)
+                                    <td>
+                                        <p style="margin-left:30px; text-align:right;">{{ __('PAGADO') }}</p>
+                                    </td>
+                                @else
+                                    <td>
+                                        <p style="margin-left:30px; text-align:right;">{{ __('PENDIENTE') }}</p>
+                                    </td>
+                                @endif
+                            </tr>
+                        @endif
+                        @if (in_array('9', $privilegioslista) || Auth::user()->primero)
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
@@ -456,22 +477,6 @@ if ($role_actual) {
                                         </form>
                                     </div>
                                 </td>
-                            </tr>
-                        @else
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Pago') }}</p>
-                                </td>
-                                @if ($recibo->pagado)
-                                    <td>
-                                        <p style="margin-left:30px; text-align:right;">{{ __('PAGADO') }}</p>
-                                    </td>
-                                @else
-                                    <td>
-                                        <p style="margin-left:30px; text-align:right;">{{ __('PENDIENTE') }}</p>
-                                    </td>
-                                @endif
                             </tr>
                         @endif
                         <tr></tr>

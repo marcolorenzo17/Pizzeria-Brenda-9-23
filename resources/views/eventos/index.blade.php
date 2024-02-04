@@ -26,7 +26,8 @@
             }
             ?>
             @if (in_array('1', $privilegioslista) || Auth::user()->primero)
-                <p style="text-align: center; margin-top:20px; font-weight:bolder;">{{ __('Reservas pendientes en esta página: ') }}
+                <p style="text-align: center; margin-top:20px; font-weight:bolder;">
+                    {{ __('Reservas pendientes en esta página: ') }}
                     {{ $pendientes }}</p>
             @endif
         </div>
@@ -57,6 +58,9 @@
                         {{--
                             <td class="font-bold">{{ __('Pagado') }}</td>
                         --}}
+                        @if (in_array('11', $privilegioslista) || Auth::user()->primero)
+                            <td class="font-bold">{{ __('Eliminar') }}</td>
+                        @endif
                     </tr>
                     <tr>
                         <td><br></td>
@@ -145,6 +149,17 @@
                                     </td>
                                 @endif
                             --}}
+                            @if (in_array('11', $privilegioslista) || Auth::user()->primero)
+                                <td>
+                                    <form method="post" action="{{ route('eventos.destroy', $evento->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                            onclick="return confirm('¿Estás seguro de que quieres eliminar esta reserva?')">x</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
@@ -349,6 +364,25 @@
             @endif
             </tr>
                     --}}
+        @if (in_array('11', $privilegioslista) || Auth::user()->primero)
+            <tr>
+                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}
+                    </p>
+                </td>
+                <td>
+                    <div style="margin-left:30px; text-align:right;">
+                        <form method="post" action="{{ route('eventos.destroy', $evento->id) }}">
+                            @csrf
+                            @method('delete')
+                            <button
+                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                onclick="return confirm('¿Estás seguro de que quieres eliminar esta reserva?')">x</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        @endif
         <tr></tr>
         <tr></tr>
         @endforeach

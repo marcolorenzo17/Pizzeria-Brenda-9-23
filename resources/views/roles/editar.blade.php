@@ -91,6 +91,18 @@ if ($role_actual) {
                                 </tr>
                                 <tr>
                                     <td style="padding-bottom:30px;">
+                                        <input type="checkbox" id="11" name="privilegios[]" value="11">
+                                        <label
+                                            for="11">{{ __('El usuario puede borrar reservas') }}</label><br>
+                                        @if (in_array('11', $privilegioslista_2))
+                                            <p style="font-weight:bolder;">{{ __('Actualmente: SÍ') }}</p>
+                                        @else
+                                            <p style="font-weight:bolder;">{{ __('Actualmente: NO') }}</p>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-bottom:30px;">
                                         <input type="checkbox" id="3" name="privilegios[]" value="3">
                                         <label
                                             for="3">{{ __('El usuario puede modificar la lista de roles') }}</label><br>

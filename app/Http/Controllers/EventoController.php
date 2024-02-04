@@ -39,6 +39,20 @@ class EventoController extends Controller
         return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user2->createSetupIntent()]);
     }
 
+    public function destroy(string $id): RedirectResponse
+    {
+        $evento = Evento::findOrFail($id);
+
+        $delete = $evento->delete($id);
+
+        if($delete) {
+            session()->flash('notif.success', 'La reserva se ha borrado con éxito.');
+            return redirect()->route('eventos.indexAdmin');
+        }
+
+        return abort(500);
+    }
+
     public function add(Request $req) {
         /*
         $req->validate([
@@ -129,7 +143,7 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'La reserva ha sido aceptada.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 
     public function eventono(string $id) {
@@ -140,7 +154,7 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'La reserva ha sido cancelada.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 
     public function pagado(string $id) {
@@ -151,7 +165,7 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'El pago de la reserva ha sido realizado con éxito.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 
     public function nopagado(string $id) {
@@ -162,6 +176,6 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'La reserva ahora está pendiente de cobro.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 }

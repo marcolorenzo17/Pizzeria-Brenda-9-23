@@ -59,6 +59,16 @@ if ($role_actual) {
                 </tr>
                 <tr>
                     <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
+                        <label for="11">{{ __('El usuario puede borrar reservas') }}</label><br>
+                        @if (in_array('11', $privilegioslista_2))
+                            <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
+                        @else
+                            <p style="font-weight:bolder; font-size:20px;">- NO</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="display:flex; gap:3px; align-items:center; flex-wrap:wrap;">
                         <label for="3">{{ __('El usuario puede modificar la lista de roles') }}</label><br>
                         @if (in_array('3', $privilegioslista_2))
                             <p style="font-weight:bolder; font-size:20px;">{{ __('- SÍ') }}</p>
