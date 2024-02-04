@@ -725,7 +725,7 @@
                         <button class="px-6 py-2 text-sm rounded shadow text-red-100" id="card-button"
                             data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block"
                             type="submit" onclick="return storeValues();"
-                            style="background-color:#568c2c;">{{ __('Reservar') }}</button>
+                            style="background-color:#568c2c; color:white; font-size:25px; text-transform:uppercase; font-weight:bolder;">{{ __('Reservar') }}</button>
                     </div>
                 </div>
             </div>

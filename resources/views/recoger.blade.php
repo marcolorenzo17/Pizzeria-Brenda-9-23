@@ -70,7 +70,7 @@
                 </div>
                 <div id="botondiv1" class="text-center" style="display:none;">
                     <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
-                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c;">
+                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c; font-size:25px; font-weight:bolder; text-transform:uppercase; color:white;">
                 </div>
             </div>
         </form>
@@ -92,12 +92,12 @@
                             value="{{ Auth::User()->telefono }}" readonly required>
                     </div>
                 </div>
-                <p id="mensajeeuros" style="display:none; font-size: 25px;">
+                <p id="mensajeeuros" style="display:none; font-size: 30px; font-weight:bolder;">
                     {{ __('*Servicio a domicilio: 2€ adicionales') }}</p>
                 <br>
                 <div id="botondiv2" class="text-center" style="display:none;">
                     <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
-                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c;">
+                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c; font-size:25px; font-weight:bolder; text-transform:uppercase; color:white;">
                 </div>
             </div>
         </form>
