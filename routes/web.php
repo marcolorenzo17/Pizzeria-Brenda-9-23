@@ -154,7 +154,8 @@ Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilita
 Route::resource('promociones', PromotionController::class);
 
 
-Route::resource('eventos', EventoController::class);
+Route::get('eventos', [EventoController::class, 'index'])->name('eventos.index');
+Route::get('eventosAdmin', [EventoController::class, 'indexAdmin'])->name('eventos.indexAdmin');
 Route::post('addEvento', [EventoController::class, 'add'])->name('eventos.addEvento');
 Route::post('eventosi/{id}', [EventoController::class, 'eventosi'])->name('eventos.eventosi');
 Route::post('eventono/{id}', [EventoController::class, 'eventono'])->name('eventos.eventono');

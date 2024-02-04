@@ -22,7 +22,19 @@ class EventoController extends Controller
             $user->inmediato = false;
             $user->update();
         }
-        $eventos = DB::select('select * from eventos order by id desc');
+        $eventos = Evento::where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(10);
+        $user2 = auth()->user();
+        return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user2->createSetupIntent()]);
+    }
+
+    public function indexAdmin(): Response {
+        $user = User::findOrFail(Auth::user()->id);
+        if ($user->inmediato) {
+            \Cart::clear();
+            $user->inmediato = false;
+            $user->update();
+        }
+        $eventos = Evento::orderBy('id', 'desc')->paginate(10);
         $user2 = auth()->user();
         return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user2->createSetupIntent()]);
     }

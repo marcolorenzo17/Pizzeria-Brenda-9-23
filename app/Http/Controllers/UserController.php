@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function __invoke() {
-        $clientes = User::orderBy('id', 'desc')->paginate(5);
+        $clientes = User::orderBy('id', 'desc')->paginate(10);
         $roles = DB::select('select * from roles order by id desc');
         return view('clientes', ['clientes' => $clientes, 'roles' => $roles]);
     }

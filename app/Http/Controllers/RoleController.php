@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class RoleController extends Controller
 {
     public function __invoke() {
-        $roles = Role::orderBy('id', 'desc')->paginate(5);
+        $roles = Role::orderBy('id', 'desc')->paginate(10);
         return view('roles.index', ['roles' => $roles]);
     }
 

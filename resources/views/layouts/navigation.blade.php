@@ -58,7 +58,7 @@
                         </div>
                         @if (in_array('1', $privilegioslista) || Auth::user()->primero)
                             <div style="margin-top:43px;">
-                                <x-nav-link :href="route('eventos.index')" style="color:white; font-size:15px; font-weight:bolder;">
+                                <x-nav-link :href="route('eventos.indexAdmin')" style="color:white; font-size:15px; font-weight:bolder;">
                                     {{ __('Reservas') }}
                                 </x-nav-link>
                                 @if (Route::current()->getName() == 'eventos.index')
@@ -478,8 +478,8 @@
                         </div>
                     @endif
                 </x-responsive-nav-link>
-                @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                    <x-responsive-nav-link :href="route('eventos.index')">
+                @if (in_array('1', $privilegioslista) || Auth::user()->primero)
+                    <x-responsive-nav-link :href="route('eventos.indexAdmin')">
                         <p>{{ __('Reservas') }}</p>
                         @if (Route::current()->getName() == 'eventos.index')
                             <div style="background-color:red; height:3px; border-radius:10px;">
