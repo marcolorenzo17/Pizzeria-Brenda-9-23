@@ -1,59 +1,59 @@
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-            {{ __('¿CÓMO QUIERES RECIBIR TU PEDIDO?') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                {{ __('¿CÓMO QUIERES RECIBIR TU PEDIDO?') }}
+            </h2>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap" rel="stylesheet">
     <br>
-    <div style="text-align:center;">
-        @if (Auth::User()->inmediato)
-            <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('ATRÁS') }}</a>
-        @else
-            <a href="{{ route('cart.list') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('ATRÁS') }}</a>
-        @endif
-    </div>
-    <div class="container px-12 py-8 mx-auto">
-        <br>
-        <table class="mx-auto" style="border-collapse: separate; border-spacing: 70px 0;">
-            <tr>
-                <td>
-                    <div id="recogerdiv"
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')"
-                                id="imgproducto" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{ __('Recoger en Pizzería') }}</h5>
-                        </div>
+    <div style="margin-bottom:300px;">
+        <div style="text-align:center;">
+            @if (Auth::User()->inmediato)
+                <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                    style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
+            @else
+                <a href="{{ route('cart.list') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                    style="background-color:#f12d2d;">{{ __('ATRÁS') }}</a>
+            @endif
+        </div>
+        <div class="container px-12 py-8 mx-auto">
+            <br>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:5vw;">
+                <div id="recogerdiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/recoger.png" alt="" onclick="mostrar('form1')"
+                            id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">
+                            {{ __('Recoger en Pizzería') }}</h5>
                     </div>
-                </td>
-                <td>
-                    <div id="domiciliodiv"
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#contenido">
-                            <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')"
-                                id="imgproducto" />
-                        </a>
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
-                                style="color: red;">{{ __('A domicilio') }}
-                            </h5>
-                        </div>
+                </div>
+                <div id="domiciliodiv"
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#contenido">
+                        <img class="rounded-t-lg" src="img/domicilio.png" alt="" onclick="mostrar('form2')"
+                            id="imgproducto" style="width:250px; padding:10px;" />
+                    </a>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 text-center"
+                            style="color: red;">
+                            {{ __('A domicilio') }}
+                        </h5>
                     </div>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
         <br>
         <form action="pagar" method="get" enctype="multipart/form-data" id="ruta1">
             @csrf
-            <div id="contenido1">
+            <div id="contenido1" style="margin:30px;">
                 <!--
                 <div id="formulario"></div>
                 <div id="botondiv"></div>
@@ -69,13 +69,13 @@
                     </div>
                 </div>
                 <div id="botondiv1" class="text-center" style="display:none;">
-                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        value="{{ __('Pagar') }}" id="boton">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c; font-size:25px; font-weight:bolder; text-transform:uppercase; color:white;">
                 </div>
             </div>
         </form>
         <form action="pagardomicilio" method="get" enctype="multipart/form-data" id="ruta2">
-            <div id="contenido2">
+            <div id="contenido2" style="margin:30px;">
                 <div id="form2" style="display:none;">
                     <div class="mb-6">
                         <label for="direccion2"
@@ -92,56 +92,92 @@
                             value="{{ Auth::User()->telefono }}" readonly required>
                     </div>
                 </div>
-                <p id="mensajeeuros" style="display:none; font-size: 25px;">
+                <p id="mensajeeuros" style="display:none; font-size: 30px; font-weight:bolder;">
                     {{ __('*Servicio a domicilio: 2€ adicionales') }}</p>
                 <br>
                 <div id="botondiv2" class="text-center" style="display:none;">
-                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                        value="{{ __('Pagar') }}" id="boton">
+                    <input type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                        value="{{ __('Pagar') }}" id="boton" style="background-color:#568c2c; font-size:25px; font-weight:bolder; text-transform:uppercase; color:white;">
                 </div>
             </div>
         </form>
     </div>
 
-    <br><br><br><br>
-    <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-        style="background-color:red;">
-        <span class="text-sm sm:text-center"
-            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-        </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
-            style="color: white; justify-content:center; margin-left:auto;">
-            <li>
-                <a href="{{ route('whoarewe') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('faq') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('privacy') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
-            </li>
-        </ul>
-        <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+    <div class="footer">
+        <div style="text-align:center; font-size:13px;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
-    </footer>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="{{ route('whoarewe') }}"
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="{{ route('faq') }}"
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('privacy') }}"
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="margin-left:auto; display:flex;">
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
+                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .anavbar:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
+        }
+    </style>
 
     <script src="{{ asset('js/recoger-script-2.js') }}"></script>
 

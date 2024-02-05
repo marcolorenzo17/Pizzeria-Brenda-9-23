@@ -1,22 +1,34 @@
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
 @if (Auth::user()->admin)
     <x-app-layout>
         <x-slot name="header">
-            <br><br><br>
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-                {{ __('VALORACIONES') }}
-            </h2>
-            <br><br>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="font-size:45px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                    {{ __('VALORACIONES') }}
+                </h2>
+            </div>
         </x-slot>
         <link rel="stylesheet" href="/css/index_products.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
         <br>
-        <div class="container px-12 py-8 mx-auto bg-white">
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;" id="productos-grande">
+        <div class="container px-12 py-8 mx-auto bg-white" style="margin-bottom:300px;">
+            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
+                id="productos-grande">
                 <tr>
                     <td class="font-bold">{{ __('Producto') }}</td>
                     <td class="font-bold">{{ __('Cliente') }}</td>
                     <td class="font-bold">{{ __('Estrellas') }}</td>
                     <td class="font-bold">{{ __('Reseña') }}</td>
-                    @if (Auth::user()->role != 'Cliente')
+                    @if (in_array('5', $privilegioslista) || Auth::user()->primero)
                         <td class="font-bold">{{ __('Eliminar') }}</td>
                     @endif
                 </tr>
@@ -25,19 +37,24 @@
                 </tr>
                 @foreach ($valoraciones as $valoracion)
                     <tr>
-                        <td>{{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                        <td>
+                            @if (Lang::locale() == 'es')
+                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                            @else
+                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('nameen')->first() }}
+                            @endif
                         </td>
                         <td>{{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}</td>
                         <td style="word-wrap: break-word; max-width:100px;">{{ $valoracion->estrellas }}</td>
                         <td style="word-wrap: break-word; max-width:100px;">{{ $valoracion->resenia }}</td>
-                        @if (Auth::user()->role != 'Cliente')
+                        @if (in_array('5', $privilegioslista) || Auth::user()->primero)
                             <td>
                                 <form method="post"
                                     action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">x</button>
                                 </form>
                             </td>
                         @endif
@@ -45,7 +62,7 @@
                 @endforeach
             </table>
             <table
-                style="border-collapse:separate; border-spacing:10px; table-layout:fixed; margin-left:auto; margin-right:auto;"
+                style="border-collapse:separate; border-spacing:5px; table-layout:fixed; margin-left:auto; margin-right:auto;"
                 id="productos-pequenio">
                 @foreach ($valoraciones as $valoracion)
                     <tr>
@@ -53,8 +70,12 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Producto') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
-                                {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                            <p style="margin-left:30px; text-align:right;">
+                                @if (Lang::locale() == 'es')
+                                    {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('name')->first() }}
+                                @else
+                                    {{ \App\Models\Product::where(['id' => $valoracion->idProduct])->pluck('nameen')->first() }}
+                                @endif
                             </p>
                         </td>
                     </tr>
@@ -63,7 +84,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Cliente') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">
+                            <p style="margin-left:30px; text-align:right;">
                                 {{ \App\Models\User::where(['id' => $valoracion->idUser])->pluck('name')->first() }}
                             </p>
                         </td>
@@ -73,7 +94,7 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Estrellas') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">{{ $valoracion->estrellas }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $valoracion->estrellas }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -81,11 +102,11 @@
                             <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Reseña') }}</p>
                         </td>
                         <td style="word-wrap: break-word; max-width:300px;">
-                            <p style="padding-left:50px;">{{ $valoracion->resenia }}</p>
+                            <p style="margin-left:30px; text-align:right;">{{ $valoracion->resenia }}</p>
                         </td>
                     </tr>
                     <tr>
-                        @if (Auth::user()->role != 'Cliente')
+                        @if (in_array('5', $privilegioslista) || Auth::user()->primero)
                             <td style="padding-left:50px;">
                                 <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Eliminar') }}
                                 </p>
@@ -95,9 +116,9 @@
                                     action="{{ route('products.destroyValoracionAdmin', $valoracion->id) }}">
                                     @csrf
                                     @method('delete')
-                                    <div style="padding-left:50px;">
+                                    <div style="margin-left:30px; text-align:right;">
                                         <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">x</button>
                                     </div>
                                 </form>
                             </td>
@@ -107,47 +128,86 @@
                     <tr></tr>
                 @endforeach
             </table>
+            <div>
+                {{ $valoraciones->links() }}
+            </div>
         </div>
 
-        <br><br><br><br>
-        <footer
-            class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-            style="background-color:red;">
-            <span class="text-sm sm:text-center"
-                style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </span>
-            <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
-                style="color: white; justify-content:center; margin-left:auto;">
-                <li>
-                    <a href="{{ route('whoarewe') }}"
-                        class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('faq') }}"
-                        class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('privacy') }}"
-                        class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
-                </li>
-                <li>
-                    <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
-                </li>
-            </ul>
-            <div style="margin-left:auto; display:flex; justify-content:center;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+        <div class="footer">
+            <div style="text-align:center; font-size:13px;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
             </div>
-        </footer>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
+                </div>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <a class="anavbar" href="{{ route('whoarewe') }}"
+                        style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="{{ route('faq') }}"
+                        style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="{{ route('contact') }}"
+                        style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="{{ route('privacy') }}"
+                        style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
+                            width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
+                            class="redes_sociales"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #141414;
+                color: white;
+                padding: 20px;
+                z-index: 1;
+            }
+
+            .anavbar:hover {
+                text-decoration: underline;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
+            }
+        </style>
 
     </x-app-layout>
 @endif

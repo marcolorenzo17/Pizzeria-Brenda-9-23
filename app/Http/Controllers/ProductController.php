@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 class ProductController extends Controller
 {
     /**
@@ -59,14 +61,14 @@ class ProductController extends Controller
     public function indexValoraciones(): Response
     {
         return response()->view('products.indexValoraciones', [
-            'valoraciones' => Valoracione::orderBy('id', 'desc')->get(),
+            'valoraciones' => Valoracione::orderBy('id', 'desc')->paginate(10),
         ]);
     }
 
     public function indexComentarios(): Response
     {
         return response()->view('products.indexComentarios', [
-            'comentarios' => Comentario::orderBy('id', 'desc')->get(),
+            'comentarios' => Comentario::orderBy('id', 'desc')->paginate(10),
         ]);
     }
 
@@ -158,6 +160,11 @@ class ProductController extends Controller
         $delete = $product->delete($id);
 
         if($delete) {
+            $foto = $product->image;
+            $token = explode('/', $foto);
+            $token2 = explode('.', $token[sizeof($token) - 1]);
+            Cloudinary::destroy('image_product/'.$token2[0]);
+
             session()->flash('notif.success', 'El plato se ha borrado con éxito.');
             return redirect()->route('products.index');
         }
@@ -194,7 +201,17 @@ class ProductController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
-        $image_path = $req->file('image_product')->store('image_product', 'public');
+        if ($req->type == "Promoción" and $req->price != 0) {
+            session()->flash('notif.success', 'Las promociones sólo pueden tener un precio de 0 €.');
+            return back();
+        }
+
+        if ($req->type != "Promoción" and ($req->puntos != 0 and $req->puntos != "")) {
+            session()->flash('notif.success', 'Sólo las promociones pueden tener asignado un valor de Pizzacoins.');
+            return back();
+        }
+
+        $image_path = $req->file('image_product')->storeOnCloudinary('image_product');
 
         $alergenos = '';
         if ($req->input('alergenos') != null) {
@@ -209,7 +226,7 @@ class ProductController extends Controller
         $product->nameen = $req->nameen;
         $product->price = $req->price;
         $product->description = $req->description;
-        $product->image = 'storage/' . $image_path;
+        $product->image = $image_path->getSecurePath();
         $product->type = $req->type;
         $product->alergenos = $alergenos;
         $product->habilitado = true;
@@ -255,6 +272,16 @@ class ProductController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
+        if ($req->type == "Promoción" and $req->price != 0) {
+            session()->flash('notif.success', 'Las promociones sólo pueden tener un precio de 0 €.');
+            return back();
+        }
+
+        if ($req->type != "Promoción" and ($req->puntos != 0 and $req->puntos != "")) {
+            session()->flash('notif.success', 'Sólo las promociones pueden tener asignado un valor de Pizzacoins.');
+            return back();
+        }
+
         $product = Product::findOrFail($id);
 
         $alergenos = '';
@@ -277,9 +304,14 @@ class ProductController extends Controller
             $product->puntos = $req->puntos;
         }
 
+        $foto = $product->image;
+        $token = explode('/', $foto);
+        $token2 = explode('.', $token[sizeof($token) - 1]);
+        Cloudinary::destroy('image_product/'.$token2[0]);
+
         if ($req->file('image_product') != null) {
-            $image_path = $req->file('image_product')->store('image_product', 'public');
-            $product->image = 'storage/' . $image_path;
+            $image_path = $req->file('image_product')->storeOnCloudinary('image_product');
+            $product->image = $image_path->getSecurePath();
         }
 
         $product->alergenos = $alergenos;
@@ -297,6 +329,7 @@ class ProductController extends Controller
         ]);
         */
 
+        /*
         $validate = Validator::make($req->all(), [
             'resenia' => 'required',
         ],[
@@ -306,6 +339,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($id);
 
@@ -352,6 +386,7 @@ class ProductController extends Controller
     }
 
     public function actualizarValoracion(Request $req, string $idProduct, string $idValoracion) {
+        /*
         $validate = Validator::make($req->all(), [
             'modifVal' => 'required|max:255',
         ],[
@@ -362,6 +397,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($idProduct);
         $valoracion = Valoracione::findOrFail($idValoracion);
@@ -376,6 +412,7 @@ class ProductController extends Controller
     }
 
     public function addComentario(Request $req, string $idProduct, string $idValoracion) {
+        /*
         $validate = Validator::make($req->all(), [
             'reseniaCom' => 'required',
         ],[
@@ -385,6 +422,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($idProduct);
         $valoracion = Valoracione::findOrFail($idValoracion);
@@ -431,6 +469,7 @@ class ProductController extends Controller
     }
 
     public function actualizarComentario(Request $req, string $idProduct, string $idComentario) {
+        /*
         $validate = Validator::make($req->all(), [
             'modifCom' => 'required|max:255',
         ],[
@@ -441,6 +480,7 @@ class ProductController extends Controller
         if($validate->fails()){
             return back()->withErrors($validate->errors())->withInput();
         }
+        */
 
         $product = Product::findOrFail($idProduct);
         $comentario = Comentario::findOrFail($idComentario);

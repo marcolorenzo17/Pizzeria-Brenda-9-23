@@ -6,16 +6,20 @@
                 @if ($product->habilitado && $product->type != 'Promoción' && $product->type != 'Oferta')
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}"
-                                class="w-full max-h-60" id="imgproducto"></a>
+                                class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->nameen }}
+                                    </h3>
                                 @endif
                             </a>
                             <?php
@@ -25,7 +29,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -43,12 +47,9 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
-                                {{--
-                            <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
-                        --}}
                             </form>
                             <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -62,18 +63,9 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                             </form>
-                            @if (Auth::user()->admin)
-                                <form method="post" action="{{ route('products.destroy', $product->id) }}"
-                                    class="inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button
-                                        class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
-                                </form>
-                            @endif
                         </div>
 
                     </div>
@@ -84,132 +76,155 @@
         <div class="container px-12 py-8 mx-auto">
             <div class="p-6 text-gray-900 h-screen flex items-center justify-center" id="productos-grande">
                 <table class="table-auto w-full text-center"
-                    style="border-collapse: separate; border-spacing:25px 25px;">
+                    style="border-collapse: separate; border-spacing:10px 10px;">
                     <tr>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
-                                    style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">PIZZAS</a>
+                        <td>
+                            <a href="#1"><img src="{{ asset('img/vegetal.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="pizzas"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS
+                            </p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#2"><img src="{{ asset('img/burgericon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('HAMBURGUESAS') }}</a>
+                        <td>
+                            <a href="#2"><img src="{{ asset('img/crunchi.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="hamburguesas"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('HAMBURGUESAS') }}</p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
-                                    style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('SÁNDWICHES') }}</a>
+                        <td>
+                            <a href="#3"><img src="{{ asset('img/especial.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="sandwiches"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('SÁNDWICHES') }}</p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
-                                    style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">PASTA</a>
+                        <td>
+                            <a href="#4"><img src="{{ asset('img/boloñesa.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="pasta"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PASTA
+                            </p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#5"><img src="{{ asset('img/riceicon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('ARROCES') }}</a>
+                        <td>
+                            <a href="#5"><img src="{{ asset('img/arrozfrito.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="arroces"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('ARROCES') }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#6"><img src="{{ asset('img/bagicon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">BAGUETTES</a>
+                        <td>
+                            <a href="#6"><img src="{{ asset('img/bavegetal.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="baguettes"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('BAGUETTES') }}</p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('ENSALADAS') }}</a>
+                        <td>
+                            <a href="#7"><img src="{{ asset('img/enormal.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="ensaladas"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('ENSALADAS') }}</p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#8"><img src="{{ asset('img/friesicon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('COMPLEMENTOS') }}</a>
+                        <td>
+                            <a href="#8"><img src="{{ asset('img/nuggets.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="complementos"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('COMPLEMENTOS') }}</p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#9"><img src="{{ asset('img/dogicon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('PERRITOS') }}</a>
+                        <td>
+                            <a href="#9"><img src="{{ asset('img/perrito.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="perritos"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('PERRITOS') }}</p>
                         </td>
-                        <td
-                            style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                            <a href="#10"><img src="{{ asset('img/sodaicon.png') }}" width="70px"
-                                    height="70px" style="display: block; margin-left: auto; margin-right: auto;"
-                                    id="filtroproducto">{{ __('BEBIDAS') }}</a>
+                        <td>
+                            <a href="#10"><img src="{{ asset('img/lata.jpg') }}"
+                                    style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                                    id="filtroproducto" alt="bebidas"></a>
+                            <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                                {{ __('BEBIDAS') }}</p>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                style="flex-wrap:wrap; align-items:center; text-align:center;" id="productos-pequenio">
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#1"><img src="{{ asset('img/pizzaicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;" id="producto">PIZZAS</a>
+                style="flex-wrap:wrap; align-items:center; text-align:center; justify-content:center;"
+                id="productos-pequenio">
+                <div>
+                    <a href="#1"><img src="{{ asset('img/vegetal.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="pizzas">
+                    </a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PIZZAS</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#2"><img src="{{ asset('img/burgericon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('HAMBURGUESAS') }}</a>
+                <div>
+                    <a href="#2"><img src="{{ asset('img/crunchi.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="hamburguesas"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('HAMBURGUESAS') }}</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#3"><img src="{{ asset('img/sanicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('SÁNDWICHES') }}</a>
+                <div>
+                    <a href="#3"><img src="{{ asset('img/especial.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="sandwiches"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('SÁNDWICHES') }}</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#4"><img src="{{ asset('img/pastaicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;" id="producto">PASTA</a>
+                <div>
+                    <a href="#4"><img src="{{ asset('img/boloñesa.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="pasta"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">PASTA</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#5"><img src="{{ asset('img/riceicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('ARROCES') }}</a>
+                <div>
+                    <a href="#5"><img src="{{ asset('img/arrozfrito.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="arroces"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('ARROCES') }}
+                    </p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#6"><img src="{{ asset('img/bagicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">BAGUETTES</a>
+                <div>
+                    <a href="#6"><img src="{{ asset('img/bavegetal.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="baguettes"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('BAGUETTES') }}</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#7"><img src="{{ asset('img/saladicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('ENSALADAS') }}</a>
+                <div>
+                    <a href="#7"><img src="{{ asset('img/enormal.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="ensaladas"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('ENSALADAS') }}</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#8"><img src="{{ asset('img/friesicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('COMPLEMENTOS') }}</a>
+                <div>
+                    <a href="#8"><img src="{{ asset('img/nuggets.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="complementos"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('COMPLEMENTOS') }}</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#9"><img src="{{ asset('img/dogicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('PERRITOS') }}</a>
+                <div>
+                    <a href="#9"><img src="{{ asset('img/perrito.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="perritos"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('PERRITOS') }}</p>
                 </div>
-                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                    style="background: white; padding: 10px; border: black; border-style: solid; border-radius: 10px;">
-                    <a href="#10"><img src="{{ asset('img/sodaicon.png') }}" width="70px" height="70px"
-                            style="display: block; margin-left: auto; margin-right: auto;"
-                            id="producto">{{ __('BEBIDAS') }}</a>
+                <div>
+                    <a href="#10"><img src="{{ asset('img/lata.jpg') }}"
+                            style="display: block; margin-left: auto; margin-right: auto; background: white; border: gray; border-style: solid; border-radius: 10px; width:250px; height:200px;"
+                            id="filtroproducto" alt="bebidas"></a>
+                    <p style="text-align:center; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('BEBIDAS') }}</p>
                 </div>
             </div>
             <br>
@@ -217,29 +232,34 @@
             <div class="sm:hidden">Hola</div>
         --}}
         </div>
-        <h3 class="text-2xl font-bold text-purple-700" id="1">PIZZAS</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="1">PIZZAS</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <h2 class="text-2xl font-bold text-center" style="color:blue;">
+        <h2 class="text-2xl font-bold text-center" style="color:#568c2c; font-family: 'Acme', sans-serif; font-size:25px;">
             {{ __('"EL PLACER DE UNA BUENA PIZZA ARTESANAL"') }}</h2>
         <br>
-        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px" alt="gluten-lacteos">
         <br>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Pizza' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}"
-                                class="w-full max-h-60" id="imgproducto"></a>
+                                class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -249,7 +269,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -267,8 +287,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -287,7 +307,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                             </form>
                             @if (Auth::user()->admin)
@@ -307,22 +327,23 @@
         </div>
         <br><br>
         <div class="text-center"
-            style="border-style: solid; border-width: 3px; border-color: purple; background-color: #efff91; padding: 20px; border-radius:10px;">
-            <a href="{{ route('crearpizza') }}" class="text-2xl font-bold text-purple-700"
+            style="border-style: solid; border-width: 3px; border-color: #f12d2d; background-color:white; padding: 30px; border-radius:10px; font-family: 'Acme', sans-serif;">
+            <a href="{{ route('crearpizza') }}" class="text-2xl font-bold"
                 id="crearpizza">{{ __('¡CREA TU PROPIA PIZZA AQUÍ!') }}</a>
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="2">{{ __('HAMBURGUESAS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="2">{{ __('HAMBURGUESAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <h2 class="text-2xl font-bold text-center" style="color:darkblue;">
+        <h2 class="text-2xl font-bold text-center" style="color:#568c2c; font-family: 'Acme', sans-serif; font-size:25px;">
             {{ __('"COCINA RÁPIDA DE CALIDAD"') }}</h2>
         <br>
-        <img src="img/alergenos/gluten-sesamo.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-sesamo.png" width="200px" height="200px" alt="gluten-sesamo">
         <br>
         <table>
             <tr>
-                <td class="font-bold text-decoration-line: underline">{{ __('Extras para hamburguesas:') }}
+                <td style="font-family: 'Acme', sans-serif; font-size:18px;">{{ __('Extras para hamburguesas:') }}
                 </td>
                 <td></td>
                 <td></td>
@@ -330,22 +351,22 @@
             <tr>
                 <td></td>
                 <td>Queso Edam (0.50 €)</td>
-                <td><img src="img/alergenos/lacteos.png" width="150px" height="150px"></td>
+                <td><img src="img/alergenos/lacteos.png" width="150px" height="150px" alt="lacteos"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Queso Cheddar (1.00 €)</td>
-                <td><img src="img/alergenos/gluten-lacteos.png" width="150px" height="150px"></td>
+                <td><img src="img/alergenos/gluten-lacteos.png" width="150px" height="150px" alt="gluten-lacteos"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Huevo (0.80 €)</td>
-                <td><img src="img/alergenos/huevos.png" width="150px" height="150px"></td>
+                <td><img src="img/alergenos/huevos.png" width="150px" height="150px" alt="huevos"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>Bacon (0.50 €)</td>
-                <td><img src="img/alergenos/soja.png" width="150px" height="150px"></td>
+                <td><img src="img/alergenos/soja.png" width="150px" height="150px" alt="soja"></td>
             </tr>
         </table>
         <br>
@@ -354,16 +375,20 @@
                 @if ($product->type == 'Hamburguesa' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img src="{{ asset($product->image) }}"
-                                class="w-full max-h-60" id="imgproducto"></a>
+                                class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -373,7 +398,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -392,8 +417,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -412,7 +437,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -434,25 +459,30 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="3">{{ __('SÁNDWICHES') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="3">{{ __('SÁNDWICHES') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <img src="img/alergenos/gluten-lacteos-huevos-soja.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-lacteos-huevos-soja.png" width="200px" height="200px" alt="gluten-lacteos-huevos-soja">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Sándwich' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -462,7 +492,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -481,8 +511,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -501,7 +531,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -523,25 +553,30 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="4">PASTA</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="4">PASTA</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px" alt="gluten-lacteos">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Pasta' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -551,7 +586,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -570,8 +605,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -590,7 +625,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -612,25 +647,30 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="5">{{ __('ARROCES') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="5">{{ __('ARROCES') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px" alt="gluten-lacteos">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Arroz' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -640,7 +680,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -659,8 +699,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -679,7 +719,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -701,25 +741,30 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="6">BAGUETTES</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="6">BAGUETTES</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px" alt="gluten-lacteos">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Baguette' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -729,7 +774,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -748,8 +793,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -768,7 +813,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -790,25 +835,30 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="7">{{ __('ENSALADAS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="7">{{ __('ENSALADAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <img src="img/alergenos/dioxido.png" width="200px" height="200px">
+        <img src="img/alergenos/dioxido.png" width="200px" height="200px" alt="dioxido">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Ensalada' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -818,7 +868,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -837,8 +887,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -857,7 +907,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -879,23 +929,28 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="8">{{ __('COMPLEMENTOS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="8">{{ __('COMPLEMENTOS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Complemento' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -905,7 +960,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -924,8 +979,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -944,7 +999,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -966,25 +1021,30 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="9">{{ __('PERRITOS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="9">{{ __('PERRITOS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <br>
-        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px">
+        <img src="img/alergenos/gluten-lacteos.png" width="200px" height="200px" alt="gluten-lacteos">
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Perrito' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -994,7 +1054,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -1013,8 +1073,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1033,7 +1093,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1055,23 +1115,28 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700" id="10">{{ __('CERVEZAS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;"
+            id="10">{{ __('CERVEZAS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Cerveza' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1081,7 +1146,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -1100,8 +1165,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1120,7 +1185,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1142,23 +1207,28 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700">{{ __('VINOS Y LICORES') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;">
+            {{ __('VINOS Y LICORES') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Vino' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">{{ $product->name }}
+                                    </h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1168,7 +1238,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -1187,8 +1257,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1207,7 +1277,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1229,23 +1299,28 @@
             @endforeach
         </div>
         <br><br><br>
-        <h3 class="text-2xl font-bold text-purple-700">{{ __('REFRESCOS') }}</h3>
+        <h3 class="text-2xl font-bold" style="color:#568c2c; font-family: 'Grandstander', cursive; font-size:30px;">
+            {{ __('REFRESCOS') }}</h3>
         <div class="h-1 bg-red-500 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->products as $product)
                 @if ($product->type == 'Refresco' && $product->habilitado)
                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
                         <a href="{{ route('products.show', $product->id) }}"><img
-                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto"></a>
+                                src="{{ asset($product->image) }}" class="w-full max-h-60" id="imgproducto" alt="producto"></a>
                         <div class="flex items-end justify-end w-full bg-cover">
 
                         </div>
                         <div class="px-5 py-3">
                             <a href="{{ route('products.show', $product->id) }}">
                                 @if (Lang::locale() == 'es')
-                                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->name }}</h3>
                                 @else
-                                    <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                                    <h3 class="text-gray-700 uppercase"
+                                        style="font-family: 'Acme', sans-serif; font-size:25px;">
+                                        {{ $product->nameen }}</h3>
                                 @endif
                             </a>
                             <?php
@@ -1255,7 +1330,7 @@
                                 @if ($product->alergenos != '')
                                     @foreach ($alergenoslista as $alergeno)
                                         <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
-                                            width="40px" height="40px">
+                                            width="40px" height="40px" alt="alergeno">
                                     @endforeach
                                 @endif
                             </div>
@@ -1275,8 +1350,8 @@
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
-                                <button
-                                    class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded acercar">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button class="px-4 py-1.5 text-white text-sm rounded acercar"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                                 <br><br>
                                 {{--
                             <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>
@@ -1295,7 +1370,7 @@
                                 <input type="hidden" value="{{ $product->image }}" name="image">
                                 <input type="hidden" value="1" name="quantity">
                                 <button class="px-4 py-1.5 text-white text-sm rounded acercar"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                                 <br><br>
                                 {{--
                         <a href="{{ route('products.edit', $product->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDITAR</a>

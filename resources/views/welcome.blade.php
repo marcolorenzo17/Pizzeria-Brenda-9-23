@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<link rel="stylesheet" href="/css/welcome.css" />
+<link rel="stylesheet" href="/css/welcome.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +12,14 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -912,7 +920,7 @@
         /* The navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: red;
+            background-color: #141414;
             position: fixed;
             /* Set the navbar to fixed position */
             top: 0;
@@ -947,7 +955,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: red;
+            background-color: #141414;
             color: white;
             padding: 20px;
             z-index: 1;
@@ -967,157 +975,425 @@
         .afooter:hover {
             text-decoration: underline;
         }
+
+        .nuestrasofertas:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
+        #quesonpizzacoins:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
+        #botoncarrusel:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
+        #tusmenusgratis:hover {
+            filter: brightness(75%);
+        }
+
+        .pizzacoinhelp:hover {
+            filter: brightness(75%);
+            cursor: help;
+        }
+
+        #botonprom:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
+        #botonofer:hover {
+            filter: brightness(75%);
+            cursor: pointer;
+        }
+
+        #botonDown:hover {
+            cursor: pointer;
+            background-color: #274014;
+        }
     </style>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/welcome_responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
-<body class="antialiased">
-    <div class="navbar">
-        <div style="position: relative; top: 15px;">
-            @include('partials/language_switcher')
-        </div>
-        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:67px; height:60px;"></a>
-        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
-        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
-        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
-                @auth
-                    <a href="{{ url('/products') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar pedido') }}</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar sesión') }}</a>
+<body class="antialiased" style="background-color:#141414; margin:20px;">
+    <div style="background-color:#141414;">
+        <div class="navbar" style="display:flex;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
+                <div id="boton_switch">
+                    <a class="anavbar" href="/" style="font-size:17px; font-weight:bolder;">{{ __('Inicio') }}
+                    </a>
+                    <div style="background-color:#f12d2d; margin-top:50px; height:5px; border-radius:10px;">
+                        <br>
+                    </div>
+                </div>
+                <div id="boton_switch">
+                    <a class="anavbar" href="cartaAnon"
+                        style="font-size:17px; font-weight:bolder;">{{ __('Nuestra carta') }}
+                    </a>
+                </div>
+            </div>
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:5px; margin-right:20px;">
+                    <div id="boton_switch">
+                        @include('partials/language_switcher')
+                    </div>
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:13px; background-color:#568c2c; padding:10px; border-radius:10px;"
+                                id="boton_login">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:black; font-size:13px; background-color:white; padding:10px; border-radius:10px;"
+                                id="boton_login">{{ __('Iniciar sesión') }}</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Registrarse') }}</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-    </div>
-    <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:red; text-shadow: 2px 2px 4px #000000; -webkit-text-stroke-width: 3px; -webkit-text-stroke-color: white; margin-top:130px; margin-bottom:26px;"
-        id="logo1">
-        {{ __('PIZZERÍA ARTESANAL Y NATURAL') }}
-    </h1>
-    <div class="mx-auto" style="background-color:#4a4895; margin-bottom:26px;">
-        <video width="859" height="464" autoplay muted loop>
-            <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
-            Tu navegador no es compatible con este vídeo.
-        </video>
-    </div>
-    <div style="background-color:red;">
-        <br>
-    </div>
-    <div style="background-image:url('img/backgroundpizzasmall.png');">
-        <br>
-        <div style="display:flex; align-items:center; justify-content:center;">
-            <div
-                style="position:relative; margin-left:100px; margin-right:100px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px black; padding:60px; background-color:red; border-radius:100px; border: 5px solid white; margin-bottom:auto; text-align:center;">
-                <h1 style="font-size:50px; color:yellow;" class="menusgratis">
-                    {{ __('¡TUS MENÚS GRATIS!') }}
-                </h1>
-                <br>
-                <h1 style="font-size:30px;">
-                    {{ __('CANJEANDO TUS PIZZACOINS') }}
-                </h1>
-            </div>
-            <div class="slideshow-container">
-                @foreach ($products as $product)
-                    @if ($product->habilitado and $product->type == 'Promoción')
-                        <div class="mySlides fade">
-                            <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                                style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
-                            <br>
-                            <div style="display:flex; justify-content:center;">
-                                @if ($product->puntos)
-                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
-                                            src="{{ asset('img/pizzacoin.png') }}" alt="coin">
-                                        {{ $product->puntos }}
-                                    </div>
-                                @else
-                                    <div class="-mr-2 flex items-center" style="font-size:20px; color:white;"><img
-                                            src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:13px; background-color:white; padding:10px; border-radius:10px;"
+                                    id="boton_login">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                    <a href="#"><img src="{{ asset('img/burger_menu.png') }}" alt="menu_hamburguesa"
+                            width="40px" id="menu_hamburguesa" onclick="mostrar_hamburguesa()"
+                            style="padding:5px; border-radius:10px;"></a>
+                </div>
+            @endif
+        </div>
+        {{--
+        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
+            id="logo1">
+            {{ __('PIZZA ARTESANA Y NATURAL') }}
+        </h1>
+    --}}
+        <div style="margin-top:120px;">
+            <div id="menu_responsive_container">
+                <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+                    <div style="padding:10px;">
+                        @include('partials/language_switcher')
+                    </div>
+                    @if (Route::has('login'))
+                        <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
+                            @auth
+                                <a href="{{ url('/products') }}"
+                                    style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Iniciar pedido') }}</a>
+                            @else
+                                <a href="{{ route('login') }}"
+                                    style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Iniciar sesión') }}</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"
+                                        style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                        id="boton">{{ __('Registrarse') }}</a>
                                 @endif
-                            </div>
+                            @endauth
                         </div>
                     @endif
-                @endforeach
-                <br>
-                <div style="text-align:center">
-                    @foreach ($products as $product)
-                        @if ($product->habilitado and $product->type == 'Promoción')
-                            <span class="dot"></span>
-                        @endif
-                    @endforeach
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <a href="/">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Inicio') }}</p>
+                            <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="cartaAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Nuestra carta') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <a href="whoareweAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('¿Quiénes somos?') }}</p>
+                        </div>
+                    </a>
+                    <a href="faqAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Preguntas frecuentes') }}</p>
+                        </div>
+                    </a>
+                    <a href="contactAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Contáctanos') }}</p>
+                        </div>
+                    </a>
+                    <a href="privacyAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Política de privacidad') }}</p>
+                        </div>
+                    </a>
+                    <a href="premiosAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Premios') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <div>
+                        <div
+                            style="padding:10px; font-weight:bolder; border-bottom:1px solid gray; display:flex; justify-content:center; align-items:center; gap:30px;">
+                            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                                    src="{{ asset('img/twit.png') }}" alt="twitter" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                                    src="{{ asset('img/inst.png') }}" alt="instagram" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                                    src="{{ asset('img/tik.png') }}" alt="tiktok" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                                    src="{{ asset('img/face.png') }}" alt="facebook" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div style="margin-left:100px; margin-right:100px;">
-                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
-                    <p style="font-weight:bolder; font-size:20px; color:white;">{{ __('¡PIZZACOINS!') }}</p>
-                </div>
-                <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
-                    <p style="font-weight:bolder; font-size:20px; color:white; text-align:center;">
-                        {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
-                    </p>
-                </div>
-                <div style="text-align:center; color:white;">
-                    <br>
-                    <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
-                    <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
-                    <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
-                    </p>
-                    <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
-                    <br>
-                    <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
-                    </p>
-                    <p>{{ __('Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.') }}
-                    </p>
-                </div>
+            <div style="background-color:white;">
+                <br>
             </div>
         </div>
-        <br><br>
+        <div class="mx-auto" style="background-color:#141414;">
+            @if (Lang::locale() == 'es')
+                <video width="1920" height="500" autoplay muted loop>
+                    <source src="{{ 'vid/pizza.webm' }}" type="video/webm">
+                    Tu navegador no es compatible con este vídeo.
+                </video>
+            @else
+                <video width="1920" height="500" autoplay muted loop>
+                    <source src="{{ 'vid/pizzaeng.webm' }}" type="video/webm">
+                    Tu navegador no es compatible con este vídeo.
+                </video>
+            @endif
+        </div>
     </div>
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-        {{ __('OFERTAS') }}
-    </h1>
-    <div
-        style="background-image:url('img/backgroundpizza.png'); display:flex; align-items:center; justify-content:center; gap:30px; width:100%;">
-        @if (Lang::locale() == 'es')
-            <div style="margin-left:100px;">
-                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas">
-            </div>
-        @else
-            <div style="margin-left:100px;">
-                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas">
-            </div>
-        @endif
-        <div class="slideshow-container2" style="padding-right:100px;">
+    {{--
+        <div>
             <br>
-            @foreach ($products as $product)
-                @if ($product->habilitado and $product->type == 'Oferta')
-                    <div class="mySlides2 fade2 mx-auto">
-                        <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
-                            style="border:3px solid black; border-radius:10px;">
+            <div style="display:flex; align-items:center; justify-content:center;">
+                <a href="{{ route('login') }}" onclick="redirigir_promociones()">
+                    @if (Lang::locale() == 'es')
+                        <img src="{{ asset('img/tusmenusgratis.png') }}" alt="menusgratis" id="tusmenusgratis"
+                            class="nuestrasofertas">
+                    @else
+                        <img src="{{ asset('img/tusmenusgratiseng.png') }}" alt="menusgratis" id="tusmenusgratis"
+                            class="nuestrasofertas">
+                    @endif
+                </a>
+                <div class="slideshow-container">
+                    @foreach ($products as $product)
+                        @if ($product->habilitado and $product->type == 'Promoción')
+                            <div class="mySlides fade">
+                                <img src="{{ asset($product->image) }}" alt="..." width="350px" height="350px"
+                                    style="border:3px solid black; border-radius:10px; margin-left:auto; margin-right:auto;">
+                                <div style="display:flex; justify-content:center;">
+                                    @if ($product->puntos)
+                                        <div class="-mr-2 flex items-center"
+                                            style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
+                                                src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                            {{ $product->puntos }}
+                                        </div>
+                                    @else
+                                        <div class="-mr-2 flex items-center"
+                                            style="font-size:20px; margin-top:10px; margin-bottom:10px;"><img
+                                                src="{{ asset('img/pizzacoin.png') }}" alt="coin">0</div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    <div
+                        style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10px;">
+                        <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                            style="transform:rotate(270deg);" onclick="showSlidesLeft();">
+                        <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                            style="transform:rotate(90deg);" onclick="showSlides();">
+                    </div>
+                    <div style="text-align:center">
+                        @foreach ($products as $product)
+                            @if ($product->habilitado and $product->type == 'Promoción')
+                                <span class="dot"></span>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div style="margin-left:100px; margin-right:100px;">
+                    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                        <img src="{{ asset('img/pizzacoin.png') }}" alt="pizzacoin" width="100px" height="100px">
+                        <p style="font-weight:bolder; font-size:20px;">{{ __('¡PIZZACOINS!') }}</p>
+                    </div>
+                    <div class="p-6 text-gray-900 h-screen flex items-center justify-center">
+                        <p style="font-weight:bolder; font-size:20px; text-align:center;" id="quesonpizzacoins"
+                            onclick="pizzacoins_mostrar(flag_pizzacoins);">
+                            {{ __('¿QUÉ SON LAS PIZZACOINS?') }}
+                        </p>
+                    </div>
+                    <div style="text-align:center; display:none;" id="informacion_pizzacoins">
                         <br>
+                        <p>{{ __('Las pizzacoins son la moneda exclusiva de la Pizzería Brenda.') }}</p>
+                        <p>{{ __('Puedes usar estas monedas para canjearlas por promociones especiales.') }}</p>
+                        <p>{{ __('Cada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.') }}
+                        </p>
+                        <p>{{ __('¡Acumula esas Pizzacoins y píllate un menú gratis!') }}</p>
+                        <br>
+                        <p>{{ __('Para empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.') }}
+                        </p>
+                        <p>{{ __('Regístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    --}}
+    <div class="lightbox_2" style="color: rgba(255,255,255,0);">
+        <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+        <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+    </div>
+    <div style="background-color:#141414;" id="prom_y_of">
+        <div style="color:white; flex:1; background-color:white; position: relative; border-right:5px solid white;"
+            id="fondoProm">
+            <div>
+                <div style="background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
+                    onclick="mostrarCarruselUno()" id="botonprom">
+                    <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
+                        {{ __('PROMOCIONES') }}</p>
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">
+                        {{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    </p>
+                </div>
+                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
+                    style="margin-top:20px; margin-left:auto; margin-right:auto;" class="pizzacoinhelp"
+                    onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\nPara empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.\nRegístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!\nTo start using Pizzacoins, you have to log into the webpage with an account first.\nSign up, and with your first purchase over 10€, you will receive 500 free Pizzacoins.') }}')">
+            </div>
+            <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px; text-align:center;">
+                <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                    style="padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c; font-family: 'Concert One', sans-serif;"
+                    id="botonDown" class="canjea_pizzacoins">{{ __('¡CANJEA TUS PIZZACOINS!') }}
+                </a>
+            </div>
+        </div>
+        <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:block;"
+            id="carrusel_uno">
+            <p
+                style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">
+                {{ __('PROMOCIONES') }}
+            </p>
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Promoción')
+                    <div class="mySlides fade">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Promoción"><img
+                                    src="{{ asset($product->image) }}" alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:200px; height:270px;"
+                                    loading="lazy" class="img_ensi_3"></a>
+                        </div>
+                        <div style="display:flex; justify-content:center;">
+                            @if ($product->puntos)
+                                <div class="-mr-2 flex items-center"
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;">
+                                    <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                    {{ $product->puntos }}
+                                </div>
+                            @else
+                                <div class="-mr-2 flex items-center"
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;">
+                                    <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">0
+                                </div>
+                            @endif
+                        </div>
+                        @if (Lang::locale() == 'es')
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->name }}
+                            </p>
+                        @else
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->nameen }}
+                            </p>
+                        @endif
                     </div>
                 @endif
             @endforeach
-            <br>
+            <div
+                style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:2vw;">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(270deg);" onclick="showSlidesLeft();">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(90deg);" onclick="showSlides();">
+            </div>
+            <div style="text-align:center">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Promoción')
+                        <span class="dot"></span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div class="slideshow-container" style="background-color:white; padding:5px; flex:1; display:none;"
+            id="carrusel_dos">
+            <p
+                style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">
+                {{ __('OFERTAS') }}</p>
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Oferta')
+                    <div class="mySlides2 fade">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Oferta"><img src="{{ asset($product->image) }}"
+                                    alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:240px; height:340px;"
+                                    loading="lazy" class="img_ensi_3"></a>
+                        </div>
+                        @if (Lang::locale() == 'es')
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->name }}
+                            </p>
+                        @else
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->nameen }}
+                            </p>
+                        @endif
+                    </div>
+                @endif
+            @endforeach
+            <div
+                style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:2vw;">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(270deg);" onclick="showSlidesLeft2();">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(90deg);" onclick="showSlides2();">
+            </div>
             <div style="text-align:center">
                 @foreach ($products as $product)
                     @if ($product->habilitado and $product->type == 'Oferta')
@@ -1125,121 +1401,484 @@
                     @endif
                 @endforeach
             </div>
-            <br><br>
         </div>
-    </div>
-    <div style="background-color:red;">
-        <br>
-    </div>
-    <div style="background-image:url('img/backgroundpizzasmall.png');">
-        <br>
-        <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
-            <div>
-                <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
-                    {{ __('¿QUÉ PEDIMOS?') }}
-                </h1>
-                <br><br>
-                <div style="display:flex; gap:100px; justify-content:center;">
-                    <a href="cartaAnon"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('NUESTRA CARTA') }}
-                    </a>
-                    <a href="{{ route('login') }}"
-                        style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
-                        id="boton">{{ __('¡PIDE AHORA!') }}
+        <div style="color:white; background-color:white; flex:0.7; position: relative; border-left:5px solid #568c2c;"
+            id="fondoOfer">
+            <div style="text-align:center;">
+                <div style=" background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
+                    onclick="mostrarCarruselDos()" id="botonofer">
+                    <p style="font-size:50px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
+                        {{ __('OFERTAS') }}
+                    </p>
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">
+                        {{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
+                    </p>
+                </div>
+                <div style="position:absolute; bottom:0; left: 0; right: 0; margin-bottom:40px;">
+                    <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                        style="padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c; font-family: 'Concert One', sans-serif;"
+                        id="botonDown" class="aprovecha_ofertas">{{ __('¡APROVECHA LAS OFERTAS!') }}
                     </a>
                 </div>
             </div>
-            @if (Lang::locale() == 'es')
-                <img src="{{ asset('img/productoestrella.png') }}" alt="productoestrella" width="400px"
-                    height="400px">
-            @else
-                <img src="{{ asset('img/productoestrellaen.png') }}" alt="productoestrella" width="400px"
-                    height="400px">
-            @endif
         </div>
-        <br><br>
     </div>
-    <div style="background-image:url('img/backgroundpizzared.png');">
+    <div style="background-color:#141414;" id="prom_y_of_res">
+        <div style="background-color:white; border-bottom:5px solid white;" id="fondoProm_res">
+            <div>
+                <div style="background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
+                    onclick="mostrarCarruselUno_res()" id="botonprom">
+                    <p style="font-size:40px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
+                        {{ __('PROMOCIONES') }}</p>
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">
+                        {{ __('¡TUS MENÚS GRATIS CANJEANDO PIZZACOINS!') }}
+                    </p>
+                </div>
+                <img src="{{ asset('img/pizzacoin.png') }}" alt="coin" height="120px;" width="120px;"
+                    style="margin-top:20px; margin-left:auto; margin-right:auto;" class="pizzacoinhelp"
+                    onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\nPara empezar a utilizar Pizzacoins, primero debes iniciar sesión con una cuenta en la página web.\nRegístrate, y con tu primera compra superior a 10€, recibe 500 Pizzacoins gratis.\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!\nTo start using Pizzacoins, you have to log into the webpage with an account first.\nSign up, and with your first purchase over 10€, you will receive 500 free Pizzacoins.') }}')">
+            </div>
+            <div style="margin-left:auto; margin-right:auto; text-align:center; padding:50px;">
+                <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                    style="padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c; font-family: 'Concert One', sans-serif;"
+                    id="botonDown" class="canjea_pizzacoins">{{ __('¡CANJEA TUS PIZZACOINS!') }}
+                </a>
+            </div>
+        </div>
+        <div class="slideshow-container" style="background-color:white; padding:5px; display:block;"
+            id="carrusel_uno_res">
+            <p
+                style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">
+                {{ __('PROMOCIONES') }}
+            </p>
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Promoción')
+                    <div class="mySlides_res fade">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Promoción"><img
+                                    src="{{ asset($product->image) }}" alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:200px; height:270px;"
+                                    loading="lazy" class="img_ensi_3"></a>
+                        </div>
+                        <div style="display:flex; justify-content:center;">
+                            @if ($product->puntos)
+                                <div class="-mr-2 flex items-center"
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;">
+                                    <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">
+                                    {{ $product->puntos }}
+                                </div>
+                            @else
+                                <div class="-mr-2 flex items-center"
+                                    style="font-size:20px; margin-top:10px; margin-bottom:10px; font-weight:bolder;">
+                                    <img src="{{ asset('img/pizzacoin.png') }}" alt="coin">0
+                                </div>
+                            @endif
+                        </div>
+                        @if (Lang::locale() == 'es')
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->name }}
+                            </p>
+                        @else
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->nameen }}
+                            </p>
+                        @endif
+                    </div>
+                @endif
+            @endforeach
+            <div
+                style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10vw;">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(270deg);" onclick="showSlidesLeft_res();">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(90deg);" onclick="showSlides_res();">
+            </div>
+            <div style="text-align:center">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Promoción')
+                        <span class="dot_res"></span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div class="slideshow-container" style="background-color:white; padding:5px; display:none;"
+            id="carrusel_dos_res">
+            <p
+                style="text-align:center; font-size:35px; font-weight:bolder; color:#141414; font-family: 'Grandstander', cursive;">
+                {{ __('OFERTAS') }}</p>
+            @foreach ($products as $product)
+                @if ($product->habilitado and $product->type == 'Oferta')
+                    <div class="mySlides2_res fade">
+                        <div class="img_container_3">
+                            <a href="#" class="alb" title="Oferta"><img src="{{ asset($product->image) }}"
+                                    alt="..."
+                                    style="margin-left:auto; margin-right:auto; width:240px; height:340px;"
+                                    loading="lazy" class="img_ensi_3"></a>
+                        </div>
+                        @if (Lang::locale() == 'es')
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->name }}
+                            </p>
+                        @else
+                            <p
+                                style="text-align:center; font-size:20px; text-transform:uppercase; font-family: 'Grandstander', cursive;">
+                                {{ $product->nameen }}
+                            </p>
+                        @endif
+                    </div>
+                @endif
+            @endforeach
+            <div
+                style="display:flex; align-items:center; justify-content:center; margin-left:auto; margin-right:auto; height:30px; width:30px; margin-bottom:10px; gap:10vw;">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(270deg);" onclick="showSlidesLeft2_res();">
+                <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" id="botoncarrusel"
+                    style="transform:rotate(90deg);" onclick="showSlides2_res();">
+            </div>
+            <div style="text-align:center">
+                @foreach ($products as $product)
+                    @if ($product->habilitado and $product->type == 'Oferta')
+                        <span class="dot2_res"></span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div style="background-color:white; border-top:5px solid #568c2c;" id="fondoOfer_res">
+            <div style="text-align:center;">
+                <div style=" background-color:white; padding:15px; border-radius:10px; margin:20px; text-align:center; color:#141414;"
+                    onclick="mostrarCarruselDos_res()" id="botonofer">
+                    <p style="font-size:40px; font-weight:bolder; font-family: 'Alfa Slab One', serif;">
+                        {{ __('OFERTAS') }}
+                    </p>
+                    <p style="font-size:23px; font-weight:bold; font-family: 'Grandstander', cursive;">
+                        {{ __('¡ESCOGE TU MENÚ FAVORITO!') }}
+                    </p>
+                </div>
+                <div style="margin-left:auto; margin-right:auto; padding-bottom:50px;">
+                    <a href="{{ route('login') }}" onclick="redirigir_promociones()"
+                        style="padding:15px; border-radius:10px; color:#568c2c; border:3px solid #568c2c; font-family: 'Concert One', sans-serif;"
+                        id="botonDown" class="aprovecha_ofertas">{{ __('¡APROVECHA LAS OFERTAS!') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:#141414;">
+        {{--
+            <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+                <div>
+                    <h1 style="text-align:center; font-size:50px; font-family: 'Anton', sans-serif; color:white;">
+                        {{ __('¿QUÉ PEDIMOS?') }}
+                    </h1>
+                    <br><br>
+                    <div style="display:flex; gap:100px; justify-content:center;">
+                        <a href="cartaAnon"
+                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                            id="boton">{{ __('NUESTRA CARTA') }}
+                        </a>
+                        <a href="{{ route('login') }}"
+                            style="color:black; font-size:25px; background-color:red; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center;"
+                            id="boton">{{ __('¡PIDE AHORA!') }}
+                        </a>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        --}}
+        {{--
+            <div style="width:100%;">
+                <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+                    <div>
+                        @if (Lang::locale() == 'es')
+                            <div style="display:block; margin-left:auto; margin-right:auto; height:500px; width:500px;">
+                                <img src="{{ asset('img/nuestrasofertas.png') }}" alt="ofertas" class="nuestrasofertas"
+                                    onclick="ofertas_mostrar(flag_ofertas);">
+                            </div>
+                        @else
+                            <div>
+                                <img src="{{ asset('img/nuestrasofertaseng.png') }}" alt="ofertas"
+                                    class="nuestrasofertas" onclick="ofertas_mostrar(flag_ofertas);">
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                    style="display:none; flex-wrap:wrap; align-items:center;" id="lista_ofertas">
+                    @foreach ($products as $product)
+                        @if ($product->habilitado and $product->type == 'Oferta')
+                            <div class="mx-auto">
+                                <img src="{{ asset($product->image) }}" alt="..." width="280px" height="280px"
+                                    style="border:3px solid black; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        --}}
+        <div style="display:flex; justify-content:center; align-items:center; background-color:#14210b;">
+            <div style="flex:1;">
+                <div>
+                    <img src="{{ asset('img/nuestracarta/i.jpg') }}" alt="izquierda">
+                </div>
+            </div>
+            <div style="flex:1; text-align:center;">
+                <p style="font-size:4vw; color:#568c2c; font-family: 'Titan One', sans-serif;">
+                    {{ __('¡COMPARTE Y DISFRUTA!') }}</p>
+            </div>
+            <div style="flex:1;">
+                <div>
+                    <img src="{{ asset('img/nuestracarta/d.jpg') }}" alt="derecha">
+                </div>
+            </div>
+        </div>
+        <div style="justify-content:center; align-items:center;" id="carta_y_pedido">
+            <div style="flex:1;">
+                <div style="text-align:center;">
+                    <a href="cartaAnon"
+                        style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                        id="boton" class="nuestra_carta_btn">{{ __('NUESTRA CARTA') }}
+                    </a>
+                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('¿QUÉ PEDIMOS?') }}</p>
+                </div>
+            </div>
+            <div style="flex:1;">
+                <img src="{{ asset('img/nuestracarta/centro.jpg') }}" alt="centro">
+            </div>
+            <div style="flex:1;">
+                <div style="text-align:center;">
+                    <a href="{{ route('login') }}"
+                        style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                        id="boton" class="haz_pedido_btn">{{ __('HAZ TU PEDIDO') }}
+                    </a>
+                    <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                        {{ __('¡TE LO LLEVAMOS A CASA!') }}</p>
+                </div>
+            </div>
+        </div>
+        <div id="carta_y_pedido_res">
+            <div style="text-align:center; margin:50px;">
+                <a href="cartaAnon"
+                    style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                    id="boton" class="nuestra_carta_btn">{{ __('NUESTRA CARTA') }}
+                </a>
+                <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                    {{ __('¿QUÉ PEDIMOS?') }}</p>
+            </div>
+            <div>
+                <img src="{{ asset('img/nuestracarta/centro.jpg') }}" alt="centro">
+            </div>
+            <div style="text-align:center; margin:50px;">
+                <a href="{{ route('login') }}"
+                    style="color:black; background-color:#568c2c; padding:15px; border-radius:15px; color:white; border:3px solid white; text-align:center; font-family: 'Concert One', sans-serif;"
+                    id="boton" class="haz_pedido_btn">{{ __('HAZ TU PEDIDO') }}
+                </a>
+                <p style="margin-top:30px; color:white; font-family: 'Grandstander', cursive; font-size:30px;">
+                    {{ __('¡TE LO LLEVAMOS A CASA!') }}</p>
+            </div>
+        </div>
+    </div>
+    {{--
+        <div style="background-image:url('img/backgroundpizzared.png');">
+            <h1 class="text-center"
+                style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                {{ __('TELÉFONOS') }}
+            </h1>
+            <br>
+            <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
+            </p>
+            <div class="flex items-center justify-center"
+                style="font-size:50px; gap:45px; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; text-align:center;">
+                <p>956 37 11 15</p>
+                <p>956 37 47 36</p>
+                <p>627 650 605</p>
+            </div>
+            <br><br>
+        </div>
         <h1 class="text-center"
             style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-            {{ __('TELÉFONOS') }}
+            {{ __('HORARIO') }}
         </h1>
+        <div class="container px-12 py-8 mx-auto bg-white"
+            style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
+            <div style="text-align:center;">
+                <div class="flex items-center justify-center">
+                    <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
+                    <p style="font-weight:bolder; font-size:30px;">&nbsp;20:30 - 23:30</p>
+                </div>
+                <br>
+                <div class="flex items-center justify-center">
+                    <p style="font-size:20px; font-weight:bold;">{{ __('Domingo por la mañana:') }}</p>
+                    <p style="font-weight:bolder; font-size:30px;">&nbsp;13:30 - 15:00</p>
+                </div>
+                <br>
+            </div>
+        </div>
+    --}}
+    <div style="background-color:white;">
         <br>
-        <p style="text-align:center; color:white; font-weight:bolder;">{{ __('Puedes hacer tu pedido por teléfono') }}
-        </p>
-        <div class="flex items-center justify-center"
-            style="font-size:50px; gap:45px; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000; text-align:center;">
-            <p>956 37 11 15</p>
-            <p>956 37 47 36</p>
-            <p>627 650 605</p>
-        </div>
-        <br><br>
     </div>
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-        {{ __('HORARIO') }}
-    </h1>
-    <div class="container px-12 py-8 mx-auto bg-white"
-        style="width: 100%; padding: 50px; background-image:url('img/backgroundpizzasmallred.png'); color:white;">
-        <div style="text-align:center;">
-            <div class="flex items-center justify-center">
-                <p style="font-size:20px; font-weight:bold;">{{ __('De lunes a domingo:') }}</p>
-                <p style="font-weight:bolder; font-size:30px;">&nbsp;20:30 - 23:30</p>
+    <div style="background-color:#141414; padding-top:20px; padding-bottom:150px;">
+        <h1 class="text-center"
+            style="font-size:50px; color:white; font-family: 'Alfa Slab One', serif; margin-bottom:10px;">
+            {{ __('VISÍTANOS') }}
+        </h1>
+        <div style="justify-content:center; align-items:center; gap:50px;" id="visitanos">
+            <div class="img_container_3">
+                <a href="#" class="alb" title="Pizzería">
+                    <img src="{{ asset('img/fondo/maps.jpg') }}" alt="localizacion" width="600"
+                        style="border:2px solid white; border-radius:20px; margin-left:auto; margin-right:auto;"
+                        id="localizacion" class="img_ensi_3" loading="lazy">
+                </a>
             </div>
-            <br>
-            <div class="flex items-center justify-center">
-                <p style="font-size:20px; font-weight:bold;">{{ __('Domingo por la mañana:') }}</p>
-                <p style="font-weight:bolder; font-size:30px;">&nbsp;13:30 - 15:00</p>
-            </div>
-            <br>
-        </div>
-    </div>
-    <h1 class="text-center"
-        style="font-size:30px; padding:10px; color:white; background-color:red; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-        {{ __('VISÍTANOS') }}
-    </h1>
-    <div style="background-image:url('img/backgroundpizza.png');">
-        <br>
-        <div style="width:600px; margin-left:auto; margin-right:auto;">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
-                width="600" height="450" style="border:5px solid darkblue; border-radius:10px;"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <br>
-            <div class="flex items-center justify-center">
-                <p style="color:white;">{{ __('Atención al cliente:') }}</p>
-                <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
+            <div>
+                <iframe
+                    src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.3853338265453!2d-6.438643323699105!3d36.73732087124086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0e7509d89e347d%3A0xb24751265b25b2b1!2sPizzer%C3%ADa%20Brenda!5e0!3m2!1ses!2ses!4v1698173518792!5m2!1ses!2ses"
+                    style="border:5px solid white; border-radius:10px; margin-left:auto; margin-right:auto;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    id="mapa"></iframe>
             </div>
         </div>
-        <br><br><br><br><br>
+        <div class="flex items-center justify-center" style="margin-top:30px;">
+            <p style="color:white;">{{ __('Atención al cliente:') }}</p>
+            <p style="font-weight:bolder; font-size:20px; color:white;">&nbsp;brendapizza@hotmail.com</p>
+        </div>
     </div>
     <div class="footer">
-        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
-            <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </p>
-            <div style="display:flex; margin-left:auto; gap:30px;">
-                <a class="anavbar" href="privacyAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+        <div style="text-align:center; font-size:13px;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="{{ route('whoareweAnon') }}"
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="{{ route('faqAnon') }}"
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contactAnon') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('privacyAnon') }}"
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premiosAnon') }}"
+                    style="font-size:12px;">{{ __('Premios') }}</a>
             </div>
             <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
+                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
                 <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
                 <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .anavbar:hover {
+            text-decoration: underline;
+        }
+
+        #boton_login:hover {
+            filter: brightness(75%);
+        }
+
+        #menu_hamburguesa:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+
+        #boton_responsive:hover {
+            background-color: white;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
+
+            #boton_login {
+                display: none;
+            }
+
+            #boton_switch {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 639px) {
+            #menu_responsive_container {
+                display: block;
+            }
+        }
+
+        @media only screen and (min-width: 640px) {
+            #menu_hamburguesa {
+                display: none;
+            }
+
+            #menu_responsive_container {
+                display: none;
+            }
+        }
+    </style>
 </body>
+
+<script>
+    var menu_responsive = document.getElementById("menu_responsive");
+    var menu_hamburguesa = document.getElementById("menu_hamburguesa");
+
+    var mostrar_hamburguesa = function() {
+        menu_responsive.style.display = "block";
+        menu_hamburguesa.setAttribute("src", "{{ asset('img/burger_menu_x.png') }}");
+        menu_hamburguesa.setAttribute("onclick", "ocultar_hamburguesa()");
+    };
+
+    var ocultar_hamburguesa = function() {
+        menu_responsive.style.display = "none";
+        menu_hamburguesa.setAttribute("src", "{{ asset('img/burger_menu.png') }}");
+        menu_hamburguesa.setAttribute("onclick", "mostrar_hamburguesa()");
+    };
+</script>
 
 <script src="{{ asset('js/welcome.js') }}"></script>
 <script>
@@ -1274,5 +1913,64 @@
         deleteCookie("card_holder_name");
     };
 </script>
+
+<script>
+    anime({
+        targets: '.pizzacoinhelp',
+        scale: 1.1,
+        duration: 723,
+        delay: 200,
+        loop: true,
+        direction: 'alternate'
+    });
+</script>
+
+<script>
+    var flag_ofertas = false;
+
+    var ofertas_mostrar = function(x) {
+        if (x) {
+            document.getElementById("lista_ofertas").style.display = "none";
+            flag_ofertas = false;
+        } else {
+            document.getElementById("lista_ofertas").style.display = "flex";
+            flag_ofertas = true;
+        }
+    };
+
+    var flag_pizzacoins = false;
+
+    var pizzacoins_mostrar = function(x) {
+        if (x) {
+            document.getElementById("informacion_pizzacoins").style.display = "none";
+            flag_pizzacoins = false;
+        } else {
+            document.getElementById("informacion_pizzacoins").style.display = "block";
+            flag_pizzacoins = true;
+        }
+    };
+
+    var redirigir_promociones = function() {
+        localStorage.promociones = true;
+    };
+
+    if (localStorage.promociones) {
+        localStorage.removeItem("promociones");
+    }
+</script>
+
+@auth
+    <script></script>
+@else
+    <script>
+        if (localStorage.id_pers) {
+            localStorage.removeItem("id_pers");
+        }
+    </script>
+@endauth
+
+@vite(['resources/scss/app.scss'])
+
+<script src="{{ asset('js/whoareweAnon_3.js') }}"></script>
 
 </html>

@@ -1,27 +1,31 @@
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-xl text-gray-800 text-center">
-            {{ __('CARRITO') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('CARRITO') }}
+            </h2>
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
-    <main class="my-8">
+    <link rel="stylesheet" href="/css/carrito.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <main class="my-8" style="margin-bottom:300px;">
         <div class="container px-6 mx-auto">
             <div style="text-align:center;">
-                <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                    id="boton">{{ __('VOLVER AL MENÚ') }}</a>
+                <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                    style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
             </div>
             <div class="flex justify-center my-6">
                 <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
                     @if ($message = Session::get('success'))
-                        <div class="p-4 mb-3 rounded" style="background-color:#b3d0ff">
+                        <div class="p-4 mb-3 rounded"
+                            style="background-color:#568c2c; color:white; font-weight:bolder;">
                             <p>{{ __($message) }}</p>
                         </div>
                     @endif
                     @if (Cart::getTotalQuantity() != 0)
-                        <div class="flex-1">
+                        <div class="flex-1" id="carrito_grande">
                             <table class="w-full text-sm lg:text-base" cellspacing="0">
                                 <thead>
                                     <tr class="h-12 uppercase">
@@ -53,7 +57,7 @@
                                         --}}
                                             <td>
                                                 <a href="#">
-                                                    <p class="mb-2 md:ml-4 text-purple-600 font-bold">
+                                                    <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
                                                         {{ __($item->name) }}
                                                     </p>
 
@@ -72,18 +76,24 @@
                                                                     value="{{ $item->quantity }}"
                                                                     class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
                                                                 <button
-                                                                    class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100 bg-violet-500"
-                                                                    id="boton">{{ __('Actualizar') }}</button>
+                                                                    class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100"
+                                                                    id="boton"
+                                                                    style="background-color:#568c2c;">{{ __('Actualizar') }}</button>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 @endif
                                             </td>
-                                            <td class="text-right md:table-cell">
-                                                <span class="text-sm font-medium lg:text-base">
-                                                    {{ $item->attributes->puntos }}
-                                                </span>
-                                            </td>
+                                            @if ($item->attributes->puntos > 0 and $item->attributes->puntos != '')
+                                                <td class="text-right md:table-cell">
+                                                    <span class="text-sm font-medium lg:text-base">
+                                                        {{ $item->attributes->puntos }}
+                                                    </span>
+                                                </td>
+                                            @else
+                                                <td class="text-right md:table-cell">
+                                                </td>
+                                            @endif
                                             <td class="text-right md:table-cell">
                                                 @if ($item->attributes->type != 'Promoción')
                                                     <span class="text-sm font-medium lg:text-base">
@@ -105,58 +115,22 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                        {{-- A lo mejor debería mejorar esto de aquí abajo... --}}
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
-                            <div>
+                            <div style="margin-top:30px;">
                                 Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
                             </div>
                             @if (Cart::getTotalQuantity() != 0)
                                 <br>
-                                <table style="border-collapse: separate; border-spacing: 100px 0;">
+                                <div style="display:flex; align-items:center; justify-content:center; gap:100px;">
                                     <tr>
                                         <td>
                                             <a href="recoger"><button type="button"
-                                                    class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-blue-500"
-                                                    id="boton">{{ __('Realizar pedido') }}</button></a>
+                                                    class="px-6 py-2 text-sm  rounded shadow text-red-100"
+                                                    id="boton"
+                                                    style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button>
+                                            </a>
                                         </td>
                                         <td>
                                             <form action="{{ route('cart.clear') }}" method="POST">
@@ -167,8 +141,75 @@
                                             </form>
                                         </td>
                                     </tr>
-                                </table>
+                                </div>
                             @endif
+                        </div>
+                        <div id="carrito_pequenio">
+                            @foreach ($cartItems as $item)
+                                <div style="margin-bottom:30px;">
+                                    <div style="display:flex; gap:10px;">
+                                        <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                                        @if ($item->attributes->type != 'Promoción')
+                                            <div class="h-10 w-28">
+                                                <form action="{{ route('cart.update') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                                    <input type="text" name="quantity"
+                                                        value="{{ $item->quantity }}"
+                                                        class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
+                                                    <button
+                                                        class="px-4 mt-1 py-1.5 text-sm rounded shadow text-violet-100"
+                                                        id="boton"
+                                                        style="background-color:#568c2c;">{{ __('Actualizar') }}</button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                        <form action="{{ route('cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $item->id }}" name="id">
+                                            <input type="hidden" value="{{ $item->attributes->type }}"
+                                                name="type">
+                                            <input type="hidden" value="{{ $item->attributes->puntos }}"
+                                                name="puntos">
+                                            <button class="px-4 py-2 text-white bg-red-600 shadow rounded-full"
+                                                id="boton">x</button>
+                                        </form>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                        <p class="mb-2 md:ml-4 font-bold" style="color:#568c2c;">
+                                            {{ __($item->name) }}
+                                        </p>
+                                    </div>
+                                    <div style="margin-left:20px;">
+                                        @if ($item->attributes->type != 'Promoción')
+                                            <p>
+                                                {{ __('- Precio:') }}
+                                                {{ number_format($item->price * $item->quantity, 2, '.', '') }} €
+                                            </p>
+                                        @endif
+                                        @if ($item->attributes->puntos > 0 and $item->attributes->puntos != '')
+                                            <p>
+                                                - Pizzacoins: {{ $item->attributes->puntos }}
+                                            </p>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                            <div style="margin-top:30px;">
+                                Total: {{ number_format(Cart::getTotal(), 2, '.', '') }} €
+                            </div>
+                            <div
+                                style="margin-top:30px; display:flex; align-items:center; justify-content:center; gap:50px;">
+                                <a href="recoger"><button type="button"
+                                        class="px-6 py-2 text-sm  rounded shadow text-red-100" id="boton"
+                                        style="background-color:#568c2c;">{{ __('Realizar pedido') }}</button>
+                                </a>
+                                <form action="{{ route('cart.clear') }}" method="POST">
+                                    @csrf
+                                    <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500"
+                                        id="boton">{{ __('Vaciar carrito') }}</button>
+                                </form>
+                            </div>
                         </div>
                     @else
                         <div style="text-align:center; font-weight:bold; font-size:18px;">
@@ -180,44 +221,81 @@
         </div>
     </main>
 
-    <br><br><br><br>
-
-    <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-        style="background-color:red;">
-        <span class="text-sm sm:text-center"
-            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-        </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
-            style="color: white; justify-content:center; margin-left:auto;">
-            <li>
-                <a href="{{ route('whoarewe') }}" class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('faq') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('privacy') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
-            </li>
-        </ul>
-        <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+    <div class="footer">
+        <div style="text-align:center; font-size:13px;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
-    </footer>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="{{ route('whoarewe') }}"
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="{{ route('faq') }}"
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('privacy') }}"
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="margin-left:auto; display:flex;">
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                        alt="twitter" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .anavbar:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
+        }
+    </style>
 
 </x-app-layout>

@@ -827,7 +827,7 @@
         /* The navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: red;
+            background-color: #141414;
             position: fixed;
             /* Set the navbar to fixed position */
             top: 0;
@@ -862,7 +862,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: red;
+            background-color: #141414;
             color: white;
             padding: 20px;
             z-index: 1;
@@ -889,144 +889,208 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
-<body class="antialiased" style="background-image:url('img/fondoanon2.jpg');">
-    <div class="navbar">
-        <div style="position: relative; top: 15px;">
-            @include('partials/language_switcher')
-        </div>
-        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:67px; height:60px;"></a>
-        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
-        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
-        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
-                @auth
-                    <a href="{{ url('/products') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar pedido') }}</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar sesión') }}</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Registrarse') }}</a>
-                    @endif
-                @endauth
+<body class="antialiased" style="background-color:#141414; margin:20px;">
+    <div style="background-color:#f5f0e9;">
+        <div class="navbar" style="display:flex;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
+                <div>
+                    <a class="anavbar" href="/" style="font-size:23px; font-weight:bolder;">{{ __('Inicio') }}
+                    </a>
+                </div>
+                <div>
+                    <a class="anavbar" href="cartaAnon"
+                        style="font-size:23px; font-weight:bolder;">{{ __('Nuestra carta') }}
+                    </a>
+                </div>
             </div>
-        @endif
-    </div>
-    <br><br><br><br><br>
-    <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px" class="max-h-60 mx-auto" style="margin-top:130px;">
-    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        style="display:flex; flex-wrap:wrap; align-items:center;">
-        <?php
-        $ides = 0;
-        ?>
-        @foreach ($products as $product)
-            <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
-                style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:30px;">
+                    @include('partials/language_switcher')
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                id="boton">{{ __('Iniciar sesión') }}</a>
 
-                <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
-                    <img src="{{ asset($product->image) }}" class="mx-auto"
-                        style="height:200px; width:200px; border-radius:30px; padding:10px;">
-                </a>
-                <div class="px-5 py-3" style="padding:15px;">
-                    @if (Lang::locale() == 'es')
-                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                    @else
-                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                    @endif
-                    <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                    {{--
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
+                                    id="boton">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+            @endif
+        </div>
+        <br><br><br><br><br>
+        <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px"
+            class="max-h-60 mx-auto" style="margin-top:130px;">
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="display:flex; flex-wrap:wrap; align-items:center;">
+            <?php
+            $ides = 0;
+            ?>
+            @foreach ($products as $product)
+                <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md"
+                    style="border-radius:30px; filter:drop-shadow(10px 10px 4px black);">
+
+                    <a href="#{{ $ides }}" onclick="mostrar({{ $ides }})">
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                    </a>
+                    <div class="px-5 py-3" style="padding:15px;">
+                        @if (Lang::locale() == 'es')
+                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        @else
+                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                        @endif
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        {{--
                         <span class="mt-2 text-gray-500">{{ $product->description }}</span>
                     --}}
-                </div>
-            </div>
-            <?php
-            $ides += 1;
-            ?>
-        @endforeach
-    </div>
-    <?php
-    $idesdesc = 0;
-    ?>
-    <div>
-        @foreach ($products as $product)
-            <div id="{{ $idesdesc }}" style="display: none;">
-                <br><br><br><br><br>
-                <h1 class="text-center"
-                    style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
-                    {{ __('DESCRIPCIÓN') }}</h1>
-                <div style="background:white; margin: 0 auto; text-align:center;">
-                    <br><br>
-                    <img src="{{ asset($product->image) }}" class="mx-auto"
-                        style="height:200px; width:200px; border-radius:30px; padding:10px;">
-                    @if (Lang::locale() == 'es')
-                        <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                    @else
-                        <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
-                    @endif
-                    <br>
-                    <span class="mt-2 text-gray-500">{{ $product->description }}</span>
-                    <br>
-                    <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
-                    <br><br>
-                    <?php
-                    $alergenoslista = explode('-', $product->alergenos);
-                    ?>
-                    <div style="display:flex; flex-wrap:wrap;">
-                        @if ($product->alergenos != '')
-                            @foreach ($alergenoslista as $alergeno)
-                                <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
-                                    height="40px">
-                            @endforeach
-                        @endif
                     </div>
-                    <a href="#">
-                        <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
-                            style="margin-left:auto;">
-                    </a>
-                    <br><br>
                 </div>
+                <?php
+                $ides += 1;
+                ?>
+            @endforeach
+        </div>
+        <?php
+        $idesdesc = 0;
+        ?>
+        <div>
+            @foreach ($products as $product)
+                <div id="{{ $idesdesc }}" style="display: none;">
+                    <br><br><br><br><br>
+                    <h1 class="text-center"
+                        style="font-size:30px; background-color:red; padding:10px; color:white; font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px #000000;">
+                        {{ __('DESCRIPCIÓN') }}</h1>
+                    <div style="background:white; margin: 0 auto; text-align:center;">
+                        <br><br>
+                        <img src="{{ asset($product->image) }}" class="mx-auto"
+                            style="height:200px; width:200px; border-radius:30px; padding:10px;">
+                        @if (Lang::locale() == 'es')
+                            <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                        @else
+                            <h3 class="text-gray-700 uppercase">{{ $product->nameen }}</h3>
+                        @endif
+                        <br>
+                        <span class="mt-2 text-gray-500">{{ $product->description }}</span>
+                        <br>
+                        <span class="mt-2 text-gray-500">{{ number_format($product->price, 2, '.', '') }} €</span>
+                        <br><br>
+                        <?php
+                        $alergenoslista = explode('-', $product->alergenos);
+                        ?>
+                        <div style="display:flex; flex-wrap:wrap;">
+                            @if ($product->alergenos != '')
+                                @foreach ($alergenoslista as $alergeno)
+                                    <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}" width="40px"
+                                        height="40px">
+                                @endforeach
+                            @endif
+                        </div>
+                        <a href="#">
+                            <img src="{{ asset('img/uparrow.png') }}" alt="uparrow" width="50px" height="50px"
+                                style="margin-left:auto;">
+                        </a>
+                        <br><br>
+                    </div>
+                </div>
+                <?php
+                $idesdesc += 1;
+                ?>
+            @endforeach
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <div class="footer">
+            <div style="text-align:center;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
             </div>
-            <?php
-            $idesdesc += 1;
-            ?>
-        @endforeach
-    </div>
-    <br><br><br><br><br><br><br><br>
-    <div class="footer">
-        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
-            <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-            </p>
-            <div style="display:flex; margin-left:auto; gap:30px;">
-                <a class="anavbar" href="privacyAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
-            </div>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
+                </div>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <a class="anavbar" href="{{ route('whoarewe') }}"
+                        style="font-size:13px;">{{ __('¿Quiénes somos?') }}</a>
+                    <a class="anavbar" href="{{ route('faq') }}"
+                        style="font-size:13px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="{{ route('contact') }}"
+                        style="font-size:13px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="{{ route('privacy') }}"
+                        style="font-size:13px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="{{ route('premios') }}"
+                        style="font-size:13px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" alt="twitter" width="30px" height="30px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" alt="instagram" width="30px" height="30px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="30px" height="30px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" alt="facebook" width="30px" height="30px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:22px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #141414;
+                color: white;
+                padding: 20px;
+                z-index: 1;
+            }
+
+            .anavbar:hover {
+                text-decoration: underline;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
+            }
+        </style>
     </div>
 </body>
 

@@ -32,7 +32,9 @@ class User extends Authenticatable
         'inmediato',
         'direccion',
         'telefono',
-        'nuevo'
+        'nuevo',
+        'id_role',
+        'primero'
     ];
 
     /**
@@ -60,5 +62,9 @@ class User extends Authenticatable
 
     public function recibos() {
         return $this->hasMany(Recibo::class);
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class);
     }
 }

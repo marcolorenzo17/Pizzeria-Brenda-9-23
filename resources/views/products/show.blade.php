@@ -3,21 +3,26 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <x-slot name="header">
-        <br><br><br>
         @if (Lang::locale() == 'es')
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center"
-                style="font-size:25px; text-transform:uppercase;">
-                {{ $products->name }} {{ __('- DETALLES') }}
-            </h2>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                    {{ $products->name }} {{ __('- DETALLES') }}
+                </h2>
+            </div>
         @else
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center"
-                style="font-size:25px; text-transform:uppercase;">
-                {{ $products->nameen }} {{ __('- DETALLES') }}
-            </h2>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="color:#568c2c; font-weight:lighter; font-family: 'Acme', sans-serif; font-size:40px;">
+                    {{ $products->nameen }} {{ __('- DETALLES') }}
+                </h2>
+            </div>
         @endif
-        <br><br>
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+        rel="stylesheet">
 
     {{--
     <script src="{{ asset('js/pruebatexto-2.js') }}"></script>
@@ -40,17 +45,21 @@
     <img id="anim" src="{{ asset('img/anim/Pizza2.gif') }}" alt="..." style="height:120px; width:120px; position:fixed; right:10px; bottom:65px;">
     --}}
 
-    <div class="py-12">
+    <div class="py-12" style="margin-bottom:300px;">
+        <div class="lightbox_2" style="color: rgba(255,255,255,0);">
+            <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+            <img src="{{ asset('img/blank.png') }}" alt="Imagen grande" class="grande" loading="lazy">
+        </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                        id="boton">{{ __('VOLVER') }}
+                    <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                        style="background-color:#f12d2d;">{{ __('VOLVER') }}
                     </a>
                     <br><br>
-                    <div class="mb-6">
-                        <img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto"
-                            style="border:5px solid gray; border-radius:10px;">
+                    <div class="mb-6 img_container_2">
+                        <a href="#" class="alb" title="producto"><img src="{{ asset($products->image) }}" alt="producto" class="max-h-60 mx-auto img_ensi_2"
+                            style="border:5px solid gray; border-radius:10px;" loading="lazy"></a>
                     </div>
                     <div class="mb-6">
                         <h2 class="text-lg font-medium text-gray-900">
@@ -139,8 +148,10 @@
                             <input type="hidden" value="{{ $products->image }}" name="image">
                             <input type="hidden" value="1" name="quantity">
                             <div style="text-align:center;">
-                                <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
-                                    id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                                <button
+                                    class="px-4 py-1.5 text-white text-sm rounded"
+                                    id="boton"
+                                    style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                             </div>
                         </form>
                         <form action="{{ route('cart.inmediato') }}" method="POST" enctype="multipart/form-data">
@@ -156,7 +167,7 @@
                             <input type="hidden" value="1" name="quantity">
                             <div style="text-align:center;">
                                 <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
-                                    style="background-color:green;">{{ __('COMPRA INMEDIATA') }}</button>
+                                    style="background-color:#274014;">{{ __('COMPRA INMEDIATA') }}</button>
                             </div>
                         </form>
                     </div>
@@ -195,8 +206,8 @@
                         <p id="error_resenia" style="color:red;"></p>
                         <br><br>
                         <div>
-                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                id="boton">{{ __('Publicar') }}</button>
+                            <button type="submit" class="px-6 py-2 text-sm rounded shadow text-red-100"
+                                id="boton" style="background-color:#568c2c;">{{ __('Publicar') }}</button>
                         </div>
                     </form>
                     <br><br>
@@ -229,7 +240,7 @@
                                         <img src="{{ asset('img/e5.png') }}" alt="*" width="100px" height="100px">
                                     @break
                                 @endswitch
-                                <p style="margin-top:10px;">
+                                <p style="margin-top:10px; word-wrap:break-word;">
                                     {{ $valoracion->resenia }}
                                 </p>
                                 <p style="font-size:12px; color:gray;">
@@ -241,7 +252,7 @@
                                     <br>
                                     <div x-data="{ mostrarVal: false }">
                                         <button type="button" class="px-6 py-2 text-sm rounded shadow"
-                                            style="font-size:13px; background-color:lightgray; color:blue;"
+                                            style="font-size:13px; background-color:lightgray; color:#568c2c;"
                                             id="boton" x-on:click="mostrarVal = !mostrarVal"
                                             x-text="mostrarVal ? '{{ __('Editar valoración') }}' : '{{ __('Editar valoración') }}'"></button>
                                         <div x-show="mostrarVal">
@@ -251,17 +262,17 @@
                                                 method="POST" onsubmit="return validate_editarvaloracion()"
                                                 name="editarvaloracion">
                                                 @csrf
-                                                <div style="align-items:center;">
+                                                <div style="display:flex; align-items:center;">
                                                     @error('modifVal')
                                                         <span class="text-danger"
                                                             style="color:red;">{{ __($message) }}</span>
                                                         <br>
                                                     @enderror
-                                                    <input type="text" id="modifVal" name="modifVal"
+                                                    <textarea id="modifVal" name="modifVal"
                                                         style="border-radius:10px;"
-                                                        onfocusout="validate_editarvaloracion_input()">
+                                                        onfocusout="validate_editarvaloracion_input()"></textarea>
                                                     <button type="submit" class="px-6 py-2 text-sm rounded shadow"
-                                                        style="color:green; background-color:lightgray; margin-left:10px;"
+                                                        style="color:#568c2c; background-color:lightgray; margin-left:10px;"
                                                         id="boton">{{ __('Publicar') }}
                                                     </button>
                                                     <p id="error_reseniaeditar" style="color:red;"></p>
@@ -278,7 +289,7 @@
                                         <div>
                                             <button type="submit" class="px-6 py-2 text-sm rounded shadow"
                                                 style="color:red; background-color:lightgray;"
-                                                id="boton">{{ __('Borrar valoración') }}</button>
+                                                id="boton" onclick="return confirm('¿Estás seguro de que quieres eliminar esta valoración?')">{{ __('Borrar valoración') }}</button>
                                         </div>
                                     </form>
                                 @endif
@@ -298,15 +309,15 @@
                                             <br>
                                         @enderror
                                         <div style="display:flex; align-items:center;">
-                                            <input type="text" id="reseniaCom" name="reseniaCom"
+                                            <textarea id="reseniaCom" name="reseniaCom"
                                                 placeholder="{{ __('Escribe aquí tu comentario.') }}" size="30"
-                                                style="border-radius:10px;" onfocusout="validate_comentario_input()">
+                                                style="border-radius:10px;" onfocusout="validate_comentario_input()"></textarea>
                                             <br><br>
                                             <div>
                                                 <button type="submit"
-                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100"
                                                     id="boton"
-                                                    style="margin-left:10px;">{{ __('Publicar comentario') }}
+                                                    style="margin-left:10px; background-color:#568c2c;">{{ __('Publicar comentario') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -318,7 +329,7 @@
                                             <p style="font-size:13px; margin-bottom:5px;">
                                                 {{ \App\Models\User::where(['id' => $comentario->idUser])->pluck('name')->first() }}
                                             </p>
-                                            <p>
+                                            <p style="word-wrap:break-word;">
                                                 {{ $comentario->resenia }}
                                             </p>
                                             <p style="font-size:12px; color:gray;">
@@ -330,7 +341,7 @@
                                                 <br>
                                                 <div x-data="{ mostrarCom: false }">
                                                     <button class="px-6 py-2 text-sm rounded shadow"
-                                                        style="font-size:13px; background-color:lightgray; color:blue;"
+                                                        style="font-size:13px; background-color:lightgray; color:#568c2c;"
                                                         x-on:click="mostrarCom = !mostrarCom"
                                                         x-text="mostrarCom ? '{{ __('Editar comentario') }}' : '{{ __('Editar comentario') }}'"
                                                         id="boton"></button>
@@ -342,18 +353,18 @@
                                                             onsubmit="return validate_editarcomentario()"
                                                             name="editarcomentario">
                                                             @csrf
-                                                            <div style="align-items:center;">
+                                                            <div style="display:flex; align-items:center;">
                                                                 @error('modifCom')
                                                                     <span class="text-danger"
                                                                         style="color:red;">{{ __($message) }}</span>
                                                                     <br>
                                                                 @enderror
-                                                                <input type="text" id="modifCom" name="modifCom"
+                                                                <textarea id="modifCom" name="modifCom"
                                                                     style="border-radius:10px;"
-                                                                    onfocusout="validate_editarcomentario_input()">
+                                                                    onfocusout="validate_editarcomentario_input()"></textarea>
                                                                 <button type="submit"
                                                                     class="px-6 py-2 text-sm rounded shadow"
-                                                                    style="color:green; background-color:lightgray; margin-left:10px;"
+                                                                    style="color:#568c2c; background-color:lightgray; margin-left:10px;"
                                                                     id="boton">{{ __('Publicar') }}
                                                                 </button>
                                                             </div>
@@ -371,7 +382,7 @@
                                                         <button type="submit"
                                                             class="px-6 py-2 text-sm rounded shadow"
                                                             style="color:red; background-color:lightgray;"
-                                                            id="boton">{{ __('Borrar comentario') }}</button>
+                                                            id="boton" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')">{{ __('Borrar comentario') }}</button>
                                                     </div>
                                                 </form>
                                             @endif
@@ -393,49 +404,103 @@
         </div>
     </div>
 
-    <br><br><br><br>
-
-    <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-        style="background-color:red;">
-        <span class="text-sm sm:text-center"
-            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-        </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
-            style="color: white; justify-content:center; margin-left:auto;">
-            <li>
-                <a href="{{ route('whoarewe') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('faq') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('privacy') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
-            </li>
-        </ul>
-        <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+    <div class="footer">
+        <div style="text-align:center; font-size:13px;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
-    </footer>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="{{ route('whoarewe') }}"
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="{{ route('faq') }}"
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('privacy') }}"
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="margin-left:auto; display:flex;">
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
+                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .anavbar:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
+        }
+    </style>
+
+    <style>
+        #e1 {
+            cursor: pointer;
+        }
+        #e2 {
+            cursor: pointer;
+        }
+        #e3 {
+            cursor: pointer;
+        }
+        #e4 {
+            cursor: pointer;
+        }
+        #e5 {
+            cursor: pointer;
+        }
+    </style>
 
     <script src="{{ asset('js/product-script.js') }}"></script>
     <script>
+        /*
         function validate_valoracion() {
             if (!(validate_valoracion_input())) {
                 return false;
@@ -507,6 +572,11 @@
                 return true;
             }
         }
+        */
     </script>
+
+@vite(['resources/scss/app.scss'])
+
+<script src="{{ asset('js/whoareweAnon_2.js') }}"></script>
 
 </x-app-layout>

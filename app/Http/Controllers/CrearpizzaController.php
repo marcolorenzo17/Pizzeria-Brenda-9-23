@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class CrearpizzaController extends Controller
 {
@@ -26,6 +27,11 @@ class CrearpizzaController extends Controller
         $delete = $ingrediente->delete($id);
 
         if($delete) {
+            $foto = $ingrediente->image;
+            $token = explode('/', $foto);
+            $token2 = explode('.', $token[sizeof($token) - 1]);
+            Cloudinary::destroy('image_ingredient/'.$token2[0]);
+
             session()->flash('notif.success', 'El ingrediente se ha borrado con éxito.');
             return redirect()->route('crearpizza');
         }
@@ -60,7 +66,7 @@ class CrearpizzaController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
-        $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
+        $image_path = $req->file('image_ingredient')->storeOnCloudinary('image_ingredient');
 
         $alergenos = '';
         if ($req->input('alergenos') != null) {
@@ -74,7 +80,7 @@ class CrearpizzaController extends Controller
         $ingrediente->name = $req->name;
         $ingrediente->nameen = $req->nameen;
         $ingrediente->price = $req->price;
-        $ingrediente->image = 'storage/' . $image_path;
+        $ingrediente->image = $image_path->getSecurePath();
         $ingrediente->type = $req->type;
         $ingrediente->alergenos = $alergenos;
         $ingrediente->habilitado = true;
@@ -128,9 +134,14 @@ class CrearpizzaController extends Controller
         $ingrediente->price = $req->price;
         $ingrediente->type = $req->type;
 
+        $foto = $ingrediente->image;
+        $token = explode('/', $foto);
+        $token2 = explode('.', $token[sizeof($token) - 1]);
+        Cloudinary::destroy('image_ingredient/'.$token2[0]);
+
         if ($req->file('image_ingredient') != null) {
-            $image_path = $req->file('image_ingredient')->store('image_ingredient', 'public');
-            $ingrediente->image = 'storage/' . $image_path;
+            $image_path = $req->file('image_ingredient')->storeOnCloudinary('image_ingredient');
+            $ingrediente->image = $image_path->getSecurePath();
         }
 
         $ingrediente->alergenos = $alergenos;

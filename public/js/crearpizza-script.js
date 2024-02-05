@@ -23,6 +23,8 @@ var flagbase = false;
 
 var ingredientes = [];
 
+var extras = [];
+
 function aniadirBase(nombre, precio) {
     flagbase = true;
 
@@ -36,7 +38,12 @@ function aniadirBase(nombre, precio) {
     document.getElementById("b-base").remove();
     document.getElementById("p-base").remove();
 
-    idcustom.setAttribute("value", getRandomInt(999999));
+    if (localStorage.id_pers) {
+        localStorage.id_pers = parseInt(localStorage.id_pers) + 1;
+    } else {
+        localStorage.id_pers = 0;
+    }
+    idcustom.setAttribute("value", `pers-${localStorage.id_pers}`);
 
     var parrafo = document.createElement("p");
     var texto = document.createTextNode(`${nombre} -> ${precio} €`);
@@ -51,7 +58,7 @@ function aniadirBase(nombre, precio) {
     botonelim.appendChild(textoelim);
 
     botonelim.setAttribute("id", `b-base`);
-    botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+    botonelim.setAttribute("class", "boton px-4 py-1.5 text-white text-sm bg-red-800 rounded");
     botonelim.setAttribute("onclick", `eliminarBase()`);
     botonelim.setAttribute("style", "margin-bottom:30px;");
 
@@ -68,10 +75,16 @@ function aniadirBase(nombre, precio) {
     total += Number(precio);
     totalcontenido.innerHTML = `${total.toFixed(2)} €`;
     document.getElementById("price").setAttribute("value", total);
+
+    document.getElementById("ingredientes_input").setAttribute("value", ingredientes);
+
+    document.getElementById("nombre").setAttribute("value", nombre);
 };
 
 function eliminarBase() {
     ingredientes = [];
+
+    extras = [];
 
     flagbase = false;
 
@@ -105,6 +118,11 @@ function eliminarBase() {
     var p3 = document.createElement("p");
     p3.setAttribute("id", "p-base");
     contenido.appendChild(p3);
+
+    document.getElementById("ingredientes_input").setAttribute("value", ingredientes);
+    document.getElementById("extras_input").setAttribute("value", extras);
+
+    document.getElementById("nombre").setAttribute("value", "");
 };
 
 function aniadir(nombre, precio) {
@@ -113,7 +131,12 @@ function aniadir(nombre, precio) {
         if (!ingredientes.includes(nombre)) {
             ingredientes.push(nombre);
 
-            idcustom.setAttribute("value", getRandomInt(999999));
+            if (localStorage.id_pers) {
+                localStorage.id_pers = parseInt(localStorage.id_pers) + 1;
+            } else {
+                localStorage.id_pers = 0;
+            }
+            idcustom.setAttribute("value", `pers-${localStorage.id_pers}`);
 
             var parrafo = document.createElement("p");
             var texto = document.createTextNode(`${nombre} -> ${precio} €`);
@@ -137,7 +160,7 @@ function aniadir(nombre, precio) {
             botonelim.appendChild(textoelim);
 
             botonelim.setAttribute("id", `b-${indice}`);
-            botonelim.setAttribute("class", "px-4 py-1.5 text-white text-sm bg-red-800 rounded");
+            botonelim.setAttribute("class", "boton px-4 py-1.5 text-white text-sm bg-red-800 rounded");
             botonelim.setAttribute("onclick", `eliminar(${indice}, '${nombre}')`);
 
             contenido.appendChild(botonelim);
@@ -147,9 +170,9 @@ function aniadir(nombre, precio) {
             botonextra.appendChild(textoextra);
 
             botonextra.setAttribute("id", `ex-${indice}`);
-            botonextra.setAttribute("class", "px-4 py-1.5 text-white text-sm rounded");
+            botonextra.setAttribute("class", "boton px-4 py-1.5 text-white text-sm rounded");
             botonextra.setAttribute("style", "background-color:green; margin-bottom:30px;");
-            botonextra.setAttribute("onclick", `extra(${indice})`);
+            botonextra.setAttribute("onclick", `extra(${indice}, '${nombre}')`);
 
             contenido.appendChild(botonextra);
 
@@ -165,6 +188,8 @@ function aniadir(nombre, precio) {
             totalcontenido.innerHTML = `${total.toFixed(2)} €`;
             document.getElementById("price").setAttribute("value", total);
 
+            document.getElementById("ingredientes_input").setAttribute("value", ingredientes);
+
             indice += 1;
         }
     }
@@ -172,6 +197,7 @@ function aniadir(nombre, precio) {
 
 function eliminar(indice, nombre) {
     ingredientes.splice(ingredientes.indexOf(nombre), 1);
+    extras.splice(extras.indexOf(nombre), 1);
 
     document.getElementById(indice).remove();
     document.getElementById(`b-${indice}`).remove();
@@ -183,13 +209,18 @@ function eliminar(indice, nombre) {
     document.getElementById("price").setAttribute("value", total);
 
     document.getElementById(`p-${indice}`).remove();
+
+    document.getElementById("ingredientes_input").setAttribute("value", ingredientes);
+    document.getElementById("extras_input").setAttribute("value", extras);
 };
 
-function extra(indice) {
+function extra(indice, nombre) {
+    extras.push(nombre);
+
     document.getElementById(`ext-${indice}`).setAttribute("style", "color:green;font-weight:bolder;");
 
     document.getElementById(`ex-${indice}`).textContent="-";
-    document.getElementById(`ex-${indice}`).setAttribute("onclick", `extrano(${indice})`);
+    document.getElementById(`ex-${indice}`).setAttribute("onclick", `extrano(${indice}, '${nombre}')`);
 
     var precioingrediente = document.getElementById(`p-${indice}`).getAttribute("value");
     document.getElementById(`p-${indice}`).setAttribute("value", Number(precioingrediente) + 2);
@@ -197,13 +228,17 @@ function extra(indice) {
     total += 2;
     totalcontenido.innerHTML = `${total.toFixed(2)} €`;
     document.getElementById("price").setAttribute("value", total);
+
+    document.getElementById("extras_input").setAttribute("value", extras);
 };
 
-function extrano(indice) {
+function extrano(indice, nombre) {
+    extras.splice(extras.indexOf(nombre), 1);
+
     document.getElementById(`ext-${indice}`).setAttribute("style", "color:green;font-weight:bolder;display:none;");
 
     document.getElementById(`ex-${indice}`).textContent="+";
-    document.getElementById(`ex-${indice}`).setAttribute("onclick", `extra(${indice})`);
+    document.getElementById(`ex-${indice}`).setAttribute("onclick", `extra(${indice}, '${nombre}')`);
 
     var precioingrediente = document.getElementById(`p-${indice}`).getAttribute("value");
     document.getElementById(`p-${indice}`).setAttribute("value", Number(precioingrediente) - 2);
@@ -211,4 +246,6 @@ function extrano(indice) {
     total -= 2;
     totalcontenido.innerHTML = `${total.toFixed(2)} €`;
     document.getElementById("price").setAttribute("value", total);
+
+    document.getElementById("extras_input").setAttribute("value", extras);
 };

@@ -47,7 +47,7 @@
     }
 }
 
-@media only screen and (max-width: 1416px) {
+@media only screen and (max-width: 1650px) {
     #recibos-grande {
         display: none;
     }
@@ -56,7 +56,7 @@
     }
 }
 
-@media only screen and (min-width: 1417px) {
+@media only screen and (min-width: 1651px) {
     #recibos-pequenio {
         display: none;
     }

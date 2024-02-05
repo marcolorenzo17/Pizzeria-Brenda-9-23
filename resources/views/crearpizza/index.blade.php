@@ -1,29 +1,38 @@
 <x-app-layout>
     <x-slot name="header">
         @if (Auth::user()->admin)
-            <br><br><br>
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-                {{ __('LISTA DE INGREDIENTES') }}
-            </h2>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="font-size:45px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                    {{ __('LISTA DE INGREDIENTES') }}
+                </h2>
+            </div>
         @else
-            <br><br><br>
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
-                {{ __('CREA TU PROPIA PIZZA') }}
-            </h2>
+            <div style="margin-top:110px;">
+                <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                    style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;"
+                    id="volvermenu">
+                    {{ __('CREA TU PROPIA PIZZA') }}
+                </h2>
+            </div>
         @endif
-        <br><br>
+
     </x-slot>
     <link rel="stylesheet" href="/css/index_products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+        rel="stylesheet">
     @if (Auth::user()->admin)
         <br>
         <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
         <br>
         <div style="margin-left:20px;">
-            <a href="{{ route('crearpizza.crear') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                id="boton">{{ __('CREAR INGREDIENTE') }}</a>
+            <a href="{{ route('crearpizza.crear') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                style="background-color:#568c2c;">{{ __('CREAR INGREDIENTE') }}</a>
         </div>
         <br>
-        <div style="background:white;">
+        <div style="background:white; margin-bottom:300px;">
             <table style="width:100%;">
                 @foreach ($ingredientes as $ingrediente)
                     <tr>
@@ -56,14 +65,14 @@
                                                     action="{{ route('crearpizza.habilitar', $ingrediente->id) }}">
                                                     @csrf
                                                     <button
-                                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('HABILITAR') }}</button>
+                                                        class="border hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md" style="border-color:#568c2c;">{{ __('HABILITAR') }}</button>
                                                 </form>
                                             @endif
                                         </td>
                                         <td>
                                             <a href="{{ route('crearpizza.editar', $ingrediente) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                                id="boton">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md" id="boton"
+                                                style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                         <td>
                                             <form method="post"
@@ -71,7 +80,7 @@
                                                 @csrf
                                                 @method('delete')
                                                 <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">{{ __('BORRAR') }}</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -91,7 +100,7 @@
                                                     action="{{ route('crearpizza.habilitar', $ingrediente->id) }}">
                                                     @csrf
                                                     <button
-                                                        class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">{{ __('HABILITAR') }}</button>
+                                                        class="border hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md" style="border-color:#568c2c;">{{ __('HABILITAR') }}</button>
                                                 </form>
                                             @endif
                                         </td>
@@ -99,8 +108,8 @@
                                     <tr>
                                         <td style="padding:5px">
                                             <a href="{{ route('crearpizza.editar', $ingrediente) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                                                id="boton">{{ __('EDITAR') }}</a>
+                                                class="text-white px-4 py-2 rounded-md" id="boton"
+                                                style="background-color:#568c2c;">{{ __('EDITAR') }}</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -110,7 +119,7 @@
                                                 @csrf
                                                 @method('delete')
                                                 <button
-                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">{{ __('BORRAR') }}</button>
+                                                    class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md" onclick="return confirm('¿Estás seguro de que quieres eliminar este ingrediente?')">{{ __('BORRAR') }}</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -126,16 +135,16 @@
             <tr>
                 <td>
                     <br>
-                    <div style="text-align:center;" id="volvermenu">
-                        <a href="{{ route('products.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md"
-                            id="boton">{{ __('VOLVER AL MENÚ') }}</a>
+                    <div style="text-align:center;">
+                        <a href="{{ route('products.index') }}" class="text-white px-4 py-2 rounded-md" id="boton"
+                            style="background-color:#f12d2d;">{{ __('VOLVER AL MENÚ') }}</a>
                     </div>
                     <div class="container px-12 py-8 mx-auto">
                         <br>
                         <img src="{{ asset('img/alergenos.jpg') }}" alt="" width="350px" height="350px"
                             class="mx-auto">
                         <br>
-                        <h3 class="text-2xl font-bold text-purple-700">BASES</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">BASES</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -159,7 +168,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -171,9 +180,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -185,7 +198,8 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (1.50 € - 1.79 €)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.50 € - 1.79
+                            €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -213,7 +227,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -225,9 +239,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -239,7 +257,8 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (1.80 € - 2.29 €)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (1.80 € - 2.29
+                            €)</h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
                         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -267,7 +286,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -279,9 +298,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -293,10 +316,12 @@
                             @endforeach
                         </div>
                         <br><br>
-                        <h3 class="text-2xl font-bold text-purple-700">{{ __('INGREDIENTES') }} (2.30 € +)</h3>
+                        <h3 class="text-2xl font-bold" style="color:#568c2c;">{{ __('INGREDIENTES') }} (2.30 € +)
+                        </h3>
                         <div class="h-1 bg-red-500 w-36"></div>
                         <br>
-                        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                            style="margin-bottom:300px;">
                             @foreach ($ingredientes as $ingrediente)
                                 @if ($ingrediente->type == 'Ingrediente' && $ingrediente->price >= 2.3 && $ingrediente->habilitado)
                                     <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
@@ -317,7 +342,7 @@
                                         <?php
                                         $alergenoslista = explode('-', $ingrediente->alergenos);
                                         ?>
-                                        <div style="display:flex; flex-wrap:wrap;">
+                                        <div style="display:flex; flex-wrap:wrap; padding:10px;">
                                             @if ($ingrediente->alergenos != '')
                                                 @foreach ($alergenoslista as $alergeno)
                                                     <img src="{{ asset('img/alergenos/single/' . $alergeno . '.png') }}"
@@ -329,9 +354,13 @@
                                         </div>
                                         <div class="px-5 py-3">
                                             @if (Lang::locale() == 'es')
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->name }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->name }}</h3>
                                             @else
-                                                <h3 class="text-gray-700 uppercase">{{ $ingrediente->nameen }}</h3>
+                                                <h3 class="text-gray-700 uppercase"
+                                                    style="font-family: 'Acme', sans-serif; font-size:20px;">
+                                                    {{ $ingrediente->nameen }}</h3>
                                             @endif
                                             <span
                                                 class="mt-2 text-gray-500">{{ number_format($ingrediente->price, 2, '.', '') }}
@@ -360,12 +389,14 @@
                         <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input id="id-custom" type="hidden" value="" name="id">
-                            <input type="hidden" value="Pizza Personalizada" name="name">
+                            <input type="hidden" value="" name="name" id="nombre">
+                            <input type="hidden" value="" name="ingredientes_input" id="ingredientes_input">
+                            <input type="hidden" value="" name="extras_input" id="extras_input">
                             <input type="hidden" value="" name="price" id="price">
                             <input type="hidden" value="img/pizzagenerica.jpg" name="image">
                             <input type="hidden" value="1" name="quantity">
-                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded"
-                                id="boton">{{ __('AÑADIR AL CARRITO') }}</button>
+                            <button class="px-4 py-1.5 text-white text-sm rounded" id="boton"
+                                style="background-color:#568c2c;">{{ __('AÑADIR AL CARRITO') }}</button>
                         </form>
                     </div>
                 </td>
@@ -374,44 +405,93 @@
     @endif
 
     <br><br><br><br>
-    <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-        style="background-color:red;">
-        <span class="text-sm sm:text-center"
-            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-        </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
-            style="color: white; justify-content:center; margin-left:auto;">
-            <li>
-                <a href="{{ route('whoarewe') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('faq') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('privacy') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
-            </li>
-        </ul>
-        <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                    src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                    src="{{ asset('img/face.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
+    <div class="footer">
+        <div style="text-align:center; font-size:13px;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
-    </footer>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="{{ route('whoarewe') }}"
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="{{ route('faq') }}"
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('privacy') }}"
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="margin-left:auto; display:flex;">
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}" alt="twitter"
+                        width="25px" height="25px" style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .anavbar:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
+        }
+    </style>
+
+    <style>
+        .boton:hover {
+            filter: brightness(75%);
+        }
+    </style>
+
+    <script>
+        if (localStorage.crearpizza) {
+            localStorage.removeItem("crearpizza");
+        }
+    </script>
 
     <script src="{{ asset('js/crearpizza-script.js') }}"></script>
 

@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>¿Quiénes somos?</title>
+    <title>{{ __('¿Quiénes somos?') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Grandstander:wght@800&display=swap"
+        rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -827,7 +830,7 @@
         /* The navigation bar */
         .navbar {
             overflow: hidden;
-            background-color: red;
+            background-color: #141414;
             position: fixed;
             /* Set the navbar to fixed position */
             top: 0;
@@ -862,7 +865,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: red;
+            background-color: #141414;
             color: white;
             padding: 20px;
             z-index: 1;
@@ -886,108 +889,356 @@
     <link rel="stylesheet" href="/css/index.css" />
 </head>
 
-<body class="antialiased">
-    <div class="navbar">
-        <div style="position: relative; top: 15px;">
-            @include('partials/language_switcher')
-        </div>
-        <a href="/"><img src="{{ asset('img/logo_green_sm.png') }}" alt="logo_header"
-                style="width:67px; height:60px;"></a>
-        <a class="anavbar" href="cartaAnon" style="position: relative; top: 15px;">{{ __('Nuestra carta') }}</a>
-        <a class="anavbar" href="whoareweAnon" style="position: relative; top: 15px;">{{ __('¿Quiénes somos?') }}</a>
-        <a class="anavbar" href="faqAnon" style="position: relative; top: 15px;">{{ __('Preguntas frecuentes') }}</a>
-        <a class="anavbar" href="contactAnon" style="position: relative; top: 15px;">{{ __('Contáctanos') }}</a>
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" id="login" style="display: flex; top: -14px;">
-                @auth
-                    <a href="{{ url('/products') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar pedido') }}</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                        id="boton">{{ __('Iniciar sesión') }}</a>
+<body class="antialiased" style="background-color:#141414; margin:20px;">
+    <div style="background-color:white;">
+        <div class="navbar" style="display:flex;">
+            <div style="display:flex; flex:1; justify-content:center; margin-right:auto; align-items:center; gap:2vw;">
+                <div id="boton_switch">
+                    <a class="anavbar" href="/" style="font-size:17px; font-weight:bolder;">{{ __('Inicio') }}
+                    </a>
+                </div>
+                <div id="boton_switch">
+                    <a class="anavbar" href="cartaAnon"
+                        style="font-size:17px; font-weight:bolder;">{{ __('Nuestra carta') }}
+                    </a>
+                </div>
+            </div>
+            <div style="display:flex; flex:1; justify-content:center; align-items:center;">
+                <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header" style="width:100px;"></a>
+            </div>
+            @if (Route::has('login'))
+                <div id="login"
+                    style="display:flex; flex:1; justify-content:center; margin-left:auto; align-items:center; flex-wrap:wrap; gap:5px; margin-right:20px;">
+                    <div id="boton_switch">
+                        @include('partials/language_switcher')
+                    </div>
+                    <div>
+                        @auth
+                            <a href="{{ url('/products') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:white; font-size:13px; background-color:#568c2c; padding:10px; border-radius:10px;"
+                                id="boton_login">{{ __('Iniciar pedido') }}</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                style="color:black; font-size:13px; background-color:white; padding:10px; border-radius:10px;"
+                                id="boton_login">{{ __('Iniciar sesión') }}</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            style="color:black; font-size:15px; background-color:white; padding:15px; border-radius:15px;"
-                            id="boton">{{ __('Registrarse') }}</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    style="color:black; font-size:13px; background-color:white; padding:10px; border-radius:10px;"
+                                    id="boton_login">{{ __('Registrarse') }}</a>
+                            @endif
+                        @endauth
+                    </div>
+                    <a href="#"><img src="{{ asset('img/burger_menu.png') }}" alt="menu_hamburguesa"
+                            width="40px" id="menu_hamburguesa" onclick="mostrar_hamburguesa()"
+                            style="padding:5px; border-radius:10px;"></a>
+                </div>
+            @endif
+        </div>
+        {{--
+        <h1 style="text-align:center; font-size:70px; font-family: 'Anton', sans-serif; color:white; text-shadow: 2px 2px 4px #000000; margin-top:200px; margin-bottom:26px; background-color:red;"
+            id="logo1">
+            {{ __('PIZZA ARTESANA Y NATURAL') }}
+        </h1>
+    --}}
+        <div style="margin-top:90px;">
+            <div id="menu_responsive_container">
+                <div style="background-color:#f5f0e9; color:#141414; display:none;" id="menu_responsive">
+                    <div style="padding:10px;">
+                        @include('partials/language_switcher')
+                    </div>
+                    @if (Route::has('login'))
+                        <div style="display:flex; justify-content:center; align-items:center; padding:10px; gap:25vw;">
+                            @auth
+                                <a href="{{ url('/products') }}"
+                                    style="color:white; font-size:15px; background-color:#568c2c; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Iniciar pedido') }}</a>
+                            @else
+                                <a href="{{ route('login') }}"
+                                    style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                    id="boton">{{ __('Iniciar sesión') }}</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"
+                                        style="color:#141414; font-size:15px; background-color:white; padding:15px; border-radius:15px; font-weight:bolder;"
+                                        id="boton">{{ __('Registrarse') }}</a>
+                                @endif
+                            @endauth
+                        </div>
                     @endif
-                @endauth
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <a href="/">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Inicio') }}</p>
+                        </div>
+                    </a>
+                    <a href="cartaAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Nuestra carta') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <a href="whoareweAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('¿Quiénes somos?') }}</p>
+                            <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="faqAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Preguntas frecuentes') }}</p>
+                        </div>
+                    </a>
+                    <a href="contactAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Contáctanos') }}</p>
+                        </div>
+                    </a>
+                    <a href="privacyAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Política de privacidad') }}</p>
+                        </div>
+                    </a>
+                    <a href="premiosAnon">
+                        <div style="padding:10px; font-weight:bolder; border-bottom:1px solid gray;"
+                            id="boton_responsive">
+                            <p>{{ __('Premios') }}</p>
+                        </div>
+                    </a>
+                    <div style="background-color:gray; height:3px; border-radius:10px;">
+                        <br>
+                    </div>
+                    <div>
+                        <div
+                            style="padding:10px; font-weight:bolder; border-bottom:1px solid gray; display:flex; justify-content:center; align-items:center; gap:30px;">
+                            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                                    src="{{ asset('img/twit.png') }}" alt="twitter" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                                    src="{{ asset('img/inst.png') }}" alt="instagram" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                                    src="{{ asset('img/tik.png') }}" alt="tiktok" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                                    src="{{ asset('img/face.png') }}" alt="facebook" width="30px" height="30px"
+                                    style="filter: brightness(0%);"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        @endif
-    </div>
-    <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-bottom:130px; margin-top:104px;">
-        <br>
-        <h2 class="text-center" style="font-size:25px; font-weight:bolder;">{{ __('¿QUIÉNES SOMOS?') }}</h2>
-        <br><br>
-        <h2 class="text-center" style="font-size:20px; font-weight:bold;">
-            {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
-        <br>
-        <p>
-            {{ __('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.') }}<br><br>
-            {{ __('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.') }}
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw1.png') }}" alt="waw1">
         </div>
-        <br>
-        <p>
-            {{ __('Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación. Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el local, lo que nos proporcionó agilidad y rapidez en el servicio.') }}<br>
-            {{ __('Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia, y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros clientes un producto totalmente natural, artesanal y de calidad.') }}<br><br>
-            {{ __('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.') }}
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw2.png') }}" alt="waw2">
-        </div>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw3.png') }}" alt="waw3">
-        </div>
-        <br>
-        <p>
-            {{ __('En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada, platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio de la zona.') }}<br><br>
-            {{ __('La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por parte de nuestro joven y atento personal.') }}<br>
-            {{ __('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.') }}
-        </p>
-        <br>
-        <div>
-            <img class="mx-auto" src="{{ asset('img/waw4.png') }}" alt="waw4">
-        </div>
-        <br>
-        <p>
-            {{ __('También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos sin moverte de casa.') }}<br><br>
-            {{ __('¡Te esperamos! ¡Visítanos!') }}
-        </p>
-    </div>
-    <div class="footer">
-        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
-            <p style="position:relative; top:5px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
+        <div class="container px-12 py-8 mx-auto bg-white" style="padding:30px; margin-bottom:300px;">
+            <br>
+            <h2 class="text-center" style="font-size:30px; font-family: 'Alfa Slab One', serif;">
+                {{ __('¿QUIÉNES SOMOS?') }}</h2>
+            <br><br>
+            <h2 class="text-center" style="font-size:22px; font-weight:bold; font-family: 'Acme', sans-serif;">
+                {{ __('PIZZERÍA BRENDA: ARTESANAL Y NATURAL') }}</h2>
+            <br>
+            <p style="font-size:20px;">
+                {{ __('Pizzería Brenda es un negocio familiar que fundamos dos hermanos: Manuel y Federico Lorenzo Mellado en el año 1986, siendo la primera pizzería que se inauguró en Chipiona.') }}<br><br>
+                {{ __('Comenzamos este negocio en un pequeño local familiar con mucha ilusión, pero también con mucha incertidumbre, ya que éramos muy jóvenes, y teníamos la idea de introducir en nuestro pueblo la pizza. Un producto totalmente novedoso y desconocido en nuestra localidad en aquellos años.') }}
             </p>
-            <div style="display:flex; margin-left:auto; gap:30px;">
-                <a class="anavbar" href="privacyAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Política de privacidad') }}</a>
-                <a class="anavbar" href="premiosAnon"
-                    style="position: relative; top: 8px; margin-left:auto; font-size:13px;">{{ __('Premios') }}</a>
+            <br>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;"
+                class="img_container">
+                <a href="#" class="alb" title="Imagen 1"><img src="{{ asset('img/waw1.png') }}"
+                        alt="waw1" class="img_ensi" loading="lazy" style="height:400px;"></a>
             </div>
-            <div style="margin-left:auto; display:flex;">
-                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                        width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                        src="{{ asset('img/inst.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                        src="{{ asset('img/tik.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
-                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                        src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                        style="margin-right:20px;"></a>
+            <br>
+            <p style="font-size:20px;">
+                {{ __('Ya desde entonces, y hasta hoy, el lema de nuestro negocio siempre ha sido la innovación. Nuestra empresa fue la primera en ofrecer el servicio a domicilio y el autoservicio en el local, lo que nos proporcionó agilidad y rapidez en el servicio.') }}<br>
+                {{ __('Nuestra especialidad son las pizzas totalmente artesanales, con masa de elaboración propia, y con ingredientes naturales de la mayor calidad. Nos preocupa mucho ofrecer a nuestros clientes un producto totalmente natural, artesanal y de calidad.') }}<br><br>
+                {{ __('Esto es precisamente lo que más valoran nuestros clientes, y gracias a su aceptación y fidelidad, hemos podido ir agrandando y modernizando nuestro negocio, acorde a sus demandas.') }}
+            </p>
+            <br>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;"
+                class="img_container">
+                <a href="#" class="alb" title="Imagen 2"><img src="{{ asset('img/waw2.png') }}"
+                        alt="waw2" class="img_ensi" loading="lazy" style="height:400px;"></a>
+                <a href="#" class="alb" title="Imagen 3"><img src="{{ asset('img/waw3.png') }}"
+                        alt="waw3" class="img_ensi" loading="lazy" style="height:400px;"></a>
+            </div>
+            <br>
+            <p style="font-size:20px;">
+                {{ __('En nuestro local, además de la pizza, se puede degustar pasta italiana, arroces, ensalada, platos variados, baguettes y un servicio de burgers. Todo con la mejor relación calidad-precio de la zona.') }}<br><br>
+                {{ __('La Pizzería Brenda está ubicada en el centro de Chipiona, y disponemos de una amplia terraza donde nuestros clientes pueden disfrutar de un buen ambiente y de un trato agradable por parte de nuestro joven y atento personal.') }}<br>
+                {{ __('Nuestro equipo está compuesto por un grupo de jóvenes que aportan dinamismo, frescura y nuevas ideas para renovar los platos, por lo que continuamente se ofrecen novedades y promociones en la carta.') }}
+            </p>
+            <br>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center;"
+                class="img_container">
+                <a href="#" class="alb" title="Imagen 4"><img src="{{ asset('img/waw4.png') }}"
+                        alt="waw4" class="img_ensi" loading="lazy" style="height:300px;"></a>
+                <a href="#" class="alb" title="Imagen 5"><img src="{{ asset('img/waw5.png') }}"
+                        alt="waw5" class="img_ensi" loading="lazy" style="height:300px;"></a>
+            </div>
+            <br>
+            <p style="font-size:20px;">
+                {{ __('También disponemos de servicio a domicilio para que puedas disfrutar de nuestros platos sin moverte de casa.') }}<br><br>
+                {{ __('¡Te esperamos! ¡Visítanos!') }}
+            </p>
+            <div class="lightbox">
+                <button class="cerrar" id="boton">{{ __('Cerrar') }}</button>
+                <img src="{{ asset('img/waw1.png') }}" alt="Imagen grande" class="grande" loading="lazy">
             </div>
         </div>
+        <div class="footer">
+            <div style="text-align:center; font-size:13px;">
+                <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Teléfonos: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                    </div>
+                </div>
+                <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                    <div>
+                        <a class="anavbar" href="{{ route('whoareweAnon') }}"
+                            style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                        <div style="background-color:#f12d2d; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    </div>
+                    <a class="anavbar" href="{{ route('faqAnon') }}"
+                        style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                    <a class="anavbar" href="{{ route('contactAnon') }}"
+                        style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                    <a class="anavbar" href="{{ route('privacyAnon') }}"
+                        style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                    <a class="anavbar" href="{{ route('premiosAnon') }}"
+                        style="font-size:12px;">{{ __('Premios') }}</a>
+                </div>
+                <div style="margin-left:auto; display:flex;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" alt="twitter" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
+                            style="margin-right:20px;" class="redes_sociales"></a>
+                </div>
+                <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                    <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                        {{ __('Horario: ') }}
+                    </p>
+                    <div style="font-size:18px; font-weight:bolder;">
+                        <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                        <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #141414;
+                color: white;
+                padding: 20px;
+                z-index: 1;
+            }
+
+            .anavbar:hover {
+                text-decoration: underline;
+            }
+
+            #boton_login:hover {
+                filter: brightness(75%);
+            }
+
+            #menu_hamburguesa:hover {
+                cursor: pointer;
+                background-color: white;
+            }
+
+            #boton_responsive:hover {
+                background-color: white;
+            }
+
+            @media only screen and (max-width: 639px) {
+                .anavbar {
+                    display: none;
+                }
+
+                .redes_sociales {
+                    display: none;
+                }
+
+                #boton_login {
+                    display: none;
+                }
+
+                #boton_switch {
+                    display: none;
+                }
+            }
+
+            @media only screen and (max-width: 639px) {
+                #menu_responsive_container {
+                    display: block;
+                }
+            }
+
+            @media only screen and (min-width: 640px) {
+                #menu_hamburguesa {
+                    display: none;
+                }
+
+                #menu_responsive_container {
+                    display: none;
+                }
+            }
+        </style>
+
+        <script>
+            var menu_responsive = document.getElementById("menu_responsive");
+            var menu_hamburguesa = document.getElementById("menu_hamburguesa");
+
+            var mostrar_hamburguesa = function() {
+                menu_responsive.style.display = "block";
+                menu_hamburguesa.setAttribute("src", "{{ asset('img/burger_menu_x.png') }}");
+                menu_hamburguesa.setAttribute("onclick", "ocultar_hamburguesa()");
+            };
+
+            var ocultar_hamburguesa = function() {
+                menu_responsive.style.display = "none";
+                menu_hamburguesa.setAttribute("src", "{{ asset('img/burger_menu.png') }}");
+                menu_hamburguesa.setAttribute("onclick", "mostrar_hamburguesa()");
+            };
+        </script>
+
+        @vite(['resources/scss/app.scss'])
     </div>
 </body>
+
+<script src="{{ asset('js/whoareweAnon.js') }}"></script>
 
 </html>

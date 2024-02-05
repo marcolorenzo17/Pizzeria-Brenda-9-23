@@ -1,7 +1,10 @@
 var contenido = document.getElementById("contenido");
 var cumple = document.getElementById("cumple");
+var cumple_res = document.getElementById("cumple_res");
 var evento = document.getElementById("evento");
+var evento_res = document.getElementById("evento_res");
 var cena = document.getElementById("cena");
+var cena_res = document.getElementById("cena_res");
 var tipo = document.getElementById("tipo");
 var misreservas = document.getElementById("misreservas");
 var misreservasflag = 0;
@@ -17,22 +20,30 @@ function mostrar(elemento) {
   fecha.min = new Date().toJSON().slice(0, 10);
   contenido.style.display = 'block';
   cumple.setAttribute("style", "");
+  cumple_res.setAttribute("style", "");
   evento.setAttribute("style", "");
+  evento_res.setAttribute("style", "");
   if (cena) {
     cena.setAttribute("style", "");
+    cena_res.setAttribute("style", "");
   }
-  elemento.setAttribute("style", "border: blue; border-width: 5px; border-style: solid;");
 
   switch (elemento) {
     case cumple:
+      cumple.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
+      cumple_res.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
       tipo.setAttribute("value", "Cumple");
       break;
 
     case evento:
+      evento.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
+      evento_res.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
       tipo.setAttribute("value", "Evento");
       break;
 
     case cena:
+      cena.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
+      cena_res.setAttribute("style", "border: #568c2c; border-width: 5px; border-style: solid;");
       tipo.setAttribute("value", "Cena");
       break;
   }

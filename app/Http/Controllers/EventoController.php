@@ -22,9 +22,35 @@ class EventoController extends Controller
             $user->inmediato = false;
             $user->update();
         }
-        $eventos = DB::select('select * from eventos order by id desc');
+        $eventos = Evento::where('idUser', '=', $user->id)->orderBy('id', 'desc')->paginate(10);
         $user2 = auth()->user();
         return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user2->createSetupIntent()]);
+    }
+
+    public function indexAdmin(): Response {
+        $user = User::findOrFail(Auth::user()->id);
+        if ($user->inmediato) {
+            \Cart::clear();
+            $user->inmediato = false;
+            $user->update();
+        }
+        $eventos = Evento::orderBy('id', 'desc')->paginate(10);
+        $user2 = auth()->user();
+        return response()->view('eventos.index', ['eventos' => $eventos, 'intent' => $user2->createSetupIntent()]);
+    }
+
+    public function destroy(string $id): RedirectResponse
+    {
+        $evento = Evento::findOrFail($id);
+
+        $delete = $evento->delete($id);
+
+        if($delete) {
+            session()->flash('notif.success', 'La reserva se ha borrado con éxito.');
+            return redirect()->route('eventos.indexAdmin');
+        }
+
+        return abort(500);
     }
 
     public function add(Request $req) {
@@ -53,6 +79,18 @@ class EventoController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
 
+        if (strtotime($req->hora) < strtotime("20:30") or strtotime($req->hora) > strtotime("23:30")) {
+            if ($req->dia == 0) {
+                if (strtotime($req->hora) < strtotime("13:30") or strtotime($req->hora) > strtotime("15:00")) {
+                    session()->flash('notif.success', 'La pizzería no está abierta a esa hora los domingos.');
+                    return redirect()->route('eventos.index');
+                }
+            } else {
+                session()->flash('notif.success', 'La pizzería no está abierta a esa hora.');
+                return redirect()->route('eventos.index');
+            }
+        }
+
         $evento = new Evento;
         $evento->idUser = Auth::user()->id;
         $evento->personas = $req->personas;
@@ -79,20 +117,16 @@ class EventoController extends Controller
             session()->flash('notif.success', 'Todas las reservas están ocupadas para el día escogido. Por favor, inténtalo de nuevo, o elige otro día.');
             return redirect()->route('eventos.index');
         } else {
-            if ($req->ifcredito == "true") {
-                $paymentMethod = $req->payment_method;
+            $paymentMethod = $req->payment_method;
 
-                $user = auth()->user();
-                $user->createOrGetStripeCustomer();
+            $user = auth()->user();
+            $user->createOrGetStripeCustomer();
 
-                $paymentMethod = $user->addPaymentMethod($paymentMethod);
+            $paymentMethod = $user->addPaymentMethod($paymentMethod);
 
-                $user->charge(1000, $paymentMethod->id);
+            $user->charge(1000, $paymentMethod->id);
 
-                $evento->pagado = true;
-            } else {
-                $evento->pagado = false;
-            };
+            $evento->pagado = true;
 
             $evento->save();
 
@@ -109,7 +143,7 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'La reserva ha sido aceptada.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 
     public function eventono(string $id) {
@@ -120,7 +154,7 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'La reserva ha sido cancelada.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 
     public function pagado(string $id) {
@@ -131,7 +165,7 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'El pago de la reserva ha sido realizado con éxito.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 
     public function nopagado(string $id) {
@@ -142,6 +176,6 @@ class EventoController extends Controller
         $evento->update();
 
         session()->flash('notif.success', 'La reserva ahora está pendiente de cobro.');
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.indexAdmin');
     }
 }

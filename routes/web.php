@@ -18,6 +18,7 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WhoareweController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PremiosController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -107,28 +108,28 @@ Route::get('/refrescosAnon', function() {
 
 Route::get('/whoareweAnon', function() {
     return view('whoareweAnon');
-});
+})->name('whoareweAnon');
 
 Route::get('/faqAnon', function() {
     return view('faqAnon');
-});
+})->name('faqAnon');
 
 Route::get('/contactAnon', function() {
     return view('contactAnon');
-});
+})->name('contactAnon');
 
 Route::get('/privacyAnon', function() {
     return view('privacyAnon');
-});
+})->name('privacyAnon');
 
 Route::get('/premiosAnon', function() {
     return view('premiosAnon');
-});
+})->name('premiosAnon');
 
 Route::get('/cartaAnon', function() {
     $products = DB::table('products')->get();
     return view('cartaAnon', ['products' => $products]);
-});
+})->name('cartaAnon');
 
 
 Route::resource('products', ProductController::class);
@@ -153,12 +154,14 @@ Route::post('deshabilitarproducto/{id}', [ProductController::class, 'deshabilita
 Route::resource('promociones', PromotionController::class);
 
 
-Route::resource('eventos', EventoController::class);
+Route::get('eventos', [EventoController::class, 'index'])->name('eventos.index');
+Route::get('eventosAdmin', [EventoController::class, 'indexAdmin'])->name('eventos.indexAdmin');
 Route::post('addEvento', [EventoController::class, 'add'])->name('eventos.addEvento');
 Route::post('eventosi/{id}', [EventoController::class, 'eventosi'])->name('eventos.eventosi');
 Route::post('eventono/{id}', [EventoController::class, 'eventono'])->name('eventos.eventono');
 Route::post('pagadoevento/{id}', [EventoController::class, 'pagado'])->name('eventos.pagado');
 Route::post('nopagadoevento/{id}', [EventoController::class, 'nopagado'])->name('eventos.nopagado');
+Route::delete('/borrarevento/{id}', [EventoController::class, 'destroy'])->name('eventos.destroy');
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
@@ -236,10 +239,14 @@ Route::post('adminsicliente/{id}', [UserController::class, 'adminsi'])->name('cl
 Route::post('adminnocliente/{id}', [UserController::class, 'adminno'])->name('clientes.adminno');
 Route::post('validarcliente/{id}', [UserController::class, 'validar'])->name('clientes.validar');
 Route::post('desvalidarcliente/{id}', [UserController::class, 'desvalidar'])->name('clientes.desvalidar');
+Route::post('/validacion', [UserController::class, 'validacion'])->name('clientes.validacion');
 Route::post('actualizarrol/{id}', [UserController::class, 'actualizarrol'])->name('clientes.actualizarrol');
 Route::post('actualizarpuntos/{id}', [UserController::class, 'actualizarpuntos'])->name('clientes.actualizarpuntos');
 
 Route::get('/recibos', ReciboController::class)->name('recibos.index');
+Route::get('/todosRecibos', [ReciboController::class, 'todosRecibos'])->name('recibos.todosRecibos');
+Route::get('/recibosAdmin', [ReciboController::class, 'recibosIndexAdmin'])->name('recibos.index.admin');
+Route::get('/todosRecibosAdmin', [ReciboController::class, 'todosRecibosAdmin'])->name('recibos.todosRecibos.admin');
 Route::delete('/borrarrecibo/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
 Route::post('actualizarrecibo/{id}', [ReciboController::class, 'actualizar'])->name('recibos.actualizar');
 Route::post('pagadorecibo/{id}', [ReciboController::class, 'pagado'])->name('recibos.pagado');
@@ -249,6 +256,14 @@ Route::post('nopagadorecibo/{id}', [ReciboController::class, 'nopagado'])->name(
 Route::get('/curriculum', CurriculumController::class)->name('curriculum.index');
 Route::post('addCurriculum', [CurriculumController::class, 'add'])->name('curriculum.addCurriculum');
 Route::delete('borrarCurriculum/{id}', [CurriculumController::class, 'destroy'])->name('curriculum.destroy');
+
+Route::get('/rolesIndex', RoleController::class)->name('roles.index');
+Route::get('/crearRol', [RoleController::class, 'crear'])->name('roles.crear');
+Route::get('/editarRol/{id}', [RoleController::class, 'editar'])->name('roles.editar');
+Route::delete('/borrarRol/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+Route::post('/aniadirRol', [RoleController::class, 'aniadir'])->name('roles.aniadir');
+Route::post('/actualizarRol/{id}', [RoleController::class, 'actualizar'])->name('roles.actualizar');
+Route::get('/showRol/{id}', [RoleController::class, 'show'])->name('roles.show');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
@@ -261,5 +276,14 @@ Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPassw
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+Route::get('/factura/{id}', [ReciboController::class, 'factura'])->name('recibos.factura');
+/*
+Route::get('/generate-pdf', function () {
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('welcomeAntiguo');
+    return $pdf->stream();
+});
+*/
 
 require __DIR__.'/auth.php';

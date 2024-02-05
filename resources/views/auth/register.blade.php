@@ -6,7 +6,7 @@
         <div>
             <x-input-label for="name" :value="__('Nombre de usuario')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}"
+             autocomplete="name" placeholder="{{ __('Tu nombre de usuario.') }}"
                 onfocusout="validate_name()" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
@@ -55,7 +55,7 @@
         <div>
             <x-input-label for="direccion" :value="__('Dirección')" />
             <x-text-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')"
-                required autofocus autocomplete="direccion" placeholder="{{ __('Tu dirección de envío a domicilio.') }}"
+                required autocomplete="direccion" placeholder="{{ __('Tu dirección de envío a domicilio.') }}"
                 onfocusout="validate_direccion()" />
             <x-input-error :messages="$errors->get('direccion')" class="mt-2" />
 
@@ -67,7 +67,7 @@
         <div>
             <x-input-label for="telefono" :value="__('Teléfono')" />
             <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')"
-                required autofocus autocomplete="telefono" placeholder="{{ __('+34') }}"
+                required autocomplete="telefono" placeholder="{{ __('+34') }}"
                 onfocusout="validate_telefono()" />
             <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
 
@@ -99,9 +99,9 @@
                 document.getElementById("error_name").innerHTML =
                     "{{ __('El campo de nombre de usuario es obligatorio.') }}";
                 return false;
-            } else if (name.length > 255) {
+            } else if (name.length > 12) {
                 document.getElementById("error_name").innerHTML =
-                    "{{ __('El nombre de usuario no puede tener más de 255 caracteres.') }}";
+                    "{{ __('El nombre de usuario no puede tener más de 12 caracteres.') }}";
                 return false;
             } else {
                 document.getElementById("error_name").innerHTML = "";
@@ -117,7 +117,7 @@
                 return false;
             } else if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email))) {
                 document.getElementById("error_email").innerHTML =
-                    "{{ __('El formato del correo electrónico debe ser "ejemplo@ejemplo.com"') }}";
+                    "{{ __('El formato del correo electrónico debe ser [ ejemplo@ejemplo.com ].') }}";
                 return false;
             } else if (email.length > 255) {
                 document.getElementById("error_email").innerHTML =

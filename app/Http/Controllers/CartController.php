@@ -29,6 +29,25 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+        if ($request->ingredientes_input != "") {
+            $ingredientes = explode(",",$request->ingredientes_input);
+            $extras = explode(",",$request->extras_input);
+
+            $adicional = $request->name . " ~ ";
+
+            foreach ($ingredientes as $ing) {
+                if (in_array($ing, $extras)) {
+                    $adicional .= "Extra " . $ing . " ~ ";
+                } else {
+                    $adicional .= $ing . " ~ ";
+                }
+            }
+
+            $adicional = substr($adicional, 0, -3);
+        } else {
+            $adicional = $request->name;
+        }
+
         $user = User::findOrFail(Auth::user()->id);
         if ($request->type == "Promoción" and $user->promocion == true) {
             session()->flash('success', 'Sólo se puede añadir una promoción al mismo tiempo.');
@@ -36,7 +55,7 @@ class CartController extends Controller
         } else {
             \Cart::add([
                 'id' => $request->id,
-                'name' => $request->name,
+                'name' => $adicional,
                 'price' => $request->price,
                 'quantity' => $request->quantity,
                 'attributes' => array(
@@ -164,6 +183,9 @@ class CartController extends Controller
         $recibo->estado = 'Pedido registrado';
         $recibo->pagado = $req->pagado;
         $recibo->productos = $req->productos;
+        $recibo->precios = $req->precios;
+        $recibo->cantidades = $req->cantidades;
+        $recibo->productosycantidad = $req->productosycantidad;
 
         $recibo->save();
 
@@ -195,7 +217,7 @@ class CartController extends Controller
 
             $coste = number_format($req->total, 2, '.', '');
 
-            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productosycantidad, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
 
             session()->flash('notif.success', 'Se ha realizado el pedido con éxito, y se han añadido 500 pizzacoins a tu cuenta, por tu primera compra superior a 10€. ¡Disfrútalas!');
             return redirect('products');
@@ -206,7 +228,7 @@ class CartController extends Controller
 
             $coste = number_format($req->total, 2, '.', '');
 
-            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productos, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
+            Mail::to($user->email)->send(new ReciboEmail($user->name, $req->productosycantidad, round($req->total * 10), $req->puntos, $coste, $req->direccion, $req->telefono));
 
             session()->flash('notif.success', 'Se ha realizado el pedido con éxito.');
             return redirect('products');

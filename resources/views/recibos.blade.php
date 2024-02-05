@@ -1,15 +1,68 @@
+<?php
+$role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+    ->pluck('privilegios')
+    ->first();
+$privilegioslista = [];
+if ($role_actual) {
+    $privilegioslista = explode('-', $role_actual);
+}
+?>
 <link rel="stylesheet" href="/css/index.css" />
 <x-app-layout>
     <x-slot name="header">
-        <br><br><br>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-            {{ __('RECIBOS') }}
-        </h2>
-        <br><br>
+        <div style="margin-top:110px;">
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight"
+                style="font-size:60px; color:#568c2c; letter-spacing: 3px; font-weight:lighter; font-family: 'Alfa Slab One', serif;">
+                {{ __('RECIBOS') }}
+            </h2>
+            @if (Route::current()->getName() == 'recibos.index')
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Recibos de los últimos tres meses') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.todosRecibos') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
+                </div>
+            @elseif (Route::current()->getName() == 'recibos.todosRecibos')
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Todos los recibos') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.index') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
+                </div>
+            @elseif (Route::current()->getName() == 'recibos.index.admin')
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Recibos de los últimos tres meses') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.todosRecibos.admin') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER TODOS LOS RECIBOS') }}</a>
+                </div>
+            @elseif (Route::current()->getName() == 'recibos.todosRecibos.admin')
+                <p style="text-align:center; margin-bottom:30px;">{{ __('Todos los recibos') }}</p>
+                <div style="text-align:center;">
+                    <a href="{{ route('recibos.index.admin') }}"
+                        style="color:white; background-color:#568c2c; padding:10px; border-radius:10px;"
+                        id="boton">{{ __('VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES') }}</a>
+                </div>
+            @endif
+            <?php
+            $pendientes = 0;
+            foreach ($recibos as $recibo) {
+                if ($recibo->estado != 'Pedido entregado' or !$recibo->pagado) {
+                    $pendientes += 1;
+                }
+            }
+            ?>
+            @if (Auth::user()->admin)
+                <p style="text-align: center; margin-top:20px; font-weight:bolder;">
+                    {{ __('Pedidos pendientes en esta página: ') }}
+                    {{ $pendientes }}</p>
+            @endif
+        </div>
     </x-slot>
     <link rel="stylesheet" href="/css/recibos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 
-    <div class="py-12">
+    <div class="py-12" style="margin-bottom:300px;">
         @if (Auth::user()->admin)
             <p class="text-center" style="font-weight:bolder;">{{ __('LISTA PARA ADMINISTRADORES') }}</p>
             <br>
@@ -36,8 +89,11 @@
                         <td></td>
                     @endif
                     <td class="font-bold">{{ __('Pago') }}</td>
-                    @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                    @if (in_array('9', $privilegioslista) || Auth::user()->primero)
                         <td class="font-bold">{{ __('Eliminar') }}</td>
+                    @endif
+                    @if (!Auth::user()->admin)
+                        <td class="font-bold">{{ __('Factura') }}</td>
                     @endif
                 </tr>
                 @foreach ($recibos as $recibo)
@@ -46,7 +102,7 @@
                             <td colspan="13"><br></td>
                         </tr>
                         <tr>
-                            <td>{{ $recibo->created_at }}</td>
+                            <td>{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}</td>
                             <td>{{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
                             </td>
@@ -54,7 +110,7 @@
                             </td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productosycantidad);
                                 ?>
                                 @foreach ($productoslista as $producto)
                                     <p>
@@ -62,14 +118,14 @@
                                     </p>
                                 @endforeach
                             </td>
-                            <td>{{ $recibo->total * 100 }}</td>
+                            <td>{{ $recibo->total * 10 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                             <td>{{ __($recibo->direccion) }}</td>
                             {{--
                                 <td>{{ $recibo->telefono }}</td>
                             --}}
-                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
+                            @if (in_array('7', $privilegioslista) || Auth::user()->primero)
                                 <td>
                                     <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                         @csrf
@@ -89,9 +145,8 @@
                                             </div>
                                             <div class="text-center">
                                                 <button type="submit"
-                                                    class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500"
-                                                    id="boton"
-                                                    style="height:40px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                                    class="px-6 py-2 text-sm rounded shadow text-red-100" id="boton"
+                                                    style="height:40px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                             </div>
                                         </div>
                                     </form>
@@ -105,7 +160,7 @@
                                 </td>
                                 <td></td>
                             @endif
-                            @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                            @if (in_array('8', $privilegioslista) || Auth::user()->primero)
                                 <td>
                                     @if ($recibo->pagado)
                                         <form method="post" action="{{ route('recibos.nopagado', $recibo->id) }}">
@@ -121,14 +176,6 @@
                                         </form>
                                     @endif
                                 </td>
-                                <td>
-                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button
-                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
-                                    </form>
-                                </td>
                             @else
                                 <td>
                                     @if ($recibo->pagado)
@@ -136,6 +183,17 @@
                                     @else
                                         <p>{{ __('PENDIENTE') }}</p>
                                     @endif
+                                </td>
+                            @endif
+                            @if (in_array('9', $privilegioslista) || Auth::user()->primero)
+                                <td>
+                                    <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button
+                                            class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                            onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
+                                    </form>
                                 </td>
                             @endif
                         </tr>
@@ -151,10 +209,10 @@
                             <td colspan="9"><br></td>
                         </tr>
                         <tr>
-                            <td>{{ $recibo->created_at }}</td>
+                            <td>{{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productosycantidad);
                                 ?>
                                 @foreach ($productoslista as $producto)
                                     <p>
@@ -162,7 +220,7 @@
                                     </p>
                                 @endforeach
                             </td>
-                            <td>{{ $recibo->total * 100 }}</td>
+                            <td>{{ $recibo->total * 10 }}</td>
                             <td>{{ $recibo->puntos }}</td>
                             <td>{{ number_format($recibo->total, 2, '.', '') }} €</td>
                             <td>{{ __($recibo->direccion) }}</td>
@@ -177,6 +235,11 @@
                                     {{ __('Pago en curso') }}
                                 @endif
                             </td>
+                            <td>
+                                <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
+                                    style="background-color:#568c2c; padding:8px; border-radius:8px; color:white;"
+                                    id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="9">
@@ -188,8 +251,7 @@
                     @endif
                 @endforeach
             </table>
-            <table class="table-auto w-full" style="border-collapse:separate; border-spacing:10px;"
-                id="recibos-pequenio">
+            <table style="border-collapse:separate; border-spacing:10px;" id="recibos-pequenio">
                 @foreach ($recibos as $recibo)
                     @if (Auth::user()->admin)
                         <tr>
@@ -198,7 +260,8 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->created_at }}</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -207,18 +270,19 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('name')->first() }}
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Dirección') }}
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Dirección') }}
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('direccion')->first() }}
                                 </p>
                             </td>
@@ -229,22 +293,23 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">
+                                <p style="margin-left:30px; text-align:right;">
                                     {{ \App\Models\User::where(['id' => $recibo->idUser])->pluck('telefono')->first() }}
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">{{ __('Productos') }}
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Productos') }}
                                 </p>
                             </td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productosycantidad);
                                 ?>
                                 @foreach ($productoslista as $producto)
-                                    <p style="padding-left:50px;">
+                                    <p style="margin-left:30px; text-align:right;">
                                         - {{ $producto }}
                                     </p>
                                 @endforeach
@@ -256,7 +321,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -265,7 +330,7 @@
                                     {{ __('Pizzacoins gastadas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->puntos }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -274,7 +339,8 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
@@ -283,7 +349,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -296,19 +362,20 @@
                             </tr>
                         --}}
 
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cocinero' || Auth::user()->role == 'Plancha')
+                        @if (in_array('7', $privilegioslista) || Auth::user()->primero)
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
                                         {{ __('Estado') }}</p>
                                 </td>
                                 <td>
-                                    <div style="padding-left:50px;">
+                                    <div>
                                         <form action="{{ route('recibos.actualizar', $recibo->id) }}" method="POST">
                                             @csrf
-                                            <div style="display:flex; align-items:center; gap:10px;">
+                                            <div style="display:flex; align-items:center; gap:10px; float:right;">
                                                 <div>
-                                                    <select id="estado" name="estado" style="border-radius:10px;">
+                                                    <select id="estado" name="estado"
+                                                        style="border-radius:10px; width:190px;">
                                                         <option value="Pedido registrado">
                                                             {{ __('Pedido registrado') }}
                                                         </option>
@@ -324,15 +391,14 @@
                                                 </div>
                                                 <div>
                                                     <button type="submit"
-                                                        class="px-6 py-2 text-sm shadow text-red-100 bg-blue-500"
-                                                        id="boton"
-                                                        style="height:42px; font-weight:bolder; border-radius:10px;">{{ __('✓') }}</button>
+                                                        class="px-6 py-2 text-sm shadow text-red-100" id="boton"
+                                                        style="height:42px; font-weight:bolder; border-radius:10px; background-color:#568c2c;">{{ __('✓') }}</button>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
-                                            </div>
                                         </form>
+                                    </div>
+                                    <div style="display:flex; margin-left:30px; float:right;">
+                                        <strong>{{ __('Estado actual:') }}</strong>&nbsp;{{ __($recibo->estado) }}
                                     </div>
                                 </td>
                             </tr>
@@ -343,11 +409,11 @@
                                         {{ __('Estado') }}</p>
                                 </td>
                                 <td>
-                                    <p style="padding-left:50px;">{{ __($recibo->estado) }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __($recibo->estado) }}</p>
                                 </td>
                             </tr>
                         @endif
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
+                        @if (in_array('8', $privilegioslista) || Auth::user()->primero)
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
                                     <p style="font-weight:bolder; font-size:13px; font-style:italic;">
@@ -355,7 +421,7 @@
                                 </td>
                                 @if ($recibo->pagado)
                                     <td>
-                                        <div style="padding-left:50px;">
+                                        <div style="margin-left:30px; text-align:right;">
                                             <form method="post"
                                                 action="{{ route('recibos.nopagado', $recibo->id) }}">
                                                 @csrf
@@ -366,7 +432,7 @@
                                     </td>
                                 @else
                                     <td>
-                                        <div style="padding-left:50px;">
+                                        <div style="margin-left:30px; text-align:right;">
                                             <form method="post" action="{{ route('recibos.pagado', $recibo->id) }}">
                                                 @csrf
                                                 <button
@@ -377,22 +443,6 @@
                                 @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
-                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
-                                        {{ __('Eliminar') }}</p>
-                                </td>
-                                <td>
-                                    <div style="padding-left:50px;">
-                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
-                                            @csrf
-                                            @method('delete')
-                                            <button
-                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">x</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
                         @else
                             <tr>
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
@@ -401,13 +451,32 @@
                                 </td>
                                 @if ($recibo->pagado)
                                     <td>
-                                        <p style="padding-left:50px;">{{ __('PAGADO') }}</p>
+                                        <p style="margin-left:30px; text-align:right;">{{ __('PAGADO') }}</p>
                                     </td>
                                 @else
                                     <td>
-                                        <p style="padding-left:50px;">{{ __('PENDIENTE') }}</p>
+                                        <p style="margin-left:30px; text-align:right;">{{ __('PENDIENTE') }}</p>
                                     </td>
                                 @endif
+                            </tr>
+                        @endif
+                        @if (in_array('9', $privilegioslista) || Auth::user()->primero)
+                            <tr>
+                                <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                    <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                        {{ __('Eliminar') }}</p>
+                                </td>
+                                <td>
+                                    <div style="margin-left:30px; text-align:right;">
+                                        <form method="post" action="{{ route('recibos.destroy', $recibo->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button
+                                                class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
+                                                onclick="return confirm('¿Estás seguro de que quieres eliminar este recibo?')">x</button>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
                         @endif
                         <tr></tr>
@@ -419,7 +488,8 @@
                                     {{ __('Fecha y hora') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->created_at }}</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ date('d/m/Y - H:i', strtotime($recibo->created_at)) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -429,10 +499,10 @@
                             </td>
                             <td>
                                 <?php
-                                $productoslista = explode(', ', $recibo->productos);
+                                $productoslista = explode('¬', $recibo->productosycantidad);
                                 ?>
                                 @foreach ($productoslista as $producto)
-                                    <p style="padding-left:50px;">
+                                    <p style="margin-left:30px; text-align:right;">
                                         - {{ $producto }}
                                     </p>
                                 @endforeach
@@ -444,7 +514,7 @@
                                     {{ __('Pizzacoins obtenidas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ round($recibo->total * 10) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ round($recibo->total * 10) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -453,7 +523,7 @@
                                     {{ __('Pizzacoins gastadas') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->puntos }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ $recibo->puntos }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -462,7 +532,8 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ number_format($recibo->total, 2, '.', '') }} €</p>
+                                <p style="margin-left:30px; text-align:right;">
+                                    {{ number_format($recibo->total, 2, '.', '') }} €</p>
                             </td>
                         </tr>
                         <tr>
@@ -471,7 +542,7 @@
                                     {{ __('Entrega') }}</p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ __($recibo->direccion) }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($recibo->direccion) }}</p>
                             </td>
                         </tr>
                         {{--
@@ -489,7 +560,7 @@
                                 </p>
                             </td>
                             <td>
-                                <p style="padding-left:50px;">{{ $recibo->estado }}</p>
+                                <p style="margin-left:30px; text-align:right;">{{ __($recibo->estado) }}</p>
                             </td>
                         </tr>
                         <tr>
@@ -499,7 +570,7 @@
                                         {{ __('Pago') }}</p>
                                 </td>
                                 <td>
-                                    <p style="padding-left:50px;">{{ __('Pago realizado') }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Pago realizado') }}</p>
                                 </td>
                             @else
                                 <td style="display:flex; justify-content:space-between; padding-left:50px;">
@@ -507,58 +578,108 @@
                                         {{ __('Pago') }}</p>
                                 </td>
                                 <td>
-                                    <p style="padding-left:50px;">{{ __('Pago en curso') }}</p>
+                                    <p style="margin-left:30px; text-align:right;">{{ __('Pago en curso') }}</p>
                                 </td>
                             @endif
+                        </tr>
+                        <tr>
+                            <td style="display:flex; justify-content:space-between; padding-left:50px;">
+                                <p style="font-weight:bolder; font-size:13px; font-style:italic;">
+                                    {{ __('Factura') }}</p>
+                            </td>
+                            <td>
+                                <a href="{{ route('recibos.factura', $recibo->id) }}" target="_blank"
+                                    style="margin-left:30px; background-color:#568c2c; padding:8px; border-radius:8px; float:right; color:white;"
+                                    id="boton"><button type="button">{{ __('Ver factura') }}</button></a>
+                            </td>
                         </tr>
                         <tr></tr>
                         <tr></tr>
                     @endif
                 @endforeach
             </table>
+
+            <div>
+                {{ $recibos->links() }}
+            </div>
         </div>
     </div>
 
-    <br><br><br><br>
-    <footer
-        class="fixed bottom-0 left-0 z-20 w-full p-4 border-t border-gray-300 shadow md:flex md:items-center md:justify-between md:p-6"
-        style="background-color:red;">
-        <span class="text-sm sm:text-center"
-            style="color: white; margin-right:20px;">{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}
-        </span>
-        <ul class="hidden flex-wrap items-center mt-3 text-sm font-medium sm:mt-0 sm:flex"
-            style="color: white; justify-content:center; margin-left:auto;">
-            <li>
-                <a href="{{ route('whoarewe') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('¿Quiénes somos?') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('faq') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Preguntas frecuentes') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('contact') }}" class="mr-4 hover:underline md:mr-6">{{ __('Contáctanos') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('privacy') }}"
-                    class="mr-4 hover:underline md:mr-6">{{ __('Política de privacidad') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('premios') }}" class="mr-4 hover:underline md:mr-6">{{ __('Premios') }}</a>
-            </li>
-        </ul>
-        <div style="margin-left:auto; display:flex; justify-content:center;">
-            <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
-                    width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
-                    src="{{ asset('img/inst.png') }}" width="30px" height="30px"
-                    style="margin-right:20px;"></a>
-            <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
-                    src="{{ asset('img/tik.png') }}" width="30px" height="30px" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
-                    src="{{ asset('img/face.png') }}" width="30px" height="30px"
-                    style="margin-right:20px;"></a>
+    <div class="footer">
+        <div style="text-align:center; font-size:13px;">
+            <p>{{ __('© 2023 Pizzería Brenda™. Todos los derechos reservados.') }}</p>
         </div>
-    </footer>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="display:flex; gap: 5px; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Teléfonos: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>956 37 11 15 | 956 37 47 36 | 627 650 605</p>
+                </div>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:30px; text-align:center;">
+                <a class="anavbar" href="{{ route('whoarewe') }}"
+                    style="font-size:12px;">{{ __('¿Quiénes somos?') }}</a>
+                <a class="anavbar" href="{{ route('faq') }}"
+                    style="font-size:12px;">{{ __('Preguntas frecuentes') }}</a>
+                <a class="anavbar" href="{{ route('contact') }}"
+                    style="font-size:12px;">{{ __('Contáctanos') }}</a>
+                <a class="anavbar" href="{{ route('privacy') }}"
+                    style="font-size:12px;">{{ __('Política de privacidad') }}</a>
+                <a class="anavbar" href="{{ route('premios') }}" style="font-size:12px;">{{ __('Premios') }}</a>
+            </div>
+            <div style="margin-left:auto; display:flex;">
+                <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img src="{{ asset('img/twit.png') }}"
+                        alt="twitter" width="25px" height="25px" style="margin-right:20px;"
+                        class="redes_sociales"></a>
+                <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                        src="{{ asset('img/inst.png') }}" alt="instagram" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                        src="{{ asset('img/tik.png') }}" alt="tiktok" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
+                <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                        src="{{ asset('img/face.png') }}" alt="facebook" width="25px" height="25px"
+                        style="margin-right:20px;" class="redes_sociales"></a>
+            </div>
+            <div style="display:flex; gap: 5px; margin-left:auto; align-items:center;">
+                <p style="font-size:18px; color:#568c2c; font-weight:bolder; text-transform:uppercase;">
+                    {{ __('Horario: ') }}
+                </p>
+                <div style="font-size:18px; font-weight:bolder;">
+                    <p>{{ __('De lunes a domingo: 20:30 - 23:30') }}</p>
+                    <p>{{ __('Domingo por la mañana: 13:30 - 15:00') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .anavbar:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 639px) {
+            .anavbar {
+                display: none;
+            }
+
+            .redes_sociales {
+                display: none;
+            }
+        }
+    </style>
 
 </x-app-layout>

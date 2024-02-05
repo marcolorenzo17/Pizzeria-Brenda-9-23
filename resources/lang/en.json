@@ -7,8 +7,6 @@
     "El carrito se ha vaciado con éxito.": "The cart has been emptied successfully.",
     "Alérgenos actuales:": "Current allergens:",
 
-    "Se ha enviado el currículum con éxito.": "The resume has been sent successfully.",
-
     "Se ha realizado la reserva con éxito.": "The reservation has been made successfully.",
 
     "Se ha creado el plato con éxito.": "The dish has been created successfully.",
@@ -26,7 +24,7 @@
     "El recibo se ha borrado con éxito.": "The receipt was deleted successfully.",
     "Un usuario no puede eliminarse a sí mismo.": "A user cannot delete itself.",
     "El usuario se ha eliminado con éxito.": "The user has been deleted successfully.",
-    "El usuario seleccionado es ahora un administrador.": "The selected user is now an admin.",
+    "El usuario seleccionado es ahora un administrador. Asegúrate de asignarle un rol.": "The selected user is now an admin. Be sure to assign them a role.",
     "Un administrador no puede deshabilitarse a sí mismo.": "An admin cannot disable itself.",
     "El usuario seleccionado ya no es un administrador.": "The selected user is no longer an admin.",
     "Se ha validado al usuario con éxito.": "The user has been validated succesfully.",
@@ -66,8 +64,10 @@
     "Entrar": "Access",
     "Iniciar pedido": "Start order",
     "Registrarse": "Register",
-    "PIZZERÍA ARTESANAL Y NATURAL": "ARTISANAL AND NATURAL PIZZERIA",
+    "PIZZA ARTESANA Y NATURAL": "ARTISAN AND NATURAL PIZZA",
     "¿QUÉ PEDIMOS?": "WHAT WILL YOU HAVE?",
+
+    "Nuestra carta": "Our Menu",
 
     "NUESTRAS PROMOCIONES": "OUR PROMOTIONS",
 
@@ -123,6 +123,8 @@
     "\"EL PLACER DE UNA BUENA PIZZA ARTESANAL\"": "\"THE PLEASURE OF A GOOD ARTISANAL PIZZA\"",
     "\"COCINA RÁPIDA DE CALIDAD\"": "\"FAST QUALITY COOKING\"",
 
+    "Añade productos al carrito para ver tu presupuesto": "Add products to your cart to check your budget",
+
     "VOLVER": "GO BACK",
     "Nombre": "Name",
     "Precio": "Price",
@@ -135,6 +137,12 @@
     "Producto": "Product",
 
     "PROMOCIONES": "PROMOTIONS",
+
+    "APLICAR": "APPLY",
+
+    "50 como máximo.": "50 people max.",
+
+    "Entrega:": "Delivery:",
 
     "CARRITO": "CART",
     "Tu carrito": "Your cart",
@@ -156,6 +164,7 @@
     "Puedes hacer tu pedido por teléfono": "You can make your order by phone",
     "TE ATENDEREMOS EN HORARIO:": "WE WILL ASSIST YOU DURING THE FOLLOWING HOURS:",
     "De lunes a domingo: 20:30 - 23:30": "From Monday to Sunday: 20:30 - 23:30",
+    "De lunes a domingo de 20:30 a 23:30.": "From Monday to Sunday: 20:30 - 23:30",
     "VISÍTANOS EN:": "VISIT US ON:",
     "(junto a antigua estación de Los Amarillos)": "(next to old Los Amarillos station)",
     "ATENCIÓN AL CLIENTE:": "CUSTOMER SUPPORT:",
@@ -285,9 +294,13 @@
     "Plancha": "Iron",
     "Rol": "Role",
     "Rol actual:": "Current role:",
+    "Las promociones sólo pueden tener un precio de 0 €.": "Promotions can only have a price of 0 €.",
+    "Sólo las promociones pueden tener asignado un valor de Pizzacoins.": "Only promotions can have a Pizzacoin value assigned.",
+    "Se ha añadido el rol con éxito.": "The role has been added successfully.",
     "Se ha actualizado el rol con éxito.": "The role has been updated successfully.",
     "Se han actualizado las Pizzacoins con éxito.": "The Pizzacoins have been updated successfully.",
     "Premios": "Awards",
+    "El campo de Pizzacoins es obligatorio.": "The Pizzacoins field is required.",
     "PREMIOS": "AWARDS",
     "HORARIO": "SCHEDULE",
     "VISÍTANOS": "VISIT US",
@@ -295,6 +308,18 @@
     "CANJEA TUS PIZZACOINS": "SPEND YOUR PIZZACOINS",
     "Se ha actualizado el plato con éxito.": "The dish has been updated succesfully.",
     "Se ha añadido el plato con éxito.": "The dish has been added succesfully.",
+    "Reservas pendientes en esta página: ": "Pending reservations in this page: ",
+    "Pedidos pendientes en esta página: ": "Pending orders in this page: ",
+
+    "- SÍ": "- YES",
+    "SÍ": "YES",
+    "Actualmente: SÍ": "Currently: YES",
+    "Actualmente: NO": "Currently: NO",
+
+    "El usuario puede modificar la lista de roles": "The user can modify the role list",
+    "El usuario puede borrar reservas": "The user can delete reservations",
+
+    "La reserva se ha borrado con éxito.": "The reservation has been deleted succesfully.",
 
     "¿La pizzería abre por la mañana?": "Does the pizzeria open in the morning?",
     "La pizzería abre los domingos por la mañana desde el 1 de octubre al 30 de mayo.": "The pizzeria opens every Sunday morning from October 1st to May 30th.",
@@ -346,6 +371,8 @@
     "Titular de la tarjeta": "Cardholder",
     "*Sólo puedes tener un máximo de 5 reservas activas.": "*You can only have a maximum of 5 active reservations.",
     "Sólo puedes tener un máximo de 5 reservas activas.": "You can only have a maximum of 5 active reservations.",
+
+    "Un usuario no puede cambiarse su propio rol.": "A user cannot change its own role.",
 
     "Actualiza la información y el correo del perfil de tu cuenta.": "Update your account's profile information and e-mail.",
     "Asegúrate de utilizar una contraseña larga y complicada para mayor seguridad.": "Make sure to use a long and complex password for better security.",
@@ -443,7 +470,7 @@
     "¿Quieres algo más de tu estilo?": "Do you want something more your style?",
     "¡": " ",
     "Inicia sesión": "Log in",
-    ", y crea tu propia pizza!": ", and you'll be able to make your own pizza!",
+    " y crea tu propia pizza!": " and you'll be able to make your own pizza!",
 
     "Tu nombre de usuario.": "Your username.",
     "ejemplo@ejemplo.com": "example@example.com",
@@ -451,13 +478,154 @@
     "Tu dirección de envío a domicilio.": "Your home delivery address.",
 
     "Nombre de usuario": "Username",
-    "Nombre del ingrediente": "Ingredient name",
-    "Nombre del ingrediente (Inglés)": "Ingredient name (English)",
-    "Nombre del plato": "Dish name",
-    "Nombre del plato (Inglés)": "Dish name (English)",
+    "Nombre del ingrediente": "Ingredient name (Spanish)",
+    "Nombre del ingrediente (Inglés)": "Ingredient name",
+    "Nombre del plato": "Dish name (Spanish)",
+    "Nombre del plato (Inglés)": "Dish name",
     "Confirmar nueva contraseña": "Confirm new password",
 
     "Pizza Personalizada": "Custom Pizza",
+    "Teléfonos: ": "Phone numbers: ",
+    "Horario: ": "Schedule: ",
+    "Teléfonos": "Phone numbers",
+    "Horario": "Schedule",
+
+    "Nombre del plato actual:": "Current dish name (Spanish):",
+    "Nombre del plato actual (Inglés):": "Current dish name:",
+    "Nombre del ingrediente actual:": "Current ingredient name (Spanish):",
+    "Nombre del ingrediente actual (Inglés):": "Current ingredient name:",
+
+    "Estrellas": "Stars",
+
+    "¡CANJEA TUS PIZZACOINS!": "SPEND YOUR PIZZACOINS!",
+    "¡APLICA OFERTAS!": "APPLY OFFERS!",
+
+    "La pizzería no está abierta a esa hora." : "The pizzeria is not open at that time.",
+    "La pizzería no está abierta a esa hora los domingos." : "The pizzeria is not open at that time on sundays.",
+
+    "Factura": "Bill",
+    "FACTURA": "BILL",
+    "Ver factura": "Check bill",
+
+    "RECIBO": "RECEIPT",
+    "Recibo": "Receipt",
+
+    "MÁS INFORMACIÓN": "MORE INFO",
+
+    "Inicio": "Home",
+
+    "Usuario": "User",
+
+    "PROMOCIONES Y OFERTAS": "PROMOTIONS AND OFFERS",
+
+    "- Precio:": "- Price:",
+
+    "¡ESCOGE TU MENÚ FAVORITO!": "PICK YOUR FAVORITE MENU!",
+    "¡APROVECHA LAS OFERTAS!": "GET THOSE OFFERS!",
+
+    "HAZ TU PEDIDO": "MAKE YOUR ORDER",
+    "¡TE LO LLEVAMOS A CASA!": "WE'LL DELIVER IT TO YOUR HOME!",
+
+    "¡COMPARTE Y DISFRUTA!": "SHARE AND ENJOY!",
+
+    "DESCRIPCIÓN": "DESCRIPTION",
+
+    "Buscar plato": "Search dish",
+    "Buscar": "Search",
+
+    "El campo de nombre de usuario es obligatorio.": "The username field is required.",
+    "El nombre de usuario no puede tener más de 12 caracteres.": "The username cannot have more than 12 characters.",
+    "El campo de correo electrónico es obligatorio.": "The email field is required.",
+    "El formato del correo electrónico debe ser [ ejemplo@ejemplo.com ].": "The email format must be [ example@example.com ].",
+    "El correo electrónico no puede tener más de 255 caracteres.": "The email cannot have more than 255 characters.",
+    "El campo de contraseña es obligatorio.": "The password field is required.",
+    "La contraseña debe tener al menos 8 caracteres.": "The password must be at least 8 characters long.",
+    "Las contraseñas introducidas no coinciden.": "The passwords don't match.",
+    "El campo de dirección es obligatorio.": "The address field is required.",
+    "La dirección no puede tener más de 255 caracteres.": "The address cannot have more than 255 characters.",
+    "El campo de teléfono es obligatorio.": "The phone number field is required.",
+    "El formato debe ser el de un teléfono de España.": "The format must be that of a Spanish phone number.",
+    "El campo de nueva contraseña es obligatorio.": "The new password field is required.",
+    "La nueva contraseña debe tener al menos 8 caracteres.": "The new password must be at least 8 characters long.",
+
+    "El nombre de usuario no puede quedar en blanco.": "The username cannot be blank.",
+    "El correo electrónico no puede quedar en blanco.": "The email cannot be blank.",
+    "La dirección no se puede quedar en blanco.": "The address cannot be blank.",
+    "El número de teléfono no puede quedar en blanco.": "The phone number cannot be blank.",
+    "La nueva contraseña no puede quedar en blanco.": "The new password cannot be blank.",
+
+    "El campo de personas es obligatorio.": "The people field is required.",
+    "La reserva debe ser al menos para una persona.": "The reservation must be for at least one person.",
+    "Sólo se puede reservar para un máximo de 50 personas.": "You can only make a reservation for a maximum of 50 people.",
+    "El campo de fecha es obligatorio.": "The date field is required.",
+    "El campo de hora es obligatorio.": "The time field is required.",
+
+    "El campo de nombre del plato es obligatorio.": "The dish name (Spanish) field is required.",
+    "El nombre del plato no puede tener más de 255 caracteres.": "The dish name (Spanish) field cannot have more than 255 characters.",
+    "El campo de nombre del plato (inglés) es obligatorio.": "The dish name field is required.",
+    "El nombre del plato (inglés) no puede tener más de 255 caracteres.": "The dish name field cannot have more than 255 characters.",
+    "El campo de precio es obligatorio.": "The price field is required.",
+    "El precio no puede ser menor de 0€.": "The price cannot be less than 0€.",
+    "El producto no puede costar menos de 0 Pizzacoins.": "The product cannot cost less than 0 Pizzacoins.",
+    "El campo de Pizzacoins debe ser un número.": "The Pizzacoins field must be a number.",
+    "El campo de nombre del ingrediente es obligatorio.": "The ingredient name (Spanish) field is required.",
+    "El nombre del ingrediente no puede tener más de 255 caracteres.": "The ingredient name (Spanish) field cannot have more than 255 characters.",
+    "El campo de nombre del ingrediente (inglés) es obligatorio.": "The ingredient name field is required.",
+    "El nombre del ingrediente (inglés) no puede tener más de 255 caracteres.": "The ingredient name field cannot have more than 255 characters.",
+
+    "Se ha enviado el currículum con éxito.": "The resume has been sent successfully.",
+    "Se ha producido un error: ": "An error has occurred: ",
+
+    "Recibos de los últimos tres meses": "Receipts from the last three months",
+    "VER TODOS LOS RECIBOS": "VIEW ALL RECEIPTS",
+    "Todos los recibos": "All receipts",
+    "VER LOS RECIBOS DE LOS ÚLTIMOS TRES MESES": "VIEW RECEIPTS FROM THE LAST THREE MONTHS",
+
+    "Mostrando de": "Showing",
+    "a": "to",
+    "de": "of",
+    "resultados": "results",
+
+    "Tu cuenta se ha creado con éxito.": "Your account has been created successfully.",
+    "El rol se ha borrado con éxito.": "The role has been deleted successfully.",
+
+    "CREAR ROL": "CREATE ROLE",
+    "EDITAR ROL": "EDIT ROLE",
+
+    "Nombre del rol": "Role name (Spanish)",
+    "Nombre del rol (Inglés)": "Role name",
+
+    "Nombre del rol actual:": "Current role name (Spanish):",
+    "Nombre del rol actual (inglés):": "Current role name:",
+
+    "Privilegios actuales:": "Current privileges:",
+    "Ninguno": "None",
+
+    "El usuario puede ver la lista de reservas": "The user can view the reservation list",
+    "El usuario puede aceptar y cancelar reservas": "The user can accept and cancel reservations",
+    "El usuario puede editar el pago de las reservas": "The user can edit a reservation's payment",
+    "El usuario puede acceder a la lista de clientes": "The user can access the customers list",
+    "El usuario puede borrar valoraciones": "The user can delete reviews",
+    "El usuario puede borrar comentarios": "The user can delete comments",
+    "El usuario puede editar el estado de un pedido": "The user can edit an order's status",
+    "El usuario puede editar el pago de un pedido": "The user can edit an order's payment",
+    "El usuario puede borrar recibos": "The user can delete receipts",
+    "El usuario puede ver la lista de currículums": "The user can view the resume list",
+
+    "El campo de nombre del rol es obligatorio.": "The role name (Spanish) field is required.",
+    "El nombre del rol no puede tener más de 255 caracteres.": "The role name (Spanish) field cannot have more than 255 characters.",
+    "El campo de nombre del rol (inglés) es obligatorio.": "The role name field is required.",
+    "El nombre del rol (inglés) no puede tener más de 255 caracteres.": "The role name field cannot have more than 255 characters.",
+
+    "DETALLES": "DETAILS",
+    "DETALLES DEL ROL": "ROLE DETAILS",
+    "Usuarios con este rol": "Users with this role",
+
+    "IVA desglosado:": "VAT breakdown:",
+    "Porcentaje": "Percentage",
+    "Neto": "Net",
+    "IVA": "VAT",
+    "Total": "Total",
 
     "COMPRA INMEDIATA": "INSTANT PURCHASE",
     "Confirmación para cambio de contraseña": "Password change confirmation",

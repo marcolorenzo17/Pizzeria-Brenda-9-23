@@ -1,19 +1,20 @@
 <link rel="stylesheet" href="/css/index.css" />
 <link rel="stylesheet" href="/css/index_products.css" />
 <nav x-data="{ open: false }" class="border-b border-gray-100">
+    <?php
+    $role_actual = \App\Models\Role::where(['id' => Auth::User()->id_role])
+        ->pluck('privilegios')
+        ->first();
+    $privilegioslista = [];
+    if ($role_actual) {
+        $privilegioslista = explode('-', $role_actual);
+    }
+    ?>
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16"
-            style="position: fixed; background-color:red; color:white; width: 100%; z-index: 1; right:0px;">
+        <div class="flex justify-between"
+            style="position: fixed; background-color:#141414; color:white; width: 100%; z-index: 1; right:0px; height:110px;">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="/">
-                        <a href="/" class="logo_link"><img src="{{ asset('img/logo_green.png') }}"
-                                alt="logo_header" class="logo_header"></a>
-                    </a>
-                </div>
-
                 <!-- Navigation Links -->
                 {{--
                     <x-nav-link href="index" :active="request()->routeIs('index')">
@@ -24,65 +25,145 @@
                     </x-nav-link>
                 --}}
                 @if (Auth::user()->admin)
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <div style="position:relative; top:20px;" id="productos-grande-navbar">
-                            @include('partials/language_switcher')
-                        </div>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
-                            {{ __('Menú') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')" style="color:white;">
-                            {{ __('Ingredientes') }}
-                        </x-nav-link>
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                            <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white;">
-                                {{ __('Reservas') }}
+                    <div class="hidden sm:-my-px sm:ml-10 sm:flex" style="gap:15px;">
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Inicio') }}
                             </x-nav-link>
-                        @endif
-                        {{--
-                            @if (Auth::user()->role == 'Jefe')
-                                <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                                    {{ __('Clientes') }}
-                                </x-nav-link>
+                            @if (Route::current()->getName() == 'indexAnon')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
                             @endif
-                            <x-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
-                                {{ __('Valoraciones') }}
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('products.index')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Menú') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
-                                {{ __('Comentarios') }}
+                            @if (Route::current()->getName() == 'products.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('crearpizza')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Ingredientes') }}
                             </x-nav-link>
-                        --}}
+                            @if (Route::current()->getName() == 'crearpizza')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        @if (in_array('1', $privilegioslista) || Auth::user()->primero)
+                            <div style="margin-top:43px;">
+                                <x-nav-link :href="route('eventos.indexAdmin')" style="color:white; font-size:15px; font-weight:bolder;">
+                                    {{ __('Reservas') }}
+                                </x-nav-link>
+                                @if (Route::current()->getName() == 'eventos.index')
+                                    <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
                     </div>
                 @else
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <div style="position:relative; top:20px;" id="productos-grande-navbar">
-                            @include('partials/language_switcher')
-                        </div>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" style="color:white;">
-                            {{ __('Menú') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')" style="color:white;">
-                            {{ __('Promociones') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')" style="color:white;">
-                            {{ __('Reservas') }}
-                        </x-nav-link>
-                        <a href="{{ route('cart.list') }}" class="flex items-center">
-                            <svg class="w-5 h-5 text-green-600" fill="none" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                                </path>
-                            </svg>
-                            @if (Auth::user()->inmediato)
-                                <span style="color:white;">0</span>
-                            @else
-                                <span style="color:white;">{{ Cart::getTotalQuantity() }}</span>
+                    <div class="hidden sm:-my-px sm:ml-10 sm:flex" style="gap:15px;">
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('indexAnon')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Inicio') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'indexAnon')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
                             @endif
-                        </a>
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('products.index')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Menú') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'products.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('promociones.index')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Promociones') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'promociones.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <x-nav-link :href="route('eventos.index')" style="color:white; font-size:15px; font-weight:bolder;">
+                                {{ __('Reservas') }}
+                            </x-nav-link>
+                            @if (Route::current()->getName() == 'eventos.index')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
+                        <div style="margin-top:43px;">
+                            <a href="{{ route('cart.list') }}" class="flex items-center">
+                                <svg class="w-5 h-5 text-green-600" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                @if (Auth::user()->inmediato)
+                                    <span style="color:white; font-size:20px;">0</span>
+                                @else
+                                    <span style="color:white; font-size:20px;">{{ Cart::getTotalQuantity() }}</span>
+                                @endif
+                            </a>
+                            @if (Route::current()->getName() == 'cart.list')
+                                <div style="background-color:#f12d2d; height:5px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 @endif
             </div>
+
+            <!-- Logo -->
+            @if (Route::current()->getName() == 'products.show' or
+                    Route::current()->getName() == 'products.editar' or
+                    Route::current()->getName() == 'crearpizza.editar' or
+                    Route::current()->getName() == 'roles.editar' or
+                    Route::current()->getName() == 'roles.show')
+                <div style="margin-left:auto; margin-right:auto;" id="logo_header">
+                    <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                            style="width:100px; margin-top:10px;"></a>
+                </div>
+            @else
+                <div style="margin-left:auto;" id="logo_header">
+                    <a href="/"><img src="{{ asset('img/logo.png') }}" alt="logo_header"
+                            style="width:100px; margin-top:10px;"></a>
+                </div>
+            @endif
+
+            @if (Route::current()->getName() == 'products.show' or
+                    Route::current()->getName() == 'products.editar' or
+                    Route::current()->getName() == 'crearpizza.editar' or
+                    Route::current()->getName() == 'roles.editar' or
+                    Route::current()->getName() == 'roles.show')
+                <div>
+                </div>
+            @else
+                <div style="margin-left:auto; margin-right:0; margin-top:40px;" id="productos-grande-navbar">
+                    @include('partials/language_switcher')
+                </div>
+            @endif
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -107,8 +188,32 @@
                             @if (Auth::user()->admin)
                                 <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user"
                                         width="20px" height="20px" style="margin-right:10px;">
-                                    <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
-                                        {{ __(Auth::user()->role) }})</p>
+                                    @if (Auth::user()->primero)
+                                        <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                            {{ __('Jefe') }})</p>
+                                    @else
+                                        @if (Lang::locale() == 'es')
+                                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin - Sin
+                                                    rol)
+                                                </p>
+                                            @else
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
+                                                </p>
+                                            @endif
+                                        @else
+                                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin - No
+                                                    role)
+                                                </p>
+                                            @else
+                                                <p style="margin-right:20px;">{{ Auth::user()->name }} (Admin -
+                                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
+                                                </p>
+                                            @endif
+                                        @endif
+                                    @endif
                                 </div>
                             @else
                                 <div style="display:flex;"><img src="{{ asset('img/user.png') }}" alt="user"
@@ -136,28 +241,77 @@
                             </x-dropdown-link>
                         @endif
                         @if (Auth::user()->admin)
-                            @if (Auth::user()->role == 'Jefe')
+                            @if (in_array('4', $privilegioslista) || Auth::user()->primero)
                                 <x-dropdown-link :href="route('clientes.index')">
-                                    {{ __('Clientes') }}
+                                    <p>{{ __('Clientes') }}</p>
+                                    @if (Route::current()->getName() == 'clientes.index')
+                                        <div style="background-color:red; height:3px; border-radius:10px;">
+                                            <br>
+                                        </div>
+                                    @endif
                                 </x-dropdown-link>
                             @endif
+                            <x-dropdown-link :href="route('roles.index')">
+                                <p>{{ __('Roles') }}</p>
+                                @if (Route::current()->getName() == 'roles.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
                             <x-dropdown-link :href="route('products.indexValoraciones')">
-                                {{ __('Valoraciones') }}
+                                <p>{{ __('Valoraciones') }}</p>
+                                @if (Route::current()->getName() == 'products.indexValoraciones')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('products.indexComentarios')">
-                                {{ __('Comentarios') }}
+                                <p>{{ __('Comentarios') }}</p>
+                                @if (Route::current()->getName() == 'products.indexComentarios')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
                             </x-dropdown-link>
                         @endif
-                        <x-dropdown-link href="/recibos">
-                            {{ __('Recibos') }}
-                        </x-dropdown-link>
-                        @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
-                            <x-dropdown-link href="/curriculum">
-                                {{ __('Currículum') }}
+                        @if (Auth::User()->admin)
+                            <x-dropdown-link :href="route('recibos.index.admin')">
+                                <p>{{ __('Recibos') }}</p>
+                                @if (Route::current()->getName() == 'recibos.index.admin')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
+                        @else
+                            <x-dropdown-link :href="route('recibos.index')">
+                                <p>{{ __('Recibos') }}</p>
+                                @if (Route::current()->getName() == 'recibos.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
+                            </x-dropdown-link>
+                        @endif
+                        @if (in_array('10', $privilegioslista) || Auth::user()->primero || !Auth::user()->admin)
+                            <x-dropdown-link :href="route('curriculum.index')">
+                                <p>{{ __('Currículum') }}</p>
+                                @if (Route::current()->getName() == 'curriculum.index')
+                                    <div style="background-color:red; height:3px; border-radius:10px;">
+                                        <br>
+                                    </div>
+                                @endif
                             </x-dropdown-link>
                         @endif
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Tu cuenta') }}
+                            <p>{{ __('Tu cuenta') }}</p>
+                            @if (Route::current()->getName() == 'profile.edit')
+                                <div style="background-color:red; height:3px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -173,9 +327,17 @@
                             </x-dropdown-link>
                         </form>
 
-                        <div id="productos-pequenio-navbar" style="position:relative; top:-20px;">
-                            @include('partials/language_switcher')ç
-                        </div>
+                        @if (Route::current()->getName() == 'products.show' or
+                                Route::current()->getName() == 'products.editar' or
+                                Route::current()->getName() == 'crearpizza.editar' or
+                                Route::current()->getName() == 'roles.editar' or
+                                Route::current()->getName() == 'roles.show')
+                            <div></div>
+                        @else
+                            <div id="productos-pequenio-navbar" style="position:relative; top:-20px; left:40px;">
+                                @include('partials/language_switcher')
+                            </div>
+                        @endif
                     </x-slot>
 
                 </x-dropdown>
@@ -190,7 +352,8 @@
                         --}}
                     <div><a href="#"
                             onclick="alert('{{ __('| Español |\n\n¿Qué son las Pizzacoins?\n\nLas pizzacoins son la moneda exclusiva de la Pizzería Brenda.\nPuedes usar estas monedas para canjearlas por promociones especiales.\nCada vez que realices un pedido de cualquier menú o producto en la página web, obtendrás Pizzacoins. Por cada € que gastes, recibirás 10 Pizzacoins.\n¡Acumula esas Pizzacoins y píllate un menú gratis!\n\n| English |\n\nWhat are Pizzacoins?\n\nPizzacoins are the exclusive currency of Pizzería Brenda.\nYou can use these coins to exchange them for special promotions.\nEach time you make an order of any menu or product on this website, you will get Pizzacoins. For each € you spend, you will receive 10 Pizzacoins.\nGather some Pizzacoins and get yourself a free menu!') }}')"><img
-                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio-navbar"></div>
+                                src="{{ asset('img/help.png') }}" alt="help" id="productos-pequenio-navbar">
+                    </div>
                     </a>
                     <div><img src="{{ asset('img/pizzacoin.png') }}" alt="coin" id="productos-pequenio-navbar">
                     </div>
@@ -216,17 +379,48 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
-        <div style="position:relative; top:60px;">
-            @include('partials/language_switcher')
-        </div>
+    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden" style="padding-top:45px;">
+        @if (Route::current()->getName() == 'products.show' or
+                Route::current()->getName() == 'products.editar' or
+                Route::current()->getName() == 'crearpizza.editar' or
+                Route::current()->getName() == 'roles.editar' or
+                Route::current()->getName() == 'roles.show')
+            <div></div>
+        @else
+            <div style="position:relative; top:60px;">
+                @include('partials/language_switcher')
+            </div>
+        @endif
         <div class="px-4" style="background-color:white; padding:10px;">
             <br><br><br>
             @if (Auth::user()->admin)
                 <div class="font-medium text-base text-gray-800" style="display:flex;"><img
                         src="{{ asset('img/user.png') }}" alt="user" width="20px" height="20px"
                         style="margin-right:10px;">
-                    <p>{{ Auth::user()->name }} (Admin - {{ __(Auth::user()->role) }})</p>
+                    @if (Auth::user()->primero)
+                        <p>{{ Auth::user()->name }} (Admin -
+                            {{ __('Jefe') }})</p>
+                    @else
+                        @if (Lang::locale() == 'es')
+                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                <p>{{ Auth::user()->name }} (Admin - Sin rol)
+                                </p>
+                            @else
+                                <p>{{ Auth::user()->name }} (Admin -
+                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first()) }})
+                                </p>
+                            @endif
+                        @else
+                            @if (\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombre')->first() == '')
+                                <p>{{ Auth::user()->name }} (Admin - No role)
+                                </p>
+                            @else
+                                <p>{{ Auth::user()->name }} (Admin -
+                                    {{ __(\App\Models\Role::where(['id' => Auth::user()->id_role])->pluck('nombreen')->first()) }})
+                                </p>
+                            @endif
+                        @endif
+                    @endif
                 </div>
             @else
                 <div class="font-medium text-base text-gray-800" style="display:flex;"><img
@@ -260,28 +454,74 @@
         @endif
         @if (Auth::user()->admin)
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                    {{ __('Menú') }}
+                <x-responsive-nav-link :href="route('indexAnon')">
+                    <p>{{ __('Inicio') }}</p>
+                    @if (Route::current()->getName() == 'indexAnon')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('crearpizza')" :active="request()->routeIs('crearpizza')">
-                    {{ __('Ingredientes') }}
+                <x-responsive-nav-link :href="route('products.index')">
+                    <p>{{ __('Menú') }}</p>
+                    @if (Route::current()->getName() == 'products.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cajero')
-                    <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                        {{ __('Reservas') }}
+                <x-responsive-nav-link :href="route('crearpizza')">
+                    <p>{{ __('Ingredientes') }}</p>
+                    @if (Route::current()->getName() == 'crearpizza')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
+                </x-responsive-nav-link>
+                @if (in_array('1', $privilegioslista) || Auth::user()->primero)
+                    <x-responsive-nav-link :href="route('eventos.indexAdmin')">
+                        <p>{{ __('Reservas') }}</p>
+                        @if (Route::current()->getName() == 'eventos.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
                 @endif
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                    {{ __('Menú') }}
+                <x-responsive-nav-link :href="route('indexAnon')">
+                    <p>{{ __('Inicio') }}</p>
+                    @if (Route::current()->getName() == 'indexAnon')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                    {{ __('Promociones') }}
+                <x-responsive-nav-link :href="route('products.index')">
+                    <p>{{ __('Menú') }}</p>
+                    @if (Route::current()->getName() == 'products.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('eventos.index')" :active="request()->routeIs('eventos.index')">
-                    {{ __('Reservas') }}
+                <x-responsive-nav-link :href="route('promociones.index')">
+                    <p>{{ __('Promociones') }}</p>
+                    @if (Route::current()->getName() == 'promociones.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('eventos.index')">
+                    <p>{{ __('Reservas') }}</p>
+                    @if (Route::current()->getName() == 'eventos.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
             </div>
         @endif
@@ -290,24 +530,57 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
                 @if (Auth::user()->admin)
-                    @if (Auth::user()->role == 'Jefe')
-                        <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
-                            {{ __('Clientes') }}
+                    @if (in_array('4', $privilegioslista) || Auth::user()->primero)
+                        <x-responsive-nav-link :href="route('clientes.index')">
+                            <p>{{ __('Clientes') }}</p>
+                            @if (Route::current()->getName() == 'clientes.index')
+                                <div style="background-color:red; height:3px; border-radius:10px;">
+                                    <br>
+                                </div>
+                            @endif
                         </x-responsive-nav-link>
                     @endif
-                    <x-responsive-nav-link :href="route('products.indexValoraciones')" :active="request()->routeIs('products.indexValoraciones')">
-                        {{ __('Valoraciones') }}
+                    <x-responsive-nav-link :href="route('roles.index')">
+                        <p>{{ __('Roles') }}</p>
+                        @if (Route::current()->getName() == 'roles.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('products.indexComentarios')" :active="request()->routeIs('products.indexComentarios')">
-                        {{ __('Comentarios') }}
+                    <x-responsive-nav-link :href="route('products.indexValoraciones')">
+                        <p>{{ __('Valoraciones') }}</p>
+                        @if (Route::current()->getName() == 'products.indexValoraciones')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('products.indexComentarios')">
+                        <p>{{ __('Comentarios') }}</p>
+                        @if (Route::current()->getName() == 'products.indexComentarios')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
                 @endif
-                <x-responsive-nav-link :href="route('recibos.index')" :active="request()->routeIs('recibos.index')">
-                    {{ __('Recibos') }}
+                <x-responsive-nav-link :href="route('recibos.index')">
+                    <p>{{ __('Recibos') }}</p>
+                    @if (Route::current()->getName() == 'recibos.index')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                @if (Auth::user()->role == 'Jefe' || Auth::user()->role == 'Cliente')
-                    <x-responsive-nav-link :href="route('curriculum.index')" :active="request()->routeIs('curriculum.index')">
-                        {{ __('Currículum') }}
+                @if (in_array('10', $privilegioslista) || Auth::user()->primero || !Auth::user()->admin)
+                    <x-responsive-nav-link :href="route('curriculum.index')">
+                        <p>{{ __('Currículum') }}</p>
+                        @if (Route::current()->getName() == 'curriculum.index')
+                            <div style="background-color:red; height:3px; border-radius:10px;">
+                                <br>
+                            </div>
+                        @endif
                     </x-responsive-nav-link>
                 @endif
 
@@ -316,28 +589,58 @@
 
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('whoarewe')" :active="request()->routeIs('whoarewe')">
-                    {{ __('¿Quiénes somos?') }}
+                <x-responsive-nav-link :href="route('whoarewe')">
+                    <p>{{ __('¿Quiénes somos?') }}</p>
+                    @if (Route::current()->getName() == 'whoarewe')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
-                    {{ __('Preguntas frecuentes') }}
+                <x-responsive-nav-link :href="route('faq')">
+                    <p>{{ __('Preguntas frecuentes') }}</p>
+                    @if (Route::current()->getName() == 'faq')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
-                    {{ __('Contáctanos') }}
+                <x-responsive-nav-link :href="route('contact')">
+                    <p>{{ __('Contáctanos') }}</p>
+                    @if (Route::current()->getName() == 'contact')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
-                    {{ __('Política de privacidad') }}
+                <x-responsive-nav-link :href="route('privacy')">
+                    <p>{{ __('Política de privacidad') }}</p>
+                    @if (Route::current()->getName() == 'privacy')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('premios')" :active="request()->routeIs('premios')">
-                    {{ __('Premios') }}
+                <x-responsive-nav-link :href="route('premios')">
+                    <p>{{ __('Premios') }}</p>
+                    @if (Route::current()->getName() == 'premios')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
             </div>
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
-                    {{ __('Tu cuenta') }}
+                <x-responsive-nav-link :href="route('profile.edit')">
+                    <p>{{ __('Tu cuenta') }}</p>
+                    @if (Route::current()->getName() == 'profile.edit')
+                        <div style="background-color:red; height:3px; border-radius:10px;">
+                            <br>
+                        </div>
+                    @endif
                 </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
@@ -349,6 +652,25 @@
                         {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
+            </div>
+        </div>
+
+        <div class="pt-4 pb-1 border-t border-gray-200" style="margin-bottom:20px;">
+            <div class="mt-3 space-y-1">
+                <div style="display:flex; justify-content:center; gap:30px;">
+                    <a href="https://twitter.com/BRENDAPIZZA" target="__blank"><img
+                            src="{{ asset('img/twit.png') }}" alt="twitter" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
+                    <a href="https://www.instagram.com/pizzeriabrenda/?hl=es" target="__blank"><img
+                            src="{{ asset('img/inst.png') }}" alt="instagram" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
+                    <a href="https://www.tiktok.com/@pizzeriabrenda1986?lang=es" target="__blank"><img
+                            src="{{ asset('img/tik.png') }}" alt="tiktok" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
+                    <a href="https://www.facebook.com/pizzeriabrenda/?locale=es_ES" target="__blank"><img
+                            src="{{ asset('img/face.png') }}" alt="facebook" width="30px" height="30px"
+                            style="filter: brightness(0%);"></a>
+                </div>
             </div>
         </div>
     </div>

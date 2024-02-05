@@ -13,7 +13,7 @@
         <div>
             <x-input-label for="email" :value="__('Correo electrónico')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                autofocus onfocusout="validate_email()" />
+                onfocusout="validate_email()" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
             <p id="error_email" style="color:red;"></p>
         </div>
@@ -64,7 +64,7 @@
                 return false;
             } else if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email))) {
                 document.getElementById("error_email").innerHTML =
-                    "{{ __('El formato del correo electrónico debe ser "ejemplo@ejemplo.com"') }}";
+                    "{{ __('El formato del correo electrónico debe ser [ ejemplo@ejemplo.com ].') }}";
                 return false;
             } else if (email.length > 255) {
                 document.getElementById("error_email").innerHTML =
