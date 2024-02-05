@@ -35,17 +35,18 @@ Elementos de innovación:
 - Se dará la opción de traducir toda la página web al inglés con un sólo paso.
 
 ## Cómo desplegar la aplicación web
-- Se ha probado el despliegue en local de la aplicación utilizando Ubuntu 22.04.3 LTS. La siguiente guía está escrita para dicho sistema operativo.
+- Se ha probado el despliegue de la aplicación utilizando Ubuntu 22.04.3 LTS. La siguiente guía está escrita para dicho sistema operativo.
+- Los comandos se deben escribir y ejecutar en la terminal de Ubuntu.
 
 ---
 ### 1. INSTALACIÓN DE PHP
 ---
     sudo add-apt-repository ppa:ondrej/php
+<br/>
 En caso de que no funcione, ejecuta el siguiente comando:
 
-    $ sudo apt install python3-launchpadlib
-Después, vuelve a ejecutar el comando anterior.
-<br/><br/>
+    sudo apt install python3-launchpadlib
+Y después, vuelve a ejecutar "sudo add-apt-repository ppa:ondrej/php".
 
 ---
     sudo apt-get update
@@ -53,7 +54,7 @@ Después, vuelve a ejecutar el comando anterior.
     sudo apt install php8.1 php8.1-amqp php8.1-cgi php8.1-cli php8.1-common php8.1-curl php8.1-fpm php8.1-gd php8.1-igbinary php8.1-intl php8.1-mbstring php8.1-opcache php8.1-pgsql php8.1-readline php8.1-redis php8.1-sqlite3 php8.1-xml php8.1-zip
 ---
     sudo update-alternatives --config php
-Seleccionar la opción correspondiente a php8.1. De esta forma, se evita que se creen conflictos si ya hay instalada otra versión de PHP.
+Selecciona la opción correspondiente a php8.1. De esta forma, se evita que se creen conflictos si ya hay instalada otra versión de PHP.
 <br/><br/>
 
 ---
@@ -63,7 +64,7 @@ También se puede usar vim:
     sudo vim /etc/php/8.1/cli/php.ini
 <br/>
 
-Cambiar las siguientes líneas a estos valores:
+Una vez dentro del archivo "php.ini", cambia las siguientes líneas a estos valores:
 
     error_reporting = E_ALL
     
@@ -79,23 +80,23 @@ Guarda los cambios, y sal de nano, o vim.
 ---
 ### 2. INSTALACIÓN DE COMPOSER
 ---
-Descargar el instalador:
+Descarga el instalador con este comando:
 
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 ---
-Verificar el hash SHA-384 del instalador:
+Verifica el hash SHA-384 del instalador:
 
     php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 ---
-Ejecutar el instalador:
+Ejecuta el instalador:
 
     php composer-setup.php
 ---
-Eliminar el instalador:
+Elimina el instalador:
 
     php -r "unlink('composer-setup.php');"
 ---
-Extender globalmente el ámbito de Composer al sistema de rutas:
+Extiende globalmente el ámbito de Composer al sistema de rutas con el siguiente comando:
 
     sudo mv composer.phar /usr/local/bin/composer
 <br/>
@@ -125,20 +126,22 @@ Extender globalmente el ámbito de Composer al sistema de rutas:
 ### 5. INSTALAR APLICACIÓN Y PREPARAR LA BASE DE DATOS
 ---
 
-Hacer un fork al repositorio de la aplicación en https://github.com/marcolorenzo17/Pizzeria-Brenda-9-23
+Haz un fork al repositorio de la aplicación en https://github.com/marcolorenzo17/Pizzeria-Brenda-9-23
 
-Clonar ese fork con:
+Y luego en la terminal, clona ese fork con:
 
     git clone [ Url del fork del repositorio ]
 <br/>
 
 Como alternativa, también puedes descargar el código fuente de la Release más reciente de la aplicación: https://github.com/marcolorenzo17/Pizzeria-Brenda-9-23/releases
 
+Luego, descomprime el archivo en tu carpeta personal.
+
 ---
 
-Entrar dentro de la carpeta de la aplicación con:
+Entra dentro de la carpeta de la aplicación con:
 
-    cd [ Nombre de la carpeta de la aplicación ]
+    cd [ Ubicación de la carpeta de la aplicación ]
 ---
     composer install
 ---
@@ -150,7 +153,7 @@ Entrar dentro de la carpeta de la aplicación con:
 ---
     npm run dev
 <br/><br/>
-En caso de que "npm run dev" no funcione, hacer lo siguiente:
+En caso de que "npm run dev" no funcione, ejecuta los siguientes comandos:
 
     npm audit fix
 &nbsp;
@@ -190,7 +193,7 @@ También se puede usar vim:
     sudo vim .env
 &nbsp;
 
-Editar las siguientes líneas del archivo .env:
+Edita las siguientes líneas del archivo .env:
 
 	DB_CONNECTION=pgsql
 	DB_HOST=127.0.0.1
@@ -199,28 +202,39 @@ Editar las siguientes líneas del archivo .env:
 	DB_USERNAME=laravel
 	DB_PASSWORD=laravel
 ---
+Entra a PostgreSQL con el superuser postgres:
+
     sudo -u postgres psql
 &nbsp;
+Conéctate a la base de datos de template1:
 
     \c template1
 &nbsp;
+Instala la extensión criptográfica en template1 para que el resto de bases de datos la puedan incorporar también:
 
     CREATE EXTENSION pgcrypto;
 &nbsp;
+Sal de PostgreSQL:
 
     \q
 ---
+Crea la base de datos de laravel:
+
     sudo -u postgres createdb laravel
 ---
+Crea el usuario de laravel para PostgreSQL:
+
     sudo -u postgres createuser -P laravel
 &nbsp;
 Cuando te pida que le asignes una contraseña al usuario, escribe "laravel" (Sin las comillas).
 <br/><br/>
 
 ---
+Para iniciar las migraciones, ejecuta este comando:
+
     php artisan key:generate
 &nbsp;
-Si ocurre algún fallo, ejecutar los siguientes comandos:
+Si ocurre algún fallo, ejecuta los siguientes comandos:
 
     chmod -R 777 storage/*
 &nbsp;
@@ -230,21 +244,25 @@ Si ocurre algún fallo, ejecutar los siguientes comandos:
 
     php artisan key:generate
 &nbsp;
-Si aún así sigue fallando, ejecutar:
+Si aún así sigue fallando, ejecuta:
 
     sudo php artisan key:generate
 <br/><br/>
 
 ---
+Aplica las migraciones:
+
     php artisan migrate
-SI OCURRE ALGÚN ERROR AL MIGRAR:
+Si ocurre algún error al migrar:
     
     php artisan migrate:fresh
 <br/><br/>
 
 ---
+Aplica los seeders:
+
     php artisan db:seed
-SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
+Si no se ha hecho seed de Database\Seeders\RoleSeeder:
     
     php artisan db:seed --class=RoleSeeder
 <br/><br/>
@@ -279,7 +297,8 @@ SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
 
     STRIPE_SECRET=sk_test_********************
 &nbsp;
-<br/><br/>
+
+---
 
 ### Integrar el servicio de Cloudinary
 - Ir a https://cloudinary.com/ y crear una cuenta (Se puede con tu correo electrónico, con tu cuenta de Google o con la de GitHub).
@@ -293,7 +312,8 @@ SI NO SE HA HECHO SEED DE Database\Seeders\RoleSeeder:
 
 - Ahora, dirígete de nuevo a Cloudinary, y haz clic en el icono del engranaje, abajo a la izquierda, para acceder a la configuración.
 - Ve a la sección de "Security", navega hasta abajo del todo, y marca la casilla de "Allow delivery of PDF and ZIP files". Una vez hecho esto, guarda los cambios.
-<br/><br/>
+
+---
 
 ### Configurar los correos electrónicos
 - Ve a https://myaccount.google.com/ para gestionar tu cuenta de Gmail.
